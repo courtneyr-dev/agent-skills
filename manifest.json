@@ -64,7 +64,16 @@
       "redistributable": true,
       "description": "Use when a task is mechanical enough to specify completely (implementation from a settled design, refactor, migration, tests, coverage, CI fix, dependency bump, script) and bigger than a tiny edit, or when the user says 'have Codex build th",
       "summary": "Delegate fully-specified mechanical work to Codex instead of doing it inline.",
-      "example": "a fully-specified refactor \u2192 handed to Codex with the spec, and the result verified before you see it."
+      "example": "a fully-specified refactor \u2192 handed to Codex with the spec, and the result verified before you see it.",
+      "derived_from": {
+        "work": "codex-first",
+        "author": "Peter Steinberger (@steipete)",
+        "repo": "steipete/agent-scripts",
+        "path": "skills/codex-first",
+        "license": "MIT",
+        "copyright": "Copyright (c) 2026 Peter Steinberger",
+        "note": "Adapted, not copied \u2014 the skill body says so. No verbatim lines in common and about a quarter the length of the original. MIT permits the derivative; the credit belongs in the manifest too, not only in the file."
+      }
     },
     {
       "name": "credit-routing",
@@ -2163,6 +2172,13 @@
       "license": "MIT",
       "source": "https://github.com/nemock/video-explainer-system",
       "note": "explainer and deepdive come from here. First published 2026-06-01 and 2026-06-07."
+    },
+    {
+      "work": "codex-first",
+      "author": "Peter Steinberger (@steipete)",
+      "license": "MIT",
+      "source": "https://github.com/steipete/agent-scripts",
+      "note": "This repo's codex-first is adapted from his."
     }
   ],
   "source_policy": "Every entry points at the ORIGINAL source, never an intermediary. Where a skill reached this machine through a fork or a collection, the manifest names the upstream that actually published it and the fork is recorded separately. Two checks make that reliable: read the upstream's own credits before treating it as the origin, and never conclude 'no license' from the repo root alone \u2014 cursor/plugins has no root LICENSE but licenses each plugin directory, so the root check reports unlicensed for 44 skills that are in fact MIT."

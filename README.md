@@ -152,6 +152,11 @@ repo root reports "unlicensed" and is wrong.
 [video-explainer-system](https://github.com/nemock/video-explainer-system), MIT. They were
 vendored here in error; the bodies were his verbatim and only the description line differed.
 
+`codex-first` here is **adapted** from [Peter Steinberger](https://github.com/steipete)'s
+([steipete/agent-scripts](https://github.com/steipete/agent-scripts), MIT) — a quarter the length
+with no verbatim lines, which is what MIT-licensed adaptation is for. The skill body has said so
+since it was written; the credit now sits in the manifest too.
+
 Skills with **no upstream license at all** are linked, never copied — no license means all
 rights reserved, however freely something is shared. Four more are withheld entirely because an
 earlier third-party copy exists and authorship could not be established.
