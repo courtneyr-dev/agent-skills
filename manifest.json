@@ -33,7 +33,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when writing a commit message, PR or MR title and body, GitHub or GitLab issue, bug report, or code-review comment, and when a bug found while testing or reviewing needs filing. Makes the text read like a specific person wrote it under ",
-      "summary": "Commit messages, PRs, and issues that read like a person wrote them under time pressure."
+      "summary": "Commit messages, PRs, and issues that read like a person wrote them under time pressure.",
+      "usage": {
+        "runs": 68,
+        "sessions": 67
+      },
+      "example": "before committing \u2192 a message that says what changed and why, in the voice of someone who was there."
     },
     {
       "name": "bible-study",
@@ -42,7 +47,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'bible study', asks to study a passage, or wants a scholarly multi-translation study written into the vault under Areas/Bible Study.",
-      "summary": "Scholarly multi-translation passage study written into a vault."
+      "summary": "Scholarly multi-translation passage study written into a vault.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"study Romans 8\" \u2192 multiple translations, the scholarly reading, and the disagreements named rather than smoothed over."
     },
     {
       "name": "church-bulletin-to-obsidian",
@@ -51,7 +61,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user shares a church bulletin (image or text) or says 'church bulletin' and wants the sermon-notes file for the vault.",
-      "summary": "Turn a church bulletin image or text into a structured sermon-notes file."
+      "summary": "Turn a church bulletin image or text into a structured sermon-notes file.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "photograph the bulletin \u2192 a sermon-notes file with the readings, liturgical date, and scaffolding to write into."
     },
     {
       "name": "codex-first",
@@ -60,7 +75,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when a task is mechanical enough to specify completely (implementation from a settled design, refactor, migration, tests, coverage, CI fix, dependency bump, script) and bigger than a tiny edit, or when the user says 'have Codex build th",
-      "summary": "Delegate fully-specified mechanical work to Codex instead of doing it inline."
+      "summary": "Delegate fully-specified mechanical work to Codex instead of doing it inline.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "a fully-specified refactor \u2192 handed to Codex with the spec, and the result verified before you see it."
     },
     {
       "name": "credit-routing",
@@ -69,7 +89,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use at the start of any non-trivial task, when deciding whether to delegate, when a task has failed twice, before escalating model or effort, or when the user mentions credits, cost, tokens, routing, or 'which model'.",
-      "summary": "Decide what to delegate, to which model, at what effort \u2014 before starting the work."
+      "summary": "Decide what to delegate, to which model, at what effort \u2014 before starting the work.",
+      "usage": {
+        "runs": 11,
+        "sessions": 11
+      },
+      "example": "at the start of anything non-trivial \u2192 which model, what effort, and what to delegate, decided before the work starts."
     },
     {
       "name": "decision-sync",
@@ -78,7 +103,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when a decision captured by the aim/cross-check/own discernment skills should be filed into the Obsidian vault as a durable decision record, or when the user says \"log this decision\", \"file the decision\", \"sync the decision\", or \"add th",
-      "summary": "File a finished decision record into a notes vault with frontmatter and backlinks."
+      "summary": "File a finished decision record into a notes vault with frontmatter and backlinks.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "after a decision is made \u2192 the reasoning filed into your vault with frontmatter, backlinks, and an index row."
     },
     {
       "name": "deepdive",
@@ -87,7 +117,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'deep dive', 'long-form explainer', '20-minute video', 'YouTube tutorial video', or runs /deepdive <topic>. Generation only; it never posts.",
-      "summary": "Generate a long-form explainer or tutorial script on a topic."
+      "summary": "Generate a long-form explainer or tutorial script on a topic.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"deep dive on X\" \u2192 a long-form explainer with the parts most people skip."
     },
     {
       "name": "devrel-engine",
@@ -96,7 +131,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user asks for a DevRel program or strategy, a developer community plan, an ambassador or champion program, a talk or office-hours pipeline, or wants transcripts and community signals turned into prioritized DevRel actions. Camp",
-      "summary": "Turn transcripts and community signals into a prioritized DevRel program."
+      "summary": "Turn transcripts and community signals into a prioritized DevRel program.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "paste a month of community signal \u2192 a prioritized program, not a summary."
     },
     {
       "name": "email-draft-review",
@@ -105,7 +145,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'draft my email replies', 'handle my inbox', 'triage Gmail', or asks to prepare (never send) replies to the emails that need answers.",
-      "summary": "Triage an inbox and prepare replies \u2014 drafts only, never sends."
+      "summary": "Triage an inbox and prepare replies \u2014 drafts only, never sends.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"triage my inbox\" \u2192 replies prepared for the mail that needs answers. Drafts only; it never sends."
     },
     {
       "name": "explainer",
@@ -114,7 +159,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'make an explainer video', 'explainer deck', 'turn this into a Short, Reel, or TikTok', or runs /explainer <topic>, from a topic or a source document. Generation only; it never posts.",
-      "summary": "Turn a topic or source document into a short explainer video or deck."
+      "summary": "Turn a topic or source document into a short explainer video or deck.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"turn this into a Short\" \u2192 a script and shot list from a topic or a source document."
     },
     {
       "name": "field-notes-draft",
@@ -123,7 +173,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'Field Notes', asks for the Thursday or Friday Field Notes review, wants newsletter candidates ranked, or wants the Saturday issue drafted after picking a theme. Never sends or schedules.",
-      "summary": "Rank newsletter candidates from recent reading, then draft the issue once you pick a theme."
+      "summary": "Rank newsletter candidates from recent reading, then draft the issue once you pick a theme.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"Field Notes\" \u2192 three ranked themes from the week's reading; pick one and it drafts the issue."
     },
     {
       "name": "gatherer",
@@ -132,7 +187,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'gather my work', 'what's on my plate', or 'daily gather', or when a review needs your open GitHub issues and PRs, watched Trac tickets, and Things tasks pulled into today's daily note.",
-      "summary": "Pull open issues, PRs, watched tickets, and tasks into today\u2019s daily note."
+      "summary": "Pull open issues, PRs, watched tickets, and tasks into today\u2019s daily note.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"what's on my plate?\" \u2192 open issues, PRs, watched tickets and tasks pulled into today's note."
     },
     {
       "name": "github-profile",
@@ -141,7 +201,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user asks to improve, review, or set up a GitHub profile README, bio, pinned repos, or stats, or says 'make my GitHub profile look good'. Personal or organization profiles.",
-      "summary": "Improve a GitHub profile README, bio, pinned repos, and stats."
+      "summary": "Improve a GitHub profile README, bio, pinned repos, and stats.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"make my profile look good\" \u2192 README, bio, pinned repos and stats that say what you actually do."
     },
     {
       "name": "github-repo",
@@ -150,7 +215,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'make my repo look good', 'prepare this repo for open source', or asks to audit or add a README, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT, LICENSE, issue or PR templates, or release hygiene in a repository.",
-      "summary": "Prepare a repo for open source: README, CONTRIBUTING, SECURITY, templates, release hygiene."
+      "summary": "Prepare a repo for open source: README, CONTRIBUTING, SECURITY, templates, release hygiene.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"prepare this for open source\" \u2192 the files a stranger needs before they will trust your repo."
     },
     {
       "name": "job-search",
@@ -159,7 +229,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Run a repeatable job-search scan across job boards, company ATS pages, email alerts, LinkedIn, and community chat; diff against the previous run to separate NEW from STILL OPEN and CLOSED, score each role against your own criteria, and writ",
-      "summary": "Repeatable job scan across boards, ATS pages, email, LinkedIn, and chat, diffed each run."
+      "summary": "Repeatable job scan across boards, ATS pages, email, LinkedIn, and chat, diffed each run.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"run the job scan\" \u2192 today's roles diffed against yesterday: new, still open, closed, each scored."
     },
     {
       "name": "learning-path",
@@ -168,7 +243,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'learning path', 'what should I learn next', 'plan my learning', 'learning retro', or 'what did I learn this week'; plans a path or, in retro mode, reviews a finished one.",
-      "summary": "Plan what to learn next, or run a retro on a path you finished."
+      "summary": "Plan what to learn next, or run a retro on a path you finished.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"what should I learn next?\" \u2192 a sequence with milestones, each with a pass/fail check."
     },
     {
       "name": "lmk",
@@ -177,7 +257,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'LMK when you're done', 'let me know', 'notify me', 'ping me when you're done', or says you is stepping away and wants a phone push when the work finishes.",
-      "summary": "Push a phone notification when long-running work finishes."
+      "summary": "Push a phone notification when long-running work finishes.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"LMK when you're done\" \u2192 a phone push when the long job finishes, not a progress feed."
     },
     {
       "name": "loop-template",
@@ -186,7 +271,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when creating any new automated loop, scheduled task, or launchd job, or when the user says 'new loop', 'build a loop', 'add an automation', or 'scaffold a scheduled task', so the loop inherits the maker/checker pattern.",
-      "summary": "Scaffold a scheduled job so it inherits the maker/checker pattern from the start."
+      "summary": "Scaffold a scheduled job so it inherits the maker/checker pattern from the start.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"add an automation\" \u2192 a scheduled job that inherits the maker/checker pattern instead of running unchecked."
     },
     {
       "name": "obsid-link-builder",
@@ -195,7 +285,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when asked to create or normalize shareable obsid.net links for Obsidian notes, convert obsidian:// links, or check the URL encoding of vault and file parameters.",
-      "summary": "Build and normalize shareable Obsidian links, with correct URL encoding."
+      "summary": "Build and normalize shareable Obsidian links, with correct URL encoding.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "paste an obsidian:// link \u2192 a shareable URL with the vault and file parameters encoded correctly."
     },
     {
       "name": "ollie",
@@ -204,7 +299,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when working with the Ollie block theme or Ollie Pro: building a page or site in Ollie, styling, colors, typography, buttons, spacing, block markup, patterns, or Abilities tools.",
-      "summary": "Build and style sites with the Ollie block theme and Ollie Pro \u2014 tokens, patterns, theme.json."
+      "summary": "Build and style sites with the Ollie block theme and Ollie Pro \u2014 tokens, patterns, theme.json.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"build me a pricing page in Ollie\" \u2192 block markup using the theme's own tokens and patterns, not generic HTML."
     },
     {
       "name": "plaud",
@@ -213,7 +313,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'Plaud', 'my recordings', 'what did I record', or wants a Plaud transcript, summary, digest, follow-up, or export. Meeting transcripts from other sources go to transcript-processing.",
-      "summary": "Pull transcripts, summaries, and follow-ups from Plaud recordings."
+      "summary": "Pull transcripts, summaries, and follow-ups from Plaud recordings.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"what did I record yesterday?\" \u2192 the transcript, a summary, and the follow-ups pulled out."
     },
     {
       "name": "prop-for-that",
@@ -222,7 +327,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when building web or PWA UI that must react in CSS to runtime state CSS can't see (pointer, size, visibility, network, battery, media, form validity, image color), or when the user says 'react to X in CSS' or 'what JS knows that CSS doe",
-      "summary": "React in CSS to runtime state CSS cannot see \u2014 checks for a native property first."
+      "summary": "React in CSS to runtime state CSS cannot see \u2014 checks for a native property first.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"react to scroll position in CSS\" \u2192 the native property if one exists, and the minimal JS bridge if not."
     },
     {
       "name": "readwise-deep-read",
@@ -231,7 +341,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'process these URLs', 'deep read', 'morning reading queue', 'save and analyze', pastes several URLs, or asks to add inline highlights to a saved Reader document.",
-      "summary": "Save, read, and annotate a queue of URLs, adding inline highlights to the saved document."
+      "summary": "Save, read, and annotate a queue of URLs, adding inline highlights to the saved document.",
+      "usage": {
+        "runs": 107,
+        "sessions": 27
+      },
+      "example": "paste five URLs \u2192 each saved, read, annotated with inline highlights, and written up with the claims separated from the commentary."
     },
     {
       "name": "readwise-methods-review",
@@ -240,7 +355,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'weekly methods review', 'run the methods review', 'readwise prompting review', or 'what did I read that changes how I work'; writes to Projects/Readwise Prompting Methods Review/.",
-      "summary": "Weekly pass over what you read that changes how you work, written up as a review."
+      "summary": "Weekly pass over what you read that changes how you work, written up as a review.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"weekly methods review\" \u2192 what you read that changes how you work, with the rest discarded."
     },
     {
       "name": "readwise-synthesis-pass",
@@ -249,7 +369,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'run the synthesis pass', 'synthesize my vault', 'weekly synthesis', 'do the sweep', or 'connect my notes'. The maker half; vault-hygiene-checker is the checker.",
-      "summary": "Connect new notes to existing ones across a vault \u2014 the maker half of maker/checker."
+      "summary": "Connect new notes to existing ones across a vault \u2014 the maker half of maker/checker.",
+      "usage": {
+        "runs": 17,
+        "sessions": 12
+      },
+      "example": "\"run the synthesis pass\" \u2192 new notes linked to existing ones, with a report of what connected and what stayed orphaned."
     },
     {
       "name": "site-health-audit",
@@ -258,7 +383,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'site health', 'weekly health check', 'run the site health audit', or wants PageSpeed, accessibility, SEO, security headers, SSL, email authentication, social preview, carbon, and WordPress Site Health checked for a s",
-      "summary": "Config-driven site audit: PageSpeed, accessibility, SEO, headers, SSL, email auth, carbon."
+      "summary": "Config-driven site audit: PageSpeed, accessibility, SEO, headers, SSL, email auth, carbon.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"run the site health audit\" \u2192 a dated report: PageSpeed numbers, contrast failures, missing headers, SSL and DNS records, each with the check that produced it."
     },
     {
       "name": "skill-sync",
@@ -267,7 +397,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'add this skill from GitHub', 'update my skills', 'sync skills', or 'are my skills up to date', or when a standalone skill needs registering with its source repo. Marketplace plugins are out of scope.",
-      "summary": "Keep GitHub-sourced skills updated, and audit which skills are used, dormant, or dead."
+      "summary": "Keep GitHub-sourced skills updated, and audit which skills are used, dormant, or dead.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "weekly \u2192 GitHub-sourced skills updated, plus an audit of which of yours are used, dormant, or dead."
     },
     {
       "name": "synthesis-backlog",
@@ -276,7 +411,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'triage my backlog', 'what needs synthesis', 'what's outstanding', 'what did I process this week', 'triage my inbox', 'what should I read', or 'reading triage', or after documents are processed and need logging.",
-      "summary": "Triage what is unprocessed: what to read, what needs synthesis, what got done."
+      "summary": "Triage what is unprocessed: what to read, what needs synthesis, what got done.",
+      "usage": {
+        "runs": 5,
+        "sessions": 3
+      },
+      "example": "\"what needs synthesis?\" \u2192 a triaged list: what to read, what to process, what to drop."
     },
     {
       "name": "technical-writing",
@@ -285,7 +425,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'blog post', 'write a post about what I just built', 'tutorial', 'docs page draft', or 'technical writing', or wants in-progress code turned into an article in your voice.",
-      "summary": "Turn in-progress code into an article, tutorial, or docs page in your own voice."
+      "summary": "Turn in-progress code into an article, tutorial, or docs page in your own voice.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"write this up\" \u2192 the code you just wrote turned into an article that keeps the reasoning, not just the result."
     },
     {
       "name": "things-obsidian-sync",
@@ -294,7 +439,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when Things tasks and their linked Obsidian checkboxes in the daily note disagree and need syncing; normally runs from launchd.",
-      "summary": "Two-way sync between Things tasks and an Obsidian vault."
+      "summary": "Two-way sync between Things tasks and an Obsidian vault.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "runs on a schedule \u2192 tasks and notes stay in step without you reconciling them by hand."
     },
     {
       "name": "transcript-processing",
@@ -303,7 +453,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'process transcripts', 'transcript sweep', or 'what came out of my meetings', or when Zoom, Spellar, or Drive-folder meeting transcripts need turning into notes and Things actions. Plaud recordings go to plaud.",
-      "summary": "Turn meeting transcripts into notes and tracked actions."
+      "summary": "Turn meeting transcripts into notes and tracked actions.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "point it at a folder of meeting transcripts \u2192 notes plus tracked actions, each attributed to who committed to it."
     },
     {
       "name": "vault-hygiene-checker",
@@ -312,7 +467,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use after any synthesis pass, or when the user says 'check the vault', 'check today's vault work', 'verify my synthesis', 'vault hygiene', or 'did the connections land'. The checker half of the maker/checker split.",
-      "summary": "Verify a synthesis pass actually landed \u2014 the checker half of maker/checker."
+      "summary": "Verify a synthesis pass actually landed \u2014 the checker half of maker/checker.",
+      "usage": {
+        "runs": 14,
+        "sessions": 13
+      },
+      "example": "\"check the vault\" \u2192 whether the last synthesis pass actually landed: broken links, orphans, frontmatter that lies."
     },
     {
       "name": "website-audit",
@@ -321,7 +481,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'audit this website', 'UX audit', 'usability review', 'navigation audit', 'IA review', 'why is this site hard to use', or runs /website-audit <url>, for any public URL. Plugin security goes to wp-audit; example.com he",
-      "summary": "UX and information-architecture audit of any public URL, with findings ranked by severity."
+      "summary": "UX and information-architecture audit of any public URL, with findings ranked by severity.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"audit example.com\" \u2192 findings ranked by severity, each naming the page and the specific interaction that fails."
     },
     {
       "name": "weekly-site-health-audit",
@@ -330,7 +495,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use for \"weekly site health\", \"run the weekly audit\", or a scheduled weekly run \u2014 runs the site-health-audit skill against your configured site and diffs the results against last week's report. Thin scheduling wrapper; site-health-audit doe",
-      "summary": "Runs the site-health audit weekly and diffs it against last week."
+      "summary": "Runs the site-health audit weekly and diffs it against last week.",
+      "usage": {
+        "runs": 3,
+        "sessions": 3
+      },
+      "example": "\"weekly site health\" \u2192 the same report plus a week-over-week diff, so you see what moved rather than re-reading everything."
     },
     {
       "name": "wiki-cycle",
@@ -339,7 +509,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use for \"update the X wiki\", \"run the X cycle\", or \"ingest X content\" for any wiki registered in references/wikis.yml. Runs one maintenance pass over one wiki \u2014 scan your notes for what changed in the window, ingest it by that wiki's own ru",
-      "summary": "One maintenance pass over a registered wiki: scan, ingest, lint, report, record state."
+      "summary": "One maintenance pass over a registered wiki: scan, ingest, lint, report, record state.",
+      "usage": {
+        "runs": 0,
+        "sessions": 0
+      },
+      "example": "\"run the theology cycle\" \u2192 one pass: scan what changed, ingest it by that wiki's rules, lint, write a report and run state."
     },
     {
       "name": "wiki-memory",
@@ -348,7 +523,12 @@
       "license": "MIT",
       "redistributable": true,
       "description": "Use when the user says 'remember this in the wiki', 'stage entities', or 'ingest sources' \u2014 the staging-and-promotion flow that turns passing signals into durable wiki pages. Routine maintenance passes go to wiki-cycle.",
-      "summary": "Staging-and-promotion flow that turns passing signals into durable wiki pages."
+      "summary": "Staging-and-promotion flow that turns passing signals into durable wiki pages.",
+      "usage": {
+        "runs": 3,
+        "sessions": 3
+      },
+      "example": "\"remember this in the wiki\" \u2192 the signal staged, deduplicated, and promoted into a durable page with an index entry."
     },
     {
       "name": "add-expert",
@@ -2112,5 +2292,7 @@
       "note": "44 skills in this manifest come from pstack. MIT, so reuse is permitted with the copyright notice \u2014 but note that cursor/plugins carries no root LICENSE and licenses each plugin directory separately, so checking the repo root alone reports \"no license\" and is wrong."
     }
   ],
-  "source_policy": "Every entry points at the ORIGINAL source, never an intermediary. Where a skill reached this machine through a fork or a collection, the manifest names the upstream that actually published it and the fork is recorded separately. Two checks make that reliable: read the upstream's own credits before treating it as the origin, and never conclude 'no license' from the repo root alone \u2014 cursor/plugins has no root LICENSE but licenses each plugin directory, so the root check reports unlicensed for 44 skills that are in fact MIT."
+  "source_policy": "Every entry points at the ORIGINAL source, never an intermediary. Where a skill reached this machine through a fork or a collection, the manifest names the upstream that actually published it and the fork is recorded separately. Two checks make that reliable: read the upstream's own credits before treating it as the origin, and never conclude 'no license' from the repo root alone \u2014 cursor/plugins has no root LICENSE but licenses each plugin directory, so the root check reports unlicensed for 44 skills that are in fact MIT.",
+  "usage_window": "2026-07-24 \u2192 2026-09-05",
+  "usage_note": "Run counts from the author's own transcripts over the window shown \u2014 how often each skill actually fired, not how useful it might be. A zero means it did not run in that window, which for recently-added skills means nothing yet."
 }

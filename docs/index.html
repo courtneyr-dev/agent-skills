@@ -1,0 +1,119 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>agent-skills — searchable catalog</title>
+<style>
+:root{
+  --bg:#fbfaf8; --fg:#1a1a19; --muted:#6b6862; --line:#e2ded7;
+  --card:#fff; --accent:#7c4a2d; --chip:#f0ece5; --warn:#8a5a1a;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#161614; --fg:#eceae6; --muted:#9a958c; --line:#2e2a25;
+  --card:#1e1c19; --accent:#d99a6c; --chip:#2a2621; --warn:#d9a441;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:24px 18px 64px}
+h1{font-size:1.55rem;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 20px}
+.sub a{color:var(--accent)}
+.controls{position:sticky;top:0;background:var(--bg);padding:12px 0;border-bottom:1px solid var(--line);z-index:5}
+input[type=search]{width:100%;padding:11px 13px;font-size:1rem;border:1px solid var(--line);
+  border-radius:9px;background:var(--card);color:var(--fg)}
+input[type=search]:focus{outline:2px solid var(--accent);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{border:1px solid var(--line);background:var(--chip);color:var(--fg);border-radius:999px;
+  padding:5px 11px;font-size:.83rem;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+.count{color:var(--muted);font-size:.85rem;margin:14px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 15px;margin-bottom:10px}
+.card h3{margin:0 0 4px;font-size:1rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.card h3 a{color:var(--fg);text-decoration:none}
+.card h3 a:hover{color:var(--accent);text-decoration:underline}
+.sum{margin:0 0 7px}
+.ex{margin:0 0 9px;color:var(--muted);font-size:.9rem;font-style:italic}
+.meta{display:flex;flex-wrap:wrap;gap:6px;font-size:.76rem}
+.tag{border:1px solid var(--line);border-radius:5px;padding:2px 7px;color:var(--muted)}
+.tag.runs{color:var(--accent);border-color:var(--accent)}
+.tag.nolic{color:var(--warn);border-color:var(--warn)}
+.empty{color:var(--muted);padding:28px 0;text-align:center}
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
+footer a{color:var(--accent)}
+mark{background:var(--accent);color:#fff;border-radius:2px;padding:0 1px}
+</style>
+<div class="wrap">
+<h1>agent-skills</h1>
+<p class="sub">Search every skill — the ones here and the ones linked to their original sources.
+<a href="https://github.com/courtneyr-dev/agent-skills">Repo</a> ·
+<a href="https://github.com/courtneyr-dev/agent-skills/blob/main/docs/CATALOG.md">Catalog</a></p>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Search skills — try wordpress, notes, commit, audit…" autocomplete="off">
+  <div class="chips" id="chips"></div>
+</div>
+<p class="count" id="count"></p>
+<div id="list"></div>
+
+<footer>
+  Run counts are from the author's own transcripts over <span id="win"></span> — how often each
+  skill actually fired, not how good it is. Zero often just means recently added.
+  <br><br>
+  Skills marked <span class="tag nolic">no redistribution</span> have no upstream license, so they
+  are linked and never copied. Install those from source.
+</footer>
+</div>
+<script>
+const state={q:'',path:'',kind:''};
+let DATA={skills:[],paths:{}};
+const el=(id)=>document.getElementById(id);
+const esc=(s)=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function hi(s,q){ if(!q) return esc(s);
+  const i=s.toLowerCase().indexOf(q.toLowerCase()); if(i<0) return esc(s);
+  return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+q.length))+'</mark>'+esc(s.slice(i+q.length)); }
+function match(s){
+  if(state.path && s.path!==state.path) return false;
+  if(state.kind==='here' && s.kind!=='vendored') return false;
+  if(state.kind==='external' && s.kind==='vendored') return false;
+  if(state.kind==='used' && !(s.runs>0)) return false;
+  const q=state.q.trim().toLowerCase(); if(!q) return true;
+  return (s.name+' '+s.summary+' '+s.example+' '+s.desc+' '+s.repo+' '+s.path).toLowerCase().includes(q);
+}
+function render(){
+  const rows=DATA.skills.filter(match)
+    .sort((a,b)=>(b.runs-a.runs)||a.name.localeCompare(b.name));
+  el('count').textContent=`${rows.length} skill${rows.length===1?'':'s'}`;
+  if(!rows.length){ el('list').innerHTML='<p class="empty">Nothing matches. Try a broader word.</p>'; return; }
+  el('list').innerHTML=rows.map(s=>{
+    const tags=[];
+    if(s.runs>0) tags.push(`<span class="tag runs">${s.runs} runs · ${s.sessions} sessions</span>`);
+    if(s.path) tags.push(`<span class="tag">-p ${esc(s.path)}</span>`);
+    tags.push(`<span class="tag">${s.kind==='vendored'?'in this repo':esc(s.repo||'external')}</span>`);
+    if(s.license) tags.push(`<span class="tag${s.redistributable?'':' nolic'}">${esc(s.license)}${s.redistributable?'':' — no redistribution'}</span>`);
+    if(s.copyright) tags.push(`<span class="tag">${esc(s.copyright)}</span>`);
+    const base='https://github.com/courtneyr-dev/agent-skills/tree/main/';
+    const href=s.kind==='vendored'?base+s.url:(s.url||'#');
+    return `<div class="card">
+      <h3><a href="${esc(href)}">${hi(s.name,state.q)}</a></h3>
+      ${(s.summary||s.desc)?`<p class="sum">${hi(s.summary||s.desc,state.q)}</p>`:''}
+      ${s.example?`<p class="ex">${hi(s.example,state.q)}</p>`:''}
+      <div class="meta">${tags.join('')}</div></div>`;
+  }).join('');
+}
+function chips(){
+  const c=[['','All'],['here','In this repo'],['external','External'],['used','Actually used']];
+  let html=c.map(([v,l])=>`<button class="chip" data-kind="${v}" aria-pressed="${state.kind===v}">${l}</button>`).join('');
+  html+=Object.entries(DATA.paths).map(([k,v])=>
+    `<button class="chip" data-path="${k}" aria-pressed="${state.path===k}">${esc(v.title)}</button>`).join('');
+  el('chips').innerHTML=html;
+  el('chips').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{
+    if(b.dataset.kind!==undefined){ state.kind=state.kind===b.dataset.kind?'':b.dataset.kind; state.path=''; }
+    else { state.path=state.path===b.dataset.path?'':b.dataset.path; state.kind=''; }
+    chips(); render();
+  });
+}
+el('q').addEventListener('input',e=>{state.q=e.target.value;render();});
+fetch('skills.json').then(r=>r.json()).then(d=>{
+  DATA=d; el('win').textContent=d.window||'the recent window'; chips(); render();
+}).catch(()=>{ el('list').innerHTML='<p class="empty">Could not load skills.json.</p>'; });
+</script>
