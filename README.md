@@ -186,11 +186,13 @@ npx skills@latest add courtneyr-dev/wp-dev-prompts --path skills/wordpress-testi
 
 ### External — install from source
 
-These belong to their authors and are never copied here. `no redistribution` means the upstream ships no license or a custom one, so install it from source.
+These belong to their authors and are never copied here. Each row links to the **original**
+source. `no redistribution` means the upstream ships no license at all, so it is all rights
+reserved however freely it is shared — install it from source.
 
-| Skill | Upstream | License |
+| Skill | Original source | License |
 |---|---|---|
-| [`wp-pinch`](https://github.com/RegionallyFamous/wp-pinch) | [RegionallyFamous/wp-pinch](https://github.com/RegionallyFamous/wp-pinch) | GPL-2.0 |
+| [`wp-pinch`](https://github.com/RegionallyFamous/wp-pinch) | [RegionallyFamous/wp-pinch](https://github.com/RegionallyFamous/wp-pinch) | GPL-2.0-or-later<br>Nick Hamze |
 | [`counselors`](https://github.com/aarondfrancis/counselors) | [aarondfrancis/counselors](https://github.com/aarondfrancis/counselors) | MIT |
 | [`aim`](https://github.com/borkweb/discernment-skills/tree/main/plugins/discernment/skills/aim) | [borkweb/discernment-skills](https://github.com/borkweb/discernment-skills) | MIT |
 | [`cross-check`](https://github.com/borkweb/discernment-skills/tree/main/plugins/discernment/skills/cross-check) | [borkweb/discernment-skills](https://github.com/borkweb/discernment-skills) | MIT |
@@ -199,50 +201,6 @@ These belong to their authors and are never copied here. `no redistribution` mea
 | [`agents-md-lint`](https://github.com/borkweb/skills/tree/main/skills/core/agents-md-lint) | [borkweb/skills](https://github.com/borkweb/skills) | MIT |
 | [`review-security`](https://github.com/borkweb/skills/tree/main/skills/core/review-security) | [borkweb/skills](https://github.com/borkweb/skills) | MIT |
 | [`writing-sql`](https://github.com/borkweb/skills/tree/main/skills/core/writing-sql) | [borkweb/skills](https://github.com/borkweb/skills) | MIT |
-| [`architect`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/architect) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`arena`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/arena) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`automate-me`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/automate-me) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`blast-radius`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/blast-radius) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`bro`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/bro) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`create-verification-skill`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/create-verification-skill) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`figure-it-out`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/figure-it-out) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`how`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/how) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`interrogate`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/interrogate) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`maintain-verification-skill`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/maintain-verification-skill) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`no-comments`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/no-comments) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`poteto-mode`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/poteto-mode) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-boundary-discipline`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-boundary-discipline) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-build-the-lever`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-build-the-lever) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-encode-lessons-in-structure`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-encode-lessons-in-structure) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-exhaust-the-design-space`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-exhaust-the-design-space) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-experience-first`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-experience-first) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-fix-root-causes`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-fix-root-causes) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-foundational-thinking`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-foundational-thinking) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-guard-the-context-window`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-guard-the-context-window) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-laziness-protocol`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-laziness-protocol) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-make-operations-idempotent`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-make-operations-idempotent) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-migrate-callers-then-delete-legacy-apis`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-migrate-callers-then-delete-legacy-apis) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-minimize-reader-load`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-minimize-reader-load) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-model-the-domain`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-model-the-domain) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-never-block-on-the-human`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-never-block-on-the-human) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-outcome-oriented-execution`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-outcome-oriented-execution) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-prove-it-works`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-prove-it-works) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-redesign-from-first-principles`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-redesign-from-first-principles) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-separate-before-serializing-shared-state`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-separate-before-serializing-shared-state) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-sequence-verifiable-units`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-sequence-verifiable-units) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-subtract-before-you-add`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-subtract-before-you-add) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`principle-type-system-discipline`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/principle-type-system-discipline) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`recall`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/recall) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`reflect`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/reflect) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`setup-pstack`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/setup-pstack) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`show-me-your-work`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/show-me-your-work) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`swarm`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/swarm) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`tdd`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/tdd) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`teach`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/teach) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`technical-writing-standard`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/technical-writing-standard) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`typescript-best-practices`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/typescript-best-practices) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`unslop`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/unslop) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
-| [`why`](https://github.com/courtneyr-dev/plugins/tree/main/pstack/skills/why) | [courtneyr-dev/plugins](https://github.com/courtneyr-dev/plugins) | NONE — no redistribution |
 | [`prompt-engineering`](https://github.com/courtneyr-dev/wp-dev-prompts/tree/main/skills/prompt-engineering) | [courtneyr-dev/wp-dev-prompts](https://github.com/courtneyr-dev/wp-dev-prompts) | CC0-1.0 |
 | [`wordpress-accessibility`](https://github.com/courtneyr-dev/wp-dev-prompts/tree/main/skills/wordpress-accessibility) | [courtneyr-dev/wp-dev-prompts](https://github.com/courtneyr-dev/wp-dev-prompts) | CC0-1.0 |
 | [`wordpress-dev`](https://github.com/courtneyr-dev/wp-dev-prompts/tree/main/skills/wordpress-dev) | [courtneyr-dev/wp-dev-prompts](https://github.com/courtneyr-dev/wp-dev-prompts) | CC0-1.0 |
@@ -253,6 +211,50 @@ These belong to their authors and are never copied here. `no redistribution` mea
 | [`wp-release-followup`](https://github.com/courtneyr-dev/wp-release-audit-method/tree/main/skills/wp-release-followup) | [courtneyr-dev/wp-release-audit-method](https://github.com/courtneyr-dev/wp-release-audit-method) | GPL-2.0 |
 | [`wp-release-party`](https://github.com/courtneyr-dev/wp-release-audit-method/tree/main/skills/wp-release-party) | [courtneyr-dev/wp-release-audit-method](https://github.com/courtneyr-dev/wp-release-audit-method) | GPL-2.0 |
 | [`wp-release-prep`](https://github.com/courtneyr-dev/wp-release-audit-method/tree/main/skills/wp-release-prep) | [courtneyr-dev/wp-release-audit-method](https://github.com/courtneyr-dev/wp-release-audit-method) | GPL-2.0 |
+| [`architect`](https://github.com/cursor/plugins/tree/main/pstack/skills/architect) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`arena`](https://github.com/cursor/plugins/tree/main/pstack/skills/arena) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`automate-me`](https://github.com/cursor/plugins/tree/main/pstack/skills/automate-me) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`blast-radius`](https://github.com/cursor/plugins/tree/main/pstack/skills/blast-radius) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`bro`](https://github.com/cursor/plugins/tree/main/pstack/skills/bro) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`create-verification-skill`](https://github.com/cursor/plugins/tree/main/pstack/skills/create-verification-skill) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`figure-it-out`](https://github.com/cursor/plugins/tree/main/pstack/skills/figure-it-out) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`how`](https://github.com/cursor/plugins/tree/main/pstack/skills/how) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`interrogate`](https://github.com/cursor/plugins/tree/main/pstack/skills/interrogate) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`maintain-verification-skill`](https://github.com/cursor/plugins/tree/main/pstack/skills/maintain-verification-skill) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`no-comments`](https://github.com/cursor/plugins/tree/main/pstack/skills/no-comments) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`poteto-mode`](https://github.com/cursor/plugins/tree/main/pstack/skills/poteto-mode) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-boundary-discipline`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-boundary-discipline) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-build-the-lever`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-build-the-lever) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-encode-lessons-in-structure`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-encode-lessons-in-structure) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-exhaust-the-design-space`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-exhaust-the-design-space) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-experience-first`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-experience-first) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-fix-root-causes`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-fix-root-causes) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-foundational-thinking`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-foundational-thinking) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-guard-the-context-window`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-guard-the-context-window) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-laziness-protocol`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-laziness-protocol) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-make-operations-idempotent`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-make-operations-idempotent) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-migrate-callers-then-delete-legacy-apis`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-migrate-callers-then-delete-legacy-apis) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-minimize-reader-load`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-minimize-reader-load) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-model-the-domain`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-model-the-domain) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-never-block-on-the-human`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-never-block-on-the-human) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-outcome-oriented-execution`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-outcome-oriented-execution) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-prove-it-works`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-prove-it-works) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-redesign-from-first-principles`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-redesign-from-first-principles) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-separate-before-serializing-shared-state`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-separate-before-serializing-shared-state) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-sequence-verifiable-units`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-sequence-verifiable-units) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-subtract-before-you-add`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-subtract-before-you-add) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`principle-type-system-discipline`](https://github.com/cursor/plugins/tree/main/pstack/skills/principle-type-system-discipline) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`recall`](https://github.com/cursor/plugins/tree/main/pstack/skills/recall) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`reflect`](https://github.com/cursor/plugins/tree/main/pstack/skills/reflect) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`setup-pstack`](https://github.com/cursor/plugins/tree/main/pstack/skills/setup-pstack) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`show-me-your-work`](https://github.com/cursor/plugins/tree/main/pstack/skills/show-me-your-work) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`swarm`](https://github.com/cursor/plugins/tree/main/pstack/skills/swarm) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`tdd`](https://github.com/cursor/plugins/tree/main/pstack/skills/tdd) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`teach`](https://github.com/cursor/plugins/tree/main/pstack/skills/teach) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`technical-writing-standard`](https://github.com/cursor/plugins/tree/main/pstack/skills/technical-writing-standard) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`typescript-best-practices`](https://github.com/cursor/plugins/tree/main/pstack/skills/typescript-best-practices) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`unslop`](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
+| [`why`](https://github.com/cursor/plugins/tree/main/pstack/skills/why) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
 | [`librarium`](https://github.com/jkudish/librarium) | [jkudish/librarium](https://github.com/jkudish/librarium) | MIT |
 | [`book-review`](https://github.com/readwiseio/readwise-skills/tree/main/skills/book-review) | [readwiseio/readwise-skills](https://github.com/readwiseio/readwise-skills) | NONE — no redistribution |
 | [`build-persona`](https://github.com/readwiseio/readwise-skills/tree/main/skills/build-persona) | [readwiseio/readwise-skills](https://github.com/readwiseio/readwise-skills) | NONE — no redistribution |
@@ -278,34 +280,6 @@ An earlier third-party copy exists and authorship could not be established, so t
 | `wp-github-actions` | [jdevalk/joost-blog](https://github.com/jdevalk/joost-blog) | GPL-3.0 |
 | `wp-readme-optimizer` | [jdevalk/joost-blog](https://github.com/jdevalk/joost-blog) | GPL-3.0 |
 | `wp-screenshots` | [flintfromthebasement/skills](https://github.com/flintfromthebasement/skills) | NONE |
-## Plugins
-
-Plugins are a separate install path — bundles of skills, agents, and MCP servers from a marketplace.
-`manifest.json` records 31 marketplaces and the 22 plugins installed from them, including the ones
-providing Matt Pocock's skills, superpowers, hookify, firecrawl, and playwright.
-
-```bash
-/plugin marketplace add <owner>/<repo>
-/plugin install <plugin>@<marketplace>
-```
-
-See [docs/PLUGINS.md](docs/PLUGINS.md). Entries marked `"verified": true` were confirmed by fetching
-the repo's own marketplace manifest — five could not be confirmed and carry `repo: null` rather than
-a guess.
-
-## Provenance
-
-Every skill in `skills/` was checked against GitHub for an earlier third-party copy before being
-published here. Fifteen were reclassified as external and removed once an upstream turned up:
-eleven belong to [readwiseio/readwise-skills](https://github.com/readwiseio/readwise-skills), two
-wrap the `counselors` and `librarium` CLIs, and four WordPress skills have earlier copies in other
-people's repos and are marked `external-unverified` pending confirmation.
-
-Matching names are not proof, so each one was checked by comparing content and first-commit dates.
-Where the evidence was ambiguous the skill was withheld rather than published — the cost of holding
-one back is that you install it from source; the cost of getting it wrong is republishing someone
-else's work under a license they never chose.
-
 ## Attribution
 
 Every external entry points at the **original source**, not whatever fork or collection it reached
