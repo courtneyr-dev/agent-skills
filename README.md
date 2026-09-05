@@ -190,6 +190,8 @@ These belong to their authors and are never copied here. Each row links to the *
 source. `no redistribution` means the upstream ships no license at all, so it is all rights
 reserved however freely it is shared — install it from source.
 
+The companion repos above are listed separately and not repeated here.
+
 | Skill | Original source | License |
 |---|---|---|
 | [`wp-pinch`](https://github.com/RegionallyFamous/wp-pinch) | [RegionallyFamous/wp-pinch](https://github.com/RegionallyFamous/wp-pinch) | GPL-2.0-or-later<br>Nick Hamze |
@@ -201,16 +203,6 @@ reserved however freely it is shared — install it from source.
 | [`agents-md-lint`](https://github.com/borkweb/skills/tree/main/skills/core/agents-md-lint) | [borkweb/skills](https://github.com/borkweb/skills) | MIT |
 | [`review-security`](https://github.com/borkweb/skills/tree/main/skills/core/review-security) | [borkweb/skills](https://github.com/borkweb/skills) | MIT |
 | [`writing-sql`](https://github.com/borkweb/skills/tree/main/skills/core/writing-sql) | [borkweb/skills](https://github.com/borkweb/skills) | MIT |
-| [`prompt-engineering`](https://github.com/courtneyr-dev/wp-dev-prompts/tree/main/skills/prompt-engineering) | [courtneyr-dev/wp-dev-prompts](https://github.com/courtneyr-dev/wp-dev-prompts) | CC0-1.0 |
-| [`wordpress-accessibility`](https://github.com/courtneyr-dev/wp-dev-prompts/tree/main/skills/wordpress-accessibility) | [courtneyr-dev/wp-dev-prompts](https://github.com/courtneyr-dev/wp-dev-prompts) | CC0-1.0 |
-| [`wordpress-dev`](https://github.com/courtneyr-dev/wp-dev-prompts/tree/main/skills/wordpress-dev) | [courtneyr-dev/wp-dev-prompts](https://github.com/courtneyr-dev/wp-dev-prompts) | CC0-1.0 |
-| [`wordpress-performance`](https://github.com/courtneyr-dev/wp-dev-prompts/tree/main/skills/wordpress-performance) | [courtneyr-dev/wp-dev-prompts](https://github.com/courtneyr-dev/wp-dev-prompts) | CC0-1.0 |
-| [`wordpress-playground`](https://github.com/courtneyr-dev/wp-dev-prompts/tree/main/skills/wordpress-playground) | [courtneyr-dev/wp-dev-prompts](https://github.com/courtneyr-dev/wp-dev-prompts) | CC0-1.0 |
-| [`wordpress-testing`](https://github.com/courtneyr-dev/wp-dev-prompts/tree/main/skills/wordpress-testing) | [courtneyr-dev/wp-dev-prompts](https://github.com/courtneyr-dev/wp-dev-prompts) | CC0-1.0 |
-| [`wordpress-audit-handoff`](https://github.com/courtneyr-dev/wp-release-audit-method/tree/main/skills/wordpress-audit-handoff) | [courtneyr-dev/wp-release-audit-method](https://github.com/courtneyr-dev/wp-release-audit-method) | GPL-2.0 |
-| [`wp-release-followup`](https://github.com/courtneyr-dev/wp-release-audit-method/tree/main/skills/wp-release-followup) | [courtneyr-dev/wp-release-audit-method](https://github.com/courtneyr-dev/wp-release-audit-method) | GPL-2.0 |
-| [`wp-release-party`](https://github.com/courtneyr-dev/wp-release-audit-method/tree/main/skills/wp-release-party) | [courtneyr-dev/wp-release-audit-method](https://github.com/courtneyr-dev/wp-release-audit-method) | GPL-2.0 |
-| [`wp-release-prep`](https://github.com/courtneyr-dev/wp-release-audit-method/tree/main/skills/wp-release-prep) | [courtneyr-dev/wp-release-audit-method](https://github.com/courtneyr-dev/wp-release-audit-method) | GPL-2.0 |
 | [`architect`](https://github.com/cursor/plugins/tree/main/pstack/skills/architect) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
 | [`arena`](https://github.com/cursor/plugins/tree/main/pstack/skills/arena) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
 | [`automate-me`](https://github.com/cursor/plugins/tree/main/pstack/skills/automate-me) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
