@@ -1,0 +1,29 @@
+name: Suggest a skill
+description: Something worth adding, or an upstream worth linking
+title: "[suggest] "
+labels: ["suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Skills that already exist elsewhere get **linked**, not copied. A link with the right
+        license is more useful than a fork that goes stale.
+  - type: input
+    id: name
+    attributes: {label: Skill or repo}
+    validations: {required: true}
+  - type: input
+    id: source
+    attributes:
+      label: Where it lives
+      placeholder: https://github.com/someone/their-skills
+  - type: input
+    id: license
+    attributes:
+      label: Its license
+      description: If there is no LICENSE file, say so — that means all rights reserved and it can only be linked.
+  - type: textarea
+    id: why
+    attributes:
+      label: What it does, and when you reach for it
+    validations: {required: true}

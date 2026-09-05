@@ -16,3 +16,6 @@ __pycache__/
 skills/*/state.json
 skills/*/state/
 skills/**/last_run*
+
+# Sanitizer run log — regenerated, not a deliverable
+scripts/sanitize-report.txt

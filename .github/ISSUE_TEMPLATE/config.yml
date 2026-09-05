@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Which skills do you actually use?
+    url: https://github.com/courtneyr-dev/agent-skills/discussions
+    about: Discussions is the better place for "what works for you" and setup questions.
+  - name: Searchable catalog
+    url: https://courtneyr-dev.github.io/agent-skills/
+    about: Search all skills by name, path, license, or how often they get used.
+  - name: Security concern
+    url: https://github.com/courtneyr-dev/agent-skills/security/policy
+    about: How to report something you would rather not post publicly.

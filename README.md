@@ -102,9 +102,15 @@ fixed rather than argued about.
 
 ## More
 
+**New to skills?** [What is a skill?](docs/WHAT-IS-A-SKILL.md) — what the format is, how an agent
+decides to use one, and why installing more of them makes each one work worse.
+
+- [Catalog](docs/CATALOG.md) · [searchable version](https://courtneyr-dev.github.io/agent-skills/)
 - [Platforms](docs/PLATFORMS.md) — where each agent reads skills, and the listing budget
 - [Plugins](docs/PLUGINS.md) — 31 marketplaces and the plugins installed from them
+- [Security](SECURITY.md) — a skill is instructions your agent will follow; what to check first
 - [Contributing](CONTRIBUTING.md) — adding a skill, and what gets rejected
+- [Changelog](CHANGELOG.md) · [Code of conduct](CODE_OF_CONDUCT.md) · [Citation](CITATION.cff)
 
 ## License
 

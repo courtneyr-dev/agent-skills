@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+title: agent-skills
+message: >-
+  If you use these skills, cite this repository. If you use a skill that
+  originated elsewhere, cite its original author — manifest.json records who
+  wrote what.
+type: software
+authors:
+  - family-names: Robertson
+    given-names: Courtney
+    website: "https://github.com/courtneyr-dev"
+repository-code: "https://github.com/courtneyr-dev/agent-skills"
+url: "https://courtneyr-dev.github.io/agent-skills/"
+abstract: >-
+  Portable skills for coding agents that read a SKILL.md, with a manifest
+  linking every external skill to its original source and license.
+keywords:
+  - agent-skills
+  - claude-code
+  - developer-tools
+  - llm
+license: MIT
+references:
+  - type: software
+    title: pstack
+    authors:
+      - family-names: Tan
+        given-names: Lauren
+        alias: poteto
+    repository-code: "https://github.com/cursor/plugins/tree/main/pstack"
+    license: MIT
+    notes: >-
+      44 skills in this manifest come from pstack. cursor/plugins has no root
+      LICENSE and licenses each plugin directory separately.
+  - type: software
+    title: gstack
+    authors:
+      - family-names: Tan
+        given-names: Garry
+    repository-code: "https://github.com/garrytan/gstack"
+    license: MIT

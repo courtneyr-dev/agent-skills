@@ -1,0 +1,43 @@
+name: Misattribution or license problem
+description: A skill here is yours, credited to the wrong person, or licensed wrongly
+title: "[attribution] "
+labels: ["attribution"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This gets priority over everything else. Attribution errors are corrected or the skill is
+        removed — they are not argued about.
+  - type: input
+    id: skill
+    attributes:
+      label: Which skill
+      placeholder: e.g. wp-screenshots
+    validations: {required: true}
+  - type: input
+    id: original
+    attributes:
+      label: The original source
+      description: Repo, gist, or post where it first appeared.
+      placeholder: https://github.com/you/your-repo/tree/main/skills/thing
+    validations: {required: true}
+  - type: input
+    id: date
+    attributes:
+      label: First-commit date, if you have it
+      description: The strongest evidence. `git log --reverse --format=%ad -- path/to/SKILL.md | head -1`
+      placeholder: 2026-05-13
+  - type: dropdown
+    id: want
+    attributes:
+      label: What would you like to happen
+      options:
+        - Credit me correctly and keep it listed
+        - Remove it entirely
+        - Fix the license shown
+        - Something else, explained below
+    validations: {required: true}
+  - type: textarea
+    id: detail
+    attributes:
+      label: Anything else

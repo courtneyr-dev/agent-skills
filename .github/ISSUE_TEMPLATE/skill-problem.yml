@@ -1,0 +1,28 @@
+name: A skill misbehaves
+description: A skill does the wrong thing, does not trigger, or does more than it claims
+title: "[skill] "
+labels: ["bug"]
+body:
+  - type: input
+    id: skill
+    attributes: {label: Which skill, placeholder: e.g. wiki-cycle}
+    validations: {required: true}
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Which agent
+      options: [Claude Code, Cursor, Codex, OpenClaw, Gemini CLI, Other]
+    validations: {required: true}
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you asked for, what the skill did, and what you expected instead.
+    validations: {required: true}
+  - type: textarea
+    id: overreach
+    attributes:
+      label: Did it do anything it did not advertise?
+      description: |
+        Reading files, network calls, writes outside the expected directory. Say so plainly —
+        this is the most useful kind of report.
