@@ -306,6 +306,28 @@ Where the evidence was ambiguous the skill was withheld rather than published �
 one back is that you install it from source; the cost of getting it wrong is republishing someone
 else's work under a license they never chose.
 
+## Attribution
+
+Every external entry points at the **original source**, not whatever fork or collection it reached
+this machine through. Where something arrived via a fork, the manifest names the upstream that
+published it and records the fork separately.
+
+The largest single body of work here is **[pstack](https://github.com/cursor/plugins/tree/main/pstack)
+by [poteto](https://github.com/poteto) (Lauren Tan)** — 44 skills, MIT. Worth stating plainly because
+`cursor/plugins` has **no root LICENSE** and licenses each plugin directory instead: checking the
+repo root reports "unlicensed" and is wrong. `pstack/LICENSE` is MIT.
+
+Other upstreams whose own credits were read before treating them as the origin:
+[garrytan/gstack](https://github.com/garrytan/gstack) (MIT),
+[borkweb](https://github.com/borkweb/skills) (MIT — his README credits @mattpocock, @blader,
+@Devattom and gstack for the parts that are not his),
+[readwiseio/readwise-skills](https://github.com/readwiseio/readwise-skills) (no license),
+[RegionallyFamous/wp-pinch](https://github.com/RegionallyFamous/wp-pinch) (GPL-2.0-or-later,
+Nick Hamze).
+
+If you maintain something listed here and the attribution is wrong, open an issue — it will be
+fixed rather than argued about.
+
 ## Why external skills are not vendored here
 
 **A public repo with no LICENSE file is "all rights reserved."** You can read it; you cannot

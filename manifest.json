@@ -393,53 +393,61 @@
       "name": "architect",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/architect",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Sketch types, signatures, and module structure before code, then stay in the loop while implementation fills in. Use for /architect, 'architect this', 'design this', or non-trivial work where jumping to code would lock in the wrong shape."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Sketch types, signatures, and module structure before code, then stay in the loop while implementation fills in. Use for /architect, 'architect this', 'design this', or non-trivial work where jumping to code would lock in the wrong shape.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "arena",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/arena",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Spawn N parallel candidates at the same task, pick a base, graft the strongest parts of the losers into it. Use for /arena, 'arena this', 'throw it in the arena', or when one attempt at a non-trivial artifact would lock in the wrong shape."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Spawn N parallel candidates at the same task, pick a base, graft the strongest parts of the losers into it. Use for /arena, 'arena this', 'throw it in the arena', or when one attempt at a non-trivial artifact would lock in the wrong shape.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "automate-me",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/automate-me",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Use for \\\"automate me\\\", \\\"create/update/refresh my -mode skill\\\", \\\"turn/capture my preferences or working style into a skill\\\", or wanting agents to follow how the user works. Drafts or revises a personal -mode skill via skill-creator + u"
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Use for \\\"automate me\\\", \\\"create/update/refresh my -mode skill\\\", \\\"turn/capture my preferences or working style into a skill\\\", or wanting agents to follow how the user works. Drafts or revises a personal -mode skill via skill-creator + u",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "blast-radius",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/blast-radius",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up. Use for 'blast radius of X', 'what could this break', or reviewing a "
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up. Use for 'blast radius of X', 'what could this break', or reviewing a ",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "book-review",
@@ -458,14 +466,16 @@
       "name": "bro",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/bro",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Restate the last message in plain human language, with no jargon."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Restate the last message in plain human language, with no jargon.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "build-persona",
@@ -497,14 +507,16 @@
       "name": "create-verification-skill",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/create-verification-skill",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Generate a project-local verification skill that drives your app the way a user does \u2014 any language, framework, or platform. Use for /create-verification-skill, \\\"make a control skill for this repo\\\", or when a project has no scripted way t"
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Generate a project-local verification skill that drives your app the way a user does \u2014 any language, framework, or platform. Use for /create-verification-skill, \\\"make a control skill for this repo\\\", or when a project has no scripted way t",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "cross-check",
@@ -536,14 +548,16 @@
       "name": "figure-it-out",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/figure-it-out",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Use when Courtney says figure it out or /figure-it-out, or when no narrower playbook fits: a large migration, an ambitious multi-part change, or work you reviews after stepping away. Designs a rigorous playbook with a decision trail."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Use when Courtney says figure it out or /figure-it-out, or when no narrower playbook fits: a large migration, an ambitious multi-part change, or work you reviews after stepping away. Designs a rigorous playbook with a decision trail.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "gh-fetch",
@@ -648,27 +662,31 @@
       "name": "how",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/how",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Use when Courtney asks 'how does X work', wants a code walkthrough before changing something, or asks where something should live, which package owns it, or whether this is the right layer. Motivation questions go to why."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Use when Courtney asks 'how does X work', wants a code walkthrough before changing something, or asks where something should live, which package owns it, or whether this is the right layer. Motivation questions go to why.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "interrogate",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/interrogate",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Use when Courtney says interrogate, adversarial review, multi-model review, challenge this, stress test this code, find blind spots, or tear this apart. Reviewers on different models challenge a change and the lead synthesizes a verdict."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Use when Courtney says interrogate, adversarial review, multi-model review, challenge this, stress test this code, find blind spots, or tear this apart. Reviewers on different models challenge a change and the lead synthesizes a verdict.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "librarium",
@@ -687,27 +705,31 @@
       "name": "maintain-verification-skill",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/maintain-verification-skill",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections. Use for /maintain-verification-skill or \\\"aud"
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections. Use for /maintain-verification-skill or \\\"aud",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "no-comments",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/no-comments",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Spawn Comment Sicko, fix accepted findings, and offer encodings for claimed constraints."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Spawn Comment Sicko, fix accepted findings, and offer encodings for claimed constraints.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "now-reading-page",
@@ -739,287 +761,331 @@
       "name": "poteto-mode",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/poteto-mode",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Use when Courtney says poteto, /poteto-mode, or asks to work in poteto's style: playbook-driven tasks with named principles, deliberate subagents, unslopped prose, simple code, and verified work."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Use when Courtney says poteto, /poteto-mode, or asks to work in poteto's style: playbook-driven tasks with named principles, deliberate subagents, unslopped prose, simple code, and verified work.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-boundary-discipline",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-boundary-discipline",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when wiring validation, error handling, or framework adapters. Concentrate guards at system boundaries (CLI, config, network, external APIs); trust internal types and keep business logic in pure functions."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when wiring validation, error handling, or framework adapters. Concentrate guards at system boundaries (CLI, config, network, external APIs); trust internal types and keep business logic in pure functions.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-build-the-lever",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-build-the-lever",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the arti"
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the arti",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-encode-lessons-in-structure",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-encode-lessons-in-structure",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when you catch yourself writing the same instruction a second time, or notice a recurring correction. Encode the rule as a lint, metadata flag, runtime check, or script instead of more text."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when you catch yourself writing the same instruction a second time, or notice a recurring correction. Encode the rule as a lint, metadata flag, runtime check, or script instead of more text.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-exhaust-the-design-space",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-exhaust-the-design-space",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase. Build 2-3 competing prototypes and compare side by side before committing."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase. Build 2-3 competing prototypes and compare side by side before committing.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-experience-first",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-experience-first",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when product, UX, or feature-scope tradeoffs come up. Choose user delight over implementation convenience; ship fewer polished features over more rough ones."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when product, UX, or feature-scope tradeoffs come up. Choose user delight over implementation convenience; ship fewer polished features over more rough ones.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-fix-root-causes",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-fix-root-causes",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when debugging. Trace each symptom to its root cause and fix it there; reproduce first, ask why until you reach it, resist nil-check guards that silence crashes."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when debugging. Trace each symptom to its root cause and fix it there; reproduce first, ask why until you reach it, resist nil-check guards that silence crashes.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-foundational-thinking",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-foundational-thinking",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-guard-the-context-window",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-guard-the-context-window",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning. Route bulk to subagents; keep summaries in the main thread, not raw payloads."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning. Route bulk to subagents; keep summaries in the main thread, not raw payloads.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-laziness-protocol",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-laziness-protocol",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when refactoring, evaluating diff size, or tempted to add abstractions, layers, or signal threading. Bias toward deletion and the smallest change that solves the problem."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when refactoring, evaluating diff size, or tempted to add abstractions, layers, or signal threading. Bias toward deletion and the smallest change that solves the problem.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-make-operations-idempotent",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-make-operations-idempotent",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-migrate-callers-then-delete-legacy-apis",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-migrate-callers-then-delete-legacy-apis",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when introducing a new internal API while old callers still exist. Migrate callers and delete the old API in the same wave instead of preserving compatibility layers."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when introducing a new internal API while old callers still exist. Migrate callers and delete the old API in the same wave instead of preserving compatibility layers.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-minimize-reader-load",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-minimize-reader-load",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-model-the-domain",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-model-the-domain",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files. Encode the domain in a structure instead of scattered conditionals."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files. Encode the domain in a structure instead of scattered conditionals.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-never-block-on-the-human",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-never-block-on-the-human",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when tempted to ask 'should I do X?' on reversible work. Proceed, present the result, let the human course-correct after the fact; reserve confirmation for irreversible actions."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when tempted to ask 'should I do X?' on reversible work. Proceed, present the result, let the human course-correct after the fact; reserve confirmation for irreversible actions.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-outcome-oriented-execution",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-outcome-oriented-execution",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-prove-it-works",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-prove-it-works",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply after completing a task, before declaring done. Verify against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, self-report, or 'it compiles.'"
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply after completing a task, before declaring done. Verify against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, self-report, or 'it compiles.'",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-redesign-from-first-principles",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-redesign-from-first-principles",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when integrating a new requirement into an existing design. Redesign as if the requirement had been a foundational assumption from day one, instead of bolting it on."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when integrating a new requirement into an existing design. Redesign as if the requirement had been a foundational assumption from day one, instead of bolting it on.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-separate-before-serializing-shared-state",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-separate-before-serializing-shared-state",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-sequence-verifiable-units",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-sequence-verifiable-units",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs. Break work into small units that each end in a verifiable state, check each before the next, and order delivery so the sequence prove"
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs. Break work into small units that each end in a verifiable state, check each before the next, and order delivery so the sequence prove",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-subtract-before-you-add",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-subtract-before-you-add",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when sequencing an addition, refactor, or rewrite. Remove dead weight, redundant validators, and stub references first, then build on the simpler base."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when sequencing an addition, refactor, or rewrite. Remove dead weight, redundant validators, and stub references first, then build on the simpler base.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "principle-type-system-discipline",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/principle-type-system-discipline",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, refuse to lie to the compiler, "
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, refuse to lie to the compiler, ",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "prompt-engineering",
@@ -1091,27 +1157,31 @@
       "name": "recall",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/recall",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Reconstruct your recent working context from your own chat history, live state, and the shared record (user reports, prior fixes, incidents), then hand back a tight current-state brief. Use for 'recall my work on X', 'catch me up', 'what ha"
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Reconstruct your recent working context from your own chat history, live state, and the shared record (user reports, prior fixes, incidents), then hand back a tight current-state brief. Use for 'recall my work on X', 'catch me up', 'what ha",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "reflect",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/reflect",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "review-security",
@@ -1130,27 +1200,31 @@
       "name": "setup-pstack",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/setup-pstack",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Configure which model and effort pstack uses per role by rewriting the pack's ~/.claude/skills/poteto-mode/references/models.md. Use for /setup-pstack, \"configure pstack models\", or changing pstack's model choices."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Configure which model and effort pstack uses per role by rewriting the pack's ~/.claude/skills/poteto-mode/references/models.md. Use for /setup-pstack, \"configure pstack models\", or changing pstack's model choices.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "show-me-your-work",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/show-me-your-work",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /show-me-your-"
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /show-me-your-",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "skill-patterns",
@@ -1182,53 +1256,61 @@
       "name": "swarm",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/swarm",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or parallel coverage, races, gauntlets, and exploration."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or parallel coverage, races, gauntlets, and exploration.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "tdd",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/tdd",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Use only when the user explicitly asks for TDD, a failing test, or a regression test, OR when the bug has an obvious cheap local test target. Skip when the test path is unclear, expensive, integration-heavy, or not requested."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Use only when the user explicitly asks for TDD, a failing test, or a regression test, OR when the bug has an obvious cheap local test target. Skip when the test path is unclear, expensive, integration-heavy, or not requested.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "teach",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/teach",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Explain a body of work plainly so a person actually understands it. Runs the `how` and `why` skills and weaves what they find into one clear explanation. Use for 'teach me this', 'help me really understand X', 'explain this change or subsys"
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Explain a body of work plainly so a person actually understands it. Runs the `how` and `why` skills and weaves what they find into one clear explanation. Use for 'teach me this', 'help me really understand X', 'explain this change or subsys",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "technical-writing-standard",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/technical-writing-standard",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Layered technical-writing standard: Di\u00e1taxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing-standard or when writing or reviewing docs, RFCs, readmes, PR descriptions, o"
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Layered technical-writing standard: Di\u00e1taxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing-standard or when writing or reviewing docs, RFCs, readmes, PR descriptions, o",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "triage",
@@ -1247,40 +1329,46 @@
       "name": "typescript-best-practices",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/typescript-best-practices",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Use when reading or editing any .ts or .tsx file."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Use when reading or editing any .ts or .tsx file.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "unslop",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/unslop",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Use on any prose before it ships, or when Courtney says 'unslop', 'cut the AI tells', or 'does this read as AI'. Removes AI vocabulary, filler, and mannered phrasing."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Use on any prose before it ships, or when Courtney says 'unslop', 'cut the AI tells', or 'does this read as AI'. Removes AI vocabulary, filler, and mannered phrasing.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "why",
       "kind": "external",
       "source": {
-        "repo": "courtneyr-dev/plugins",
+        "repo": "cursor/plugins",
         "path": "pstack/skills/why",
-        "ref": "main"
+        "ref": "main",
+        "claude_code_port": "courtneyr-dev/plugins"
       },
-      "license": "NONE",
-      "redistributable": false,
-      "license_note": "No license file upstream \u2014 all rights reserved. Install from source; not redistributable.",
-      "description": "Use when Courtney asks 'why does X work this way', 'why did we pick Y', wants design rationale, a regression or postmortem read, or a data-backed threshold traced to its evidence. Runtime behavior goes to how."
+      "license": "MIT",
+      "redistributable": true,
+      "license_note": "Part of pstack by poteto \u2014 MIT, per `pstack/LICENSE` in cursor/plugins. The repo has no root license, so the license lives per plugin directory. Redistribution is permitted with the copyright notice and license text. courtneyr-dev/plugins is a fork carrying a Claude Code vocabulary port; the skills themselves are unchanged in authorship.",
+      "description": "Use when Courtney asks 'why does X work this way', 'why did we pick Y', wants design rationale, a regression or postmortem read, or a data-backed threshold traced to its evidence. Runtime behavior goes to how.",
+      "copyright": "Copyright (c) 2026 Lauren Tan (poteto)"
     },
     {
       "name": "wordpress-accessibility",
@@ -1398,10 +1486,11 @@
         "path": "",
         "ref": "main"
       },
-      "license": "GPL-2.0",
+      "license": "GPL-2.0-or-later",
       "redistributable": true,
       "license_note": "Copyleft. Redistribution permitted under GPL-2.0 terms.",
-      "description": "Create and edit posts, manage plugins and themes, configure site settings, manage users, WooCommerce orders, run governance scans, and generate content via 88+ MCP tools. Use when the user asks about WordPress tasks, blog posts, plugins, th"
+      "description": "Create and edit posts, manage plugins and themes, configure site settings, manage users, WooCommerce orders, run governance scans, and generate content via 88+ MCP tools. Use when the user asks about WordPress tasks, blog posts, plugins, th",
+      "copyright": "Nick Hamze"
     },
     {
       "name": "wp-readme-optimizer",
@@ -2013,5 +2102,15 @@
         "wp-screenshots": "Scripted WordPress admin and front-end screenshots for docs and release posts."
       }
     }
-  ]
+  ],
+  "attribution": [
+    {
+      "work": "pstack",
+      "author": "Lauren Tan (poteto)",
+      "license": "MIT",
+      "source": "https://github.com/cursor/plugins/tree/main/pstack",
+      "note": "44 skills in this manifest come from pstack. MIT, so reuse is permitted with the copyright notice \u2014 but note that cursor/plugins carries no root LICENSE and licenses each plugin directory separately, so checking the repo root alone reports \"no license\" and is wrong."
+    }
+  ],
+  "source_policy": "Every entry points at the ORIGINAL source, never an intermediary. Where a skill reached this machine through a fork or a collection, the manifest names the upstream that actually published it and the fork is recorded separately. Two checks make that reliable: read the upstream's own credits before treating it as the origin, and never conclude 'no license' from the repo root alone \u2014 cursor/plugins has no root LICENSE but licenses each plugin directory, so the root check reports unlicensed for 44 skills that are in fact MIT."
 }
