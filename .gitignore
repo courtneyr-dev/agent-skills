@@ -1,0 +1,18 @@
+# Personal configuration — never commit
+skills/*/config.yml
+skills/**/config.local.*
+/job-search/          # report output dir, not skills/job-search
+*.local.md
+
+# Local state
+.DS_Store
+__pycache__/
+.venv/
+*.pyc
+*.bak*
+*.backup*
+
+# Runtime state — describes one machine's run history, never the skill
+skills/*/state.json
+skills/*/state/
+skills/**/last_run*

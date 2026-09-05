@@ -1,0 +1,4 @@
+# Your registry and run state describe your machine, not this skill.
+wikis.yml
+references/wikis.yml
+state/

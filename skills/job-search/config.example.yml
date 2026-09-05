@@ -1,0 +1,35 @@
+# Copy to config.yml and fill in. config.yml is gitignored — keep your profile out of version control.
+
+profile:
+  # Free text. The scan quotes this when writing "why it fits", so be concrete about what you do.
+  summary: >
+    One paragraph on your background, the problems you like, and the shape of role you want.
+  resume_path: ""        # optional; local path the scan may read for detail
+
+# Co-equal search tracks. Two or three beats one — a single track hides adjacent roles that fit.
+tracks:
+  - name: "Track A"
+    description: "e.g. the role title you have held, plus its close neighbours"
+    keywords: ["", ""]
+  - name: "Track B"
+    description: "an adjacent function where your skills transfer"
+    keywords: ["", ""]
+
+must_have:
+  remote: true           # true | false | "hybrid-ok"
+  min_seniority: ""      # e.g. "senior"
+  min_comp: ""           # e.g. "120000 USD" — omit to disable comp filtering
+  locations: []          # empty = anywhere the remote rule allows
+
+exclude_companies: []    # never surface these, however good the role
+
+sources:
+  boards: []             # aggregator URLs
+  ats: []                # company ATS boards (Greenhouse/Lever/Ashby) — highest signal
+  rss: []
+  communities: []        # Slack/Discord channels to check, if a chat integration is connected
+
+output:
+  dir: "./job-search"    # where dated reports are written
+  filename: "job-scan-{date}.md"
+  applied_list: "./job-search/applied.md"   # roles already applied to; excluded from NEW

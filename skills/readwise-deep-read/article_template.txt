@@ -1,0 +1,581 @@
+<!-- ===================================================================
+PROMPT INSTRUCTIONS — DO NOT EMIT THIS COMMENT BLOCK
+
+ROLE
+  Produce a deep-read analytical note from the article or transcript
+  content that follows this prompt (the user message appends "Title:",
+  "URL:", and "Content:"/"Transcript:" after this template).
+
+OUTPUT-START — STRICT
+  Your first emitted character MUST be the "---" opening the YAML
+  frontmatter block immediately below this comment. Do NOT precede it
+  with greetings, acknowledgments, or any other text. Do NOT emit any
+  text from this comment block.
+
+YAML FRONTMATTER — REQUIRED ON EVERY RESPONSE
+  ALWAYS emit the full "---" delimited YAML block as the FIRST thing
+  in your output. Never skip it. Fill in:
+    • tags         — 3-6 topic tags derived from article content
+    • author       — verified byline, or [MISSING]
+    • source       — publisher / site / channel name, or [MISSING]
+    • reference    — the article or video URL
+    • date created — keep the {{date:YYYY-MM-DD}} {{time:HH:mm}} tokens
+  Use [MISSING] for any field you cannot determine from content.
+
+TAG RULES — TOPIC TAGS ONLY
+  Tags must be content-derived topic tags. DO NOT emit any of:
+    • Source-format meta-tags: youtube, video, video-notes, article,
+      processed, podcast, transcript, audio-notes
+    • Pipeline-state tags: deep-read, deep-read-restored, lean, full
+    • Single-letter placeholders: t, a, etc.
+    • Atom-system tokens: h1, h2, h3, atom, literature, zettel,
+      fallacy, xref, articleseed, fleeting, inbox
+  Tags should be lowercase, hyphenated, recognizable as topics
+  (e.g., ai-automation, false-prophecy, developer-tools).
+
+HEADING LEVELS — STRICT, DO NOT DEVIATE
+  H1 (#)    — Exactly ONE: the 🏷️ Title heading.
+  H2 (##)   — Each top-level section. 🗒️ Notes is its OWN H2 (NOT
+              nested under Main Content). Full H2 list:
+              Table of Contents, Summary, Main Content, Notes,
+              References, Paraphrase, Newsletter, Action Items,
+              Hypotheses, Conclusion, Refactor Appendix.
+  H3 (###)  — Each sub-section within H2 (Methodology, DARVO, Strong
+              reasoning, Fallacies, etc.) AND each Literature Atom
+              claim in the 📚 Literature Atoms section of the Refactor
+              Appendix. Literature atoms use H3, not H4.
+  H4 (####) — Sub-sub-sections (visual-learner subtypes,
+              accessibility/DEIB sub-criteria, Action Items subteams)
+              AND each Permanent Candidate claim in the 🧠 Permanent
+              Candidates section of the Refactor Appendix. Permanent
+              candidates use H4, not H3.
+  The Refactor Appendix heading is exactly `## 🔄 Refactor Appendix — {{source_title}}`
+  (or just `## 🔄 Refactor Appendix` if no title is available)
+  — do NOT append parenthetical instructions like "(append after
+  Conclusion)" to any output heading.
+
+TRANSCRIPT MODE
+  If the content is a transcript OR contains timestamps (e.g.,
+  00:03:12), then in the 🗒️ Notes section create H4 subheadings per
+  segment with timestamped links:
+    #### ⏱️ [00:03:12](VIDEO_URL?t=192) Topic or speaker
+  Otherwise omit timestamp subheadings entirely.
+
+YOUTUBE AUTHOR FALLBACK
+  If source is YouTube and the author is unknown, set source and/or
+  author to the channel name. Leave author as [MISSING] unless
+  explicitly credited in content.
+
+FORMATTING
+  Emojis before each heading. Bullets for lists. At most one fenced
+  code block in the entire document.
+
+OUTPUT-END — STRICT
+  Your output ENDS after the → Things 3 section. Emit nothing after it.
+  Never invent or reproduce a "Template Library" / "Refactored Note
+  Template" / "Fleeting Note — {{title}}" style block: those note-shape
+  templates are human/plugin reference material kept OUTSIDE this prompt
+  (see template_library_reference.md) and MUST NEVER appear in your output.
+  Never emit unrendered {{...}} placeholders of any kind.
+=================================================================== -->
+
+---
+tags: [{TAG1}, {TAG2}, {TAG3}]
+author: [Verified author or [MISSING]]
+source: [Publisher/Site or [MISSING]]
+reference: [{ARTICLE_URL}]
+date created: {{date:YYYY-MM-DD}} {{time:HH:mm}}
+---
+
+# 🏷️ Title: [Copy the real title or [MISSING]]
+
+## 🧭 Table of Contents
+- [📝 Summary](#-summary)
+- [📖 Main Content](#-main-content)
+- [🗒️ Notes](#️-notes)
+- [📚 References](#-references)
+- [🗣️ Paraphrase](#️-paraphrase)
+- [📰 Newsletter](#-newsletter)
+- [✅ Action Items](#-action-items)
+- [🧪 Hypotheses](#-hypotheses)
+- [📊 Methodology](#-methodology)
+- [❓ Questions](#-questions)
+- [🔮 Future Research](#-future-research)
+- [💡 Implications](#-implications)
+- [🧠 Learning Styles Assessment](#-learning-styles-assessment)
+- [📊 Accessibility Assessment](#-accessibility-assessment)
+- [🌍 DEIB Assessment](#-deib-assessment)
+- [✅ Logical Validity](#-logical-validity)
+- [🛡️ DARVO Analysis](#-darvo-analysis)
+- [🎯 Conclusion](#-conclusion)
+
+### 🔗 References
+- Include links cited in or relevant to the article.
+
+## 📝 Summary
+- What happened.
+- Why it matters.
+- Key stakeholders.
+- Risks and tradeoffs.
+- Bottom line.
+
+## 📖 Main Content
+- Explain the core arguments in plain language.
+- Add sourced context and define terms.
+- Note uncertainties or contested claims.
+
+### 🗒️ Notes
+// If Is transcript? == true, create subheadings per segment with timestamped links, like:
+// #### ⏱️ [00:03:12](VIDEO_URL?t=192) Point or speaker
+// - Key idea
+// - Evidence or quote (short)
+// Otherwise, provide dense notes without timestamp subheadings.
+
+## 📚 References
+- [Title or entity](URL)
+- Prefer primary sources and official posts.
+
+## 🗣️ Paraphrase
+- Paragraph A paraphrase.
+- Paragraph B paraphrase.
+
+## 📰 Newsletter
+- Friendly, professional, witty WordPress-focused blurb.
+- Highlight learning resources, updates, plugins, and community items.
+- Include helpful links.
+
+## ✅ Action Items
+#### DevRel
+- Developer advocacy: plans, talks, demos, and measurable outcomes.
+- Education: workshops, curricula, office hours, mentorship programs.
+- Developer experience: docs, SDKs, examples, templates, quickstarts.
+- Developer marketing: campaigns, content, funnels, and attribution.
+- Community management: moderation, code of conduct ops, surveys.
+- Internal/external/cross-project: align goals, SLAs, and feedback loops.
+#### OSPO
+- Policy & Governance: contribution policies, decision rights, charters.
+- License Compliance: policies, scanning, review, and training cadence.
+- Security Management: vuln intake, embargo policy, signing, attestations.
+- Software Inventory: SBOM strategy, ownership, freshness SLOs.
+- Developer Support: training, tooling, legal guardrails, consultation hours.
+- Community Engagement: upstream funding, MoUs, operator agreements.
+- Strategic Alignment: KPIs, OKRs, executive reporting, initiative roadmaps.
+#### Community
+- Maintainers: roadmap clinics, governance templates, release hygiene.
+- Contributors: onboarding paths, "first issue" rotations, pairing sessions.
+- Sponsors: transparent budgets, milestones, deliverables, impact reports.
+- Ecosystem: cross-project incident drills and coordinated disclosures.
+#### WordPress
+- Core: priorities, issue triage, performance budgets, release criteria.
+- Core Performance: profiling plans, metrics dashboards, perf bounties.
+- Core AI: responsible AI guardrails, evaluation sets, pilot projects.
+- **Core Program Team:** coordination rituals, cross-team dependencies, retrospectives.
+- Mobile: app backlog, telemetry review, offline UX improvements.
+- Playground: browser labs, reproducible bugs, education modules.
+- Community: meetup kits, WordCamp playbooks, speaker mentorship.
+- Training: lesson plans, learning paths, certification pilots.
+- Marketing: campaigns, narratives, social editorial calendars.
+- Support: response SLAs, knowledge base gaps, escalation paths.
+- Design: UX audits, design tokens, research backlogs.
+- Documentation: DevHub/HelpHub gaps, examples-first patterns, style guide.
+- Photos: content drives, moderation guidelines, taxonomy hygiene.
+- TV: submission guides, caption quality, content indexing.
+- Polyglots: translation sprints, glossary alignment, locale coverage.
+- Accessibility: WCAG reviews, tooling, issues heatmap, audits cadence.
+- Meta: .org roadmap, API reliability, contributor tools.
+- CLI: command coverage, UX docs, plugin scaffolds, smoke tests.
+- Hosting: cross-host checklists, defaults, telemetry for reliability.
+- Tide: scoring transparency, false-positive review loops, plugin outreach.
+- Openverse: ingestion pipelines, moderation policy, education tie-ins.
+- Themes: review throughput, lints, mentoring, test matrices.
+- Plugins: review throughput, security liaisons, provenance checks.
+#### The WPCC
+- Programs: fellowship tracks, microgrants, maintainer stipends.
+- Projects: governance clinics, documentation sprints, release teams.
+- Funding experiments: matched grants, milestone payouts, transparent ledgers.
+### FAIR
+- Technical independence: local metadata, provenance, and signature checks.
+- Policies and covenants: funding transparency, sunset clauses, anti-capture.
+- Productized governance artifacts: charters, operator agreements, scorecards.
+
+## 🧪 Hypotheses
+- 3–6 testable hypotheses derived from the article.
+
+### 📊 Methodology
+- Study designs, data sources, and analyses to test the hypotheses.
+
+### ❓ Questions
+- Sharp, forward-looking questions to explore.
+
+### 🔮 Future Research
+- Clear gaps and promising directions.
+
+### 💡 Implications
+- Effects on practice, policy, security, education, and funding models.
+
+### 🧠 Learning Styles Assessment
+- Reading level estimate: specify formula and score.
+#### 👀 Visual learners
+- Present: diagrams, charts, screenshots, labeled code blocks.
+- Improve: architecture diagrams, data flows, before/after visuals, captions.
+#### 🔊 Aural learners
+- Present: audio version, podcast, narration.
+- Improve: 2–5 minute audio summary, TTS, speaker notes.
+#### 🗣️ Verbal learners
+- Present: definitions, analogies, examples, glossaries.
+- Improve: story-driven explanations, term comparisons, plain-language callouts.
+#### 🧩 Kinesthetic learners
+- Present: sandboxes, step-by-steps, labs.
+- Improve: checklists, reproducible tasks, small experiments.
+#### 🧠 Logical learners
+- Present: timelines, RACI, decision trees, tables.
+- Improve: causal diagrams, KPIs, error budgets, proofs where apt.
+#### 🧑‍🤝‍🧑 Social learners
+- Present: forums, discussion prompts, collaborations.
+- Improve: cohort guides, peer review rubrics, Q&A with moderation.
+#### 🧘‍♀️ Solitary learners
+- Present: reflection prompts, self-check quizzes.
+- Improve: journaling questions, worksheets, self-paced paths.
+#### 🌿 Naturalistic learners
+- Present: sustainability ties, environment analogies.
+- Improve: lifecycle thinking, ecosystem impacts, green tooling links.
+
+### 📊 Accessibility Assessment
+#### Screen reader semantics
+- Present: headings, landmarks, alt text.
+- Improve: ARIA roles only as needed, lang attributes, descriptive alt text.
+#### Keyboard navigation
+- Present: visible focus, skip links, logical order.
+- Improve: remove traps, tab reachability, correct tabindex use.
+#### Contrast and readability
+- Present: 4.5:1 text contrast minimum.
+- Improve: large-text thresholds, avoid low-contrast UI, line-height checks.
+#### Text resizing and reflow
+- Present: responsive at 200% zoom.
+- Improve: prevent clipping, support prefers-reduced-motion.
+#### Media and captions
+- Present: captions, transcripts.
+- Improve: audio descriptions, downloadable transcripts, no autoplay.
+#### Forms and interactions
+- Present: labels, error handling, target size.
+- Improve: inline validation, accessible toasts, forgiving inputs.
+#### Standards reference
+- Map gaps to WCAG 2.2 AA criteria.
+
+### 🌍 DEIB Assessment
+#### Cultural breadth
+- Present: multi-region examples, multilingual options.
+- Improve: global case studies, community review, translation links.
+#### Inclusive language
+- Present: gender-neutral terms, defined jargon.
+- Improve: plain-language summaries, avoid idioms, expand glossaries.
+#### Neurodiversity support
+- Present: chunked content, consistent structure.
+- Improve: headings frequency, icon+text labels, predictable patterns.
+#### Representation
+- Present: varied identities and roles.
+- Improve: balanced quoting, inclusive imagery, alt text that notes diversity appropriately.
+#### Psychological safety
+- Present: respectful framing, content warnings.
+- Improve: community guidelines, moderated Q&A, escalation paths.
+
+### ✅ Logical Validity
+#### Strong reasoning
+- Identify deductive, inductive, causal, or analogical strengths with locations.
+- Explain why each is strong and how to clarify further.
+#### Fallacies
+- Name the fallacy, cite location or quote, explain the weakness, propose a fix.
+#### Tone of voice
+- Identify tone with examples from the text.
+
+### 🛡️ DARVO Analysis
+- Deny: note denials or minimization strategies.
+- Attack: note attacks on accusers or credibility undermining.
+- Reverse victim/offender: note attempts to recast the accused as the victim.
+- Include emotional cues, rhetoric, and any related fallacies.
+
+## 🎯 Conclusion
+- Restate the bottom line.
+- Note practical next steps for readers.
+
+
+<!-- ===================================================================
+LIT/PERMANENT/FLEETING — V2 PROMPT INSTRUCTIONS (DO NOT EMIT)
+
+Replaces the Refactor Appendix structure below per the user's v2 spec
+(2026-05-21). Aligns Readwise→Obsidian processing with Ahrens / Konik /
+Matuschak / Forte / Allen / Adler / Abdaal practices.
+
+DECISION PHILOSOPHY
+  A prompt that decides is a prompt that ships. Emit committed
+  defaults; the human overrides at the Version History Diff step.
+  Do NOT ask the user which atoms to keep, which tags apply, or
+  whether to emit a Permanent candidate. Decide and let your catch
+  issues at the diff step.
+
+CORE RULES (13 decisions)
+
+  1. ATOM DENSITY CAP. Emit 2-5 Literature atoms (H3) and 0-3 Permanent
+     candidates (H4) per source. Defaults: 3 Literature, 1 Permanent.
+     If <2 strong claims exist, demote all to Fleeting and skip
+     Literature emission. If >5 atoms feel needed, the source is too
+     dense — flag it as needing chapter split.
+
+  2. QUOTES ON PERMANENT ARE OPTIONAL. Emit `> [!quote]` only when
+     wording is aphoristic or load-bearing. Default to a pointer
+     `[[Literature note#H1]]`. The Permanent claim above is always
+     in the user's voice, never paraphrased from source.
+
+  3. NAMING. Use Fleeting / Literature / Permanent. Never "Atomic,"
+     never "Zettel." Atomicity is a property check, not a type name.
+     Set `type: permanent` in YAML.
+
+  4. YAML DISCIPLINE.
+     Fleeting required: type, status, created, source_link, tags (5)
+     Literature required: type, status, created, source_title, author,
+                          citekey, tags (7)
+     Permanent required: type, id, status, created, origin, tags (6)
+     Everything else conditional. NEVER emit `[MISSING]` — omit the
+     field entirely. Absent ≠ missing.
+
+  5. KONIK CLAIM-HEADER RULES (every H3 Literature atom):
+     • Present tense, declarative
+     • Specific and actionable
+     • Searchable (keywords someone would actually search for)
+     • ≤10 words when possible (hard cap)
+     • Focus on main takeaway, not peripheral details
+     • Unique across the file
+     • If annotation exists outside the blockquote, mirror the
+       annotation's focus, not just the quote
+     • One-word definitions: `id123 definition: term is...`
+
+  6. ADLER INTEGRATION.
+     Fleeting: no Adler section.
+     Literature: Q1 ("what about as a whole?") + Q2 ("what in detail?")
+                 always in Author's Thesis + Key Arguments.
+     Literature: Q3 ("is it true?") + Q4 ("so what?") ONLY if
+                 reading_stage is analytical or syntopical. Default is
+                 inspectional — skip Q3/Q4 by default.
+     Permanent: no Adler (these are answers, not analyses).
+
+  7. GTD / THINGS 3 FLOW. Actions use:
+       - [ ] verb-phrase action — context #things
+     The #things tag is the Things automation ingest. The 2-minute rule
+     applies during weekly review, NOT capture. Cap Fleeting at 2
+     actions max.
+
+  8. FRICTION REDUCTION. Cut every YAML field derivable from Readwise
+     (url, accessed, doi, year, publisher_or_journal, edition_or_volume).
+     Bib Capsule in body if needed, not YAML.
+
+  9. BASB / PROGRESSIVE SUMMARIZATION layer mapping:
+     L1 (raw highlight)      → Readwise → Fleeting capture
+     L2 (bold key passages)  → claim header in Literature atom
+     L3 (highlight the highlights) → `> [!quote]` in Literature atom
+     L4 (executive summary)  → Author's Thesis in Literature note
+     L5 (remix in own words) → Permanent note
+
+ 10. PROOF_STATE IS OPT-IN. Empirical claims only. Values:
+     working | supported | refuted (drop "conjecture").
+     For non-empirical Permanent notes, use Appleton growth-stages in
+     `status`: seedling | budding | evergreen. Default new Permanent
+     notes to `status: seedling`.
+
+ 11. ATOMICITY ENFORCEMENT. Each Permanent claim is ONE declarative
+     present-tense sentence. If "and," "also," or comma-then-clause is
+     required, it is two notes. End each atom and each Permanent
+     candidate block with `<!-- atomicity: 1 idea ✓ -->` (parseable
+     marker for downstream tools).
+
+ 12. LINK ANNOTATIONS. Every wikilink in a dedicated Links section uses
+     `- [[Title]] — because <relationship>`. Allowed types:
+     extends, contrasts, applies-in, evidence-for. Bare `[[wikilinks]]`
+     allowed only in inline prose with contextual sentences.
+
+ 13. KONIK TRIAGE BLOCK. Literature notes open with the five-callout
+     triage block (Lingering Questions, Article Ideas, Cross Reference,
+     Fiction & Worldbuilding, Vocabulary). Route every tagged highlight
+     into the matching callout. Empty callouts: keep the header, no
+     items beneath; do not delete.
+
+KONIK TAG TAXONOMY (canonical — use only these seven)
+
+  Tag           Meaning                              Routes to callout
+  ----          -------                              -----------------
+  #xref         Relates to existing notes,           Cross Reference
+                no article yet (DEFAULT)
+  #bmf          Backwards mapping fiction —          Fiction & Worldbuilding
+                connection to fiction
+  #addendum     Relates to an article the user       Article Ideas
+                has already written
+  #articleseed  Idea for a new, mostly unrelated     Article Ideas
+                article
+  #storystem    Strong fiction idea                  Fiction & Worldbuilding
+  /#storyidea
+  #share        Info to share with a specific        (inline; Action handoff)
+                person/group
+  #aphorisms    Timeless advice                      (inline; promote to
+                                                      Permanent if reusable)
+
+  Annotations with `?` or "I should research..." → Lingering Questions
+  callout. One-word definitions → Vocabulary callout. Untagged → #xref.
+
+QUALITY GATES (run before declaring the source processed)
+
+  1. Verbatim quote check: every H3 has `> [!quote] ID:rw_{id}` whose
+     content matches the Readwise highlight character-for-character.
+     No paraphrasing.
+  2. Atomicity check: every Permanent candidate ends with
+     `<!-- atomicity: 1 idea ✓ -->`. Mental test: does the claim need
+     "and" or "also"? If yes, split.
+  3. Link annotation check: every wikilink in Links sections has
+     `— because <relationship>` with one of the four allowed types.
+  4. YAML hygiene: no `[MISSING]` strings anywhere. Optional fields
+     filled or omitted.
+  5. Konik triage check: every tagged highlight appears in exactly one
+     callout. Untagged → Cross Reference.
+  6. Version History Diff readiness: `[view highlight]` links present
+     and intact. `ID:rw_{id}` markers unchanged. Quote text not altered.
+
+COMMON FAILURE MODES (do NOT do these)
+
+  • Don't emit `[MISSING]` anywhere. Omit fields instead.
+  • Don't quote in a Permanent claim body. Claim is the user's voice.
+    Quotes live in the optional Evidence block only.
+  • Don't violate the one-idea rule to pack more into one Permanent
+    note. Two ideas = two notes.
+  • Don't paraphrase quotes in Literature atoms. Atomizer's verbatim
+    match depends on character-exact content.
+  • Don't pad to 5 atoms when 3 are strong and 2 would be weak.
+    Resonance filter beats completionism.
+  • Don't drop `[view highlight]` links when transforming. Konik flags
+    this as a known LLM failure.
+  • Don't auto-add `proof_state`. Empirical claims only.
+  • Don't auto-add Q3/Q4 Adler when reading_stage is inspectional.
+  • Don't emit Template Library / note-shape reference content of any
+    kind, and don't emit unrendered {{...}} placeholders. That material
+    lives in template_library_reference.md, not in your output.
+  • Don't ask the user which atoms to keep, which tags apply, whether
+    to emit a Permanent candidate, or what title to use. Decide.
+
+OVERRIDE CONDITIONS (when to depart from defaults)
+
+  Default                   Override when                            New value
+  -------                   -------------                            ---------
+  3 Literature atoms        Dense chapter with 5+ distinct claims    Up to 5
+  3 Literature atoms        <2 strong claims                         0 (demote
+                                                                     to Fleeting)
+  1 Permanent candidate     Claim reusable across unrelated          Up to 3
+                            projects (Matuschak test)
+  1 Permanent candidate     No claim survives atomicity +            0
+                            reusability filter                       (explicit)
+  No proof_state            Empirical and testable                   Add proof_state:
+                                                                     working +
+                                                                     Tests/falsifiers
+  status: seedling          ≥1 link in, ≥1 link out, annotated       budding
+  status: budding           Actively linked from ≥2 Permanent        evergreen
+  No Q3/Q4 Adler            reading_stage: analytical or syntopical  Full Evaluation
+
+INPUT SHAPE A — fresh import (no claim headers yet):
+  ### id286148681
+  > [Quote content]
+  [annotation if present]
+  [view highlight](readwise://...)
+  Transform to: ### id286148681 [≤10-word claim] per Konik rules.
+  Quote stays untouched.
+
+INPUT SHAPE B — already-processed file being re-run:
+  ### id286148681 existing claim header
+  > [Quote content]
+  Leave the existing claim header alone unless it violates Konik rules
+  (>10 words, vague, duplicates another). If so, replace.
+
+OUTPUT ORDER (within the Literature note that downstream gets):
+  1. Triage callouts at top (Konik routing layer)
+  2. → Things 3 action handoff (max 2)
+  3. Bib capsule (1 line)
+  4. Author's thesis (Adler Q1+Q2)
+  5. Key arguments (3 bullets max)
+  6. Evaluation (Adler Q3+Q4) — conditional
+  7. Notes (Literature atoms) — 2-5 H3 blocks
+  8. Permanent candidates — 0-3 wikilink references
+  9. Processing checklist
+ 10. Refactor Appendix — the structured emit block
+
+PRECEDENCE WHEN SOURCES CONFLICT (use this order):
+  1. Ahrens for naming and atomicity
+  2. Konik for operational workflow
+  3. Matuschak for atom shape and link discipline
+  4. Forte for friction reduction
+
+END-OF-RUN SUMMARY (emit after the Refactor Appendix)
+
+  ```
+  Processed: {{source_title}}
+  - Literature atoms: N / 5 cap
+  - Permanent candidates: N / 3 cap
+  - Fleeting items: N
+  - Things 3 actions: N / 2 cap
+  - Konik tags used: [list]
+  - Triage callouts populated: [list]
+  - Quality gates: [✓/✗ per gate]
+  - Override conditions triggered: [list, or "none"]
+  ```
+=================================================================== -->
+
+## 🔄 Refactor Appendix — {{source_title}}
+
+> Density: 2–5 Literature atoms (H3), 0–3 Permanent candidates (H4).
+> Defaults: 3 Literature, 1 Permanent. Resonance filter: if you can't
+> articulate in one line why a claim matters, drop it.
+>
+> Konik claim-header rules: present tense, declarative, ≤10 words when
+> possible, searchable, unique, mirrors annotation focus if present.
+>
+> Atomicity: one declarative sentence per atom. "and"/"also" → split.
+>
+> Tag pool: #bmf · #addendum · #xref · #articleseed · #storystem · #share · #aphorisms
+
+### 📚 Literature Atoms (H3)
+
+#### [H1] {≤10-word present-tense claim header}
+> [!quote] ID:rw_{readwise_id}
+> {≤25 words, exact verbatim — mandatory; atomizer depends on this}
+
+**Context & use**:
+- {Where in source — page or timestamp}
+- {Why this matters; mirror annotation focus if present}
+
+**Tags**: #xref [+ applicable from canonical pool]
+**Highlight**: [view highlight](readwise://...)
+
+<!-- atomicity: 1 idea ✓ -->
+
+#### [H2] {claim} … (2–5 total)
+
+### 🧠 Permanent Candidates (H4)
+
+#### [P1] {Concept-handle title — declarative, Matuschak "API" style}
+**Claim** (one sentence, the user's voice): {…}
+**Evidence pointer**: [[#H1]] {optionally include `> [!quote]` if aphoristic}
+**Scope & conditions**: {when it holds; counterexamples}
+**Links** (≥1 with annotation):
+- [[Broader-concept]] — because extends
+- [[Sibling-note]] — because contrasts on {dimension}
+- [[Application]] — because applies-in {context}
+
+**Optional**: `proof_state: working` (empirical only) | `## Tests / falsifiers` (if working)
+
+<!-- atomicity: 1 idea ✓ -->
+
+#### [P2] … (0–3 total)
+
+### ✏️ Fleeting Queue
+
+- [F1] {short action or open question} — {URL or context} #fleeting #inbox
+- [F2] …
+
+### → Things 3 (max 2 actions)
+
+- [ ] {verb-phrase action} — {context} #things
+

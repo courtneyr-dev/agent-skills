@@ -1,0 +1,70 @@
+# wiki-cycle registry — copy to wikis.yml and register your own wikis.
+# wikis.yml is gitignored: it holds absolute paths from your machine.
+#
+# Fields
+#   slug                      what a scheduled run passes; state lives at state/<slug>.json
+#   aliases                   phrases you actually say; matched lowercase, prefix or substring
+#   dir                       wiki root, absolute path
+#   claude_md                 the schema file the cycle reads before ingesting. null means none
+#                             exists, and the cycle runs lint + report only
+#   source_folders            absolute paths the scan walks with `find -newermt`. Only list paths
+#                             that exist — a typo here is silently skipped as "missing folder"
+#   bulk_synced               paths within source_folders that an external service rewrites on
+#                             every sync (read-later exports, notes mirrors). For these, file
+#                             mtime is meaningless: a hit counts only if `updated` frontmatter or
+#                             the body changed. Omitting this is the single most common way this
+#                             skill returns a whole folder every run
+#   candidate_source_folders  guesses, not scanned. Promote once the wiki's CLAUDE.md names them
+#   chat_channels             channel ids read by your chat integration; empty list skips the
+#                             chat step entirely. Confirm each id before the first run — most
+#                             clients return the same "not found" for a bad id and a quiet window
+#   cadence                   weekly | monthly — sets the first-run window and intended schedule
+#   first_clean_run           null until a human accepts a run's report. A scheduler should read
+#                             this field, so every wiki stays on-demand until someone signs off
+#   sources_status            confirmed = every listed folder was named by the wiki's CLAUDE.md
+#                             and exists on disk; guessed = candidates only; none = no note
+#                             sources by design, or a stub wiki
+
+vault: /absolute/path/to/your/notes
+report_dir: /absolute/path/to/your/notes/Reports
+
+# Optional. Names the tool the chat step should use; omit to skip chat everywhere.
+chat_tool: null
+
+wikis:
+
+  # A wiki with note sources and no chat.
+  - slug: example-topic
+    aliases: [example, example topic, sample wiki]
+    dir: /absolute/path/to/your/notes/Projects/wiki-example-topic
+    claude_md: /absolute/path/to/your/notes/Projects/wiki-example-topic/CLAUDE.md
+    source_folders:
+      - /absolute/path/to/your/notes/Projects/wiki-example-topic/raw
+      - /absolute/path/to/your/notes/Areas/Example Topic
+      - /absolute/path/to/your/notes/Resources/Reading Exports
+    bulk_synced:
+      - /absolute/path/to/your/notes/Resources/Reading Exports
+    candidate_source_folders: []
+    chat_channels: []
+    cadence: weekly
+    first_clean_run: null
+    sources_status: confirmed
+
+  # A wiki that also reads a couple of community channels.
+  - slug: example-community
+    aliases: [community, community wiki, ecosystem]
+    dir: /absolute/path/to/your/notes/Projects/wiki-example-community
+    claude_md: /absolute/path/to/your/notes/Projects/wiki-example-community/CLAUDE.md
+    source_folders:
+      - /absolute/path/to/your/notes/Projects/wiki-example-community/raw
+    bulk_synced: []
+    candidate_source_folders:
+      - /absolute/path/to/your/notes/Inbox
+    chat_channels:
+      - id: "<channel-id-from-your-chat-client>"
+        name: "#example-channel"
+      - id: "<channel-id-from-your-chat-client>"
+        name: "#example-announcements"
+    cadence: monthly
+    first_clean_run: null
+    sources_status: confirmed

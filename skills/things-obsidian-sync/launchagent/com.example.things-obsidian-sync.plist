@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.example.things-obsidian-sync</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Developer/CommandLineTools/usr/bin/python3</string>
+        <string>-u</string>
+        <string>$HOME/.agents/skills/things-obsidian-sync/scripts/sync.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>$HOME/.agents/skills/things-obsidian-sync</string>
+
+    <key>StartInterval</key>
+    <integer>900</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <key>StandardOutPath</key>
+    <string>$HOME/.agents/skills/things-obsidian-sync/logs/sync.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>$HOME/.agents/skills/things-obsidian-sync/logs/sync.error.log</string>
+</dict>
+</plist>

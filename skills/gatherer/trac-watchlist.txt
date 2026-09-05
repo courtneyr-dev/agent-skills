@@ -1,0 +1,5 @@
+# WordPress core Trac tickets the user owns or follows: one id per line, optional note after it.
+# The Trac MCP cannot search by owner, reporter, or cc, so this list is the "follows" filter.
+# Closed tickets drop out of the daily note on their own; prune whenever convenient.
+# Example:
+# 63290  Cover block overlays did not display after the 6.8 update

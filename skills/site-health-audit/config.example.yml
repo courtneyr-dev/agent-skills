@@ -1,0 +1,150 @@
+# site-health-audit — example.com
+# The `host:`, `security_layer:`, and `cache_steps:` blocks are the only host-bound parts.
+# Swap those three when the site moves; leave the rest.
+
+site:
+  url: "https://example.com"
+  bare_domain: "example.com"
+  admin_url: "https://example.com/wp-admin/"
+  title: "example.com"
+  latest_post_source: "https://example.com/wp-json/wp/v2/posts?per_page=1&_fields=link"
+
+report:
+  dir: "$VAULT_DIR/Areas/Site Health"
+  filename: "{date}-site-health-report.md"
+  previous_glob: "20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]*.md"   # older Cowork-era files are YYYY-MM-DD.md; both count
+  tested_by: "Claude Code (site-health-audit)"
+
+browser:
+  channel: "Claude Browser pane (mcp__Claude_Browser) or Claude in Chrome"
+  admin_session: "existing cookie only; logging in is off-limits — record 'not readable this run'"
+
+# ---------------------------------------------------------------- host block --
+host:
+  cron: "server-side; DISABLE_WP_CRON is true, so action_scheduler_run_queue 'late' is expected"
+  cert_expiry_warn_days: 30
+  owns:
+    - "SSL/TLS grade, ciphers, OCSP stapling, certificate renewal"
+    - "server config, disk space, file permissions"
+    - "edge cache TTL for static assets"
+
+security_layer:
+  name: "Sucuri WAF (Cloudproxy); Cloudflare headers (cf-ray, cf-cache-status) observed in front of it since 2026-08-30"
+  owns:
+    - "Referrer-Policy (theme removes the origin copy on purpose)"
+    - "bot-blocking signals reported by Is It Agent Ready"
+    - "edge caching of pages together with their headers"
+  cache_clear:
+    page: "https://example.com/wp-admin/admin.php?page=sucuriscan_firewall"
+    global: "top button 'Clear Firewall Cache' → green 'is being cleared' banner"
+    path: "set #firewall-clear-cache-path-input to '/' then click #firewall-clear-cache-path-button via JS; re-find refs after the banner inserts"
+    on_api_failure: "record 'API failed' and continue"
+  cloudflare_flush: none    # no flush path known; record cf-cache-status from the homepage response
+
+cache_steps:   # in order; 3 s between steps, 30 s after the last
+  - name: "Host flush"
+    action: "JS-click the #wpadminbar anchor whose text is 'Flush Cache'; do not read its href"
+    confirm: "network: wpaas_action=flush_cache (start request tracking first; the flush redirects with no admin notice)"
+  - name: "Perfmatters used CSS"
+    where: "admin bar → 'Perfmatters' → 'Clear Used CSS (All)'"
+    confirm: "notice: Used CSS cleared."
+  - name: "Perfmatters minified JS/CSS"
+    where: "admin bar → 'Perfmatters' → 'Clear Minified JS/CSS'"
+    confirm: "notice: Minified JS/CSS cleared."
+  - name: "Object cache"
+    where: "Object Cache Pro (MU) 1.25.x with PhpRedis — no admin-bar flush item"
+    confirm: none          # record n/a
+  - name: "WAF cache"
+    where: "security_layer.cache_clear — global, then path '/'"
+    confirm: "banner: is being cleared"
+  - name: "Host flush (final)"
+    same_as: "Host flush"
+# ------------------------------------------------------------ end host block --
+
+plugins:
+  performance:
+    name: "Perfmatters"
+    admin: "https://example.com/wp-admin/options-general.php?page=perfmatters"
+    script_manager: "https://example.com/?perfmatters"
+    delay_js_list: "Perfmatters → JavaScript → Delay JavaScript"
+    code_snippets: "Perfmatters → Code → Add Snippet → PHP, Frontend Only"
+  seo:
+    name: "Yoast SEO"
+    dashboard: "https://example.com/wp-admin/admin.php?page=wpseo_dashboard"
+    settings: "https://example.com/wp-admin/admin.php?page=wpseo_page_settings"
+  accessibility:
+    name: "Accessibility Checker Pro"
+    issues: "https://example.com/wp-admin/admin.php?page=accessibility_checker_issues"
+  ai_visibility:
+    name: "Yoast SEO AI+ Brand Insights"
+    url: "https://my.yoast.com"
+    session: "separate from wp-admin; expires on its own"
+  consent: "Complianz — centered modal in a clean session, corner 'Manage consent' button once cookied; mobile LCP candidate"
+
+frontend:
+  regression_script_id: "wp-i18n-js-after"    # count must be 0; the fix is a Perfmatters PHP snippet that strips the inline script
+
+headers:
+  # Verified 2026-08-15 from theme source plus runtime responses:
+  # vault note "Projects/example.com Site Health/Canonical source and header ownership.md".
+  owners:
+    Content-Security-Policy: "you-child theme inc/security-headers.php (enforced and report-only)"
+    Strict-Transport-Security: "you-child theme inc/security-headers.php"
+    X-Frame-Options: "you-child theme inc/security-headers.php"
+    X-Content-Type-Options: "you-child theme inc/security-headers.php"
+    Permissions-Policy: "you-child theme inc/security-headers.php"
+    Referrer-Policy: "Sucuri edge"
+    Reporting-Endpoints: "mu-plugin you-spec-compliance.php (manual scp deploy; CI does not ship mu-plugins)"
+  note: "headers are cached with pages at the edge; a change shows on cache-busted URLs first"
+
+email:
+  mx_provider: "Microsoft 365"
+  expected_mx: "you-dev.mail.protection.outlook.com"
+  expected_spf: "v=spf1 include:secureserver.net -all"    # re-verify after any DNS or host move
+  spf_covers_mx_via: "secureserver.net → spf-0.secureserver.net → include:spf.protection.outlook.com (3 lookups)"
+  dkim_selectors: ["selector1", "selector2", "default", "google", "k1", "s1"]
+  dkim_enable_where: "Microsoft 365 admin center → Defender → Policies → Email authentication → DKIM (issues selector1/selector2 CNAMEs to publish at host.dns_provider)"
+  dmarc_first_policy: "v=DMARC1; p=none; rua=mailto:<address>"
+  live_tests:
+    cadence_days: 28
+    requires_go_ahead: true      # sends real mail — skip with a note unless the user approved it this session
+    smtp_test_path: "WP Mail SMTP → Tools → Email Test"
+    test_account: "create per run; delete afterwards"
+
+social:
+  default_og_image: ""           # empty = compare against the homepage og:image read this run
+  unfurler: "https://cardyb.bsky.app/v1/extract?url="
+
+checks:   # false = skip and mark n/a
+  ssl_labs: true
+  pagespeed: true
+  accessibility_plugin: true
+  seo_plugin: true
+  ai_visibility: true
+  security_headers: true
+  email_auth: true
+  rich_results: true
+  social_previews: true
+  wave: true
+  carbon: true
+  agent_ready: true
+  wp_site_health: true
+
+leave_as_is:   # recorded and diffed, never acted on
+  - "Site Health: 'remove inactive plugins' — kept on purpose"
+  - "Site Health: 'remove inactive themes' — kept on purpose"
+  - "Site Health: action_scheduler_run_queue late — host cron; a finding only when another event is late too"
+  - "Site Health: Consent API non-conformance list — plugin developers' work; diff the list week to week"
+  - "SPF names the host provider while MX is Microsoft 365 — the include chain covers the MX; expand it before calling it a mismatch"
+
+report_only:   # flagged with the owner, never fixed by this skill
+  - "SSL/TLS grade, ciphers, OCSP stapling, certificate — host"
+  - "Referrer-Policy and any other edge-emitted header — security layer"
+  - "Static-asset cache TTL at the edge — security layer / host"
+  - "Bot-blocking signals in Is It Agent Ready — security layer"
+  - "llms.txt and robots.txt crawler directives — the user's decision"
+  - "Yoast 'Not Analyzed' counts — manual editor work"
+  - "Search Console metric movement — organic"
+  - "Website Carbon — follows page weight"
+  - "AI visibility scores — content and authority, not a fix"
+  - "Disk space, file permissions, server config — host"
