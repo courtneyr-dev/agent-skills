@@ -4,14 +4,14 @@ Skills for coding agents — Claude Code, Cursor, Codex, OpenClaw, Gemini CLI, o
 that reads a `SKILL.md`. A skill is just a directory with instructions; the only thing that
 varies between agents is where they look for it.
 
-**36 skills here**, plus [77 more](docs/CATALOG.md) that live in other
+**34 skills here**, plus [79 more](docs/CATALOG.md) that live in other
 people's repos and install from their own sources.
 
 ---
 
 ## Start here
 
-Do not install all 36. Agents load every skill's name and description into context to
+Do not install all 34. Agents load every skill's name and description into context to
 decide what to invoke, and that listing is capped — past a few dozen skills, agents start
 truncating and some drop descriptions entirely, which makes *every* skill trigger worse. Install
 the handful you will actually use.
@@ -28,7 +28,7 @@ These are the ones the author actually runs, counted from real transcripts over
 | [`credit-routing`](skills/credit-routing/) | 11 | Decide what to delegate, to which model, at what effort — before starting the work. |
 | [`synthesis-backlog`](skills/synthesis-backlog/) | 5 | Triage what is unprocessed: what to read, what needs synthesis, what got done. |
 
-The other 28 did not fire once in that window. Some are new, some are situational, and
+The other 26 did not fire once in that window. Some are new, some are situational, and
 some you will never need — which is the point of installing by path rather than wholesale.
 
 ## Install
@@ -72,7 +72,7 @@ that. Read it first.
 | [`-p reading`](docs/CATALOG.md#reading-readwise) | 6 | Turn a read-later queue and highlights into notes you actually reuse. |
 | [`-p pkm`](docs/CATALOG.md#pkm-obsidian) | 7 | Vault hygiene, wikis as memory, decision records, daily gathering, task sync. |
 | [`-p faith`](docs/CATALOG.md#faith-church-notes) | 2 | Sermon notes, scripture study, and Sunday bulletins turned into structured notes. |
-| [`-p writing`](docs/CATALOG.md#writing) | 7 | Drafting and de-slopping prose, docs, commits, and long-form content. |
+| [`-p writing`](docs/CATALOG.md#writing) | 5 | Drafting and de-slopping prose, docs, commits, and long-form content. |
 | [`-p dev`](docs/CATALOG.md#dev-workflow) | 10 | Routing work between models, repo hygiene, scheduling, and notifications. |
 
 **[Full catalog →](docs/CATALOG.md)** — every skill, what it does, an example of it running,
@@ -89,6 +89,10 @@ The largest single body of work here is
 [poteto](https://github.com/poteto) (Lauren Tan)** — 44 skills, MIT. Worth stating plainly:
 `cursor/plugins` has no root LICENSE and licenses each plugin directory instead, so checking the
 repo root reports "unlicensed" and is wrong.
+
+`explainer` and `deepdive` are **[Dave Saunders](https://github.com/nemock)'** —
+[video-explainer-system](https://github.com/nemock/video-explainer-system), MIT. They were vendored
+here in error; the bodies were his verbatim and only the description line differed.
 
 Skills with **no upstream license at all** are linked, never copied — no license means all
 rights reserved, however freely something is shared. Four more are withheld entirely because an

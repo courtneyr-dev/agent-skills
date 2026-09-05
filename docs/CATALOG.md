@@ -184,27 +184,11 @@ Commit messages, PRs, and issues that read like a person wrote them under time p
 
 <sub>**68 runs** / 67 sessions</sub>
 
-### [`deepdive`](../skills/deepdive/)
-
-Generate a long-form explainer or tutorial script on a topic.
-
-*"deep dive on X" → a long-form explainer with the parts most people skip.*
-
-<sub>not run in this window</sub>
-
 ### [`email-draft-review`](../skills/email-draft-review/)
 
 Triage an inbox and prepare replies — drafts only, never sends.
 
 *"triage my inbox" → replies prepared for the mail that needs answers. Drafts only; it never sends.*
-
-<sub>not run in this window</sub>
-
-### [`explainer`](../skills/explainer/)
-
-Turn a topic or source document into a short explainer video or deck.
-
-*"turn this into a Short" → a script and shot list from a topic or a source document.*
 
 <sub>not run in this window</sub>
 
@@ -407,6 +391,8 @@ These belong to their authors and are never copied here. Each links to the **ori
 | [`unslop`](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
 | [`why`](https://github.com/cursor/plugins/tree/main/pstack/skills/why) | [cursor/plugins](https://github.com/cursor/plugins)<br><sub>via courtneyr-dev/plugins (fork)</sub> | MIT<br>Copyright (c) 2026 Lauren Tan (poteto) |
 | [`librarium`](https://github.com/jkudish/librarium) | [jkudish/librarium](https://github.com/jkudish/librarium) | MIT |
+| [`deepdive`](https://github.com/nemock/video-explainer-system/tree/main/skills/deepdive) | [nemock/video-explainer-system](https://github.com/nemock/video-explainer-system) | MIT<br>Copyright (c) 2026 Dave Saunders |
+| [`explainer`](https://github.com/nemock/video-explainer-system/tree/main/skills/explainer) | [nemock/video-explainer-system](https://github.com/nemock/video-explainer-system) | MIT<br>Copyright (c) 2026 Dave Saunders |
 | [`book-review`](https://github.com/readwiseio/readwise-skills/tree/main/skills/book-review) | [readwiseio/readwise-skills](https://github.com/readwiseio/readwise-skills) | NONE — no redistribution |
 | [`build-persona`](https://github.com/readwiseio/readwise-skills/tree/main/skills/build-persona) | [readwiseio/readwise-skills](https://github.com/readwiseio/readwise-skills) | NONE — no redistribution |
 | [`feed-catchup`](https://github.com/readwiseio/readwise-skills/tree/main/skills/feed-catchup) | [readwiseio/readwise-skills](https://github.com/readwiseio/readwise-skills) | NONE — no redistribution |
@@ -439,6 +425,4 @@ An earlier third-party copy exists and authorship could not be established.
 ## Usage
 
 Run counts from the author's own transcripts over the window shown — how often each skill actually fired, not how useful it might be. A zero means it did not run in that window, which for recently-added skills means nothing yet.
-
-Counts come from parsing the author's own Claude Code transcripts. They are published because a list of what exists is less useful than evidence of what earns its place — and because most skills in most collections never fire at all.
 

@@ -13,8 +13,8 @@
     "gemini-cli": "~/.gemini/skills"
   },
   "counts": {
-    "vendored": 36,
-    "external": 77,
+    "vendored": 34,
+    "external": 79,
     "external_suite_members": 58,
     "excluded_private": 10,
     "plugin_marketplaces": 31,
@@ -111,20 +111,6 @@
       "example": "after a decision is made \u2192 the reasoning filed into your vault with frontmatter, backlinks, and an index row."
     },
     {
-      "name": "deepdive",
-      "kind": "vendored",
-      "path": "skills/deepdive",
-      "license": "MIT",
-      "redistributable": true,
-      "description": "Use when the user says 'deep dive', 'long-form explainer', '20-minute video', 'YouTube tutorial video', or runs /deepdive <topic>. Generation only; it never posts.",
-      "summary": "Generate a long-form explainer or tutorial script on a topic.",
-      "usage": {
-        "runs": 0,
-        "sessions": 0
-      },
-      "example": "\"deep dive on X\" \u2192 a long-form explainer with the parts most people skip."
-    },
-    {
       "name": "devrel-engine",
       "kind": "vendored",
       "path": "skills/devrel-engine",
@@ -151,20 +137,6 @@
         "sessions": 0
       },
       "example": "\"triage my inbox\" \u2192 replies prepared for the mail that needs answers. Drafts only; it never sends."
-    },
-    {
-      "name": "explainer",
-      "kind": "vendored",
-      "path": "skills/explainer",
-      "license": "MIT",
-      "redistributable": true,
-      "description": "Use when the user says 'make an explainer video', 'explainer deck', 'turn this into a Short, Reel, or TikTok', or runs /explainer <topic>, from a topic or a source document. Generation only; it never posts.",
-      "summary": "Turn a topic or source document into a short explainer video or deck.",
-      "usage": {
-        "runs": 0,
-        "sessions": 0
-      },
-      "example": "\"turn this into a Short\" \u2192 a script and shot list from a topic or a source document."
     },
     {
       "name": "field-notes-draft",
@@ -710,6 +682,38 @@
       "redistributable": true,
       "license_note": "Permissive. Redistribution permitted with copyright notice.",
       "description": "Use when the user has an AI-generated answer, analysis, or recommendation they need to pressure-test before trusting. Triggered by \"is this right\", \"pressure-test this\", \"I don't trust this answer\", \"validate this\", or any moment where conf"
+    },
+    {
+      "name": "deepdive",
+      "kind": "external",
+      "source": {
+        "repo": "nemock/video-explainer-system",
+        "path": "skills/deepdive",
+        "ref": "main"
+      },
+      "license": "MIT",
+      "copyright": "Copyright (c) 2026 Dave Saunders",
+      "redistributable": true,
+      "license_note": "By Dave Saunders (@nemock), MIT. Was vendored here in error under this repo's own copyright; the body is his verbatim and only the description line differed. Install from source.",
+      "summary": "Generate a long-form explainer or tutorial script on a topic.",
+      "example": "\"deep dive on X\" \u2192 a long-form explainer with the parts most people skip.",
+      "description": "Use when the user says 'deep dive', 'long-form explainer', '20-minute video', 'YouTube tutorial video', or runs /deepdive <topic>. Generation only; it never posts."
+    },
+    {
+      "name": "explainer",
+      "kind": "external",
+      "source": {
+        "repo": "nemock/video-explainer-system",
+        "path": "skills/explainer",
+        "ref": "main"
+      },
+      "license": "MIT",
+      "copyright": "Copyright (c) 2026 Dave Saunders",
+      "redistributable": true,
+      "license_note": "By Dave Saunders (@nemock), MIT. Was vendored here in error under this repo's own copyright; the body is his verbatim and only the description line differed. Install from source.",
+      "summary": "Turn a topic or source document into a short explainer video or deck.",
+      "example": "\"turn this into a Short\" \u2192 a script and shot list from a topic or a source document.",
+      "description": "Use when the user says 'make an explainer video', 'explainer deck', 'turn this into a Short, Reel, or TikTok', or runs /explainer <topic>, from a topic or a source document. Generation only; it never posts."
     },
     {
       "name": "feed-catchup",
@@ -2223,9 +2227,7 @@
       "description": "Drafting and de-slopping prose, docs, commits, and long-form content.",
       "skills": [
         "anti-slop-git-writing",
-        "deepdive",
         "email-draft-review",
-        "explainer",
         "field-notes-draft",
         "learning-path",
         "technical-writing"
@@ -2290,6 +2292,13 @@
       "license": "MIT",
       "source": "https://github.com/cursor/plugins/tree/main/pstack",
       "note": "44 skills in this manifest come from pstack. MIT, so reuse is permitted with the copyright notice \u2014 but note that cursor/plugins carries no root LICENSE and licenses each plugin directory separately, so checking the repo root alone reports \"no license\" and is wrong."
+    },
+    {
+      "work": "video-explainer-system",
+      "author": "Dave Saunders (@nemock)",
+      "license": "MIT",
+      "source": "https://github.com/nemock/video-explainer-system",
+      "note": "explainer and deepdive come from here. First published 2026-06-01 and 2026-06-07."
     }
   ],
   "source_policy": "Every entry points at the ORIGINAL source, never an intermediary. Where a skill reached this machine through a fork or a collection, the manifest names the upstream that actually published it and the fork is recorded separately. Two checks make that reliable: read the upstream's own credits before treating it as the origin, and never conclude 'no license' from the repo root alone \u2014 cursor/plugins has no root LICENSE but licenses each plugin directory, so the root check reports unlicensed for 44 skills that are in fact MIT.",
