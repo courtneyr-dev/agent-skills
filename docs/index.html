@@ -35,7 +35,6 @@ input[type=search]:focus{outline:2px solid var(--accent);outline-offset:1px}
 .ex{margin:0 0 9px;color:var(--muted);font-size:.9rem;font-style:italic}
 .meta{display:flex;flex-wrap:wrap;gap:6px;font-size:.76rem}
 .tag{border:1px solid var(--line);border-radius:5px;padding:2px 7px;color:var(--muted)}
-.tag.runs{color:var(--accent);border-color:var(--accent)}
 .tag.nolic{color:var(--warn);border-color:var(--warn)}
 .empty{color:var(--muted);padding:28px 0;text-align:center}
 footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
@@ -56,9 +55,6 @@ mark{background:var(--accent);color:#fff;border-radius:2px;padding:0 1px}
 <div id="list"></div>
 
 <footer>
-  Run counts are from the author's own transcripts over <span id="win"></span> — how often each
-  skill actually fired, not how good it is. Zero often just means recently added.
-  <br><br>
   Skills marked <span class="tag nolic">no redistribution</span> have no upstream license, so they
   are linked and never copied. Install those from source.
 </footer>
@@ -75,18 +71,16 @@ function match(s){
   if(state.path && s.path!==state.path) return false;
   if(state.kind==='here' && s.kind!=='vendored') return false;
   if(state.kind==='external' && s.kind==='vendored') return false;
-  if(state.kind==='used' && !(s.runs>0)) return false;
   const q=state.q.trim().toLowerCase(); if(!q) return true;
   return (s.name+' '+s.summary+' '+s.example+' '+s.desc+' '+s.repo+' '+s.path).toLowerCase().includes(q);
 }
 function render(){
   const rows=DATA.skills.filter(match)
-    .sort((a,b)=>(b.runs-a.runs)||a.name.localeCompare(b.name));
+    .sort((a,b)=>(a.kind==='vendored'?0:1)-(b.kind==='vendored'?0:1)||a.name.localeCompare(b.name));
   el('count').textContent=`${rows.length} skill${rows.length===1?'':'s'}`;
   if(!rows.length){ el('list').innerHTML='<p class="empty">Nothing matches. Try a broader word.</p>'; return; }
   el('list').innerHTML=rows.map(s=>{
     const tags=[];
-    if(s.runs>0) tags.push(`<span class="tag runs">${s.runs} runs · ${s.sessions} sessions</span>`);
     if(s.path) tags.push(`<span class="tag">-p ${esc(s.path)}</span>`);
     tags.push(`<span class="tag">${s.kind==='vendored'?'in this repo':esc(s.repo||'external')}</span>`);
     if(s.license) tags.push(`<span class="tag${s.redistributable?'':' nolic'}">${esc(s.license)}${s.redistributable?'':' — no redistribution'}</span>`);
@@ -101,7 +95,7 @@ function render(){
   }).join('');
 }
 function chips(){
-  const c=[['','All'],['here','In this repo'],['external','External'],['used','Actually used']];
+  const c=[['','All'],['here','In this repo'],['external','External']];
   let html=c.map(([v,l])=>`<button class="chip" data-kind="${v}" aria-pressed="${state.kind===v}">${l}</button>`).join('');
   html+=Object.entries(DATA.paths).map(([k,v])=>
     `<button class="chip" data-path="${k}" aria-pressed="${state.path===k}">${esc(v.title)}</button>`).join('');
@@ -114,6 +108,6 @@ function chips(){
 }
 el('q').addEventListener('input',e=>{state.q=e.target.value;render();});
 fetch('skills.json').then(r=>r.json()).then(d=>{
-  DATA=d; el('win').textContent=d.window||'the recent window'; chips(); render();
+  DATA=d; chips(); render();
 }).catch(()=>{ el('list').innerHTML='<p class="empty">Could not load skills.json.</p>'; });
 </script>

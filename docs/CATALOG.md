@@ -1,8 +1,7 @@
 # Catalog
 
-Everything, grouped by install path. Counts are runs in the author's own transcripts over **2026-07-24 → 2026-09-05** — see [usage](#usage) for what that does and does not mean.
-
-Back to the [README](../README.md).
+Everything, grouped by install path. Back to the [README](../README.md), or use the
+[searchable version](https://courtneyr-dev.github.io/agent-skills/).
 
 ## WordPress sites — `-p wordpress`
 
@@ -14,15 +13,11 @@ Build and style sites with the Ollie block theme and Ollie Pro — tokens, patte
 
 *"build me a pricing page in Ollie" → block markup using the theme's own tokens and patterns, not generic HTML.*
 
-<sub>not run in this window</sub>
-
 ### [`site-health-audit`](../skills/site-health-audit/)
 
 Config-driven site audit: PageSpeed, accessibility, SEO, headers, SSL, email auth, carbon.
 
 *"run the site health audit" → a dated report: PageSpeed numbers, contrast failures, missing headers, SSL and DNS records, each with the check that produced it.*
-
-<sub>not run in this window</sub>
 
 ### [`website-audit`](../skills/website-audit/)
 
@@ -30,15 +25,11 @@ UX and information-architecture audit of any public URL, with findings ranked by
 
 *"audit example.com" → findings ranked by severity, each naming the page and the specific interaction that fails.*
 
-<sub>not run in this window</sub>
-
 ### [`weekly-site-health-audit`](../skills/weekly-site-health-audit/)
 
 Runs the site-health audit weekly and diffs it against last week.
 
 *"weekly site health" → the same report plus a week-over-week diff, so you see what moved rather than re-reading everything.*
-
-<sub>**3 runs** / 3 sessions</sub>
 
 ## Reading & Readwise — `-p reading`
 
@@ -50,15 +41,11 @@ Pull transcripts, summaries, and follow-ups from Plaud recordings.
 
 *"what did I record yesterday?" → the transcript, a summary, and the follow-ups pulled out.*
 
-<sub>not run in this window</sub>
-
 ### [`readwise-deep-read`](../skills/readwise-deep-read/)
 
 Save, read, and annotate a queue of URLs, adding inline highlights to the saved document.
 
 *paste five URLs → each saved, read, annotated with inline highlights, and written up with the claims separated from the commentary.*
-
-<sub>**107 runs** / 27 sessions</sub>
 
 ### [`readwise-methods-review`](../skills/readwise-methods-review/)
 
@@ -66,15 +53,11 @@ Weekly pass over what you read that changes how you work, written up as a review
 
 *"weekly methods review" → what you read that changes how you work, with the rest discarded.*
 
-<sub>not run in this window</sub>
-
 ### [`readwise-synthesis-pass`](../skills/readwise-synthesis-pass/)
 
 Connect new notes to existing ones across a vault — the maker half of maker/checker.
 
 *"run the synthesis pass" → new notes linked to existing ones, with a report of what connected and what stayed orphaned.*
-
-<sub>**17 runs** / 12 sessions</sub>
 
 ### [`synthesis-backlog`](../skills/synthesis-backlog/)
 
@@ -82,15 +65,11 @@ Triage what is unprocessed: what to read, what needs synthesis, what got done.
 
 *"what needs synthesis?" → a triaged list: what to read, what to process, what to drop.*
 
-<sub>**5 runs** / 3 sessions</sub>
-
 ### [`transcript-processing`](../skills/transcript-processing/)
 
 Turn meeting transcripts into notes and tracked actions.
 
 *point it at a folder of meeting transcripts → notes plus tracked actions, each attributed to who committed to it.*
-
-<sub>not run in this window</sub>
 
 ## PKM & Obsidian — `-p pkm`
 
@@ -102,15 +81,11 @@ File a finished decision record into a notes vault with frontmatter and backlink
 
 *after a decision is made → the reasoning filed into your vault with frontmatter, backlinks, and an index row.*
 
-<sub>not run in this window</sub>
-
 ### [`gatherer`](../skills/gatherer/)
 
 Pull open issues, PRs, watched tickets, and tasks into today’s daily note.
 
 *"what's on my plate?" → open issues, PRs, watched tickets and tasks pulled into today's note.*
-
-<sub>not run in this window</sub>
 
 ### [`obsid-link-builder`](../skills/obsid-link-builder/)
 
@@ -118,15 +93,11 @@ Build and normalize shareable Obsidian links, with correct URL encoding.
 
 *paste an obsidian:// link → a shareable URL with the vault and file parameters encoded correctly.*
 
-<sub>not run in this window</sub>
-
 ### [`things-obsidian-sync`](../skills/things-obsidian-sync/)
 
 Two-way sync between Things tasks and an Obsidian vault.
 
 *runs on a schedule → tasks and notes stay in step without you reconciling them by hand.*
-
-<sub>not run in this window</sub>
 
 ### [`vault-hygiene-checker`](../skills/vault-hygiene-checker/)
 
@@ -134,23 +105,17 @@ Verify a synthesis pass actually landed — the checker half of maker/checker.
 
 *"check the vault" → whether the last synthesis pass actually landed: broken links, orphans, frontmatter that lies.*
 
-<sub>**14 runs** / 13 sessions</sub>
-
 ### [`wiki-cycle`](../skills/wiki-cycle/)
 
 One maintenance pass over a registered wiki: scan, ingest, lint, report, record state.
 
 *"run the theology cycle" → one pass: scan what changed, ingest it by that wiki's rules, lint, write a report and run state.*
 
-<sub>not run in this window</sub>
-
 ### [`wiki-memory`](../skills/wiki-memory/)
 
 Staging-and-promotion flow that turns passing signals into durable wiki pages.
 
 *"remember this in the wiki" → the signal staged, deduplicated, and promoted into a durable page with an index entry.*
-
-<sub>**3 runs** / 3 sessions</sub>
 
 ## Faith & church notes — `-p faith`
 
@@ -162,15 +127,11 @@ Scholarly multi-translation passage study written into a vault.
 
 *"study Romans 8" → multiple translations, the scholarly reading, and the disagreements named rather than smoothed over.*
 
-<sub>not run in this window</sub>
-
 ### [`church-bulletin-to-obsidian`](../skills/church-bulletin-to-obsidian/)
 
 Turn a church bulletin image or text into a structured sermon-notes file.
 
 *photograph the bulletin → a sermon-notes file with the readings, liturgical date, and scaffolding to write into.*
-
-<sub>not run in this window</sub>
 
 ## Writing — `-p writing`
 
@@ -182,15 +143,11 @@ Commit messages, PRs, and issues that read like a person wrote them under time p
 
 *before committing → a message that says what changed and why, in the voice of someone who was there.*
 
-<sub>**68 runs** / 67 sessions</sub>
-
 ### [`email-draft-review`](../skills/email-draft-review/)
 
 Triage an inbox and prepare replies — drafts only, never sends.
 
 *"triage my inbox" → replies prepared for the mail that needs answers. Drafts only; it never sends.*
-
-<sub>not run in this window</sub>
 
 ### [`field-notes-draft`](../skills/field-notes-draft/)
 
@@ -198,23 +155,17 @@ Rank newsletter candidates from recent reading, then draft the issue once you pi
 
 *"Field Notes" → three ranked themes from the week's reading; pick one and it drafts the issue.*
 
-<sub>not run in this window</sub>
-
 ### [`learning-path`](../skills/learning-path/)
 
 Plan what to learn next, or run a retro on a path you finished.
 
 *"what should I learn next?" → a sequence with milestones, each with a pass/fail check.*
 
-<sub>not run in this window</sub>
-
 ### [`technical-writing`](../skills/technical-writing/)
 
 Turn in-progress code into an article, tutorial, or docs page in your own voice.
 
 *"write this up" → the code you just wrote turned into an article that keeps the reasoning, not just the result.*
-
-<sub>not run in this window</sub>
 
 ## Dev workflow — `-p dev`
 
@@ -226,15 +177,11 @@ Delegate fully-specified mechanical work to Codex instead of doing it inline.
 
 *a fully-specified refactor → handed to Codex with the spec, and the result verified before you see it.*
 
-<sub>not run in this window</sub>
-
 ### [`credit-routing`](../skills/credit-routing/)
 
 Decide what to delegate, to which model, at what effort — before starting the work.
 
 *at the start of anything non-trivial → which model, what effort, and what to delegate, decided before the work starts.*
-
-<sub>**11 runs** / 11 sessions</sub>
 
 ### [`devrel-engine`](../skills/devrel-engine/)
 
@@ -242,15 +189,11 @@ Turn transcripts and community signals into a prioritized DevRel program.
 
 *paste a month of community signal → a prioritized program, not a summary.*
 
-<sub>not run in this window</sub>
-
 ### [`github-profile`](../skills/github-profile/)
 
 Improve a GitHub profile README, bio, pinned repos, and stats.
 
 *"make my profile look good" → README, bio, pinned repos and stats that say what you actually do.*
-
-<sub>not run in this window</sub>
 
 ### [`github-repo`](../skills/github-repo/)
 
@@ -258,15 +201,11 @@ Prepare a repo for open source: README, CONTRIBUTING, SECURITY, templates, relea
 
 *"prepare this for open source" → the files a stranger needs before they will trust your repo.*
 
-<sub>not run in this window</sub>
-
 ### [`job-search`](../skills/job-search/)
 
 Repeatable job scan across boards, ATS pages, email, LinkedIn, and chat, diffed each run.
 
 *"run the job scan" → today's roles diffed against yesterday: new, still open, closed, each scored.*
-
-<sub>not run in this window</sub>
 
 ### [`lmk`](../skills/lmk/)
 
@@ -274,15 +213,11 @@ Push a phone notification when long-running work finishes.
 
 *"LMK when you're done" → a phone push when the long job finishes, not a progress feed.*
 
-<sub>not run in this window</sub>
-
 ### [`loop-template`](../skills/loop-template/)
 
 Scaffold a scheduled job so it inherits the maker/checker pattern from the start.
 
 *"add an automation" → a scheduled job that inherits the maker/checker pattern instead of running unchecked.*
-
-<sub>not run in this window</sub>
 
 ### [`prop-for-that`](../skills/prop-for-that/)
 
@@ -290,15 +225,11 @@ React in CSS to runtime state CSS cannot see — checks for a native property fi
 
 *"react to scroll position in CSS" → the native property if one exists, and the minimal JS bridge if not.*
 
-<sub>not run in this window</sub>
-
 ### [`skill-sync`](../skills/skill-sync/)
 
 Keep GitHub-sourced skills updated, and audit which skills are used, dormant, or dead.
 
 *weekly → GitHub-sourced skills updated, plus an audit of which of yours are used, dormant, or dead.*
-
-<sub>not run in this window</sub>
 
 ## Companion repos
 
@@ -421,8 +352,4 @@ An earlier third-party copy exists and authorship could not be established.
 | `wp-github-actions` | [jdevalk/joost-blog](https://github.com/jdevalk/joost-blog) | GPL-3.0 |
 | `wp-readme-optimizer` | [jdevalk/joost-blog](https://github.com/jdevalk/joost-blog) | GPL-3.0 |
 | `wp-screenshots` | [flintfromthebasement/skills](https://github.com/flintfromthebasement/skills) | NONE |
-
-## Usage
-
-Run counts from the author's own transcripts over the window shown — how often each skill actually fired, not how useful it might be. A zero means it did not run in that window, which for recently-added skills means nothing yet.
 
