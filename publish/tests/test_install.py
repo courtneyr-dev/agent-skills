@@ -148,6 +148,53 @@ class NoPrivateOrExternalInstall(InstallerBase):
         self.assertIn("owned by their upstreams", out)
         self.assertEqual(os.listdir(self.codex), [])
 
+class SupportGrades(InstallerBase):
+    """The write gate is a safety mechanism: agents below L3 must not be written by a plain
+    --apply. If this inverted, an unverified harness would be bulk-installed silently."""
+
+    def setUp(self):
+        super().setUp()
+        self.cursor = os.path.join(self.home, ".cursor", "skills")
+        os.makedirs(self.cursor)
+
+    def test_grades_come_from_the_manifest(self):
+        rc, out = run(self.home, "--grades")
+        self.assertEqual(rc, 0)
+        import json
+        roots = json.load(open(os.path.join(ROOT, "manifest.json")))["skill_roots"]
+        for agent, v in roots.items():
+            if isinstance(v, dict) and "grade" in v:
+                self.assertIn(agent, out)
+                self.assertIn(v["grade"], out)
+
+    def test_l3_agent_is_linked_and_labelled_proven(self):
+        rc, out = run(self.home, "--dry-run", "-a", "codex")
+        self.assertEqual(rc, 0)
+        self.assertIn("L3 runtime-proven", out)
+        self.assertIn("LINK", out)
+        self.assertNotIn("PLAN", out)
+
+    def test_sub_l3_agent_is_planned_not_linked(self):
+        rc, out = run(self.home, "--dry-run", "-a", "cursor")
+        self.assertEqual(rc, 0)
+        self.assertIn("PLAN", out)
+        self.assertIn("L2 runtime-unverified", out)
+
+    def test_apply_refuses_to_write_sub_l3_by_default(self):
+        rc, out = run(self.home, "--apply", "-a", "cursor")
+        self.assertEqual(rc, 0)
+        self.assertEqual(os.listdir(self.cursor), [],
+                         "--apply must not write for an agent below L3 without --include-unverified")
+
+    def test_include_unverified_is_an_explicit_opt_in(self):
+        rc, out = run(self.home, "--apply", "--include-unverified", "-a", "cursor")
+        self.assertEqual(rc, 0)
+        self.assertTrue(os.path.islink(os.path.join(self.cursor, SAMPLE)))
+
+    def test_never_claims_fully_supported(self):
+        _, out = run(self.home, "--dry-run", "-a", "cursor")
+        self.assertNotIn("fully supported", out.lower())
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

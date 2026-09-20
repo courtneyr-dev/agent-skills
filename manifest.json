@@ -1,7 +1,7 @@
 {
   "name": "agent-skills",
   "version": "1.0.0",
-  "updated": "2026-09-05",
+  "updated": "2026-09-20",
   "description": "Portable agent skills for any SKILL.md-compatible coding agent, plus a manifest of external skills installed from their own upstreams.",
   "skill_format": "https://code.claude.com/docs/en/skills",
   "skills": [
@@ -2187,10 +2187,45 @@
   "skill_roots": {
     "_note": "~/.agents/skills is a neutral cross-agent mount, NOT automatically the canonical source. Its entries may be real skills or links to canonical sources owned elsewhere.",
     "mount": "~/.agents/skills",
-    "claude": "~/.claude/skills",
-    "codex": "~/.codex/skills",
-    "cursor": "~/.cursor/skills",
-    "openclaw": "~/.openclaw/skills",
-    "gemini": "~/.gemini/skills"
+    "claude": {
+      "path": "~/.claude/skills",
+      "grade": "L3",
+      "version_tested": "Claude Code 2.1.278",
+      "evidence": "listed in the session skill inventory, invoked, and a relative references/ file read"
+    },
+    "codex": {
+      "path": "~/.codex/skills",
+      "grade": "L3",
+      "version_tested": "codex-cli 0.149.0",
+      "evidence": "listed, invoked, and a relative references/ file read through a two-hop mount (~/.codex/skills -> ~/.agents/skills -> canonical)"
+    },
+    "cursor": {
+      "path": "~/.cursor/skills",
+      "grade": "L2",
+      "version_tested": "Cursor 3.18.25",
+      "evidence": "shipped app bundle resolves homeSkillsRoot() to ${home}/.cursor/skills; no headless runtime available (cursor-agent not installed), so invocation is unproven"
+    },
+    "openclaw": {
+      "path": "~/.openclaw/skills",
+      "grade": "L1",
+      "version_tested": "OpenClaw 2026.7.1-2",
+      "evidence": "45/45 production links into ../../.agents/skills observed; headless path needs a running Gateway, none started"
+    },
+    "gemini": {
+      "path": "~/.gemini/skills",
+      "grade": "L2",
+      "version_tested": "gemini-cli 0.36.0",
+      "evidence": "bundle implements SKILL.md discovery and contains the /.gemini/skills literal; runtime blocked, no auth method configured"
+    }
+  },
+  "support_grades": {
+    "_note": "Support grade is RUNTIME evidence, not filesystem compatibility. A path this installer can write is not proof the agent loads what is written there. Never raise a grade without a new runtime probe; see docs/PLATFORMS.md for the probe method.",
+    "_levels": {
+      "L3": "Runtime proven with resources: skill discovered, invoked, current content returned, and a relative file under the skill directory read.",
+      "L2": "Path/discovery implementation proven in the shipped product; runtime invocation unproven here.",
+      "L1": "Filesystem/topology observed in production; runtime unproven.",
+      "L0": "Unsupported or unverified."
+    },
+    "_verified": "2026-09-20"
   }
 }
