@@ -1,0 +1,37 @@
+name: publication
+
+# Validates the publication pipeline against THIS repository only.
+#
+# It deliberately does NOT run --check or --apply. Both need the private canonical skill
+# sources, which exist only on the maintainer's machine. CI verifies what it can honestly
+# verify: transform logic, policy integrity, public-authored protection, and that every
+# generated artifact still matches the lock recorded when it was published.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publication:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check pyyaml
+
+      - name: Publication tests
+        run: python3 publish/tests/test_publish.py
+
+      - name: Verify public artifacts against the lock
+        # No private canonical sources on the runner; this must pass without them.
+        run: python3 publish/publish_skills.py --verify-public

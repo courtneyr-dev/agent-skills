@@ -25,7 +25,7 @@ One script, no model in the loop: it collects open work from GitHub (`gh`), Word
 
 - Note: `$VAULT_DIR/Review/Daily/YYYY-MM-DD.md`. The section goes in front of `## 📥 Daily Inboxes` when that heading exists, else in front of Daily Routine, Time Log, or Metadata, else at the end. Its body sits between `<!-- gathered:start -->` and `<!-- gathered:end -->`. Things lines are plain bullets, not checkboxes, so things-obsidian-sync ignores them.
 - State: `$VAULT_DIR/Reports/_gatherer-state.json` holds the last run and each source's last good list. A source that fails shows that list marked stale instead of vanishing.
-- Trac watchlist: `trac-watchlist.txt` next to this file, one ticket id per line. The Trac MCP can't search by owner, reporter, or cc (`searchTickets` ignores those filters; `getTicket` returns reporter and cc blank, see `~/.claude/knowledge/wiki/tools/wordpress-trac-access.md`), so "tickets you owns or follows" is this list. When you say "follow ticket N" or "watch #N", append the id with a short note. Closed tickets stay listed but drop out of the section; the summary says "of N watched".
+- Trac watchlist: `trac-watchlist.txt` next to this file, one ticket id per line. The Trac MCP can't search by owner, reporter, or cc (`searchTickets` ignores those filters; `getTicket` returns reporter and cc blank, see `~/.claude/knowledge/wiki/tools/wordpress-trac-access.md`), so "tickets you own or follows" is this list. When you say "follow ticket N" or "watch #N", append the id with a short note. Closed tickets stay listed but drop out of the section; the summary says "of N watched".
 
 ## Failure modes
 

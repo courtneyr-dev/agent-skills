@@ -54,7 +54,7 @@ Scoring signal: each doc's tokens (title + summary + tags + site) vs. each MOC's
 
 **Triage flow ("triage my inbox"):**
 1. Run `inbox_triage.py`. Present the shortlist to the user.
-2. You approves which to deep-read (you're the gate — the loop proposes, you decides).
+2. you approve which to deep-read (you're the gate — the loop proposes, you decide).
 3. Run the **readwise-deep-read** pipeline on the approved IDs; they auto-log to the backlog (Phase 3).
 4. Caveat to keep honest: on a homogeneous feed (e.g. daily Twitter-list digests) the scoring discriminates weakly — that's expected; the value is on a diverse `new` inbox. Don't oversell a thread-hit count as a quality judgment; it's a relevance prior, not a verdict.
 

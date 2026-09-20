@@ -1,6 +1,6 @@
 ---
 name: lmk
-description: "Use when the user says 'LMK when you're done', 'let me know', 'notify me', 'ping me when you're done', or says you're stepping away and wants a phone push when the work finishes."
+description: "Use when the user says 'LMK when you're done', 'let me know', 'notify me', 'ping me when you're done', or says you are stepping away and wants a phone push when the work finishes."
 ---
 
 # lmk — Pushover push when the task finishes

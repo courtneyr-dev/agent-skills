@@ -9,7 +9,7 @@ description: "Use after any synthesis pass, or when the user says 'check the vau
 
 This is the **checker** in Osmani's maker/checker loop pattern, applied to the user's Zettelkasten instead of to code. The agent that *writes* permanent notes and MOC links is "too nice grading its own homework" — it claims a note links to 5 atoms without verifying those atoms exist, links resolve, or the note isn't a near-duplicate. Your own vault history has the cautionary tale (the "integration suite was always red — review-theater lesson": 11 PRs merged green that were actually broken). Same failure mode, different domain.
 
-This skill runs a **separate, skeptical pass** whose job is to *refute* the synthesis, then report findings to the user for approval. You stays the decision-maker — findings come to your, fixes happen only on your yes.
+This skill runs a **separate, skeptical pass** whose job is to *refute* the synthesis, then report findings to the user for approval. you stay the decision-maker — findings come to your, fixes happen only on your yes.
 
 It also pairs with the Karpathy "Goal-Driven Execution" principle in your CLAUDE.md: a synthesis pass should have a verifiable stop condition ("every new permanent note links to ≥2 existing atoms, is in exactly one MOC, quotes ≥1 verbatim source"), and this checker is what verifies it.
 

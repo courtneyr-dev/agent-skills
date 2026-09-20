@@ -1,0 +1,145 @@
+# Publication policy for courtneyr-dev/agent-skills
+#
+# mode: generated       -> public file is produced from the canonical source by the transforms below.
+#                          The generator owns it. Hand edits are drift and `--check` fails on them.
+# mode: public-authored -> the public file IS canonical. The generator MUST NEVER write it.
+#                          Validated for existence/licence only.
+#
+# Adding a skill: give it a mode. A skill with no mode is an error (fail closed) -- it is never
+# assumed to be generated.
+#
+# Retirement is explicit: add the name under `retired:` with a reason. A missing canonical source
+# NEVER deletes public output.
+version: 1
+canonical_root: ${CLAUDE_SKILLS:-~/.claude/claude-config/skills}
+public_root: skills
+defaults:
+  license: MIT
+  redistributable: true
+  transforms:
+  - full_name_and_agreement
+  - replace_personal_name
+  - second_person_owner
+  - vault_dir_variable
+  - normalize_home_path
+  - genericize_vault_name
+  - collapse_loop_reports_path
+  - strip_para_number_prefix
+  - genericize_domain
+  - genericize_identifiers
+  - genericize_personal_site
+  - placeholder_private_example
+skills:
+  anti-slop-git-writing:
+    mode: generated
+    source: anti-slop-git-writing
+  bible-study:
+    mode: generated
+    source: bible-study
+  church-bulletin-to-obsidian:
+    mode: generated
+    source: church-bulletin-to-obsidian
+  codex-first:
+    mode: generated
+    source: codex-first
+  credit-routing:
+    mode: generated
+    source: credit-routing
+  decision-sync:
+    mode: generated
+    source: decision-sync
+  devrel-engine:
+    mode: generated
+    source: devrel-engine
+  email-draft-review:
+    mode: generated
+    source: email-draft-review
+  field-notes-draft:
+    mode: generated
+    source: field-notes-draft
+  gatherer:
+    mode: generated
+    source: gatherer
+  github-profile:
+    mode: generated
+    source: github-profile
+  github-repo:
+    mode: generated
+    source: github-repo
+  learning-path:
+    mode: generated
+    source: learning-path
+    note: public edition drops the GoDaddy-era Strategy-Config OKR reference
+    omit_lines_containing:
+    - Meta/Strategy-Config-2025-H2.md
+  lmk:
+    mode: generated
+    source: lmk
+  loop-template:
+    mode: generated
+    source: loop-template
+  obsid-link-builder:
+    mode: generated
+    source: obsid-link-builder
+  ollie:
+    mode: generated
+    source: ollie
+  plaud:
+    mode: generated
+    source: plaud
+  prop-for-that:
+    mode: generated
+    source: prop-for-that
+  readwise-deep-read:
+    mode: generated
+    source: readwise-deep-read
+  readwise-synthesis-pass:
+    mode: generated
+    source: readwise-synthesis-pass
+  site-health-audit:
+    mode: generated
+    source: site-health-audit
+  skill-sync:
+    mode: generated
+    source: skill-sync
+  synthesis-backlog:
+    mode: generated
+    source: synthesis-backlog
+  technical-writing:
+    mode: generated
+    source: technical-writing
+  things-obsidian-sync:
+    mode: generated
+    source: things-obsidian-sync
+  transcript-processing:
+    mode: generated
+    source: transcript-processing
+  vault-hygiene-checker:
+    mode: generated
+    source: vault-hygiene-checker
+  website-audit:
+    mode: generated
+    source: website-audit
+  wiki-cycle:
+    mode: public-authored
+    reason: hand-written public edition; canonical is the public copy
+  weekly-site-health-audit:
+    mode: public-authored
+    reason: hand-written public edition; canonical is the public copy
+  wiki-memory:
+    mode: public-authored
+    reason: hand-written public edition; canonical is the public copy
+  readwise-methods-review:
+    mode: public-authored
+    reason: hand-written public edition; canonical is the public copy
+  job-search:
+    mode: public-authored
+    reason: public-only; no private counterpart (nearest relative devrel2026 is employer-specific)
+retired: {}
+reviewed_policy_corrections:
+  gatherer: '''she owns'' -> ''you own'' (public had ''owns'')'
+  lmk: '''she is'' -> ''you are'' (public had the contraction)'
+  synthesis-backlog: '''you approve/decide'' (public had ''You approves''/''you decides'')'
+  vault-hygiene-checker: '''you stay'' (public had ''You stays'')'
+  things-obsidian-sync: com.you.* for consistency (public mixed com.example/com.you)
+  readwise-synthesis-pass: keeps real example filename; retains '6. Templates/' prefix

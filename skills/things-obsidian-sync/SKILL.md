@@ -56,7 +56,7 @@ python3 scripts/sync.py --direction obsidian-to-things
 The bundled LaunchAgent runs every 15 minutes and writes logs under this skill's `logs/` directory.
 
 ```bash
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.example.things-obsidian-sync.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.you.things-obsidian-sync.plist
 ```
 
 Add `/Library/Developer/CommandLineTools/usr/bin/python3` under System Settings, Privacy and Security, Full Disk Access before a background run can read the vault or control Things. The sync stops without changing either system when that access is missing.

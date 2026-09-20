@@ -125,7 +125,7 @@ For each, ask: did this run's material add a source or claim strong enough to ch
 beginner should read first? If yes, update it; if no, write "guide pages: no change" in the
 run report. Current guide pages:
 
-- `Projects/<your-wiki>/wiki/<page>.md` — NAR beginner
+- `Projects/<your-wiki>/wiki/start-here-new-apostolic-reformation.md` — NAR beginner
   entrance. **PUBLISHED — public readers.** Rules: link only published targets (never
   `Projects/Religious Research/` or `Projects/NAR Beginner Entrance/`); every book gets
   an Amazon/Kindle link, every video source a direct watch URL; keep the resource list small
@@ -223,7 +223,7 @@ FLEETING spec). Key rules:
 
 - Readwise sources: `Resources/Readwise/{Books,Articles,Podcasts,Tweets,Snipd}`
 - Literature Notes: `Resources/Literature Notes/`  ·  Permanent Notes: `Resources/Permanent Notes/`
-- MOCs: `Resources/MOCs/`  ·  Templates: `6. Templates/`
+- MOCs: `Resources/MOCs/`  ·  Templates: `Templates/`
 - Backlog (queue): vault-root `_Synthesis Backlog.md` (via `synthesis-backlog/backlog.py`)
 - Run reports + loop registry: `Reports/`
 - State (watermark + cursor + log): `state.json` beside this skill

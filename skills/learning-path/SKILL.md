@@ -15,7 +15,7 @@ Folder: unset. Agree it with the user in the first intake question and record it
 
 Inputs: topic, baseline (known or built), target outcome (what you will ship or do), hours per week, deadline. Missing ones: one batched question, then finish without further check-ins.
 
-Resources: reuse your Reader library (`readwise-mcp`) and `Resources/Readwise/` first; cap at 3 primary. Confirm each by search (URL, edition, version) even when the title is familiar.
+1. Resources: reuse your Reader library (`readwise-mcp`) and `Resources/Readwise/` first; cap at 3 primary. Confirm each by search (URL, edition, version) even when the title is familiar.
 2. Sequence fundamentals → applied practice. Each milestone: date, deliverable, pass/fail check, one practice exercise with feedback criteria; `quiz` is the understanding check.
 3. Write the note (≤1 page): frontmatter (`type`, `topic`, `status`, `created`, `hours_per_week`, `deadline`), milestone table, one paragraph per milestone, empty `## Retros` section.
 
