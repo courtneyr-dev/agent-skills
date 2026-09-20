@@ -12,6 +12,20 @@ PUBLIC_AUTHORED = ["wiki-cycle", "weekly-site-health-audit", "wiki-memory",
                    "readwise-methods-review", "job-search"]
 
 
+def _canonical_available():
+    """The private canonical sources exist only on the maintainer's machine.
+    Tests that genuinely need them are skipped elsewhere rather than weakened."""
+    pol = P.load_policy()
+    root = P.canonical_root(pol)
+    return os.path.isdir(root) and any(
+        os.path.exists(P.source_path(pol, n)) for n in P._generated_names(pol))
+
+
+CANONICAL = _canonical_available()
+needs_canonical = unittest.skipUnless(
+    CANONICAL, "requires the private canonical skill sources (local-only)")
+
+
 class Transforms(unittest.TestCase):
     def test_grammar_preserving_pronouns(self):
         for src, want in [("she is done", "you are done"), ("she says hi", "you say hi"),
@@ -104,6 +118,7 @@ class Gates(unittest.TestCase):
     def test_clean_text_passes(self):
         self.assertEqual(P.privacy_scan("Use $VAULT_DIR/Reports/ for output.", "t"), [])
 
+    @needs_canonical
     def test_missing_source_reports_and_does_not_delete(self):
         pol = P.load_policy()
         pol["skills"]["ghost"] = {"mode": "generated", "source": "definitely-not-here"}
@@ -117,6 +132,7 @@ class Gates(unittest.TestCase):
         self.assertIsInstance(self.pol["retired"], dict)
 
 
+@needs_canonical
 class DriftDetection(unittest.TestCase):
     def test_check_fails_on_manual_edit(self):
         pol = P.load_policy()
@@ -153,6 +169,7 @@ class CISafeVerification(unittest.TestCase):
     def test_passes_without_canonical_sources(self):
         self.assertEqual(P.cmd_verify_public(self.pol), 0)
 
+    @needs_canonical
     def test_check_still_requires_canonical(self):
         """The strong local check must NOT silently pass when sources are gone."""
         self.assertEqual(P.cmd_check(self.pol), 1)
@@ -181,6 +198,7 @@ class CISafeVerification(unittest.TestCase):
         self.assertEqual(P.cmd_verify_public(self.pol), 0)
 
 
+@needs_canonical
 class Determinism(unittest.TestCase):
     def test_render_is_stable(self):
         pol = P.load_policy()
@@ -196,4 +214,6 @@ class Determinism(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    print(f"canonical sources available: {CANONICAL} "
+          f"({'full local suite' if CANONICAL else 'CI-safe subset; canonical tests skipped'})\n")
     unittest.main(verbosity=2)

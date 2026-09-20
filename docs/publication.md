@@ -108,5 +108,9 @@ publisher produced when `--apply` last ran, which catches hand edits made direct
 repo. It does **not** prove the artifacts are current with respect to canonical sources — only a
 local `--check` can do that.
 
+The test suite is scoped the same way. `publish/tests/test_publish.py` skips the five tests that
+genuinely need the private sources when they are absent, and prints which mode it ran in. It is
+never weakened to make CI green — the skipped tests still run in full locally.
+
 `publish/generated.lock` is written by `--apply` and records the sha256 of each generated
 `SKILL.md`. Public-authored skills are deliberately absent from it; a test fails if one appears.
