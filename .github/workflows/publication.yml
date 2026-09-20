@@ -5,7 +5,8 @@ name: publication
 # It deliberately does NOT run --check or --apply. Both need the private canonical skill
 # sources, which exist only on the maintainer's machine. CI verifies what it can honestly
 # verify: transform logic, policy integrity, public-authored protection, and that every
-# generated artifact still matches the lock recorded when it was published.
+# generated artifact still matches the lock recorded when it was published. Installer tests run
+# entirely in a temporary HOME and never touch a real skill store.
 
 on:
   push:
@@ -31,6 +32,9 @@ jobs:
 
       - name: Publication tests
         run: python3 publish/tests/test_publish.py
+
+      - name: Installer tests (isolated fake HOME)
+        run: python3 publish/tests/test_install.py
 
       - name: Verify public artifacts against the lock
         # No private canonical sources on the runner; this must pass without them.

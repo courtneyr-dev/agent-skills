@@ -114,3 +114,23 @@ never weakened to make CI green — the skipped tests still run in full locally.
 
 `publish/generated.lock` is written by `--apply` and records the sha256 of each generated
 `SKILL.md`. Public-authored skills are deliberately absent from it; a test fails if one appears.
+
+## Installation is a separate concern
+
+Publication mode (generated vs public-authored) says nothing about installation. Both are
+legitimate public artifacts and `install.sh` treats all 34 identically. The publisher owns how a
+file gets into `skills/`; the installer owns how it reaches an agent.
+
+`install.sh` is non-destructive by construction: it creates missing links and reports every other
+destination state as a conflict. Converting an existing copy, or repointing a link, is a migration
+and is deliberately not automated. `--dry-run` is the default.
+
+## Cross-agent evidence
+
+| Agent | Mechanism | Evidence |
+|---|---|---|
+| Claude Code | directory symlink | runtime-proven: lists, describes, invokes; relative resources resolve |
+| Codex | directory symlink | runtime-proven: same, including `references/` through the link |
+| OpenClaw | directory symlink | observed in production (45/45 links) |
+| Cursor | directory symlink | **filesystem only** — no CLI on PATH, runtime invocation never tested |
+| Gemini CLI | directory symlink | path supported; no installation observed |

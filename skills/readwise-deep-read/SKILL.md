@@ -61,3 +61,5 @@ for a in re.findall(r'<a\s[^>]*href=\"([^\"]+)\"[^>]*>(.*?)</a>', h, re.S)[:60]:
 ```
 
 An absent link is a real finding; an unchecked one is not.
+
+**This rule is now enforced, not just stated.** `deepread_check.py` fails any document whose notes claim it has no links when its own markup says otherwise, and it distinguishes the two claims — "contains no links" is disproved by any anchor, "no outbound/source links" only by an external one. Readwise-hosted assets are not citations. Regression cases live in `test_link_claims.py`; run it after touching the check. The prose above stood from 2026-08-26 and 47 of 5,809 article notes still carried a no-link claim, so the prose was not enough.

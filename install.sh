@@ -1,40 +1,39 @@
 #!/usr/bin/env bash
 # Install these skills for any SKILL.md-compatible agent.
 #
-# Skills are installed once into a canonical directory (~/.agents/skills by default) and symlinked
-# into each agent's own skills directory. One copy on disk, every agent sees the same version, and
-# `git pull` updates all of them at once.
+# This repository is the canonical source for the 34 skills under skills/. Installing links an
+# agent's skill directory at them. Nothing here is destructive: an existing real directory, a
+# customized copy, or a link pointing somewhere else is reported, never overwritten.
 #
-#   ./install.sh                          # everything, into auto-detected agents
-#   ./install.sh --guided                 # pick what you want, one question at a time
-#   ./install.sh --paths                  # show the available paths
-#   ./install.sh -p wordpress -p pkm      # install only these paths
-#   ./install.sh -a claude -a cursor      # specific agents
-#   ./install.sh --list                   # show what would be installed, change nothing
-#   ./install.sh --copy                   # copy instead of symlink (for agents that refuse links)
-#   ./install.sh --external               # print install commands for third-party skills
+#   ./install.sh --dry-run                # default. Classify every destination, change nothing.
+#   ./install.sh --apply                  # create only the missing links
+#   ./install.sh --apply -a claude -a codex
+#   ./install.sh --via-mount              # route through $AGENT_SKILLS_DIR (aggregation topology)
+#   ./install.sh --list                   # list the installable skills
+#   ./install.sh --external               # upstream install commands for third-party skills
+#
+# `install` only fills in what is missing. Converting an existing copy, or repointing a link that
+# already goes somewhere else, is a migration: this script will tell you what it found and leave
+# the decision to you.
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CANON="${AGENT_SKILLS_DIR:-$HOME/.agents/skills}"
-MODE=link
-AGENTS=()
+MOUNT="${AGENT_SKILLS_DIR:-$HOME/.agents/skills}"
+APPLY=0
+VIA_MOUNT=0
 LIST=0
 EXTERNAL=0
-GUIDED=0
-SHOW_PATHS=0
-PATHS=()
+AGENTS=()
 
 while [ $# -gt 0 ]; do
   case "$1" in
-    -a|--agent) AGENTS+=("$2"); shift 2 ;;
-    --copy)     MODE=copy; shift ;;
-    --list)     LIST=1; shift ;;
-    --external) EXTERNAL=1; shift ;;
-    --guided)   GUIDED=1; shift ;;
-    --paths)    SHOW_PATHS=1; shift ;;
-    -p|--path)  PATHS+=("$2"); shift 2 ;;
-    -h|--help)  sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -a|--agent)  AGENTS+=("$2"); shift 2 ;;
+    --apply)     APPLY=1; shift ;;
+    --dry-run)   APPLY=0; shift ;;
+    --via-mount) VIA_MOUNT=1; shift ;;
+    --list)      LIST=1; shift ;;
+    --external)  EXTERNAL=1; shift ;;
+    -h|--help)   sed -n '2,16p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) echo "unknown option: $1" >&2; exit 2 ;;
   esac
 done
@@ -50,124 +49,87 @@ agent_dir() {
   esac
 }
 
-# With no -a flags, install for every agent whose directory already exists.
+SKILLS=()
+while IFS= read -r s; do SKILLS+=("$s"); done < <(ls -1 "$HERE/skills" | sort)
+
+if [ "$LIST" = 1 ]; then printf '%s\n' "${SKILLS[@]}"; exit 0; fi
+if [ "$EXTERNAL" = 1 ]; then
+  echo "Third-party skills are owned by their upstreams and are not installed from here."
+  echo "See manifest.json (kind: external) for each source repository."
+  exit 0
+fi
+
 if [ ${#AGENTS[@]} -eq 0 ]; then
   for a in claude cursor codex openclaw gemini; do
-    d="$(agent_dir "$a")"
-    [ -d "$d" ] && AGENTS+=("$a")
+    [ -d "$(agent_dir "$a")" ] && AGENTS+=("$a")
   done
 fi
+[ ${#AGENTS[@]} -eq 0 ] && { echo "no agent skill directories found; pass -a <agent>" >&2; exit 1; }
 
-if [ "$EXTERNAL" = 1 ]; then
-  echo "Third-party skills are installed from their own upstreams, not from this repo."
-  echo "Their licenses are recorded in manifest.json. Redistributable=false means the upstream"
-  echo "ships no license or a custom one: install it from source, do not copy it around."
-  echo
-  python3 - "$HERE/manifest.json" <<'PY'
-import json, sys
-m = json.load(open(sys.argv[1]))
-for s in m['skills']:
-    if s['kind'] == 'external':
-        src = s['source']; p = f" --path {src['path']}" if src.get('path') else ""
-        flag = "" if s['redistributable'] else "   # no redistribution — install from source"
-        print(f"  # {s['name']}  [{s['license']}]{flag}")
-        print(f"  npx skills@latest add {src['repo']}{p} -s {s['name']}")
-    elif s['kind'] == 'external-suite':
-        print(f"\n  # {s['name']} — {len(s['members'])} skills, {s['license']}")
-        print(f"  # install via its own installer: https://github.com/{s['source']['repo']}")
-PY
-  exit 0
-fi
-
-path_info() { python3 - "$HERE/manifest.json" "$1" <<'PY'
-import json, sys
-m = json.load(open(sys.argv[1])); what = sys.argv[2]
-paths = m.get('paths', {})
-if what == 'list':
-    for k, v in paths.items():
-        print(f"  {k:<11} {len(v['skills']):>2} skills  {v['title']} — {v['description']}")
-elif what == 'keys':
-    print(' '.join(paths))
-else:
-    print('\n'.join(paths.get(what, {}).get('skills', [])))
-PY
+# classify <dest> <wanted-target> -> STATE
+classify() {
+  local dest="$1" want="$2"
+  if [ -L "$dest" ]; then
+    local cur; cur="$(readlink "$dest")"
+    [ ! -e "$dest" ] && { echo "DANGLING"; return; }
+    [ "$cur" = "$want" ] && { echo "CORRECT"; return; }
+    echo "OTHER_LINK"; return
+  fi
+  if [ -d "$dest" ]; then
+    if [ -f "$dest/SKILL.md" ] && [ -f "$want/SKILL.md" ] \
+       && cmp -s "$dest/SKILL.md" "$want/SKILL.md"; then
+      echo "SAME_COPY"; return
+    fi
+    echo "LOCAL_COPY"; return
+  fi
+  [ -e "$dest" ] && { echo "UNKNOWN"; return; }
+  echo "MISSING"
 }
 
-if [ "$SHOW_PATHS" = 1 ]; then
-  echo "Paths — install a slice instead of everything:"; echo
-  path_info list
+created=0; skipped=0; conflicts=0
+report() { printf '  %-9s %-34s %s\n' "$1" "$2" "$3"; }
+
+link_one() {  # <dest> <target> <label>
+  local dest="$1" want="$2" label="$3" state
+  state="$(classify "$dest" "$want")"
+  case "$state" in
+    MISSING)
+      report "LINK" "$label" "-> $want"
+      if [ "$APPLY" = 1 ]; then mkdir -p "$(dirname "$dest")"; ln -s "$want" "$dest"; fi
+      created=$((created + 1)) ;;
+    CORRECT)    report "SKIP" "$label" "already correct"; skipped=$((skipped + 1)) ;;
+    SAME_COPY)  report "SKIP" "$label" "identical real copy — migration, not install"; skipped=$((skipped + 1)) ;;
+    LOCAL_COPY) report "CONFLICT" "$label" "local copy differs — not overwriting"; conflicts=$((conflicts + 1)) ;;
+    OTHER_LINK) report "CONFLICT" "$label" "links elsewhere: $(readlink "$dest")"; conflicts=$((conflicts + 1)) ;;
+    DANGLING)   report "CONFLICT" "$label" "dangling link -> $(readlink "$dest")"; conflicts=$((conflicts + 1)) ;;
+    UNKNOWN)    report "CONFLICT" "$label" "unrecognized file at destination"; conflicts=$((conflicts + 1)) ;;
+  esac
+}
+
+[ "$APPLY" = 1 ] || echo "DRY RUN — nothing will be written. Re-run with --apply to create links."
+echo
+
+if [ "$VIA_MOUNT" = 1 ]; then
+  echo "mount: $MOUNT"
+  for s in "${SKILLS[@]}"; do link_one "$MOUNT/$s" "$HERE/skills/$s" "mount/$s"; done
   echo
-  echo "  ./install.sh -p wordpress -p pkm     # install these"
-  echo "  ./install.sh --guided                # choose interactively"
-  exit 0
 fi
-
-if [ "$GUIDED" = 1 ]; then
-  if [ ! -t 0 ] && [ -e /dev/tty ] && [ -z "${GUIDED_STDIN:-}" ]; then exec </dev/tty; fi
-  echo "Which of these do you want? Answer y or n; anything else is treated as no."
-  echo
-  for k in $(path_info keys); do
-    title=$(path_info list | grep "^  $k " | sed 's/^ *[a-z-]* *[0-9]* skills  //')
-    n=$(path_info "$k" | grep -c .)
-    printf "  %s (%s skills)\n     %s\n  install? [y/N] " "$k" "$n" "$title"
-    read -r ans || ans=n
-    case "$ans" in y|Y|yes|YES) PATHS+=("$k");; esac
-    echo
-  done
-  if [ ${#PATHS[@]} -eq 0 ]; then echo "Nothing selected. Re-run with --paths to see the options."; exit 0; fi
-fi
-
-SKILLS=()
-if [ ${#PATHS[@]} -gt 0 ]; then
-  for pth in "${PATHS[@]}"; do
-    got=$(path_info "$pth")
-    [ -z "$got" ] && { echo "unknown path: $pth (see --paths)" >&2; exit 2; }
-    while IFS= read -r s; do
-      [ -n "$s" ] && [ -f "$HERE/skills/$s/SKILL.md" ] && SKILLS+=("$s")
-    done <<< "$got"
-  done
-  # de-duplicate: a skill can belong to more than one path
-  SKILLS=($(printf '%s\n' "${SKILLS[@]}" | sort -u))
-  echo "Selected paths: ${PATHS[*]}  (${#SKILLS[@]} skills)"
-else
-  for d in "$HERE"/skills/*/; do
-    [ -f "$d/SKILL.md" ] && SKILLS+=("$(basename "$d")")
-  done
-fi
-
-if [ "$LIST" = 1 ]; then
-  echo "Would install ${#SKILLS[@]} skills into $CANON"
-  echo "Would link into: ${AGENTS[*]:-<none detected>}"
-  printf '  %s\n' "${SKILLS[@]}"
-  exit 0
-fi
-
-mkdir -p "$CANON"
-installed=0
-for s in "${SKILLS[@]}"; do
-  if [ "$MODE" = copy ]; then
-    rm -rf "${CANON:?}/$s"; cp -R "$HERE/skills/$s" "$CANON/$s"
-  else
-    ln -sfn "$HERE/skills/$s" "$CANON/$s"
-  fi
-  installed=$((installed + 1))
-done
-echo "installed $installed skills into $CANON ($MODE)"
 
 for a in "${AGENTS[@]}"; do
   d="$(agent_dir "$a")" || { echo "unknown agent: $a" >&2; continue; }
-  mkdir -p "$d"
-  n=0
+  echo "$a: $d"
   for s in "${SKILLS[@]}"; do
-    if [ -e "$d/$s" ] && [ ! -L "$d/$s" ]; then
-      echo "  skip $a/$s — a real directory already exists there, not overwriting" >&2
-      continue
-    fi
-    ln -sfn "$CANON/$s" "$d/$s"; n=$((n + 1))
+    if [ "$VIA_MOUNT" = 1 ]; then link_one "$d/$s" "$MOUNT/$s" "$a/$s"
+    else                          link_one "$d/$s" "$HERE/skills/$s" "$a/$s"; fi
   done
-  echo "linked $n skills into $a ($d)"
+  echo
 done
 
-echo
-echo "Restart your agent to pick up new skills."
-echo "Third-party skills are not included here — run ./install.sh --external for those."
+echo "links created: $created   skipped: $skipped   conflicts: $conflicts"
+if [ "$conflicts" -gt 0 ]; then
+  echo
+  echo "Conflicts are left alone. Each one is an existing skill this installer did not put there;"
+  echo "converting it is a migration you should make deliberately."
+fi
+[ "$APPLY" = 1 ] && echo && echo "Restart your agent to pick up new skills."
+exit 0

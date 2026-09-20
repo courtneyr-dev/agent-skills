@@ -100,20 +100,33 @@ externals and their licenses. **[Searchable version →](https://courtneyr-dev.g
 ```bash
 git clone https://github.com/courtneyr-dev/agent-skills.git
 cd agent-skills
-./install.sh --guided
+./install.sh --dry-run            # default: classify every destination, change nothing
+./install.sh --apply              # create only the links that are missing
+./install.sh --apply -a codex     # one agent
+./install.sh --list               # the 34 skills this repo ships
 ```
 
-`--guided` asks one question per path and installs only what you say yes to. Or name them:
+This repository is the canonical source for the 34 skills under `skills/`. Installing links your
+agent's skill directory at them, so `git pull` updates every agent at once.
 
-```bash
-./install.sh -p pkm -p writing    # just these
-./install.sh --paths              # see the options
-./install.sh                      # everything — see the warning below
+**Nothing is overwritten.** An existing real directory, a customized copy, or a link that already
+points somewhere else is reported as a conflict and left exactly as it is. Filling in what is
+missing is *install*; converting something that already exists is *migration*, and this script
+does not do migration.
+
+```
+LINK      codex/gatherer     -> .../agent-skills/skills/gatherer
+SKIP      claude/gatherer    already correct
+CONFLICT  cursor/lmk         local copy differs — not overwriting
 ```
 
-One canonical copy in `~/.agents/skills`, symlinked into each agent's directory, so `git pull`
-updates every agent at once. Codex, Cursor, Claude Code and OpenClaw all follow the symlinks;
-`--copy` writes real directories for anything that does not.
+### `~/.agents/skills`
+
+`--via-mount` routes links through `$AGENT_SKILLS_DIR` (default `~/.agents/skills`) instead of
+linking agents directly at this repo. That directory is a **neutral cross-agent mount**: a place
+several owners' skills can be aggregated under one path. It is *not* automatically the canonical
+source for anything, and this repo does not assume it owns what lives there. Use it if you already
+aggregate skills that way; otherwise the direct links are simpler.
 
 ### Why not install everything
 

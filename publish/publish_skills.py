@@ -234,6 +234,31 @@ def validate_manifest(pol):
     for r in man.get("skills", []):
         if r.get("kind") == "vendored" and not r.get("redistributable", False):
             out.append(f"manifest: {r['name']} vendored but not redistributable")
+
+    # Derivable counts must not drift. Machine-snapshot counts are NOT checked: they describe the
+    # maintainer's machine, which CI cannot see.
+    import collections
+    kinds = collections.Counter(r["kind"] for r in man.get("skills", []))
+    declared = man.get("counts", {})
+    for key, actual in (("vendored", kinds["vendored"]),
+                        ("external", kinds["external"]),
+                        ("external_unverified", kinds["external-unverified"])):
+        if key in declared and declared[key] != actual:
+            out.append(f"manifest: counts.{key}={declared[key]} but {actual} entries have that kind")
+    on_disk = len([d for d in os.listdir(os.path.join(ROOT, "skills"))
+                   if os.path.isdir(os.path.join(ROOT, "skills", d))])
+    if declared.get("vendored") not in (None, on_disk):
+        out.append(f"manifest: counts.vendored={declared['vendored']} but {on_disk} dirs in skills/")
+
+    # Publication mode lives in policy.yml. The manifest may restate the totals; it may not disagree.
+    pub = man.get("publication", {})
+    if pub:
+        if pub.get("authority") != "publish/policy.yml":
+            out.append("manifest: publication.authority must name publish/policy.yml")
+        for key, names in (("generated", _generated_names(pol)),
+                           ("public_authored", _public_authored_names(pol))):
+            if key in pub and pub[key] != len(names):
+                out.append(f"manifest: publication.{key}={pub[key]} but policy has {len(names)}")
     return out
 
 def cmd_check(pol):
