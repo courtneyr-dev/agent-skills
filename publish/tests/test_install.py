@@ -198,5 +198,108 @@ class SupportGrades(InstallerBase):
         self.assertNotIn("fully supported", out.lower())
 
 
+
+class MountTargetSafety(InstallerBase):
+    """--via-mount composes two safe operations into an unsafe one.
+
+    The installer classifies the DESTINATION (~/.codex/skills/foo) and, finding it missing,
+    links it at the mount. Nothing classified the TARGET (~/.agents/skills/foo). So a mount
+    copy the same run just reported as CONFLICT could become the content a consumer resolves
+    to. Target safety and destination safety are separate invariants.
+    """
+
+    def mount(self, name=SAMPLE):
+        return os.path.join(self.home, ".agents", "skills", name)
+
+    def put_mount_dir(self, body, name=SAMPLE):
+        m = self.mount(name)
+        os.makedirs(m)
+        with open(os.path.join(m, "SKILL.md"), "w") as fh:
+            fh.write(body)
+        return m
+
+    def source_body(self, name=SAMPLE):
+        with open(os.path.join(SKILLS, name, "SKILL.md")) as fh:
+            return fh.read()
+
+    # --- unsafe targets: must never be linked ---
+
+    def test_divergent_real_copy_blocks_the_consumer_link(self):
+        self.put_mount_dir("---\nname: lmk\ndescription: DIVERGENT\n---\nlocal\n")
+        rc, out = run(self.home, "--dry-run", "--via-mount", "-a", "codex")
+        self.assertIn("BLOCK", out)
+        self.assertNotRegex(out, r"LINK\s+codex/%s\b" % SAMPLE,
+                            "must not propose linking a consumer at a conflicted mount copy")
+
+    def test_apply_does_not_create_the_link_or_touch_the_target(self):
+        m = self.put_mount_dir("---\nname: lmk\ndescription: DIVERGENT\n---\nlocal\n")
+        run(self.home, "--apply", "--via-mount", "-a", "codex")
+        self.assertFalse(os.path.lexists(self.dest()), "consumer link must not be created")
+        with open(os.path.join(m, "SKILL.md")) as fh:
+            self.assertIn("DIVERGENT", fh.read(), "the divergent target must not be repaired")
+
+    def test_wrong_symlink_target_blocks(self):
+        elsewhere = os.path.join(self.home, "elsewhere"); os.makedirs(elsewhere)
+        os.makedirs(os.path.dirname(self.mount()), exist_ok=True)
+        os.symlink(elsewhere, self.mount())
+        rc, out = run(self.home, "--dry-run", "--via-mount", "-a", "codex")
+        self.assertIn("BLOCK", out)
+        self.assertNotRegex(out, r"LINK\s+codex/%s\b" % SAMPLE)
+
+    def test_dangling_symlink_target_blocks(self):
+        os.makedirs(os.path.dirname(self.mount()), exist_ok=True)
+        os.symlink(os.path.join(self.home, "gone"), self.mount())
+        rc, out = run(self.home, "--dry-run", "--via-mount", "-a", "codex")
+        self.assertIn("BLOCK", out)
+        self.assertNotRegex(out, r"LINK\s+codex/%s\b" % SAMPLE)
+
+    def test_non_skill_file_target_blocks(self):
+        os.makedirs(os.path.dirname(self.mount()), exist_ok=True)
+        with open(self.mount(), "w") as fh:
+            fh.write("not a skill")
+        rc, out = run(self.home, "--dry-run", "--via-mount", "-a", "codex")
+        self.assertIn("BLOCK", out)
+        self.assertNotRegex(out, r"LINK\s+codex/%s\b" % SAMPLE)
+
+    # --- safe targets: must still link ---
+
+    def test_missing_target_is_safe_and_still_links(self):
+        rc, out = run(self.home, "--apply", "--via-mount", "-a", "codex")
+        self.assertTrue(os.path.islink(self.mount()))
+        self.assertEqual(os.readlink(self.dest()), self.mount())
+
+    def test_already_correct_mount_link_is_safe(self):
+        run(self.home, "--apply", "--via-mount", "-a", "codex")
+        rc, out = run(self.home, "--apply", "--via-mount", "-a", "codex")
+        self.assertNotIn("BLOCK", out)
+        self.assertEqual(os.readlink(self.dest()), self.mount())
+
+    def test_identical_real_copy_is_consumable_but_named(self):
+        """Content is correct today, so refusing would break a working install. It is
+        reported explicitly rather than blessed silently."""
+        self.put_mount_dir(self.source_body())
+        rc, out = run(self.home, "--dry-run", "--via-mount", "-a", "codex")
+        self.assertNotIn("BLOCK", out)
+        self.assertRegex(out, r"LINK\s+codex/%s\b" % SAMPLE)
+        self.assertIn("identical copy", out)
+
+    # --- grade gating stays independent of target safety ---
+
+    def test_include_unverified_cannot_override_an_unsafe_target(self):
+        """--include-unverified is permission to use an unproven harness, not permission
+        to consume conflicted content."""
+        cursor = os.path.join(self.home, ".cursor", "skills"); os.makedirs(cursor)
+        self.put_mount_dir("---\nname: lmk\ndescription: DIVERGENT\n---\nlocal\n")
+        run(self.home, "--apply", "--include-unverified", "--via-mount", "-a", "cursor")
+        self.assertFalse(os.path.lexists(os.path.join(cursor, SAMPLE)),
+                         "opting into an unproven harness must not opt into unsafe content")
+
+    def test_default_mode_is_unaffected_by_mount_state(self):
+        self.put_mount_dir("---\nname: lmk\ndescription: DIVERGENT\n---\nlocal\n")
+        rc, out = run(self.home, "--apply", "-a", "codex")
+        self.assertNotIn("BLOCK", out, "target validation applies only to --via-mount")
+        self.assertEqual(os.readlink(self.dest()), os.path.join(SKILLS, SAMPLE))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

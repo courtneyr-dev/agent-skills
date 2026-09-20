@@ -19,6 +19,12 @@
 # are skipped unless you pass --include-unverified: their paths are right, but nothing here proves
 # the agent loads what gets written there.
 #
+# With --via-mount the consumer's link target is a mount entry, so the mount entry is checked
+# too. An entry that differs from the source, links elsewhere, dangles or is not a skill is
+# reported BLOCK and no consumer link is made — the mount is never repaired to make the install
+# succeed. Grade gating and target safety are independent: --include-unverified opts into an
+# unproven harness, never into unsafe content.
+#
 # `install` only fills in what is missing. Converting an existing copy, or repointing a link that
 # already goes somewhere else, is a migration: this script will tell you what it found and leave
 # the decision to you.
@@ -44,7 +50,7 @@ while [ $# -gt 0 ]; do
     --external)  EXTERNAL=1; shift ;;
     --grades)    GRADES=1; shift ;;
     --include-unverified) INCLUDE_UNVERIFIED=1; shift ;;
-    -h|--help)   sed -n '2,24p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h|--help)   sed -n '2,30p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) echo "unknown option: $1" >&2; exit 2 ;;
   esac
 done
@@ -143,13 +149,42 @@ classify() {
   echo "MISSING"
 }
 
-created=0; planned=0; skipped=0; conflicts=0
+# Destination safety and TARGET safety are separate invariants. classify() answers "may I
+# write at $dest"; it says nothing about whether $want is fit to consume. With --via-mount the
+# consumer's target is a mount entry, and a mount entry can exist and still be unsafe — a
+# divergent copy, a link somewhere else, a dangling link, a stray file. Linking a consumer at
+# one of those activates content this same run may have just reported as CONFLICT.
+#
+# Safe to consume: MISSING (this run creates the mount link first), CORRECT (already the
+# intended source), SAME_COPY (byte-identical, so the content delivered is right today — it is
+# named in the output rather than blessed silently). Everything else blocks.
+target_state() {  # <skill> -> SAFE:<state> | UNSAFE:<state>
+  local s="$1" st
+  st="$(classify "$MOUNT/$s" "$HERE/skills/$s")"
+  case "$st" in
+    MISSING|CORRECT|SAME_COPY) echo "SAFE:$st" ;;
+    *)                         echo "UNSAFE:$st" ;;
+  esac
+}
+
+target_reason() {  # <state> -> why it cannot be consumed
+  case "$1" in
+    LOCAL_COPY) echo "mount holds a local copy that differs from the source" ;;
+    OTHER_LINK) echo "mount links somewhere else" ;;
+    DANGLING)   echo "mount link is dangling" ;;
+    UNKNOWN)    echo "unrecognized file in the mount" ;;
+    *)          echo "mount target is not in a known-safe state" ;;
+  esac
+}
+
+created=0; planned=0; skipped=0; conflicts=0; blocked=0
 report() { printf '  %-9s %-34s %s\n' "$1" "$2" "$3"; }
 
-link_one() {  # <dest> <target> <label> [grade]
-  local dest="$1" want="$2" label="$3" grade="${4:-MOUNT}" state suffix
+link_one() {  # <dest> <target> <label> [grade] [note]
+  local dest="$1" want="$2" label="$3" grade="${4:-MOUNT}" note="${5:-}" state suffix
   state="$(classify "$dest" "$want")"
   if [ "$grade" = "MOUNT" ]; then suffix=""; else suffix="  [$(grade_label "$grade")]"; fi
+  suffix="$suffix$note"
   case "$state" in
     MISSING)
       if [ "$grade" = "MOUNT" ] || [ "$grade" = "L3" ]; then
@@ -187,14 +222,31 @@ for a in "${AGENTS[@]}"; do
   g="$(agent_grade "$a")"
   echo "$a: $d  [$(grade_label "$g")]"
   for s in "${SKILLS[@]}"; do
-    if [ "$VIA_MOUNT" = 1 ]; then link_one "$d/$s" "$MOUNT/$s" "$a/$s" "$g"
-    else                          link_one "$d/$s" "$HERE/skills/$s" "$a/$s" "$g"; fi
+    if [ "$VIA_MOUNT" = 1 ]; then
+      ts="$(target_state "$s")"
+      if [ "${ts%%:*}" = "UNSAFE" ]; then
+        report "BLOCK" "$a/$s" "$(target_reason "${ts#UNSAFE:}") — not linking to $MOUNT/$s"
+        blocked=$((blocked + 1))
+        continue
+      fi
+      note=""
+      [ "${ts#SAFE:}" = "SAME_COPY" ] && note="  (mount holds an identical copy, not a link)"
+      link_one "$d/$s" "$MOUNT/$s" "$a/$s" "$g" "$note"
+    else
+      link_one "$d/$s" "$HERE/skills/$s" "$a/$s" "$g"
+    fi
   done
   echo
 done
 
 if [ "$APPLY" = 1 ]; then verb="links created"; else verb="links to create"; fi
-echo "$verb: $created   planned: $planned   skipped: $skipped   conflicts: $conflicts"
+echo "$verb: $created   planned: $planned   skipped: $skipped   conflicts: $conflicts   blocked: $blocked"
+if [ "$blocked" -gt 0 ]; then
+  echo
+  echo "BLOCK means the mount entry a consumer would point at is not safe to consume: it"
+  echo "differs from the source, links elsewhere, dangles, or is not a skill. Nothing was"
+  echo "written and the mount was not repaired — resolve the mount entry, then re-run."
+fi
 if [ "$planned" -gt 0 ]; then
   echo
   echo "PLAN entries are for agents below L3: the path is right, but no runtime probe here proves"

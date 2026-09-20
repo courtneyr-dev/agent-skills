@@ -130,6 +130,11 @@ several owners' skills can be aggregated under one path. It is *not* automatical
 source for anything, and this repo does not assume it owns what lives there. Use it if you already
 aggregate skills that way; otherwise the direct links are simpler.
 
+Because the mount becomes the link *target*, `--via-mount` also checks the mount entry itself. If
+it differs from this repo's copy, links somewhere else, dangles, or is not a skill, the consumer
+link is reported `BLOCK` and not created. The installer will not repair the mount to make an
+install succeed — that is a migration, and it stays your decision.
+
 ### Why not install everything
 
 Agents load every installed skill's name and description into context to decide what to invoke,
