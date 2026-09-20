@@ -87,8 +87,8 @@ class ConflictStates(InstallerBase):
             f.write(marker)
         rc, out = self._apply_and_get()
         self.assertIn("CONFLICT", out)
-        self.assertIn(marker, open(os.path.join(self.dest(), "SKILL.md")).read(),
-                      "customized content must survive")
+        with open(os.path.join(self.dest(), "SKILL.md")) as fh:
+            self.assertIn(marker, fh.read(), "customized content must survive")
         self.assertFalse(os.path.islink(self.dest()))
 
     def test_link_pointing_elsewhere_is_a_conflict(self):
@@ -112,7 +112,8 @@ class ConflictStates(InstallerBase):
             f.write("not a skill")
         rc, out = self._apply_and_get()
         self.assertIn("unrecognized file", out)
-        self.assertEqual(open(self.dest()).read(), "not a skill")
+        with open(self.dest()) as fh:
+            self.assertEqual(fh.read(), "not a skill")
 
     def test_conflicts_do_not_block_other_skills(self):
         shutil.copytree(os.path.join(SKILLS, SAMPLE), self.dest())
@@ -161,7 +162,8 @@ class SupportGrades(InstallerBase):
         rc, out = run(self.home, "--grades")
         self.assertEqual(rc, 0)
         import json
-        roots = json.load(open(os.path.join(ROOT, "manifest.json")))["skill_roots"]
+        with open(os.path.join(ROOT, "manifest.json")) as fh:
+            roots = json.load(fh)["skill_roots"]
         for agent, v in roots.items():
             if isinstance(v, dict) and "grade" in v:
                 self.assertIn(agent, out)
