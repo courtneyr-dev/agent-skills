@@ -20,7 +20,20 @@ python3 $SYNC add <skill> <owner/repo> [--path skills/x] [--ref main]
 python3 $SYNC adopt <skill>                               # take upstream (also installs new skills)
 python3 $SYNC baseline <skill>                            # accept current local as the new base
 python3 $SYNC remove <skill>                              # stop tracking (files stay)
+
+MNT=~/.claude/skills/skill-sync/check_mounts.py
+python3 $MNT                                              # ~/.agents/skills integrity (Mondays)
+python3 $MNT --fix                                        # relink byte-identical copies only
 ```
+
+`check_mounts.py` guards the assumption `apply` depends on: that `~/.agents/skills` — what Codex,
+Cursor and OpenClaw actually read — symlinks into the canonical store. Where it holds a physical
+copy instead, `apply` updates canonical and those tools never see it. Assumed since the mount was
+built, first measured 2026-09-20: false for 57 of 224 entries. It derives the expected shape from
+the canonical store plus `.skill-lock.json`, so there is no second list to drift. `--fix` repairs
+only copies that are **byte-identical** to canonical: "nothing unique here" is not the same as
+"nothing lost here", and the looser rule would have rewritten 43 diverging copies on 2026-09-20.
+It also refuses when canonical is itself a symlink into the mount, which would make a cycle.
 
 Reports land in `~/.claude/skill-sync/reports/latest.md`.
 
