@@ -75,3 +75,14 @@ The callout is being terminated by a setext heading underline — see the `docum
 
 **The doc was saved with short notes; how do I add the full template now?**
 Run the template against the article text again and use `reader_bulk_edit_document_metadata` to update the Reader `notes` field — that field IS updatable post-save (unlike `html_content`). Then run `mirror_notes.py --ids <doc_id>` to push the full text into the vault file. Do not expect the v2 book's `document_note` to follow; it is read-only and caps at 8191 bytes even when it does populate.
+
+**Documents appear already analyzed, tagged `public_api`, and no MCP call wrote them.**
+That is this pipeline. `youtube_to_readwise.py` (the save, via `/api/v3/save/`) and `push_notes.py` (the notes and tags, via `/api/v3/update/`) both call the REST API with `READWISE_TOKEN` from `~/.youtube_api_keys`, so Reader records them as `public_api`; only `reader_create_highlight` and other MCP tools go through the MCP server. They run from Bash inside the Claude Code session that invoked the skill, which keeps working after the person steps away. Verified 2026-09-21: every "unknown writer" timestamp (2026-09-20 23:26:39–44Z, then 12:13, 12:25, 12:37Z the next morning) matched this session's script calls to within a minute, and document ULIDs decode to the same instants. The ~12-minute "cadence" was the gap between three `/readwise-deep-read` invocations, not a scheduler.
+
+Before assuming a second writer, decode the document id — Reader ids are ULIDs and the first 10 characters are the creation time — and compare it with the session transcript's Bash calls.
+
+What is and is not scheduled, as of 2026-09-21:
+- `com.you.deepread-sweeper` (06:30 daily) — **read-only**; runs `deepread_check.py --no-vault` and writes a local report.
+- `com.you.youtube-queue-retry` — described in phase-0 and phase-1 as the daily retry writer. **Not installed**: no plist, not loaded, and `~/bin/retry_youtube_queue.sh` is absent. Nothing currently retries `pending_transcript` (44 items on 2026-09-21).
+
+There is no write lock. `push_notes.py` overwrites `notes` wholesale and, with `--tags`, replaces the tag list; the save script's duplicate check is the local `processed` list, keyed by URL. Two sessions working the same document concurrently would race, last write wins. With a single human-invoked writer and no scheduled one, that is a theoretical risk today, not an observed one.
