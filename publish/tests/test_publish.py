@@ -140,7 +140,8 @@ class DriftDetection(unittest.TestCase):
         changes, current, _ = P.plan(pol)
         target = current[0] if current else gen[0]
         pp = P.public_path(pol, target)
-        original = open(pp, encoding="utf-8").read()
+        with open(pp, encoding="utf-8") as fh:
+            original = fh.read()
         try:
             with open(pp, "a", encoding="utf-8") as f:
                 f.write("\nMANUALLY EDITED LINE\n")
@@ -199,7 +200,8 @@ class CISafeVerification(unittest.TestCase):
     def test_detects_hand_edited_generated_file(self):
         target = P._generated_names(self.pol)[0]
         pp = P.public_path(self.pol, target)
-        original = open(pp, encoding="utf-8").read()
+        with open(pp, encoding="utf-8") as fh:
+            original = fh.read()
         try:
             with open(pp, "a", encoding="utf-8") as f:
                 f.write("\nHAND EDIT\n")
@@ -275,7 +277,8 @@ class CompleteArtifact(unittest.TestCase):
         self.assertEqual(v["demo/scripts/run.py"], "ADD"); self.assertEqual(probs, [])
         P.cmd_apply(pol)
         self.assertTrue(os.path.exists(os.path.join(self.pub, "demo/scripts/run.py")))
-        self.assertIn("demo/scripts/run.py", open(P.LOCK).read())
+        with open(P.LOCK) as fh:
+            self.assertIn("demo/scripts/run.py", fh.read())
 
     # 2
     def test_supporting_file_uses_the_same_transforms(self):
@@ -298,7 +301,8 @@ class CompleteArtifact(unittest.TestCase):
         P.cmd_apply(pol)
         with open(os.path.join(self.pub, "demo/cfg.yml")) as fh:
             self.assertEqual(fh.read(), "HAND WRITTEN FOR PUBLIC\n")
-        self.assertNotIn("demo/cfg.yml", open(P.LOCK).read())
+        with open(P.LOCK) as fh:
+            self.assertNotIn("demo/cfg.yml", fh.read())
 
     # 4
     def test_excluded_canonical_file_never_publishes(self):
@@ -378,8 +382,10 @@ class CompleteArtifact(unittest.TestCase):
         P.cmd_apply(pol)
         out = os.path.join(self.pub, "demo/scripts/run.sh")
         self.assertTrue(os.access(out, os.X_OK), "a published script must stay executable")
-        self.assertIn("demo/scripts/run.sh", open(P.LOCK).read())
-        self.assertTrue(any(l.endswith(" x") for l in open(P.LOCK).read().splitlines()
+        with open(P.LOCK) as fh:
+            lock = fh.read()
+        self.assertIn("demo/scripts/run.sh", lock)
+        self.assertTrue(any(l.endswith(" x") for l in lock.splitlines()
                             if l.startswith("demo/scripts/run.sh")))
 
     def test_symlink_supporting_file_is_rejected_not_dereferenced(self):

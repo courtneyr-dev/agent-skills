@@ -68,6 +68,12 @@ def source_path(pol, name):
     spec = pol["skills"][name]
     return os.path.join(canonical_root(pol), spec.get("source", name), "SKILL.md")
 
+def read_text(path, errors=None):
+    """Read a file and close it. Bare open().read() leaks the handle until GC, which made
+    every --check and --verify-public run emit ~100 ResourceWarning lines."""
+    with open(path, encoding="utf-8", errors=errors) as f:
+        return f.read()
+
 def sha(text):
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
@@ -81,11 +87,11 @@ def write_lock(pol):
     for name in _generated_names(pol):
         pp = public_path(pol, name)
         if os.path.exists(pp):
-            lines.append(f"{name}/SKILL.md {sha(open(pp, encoding='utf-8').read())}")
+            lines.append(f"{name}/SKILL.md {sha(read_text(pp))}")
     for verb, name, rel, pp, want, want_x in file_plan(pol)[0]:
         if verb in ("CURRENT", "CHANGE", "ADD") and os.path.exists(pp):
             mark = " x" if _is_exec(pp) else ""
-            lines.append(f"{name}/{rel} {sha(open(pp, encoding='utf-8', errors='replace').read())}{mark}")
+            lines.append(f"{name}/{rel} {sha(read_text(pp, errors='replace'))}{mark}")
     lines[4:] = sorted(lines[4:])
     with open(LOCK, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
@@ -94,7 +100,7 @@ def read_lock():
     if not os.path.exists(LOCK):
         return None
     out = {}
-    for line in open(LOCK, encoding="utf-8"):
+    for line in read_text(LOCK).splitlines():
         line = line.strip()
         if not line or line.startswith("#"):
             continue
@@ -125,7 +131,7 @@ def cmd_verify_public(pol):
             problems.append(f"{name}: generated artifact missing"); continue
         if key not in lock:
             problems.append(f"{name}: generated but absent from lock -- republish locally"); continue
-        if sha(open(pp, encoding="utf-8").read()) != lock[key][0]:
+        if sha(read_text(pp)) != lock[key][0]:
             problems.append(f"{name}: generated artifact edited by hand (lock mismatch)")
 
     # Complete-artifact integrity, still using only files in this repository.
@@ -156,7 +162,7 @@ def cmd_verify_public(pol):
                 if key not in lock:
                     problems.append(f"{key}: generated but absent from lock -- republish locally"); continue
                 want_sha, want_x = lock[key]
-                if sha(open(pp, encoding="utf-8", errors="replace").read()) != want_sha:
+                if sha(read_text(pp, errors="replace")) != want_sha:
                     problems.append(f"{key}: generated supporting file edited by hand (lock mismatch)")
                 elif _is_exec(pp) != want_x:
                     problems.append(f"{key}: executable bit differs from the lock")
@@ -293,7 +299,7 @@ def file_plan(pol):
                 actions.append(("BLOCK", name, rel, pp, None, None))
                 continue
             if os.path.exists(pp):
-                have = open(pp, encoding="utf-8", errors="replace").read()
+                have = read_text(pp, errors="replace")
                 if have == want and _is_exec(pp) == want_x:
                     actions.append(("CURRENT", name, rel, pp, want, want_x))
                 else:
@@ -331,7 +337,7 @@ def plan(pol):
         if leaks:
             problems.extend(leaks); continue
         pp = public_path(pol, name)
-        have = open(pp, encoding="utf-8").read() if os.path.exists(pp) else None
+        have = read_text(pp) if os.path.exists(pp) else None
         if have == want:
             current.append(name)
         else:
