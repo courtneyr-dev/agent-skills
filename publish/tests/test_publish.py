@@ -181,8 +181,20 @@ class CISafeVerification(unittest.TestCase):
             self.assertNotIn(n, lock, f"{n} must never be locked as generated output")
 
     def test_lock_covers_every_generated(self):
+        """The lock now keys complete artifacts: <skill>/SKILL.md plus each generated
+        supporting file. Public-authored and excluded files must stay absent."""
         lock = P.read_lock()
-        self.assertEqual(sorted(lock), P._generated_names(self.pol))
+        self.assertEqual(sorted(k for k in lock if k.endswith("/SKILL.md")),
+                         [f"{n}/SKILL.md" for n in P._generated_names(self.pol)])
+        for name in P._public_authored_names(self.pol):
+            self.assertNotIn(f"{name}/SKILL.md", lock)
+        for name in P._generated_names(self.pol):
+            for rel, mode in P.supporting_modes(self.pol, name).items():
+                key = f"{name}/{rel}"
+                if mode == "generated":
+                    self.assertIn(key, lock, f"{key} is generated but unlocked")
+                else:
+                    self.assertNotIn(key, lock, f"{key} is {mode} but hashed in the lock")
 
     def test_detects_hand_edited_generated_file(self):
         target = P._generated_names(self.pol)[0]
@@ -211,6 +223,179 @@ class Determinism(unittest.TestCase):
         for n in P._generated_names(pol)[:6]:
             out = P.render(pol, n)
             self.assertIsNone(re.search(r"\b2026-\d\d-\d\d \d\d:\d\d:\d\d\b", out))
+
+
+
+class CompleteArtifact(unittest.TestCase):
+    """Supporting-file publication, entirely on fixtures -- no private canonical sources.
+
+    A generated skill is a DIRECTORY. Before this, only SKILL.md was deterministic, so a
+    supporting script could drift or a private file could appear next to it unnoticed.
+    """
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(prefix="artifact-")
+        self.canon = os.path.join(self.tmp, "canonical")
+        self.pub = os.path.join(self.tmp, "public")
+        os.makedirs(self.canon); os.makedirs(self.pub)
+        self._root = P.ROOT; self._lock = P.LOCK
+        P.ROOT = self.tmp
+        P.LOCK = os.path.join(self.tmp, "generated.lock")
+
+    def tearDown(self):
+        P.ROOT = self._root; P.LOCK = self._lock
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def write(self, base, skill, rel, body, ex=False):
+        p = os.path.join(base, skill, rel)
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p, "w") as fh:
+            fh.write(body)
+        if ex:
+            os.chmod(p, os.stat(p).st_mode | 0o111)
+        return p
+
+    def policy(self, files, skill="demo"):
+        return {"version": 1, "canonical_root": self.canon, "public_root": "public",
+                "defaults": {"transforms": [], "supporting_files":
+                             {"undeclared_canonical": "excluded", "undeclared_public": "blocked"}},
+                "skills": {skill: {"mode": "generated", "source": skill, "files": files}},
+                "retired": {}}
+
+    def verbs(self, pol):
+        facts, problems = P.file_plan(pol)
+        return {f"{n}/{rel}": v for v, n, rel, *_ in facts}, problems
+
+    # 1 + 12
+    def test_generated_supporting_file_publishes_and_locks(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "scripts/run.py", "print(1)\n")
+        pol = self.policy({"scripts/run.py": "generated"})
+        v, probs = self.verbs(pol)
+        self.assertEqual(v["demo/scripts/run.py"], "ADD"); self.assertEqual(probs, [])
+        P.cmd_apply(pol)
+        self.assertTrue(os.path.exists(os.path.join(self.pub, "demo/scripts/run.py")))
+        self.assertIn("demo/scripts/run.py", open(P.LOCK).read())
+
+    # 2
+    def test_supporting_file_uses_the_same_transforms(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "references/g.md", "Ask Courtney first.\n")
+        pol = self.policy({"references/g.md": "generated"})
+        pol["defaults"]["transforms"] = ["replace_personal_name"]
+        P.cmd_apply(pol)
+        with open(os.path.join(self.pub, "demo/references/g.md")) as fh:
+            self.assertNotIn("Courtney", fh.read())
+
+    # 3 + 8
+    def test_public_authored_supporting_file_is_never_written(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "cfg.yml", "CANONICAL\n")
+        self.write(self.pub, "demo", "cfg.yml", "HAND WRITTEN FOR PUBLIC\n")
+        pol = self.policy({"cfg.yml": "public-authored"})
+        v, probs = self.verbs(pol)
+        self.assertEqual(v["demo/cfg.yml"], "PROTECT"); self.assertEqual(probs, [])
+        P.cmd_apply(pol)
+        with open(os.path.join(self.pub, "demo/cfg.yml")) as fh:
+            self.assertEqual(fh.read(), "HAND WRITTEN FOR PUBLIC\n")
+        self.assertNotIn("demo/cfg.yml", open(P.LOCK).read())
+
+    # 4
+    def test_excluded_canonical_file_never_publishes(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "state.json", '{"secret":"local"}\n')
+        pol = self.policy({"state.json": "excluded"})
+        v, probs = self.verbs(pol)
+        self.assertEqual(v["demo/state.json"], "EXCLUDE"); self.assertEqual(probs, [])
+        P.cmd_apply(pol)
+        self.assertFalse(os.path.exists(os.path.join(self.pub, "demo/state.json")))
+
+    def test_excluded_file_appearing_publicly_is_a_problem(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "state.json", "x\n")
+        self.write(self.pub, "demo", "state.json", "x\n")
+        _, probs = self.verbs(self.policy({"state.json": "excluded"}))
+        self.assertTrue(any("excluded but present" in p for p in probs))
+
+    # 6 — fail closed
+    def test_undeclared_canonical_file_does_not_publish_silently(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "NEW-private.py", "token = 'x'\n")
+        pol = self.policy({})
+        v, probs = self.verbs(pol)
+        self.assertNotIn("demo/NEW-private.py", v)
+        P.cmd_apply(pol)
+        self.assertFalse(os.path.exists(os.path.join(self.pub, "demo/NEW-private.py")),
+                         "a new canonical file must never publish without a policy entry")
+
+    def test_undeclared_public_file_blocks(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.pub, "demo", "mystery.md", "where did this come from\n")
+        v, probs = self.verbs(self.policy({}))
+        self.assertEqual(v["demo/mystery.md"], "BLOCK")
+        self.assertTrue(any("not declared in policy" in p for p in probs))
+
+    # 7
+    def test_missing_generated_public_file_is_republished(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "scripts/run.py", "print(1)\n")
+        pol = self.policy({"scripts/run.py": "generated"})
+        P.cmd_apply(pol)
+        os.remove(os.path.join(self.pub, "demo/scripts/run.py"))
+        v, _ = self.verbs(pol)
+        self.assertEqual(v["demo/scripts/run.py"], "ADD")
+
+    # 8
+    def test_hand_edited_generated_file_is_detected_and_restored(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "scripts/run.py", "print(1)\n")
+        pol = self.policy({"scripts/run.py": "generated"})
+        P.cmd_apply(pol)
+        self.write(self.pub, "demo", "scripts/run.py", "print('tampered')\n")
+        v, _ = self.verbs(pol)
+        self.assertEqual(v["demo/scripts/run.py"], "CHANGE")
+
+    # 9 + 11
+    def test_missing_canonical_source_does_not_delete_public_output(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "scripts/run.py", "print(1)\n")
+        pol = self.policy({"scripts/run.py": "generated"})
+        P.cmd_apply(pol)
+        os.remove(os.path.join(self.canon, "demo/scripts/run.py"))
+        v, probs = self.verbs(pol)
+        self.assertEqual(v["demo/scripts/run.py"], "BLOCK")
+        self.assertTrue(any("canonical source is missing" in p for p in probs))
+        rc = P.cmd_apply(pol)
+        self.assertEqual(rc, 1, "apply must refuse while a declared source is missing")
+        self.assertTrue(os.path.exists(os.path.join(self.pub, "demo/scripts/run.py")),
+                        "a missing source must never delete published output")
+
+    # 10
+    def test_executable_bit_is_preserved(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "scripts/run.sh", "#!/bin/sh\necho hi\n", ex=True)
+        pol = self.policy({"scripts/run.sh": "generated"})
+        P.cmd_apply(pol)
+        out = os.path.join(self.pub, "demo/scripts/run.sh")
+        self.assertTrue(os.access(out, os.X_OK), "a published script must stay executable")
+        self.assertIn("demo/scripts/run.sh", open(P.LOCK).read())
+        self.assertTrue(any(l.endswith(" x") for l in open(P.LOCK).read().splitlines()
+                            if l.startswith("demo/scripts/run.sh")))
+
+    def test_symlink_supporting_file_is_rejected_not_dereferenced(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        target = self.write(self.canon, "demo", "real.md", "content\n")
+        os.symlink(target, os.path.join(self.canon, "demo", "link.md"))
+        v, probs = self.verbs(self.policy({"link.md": "generated"}))
+        self.assertEqual(v["demo/link.md"], "BLOCK")
+        self.assertTrue(any("symlink" in p for p in probs))
+
+    def test_privacy_scan_covers_supporting_files(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
+        self.write(self.canon, "demo", "scripts/leak.py", 'KEY = "sk-abcdefghijklmnopqrstuvwx"\n')
+        v, probs = self.verbs(self.policy({"scripts/leak.py": "generated"}))
+        self.assertEqual(v["demo/scripts/leak.py"], "BLOCK")
+        self.assertTrue(probs)
 
 
 if __name__ == "__main__":

@@ -1,15 +1,3 @@
-# Publication policy for courtneyr-dev/agent-skills
-#
-# mode: generated       -> public file is produced from the canonical source by the transforms below.
-#                          The generator owns it. Hand edits are drift and `--check` fails on them.
-# mode: public-authored -> the public file IS canonical. The generator MUST NEVER write it.
-#                          Validated for existence/licence only.
-#
-# Adding a skill: give it a mode. A skill with no mode is an error (fail closed) -- it is never
-# assumed to be generated.
-#
-# Retirement is explicit: add the name under `retired:` with a reason. A missing canonical source
-# NEVER deletes public output.
 version: 1
 canonical_root: ${CLAUDE_SKILLS:-~/.claude/claude-config/skills}
 public_root: skills
@@ -29,37 +17,76 @@ defaults:
   - genericize_identifiers
   - genericize_personal_site
   - placeholder_private_example
+  supporting_files:
+    undeclared_canonical: excluded
+    undeclared_public: blocked
+    _note: Explicit allowlist. A canonical supporting file that is not declared here NEVER publishes,
+      so a new private file cannot leak by appearing on disk. A PUBLIC file that is not declared is an
+      error, so a stale or hand-added public file cannot hide either. Fail closed in both directions.
 skills:
   anti-slop-git-writing:
     mode: generated
     source: anti-slop-git-writing
+    files:
+      references/style-guide.md: generated
+      references/templates.md: generated
   bible-study:
     mode: generated
     source: bible-study
   church-bulletin-to-obsidian:
     mode: generated
     source: church-bulletin-to-obsidian
+    files:
+      examples/sample-output.md: generated
+      references/abbreviation-mappings.md: generated
+      references/bible-linker-syntax.md: generated
+      references/bulletin-extraction.md: generated
+      references/document-structure.md: generated
+      references/edge-cases.md: generated
+      references/hymn-lyrics.md: generated
+      references/liturgical-calendar.md: generated
+      references/notebooklm-source.md: generated
+      references/quality-checklist.md: generated
+      references/user-preference-overrides.md: public-authored
   codex-first:
     mode: generated
     source: codex-first
   credit-routing:
     mode: generated
     source: credit-routing
+    files:
+      references/delegation-template.md: generated
+      references/unknowns-and-context.md: generated
+      references/verification-checklist.md: generated
   decision-sync:
     mode: generated
     source: decision-sync
+    files:
+      file_decision.py: public-authored
   devrel-engine:
     mode: generated
     source: devrel-engine
+    files:
+      references/community-ops.md: generated
+      references/craft.md: generated
+      references/frameworks.md: public-authored
+      references/metrics-and-health.md: generated
+      references/output-formats.md: generated
   email-draft-review:
     mode: generated
     source: email-draft-review
   field-notes-draft:
     mode: generated
     source: field-notes-draft
+    files:
+      assemble.py: public-authored
   gatherer:
     mode: generated
     source: gatherer
+    files:
+      scripts/gather.py: public-authored
+      tests/test_gather.py: public-authored
+      trac-watchlist.txt: generated
   github-profile:
     mode: generated
     source: github-profile
@@ -75,51 +102,145 @@ skills:
   lmk:
     mode: generated
     source: lmk
+    files:
+      scripts/lmk-notify.sh: generated
   loop-template:
     mode: generated
     source: loop-template
   obsid-link-builder:
     mode: generated
     source: obsid-link-builder
+    files:
+      scripts/build_obsid_link.sh: generated
   ollie:
     mode: generated
     source: ollie
+    files:
+      references/abilities-tools.md: generated
+      references/block-markup.md: generated
+      references/button-styles.md: generated
+      references/color-system.md: generated
+      references/guardrails-validation.md: generated
+      references/page-creation-workflows.md: generated
+      references/spacing-borders-shadows.md: generated
+      references/style-variations.md: generated
+      references/tool-decision-tree.md: generated
+      references/typography.md: generated
+      references/workflow-rules.md: generated
   plaud:
     mode: generated
     source: plaud
+    files:
+      references/plaud-api.md: public-authored
   prop-for-that:
     mode: generated
     source: prop-for-that
+    files:
+      reference.md: generated
   readwise-deep-read:
     mode: generated
     source: readwise-deep-read
+    files:
+      article_template.txt: generated
+      article_template.txt.backup-pre-reflib-split-2026-08-22: excluded
+      backfill_tags.py: generated
+      create_video_doc.py: generated
+      deepread_check.py: public-authored
+      deepread_check.py.bak-20260828-172024: excluded
+      deepread_check.py.bak-20260905-appendix: excluded
+      deepread_check.py.bak-20260920-173520-prelinkcheck: excluded
+      mirror_notes.py: public-authored
+      push_notes.py: generated
+      references/examples.md: public-authored
+      references/master-db-discontinued.md: generated
+      references/output-requirements.md: generated
+      references/phase-0-preflight.md: generated
+      references/phase-1-bulk-save.md: generated
+      references/phase-2-inline-highlights.md: public-authored
+      references/phase-3-confirmation-sync.md: generated
+      references/phase-4-bulk-mode.md: generated
+      references/purpose-and-triggers.md: generated
+      references/reader-api-limitations.md: generated
+      references/tags-paths-templates.md: generated
+      references/troubleshooting.md: generated
+      references/youtube-subtitle-fallback.md: generated
+      template_library_reference.md: generated
+      test_link_claims.py: excluded
   readwise-synthesis-pass:
     mode: generated
     source: readwise-synthesis-pass
+    files:
+      state.json: excluded
+      sweep.py: public-authored
   site-health-audit:
     mode: generated
     source: site-health-audit
+    files:
+      config.example.yml: public-authored
+      config.yml: excluded
+      references/checks.md: generated
+      references/quirks.md: generated
+      references/remediation.md: public-authored
   skill-sync:
     mode: generated
     source: skill-sync
+    files:
+      audit_skills.py: public-authored
+      check_mounts.py: generated
+      monday.sh: excluded
+      pstack-port-spec.md: excluded
+      pstack_watch.sh: excluded
+      push_vm_skills.sh: excluded
+      sources.json: excluded
+      sync_skills.py: generated
+      test_check_mounts.py: generated
+      usage_audit.py: generated
   synthesis-backlog:
     mode: generated
     source: synthesis-backlog
+    files:
+      backlog.py: public-authored
+      inbox_triage.py: public-authored
   technical-writing:
     mode: generated
     source: technical-writing
+    files:
+      references/anti-patterns.md: generated
+      references/style-guide.md: generated
+      references/wordpress-docs-style-guide.md: generated
+      references/wordpress-publishing.md: generated
+      scripts/publish-to-wordpress.py: generated
   things-obsidian-sync:
     mode: generated
     source: things-obsidian-sync
+    files:
+      launchagent/com.courtney.things-obsidian-sync.plist: excluded
+      launchagent/com.example.things-obsidian-sync.plist: public-authored
+      scripts/sync.py: public-authored
   transcript-processing:
     mode: generated
     source: transcript-processing
   vault-hygiene-checker:
     mode: generated
     source: vault-hygiene-checker
+    files:
+      check_vault.py: public-authored
+      check_vault.py.bak-2026-08-13: excluded
   website-audit:
     mode: generated
     source: website-audit
+    files:
+      examples/example-audit-excerpt.md: generated
+      examples/example-intake.md: generated
+      references/audit-playbook.md: generated
+      references/intake-and-brief.md: generated
+      references/report-template.md: generated
+      references/severity-and-evidence.md: generated
+      references/site-health-module.md: generated
+      references/skill-routing.md: generated
+      references/standards-and-modules.md: generated
+      tests/README.md: generated
+      tests/coverage-test.py: generated
   wiki-cycle:
     mode: public-authored
     reason: hand-written public edition; canonical is the public copy
