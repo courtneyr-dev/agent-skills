@@ -3,7 +3,7 @@
 Skills for coding agents — Claude Code, Cursor, Codex, OpenClaw, Gemini CLI, or anything else
 that reads a `SKILL.md`. A skill is just a directory with instructions; what varies between
 agents is where they look for it, and how well that is actually proven. Claude Code and Codex
-are runtime-proven here; Cursor, Gemini and OpenClaw are not. Run `./install.sh --grades`, or
+are runtime-proven here, as is GitHub Copilot CLI; Cursor, Gemini and OpenClaw are not. Run `./install.sh --grades`, or
 see [Platforms](docs/PLATFORMS.md).
 
 **34 skills here**, plus [79 more](docs/CATALOG.md) that live in other people's

@@ -16,6 +16,8 @@ observed at runtime. Grades live in `manifest.json`; `./install.sh --grades` pri
 | Universal mount | `~/.agents/skills/` | — | aggregation namespace, not an agent |
 | Claude Code | `~/.claude/skills/` | **L3** | listed, invoked, relative resource read |
 | Codex CLI | `~/.codex/skills/` | **L3** | same, through a two-hop mount |
+| GitHub Copilot CLI | `~/.copilot/skills/`, plus `~/.claude/skills/` and `~/.agents/skills/` | **L3** | listed, invoked, relative resource read through the mount (headless `-p`) |
+| GitHub Copilot, VS Code Chat / GitHub.com code review / cloud agent | same roots plus `.github/skills/` | **L2** | documented loaders; invocation unproven here |
 | Cursor | `~/.cursor/skills/` | **L2** | app bundle resolves this path; invocation unproven |
 | Gemini CLI | `~/.gemini/skills/` | **L2** | CLI implements `SKILL.md` discovery; runtime blocked on auth |
 | OpenClaw | `~/.openclaw/skills/` | **L1** | production symlink topology observed; runtime unproven |

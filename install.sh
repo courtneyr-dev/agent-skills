@@ -7,7 +7,7 @@
 #
 #   ./install.sh --dry-run                # default. Classify every destination, change nothing.
 #   ./install.sh --apply                  # create only the missing links
-#   ./install.sh --apply -a claude -a codex
+#   ./install.sh --apply -a claude -a codex           # also: copilot (Copilot CLI), cursor, openclaw, gemini
 #   ./install.sh --via-mount              # route through $AGENT_SKILLS_DIR (aggregation topology)
 #   ./install.sh --list                   # list the installable skills
 #   ./install.sh --external               # upstream install commands for third-party skills
@@ -60,6 +60,7 @@ agent_dir() {
     claude|claude-code) echo "$HOME/.claude/skills" ;;
     cursor)             echo "$HOME/.cursor/skills" ;;
     codex)              echo "$HOME/.codex/skills" ;;
+    copilot|copilot-cli) echo "$HOME/.copilot/skills" ;;
     openclaw)           echo "$HOME/.openclaw/skills" ;;
     gemini|gemini-cli)  echo "$HOME/.gemini/skills" ;;
     *) return 1 ;;
@@ -82,7 +83,7 @@ fi
 
 agent_grade() {  # <agent> -> L3|L2|L1|L0|UNKNOWN
   local a="$1" g
-  case "$a" in claude-code) a=claude ;; gemini-cli) a=gemini ;; esac
+  case "$a" in claude-code) a=claude ;; gemini-cli) a=gemini ;; copilot-cli) a=copilot ;; esac
   [ -z "$GRADE_TABLE" ] && { echo "UNKNOWN"; return; }
   g="$(printf '%s\n' "$GRADE_TABLE" | awk -F'\t' -v a="$a" '$1==a{print $2}')"
   echo "${g:-L0}"
@@ -107,7 +108,7 @@ if [ "$GRADES" = 1 ]; then
   fi
   echo "Runtime support grades (manifest.json). A grade describes runtime evidence, not path validity."
   echo
-  for a in claude codex cursor openclaw gemini; do
+  for a in claude codex copilot cursor openclaw gemini; do
     printf '  %-10s %s\n' "$a" "$(grade_label "$(agent_grade "$a")")"
   done
   echo
@@ -123,7 +124,7 @@ if [ "$EXTERNAL" = 1 ]; then
 fi
 
 if [ ${#AGENTS[@]} -eq 0 ]; then
-  for a in claude cursor codex openclaw gemini; do
+  for a in claude cursor codex copilot openclaw gemini; do
     [ -d "$(agent_dir "$a")" ] && AGENTS+=("$a")
   done
 fi

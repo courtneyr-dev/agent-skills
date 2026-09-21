@@ -1,7 +1,7 @@
 {
   "name": "agent-skills",
   "version": "1.0.0",
-  "updated": "2026-09-20",
+  "updated": "2026-09-21",
   "description": "Portable agent skills for any SKILL.md-compatible coding agent, plus a manifest of external skills installed from their own upstreams.",
   "skill_format": "https://code.claude.com/docs/en/skills",
   "skills": [
@@ -2216,6 +2216,39 @@
       "grade": "L2",
       "version_tested": "gemini-cli 0.36.0",
       "evidence": "bundle implements SKILL.md discovery and contains the /.gemini/skills literal; runtime blocked, no auth method configured"
+    },
+    "copilot": {
+      "path": "~/.copilot/skills",
+      "grade": "L3",
+      "version_tested": "GitHub Copilot CLI 1.0.86",
+      "evidence": "Copilot CLI: skill discovered through ~/.agents/skills, invoked, and a relative references/ file under it read (COPILOTMOUNT / COPILOTRESOURCE probe, 2026-09-21). The product grade is the CLI's; other surfaces are graded below.",
+      "_note": "Copilot is a family of surfaces with different loaders, so it is the one entry graded per surface. Consumers that read only `grade` get the runtime-proven surface.",
+      "surfaces": {
+        "cli": {
+          "grade": "L3",
+          "evidence": "headless -p run listed the skill, invoked it, and read references/nested.md; also loads ~/.copilot/skills, ~/.claude/skills, ~/.agents/skills per docs"
+        },
+        "vscode-chat": {
+          "grade": "L2",
+          "evidence": "VS Code docs: skills read from .github/skills, .claude/skills, .agents/skills, ~/.copilot/skills, ~/.claude/skills, ~/.agents/skills; runtime invocation not probed"
+        },
+        "code-review-github": {
+          "grade": "L2",
+          "evidence": "docs.github.com support matrix lists skills for GitHub.com code review; not probed"
+        },
+        "cloud-agent": {
+          "grade": "L2",
+          "evidence": "docs list skills for the cloud agent; custom agents only from .github/agents; not probed"
+        },
+        "code-review-vscode": {
+          "grade": "L0",
+          "evidence": "reads only .github/copilot-instructions.md; no skill loading"
+        },
+        "github-chat": {
+          "grade": "L0",
+          "evidence": "reads only .github/copilot-instructions.md; no skill loading"
+        }
+      }
     }
   },
   "support_grades": {
@@ -2226,6 +2259,6 @@
       "L1": "Filesystem/topology observed in production; runtime unproven.",
       "L0": "Unsupported or unverified."
     },
-    "_verified": "2026-09-20"
+    "_verified": "2026-09-21"
   }
 }
