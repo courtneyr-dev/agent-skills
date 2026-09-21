@@ -248,6 +248,156 @@ def tag_violations(tags):
         elif tl in FORMAT_META: bad.append(f"{t}(format-meta)")
     return bad
 
+# ---------------------------------------------------------------------------
+# Link-claim validation.
+#
+# Why this exists: the <p>-extraction pattern used throughout this skill strips
+# <a> tags, so a linked citation vanishes from the plain text the analysis is
+# written from. SKILL.md:52 has told the maker to "check the markup before
+# claiming a source is uncited" ever since the 2026-08-26 batch produced two
+# wrong claims (the Gates survey and the Hassabis departure, both linked). That
+# rule is prose, and prose does not run — the claims kept shipping. This is the
+# same rule as an executable check.
+#
+# The two claims are NOT interchangeable, and treating them alike is a real
+# regression rather than a hypothetical one: a first cut of this check flagged a
+# document that correctly said it had no outbound *source* links while carrying
+# internal ones, and only the test caught it. A comment warning against the
+# conflation did not. So they are two separate checks:
+#
+#   "contains no links"            -> ANY <a href> disproves it
+#   "no outbound / source links"   -> only EXTERNAL hrefs disprove it
+#
+# An absent link is a real finding; an unchecked one is not. When the markup
+# cannot be fetched this returns nothing rather than guessing — the same
+# principle the prose rule states.
+
+_ANY_LINK_CLAIM = re.compile(
+    r"\b(?:contains|has|there are|there's|includes?)\s+no\s+links\b"
+    r"|\bno\s+links\s+(?:at all|whatsoever|present|in the (?:article|piece|post|document))\b"
+    r"|\bwithout\s+any\s+links\b",
+    re.I)
+
+_OUTBOUND_CLAIM = re.compile(
+    r"\bno\s+(?:outbound|external|outgoing)\s+(?:source\s+)?links\b"
+    r"|\bno\s+source\s+links\b"
+    r"|\blinks\s+to\s+no\s+(?:external\s+)?sources\b"
+    r"|\bno\s+links\s+to\s+(?:any\s+)?(?:external\s+)?sources\b",
+    re.I)
+
+_ANCHOR = re.compile(r"<a\s[^>]*?href\s*=\s*[\"']([^\"']+)[\"']", re.I | re.S)
+
+# Schemes that are not navigation to another document.
+_NON_NAV = ("#", "mailto:", "tel:", "javascript:", "data:")
+
+
+def _host(url):
+    """Hostname, lowercased, with a literal leading 'www.' removed.
+
+    Deliberately NOT url.lstrip("www."): str.lstrip takes a character SET, so it
+    strips any leading run of {w, .} and mangles unrelated hosts — 'w3.org'
+    becomes '3.org', 'ww2.example.com' becomes '2.example.com'. Literal prefix.
+    """
+    try:
+        h = (urllib.parse.urlparse(url).hostname or "").lower()
+    except ValueError:
+        return ""
+    return h[4:] if h.startswith("www.") else h
+
+
+def _is_readwise_asset(host):
+    """Readwise rehosts images and uploaded files on its own infrastructure and
+    rewrites source_url to point there. Those are plumbing, not citations —
+    counting them as outbound turns a truthful "no outbound links" into a false
+    FAIL, which is how the first implementation produced a false positive."""
+    if not host:
+        return False
+    if host == "readwise.io" or host.endswith(".readwise.io"):
+        return True
+    # readwise-assets.s3.amazonaws.com and siblings
+    return "readwise" in host and host.endswith("amazonaws.com")
+
+
+def _links_in(html, self_host):
+    """(all_navigable_hrefs, external_hrefs) for this document's markup."""
+    every, external = [], []
+    for href in _ANCHOR.findall(html or ""):
+        href = href.strip()
+        if not href or href.lower().startswith(_NON_NAV):
+            continue
+        every.append(href)
+        h = _host(href)
+        if not h:
+            continue                      # relative -> same document
+        if self_host and (h == self_host or h.endswith("." + self_host)):
+            continue                      # same site -> internal
+        if _is_readwise_asset(h):
+            continue                      # Readwise plumbing, not a citation
+        external.append(href)
+    return every, external
+
+
+_QUOTED = re.compile(r"\"[^\"\n]{0,200}\"|\u201c[^\u201d\n]{0,200}\u201d")
+
+
+def _strip_quoted(notes):
+    """Blank out short quoted spans before looking for a no-link claim.
+
+    A note that CORRECTS an earlier mistake quotes the very phrase it is
+    disowning -- e.g. an earlier pass on this document recorded "no outbound
+    links". That is a mention, not an assertion, but the claim regexes cannot
+    tell them apart and failed the one document that had already fixed itself
+    (a tweet whose notes had already corrected the error, measured 2026-09-20). Quoting is the
+    only signal available in plain notes, so a quoted span does not count as
+    the document asserting the claim. The span is length-capped and
+    newline-free so a stray quote mark cannot swallow the rest of the notes.
+    """
+    return _QUOTED.sub(" ", notes)
+
+
+def link_claim_violations(doc, fetch_html=None):
+    """FAIL strings for no-link claims the document's own markup contradicts.
+
+    `fetch_html(doc_id) -> html` is called only when a claim is actually present.
+    fetch_docs() requests withHtmlContent=false because html_content is large and
+    v3/list is rate-limited at ~20 req/min; fetching it for every doc to check a
+    claim that appears in a handful would trade a real sweep for a 429 storm.
+    """
+    notes = _strip_quoted(doc.get("notes") or "")
+    claims_any = bool(_ANY_LINK_CLAIM.search(notes))
+    claims_outbound = bool(_OUTBOUND_CLAIM.search(notes))
+    if not (claims_any or claims_outbound):
+        return []
+
+    html = doc.get("html_content")
+    if not html and fetch_html:
+        try:
+            html = fetch_html(doc.get("id"))
+        except Exception:
+            html = None
+    if not html:
+        return []                         # unchecked is not a finding
+
+    every, external = _links_in(html, _host(doc.get("source_url") or ""))
+    fails = []
+    if claims_any and every:
+        fails.append(
+            f"FALSE CLAIM — notes say the document contains no links, but the markup has "
+            f"{len(every)} (e.g. {every[0][:70]})")
+    if claims_outbound and external:
+        fails.append(
+            f"FALSE CLAIM — notes say there are no outbound/source links, but the markup has "
+            f"{len(external)} external (e.g. {external[0][:70]})")
+    return fails
+
+
+def _html_fetcher(doc_id):
+    """One extra v3/list call, with html, for a single doc."""
+    r = get(f"{BASE}?id={urllib.parse.quote(str(doc_id))}&withHtmlContent=true")
+    res = r.get("results") or []
+    return (res[0].get("html_content") if res else None)
+
+
 def check(doc, explicit=False, index=None):
     cat = doc.get("category")
     # never grade highlight/note children or RSS/feed items — they're not deep-read outputs
@@ -286,6 +436,7 @@ def check(doc, explicit=False, index=None):
     else:
         v = tag_violations(tags)
         if v: fails.append("BAD TAGS: " + ", ".join(v))
+    fails += link_claim_violations(doc, fetch_html=_html_fetcher)
     vault = None
     if index is not None and has_deepread:
         status, rel = vault_state(doc, index)

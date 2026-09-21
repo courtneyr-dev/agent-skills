@@ -165,7 +165,7 @@ skills:
       references/troubleshooting.md: generated
       references/youtube-subtitle-fallback.md: generated
       template_library_reference.md: generated
-      test_link_claims.py: excluded
+      test_link_claims.py: public-authored
   readwise-synthesis-pass:
     mode: generated
     source: readwise-synthesis-pass
