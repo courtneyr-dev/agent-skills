@@ -27,7 +27,7 @@ Run the human reviewed newsletter workflow for example.com. The script provides 
 For the initial accepted scan, run:
 
 ```bash
-python3 $HOME/.agents/skills/field-notes-draft/assemble.py \
+python3 ~/.agents/skills/field-notes-draft/assemble.py \
   --since 2026-08-01 --through 2026-08-28
 ```
 
@@ -72,7 +72,7 @@ Read the newsletter spec and the personal content engine voice reference.
 After the approved issue is sent, record only the document IDs that appeared:
 
 ```bash
-python3 $HOME/.agents/skills/field-notes-draft/assemble.py \
+python3 ~/.agents/skills/field-notes-draft/assemble.py \
   --record YYYY-MM-DD doc_id,doc_id
 ```
 

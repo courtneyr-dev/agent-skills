@@ -66,7 +66,7 @@ Add `/Library/Developer/CommandLineTools/usr/bin/python3` under System Settings,
 The defaults live near the top of `scripts/sync.py`:
 
 ```python
-OBSIDIAN_VAULT = Path("$VAULT_DIR")
+OBSIDIAN_VAULT = Path.home() / "Documents/your vault"
 DAILY_NOTES_DIR = OBSIDIAN_VAULT / "Review" / "Daily"
 LINKED_NOTE_ROOTS = (
     OBSIDIAN_VAULT / "Areas" / "Content Strategy",

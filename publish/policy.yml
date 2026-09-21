@@ -214,7 +214,7 @@ skills:
     mode: generated
     source: things-obsidian-sync
     files:
-      launchagent/com.courtney.things-obsidian-sync.plist: excluded
+      launchagent/com.courtney.things-obsidian-sync.plist.template: excluded
       launchagent/com.example.things-obsidian-sync.plist: public-authored
       scripts/sync.py: public-authored
   transcript-processing:
