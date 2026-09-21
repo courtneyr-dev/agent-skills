@@ -24,6 +24,7 @@ python3 $SYNC remove <skill>                              # stop tracking (files
 MNT=~/.claude/skills/skill-sync/check_mounts.py
 python3 $MNT                                              # ~/.agents/skills integrity (Mondays)
 python3 $MNT --fix                                        # relink byte-identical copies only
+python3 ~/.claude/skills/skill-sync/check_adapters.py     # AGENTS.md + thin adapters invariant (Mondays)
 ```
 
 `check_mounts.py` guards the assumption `apply` depends on: that `~/.agents/skills` — what Codex,
