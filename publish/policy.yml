@@ -181,6 +181,26 @@ skills:
       references/checks.md: generated
       references/quirks.md: generated
       references/remediation.md: public-authored
+  skill-retro:
+    mode: generated
+    source: skill-retro
+    files:
+      .gitignore: generated
+      README.md: generated
+      chat/skill-retro/SKILL.md: generated
+      chat/skill-retro/references/reading-the-record.md: generated
+      chat/skill-retro/references/routing-chat.md: generated
+      dist/skill-retro.skill: excluded
+      dist/skill-retro.zip: excluded
+      references/note-format.md: generated
+      references/reviewer-brief.md: generated
+      references/routing.md: generated
+      scripts/build_chat_skill.py: generated
+      scripts/config.example.json: generated
+      scripts/config.local.json: excluded
+      scripts/retro_offer_hook.py: generated
+      scripts/skill_owner.py: generated
+      tests/test_skill_retro.py: generated
   skill-sync:
     mode: generated
     source: skill-sync

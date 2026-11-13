@@ -1,7 +1,7 @@
 {
   "name": "agent-skills",
   "version": "1.0.0",
-  "updated": "2026-09-21",
+  "updated": "2026-11-13",
   "description": "Portable agent skills for any SKILL.md-compatible coding agent, plus a manifest of external skills installed from their own upstreams.",
   "skill_format": "https://code.claude.com/docs/en/skills",
   "skills": [
@@ -253,6 +253,16 @@
       "description": "Use when the user says 'site health', 'weekly health check', 'run the site health audit', or wants PageSpeed, accessibility, SEO, security headers, SSL, email authentication, social preview, carbon, and WordPress Site Health checked for a s",
       "summary": "Config-driven site audit: PageSpeed, accessibility, SEO, headers, SSL, email auth, carbon.",
       "example": "\"run the site health audit\" → a dated report: PageSpeed numbers, contrast failures, missing headers, SSL and DNS records, each with the check that produced it."
+    },
+    {
+      "name": "skill-retro",
+      "kind": "vendored",
+      "path": "skills/skill-retro",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use when a skill just ran a batch of work and the session should be mined for lessons, when the skill-retro Stop hook offers a retro, or when someone says 'retro that run', 'skill retro' or /skill-retro. Turns one session into evidence-back",
+      "summary": "Mine a session for lessons and route them as edits to the repo that owns the skill.",
+      "example": "a skill drives 15+ tool calls → the Stop hook offers a retro; say yes and get a retro note plus a PR, fork commit or drafted issue in the skill's own repo, sent only after you approve."
     },
     {
       "name": "skill-sync",
@@ -2098,6 +2108,7 @@
         "lmk",
         "loop-template",
         "prop-for-that",
+        "skill-retro",
         "skill-sync"
       ]
     }
@@ -2162,7 +2173,7 @@
   ],
   "source_policy": "Every entry points at the ORIGINAL source, never an intermediary. Where a skill reached this machine through a fork or a collection, the manifest names the upstream that actually published it and the fork is recorded separately. Two checks make that reliable: read the upstream's own credits before treating it as the origin, and never conclude 'no license' from the repo root alone — cursor/plugins has no root LICENSE but licenses each plugin directory, so the root check reports unlicensed for 44 skills that are in fact MIT.",
   "counts": {
-    "vendored": 34,
+    "vendored": 35,
     "external": 79,
     "external_unverified": 4,
     "_note": "Repository truth. Derived from manifest.skills and skills/ on disk; validated in CI."
@@ -2181,7 +2192,7 @@
   "publication": {
     "authority": "publish/policy.yml",
     "_note": "Publication mode (generated vs public-authored) is owned by publish/policy.yml, not by this manifest. CI validates that the two agree; it is never declared twice.",
-    "generated": 29,
+    "generated": 30,
     "public_authored": 5
   },
   "skill_roots": {

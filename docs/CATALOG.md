@@ -225,6 +225,12 @@ React in CSS to runtime state CSS cannot see — checks for a native property fi
 
 *"react to scroll position in CSS" → the native property if one exists, and the minimal JS bridge if not.*
 
+### [`skill-retro`](../skills/skill-retro/)
+
+Mine a session for lessons and route them as edits to the repo that owns the skill.
+
+*a skill drives 15+ tool calls → the Stop hook offers a retro; say yes and get a retro note plus a PR, fork commit or drafted issue in the skill's own repo, sent only after you approve.*
+
 ### [`skill-sync`](../skills/skill-sync/)
 
 Keep GitHub-sourced skills updated, and audit which skills are used, dormant, or dead.

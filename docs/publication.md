@@ -180,7 +180,7 @@ directory. It still cannot see canonical drift — that needs the private source
 ## Installation is a separate concern
 
 Publication mode (generated vs public-authored) says nothing about installation. Both are
-legitimate public artifacts and `install.sh` treats all 34 identically. The publisher owns how a
+legitimate public artifacts and `install.sh` treats all 35 identically. The publisher owns how a
 file gets into `skills/`; the installer owns how it reaches an agent.
 
 `install.sh` is non-destructive by construction: it creates missing links and reports every other

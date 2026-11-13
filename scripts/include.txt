@@ -36,6 +36,7 @@ readwise-mcp
 readwise-methods-review
 readwise-synthesis-pass
 site-health-audit
+skill-retro
 skill-sync
 surprise-me
 synthesis-backlog

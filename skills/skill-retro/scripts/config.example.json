@@ -1,0 +1,18 @@
+{
+  "notes_dir": "~/skill-retros",
+  "candidates_file": null,
+  "threshold": 15,
+  "exclude": ["skill-retro"],
+  "own_orgs": ["your-github-login"],
+  "employer_orgs": [],
+  "rfc_repos": [],
+  "rfc_process_skill": null,
+  "commit_styles": {},
+  "fork_repos": [],
+  "skills_dirs": ["~/.claude/skills", "~/.agents/skills"],
+  "plugins_dir": "~/.claude/plugins",
+  "sync_manifest": null,
+  "owners": {
+    "example-skill": {"repo": "your-employer/team-tools", "path": "skills/example-skill"}
+  }
+}

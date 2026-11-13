@@ -185,7 +185,7 @@ class CISafeVerification(unittest.TestCase):
         """The lock now keys complete artifacts: <skill>/SKILL.md plus each generated
         supporting file. Public-authored and excluded files must stay absent."""
         lock = P.read_lock()
-        self.assertEqual(sorted(k for k in lock if k.endswith("/SKILL.md")),
+        self.assertEqual(sorted(k for k in lock if k.endswith("/SKILL.md") and k.count("/") == 1),
                          [f"{n}/SKILL.md" for n in P._generated_names(self.pol)])
         for name in P._public_authored_names(self.pol):
             self.assertNotIn(f"{name}/SKILL.md", lock)

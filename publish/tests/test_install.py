@@ -44,7 +44,7 @@ class EmptyMachine(InstallerBase):
         rc, out = run(self.home, "--apply", "-a", "codex")
         self.assertEqual(rc, 0)
         self.assertTrue(os.path.islink(self.dest()))
-        self.assertEqual(len(os.listdir(self.codex)), 34, "all 34 public skills install")
+        self.assertEqual(len(os.listdir(self.codex)), 35, "all 35 public skills install")
 
     def test_generated_and_public_authored_both_install(self):
         run(self.home, "--apply", "-a", "codex")

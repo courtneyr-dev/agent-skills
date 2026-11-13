@@ -6,7 +6,7 @@ agents is where they look for it, and how well that is actually proven. Claude C
 are runtime-proven here, as is GitHub Copilot CLI; Cursor, Gemini and OpenClaw are not. Run `./install.sh --grades`, or
 see [Platforms](docs/PLATFORMS.md).
 
-**34 skills here**, plus [79 more](docs/CATALOG.md) that live in other people's
+**35 skills here**, plus [79 more](docs/CATALOG.md) that live in other people's
 repos and install from their own sources.
 
 New to this? **[What is a skill?](docs/WHAT-IS-A-SKILL.md)**
@@ -92,6 +92,7 @@ Routing work between models, repo hygiene, scheduling, and notifications.
 | [`lmk`](skills/lmk/) | Push a phone notification when long-running work finishes. |
 | [`loop-template`](skills/loop-template/) | Scaffold a scheduled job so it inherits the maker/checker pattern from the start. |
 | [`prop-for-that`](skills/prop-for-that/) | React in CSS to runtime state CSS cannot see — checks for a native property first. |
+| [`skill-retro`](skills/skill-retro/) | Mine a session for lessons and route them as edits to the repo that owns the skill. |
 | [`skill-sync`](skills/skill-sync/) | Keep GitHub-sourced skills updated, and audit which skills are used, dormant, or dead. |
 
 **[Full catalog →](docs/CATALOG.md)** — every skill with an example of it running, plus the
@@ -105,10 +106,10 @@ cd agent-skills
 ./install.sh --dry-run            # default: classify every destination, change nothing
 ./install.sh --apply              # create only the links that are missing
 ./install.sh --apply -a codex     # one agent
-./install.sh --list               # the 34 skills this repo ships
+./install.sh --list               # the 35 skills this repo ships
 ```
 
-This repository is the canonical source for the 34 skills under `skills/`. Installing links your
+This repository is the canonical source for the 35 skills under `skills/`. Installing links your
 agent's skill directory at them, so `git pull` updates every agent at once.
 
 **Nothing is overwritten.** An existing real directory, a customized copy, or a link that already
