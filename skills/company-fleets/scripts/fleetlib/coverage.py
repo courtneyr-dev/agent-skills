@@ -208,7 +208,7 @@ def render_report(reg: Registry) -> str:
     rows = _json(reg.path(REQUIREMENTS))["rows"]
     props = proposals(reg)
     status = Counter(r["status"] for r in rows)
-    partial = sum(1 for r in rows if r["deliverable"] and r["blocker"])
+    partial = sum(1 for r in rows if r["status"] == "delivered" and r["blocker"])
     uncovered = [r["id"] for r in rows if not (r["deliverable"] or r["blocker"])]
     today = datetime.date.today().isoformat()
     out = ["# Company-fleets coverage report", "",

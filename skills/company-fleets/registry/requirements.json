@@ -507,7 +507,7 @@
       "source_lines": "277",
       "text": "Hosting profile Reseller/white-label: Packages, upstream obligations, delegated access, billing, provisioning, support boundaries, migrations.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.account-lifecycle",
       "blocker": "Reseller billing and provisioning run through a fake WHM-shaped adapter; no upstream provider is selected"
     },
@@ -517,7 +517,7 @@
       "source_lines": "278",
       "text": "Hosting profile Shared cPanel/WHM: Accounts, quotas, DNS, certificates, PHP versions, databases, mail where offered, backups, restores, isolation, abuse.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "hosting-account-lifecycle/SKILL.md",
       "blocker": "Real cPanel/WHM adapter blocked: no provider selected, no credentials; mail is optional and not exercised"
     },
@@ -527,7 +527,7 @@
       "source_lines": "279",
       "text": "Hosting profile VPS/dedicated and alternative panels: OS lifecycle, server services, storage, backups, capacity, Plesk or another selected panel, administrator/reseller/customer boundaries.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.vps-server-operations",
       "blocker": "Covered as a workload, not a profile; no real VPS, Plesk or other panel is exercised"
     },
@@ -537,7 +537,7 @@
       "source_lines": "280",
       "text": "Hosting profile Managed CMS: Updates, compatibility, staging, performance, content workflows, security, multisite/multi-CMS operations.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "hosting-service-catalogue/references/functions.json",
       "blocker": "Compatibility, security and migrations are built and tested; staging, content workflows and multisite operations have no procedure yet"
     },
@@ -547,7 +547,7 @@
       "source_lines": "281",
       "text": "Hosting profile Developer/vibe-code platform: Source import, previews, builds, runtime isolation, databases, secrets, domains, identity, rollback, quotas, exportability.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.untrusted-app-build",
       "blocker": "Identity, custom domains and quota enforcement for the developer platform have no runtime demo; builds, previews, secrets, rollback and exportability do"
     },
@@ -557,7 +557,7 @@
       "source_lines": "282",
       "text": "Hosting profile Managed cloud/PaaS: Infrastructure-as-code, containers, managed data services, deployments, observability, capacity and cost.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.managed-cloud-operations",
       "blocker": "Terraform checks blocked: the terraform binary is not installed; plan-only and mocked-provider use is documented, never apply"
     },
@@ -567,7 +567,7 @@
       "source_lines": "283",
       "text": "Hosting profile Enterprise and regulated: SSO/RBAC, audit evidence, data boundaries, change control, service commitments, dedicated tenancy options.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "hosting-tenant-isolation/SKILL.md",
       "blocker": "Audit trail, data boundaries and change control are tested; SSO/RBAC and dedicated tenancy have no procedure or adapter yet"
     },
@@ -577,7 +577,7 @@
       "source_lines": "284",
       "text": "Hosting profile Advanced resilience: Failure-domain analysis, redundancy, restoration, disaster recovery, failover/failback, dependency and supply-chain resilience.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.resilience-exercise",
       "blocker": "Failover, failback and restoration are tested on one machine; multi-region failure domains and supply-chain resilience are not exercised"
     },
@@ -627,7 +627,7 @@
       "source_lines": "298",
       "text": "Tenant isolation, identity, secrets, audit trail, network and build-execution boundaries.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "hosting-tenant-isolation/SKILL.md",
       "blocker": "Identity (SSO) boundaries have no procedure yet"
     },
@@ -697,7 +697,7 @@
       "source_lines": "306",
       "text": "Use official provider documentation and APIs; build missing cPanel/WHM and reseller adapters against the actual selected provider; a generic Terraform skill is not a complete hosting service.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "hosting-account-lifecycle/SKILL.md",
       "blocker": "No provider is selected and no credentials exist, so the cPanel/WHM and reseller adapters are fakes that mirror WHM API 1 function names; a real adapter needs a chosen provider"
     },
@@ -717,7 +717,7 @@
       "source_lines": "312",
       "text": "Create a dated benchmark matrix against public Pantheon, WordPress VIP and Acquia documentation and the actual relevant plan/contract.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "company-fleets/fleets/hosting/benchmark/2026-11-26-matrix.json",
       "blocker": "No plan or contract exists for Fixture Co, so the contractual-commitment column is empty by design"
     },
@@ -727,7 +727,7 @@
       "source_lines": "314",
       "text": "Compare measurable dimensions: restore success, recovery objectives, isolation, deployment reversibility, load performance, observability, support coverage, accessibility, data portability, regional constraints, cost.",
       "owner_workstream": "hosting",
-      "status": "delivered",
+      "status": "blocked",
       "deliverable": "hosting-benchmark-matrix/SKILL.md",
       "blocker": "performance_under_load, support, accessibility, regions and cost have no measurement yet; they stay not-measured"
     },

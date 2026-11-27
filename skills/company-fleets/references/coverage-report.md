@@ -5,8 +5,8 @@ Generated 2026-11-27 by `bin/fleet coverage --sync --write` from `registry/requi
 ## Requirement rows
 
 - Rows: 235 (sections 3 to 11 of prompt 2 and the education addendum)
-- Delivered with a deliverable: 228, of which 22 also name a blocker for the part still missing
-- Blocked with an explicit blocker: 7
+- Delivered with a deliverable: 216, of which 8 also name a blocker for the part still missing
+- Blocked with an explicit blocker: 19
 - Assigned without a deliverable: 0
 - Unassigned: 0
 - Rows with neither a deliverable nor a blocker: 0
@@ -104,29 +104,29 @@ No role or skill records `activated`: activation means the router selected it in
 | Row | Status | Deliverable | Blocker or missing part | Mapped by |
 |---|---|---|---|---|
 | S05-001 | delivered | `company-fleets/fleets/hosting/roles.json#hosting.workload.affiliate-referral` |  | fleets/hosting/requirements-map.json |
-| S05-002 | delivered | `company-fleets/fleets/hosting/roles.json#hosting.workload.account-lifecycle` | Reseller billing and provisioning run through a fake WHM-shaped adapter; no upstream provider is selected | fleets/hosting/requirements-map.json |
-| S05-003 | delivered | `hosting-account-lifecycle/SKILL.md` | Real cPanel/WHM adapter blocked: no provider selected, no credentials; mail is optional and not exercised | fleets/hosting/requirements-map.json |
-| S05-004 | delivered | `company-fleets/fleets/hosting/roles.json#hosting.workload.vps-server-operations` | Covered as a workload, not a profile; no real VPS, Plesk or other panel is exercised | fleets/hosting/requirements-map.json |
-| S05-005 | delivered | `hosting-service-catalogue/references/functions.json` | Compatibility, security and migrations are built and tested; staging, content workflows and multisite operations have no procedure yet | fleets/hosting/requirements-map.json |
-| S05-006 | delivered | `company-fleets/fleets/hosting/roles.json#hosting.workload.untrusted-app-build` | Identity, custom domains and quota enforcement for the developer platform have no runtime demo; builds, previews, secrets, rollback and exportability do | fleets/hosting/requirements-map.json |
-| S05-007 | delivered | `company-fleets/fleets/hosting/roles.json#hosting.workload.managed-cloud-operations` | Terraform checks blocked: the terraform binary is not installed; plan-only and mocked-provider use is documented, never apply | fleets/hosting/requirements-map.json |
-| S05-008 | delivered | `hosting-tenant-isolation/SKILL.md` | Audit trail, data boundaries and change control are tested; SSO/RBAC and dedicated tenancy have no procedure or adapter yet | fleets/hosting/requirements-map.json |
-| S05-009 | delivered | `company-fleets/fleets/hosting/roles.json#hosting.workload.resilience-exercise` | Failover, failback and restoration are tested on one machine; multi-region failure domains and supply-chain resilience are not exercised | fleets/hosting/requirements-map.json |
+| S05-002 | blocked | `company-fleets/fleets/hosting/roles.json#hosting.workload.account-lifecycle` | Reseller billing and provisioning run through a fake WHM-shaped adapter; no upstream provider is selected | fleets/hosting/requirements-map.json |
+| S05-003 | blocked | `hosting-account-lifecycle/SKILL.md` | Real cPanel/WHM adapter blocked: no provider selected, no credentials; mail is optional and not exercised | fleets/hosting/requirements-map.json |
+| S05-004 | blocked | `company-fleets/fleets/hosting/roles.json#hosting.workload.vps-server-operations` | Covered as a workload, not a profile; no real VPS, Plesk or other panel is exercised | fleets/hosting/requirements-map.json |
+| S05-005 | blocked | `hosting-service-catalogue/references/functions.json` | Compatibility, security and migrations are built and tested; staging, content workflows and multisite operations have no procedure yet | fleets/hosting/requirements-map.json |
+| S05-006 | blocked | `company-fleets/fleets/hosting/roles.json#hosting.workload.untrusted-app-build` | Identity, custom domains and quota enforcement for the developer platform have no runtime demo; builds, previews, secrets, rollback and exportability do | fleets/hosting/requirements-map.json |
+| S05-007 | blocked | `company-fleets/fleets/hosting/roles.json#hosting.workload.managed-cloud-operations` | Terraform checks blocked: the terraform binary is not installed; plan-only and mocked-provider use is documented, never apply | fleets/hosting/requirements-map.json |
+| S05-008 | blocked | `hosting-tenant-isolation/SKILL.md` | Audit trail, data boundaries and change control are tested; SSO/RBAC and dedicated tenancy have no procedure or adapter yet | fleets/hosting/requirements-map.json |
+| S05-009 | blocked | `company-fleets/fleets/hosting/roles.json#hosting.workload.resilience-exercise` | Failover, failback and restoration are tested on one machine; multi-region failure domains and supply-chain resilience are not exercised | fleets/hosting/requirements-map.json |
 | S05-010 | delivered | `hosting-service-catalogue/SKILL.md` |  | fleets/hosting/requirements-map.json |
 | S05-011 | delivered | `company-fleets/fleets/hosting/roles.json` |  | fleets/hosting/requirements-map.json |
 | S05-012 | delivered | `hosting-account-lifecycle/SKILL.md` |  | fleets/hosting/requirements-map.json |
 | S05-013 | delivered | `hosting-service-catalogue/SKILL.md` |  | fleets/hosting/requirements-map.json |
-| S05-014 | delivered | `hosting-tenant-isolation/SKILL.md` | Identity (SSO) boundaries have no procedure yet | fleets/hosting/requirements-map.json |
+| S05-014 | blocked | `hosting-tenant-isolation/SKILL.md` | Identity (SSO) boundaries have no procedure yet | fleets/hosting/requirements-map.json |
 | S05-015 | delivered | `hosting-dns-cert-lifecycle/SKILL.md` |  | fleets/hosting/requirements-map.json |
 | S05-016 | delivered | `hosting-incident-response/SKILL.md` |  | fleets/hosting/requirements-map.json |
 | S05-017 | delivered | `hosting-metering-reconcile/SKILL.md` |  | fleets/hosting/requirements-map.json |
 | S05-018 | delivered | `hosting-abuse-response/SKILL.md` |  | fleets/hosting/requirements-map.json |
 | S05-019 | delivered | `hosting-data-migration/SKILL.md` |  | fleets/hosting/requirements-map.json |
 | S05-020 | delivered | `hosting-restore-exercise/SKILL.md` |  | fleets/hosting/requirements-map.json |
-| S05-021 | delivered | `hosting-account-lifecycle/SKILL.md` | No provider is selected and no credentials exist, so the cPanel/WHM and reseller adapters are fakes that mirror WHM API 1 function names; a real adapter needs a chosen provider | fleets/hosting/requirements-map.json |
+| S05-021 | blocked | `hosting-account-lifecycle/SKILL.md` | No provider is selected and no credentials exist, so the cPanel/WHM and reseller adapters are fakes that mirror WHM API 1 function names; a real adapter needs a chosen provider | fleets/hosting/requirements-map.json |
 | S05-022 | delivered | `hosting-tenant-isolation/SKILL.md` |  | fleets/hosting/requirements-map.json |
-| S05-023 | delivered | `company-fleets/fleets/hosting/benchmark/2026-11-26-matrix.json` | No plan or contract exists for Fixture Co, so the contractual-commitment column is empty by design | fleets/hosting/requirements-map.json |
-| S05-024 | delivered | `hosting-benchmark-matrix/SKILL.md` | performance_under_load, support, accessibility, regions and cost have no measurement yet; they stay not-measured | fleets/hosting/requirements-map.json |
+| S05-023 | blocked | `company-fleets/fleets/hosting/benchmark/2026-11-26-matrix.json` | No plan or contract exists for Fixture Co, so the contractual-commitment column is empty by design | fleets/hosting/requirements-map.json |
+| S05-024 | blocked | `hosting-benchmark-matrix/SKILL.md` | performance_under_load, support, accessibility, regions and cost have no measurement yet; they stay not-measured | fleets/hosting/requirements-map.json |
 | S05-025 | delivered | `hosting-benchmark-matrix/scripts/benchmark.py` |  | fleets/hosting/requirements-map.json |
 | S05-026 | delivered | `hosting-benchmark-matrix/SKILL.md` |  | fleets/hosting/requirements-map.json |
 | S05-027 | delivered | `company-fleets/fleets/hosting/benchmark/2026-11-26-readiness-backlog.md` |  | fleets/hosting/requirements-map.json |

@@ -199,9 +199,7 @@ item is to add log shipping or shorten the backup interval.
 
 - Delivered in full (15): S05-001, S05-010, S05-011, S05-012, S05-013, S05-015, S05-016, S05-017, S05-018, S05-019, S05-020, S05-022, S05-025, S05-026, S05-027.
 - Blocked (12): the deliverable holds the part that exists and the blocker names what's missing.
-  `registry/requirements.json` still shows them delivered until the integrator runs
-  `bin/fleet coverage --sync`; a sync today would also flip education rows ED-056 and ED-057, so this
-  fleet didn't run it.
+  `bin/fleet coverage --sync` copied these statuses into `registry/requirements.json`.
   - S05-002: Reseller billing and provisioning run through a fake WHM-shaped adapter; no upstream provider is selected.
   - S05-003: Real cPanel/WHM adapter blocked: no provider selected, no credentials; mail is optional and not exercised.
   - S05-004: Covered as a workload, not a profile; no real VPS, Plesk or other panel is exercised.
