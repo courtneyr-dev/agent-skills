@@ -1,0 +1,4 @@
+{
+  "label": "SYNTHETIC: invalid targets (an availability percentage is not a restore target this lab can measure).",
+  "targets": {"availability_percent": {"max": 99.99}}
+}

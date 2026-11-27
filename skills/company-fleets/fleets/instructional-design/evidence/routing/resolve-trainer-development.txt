@@ -1,0 +1,100 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains instructional-design.learning-experience-architect --contains instructional-design.facilitation-lead --absent fleets/bcit-education --absent fleets/agency -- bin/fleet resolve --profile devrel --workload instructional-design.workload.trainer-development
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.resolve-trainer-development
+{
+  "coordinator": "instructional-design.learning-experience-architect",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/instructional-design/roles.json"
+  ],
+  "profile": "devrel",
+  "roles": [
+    {
+      "display_name": "Learning-experience architect and instructional designer",
+      "fleet": "instructional-design",
+      "id": "instructional-design.learning-experience-architect",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "edu-needs-analysis",
+          "installed": true,
+          "path": "skills/edu-needs-analysis/SKILL.md"
+        },
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        },
+        {
+          "id": "edu-learning-progression",
+          "installed": true,
+          "path": "skills/edu-learning-progression/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "blocked_reason": "Needs OPENAI_API_KEY and defaults to gpt-4o-mini; the rig does not switch to API billing or accept that default",
+          "id": "course-generate",
+          "installed": false,
+          "path": "skills/course-generate/SKILL.md"
+        },
+        {
+          "blocked_reason": "No LaTeX toolchain (pdflatex) on the reference installation; slide-evaluate and latex-to-pptx depend on its output",
+          "id": "latex-compile",
+          "installed": false,
+          "path": "skills/latex-compile/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Facilitation and trainer enablement lead",
+      "fleet": "instructional-design",
+      "id": "instructional-design.facilitation-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-trainer-development",
+          "installed": true,
+          "path": "skills/edu-trainer-development/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Assessment designer and evaluation specialist",
+      "fleet": "instructional-design",
+      "id": "instructional-design.assessment-evaluation-specialist",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        },
+        {
+          "id": "edu-trainer-development",
+          "installed": true,
+          "path": "skills/edu-trainer-development/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Learning analytics and transfer-of-learning analyst",
+      "fleet": "instructional-design",
+      "id": "instructional-design.learning-analytics-analyst",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-trainer-development",
+          "installed": true,
+          "path": "skills/edu-trainer-development/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "instructional-design.workload.trainer-development"
+}
+# expect: met
+# exit 0

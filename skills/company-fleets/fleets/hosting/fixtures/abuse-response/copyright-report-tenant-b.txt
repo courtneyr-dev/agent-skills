@@ -1,0 +1,8 @@
+SYNTHETIC FIXTURE: copyright abuse report about an image on Client B (tenant-b) at Fixture Co. Every name, address and URL is invented.
+From: rights-holder@reports.example
+To: abuse@fixture-co.example
+Subject: Copyright notice for an image at www.tenant-b.example
+
+The photograph at https://www.tenant-b.example/gallery/harbor.jpg is used without a license.
+Original: https://photos.example/harbor
+Please review and respond.

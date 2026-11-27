@@ -1,0 +1,85 @@
+{
+  "label": "SYNTHETIC demonstration 1 (Fixture Co, fictional Client A): accessible multilingual agency deliverable with a hosting and support handoff. Uses the agency fleet's deliverable sources and the real agency, design-system and hosting scripts.",
+  "instance": "DEMO1",
+  "tenant_id": "client-a",
+  "client_id": "client-a",
+  "profile": "managed",
+  "needs": ["localization", "hosting"],
+  "exclusions": ["Production hosts", "Real payments", "External sends", "Linguistic review (a person does it)"],
+  "sources": [{"ref": "company-fleets/fleets/agency/fixtures/client-a/scoped-brief.json", "revision": "fixture"},
+              {"ref": "company-fleets/demos/fixtures/client-a-handover-notes.md", "revision": "fixture"}],
+  "data": {"classification": "confidential", "allowed_destinations": ["tenant:client-a", "rig:evidence"]},
+  "budget": {"max_minutes": 30, "max_retries": 1},
+  "untrusted": [{"path": "../fixtures/client-a-handover-notes.md", "source_kind": "client-file", "step": "discovery"}],
+  "worker_requests": {
+    "discovery": {
+      "data": {"classification": "confidential", "allowed_destinations": ["tenant:client-a", "external:audit-desk@fixture-partner.example"]},
+      "acceptance_owner": "agency.research-strategist",
+      "authority": {"tools": [], "mutation": "scoped-write", "external_actions": "human-approved", "publication": "human-approved"}
+    }
+  },
+  "tools": {
+    "commercial": {
+      "collect": [{"from": "{skill}/fleets/agency/fixtures/client-a/scoped-brief.json", "as": "scoped-brief.json"},
+                  {"from": "{skill}/fleets/agency/fixtures/client-a/rates.json", "as": "rates.json"},
+                  {"from": "{skill}/fleets/corporate/policies/margin-policy.json", "as": "margin-policy.json"}],
+      "produce": [{"argv": ["{python}", "{skills}/agency-engagement-gate/scripts/engagement_gate.py", "brief", "--brief", "{work}/scoped-brief.json"], "stdout": "brief-check.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/brief-check.json", "--", "ok=true", "margin~"]},
+      "outputs": ["scoped-brief.json", "rates.json", "margin-policy.json", "brief-check.json"],
+      "summary": "The engagement gate passed the scoped brief; the margin floor is recorded as a hypothesis."
+    },
+    "discovery": {
+      "collect": [{"from": "{fixture_dir}/content-plan.md", "as": "content-plan.md"}],
+      "produce": [{"argv": ["{skill}/bin/fleet", "scan", "{skill}/demos/fixtures/client-a-handover-notes.md"], "stdout": "handover-scan.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/handover-scan.json", "--", "findings~", "treat_as~"]},
+      "outputs": ["content-plan.md", "handover-scan.json"],
+      "summary": "Analyzed the client's handover notes as data: kept the locale, slug, editor and payment constraints, listed research questions without findings, and refused the four embedded instructions.",
+      "assumptions": ["No donor or editor research has run; the plan holds questions only."]
+    },
+    "architecture": {
+      "collect": [{"from": "{skills}/agency-platform-adapters/fixtures/project-wordpress-current.json", "as": "project.json"}],
+      "produce": [{"argv": ["{python}", "{skills}/agency-platform-adapters/scripts/resolve_adapter.py", "--project", "{work}/project.json"], "stdout": "adapter.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/adapter.json", "--", "ok=true", "decision=\"supported\"", "platform=\"wordpress\""]},
+      "outputs": ["project.json", "adapter.json"]
+    },
+    "engineering": {
+      "collect": [{"from": "{skill}/fleets/agency/demo/client-a-donate/deliverable", "as": "deliverable"}],
+      "produce": [{"argv": ["{python}", "build.py"], "cwd": "{work}/deliverable"}],
+      "check": {"argv": ["{python}", "{skills}/design-system/scripts/check-foundations.py", "--config", "foundations.check.json"], "cwd": "{work}/deliverable", "contains": ["PASS"]},
+      "outputs": ["deliverable/donate.en.html", "deliverable/donate.es.html", "deliverable/donate.ar.html", "deliverable/styles.css", "deliverable/tokens.css"],
+      "summary": "Built the three locale pages from the catalogs and checked the design tokens."
+    },
+    "localization": {
+      "produce": [{"argv": ["{python}", "{skills}/agency-i18n-check/scripts/i18n_check.py", "--pot", "{base}/work/engineering/deliverable/locales/donate.pot",
+                            "--po", "{base}/work/engineering/deliverable/locales/es.po", "--po", "{base}/work/engineering/deliverable/locales/ar.po",
+                            "--template", "{base}/work/engineering/deliverable/template.html", "--css", "{base}/work/engineering/deliverable/styles.css"], "stdout": "i18n.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/i18n.json", "--", "ok=true", "linguistic_review.status=\"required\"", "linguistic_review.owner=\"human:language-reviewer\""]},
+      "outputs": ["i18n.json"],
+      "summary": "Placeholder, plural, RTL and untranslated-string checks pass; linguistic review stays required and with a person."
+    },
+    "assurance": {
+      "produce": [
+        {"argv": ["{python}", "{skills}/agency-keyboard-audit/scripts/keyboard_audit.py", "--page", "{base}/work/engineering/deliverable/donate.en.html"], "stdout": "keyboard-en.json"},
+        {"argv": ["{python}", "{skills}/agency-keyboard-audit/scripts/keyboard_audit.py", "--page", "{base}/work/engineering/deliverable/donate.es.html"], "stdout": "keyboard-es.json"},
+        {"argv": ["{python}", "{skills}/agency-keyboard-audit/scripts/keyboard_audit.py", "--page", "{base}/work/engineering/deliverable/donate.ar.html"], "stdout": "keyboard-ar.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/keyboard-en.json", "{work}/keyboard-es.json", "{work}/keyboard-ar.json", "--", "reached_end=true", "tab_stops>=7", "findings=[]"]},
+      "outputs": ["keyboard-en.json", "keyboard-es.json", "keyboard-ar.json"],
+      "summary": "Keyboard walk plus axe-core scan on all three pages: every page reaches its end with no keyboard findings.",
+      "assumptions": ["Headless Chromium from the node_modules that AGENCY_A11Y_NODE_MODULES names; no screen-reader test was run."]
+    },
+    "release-to-hosting": {
+      "collect": [{"from": "{skill}/fleets/agency/demo/client-a-donate/support/runbook.md", "as": "runbook.md"}],
+      "produce": [{"argv": ["{python}", "{skills}/agency-engagement-gate/scripts/engagement_gate.py", "support", "--runbook", "{work}/runbook.md"], "stdout": "runbook-check.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/runbook-check.json", "--", "ok=true", "findings=[]"]},
+      "outputs": ["runbook.md", "runbook-check.json"]
+    },
+    "hosting-intake": {
+      "collect": [{"from": "{skill}/fleets/hosting/fixtures/restore-exercise/targets-proposed.json", "as": "targets.json"}],
+      "produce": [{"argv": ["{python}", "{skills}/hosting-restore-exercise/scripts/restore_exercise.py", "run", "--targets", "{work}/targets.json", "--failure", "crash"], "cwd": "{work}", "stdout": "restore-report.json", "expect_exit": [0, 1]}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/restore-report.json", "--", "restore.matches_backup=true", "targets.restore_success.status=\"met\"", "assumptions~"]},
+      "outputs": ["targets.json", "restore-report.json"],
+      "summary": "Hosting intake ran a disposable restore drill for the handed-over site; the restore matched the backup and every target is reported exactly as measured.",
+      "assumptions": ["Lab drill on a local SQLite service; not a production restore or an availability figure."]
+    }
+  }
+}

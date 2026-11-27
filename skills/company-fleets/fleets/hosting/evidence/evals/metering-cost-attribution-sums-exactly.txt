@@ -1,0 +1,74 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json 'pools.0.allocated="1000.00"' --json 'pools.0.allocations.0.amount="333.67"' --json 'pools.1.allocated="333.33"' -- python3 ../hosting-metering-reconcile/scripts/metering.py attribute --costs fleets/hosting/fixtures/metering/costs.json --events fleets/hosting/fixtures/metering/usage-events.jsonl --driver bandwidth_gb
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.metering-cost-attribution-sums-exactly kind positive synthetic true
+{
+  "assumptions": [
+    "Each pool splits in proportion to each tenant's deduplicated bandwidth_gb usage; tenants without it get nothing.",
+    "Allocations sum to the pool exactly. Rounding down to cents leaves a remainder; it goes one cent at a time to the tenant with the largest fractional cent, ties broken by tenant id ascending.",
+    "The driver is a proxy for cost, not a measurement of it; pick the meter that moves the pool's cost."
+  ],
+  "command": "attribute",
+  "conflicts": [],
+  "driver": "bandwidth_gb",
+  "duplicates": [
+    {
+      "event_id": "evt-a-003",
+      "first_line": 4,
+      "identical": true,
+      "line": 5,
+      "meter": "bandwidth_gb",
+      "quantity": "50",
+      "tenant_id": "tenant-a"
+    }
+  ],
+  "pools": [
+    {
+      "allocated": "1000.00",
+      "allocations": [
+        {
+          "amount": "333.67",
+          "driver_quantity": "250.5",
+          "got_remainder_cent": true,
+          "share": "0.333666",
+          "tenant_id": "tenant-a"
+        },
+        {
+          "amount": "666.33",
+          "driver_quantity": "500.25",
+          "got_remainder_cent": false,
+          "share": "0.666334",
+          "tenant_id": "tenant-b"
+        }
+      ],
+      "amount": "1000.00",
+      "pool_id": "edge-egress"
+    },
+    {
+      "allocated": "333.33",
+      "allocations": [
+        {
+          "amount": "111.22",
+          "driver_quantity": "250.5",
+          "got_remainder_cent": false,
+          "share": "0.333666",
+          "tenant_id": "tenant-a"
+        },
+        {
+          "amount": "222.11",
+          "driver_quantity": "500.25",
+          "got_remainder_cent": true,
+          "share": "0.666334",
+          "tenant_id": "tenant-b"
+        }
+      ],
+      "amount": "333.33",
+      "pool_id": "shared-observability"
+    }
+  ],
+  "tenant_totals": {
+    "tenant-a": "444.89",
+    "tenant-b": "888.44"
+  },
+  "verdict": "ok"
+}
+# expect: met
+# exit 0

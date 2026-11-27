@@ -1,0 +1,90 @@
+# eval agency.eval.keyboard-defects-missed-by-axe-found (positive, target agency-keyboard-audit)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 1 --contains "violations": 0 --contains "rule": "keyboard-trap" --contains "rule": "keyboard-unreachable" --contains "rule": "focus-not-visible" --contains "missed_by_automated_scan" --env AGENCY_A11Y_NODE_MODULES=/path/to/node_modules -- python3 ../agency-keyboard-audit/scripts/keyboard_audit.py --page ../agency-keyboard-audit/fixtures/donate-before.html --max-tabs 20
+run on 2026-11-26, exit 0
+
+{
+  "adapter": {
+    "axe_core": "4.13.0",
+    "chromium": "151.0.7922.34",
+    "playwright": "1.62.1"
+  },
+  "automated_scan": {
+    "ids": [],
+    "tool": "axe-core",
+    "violations": 0
+  },
+  "findings": [
+    {
+      "blocking": true,
+      "expected": "A visible change marks the focused control.",
+      "flagged_by_automated_scan": false,
+      "name": "About",
+      "observed": "Outline, box-shadow, border, background, color and text decoration are identical focused and unfocused.",
+      "rule": "focus-not-visible",
+      "selector": "header > nav > a:nth-of-type(1)",
+      "steps": "Open donate-before.html and press Tab until header > nav > a:nth-of-type(1) ('About') has focus.",
+      "wcag": "2.4.7"
+    },
+    {
+      "blocking": true,
+      "expected": "A visible change marks the focused control.",
+      "flagged_by_automated_scan": false,
+      "name": "Programs",
+      "observed": "Outline, box-shadow, border, background, color and text decoration are identical focused and unfocused.",
+      "rule": "focus-not-visible",
+      "selector": "header > nav > a:nth-of-type(2)",
+      "steps": "Open donate-before.html and press Tab until header > nav > a:nth-of-type(2) ('Programs') has focus.",
+      "wcag": "2.4.7"
+    },
+    {
+      "blocking": true,
+      "expected": "A visible change marks the focused control.",
+      "flagged_by_automated_scan": false,
+      "name": "Donate",
+      "observed": "Outline, box-shadow, border, background, color and text decoration are identical focused and unfocused.",
+      "rule": "focus-not-visible",
+      "selector": "header > nav > a:nth-of-type(3)",
+      "steps": "Open donate-before.html and press Tab until header > nav > a:nth-of-type(3) ('Donate') has focus.",
+      "wcag": "2.4.7"
+    },
+    {
+      "blocking": true,
+      "expected": "#monthly ('Make this a monthly gift') receives focus and works from the keyboard.",
+      "flagged_by_automated_scan": false,
+      "name": "Make this a monthly gift",
+      "observed": "It is never focused, yet it responds to pointer clicks.",
+      "rule": "keyboard-unreachable",
+      "selector": "#monthly",
+      "steps": "Open donate-before.html and press Tab through the whole page.",
+      "wcag": "2.1.1"
+    },
+    {
+      "blocking": true,
+      "expected": "Tab moves past the widget to the end of the page.",
+      "flagged_by_automated_scan": false,
+      "name": "#amount-10, #amount-25, #amount-50",
+      "observed": "Focus cycles among #amount-10, #amount-25, #amount-50 and never reaches the end of the page; Escape does not release it.",
+      "rule": "keyboard-trap",
+      "selector": "#amount-10",
+      "steps": "Open donate-before.html, press Tab 20 times, then press Escape and Tab again.",
+      "wcag": "2.1.2"
+    }
+  ],
+  "limits": [
+    "One page, one starting point, forward Tab only; flows behind clicks, dialogs and Shift+Tab need their own runs or a human tester.",
+    "Click listeners are read per element through the Chrome DevTools Protocol; a listener delegated to document or body is not attributed to the control.",
+    "Focus visibility compares computed outline, box-shadow, border, background, color and text decoration; it does not measure contrast or size against WCAG 2.4.11 or 2.4.13.",
+    "Headless Chromium only; other browsers and assistive technologies can behave differently, and nothing here replaces testing with disabled users.",
+    "It reports defects; it never certifies WCAG conformance."
+  ],
+  "missed_by_automated_scan": [
+    "focus-not-visible",
+    "keyboard-trap",
+    "keyboard-unreachable"
+  ],
+  "ok": false,
+  "page": "donate-before.html",
+  "reached_end": false,
+  "tab_stops": 6
+}
+[expect] exit 1 (expected 1); missing none; forbidden present none -> PASS

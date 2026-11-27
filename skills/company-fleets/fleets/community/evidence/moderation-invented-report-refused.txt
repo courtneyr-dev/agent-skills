@@ -1,0 +1,28 @@
+$ sh -c 'python3 ../community-moderation-review/scripts/case_check.py --case fleets/community/fixtures/moderation/case-cm-1.json --draft fleets/community/fixtures/moderation/draft-invented-report.json; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.moderation-invented-report-refused (boundary, target community-moderation-review, synthetic=True)
+# expected: Exit 1: invented-record for both ids and nothing else.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "community-moderation-review",
+  "version": "1.0.0",
+  "case_id": "CM-CASE-1",
+  "ok": false,
+  "violations": [
+    {
+      "rule": "invented-record",
+      "where": "findings[1].report",
+      "message": "RPT-2 is not a report in the case log"
+    },
+    {
+      "rule": "invented-record",
+      "where": "findings[1].evidence",
+      "message": "EV-9 is not evidence in the case log"
+    }
+  ],
+  "authority": "advisory: human:trust-safety-lead decides the case; this check only bounds what an agent may draft"
+}
+--- stderr ---
+

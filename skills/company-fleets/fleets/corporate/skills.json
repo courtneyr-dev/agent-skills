@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "fleet": "corporate",
+  "skills": [
+    {
+      "id": "corporate-claims-check",
+      "fleet": "corporate",
+      "summary": "Deterministic gate that rejects guaranteed search rankings or AI-answer placement, uncited ranking outcomes and statistics, and fabricated or unverifiable citations, quotes and numbers in a draft.",
+      "triggers": [
+        "Claims check before staging marketing, SEO/AIO or communications copy",
+        "Is this statistic sourced",
+        "Fact-check this draft against the sources register"
+      ],
+      "boundaries": [
+        "Does not judge tone, brand fit, legal compliance or truth",
+        "English patterns only",
+        "Does not fetch pages; a human verifies the register"
+      ],
+      "inputs": [
+        "Markdown draft",
+        "Sources register JSON with verbatim excerpts, an author and a sign-off by a different named human bound to the sources hash"
+      ],
+      "prerequisites": [
+        "Python 3.9+",
+        "company-fleets and factory-rig beside this skill: the register's sign-off is read from the owner log"
+      ],
+      "method": [
+        "Validate the register",
+        "Read its sign-off from the owner log by the sources hash",
+        "Normalize the text a reader sees (entities, NFKC, invisible and look-alike characters) and split it into sentences, fenced and footnote text included",
+        "Apply the blocking rules",
+        "Print one JSON verdict"
+      ],
+      "stopping_conditions": [
+        "Exit 0 with no blocking findings",
+        "Exit 1 with findings",
+        "Exit 2 on invalid input"
+      ],
+      "output_contract": "One JSON object: ok, findings (rule, blocking, line, excerpt, message), checked counts and limits.",
+      "failure_states": [
+        "Invalid register or an unclosed code fence: exit 2",
+        "No owner-log sign-off for the exact sources: register-not-signed-off",
+        "A negation cue after the phrase: blocks, reword"
+      ],
+      "references": [
+        {
+          "title": "Do You Need an SEO? (Google Search Central)",
+          "location": "https://developers.google.com/search/docs/fundamentals/do-i-need-seo",
+          "version": "Last updated 2026-06-05; two sentences verified verbatim with a live fetch on 2026-11-25",
+          "rights": "CC BY 4.0 per page footer; two sentences quoted as register excerpts"
+        },
+        {
+          "title": "FTC Policy Statement Regarding Advertising Substantiation",
+          "location": "https://www.ftc.gov/legal-library/browse/ftc-policy-statement-regarding-advertising-substantiation",
+          "version": "1984; not re-fetched (ftc.gov returned HTTP 403 to curl on 2026-11-25)",
+          "rights": "US government work; cited, not copied"
+        }
+      ],
+      "scripts": [
+        "scripts/claims_check.py",
+        "scripts/tests/test_claims_check.py"
+      ],
+      "adapters": [
+        {
+          "name": "python3 standard library",
+          "kind": "cli",
+          "required": true
+        },
+        {
+          "name": "company-fleets fleetlib and factory-rig (imported)",
+          "kind": "cli",
+          "required": true
+        }
+      ],
+      "missing_capability": "Without company-fleets and factory-rig the check reports blocked (exit 3); the draft goes to a human reviewer with the rules from references/claim-rules.md and stays unstaged.",
+      "evals": {
+        "positive": [
+          "corporate.eval.claims-cited-draft-passes",
+          "corporate.eval.claims-cautionary-sentences-pass"
+        ],
+        "negative": [
+          "corporate.eval.claims-ranking-guarantee-rejected",
+          "corporate.eval.claims-fabricated-citation-rejected",
+          "corporate.eval.claims-uncited-statistic-rejected",
+          "corporate.eval.claims-review-guarantee-phrasings-flagged",
+          "corporate.eval.claims-register-sign-off-enforced",
+          "corporate.eval.claims-hidden-text-checked"
+        ],
+        "boundary": [
+          "corporate.eval.claims-invalid-register-refused",
+          "corporate.eval.claims-unclosed-fence-refused"
+        ]
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/corporate/evidence/skill-unit-tests.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has loaded this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/corporate/evidence/claims-cited-draft-passes.txt",
+          "note": "Every positive, negative and boundary script case passed"
+        }
+      },
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets corporate-and-agency workstream",
+        "revision": "0.1.0 (2026-11-26)",
+        "license": "MIT (agent-skills); upstream material cited, not copied"
+      }
+    },
+    {
+      "id": "corporate-email-guard",
+      "fleet": "corporate",
+      "summary": "Send gate for staged email: suppression enforced at staging and at send, approval bound to campaign and recipient hashes by a named human, and a local fake outbox as the only transport.",
+      "triggers": [
+        "Stage a campaign or newsletter",
+        "Is this send approved",
+        "Suppression or unsubscribe check before any email"
+      ],
+      "boundaries": [
+        "No real transport",
+        "Does not establish legal compliance",
+        "Trim and lowercase normalization only"
+      ],
+      "inputs": [
+        "Campaign JSON",
+        "Contacts CSV",
+        "Suppression list and send approval, from the campaign's owner log (company-fleets fleets/corporate/owner/<campaign_id>)"
+      ],
+      "prerequisites": [
+        "Python 3.9+",
+        "company-fleets and factory-rig beside this skill: the suppression list and the approval are read from the owner log"
+      ],
+      "method": [
+        "Stage recipients and hashes against the pinned suppression list",
+        "A human approves the hashes; the contract owner records it with fleet owner-record --kind send-approval",
+        "Send re-reads the pinned suppression list and writes to the fake outbox"
+      ],
+      "stopping_conditions": [
+        "Stage exit 0",
+        "Send exit 0 with messages in the outbox",
+        "Send exit 1 refused with the outbox untouched",
+        "Exit 2 on invalid input"
+      ],
+      "output_contract": "One JSON object; stage prints the staged record, send prints ok, sent, already_sent, suppressed_at_send, refused, transport and limits.",
+      "failure_states": [
+        "No approval in the owner log, wrong hash, edited staged file, a non-fake channel, or no owner ledger or suppression pin for the campaign: refused"
+      ],
+      "references": [
+        {
+          "title": "CAN-SPAM Act: A Compliance Guide for Business (FTC)",
+          "location": "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business",
+          "version": "not re-fetched (HTTP 403 to curl on 2026-11-25)",
+          "rights": "US government work; cited, not copied"
+        },
+        {
+          "title": "RFC 2606 Reserved Top Level DNS Names",
+          "location": "https://www.rfc-editor.org/rfc/rfc2606",
+          "version": "June 1999, BCP 32",
+          "rights": "IETF Trust; cited"
+        }
+      ],
+      "scripts": [
+        "scripts/email_guard.py",
+        "scripts/tests/test_email_guard.py"
+      ],
+      "adapters": [
+        {
+          "name": "Local fake outbox directory",
+          "kind": "fake",
+          "required": true
+        },
+        {
+          "name": "Company email platform (real send, human-operated)",
+          "kind": "api",
+          "required": false
+        }
+      ],
+      "missing_capability": "A real send is never performed here; the staged file and approval go to the person who holds send authority in the company's email platform.",
+      "evals": {
+        "positive": [
+          "corporate.eval.email-suppressed-stay-suppressed"
+        ],
+        "negative": [
+          "corporate.eval.email-send-without-authority-refused",
+          "corporate.eval.email-malformed-suppression-refused"
+        ],
+        "boundary": [
+          "corporate.eval.email-retry-and-tamper-boundary"
+        ]
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/corporate/evidence/skill-unit-tests.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has loaded this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/corporate/evidence/email-suppressed-stay-suppressed.txt",
+          "note": "Every positive, negative and boundary script case passed"
+        }
+      },
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets corporate-and-agency workstream",
+        "revision": "0.1.0 (2026-11-26)",
+        "license": "MIT (agent-skills); upstream material cited, not copied"
+      }
+    }
+  ]
+}

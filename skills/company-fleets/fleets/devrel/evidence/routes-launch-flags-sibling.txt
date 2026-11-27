@@ -1,0 +1,39 @@
+$ sh -c 'python3 ../devrel-program-kit/scripts/check_routes.py --skills-root .. routes fleets/devrel/fixtures/program/routes-launch.json; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:06Z
+# case: devrel.eval.routes-launch-flags-sibling (negative, target devrel-program-kit, synthetic=True)
+# expected: Exit 1; the route is sibling-not-installed with fallbacks docs-code-sample-standards and devrel-quickstart-replay, coverage partial.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "devrel-program-kit/check_routes",
+  "version": "1.0.0",
+  "ok": false,
+  "counts": {
+    "installed": 5,
+    "sibling-not-installed": 1
+  },
+  "unresolved": [
+    {
+      "ref": "samber/developer-platform-skills@sample-app-strategy",
+      "status": "sibling-not-installed",
+      "skill": "sample-app-strategy",
+      "fallback": [
+        "docs-code-sample-standards",
+        "devrel-quickstart-replay"
+      ],
+      "coverage": "partial",
+      "why": "sample policy plus clean-room replay; portfolio strategy is the gap",
+      "order": 3
+    }
+  ],
+  "installed": [
+    "samber/developer-relations-skills@developer-journey-map",
+    "samber/developer-relations-skills@developer-quickstart-guide",
+    "samber/developer-relations-skills@developer-workshop-program",
+    "samber/developer-relations-skills@developer-feedback-loop",
+    "samber/developer-relations-skills@devrel-metrics"
+  ]
+}
+--- stderr ---
+

@@ -1,0 +1,8 @@
+{
+  "approved_by": "human:tenant-a-owner",
+  "kind": "approval",
+  "preview_id": "prev-critical-dep",
+  "recorded_by": "isolation_check approve",
+  "subject_sha256": "2e69f0c857320335f5c5dc3df00e777c80e9bfb97f2e39071dac92736ac70b73",
+  "tenant_id": "tenant-a"
+}

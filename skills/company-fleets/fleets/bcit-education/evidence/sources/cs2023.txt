@@ -1,0 +1,20 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csed.acm.org/
+# run 2026-11-25
+http_code=200 final_url=https://csed.acm.org/ size=31619
+L1: CS2023 – ACM/IEEE-CS/AAAI Computer Science Curricula
+L3: CS2023
+L5: CS2023: ACM/IEEE-CS/AAAI Computer Science Curricula
+L7: The Curricular Report (Endorsed by: ACM – Jan 18, 2024, IEEE-CS – Jan 22, 2024, AAAI – Feb 22, 2024)
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csed.acm.org/knowledge-areas/
+# run 2026-11-25
+http_code=200 final_url=https://csed.acm.org/knowledge-areas/ size=31654
+L7: Algorithmic Foundations (AL)
+L9: Artificial Intelligence (AI)
+L18: Security (SEC)
+L19: Society, Ethics, and the Profession (SEP)
+L20: Software Development Fundamentals (SDF)
+$ (stdlib zlib extraction of https://csed.acm.org/wp-content/uploads/2024/04/0.-Cover-Page.pdf)
+# run 2026-11-25
+cover text: 'Computer Science Curricula 2023 The Final Report January 2024 Version 2024-04-28 The Joint Task Force on Computer Science Curricula ACM IEEE-CS AAAI'
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://dl.acm.org/doi/book/10.1145/3664191
+http_code=403 (ACM Digital Library refused the default curl user agent; license terms not observed)

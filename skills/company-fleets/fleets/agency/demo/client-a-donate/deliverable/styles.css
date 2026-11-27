@@ -1,0 +1,11 @@
+/* SYNTHETIC FIXTURE (Fixture Co): layout for the donate page. Logical properties only, so the Arabic page mirrors without overrides. */
+body { margin: 0; font-family: system-ui, sans-serif; color: var(--color-text); background: var(--color-bg); line-height: 1.5; }
+header, main, footer { padding-block: var(--space-3); padding-inline: var(--space-4); }
+nav a { color: var(--color-action); margin-inline-end: var(--space-3); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.skip-link { position: absolute; inset-inline-start: -999rem; }
+.skip-link:focus { inset-inline-start: var(--space-3); background: var(--color-bg); padding-block: var(--space-2); padding-inline: var(--space-2); }
+fieldset { border: 1px solid var(--color-text-muted); border-radius: var(--radius-md); margin-block: var(--space-3); padding-block: var(--space-3); padding-inline: var(--space-3); }
+.give { background: var(--color-action); color: var(--color-on-action); border: 0; border-radius: var(--radius-sm); padding-block: var(--space-2); padding-inline: var(--space-4); font-size: 1rem; }
+.tally { color: var(--color-text-muted); }
+footer { background: var(--color-surface); }

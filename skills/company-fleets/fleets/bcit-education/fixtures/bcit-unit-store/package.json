@@ -1,0 +1,59 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): BCIT learning package for the student-run store unit. Draft: standards mappings are gaps or unverified; no learning evidence has been collected.",
+  "context": {
+    "course": "Business and Computer Applications",
+    "grade_band": "10-12",
+    "prerequisites": [
+      "percent and decimal operations",
+      "entering values and formulas in a spreadsheet"
+    ],
+    "duration": "five 45-minute periods",
+    "resources": [
+      "student-handout.md",
+      "sales-data.csv",
+      "school-provided spreadsheet program",
+      "SQLite on lab machines",
+      "printed copies"
+    ],
+    "technology_constraints": [
+      "no accounts",
+      "no internet needed after files are copied",
+      "paper route for every task"
+    ]
+  },
+  "files": {
+    "teacher_guide": "teacher-guide.md",
+    "student_materials": [
+      "student-handout.md",
+      "sales-data.csv"
+    ],
+    "worked_example": "worked-example.md",
+    "assessment": "assessment.json",
+    "answer_key": "answer-key.json",
+    "alignment": "alignment.json"
+  },
+  "sections": {
+    "guided_practice": "teacher-guide.md#Guided practice",
+    "independent_application": "student-handout.md#Independent application",
+    "checks_for_understanding": "teacher-guide.md#Checks for understanding",
+    "misconceptions": "teacher-guide.md#Common misconceptions",
+    "answer_rationale": "worked-example.md#Answer rationale",
+    "accessibility_differentiation": "teacher-guide.md#Accessibility and differentiation",
+    "offline_alternative": "teacher-guide.md#Offline and low-bandwidth alternative",
+    "evidence_feedback_reteaching": "teacher-guide.md#Evidence, feedback and reteaching",
+    "extension": "teacher-guide.md#Extension",
+    "teacher_review_points": "teacher-guide.md#Teacher review points"
+  },
+  "nbea_areas": [
+    "Accounting",
+    "Information Technology",
+    "Marketing",
+    "Communication",
+    "Entrepreneurship"
+  ],
+  "differentiation_preserves_demand": true,
+  "learning_evidence": {
+    "status": "not-collected",
+    "note": "The teacher collects T1-T3 results after teaching; the rig does not produce learner results."
+  }
+}

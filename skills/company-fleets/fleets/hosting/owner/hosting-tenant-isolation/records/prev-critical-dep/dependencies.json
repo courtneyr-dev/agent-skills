@@ -1,0 +1,30 @@
+{
+  "advisories_sha256": "2baf14c1e92a0e3ab1fc1bfde69dd4599e3ee093b2426ba4812928d66386d91f",
+  "findings": [
+    {
+      "id": "FIXTURE-ADV-3",
+      "package": "image-resize-fixture",
+      "severity": "critical",
+      "version": "0.9.0"
+    },
+    {
+      "id": "FIXTURE-ADV-1",
+      "package": "left-pad-fixture",
+      "severity": "low",
+      "version": "1.3.0"
+    },
+    {
+      "id": "FIXTURE-ADV-2",
+      "package": "tiny-parser-fixture",
+      "severity": "medium",
+      "version": "2.0.1"
+    }
+  ],
+  "kind": "dependencies",
+  "lockfile_sha256": "fad71e29bb6c379b860d7d45a60f639129c028e8b059bd2b82490946feb24b03",
+  "packages": 4,
+  "preview_id": "prev-critical-dep",
+  "recorded_by": "isolation_check record-dependencies",
+  "subject_sha256": "2e69f0c857320335f5c5dc3df00e777c80e9bfb97f2e39071dac92736ac70b73",
+  "tenant_id": "tenant-a"
+}

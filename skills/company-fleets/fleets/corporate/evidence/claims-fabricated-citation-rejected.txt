@@ -1,0 +1,57 @@
+# eval corporate.eval.claims-fabricated-citation-rejected (negative, target corporate-claims-check)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 1 --contains "rule": "citation-unknown-source" --contains "rule": "quote-not-in-source" --contains "rule": "number-not-in-source" -- python3 ../corporate-claims-check/scripts/claims_check.py --draft ../corporate-claims-check/fixtures/draft-fabricated-citation.md --sources ../corporate-claims-check/fixtures/sources.json
+run on 2026-11-26, exit 0
+
+{
+  "checked": {
+    "citations": 4,
+    "sentences": 6
+  },
+  "findings": [
+    {
+      "blocking": true,
+      "excerpt": "Fixture Co says customers \"reply to every ticket within five minutes\" according to the survey.[^S2]",
+      "line": 4,
+      "message": "Quoted text \"reply to every ticket within five minutes\" does not appear, as whole words, in any excerpt of the cited sources. Quote the excerpt exactly or drop the quote marks.",
+      "rule": "quote-not-in-source"
+    },
+    {
+      "blocking": true,
+      "excerpt": "The survey found that 87% of respondents read the newsletter weekly.[^S2]",
+      "line": 6,
+      "message": "Statistic '87%' does not appear in any excerpt of the cited sources. Fix the number or cite a source that holds it.",
+      "rule": "number-not-in-source"
+    },
+    {
+      "blocking": true,
+      "excerpt": "Independent research confirms the newsletter lifts engagement.[^S9]",
+      "line": 8,
+      "message": "Footnote [^S9] is not in the sources register. Register the source with a verbatim excerpt or remove the claim.",
+      "rule": "citation-unknown-source"
+    },
+    {
+      "blocking": true,
+      "excerpt": "A [separate study](https://www.example.net/made-up-study) says the same.",
+      "line": 10,
+      "message": "Link https://www.example.net/made-up-study is not a registered source url. Register it with a verbatim excerpt or remove the claim.",
+      "rule": "citation-unknown-source"
+    }
+  ],
+  "limits": [
+    "Does not check that a registered source really says what its excerpt claims; a human verifies the register against the live page.",
+    "Does not judge tone or brand fit, and does not decide whether a claim is true; it checks that claims carry citations that resolve and that quotes and statistic numbers appear in the cited excerpts.",
+    "Patterns are English. Spanish, French and German guarantee words (garantizado, garanti, garantiert and their forms) and a few position phrases (primer lugar, premi\u00e8re place, Platz 1) are also matched, with their basic negations; any other wording in those languages, and every other language, passes unchecked.",
+    "Matches phrases, not meaning: a promise needs a cue (guarantee, promise, ensure, will, always, money back, or we work for free and similar) plus a rank, position or AI-answer target, said by the author or to the client. A promise with no cue word passes: certain to appear, a sure thing, our pledge, our commitment, we commit to.",
+    "Reads what renders: HTML tags, Markdown emphasis inside a word, combining marks, a hyphenated line break, entities, look-alike letters and invisible characters are removed before matching.",
+    "Compares quotes in straight, curly, low, angle and corner quotation marks, <q> elements, and blockquotes (Markdown or <blockquote>) cited on the quote itself or on an attribution line after it. A code span, italics without quotation marks, or a paraphrase after a colon is not read as a quote, so it is checked as the author's own words.",
+    "Only http(s) inline links count as citations; a sentence is cited when it holds at least one marker or link that resolves to the register.",
+    "The sign-off comes from the owner ledger of the instance the register names, kept at fleets/corporate/owner/<instance> in company-fleets and written under the claim token; a ledger of another tenant is refused. Not stopped: a same-user process that writes the owner root, reads the owner's token, or claims an instance first, including a new instance id the register's author writes into the register and then claims (company-fleets references/authoring-guide.md, Owner path)."
+  ],
+  "ok": false,
+  "sign_off": {
+    "author": "human:content-author",
+    "owner_log_seq": 2,
+    "signed_off_by": "human:claims-reviewer"
+  }
+}
+[expect] exit 1 (expected 1); missing none; forbidden present none -> PASS

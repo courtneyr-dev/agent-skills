@@ -1,0 +1,4 @@
+{
+  "label": "SYNTHETIC: Fixture Co owner file. Who may approve an external incident update. Owned by human:communications-approver's manager; incident.py approve reads it, a draft or a flag can't extend it.",
+  "external": ["human:communications-approver"]
+}

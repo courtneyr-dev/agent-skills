@@ -1,0 +1,30 @@
+# Unit tests for skills/product-release-gate after the 2026-11-26 review fixes. SYNTHETIC Fixture Co fixtures. Run 2026-11-26T22:17Z.
+$ cd skills/product-release-gate/scripts/tests && python3 -m unittest -v
+test_beta_channel_needs_a_prerelease (test_release_gate.ReleaseGateTest.test_beta_channel_needs_a_prerelease) ... ok
+test_breaking_change_needs_a_major_version (test_release_gate.ReleaseGateTest.test_breaking_change_needs_a_major_version) ... ok
+test_candidate_claims_edited_and_rebound_without_review_are_refused (test_release_gate.ReleaseGateTest.test_candidate_claims_edited_and_rebound_without_review_are_refused) ... ok
+test_compat_subcommand_rejects_untested_maximum (test_release_gate.ReleaseGateTest.test_compat_subcommand_rejects_untested_maximum) ... ok
+test_complete_candidate_is_ready_for_human_approval_not_approved (test_release_gate.ReleaseGateTest.test_complete_candidate_is_ready_for_human_approval_not_approved) ... ok
+test_contract_edited_after_review_makes_all_evidence_stale (test_release_gate.ReleaseGateTest.test_contract_edited_after_review_makes_all_evidence_stale) ... ok
+test_disallowed_license_and_open_critical_advisory_are_refused (test_release_gate.ReleaseGateTest.test_disallowed_license_and_open_critical_advisory_are_refused) ... ok
+test_incompatible_host_is_refused_before_any_packaging_stage_runs (test_release_gate.ReleaseGateTest.test_incompatible_host_is_refused_before_any_packaging_stage_runs) ... ok
+test_invalid_inputs_exit_2 (test_release_gate.ReleaseGateTest.test_invalid_inputs_exit_2) ... ok
+test_inverted_range_with_no_tests_is_refused (test_release_gate.ReleaseGateTest.test_inverted_range_with_no_tests_is_refused) ... ok
+test_matrix_declaring_nothing_is_refused (test_release_gate.ReleaseGateTest.test_matrix_declaring_nothing_is_refused) ... ok
+test_matrix_edited_after_review_is_stale (test_release_gate.ReleaseGateTest.test_matrix_edited_after_review_is_stale) ... ok
+test_matrix_for_another_version_cannot_satisfy_the_gate (test_release_gate.ReleaseGateTest.test_matrix_for_another_version_cannot_satisfy_the_gate) ... ok
+test_migration_must_be_declared_even_without_a_schema_change (test_release_gate.ReleaseGateTest.test_migration_must_be_declared_even_without_a_schema_change) ... ok
+test_missing_semver_adapter_blocks_the_stage (test_release_gate.ReleaseGateTest.test_missing_semver_adapter_blocks_the_stage) ... ok
+test_platform_without_a_pinned_checklist_blocks_instead_of_passing (test_release_gate.ReleaseGateTest.test_platform_without_a_pinned_checklist_blocks_instead_of_passing) ... ok
+test_rehash_without_a_new_review_is_refused (test_release_gate.ReleaseGateTest.test_rehash_without_a_new_review_is_refused) ... ok
+test_retired_api_version_is_refused_at_compatibility (test_release_gate.ReleaseGateTest.test_retired_api_version_is_refused_at_compatibility) ... ok
+test_review_file_edited_after_binding_is_stale (test_release_gate.ReleaseGateTest.test_review_file_edited_after_binding_is_stale) ... ok
+test_review_written_by_the_producer_is_refused (test_release_gate.ReleaseGateTest.test_review_written_by_the_producer_is_refused) ... ok
+test_schema_change_without_a_rollback_test_is_refused (test_release_gate.ReleaseGateTest.test_schema_change_without_a_rollback_test_is_refused) ... ok
+test_wordpress_review_does_not_validate_a_shopify_app (test_release_gate.ReleaseGateTest.test_wordpress_review_does_not_validate_a_shopify_app) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 3.682s
+
+OK
+exit=0

@@ -1,0 +1,28 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains "unsupported": 1 -- python3 ../edu-answer-key-check/scripts/answer_key.py check fleets/bcit-education/fixtures/bcit-unit-store/answer-key-unsupported.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.unsupported-formula-not-passed
+{
+  "ok": false,
+  "engine": "edu-answer-key-check subset evaluator 0.1.0 (not Excel or Sheets); sqlite3 3.54.1; python 3.14.7",
+  "label": "SYNTHETIC FIXTURE (Fixture Co): boundary: a formula outside the supported subset is reported unsupported, never passed.",
+  "summary": {
+    "match": 0,
+    "mismatch": 0,
+    "error": 0,
+    "unsupported": 1,
+    "submitted_mismatch": 0
+  },
+  "flagged": [
+    "Q8-sumproduct"
+  ],
+  "items": [
+    {
+      "id": "Q8-sumproduct",
+      "kind": "spreadsheet",
+      "key": 148,
+      "key_status": "unsupported",
+      "detail": "function SUMPRODUCT is outside the supported subset (SUM, AVERAGE, MIN, MAX, COUNT, ROUND, ABS, IF, PMT, FV)"
+    }
+  ]
+}
+# expect: met
+# exit 0

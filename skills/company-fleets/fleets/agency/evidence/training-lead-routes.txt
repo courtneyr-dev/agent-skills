@@ -1,0 +1,222 @@
+# eval agency.eval.training-lead-routes (positive, target agency.training-lead)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "agency.training-lead" --absent "installed": false -- bin/fleet resolve --profile agency --workload agency.workload.multilingual-launch
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "agency.engagement-director",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/agency/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Engagement director (agency coordinator)",
+      "fleet": "agency",
+      "id": "agency.engagement-director",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "UX/UI and visual designer",
+      "fleet": "agency",
+      "id": "agency.ux-ui-designer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "web-design",
+          "installed": true,
+          "path": "skills/web-design/SKILL.md"
+        },
+        {
+          "id": "design-principles",
+          "installed": true,
+          "path": "skills/design-principles/SKILL.md"
+        },
+        {
+          "id": "motion-design",
+          "installed": true,
+          "path": "skills/motion-design/SKILL.md"
+        },
+        {
+          "id": "agency-keyboard-audit",
+          "installed": true,
+          "path": "skills/agency-keyboard-audit/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Design systems lead",
+      "fleet": "agency",
+      "id": "agency.design-systems-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "design-system",
+          "installed": true,
+          "path": "skills/design-system/SKILL.md"
+        },
+        {
+          "id": "agency-keyboard-audit",
+          "installed": true,
+          "path": "skills/agency-keyboard-audit/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Web engineer",
+      "fleet": "agency",
+      "id": "agency.web-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-platform-adapters",
+          "installed": true,
+          "path": "skills/agency-platform-adapters/SKILL.md"
+        },
+        {
+          "id": "code-standards-checker",
+          "installed": true,
+          "path": "skills/code-standards-checker/SKILL.md"
+        },
+        {
+          "id": "typescript-best-practices",
+          "installed": true,
+          "path": "skills/typescript-best-practices/SKILL.md"
+        },
+        {
+          "id": "tdd",
+          "installed": true,
+          "path": "skills/tdd/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Internationalization engineer",
+      "fleet": "agency",
+      "id": "agency.i18n-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-i18n-check",
+          "installed": true,
+          "path": "skills/agency-i18n-check/SKILL.md"
+        },
+        {
+          "id": "docs-localization-strategy",
+          "installed": true,
+          "path": "skills/docs-localization-strategy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Accessibility specialist",
+      "fleet": "agency",
+      "id": "agency.accessibility-specialist",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-keyboard-audit",
+          "installed": true,
+          "path": "skills/agency-keyboard-audit/SKILL.md"
+        },
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "QA and test automation engineer",
+      "fleet": "agency",
+      "id": "agency.qa-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "test-manager",
+          "installed": true,
+          "path": "skills/test-manager/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "id": "pr-quality-report",
+          "installed": true,
+          "path": "skills/pr-quality-report/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Release engineer and platform liaison",
+      "fleet": "agency",
+      "id": "agency.release-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "release-engineering",
+          "installed": true,
+          "path": "skills/release-engineering/SKILL.md"
+        },
+        {
+          "id": "production-readiness",
+          "installed": true,
+          "path": "skills/production-readiness/SKILL.md"
+        },
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Training lead",
+      "fleet": "agency",
+      "id": "agency.training-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        },
+        {
+          "id": "technical-writing",
+          "installed": true,
+          "path": "skills/technical-writing/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Support handoff owner",
+      "fleet": "agency",
+      "id": "agency.support-handoff-owner",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "agency.workload.multilingual-launch"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

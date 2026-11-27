@@ -1,0 +1,48 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.search-edited-capture-rejected (boundary, target consult-search-claims-check).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains "capture-hash-mismatch" -- python3 ../consult-search-claims-check/scripts/claims_check.py --claims ../consult-search-claims-check/fixtures/stale/report-stale.json --sources ../consult-search-claims-check/fixtures/stale/register-stale.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-search-claims-check/scripts/claims_check.py --claims ../consult-search-claims-check/fixtures/stale/report-stale.json --sources ../consult-search-claims-check/fixtures/stale/register-stale.json
+{
+  "claims": [
+    {
+      "defects": [
+        {
+          "claim_id": "s1",
+          "code": "capture-hash-mismatch",
+          "message": "capture for source 'src-platform' hashes to c55114937a59f246662508bce4b711f3b88534a7458d6459306f06fde6453b1c, register says af448f5ae35404cf62127f86bec656b36769152960513a12cf9de4f051891132 (edited or stale capture)",
+          "severity": "error"
+        }
+      ],
+      "id": "s1",
+      "verdict": "rejected"
+    }
+  ],
+  "counts": {
+    "by_code": {
+      "capture-hash-mismatch": 1
+    },
+    "claims": 1,
+    "errors": 1,
+    "hypothesis": 0,
+    "rejected": 1,
+    "supported": 0
+  },
+  "human_review_required": [
+    "Observed visibility needs the tenant's own Search Console or analytics exports",
+    "Every claim the script passes still needs a human read, including guarantee wording outside the pattern list",
+    "Recommendations are judgment calls; the script only checks their evidence and wording"
+  ],
+  "not_checked": [
+    "whether a cited source is itself accurate",
+    "whether a quote supports the claim it is attached to",
+    "live search or AI-answer state",
+    "whether a primary source's current text still matches the capture"
+  ],
+  "report_id": "fixture-stale-1",
+  "status": "defects"
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains '"capture-hash-mismatch"': ok
+VERDICT pass

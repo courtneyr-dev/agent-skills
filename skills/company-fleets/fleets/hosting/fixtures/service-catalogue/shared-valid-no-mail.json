@@ -1,0 +1,126 @@
+{
+  "label": "SYNTHETIC: valid shared-hosting catalogue for Fixture Co. It offers no mail service, and mail is optional for this profile.",
+  "company": "fixture-co",
+  "profile": "shared",
+  "capability_sets": [],
+  "parties": [
+    "fixture-co",
+    "customer"
+  ],
+  "services": [
+    {
+      "id": "shared-accounts",
+      "name": "Shared hosting accounts (fixture)",
+      "functions": [
+        {
+          "function": "accounts",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "quotas",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "dns",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "certificates",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "php-versions",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "databases",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        }
+      ],
+      "customer_visible_limits": [
+        {
+          "name": "disk",
+          "value": 20,
+          "unit": "GB"
+        },
+        {
+          "name": "inodes",
+          "value": 250000,
+          "unit": "inodes"
+        },
+        {
+          "name": "mysql-databases",
+          "value": 10,
+          "unit": "databases"
+        },
+        {
+          "name": "php-memory-limit",
+          "value": 512,
+          "unit": "MB"
+        }
+      ],
+      "upstream_dependencies": []
+    },
+    {
+      "id": "shared-protection",
+      "name": "Backups, isolation and abuse handling (fixture)",
+      "functions": [
+        {
+          "function": "backups",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "restores",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co",
+            "customer"
+          ]
+        },
+        {
+          "function": "isolation",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "abuse",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        }
+      ],
+      "customer_visible_limits": [
+        {
+          "name": "backup-retention",
+          "value": 14,
+          "unit": "days"
+        }
+      ],
+      "upstream_dependencies": []
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): boundary: a formula outside the supported subset is reported unsupported, never passed.",
+  "items": [
+    {
+      "id": "Q8-sumproduct",
+      "kind": "spreadsheet",
+      "cells": {
+        "B2": "2.5",
+        "B3": "4",
+        "E2": "40",
+        "E3": "12",
+        "G2": "=SUMPRODUCT(E2:E3,B2:B3)"
+      },
+      "target": "G2",
+      "key": 148
+    }
+  ]
+}

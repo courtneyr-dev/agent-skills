@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "fleet": "agency",
+  "skills": [
+    {
+      "id": "agency-keyboard-audit",
+      "fleet": "agency",
+      "summary": "Manual keyboard-path audit that catches traps and focus loss automated scanners miss (sample record).",
+      "triggers": ["Audit keyboard access on a staging build"],
+      "boundaries": ["Does not certify WCAG conformance", "Does not fix defects"],
+      "inputs": ["Staging URL", "Pages and flows in scope"],
+      "prerequisites": ["A browser automation adapter or a human tester"],
+      "method": ["Tab through each flow", "Record focus order, traps and invisible focus", "Reproduce each defect twice"],
+      "stopping_conditions": ["Every in-scope flow traversed", "Budget reached"],
+      "output_contract": "A defect list where each entry has the criterion, steps, expected and observed result.",
+      "failure_states": ["Staging unreachable: report blocked with the URL and time"],
+      "references": [{"title": "WCAG 2.2", "location": "https://www.w3.org/TR/WCAG22/", "version": "2.2 (2023-10-05)", "rights": "W3C document license; cite, do not copy"}],
+      "scripts": [],
+      "evals": {
+        "positive": ["agency.eval.keyboard-trap-found"],
+        "negative": ["agency.eval.no-conformance-claim"],
+        "boundary": ["agency.eval.unreachable-staging"]
+      },
+      "adapters": [{"name": "Browser automation", "kind": "cli", "required": false}],
+      "missing_capability": "Without browser automation, produce the test script for a human tester and mark the result unverified.",
+      "provenance": {"origin": "local", "source": "company-fleets sample", "revision": "0.1.0", "license": "agent-skills (MIT)"},
+      "blocked_reason": "Not built yet; the corporate-and-agency workstream owns it",
+      "verification": {
+        "coverage": {"state": "partial"},
+        "installed": {"state": "not-installed"},
+        "activated": {"state": "not-activated"},
+        "behavioral": {"state": "unverified"}
+      }
+    }
+  ]
+}

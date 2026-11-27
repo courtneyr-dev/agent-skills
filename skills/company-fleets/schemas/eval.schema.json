@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "company-fleets/eval.schema.json",
+  "title": "Evaluation case",
+  "description": "One positive, negative or boundary case for a role or skill. An outcome of pass or fail needs a retained evidence path; failures stay on record.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind", "target", "input", "expected", "check", "outcome"],
+  "properties": {
+    "id": {"$ref": "common.schema.json#/$defs/eval_id"},
+    "kind": {"enum": ["positive", "negative", "boundary"]},
+    "target": {
+      "description": "A role id (fleet.slug) or a skill id (slug).",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*(?:\\.[a-z0-9]+(?:-[a-z0-9]+)*)?$"
+    },
+    "input": {"$ref": "common.schema.json#/$defs/text"},
+    "fixtures": {"type": "array", "items": {"$ref": "common.schema.json#/$defs/relpath"}},
+    "expected": {"$ref": "common.schema.json#/$defs/text"},
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method"],
+      "properties": {
+        "method": {"enum": ["script", "model-judgment", "human"]},
+        "argv": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "expect": {
+          "description": "One assertion format for bin/fleet eval-run. Without it, a wrapped argv is parsed and a raw argv passes on exit 0.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "exit": {"type": "array", "minItems": 1, "items": {"type": "integer"}},
+            "contains": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "absent": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "json": {"type": "object", "additionalProperties": {}}
+          }
+        }
+      }
+    },
+    "synthetic": {"type": "boolean"},
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["not-run", "pass", "fail", "blocked"]},
+        "evidence": {"$ref": "common.schema.json#/$defs/relpath"},
+        "run_on": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+        "note": {"$ref": "common.schema.json#/$defs/text"}
+      }
+    }
+  }
+}

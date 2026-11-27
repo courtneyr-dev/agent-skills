@@ -1,0 +1,44 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains ENV-INCENTIVE --contains training workshop: the evidence shows --absent SKILL-TRAINING -- python3 ../edu-needs-analysis/scripts/needs.py route fleets/instructional-design/fixtures/edu-needs-analysis/incentive-course-requested.json
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.requested-workshop-not-recommended
+{
+  "audience_task_analysis": {
+    "analysis_gaps": [
+      "audience.access_needs",
+      "task.criticality",
+      "task.conditions"
+    ],
+    "audience": {
+      "context": "Handle hosting tickets on shifts",
+      "size": 12,
+      "who": "Fixture Co support agents"
+    },
+    "task": {
+      "frequency": "daily",
+      "name": "Run the accessibility checklist before closing a site-change ticket",
+      "steps": [
+        "Open the checklist",
+        "Test keyboard path",
+        "Record result",
+        "Close ticket"
+      ]
+    }
+  },
+  "course_indicated": false,
+  "not_recommended": [
+    "training workshop: the evidence shows performers can do the task, so instruction would not remove the cause; act on the remedies instead."
+  ],
+  "notes": [],
+  "questions": [],
+  "remedies": [
+    {
+      "because": "Fixture scorecard rewards tickets closed per hour; the checklist adds 6 minutes and nobody reviews it",
+      "code": "ENV-INCENTIVE",
+      "factor": "incentives",
+      "remedy": "Realign consequences; route to the manager who owns them."
+    }
+  ],
+  "status": "route",
+  "warnings": []
+}
+# expect: met
+# exit 0

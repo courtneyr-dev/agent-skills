@@ -1,0 +1,166 @@
+{
+ "label": "SYNTHETIC FIXTURE: invented Community A activity. Person ids p01-p10 and member-s1 are placeholders, not people. Includes one confidential moderation case, one confidential thread and one withdrawn-consent record that aggregate must drop.",
+ "community": "community-a",
+ "records": [
+  {
+   "type": "thread",
+   "person": "p01",
+   "channel": "general",
+   "newcomer": true,
+   "opened_at": "2026-10-01T09:00:00Z",
+   "first_reply_at": "2026-10-01T11:00:00Z",
+   "consent": "public"
+  },
+  {
+   "type": "thread",
+   "person": "p02",
+   "channel": "general",
+   "newcomer": true,
+   "opened_at": "2026-10-02T09:00:00Z",
+   "first_reply_at": "2026-10-02T13:00:00Z",
+   "consent": "public"
+  },
+  {
+   "type": "thread",
+   "person": "p03",
+   "channel": "general",
+   "newcomer": true,
+   "opened_at": "2026-10-03T09:00:00Z",
+   "first_reply_at": "2026-10-03T15:00:00Z",
+   "consent": "public"
+  },
+  {
+   "type": "thread",
+   "person": "p04",
+   "channel": "general",
+   "newcomer": true,
+   "opened_at": "2026-10-04T09:00:00Z",
+   "first_reply_at": "2026-10-04T17:00:00Z",
+   "consent": "public"
+  },
+  {
+   "type": "thread",
+   "person": "p05",
+   "channel": "general",
+   "newcomer": true,
+   "opened_at": "2026-10-05T09:00:00Z",
+   "first_reply_at": "2026-10-05T19:00:00Z",
+   "consent": "public"
+  },
+  {
+   "type": "thread",
+   "person": "p06",
+   "channel": "general",
+   "newcomer": true,
+   "opened_at": "2026-10-06T09:00:00Z",
+   "first_reply_at": "2026-10-06T23:00:00Z",
+   "consent": "public"
+  },
+  {
+   "type": "thread",
+   "person": "p10",
+   "channel": "general",
+   "newcomer": true,
+   "opened_at": "2026-10-07T09:00:00Z",
+   "first_reply_at": "2026-10-07T23:54:00Z",
+   "consent": "withdrawn"
+  },
+  {
+   "type": "thread",
+   "person": "p07",
+   "channel": "design",
+   "newcomer": false,
+   "opened_at": "2026-10-08T09:00:00Z",
+   "first_reply_at": "2026-10-08T10:00:00Z",
+   "consent": "public"
+  },
+  {
+   "type": "thread",
+   "person": "p08",
+   "channel": "design",
+   "newcomer": false,
+   "opened_at": "2026-10-01T09:00:00Z",
+   "first_reply_at": "2026-10-01T11:00:00Z",
+   "consent": "public"
+  },
+  {
+   "type": "thread",
+   "person": "p09",
+   "channel": "design",
+   "newcomer": false,
+   "opened_at": "2026-10-02T09:00:00Z",
+   "first_reply_at": "2026-10-02T12:00:00Z",
+   "consent": "public"
+  },
+  {
+   "type": "contribution",
+   "person": "p01",
+   "first": false,
+   "consent": "public"
+  },
+  {
+   "type": "contribution",
+   "person": "p02",
+   "first": false,
+   "consent": "public"
+  },
+  {
+   "type": "contribution",
+   "person": "p03",
+   "first": false,
+   "consent": "public"
+  },
+  {
+   "type": "contribution",
+   "person": "p04",
+   "first": false,
+   "consent": "public"
+  },
+  {
+   "type": "contribution",
+   "person": "p05",
+   "first": false,
+   "consent": "public"
+  },
+  {
+   "type": "contribution",
+   "person": "p06",
+   "first": false,
+   "consent": "public"
+  },
+  {
+   "type": "contribution",
+   "person": "p07",
+   "first": true,
+   "consent": "public"
+  },
+  {
+   "type": "contribution",
+   "person": "p08",
+   "first": true,
+   "consent": "public"
+  },
+  {
+   "type": "contribution",
+   "person": "p09",
+   "first": true,
+   "consent": "public"
+  },
+  {
+   "type": "moderation-case",
+   "id": "CM-CASE-1",
+   "person": "member-s1",
+   "classification": "confidential"
+  },
+  {
+   "type": "thread",
+   "person": "p02",
+   "channel": "general",
+   "newcomer": true,
+   "opened_at": "2026-10-02T09:00:00Z",
+   "first_reply_at": "2026-10-02T23:00:00Z",
+   "classification": "confidential",
+   "consent": "public"
+  }
+ ]
+}

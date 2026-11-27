@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- SYNTHETIC FIXTURE (Fixture Co): Client A donate page template. build.py renders one page per locale from locales/*.po. -->
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{Give to Client A}}</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">{{Skip to main content}}</a>
+<header>
+  <nav aria-label="{{Main}}"><a href="#about">{{About}}</a><a href="#programs">{{Programs}}</a><a href="#main">{{Donate}}</a></nav>
+</header>
+<main id="main">
+  <h1>{{Give to Client A}}</h1>
+  <p>{{Every gift stocks the community pantry.}}</p>
+  <p><input type="checkbox" role="switch" id="monthly"> <label for="monthly">{{Make this a monthly gift}}</label></p>
+  <fieldset>
+    <legend>{{Choose an amount}}</legend>
+    <input type="radio" name="amount" id="amount-10" value="10" checked> <label for="amount-10">$10</label>
+    <input type="radio" name="amount" id="amount-25" value="25"> <label for="amount-25">$25</label>
+    <input type="radio" name="amount" id="amount-50" value="50"> <label for="amount-50">$50</label>
+  </fieldset>
+  <form action="#" onsubmit="return false">
+    <label for="email">{{Email for your receipt}}</label>
+    <input id="email" type="email" autocomplete="email">
+    <button class="give" type="submit">{{Give now}}</button>
+  </form>
+  <p class="tally">{{n:%d donor gave this week|128}}</p>
+  <h2 id="about">{{About}}</h2>
+  <h2 id="programs">{{Programs}}</h2>
+</main>
+<footer><p>{{Fixture Co}}</p></footer>
+</body>
+</html>

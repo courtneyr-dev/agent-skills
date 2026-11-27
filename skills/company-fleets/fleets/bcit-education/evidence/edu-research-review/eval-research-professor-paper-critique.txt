@@ -1,0 +1,5 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "missing_sections": [] -- python3 -c import json,re,sys; t=open(sys.argv[1]).read(); need=['## Question and theory','## Design and sample','## What the evidence supports','## Methodological limits','## What the evidence does not support','## Citation check','## Bounded classroom application (hypothesis to test)']; miss=[h for h in need if h not in t]; secs=len(re.findall(r'Section \d', t)); e=open(sys.argv[2]).read(); v=json.loads(e[e.index('{'):e.rindex('}')+1])['counts']['verified']; print(json.dumps({'missing_sections':miss,'section_references':secs,'verified_citations':v})); sys.exit(0 if not miss and secs>=10 and v>=10 else 1) fleets/bcit-education/evidence/edu-research-review/critique-kazemitabaar-2023.md fleets/bcit-education/evidence/edu-research-review/citations-live-kazemitabaar-2023.txt
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.research-professor-paper-critique
+{"missing_sections": [], "section_references": 25, "verified_citations": 23}
+# expect: met
+# exit 0

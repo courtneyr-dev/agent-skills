@@ -1,0 +1,9 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): a request to send a roster to an outside address.",
+  "principal": "classroom-a-assistant",
+  "record": "CA-ROSTER",
+  "data_origin": "synthetic",
+  "tool": "claude-code",
+  "purpose": "Share with a tutoring site",
+  "destination": "external:https://tutoring.example.invalid/upload"
+}

@@ -1,0 +1,118 @@
+$ sh -c 'bin/fleet resolve --profile product --workload community.workload.health-and-sustainability | tee /dev/stderr | python3 -c '"'"'import json,sys; r=json.load(sys.stdin); print(sorted(x["id"] for x in r["roles"])); assert r["coordinator"]; pass'"'"''
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:10Z
+# case: community.eval.resolve-health-and-sustainability (positive, target community.sustainability-analyst, synthetic=True)
+# expected: Coordinator plus health, sustainability and maintainer roles.
+# exit: 0 -> pass
+--- stdout ---
+['community.health-analyst', 'community.maintainer-liaison', 'community.operations-manager', 'community.sustainability-analyst']
+--- stderr ---
+{
+  "coordinator": "community.operations-manager",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/community/roles.json"
+  ],
+  "profile": "product",
+  "roles": [
+    {
+      "display_name": "Community operations manager (coordinator)",
+      "fleet": "community",
+      "id": "community.operations-manager",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        },
+        {
+          "id": "developer-community-health",
+          "installed": true,
+          "path": "skills/developer-community-health/SKILL.md"
+        },
+        {
+          "id": "kanban-guru",
+          "installed": true,
+          "path": "skills/kanban-guru/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Community research and health analyst",
+      "fleet": "community",
+      "id": "community.health-analyst",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "community-health-measures",
+          "installed": true,
+          "path": "skills/community-health-measures/SKILL.md"
+        },
+        {
+          "id": "developer-community-health",
+          "installed": true,
+          "path": "skills/developer-community-health/SKILL.md"
+        },
+        {
+          "id": "developer-survey-design",
+          "installed": true,
+          "path": "skills/developer-survey-design/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Sustainability and funding analyst",
+      "fleet": "community",
+      "id": "community.sustainability-analyst",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "oss-maintainer-sustainability",
+          "installed": true,
+          "path": "skills/oss-maintainer-sustainability/SKILL.md"
+        },
+        {
+          "id": "oss-sponsors-fundraising",
+          "installed": true,
+          "path": "skills/oss-sponsors-fundraising/SKILL.md"
+        },
+        {
+          "id": "oss-sponsors-brand-strategy",
+          "installed": true,
+          "path": "skills/oss-sponsors-brand-strategy/SKILL.md"
+        },
+        {
+          "id": "oss-monetization",
+          "installed": true,
+          "path": "skills/oss-monetization/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Maintainer liaison",
+      "fleet": "community",
+      "id": "community.maintainer-liaison",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "oss-maintainer-sustainability",
+          "installed": true,
+          "path": "skills/oss-maintainer-sustainability/SKILL.md"
+        },
+        {
+          "id": "oss-governance",
+          "installed": true,
+          "path": "skills/oss-governance/SKILL.md"
+        },
+        {
+          "id": "community-health-measures",
+          "installed": true,
+          "path": "skills/community-health-measures/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "community.workload.health-and-sustainability"
+}

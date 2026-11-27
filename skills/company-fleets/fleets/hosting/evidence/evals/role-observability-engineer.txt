@@ -1,0 +1,85 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json verdict=ok --json 'alerts=[]' --json budget.state=ok -- python3 ../hosting-incident-response/scripts/incident.py slo-check --slo fleets/hosting/fixtures/incident-response/slo.json --now 2026-11-25T12:00:00Z --events fleets/hosting/fixtures/incident-response/events-steady.jsonl
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.role-observability-engineer kind positive synthetic true
+{
+  "alert_rules": [
+    {
+      "firing": false,
+      "long_rate": 0.096774,
+      "long_window": "1h",
+      "long_window_covered": true,
+      "receiver": null,
+      "severity": "page",
+      "short_rate": 0.0,
+      "short_window": "5m",
+      "threshold": 14.4
+    },
+    {
+      "firing": false,
+      "long_rate": 0.099448,
+      "long_window": "6h",
+      "long_window_covered": true,
+      "receiver": null,
+      "severity": "page",
+      "short_rate": 0.125,
+      "short_window": "30m",
+      "threshold": 6.0
+    },
+    {
+      "firing": false,
+      "long_rate": 0.099861,
+      "long_window": "3d",
+      "long_window_covered": false,
+      "receiver": null,
+      "severity": "ticket",
+      "short_rate": 0.099448,
+      "short_window": "6h",
+      "threshold": 1.0
+    }
+  ],
+  "alerts": [],
+  "assumptions": [
+    "Alert thresholds and windows are the Google SRE Workbook 'Alerting on SLOs' starting values (page at 14.4x over 1h and 5m, page at 6x over 6h and 30m, ticket at 1x over 3d and 6h); tune them per service.",
+    "A window holds events with now-window <= ts <= now. A burn rate is (bad/total) / (1 - target) over that window.",
+    "An alert needs both windows above the threshold and the long window covered by events; an uncovered long window is reported, not evaluated.",
+    "The error budget is event-based: (1 - target) x events in the SLO window. A budget at 0 remaining counts as a violation (freeze point).",
+    "Event counts come from the log as given; the script does not check the log for double delivery.",
+    "An availability claim needs at least one event in every hour of the SLO window, and at least 1 / (1 - target) events in it, so one bad event can't move the SLI by more than the error budget; events outside the window don't count.",
+    "No routing file: alerts carry receiver null and reach nobody."
+  ],
+  "availability_claim": null,
+  "budget": {
+    "allowed_bad": 721.0,
+    "consumed_bad": 72,
+    "remaining_bad": 649.0,
+    "remaining_fraction": 0.900139,
+    "state": "ok"
+  },
+  "burn_rates": {
+    "1h": 0.096774,
+    "30m": 0.125,
+    "3d": 0.099861,
+    "5m": 0.0,
+    "6h": 0.099448
+  },
+  "command": "slo-check",
+  "coverage": {
+    "covered_hours": 24,
+    "covered_seconds": 86400,
+    "covers_window": true,
+    "window_hours": 24,
+    "window_seconds": 86400
+  },
+  "now": "2026-11-25T12:00:00Z",
+  "sli": {
+    "bad": 72,
+    "good": 720928,
+    "observed": 0.9999,
+    "total": 721000
+  },
+  "slo": "fixture-co-edge-availability",
+  "target": 0.999,
+  "verdict": "ok",
+  "window_days": 1
+}
+# expect: met
+# exit 0

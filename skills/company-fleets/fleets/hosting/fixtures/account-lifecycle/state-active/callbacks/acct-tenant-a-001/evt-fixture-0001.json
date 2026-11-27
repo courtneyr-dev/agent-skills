@@ -1,0 +1,13 @@
+{
+  "label": "SYNTHETIC: Fixture Co tenant-a account acct-tenant-a-001 in the active state, produced by qualify through monitor against the fixtures in this folder. Read-only: evals that point --state-dir here must refuse before writing.",
+  "event": {
+    "account_id": "acct-tenant-a-001",
+    "event_id": "evt-fixture-0001",
+    "label": "SYNTHETIC: fake panel webhook for Fixture Co tenant-a. Delivered twice in the recovery scenario; the second delivery must change nothing.",
+    "occurred_at": "2026-11-25T09:00:00Z",
+    "source": "panel.fixture-co.example",
+    "tenant_id": "tenant-a",
+    "type": "account.created"
+  },
+  "received_at": "2026-11-26T03:50:19Z"
+}

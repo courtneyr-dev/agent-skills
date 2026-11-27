@@ -1,0 +1,27 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): rubric for alt text and link text in client posts. Anchors are generated practice anchors, not real editor work.",
+  "rubric_id": "fixture-co-accessible-publishing-v1",
+  "construct": "Writing alt text and link text that convey purpose in context",
+  "criteria": [
+    {"id": "C1", "name": "Alt text conveys the image's purpose in context", "levels": [
+      {"score": 0, "descriptor": "Missing, a filename, or only 'image of'"},
+      {"score": 1, "descriptor": "Describes appearance but not the purpose in this post"},
+      {"score": 2, "descriptor": "Conveys the purpose; misses a key detail or repeats the caption"},
+      {"score": 3, "descriptor": "Conveys purpose and key detail in one or two sentences; decorative images have empty alt text"}]},
+    {"id": "C2", "name": "Link text names the destination", "levels": [
+      {"score": 0, "descriptor": "'Click here', 'read more' or a bare URL"},
+      {"score": 1, "descriptor": "Names a topic but not what opens"},
+      {"score": 2, "descriptor": "Names the destination; long or repeats nearby text"},
+      {"score": 3, "descriptor": "Names the destination and makes sense read alone in a list of links"}]}
+  ],
+  "anchors": [
+    {"id": "A1", "criterion": "C1", "origin": "generated-practice-anchor", "sample": "alt=\"chart_final_v2.png\" on the support-ticket chart", "intended_score": 0, "rationale": "A filename gives a screen-reader user nothing."},
+    {"id": "A2", "criterion": "C1", "origin": "generated-practice-anchor", "sample": "alt=\"Blue bar chart with five bars\"", "intended_score": 1, "rationale": "Describes appearance; the post's point (tickets fell) is missing."},
+    {"id": "A3", "criterion": "C1", "origin": "generated-practice-anchor", "sample": "alt=\"Support tickets went down\"", "intended_score": 2, "rationale": "Purpose is there; the key detail (420 to 310) is missing."},
+    {"id": "A4", "criterion": "C1", "origin": "generated-practice-anchor", "sample": "alt=\"Support tickets fell from 420 in March to 310 in April\"", "intended_score": 3, "rationale": "Purpose and key detail, one sentence."},
+    {"id": "A5", "criterion": "C2", "origin": "generated-practice-anchor", "sample": "Link text: \"click here\"", "intended_score": 0, "rationale": "Names nothing."},
+    {"id": "A6", "criterion": "C2", "origin": "generated-practice-anchor", "sample": "Link text: \"support\"", "intended_score": 1, "rationale": "A topic, not the destination."},
+    {"id": "A7", "criterion": "C2", "origin": "generated-practice-anchor", "sample": "Link text: \"Read the April support report, which covers ticket volumes for every product line\"", "intended_score": 2, "rationale": "Names the destination but runs long."},
+    {"id": "A8", "criterion": "C2", "origin": "generated-practice-anchor", "sample": "Link text: \"Read the April support report\"", "intended_score": 3, "rationale": "Names the destination; makes sense alone."}
+  ]
+}

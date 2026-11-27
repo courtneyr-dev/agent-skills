@@ -1,0 +1,11 @@
+{
+  "label": "SYNTHETIC: Fixture Co lab targets that accept losing up to 5 writes made after the last backup.",
+  "tenant_id": "tenant-a",
+  "source": "Lab calibration target, 2026-11-25; no contract exists",
+  "targets": {
+    "detection_seconds": {"max": 10},
+    "rto_seconds": {"max": 60},
+    "rpo_lost_writes": {"max": 5},
+    "restore_success": {"required": true}
+  }
+}

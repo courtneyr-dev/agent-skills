@@ -1,0 +1,14 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "ok": true -- python3 ../edu-research-review/scripts/research_check.py program fleets/bcit-education/fixtures/edu-research-review/program-synthetic-ok.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.research-program-dimensions-ok
+{
+  "ok": true,
+  "mode": "program",
+  "program": "Fixture Co secondary BCIT program review (synthetic)",
+  "counts": {
+    "error": 0,
+    "warn": 0
+  },
+  "findings": []
+}
+# expect: met
+# exit 0

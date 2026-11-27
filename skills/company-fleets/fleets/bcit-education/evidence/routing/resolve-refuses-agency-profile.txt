@@ -1,0 +1,10 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains does not activate fleet bcit-education -- bin/fleet resolve --profile agency --workload bcit-education.workload.course-unit
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.resolve-refuses-agency-profile
+{
+  "error": "profile agency does not activate fleet bcit-education",
+  "files_read": [
+    "registry/profiles.json"
+  ]
+}
+# expect: met
+# exit 0

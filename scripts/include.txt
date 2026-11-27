@@ -12,6 +12,7 @@ codex-first
 community-health-measures
 community-moderation-review
 community-operating-kit
+company-fleets
 consult-compliance-engagement
 consult-email-send-gate
 consult-i18n-check
@@ -36,6 +37,8 @@ edu-student-data-guard
 edu-trainer-development
 email-draft-review
 explainer
+factory-execute
+factory-rig
 feed-catchup
 field-notes-draft
 gatherer

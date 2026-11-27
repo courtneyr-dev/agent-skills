@@ -1,0 +1,15 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines
+# run 2026-11-25
+http_code=200 final_url=https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines size=254507
+L189: CSPG 33 – Business, Computer and Information Technology (revised 8/3/2023)
+L226: CSPG 71 - Computer Science 7-12 (revised 4/1/2022)
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-33-business-computer-and-information-technology
+# run 2026-11-25
+http_code=200 final_url=https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-33-business-computer-and-information-technology size=225736
+L156: ​CSPG 33 - Business/Computer and Information Technology, PK-12
+L157: ​Instructional Area Code 1603
+L161: A person holding a valid certificate for Business/Computer and Information Technology is qualified to teach business and basic computer and information technology courses in grades PK-12.
+L163: The BCIT-certified educator is qualified to teach courses which include areas of computer software applications and incorporate the use of business-related and industry-specific software. Course and program content in this area includes, but is not limited to, keyboarding, word processing, information processing, database application, spreadsheet manipulation, desktop publishing, accessing shared information resources via networks or Internet, multi-media, web-page design, an
+L182: CSP​G 71 - Computer Science 7-12 (Computer Science), educators holding a Business/Computer and Information PK-12 certificate and employed to teach computer science in a Commonwealth LEA on December 31, 2022 may continue to do so. Educators employed to teach computer science in grades 7-12 for the first time after December 31, 2022, or who hold a Business/Computer and Information Technology PK-12 certificate and accept employment to teach computer science in grades 7-12 in a d
+L198: ​8/2023
+L200: Added restriction regarding the teaching of Computer Science.

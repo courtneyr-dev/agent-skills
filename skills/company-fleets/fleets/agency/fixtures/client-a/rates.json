@@ -1,0 +1,13 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): internal cost rates per role for estimating; invented numbers, not a real rate card.",
+  "currency": "USD",
+  "cost_per_hour": {
+    "agency.delivery-lead": 70,
+    "agency.ux-ui-designer": 65,
+    "agency.web-engineer": 75,
+    "agency.i18n-engineer": 70,
+    "agency.accessibility-specialist": 70,
+    "agency.qa-engineer": 60,
+    "agency.support-handoff-owner": 55
+  }
+}

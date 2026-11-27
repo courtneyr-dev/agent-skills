@@ -1,0 +1,12 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.aera.net/
+# run 2026-11-25
+http_code=200 final_url=https://www.aera.net/ size=83151
+L1: American Educational Research Association > Home
+L12: Divisions |
+L13: SIGs |
+L20: Publications
+L26: AERA-The 74 Webinar: The Attendance Crisis Isn't Over: What's Driving It—And What Works
+L27: Chronic absenteeism has become one of the defining post-pandemic challenges facing schools. In this one-hour webinar on November 18 at 1:00 pm ET, hosted by AERA and The 74, panelists explored why attendance rates have remained stubbornly low; which interventions are supported by evidence; what successful states and districts are doing; how families, community organizations, and public agencies can help; and how more timely data can support effective action.
+L28: A recording of the webinar is now available on the event page.
+L33: December 3 Webinar: Strengthening the Special Education Teacher Workforce and Improving Outcomes
+L35: webinar focuses on the recently published AERA volume, Transforming the Special Education Teacher Workforce: Research and Complex Systems Perspectives. In this one-and-a-half-hour webinar on December 3 at 1:30 PM ET, panelists will discuss systems thinking (ST) coupled with implementation and improvement sciences as an innovative, multifaceted approach for intervening and investigating the complexities associated with the special education teacher workforce crisis.

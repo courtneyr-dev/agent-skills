@@ -1,0 +1,40 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains unverified-organization -- python3 ../edu-standards-alignment/scripts/standards_check.py org-refs fleets/bcit-education/fixtures/bcit-unit-store/org-refs-ok.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.org-sources-cited-correctly
+{
+  "ok": true,
+  "errors": 0,
+  "references": [
+    {
+      "name": "CSTA",
+      "organization": "csta",
+      "relation": "standards-source",
+      "findings": []
+    },
+    {
+      "name": "SIGCSE",
+      "organization": "acm-sigcse",
+      "relation": "knowledge-source",
+      "findings": []
+    },
+    {
+      "name": "ACTE",
+      "organization": "acte-business-education",
+      "relation": "resource",
+      "findings": []
+    },
+    {
+      "name": "Pennsylvania Business Education Association",
+      "organization": "pbea",
+      "relation": "community",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "unverified-organization",
+          "message": "Pennsylvania Business Education Association was unreachable on the live source"
+        }
+      ]
+    }
+  ]
+}
+# expect: met
+# exit 0

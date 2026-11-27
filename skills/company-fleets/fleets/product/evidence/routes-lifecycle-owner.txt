@@ -1,0 +1,121 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.routes-lifecycle-owner (positive, target product.lifecycle-owner).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "id": "product.lifecycle-owner" --contains "path": "skills/version-migration-guide/SKILL.md" --absent "fleets/hosting/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile product --workload product.workload.deprecation
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile product --workload product.workload.deprecation
+{
+  "coordinator": "product.product-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/product/roles.json"
+  ],
+  "profile": "product",
+  "roles": [
+    {
+      "display_name": "Product lead (product GM and product manager viewpoint)",
+      "fleet": "product",
+      "id": "product.product-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "cpo-advisor",
+          "installed": true,
+          "path": "skills/cpo-advisor/SKILL.md"
+        },
+        {
+          "id": "brd-writer",
+          "installed": true,
+          "path": "skills/brd-writer/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Lifecycle and deprecation owner",
+      "fleet": "product",
+      "id": "product.lifecycle-owner",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "version-migration-guide",
+          "installed": true,
+          "path": "skills/version-migration-guide/SKILL.md"
+        },
+        {
+          "id": "oss-release-policy",
+          "installed": true,
+          "path": "skills/oss-release-policy/SKILL.md"
+        },
+        {
+          "id": "docs-versioning-strategy",
+          "installed": true,
+          "path": "skills/docs-versioning-strategy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Documentation, developer education and extension onboarding",
+      "fleet": "product",
+      "id": "product.docs-educator",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "developer-quickstart-guide",
+          "installed": true,
+          "path": "skills/developer-quickstart-guide/SKILL.md"
+        },
+        {
+          "id": "changelog-writing",
+          "installed": true,
+          "path": "skills/changelog-writing/SKILL.md"
+        },
+        {
+          "id": "docs-versioning-strategy",
+          "installed": true,
+          "path": "skills/docs-versioning-strategy/SKILL.md"
+        },
+        {
+          "id": "developer-certification-program",
+          "installed": true,
+          "path": "skills/developer-certification-program/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Support and customer success",
+      "fleet": "product",
+      "id": "product.support-success",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "support-ops",
+          "installed": true,
+          "path": "skills/support-ops/SKILL.md"
+        },
+        {
+          "id": "customer-success-manager",
+          "installed": true,
+          "path": "skills/customer-success-manager/SKILL.md"
+        },
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "product.workload.deprecation"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"id": "product.lifecycle-owner"': ok
+CHECK contains '"path": "skills/version-migration-guide/SKILL.md"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

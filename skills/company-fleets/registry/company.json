@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "fixture": true,
+  "label": "FIXTURE: fictional company with synthetic records. Not a real business, client, school or employer.",
+  "id": "fixture-co",
+  "name": "Fixture Co",
+  "service_catalogue": [
+    {"id": "web-agency-delivery", "name": "Web development and design engagements", "profiles": ["agency"]},
+    {"id": "hosting-referral", "name": "Hosting referral with disclosed commissions", "profiles": ["affiliate"]},
+    {"id": "hosting-resale", "name": "White-label hosting resale", "profiles": ["reseller"]},
+    {"id": "shared-hosting", "name": "Shared panel hosting", "profiles": ["shared"]},
+    {"id": "managed-cms-hosting", "name": "Managed CMS hosting", "profiles": ["managed"]},
+    {"id": "application-platform", "name": "Developer application platform", "profiles": ["platform"]},
+    {"id": "enterprise-hosting", "name": "Enterprise and regulated hosting", "profiles": ["enterprise"]},
+    {"id": "extensions-and-saas", "name": "Extensions, themes, integrations and SaaS", "profiles": ["product"]},
+    {"id": "developer-relations", "name": "Developer relations program", "profiles": ["devrel"]},
+    {"id": "community-program", "name": "Community and open-source program", "profiles": ["community"]},
+    {"id": "bcit-instruction", "name": "Public-school BCIT instruction support", "profiles": ["school"]}
+  ],
+  "constraints": [
+    "Every record here is synthetic; no real names, customers, staff, budgets, districts or certifications.",
+    "No external sends, posts, purchases, deployments or student contact without a human holding that authority.",
+    "Numeric targets are hypotheses until calibrated against a measured local baseline."
+  ],
+  "terminology": {
+    "workload": "One bounded unit of work the router hands to one fleet coordinator.",
+    "tenant": "A client, product line or classroom whose restricted records stay inside its boundary.",
+    "handoff": "A handoff.v1 record that moves an outcome, its evidence and its limits to the next consumer."
+  },
+  "record_owners": [
+    {"record": "Product priority and company decisions", "owner": "human:company-owner", "system": "Decision log under the existing PM layer"},
+    {"record": "Delivery state and dependencies", "owner": "human:delivery-owner", "system": "One tracker per project (yysun .projects in yysun-led mode), per factory-rig"},
+    {"record": "Accepted requirements", "owner": "human:company-owner", "system": "Versioned specs bound by factory-rig contracts"},
+    {"record": "Merge and acceptance gate", "owner": "human:delivery-owner", "system": "factory-rig frig complete"},
+    {"record": "Learning records and student data", "owner": "human:teacher-of-record", "system": "The school's own systems; never copied into the rig"}
+  ]
+}

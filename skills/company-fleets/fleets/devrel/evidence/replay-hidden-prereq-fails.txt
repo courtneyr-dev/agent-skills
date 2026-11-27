@@ -1,0 +1,77 @@
+$ sh -c 'python3 ../devrel-quickstart-replay/scripts/replay.py fleets/devrel/fixtures/docs/quickstart-hidden-prereq.md --asset fleets/devrel/fixtures/fixture-co-notes; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:02Z
+# case: devrel.eval.replay-hidden-prereq-fails (negative, target devrel.sample-app-engineer, synthetic=True)
+# expected: Replay exits 1 at step 3 (no server address); the author's environment never leaks in.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "devrel-quickstart-replay",
+  "version": "1.0.0",
+  "doc": "fleets/devrel/fixtures/docs/quickstart-hidden-prereq.md",
+  "doc_sha256": "dd01ed406d95e4622def34d27a37cc24b0f6094cf585aa82af119372a80b38b7",
+  "assets": [
+    {
+      "name": "fixture-co-notes",
+      "tree_sha256": "252ef35069d2dfd8cd2b9e16ed749ad3aaf9ed19071df54ec9926c187271afee"
+    }
+  ],
+  "isolation": {
+    "workdir": "fresh temporary directory, removed after the run",
+    "env_keys": [
+      "HOME",
+      "LANG",
+      "PATH",
+      "TMPDIR"
+    ],
+    "sandbox": "sandbox-exec: outbound network denied except localhost; reads under the invoking user's home denied"
+  },
+  "prerequisites": [
+    {
+      "name": "python3",
+      "found": true
+    }
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "line": 11,
+      "ran": true,
+      "succeeded": true,
+      "expect": []
+    },
+    {
+      "n": 2,
+      "line": 15,
+      "ran": true,
+      "succeeded": true,
+      "expect": []
+    },
+    {
+      "n": 3,
+      "line": 19,
+      "ran": true,
+      "succeeded": false,
+      "expect": [
+        {
+          "expected": "created note 1: First note",
+          "found": false
+        }
+      ]
+    }
+  ],
+  "elapsed_s": 0.569,
+  "budget_s": 30.0,
+  "criteria": {
+    "1_commands_succeed_verbatim": false,
+    "2_outputs_match": false,
+    "3_no_late_prerequisites": false,
+    "4_within_budget": true,
+    "5_unfamiliar_reader_success": "unverified: needs an unfamiliar human reader; a replay can't measure it"
+  },
+  "ok": false,
+  "failure": "step 3 exited 2 at command 1: python3 fixture-co-notes/client.py add \"First note\"",
+  "output": "\n::replay-step 1::\n\n::replay-cmd 1 1::\nPython 3.9.6\n\n::replay-step 2::\n\n::replay-cmd 2 1::\n\n::replay-step 3::\n\n::replay-cmd 3 1::\nerror: no server address: pass --port-file or set FIXTURE_NOTES_PORT\n"
+}
+--- stderr ---
+

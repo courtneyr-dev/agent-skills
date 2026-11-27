@@ -1,0 +1,18 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.nocti.org/credentials/blueprints/
+# run 2026-11-25
+http_code=200 final_url=https://www.nocti.org/credentials/blueprints/ size=130160
+L14: Blueprints
+L42: Unless stated otherwise in the Assessment Blueprint, all assessments must be administered in a proctored environment. Proctoring instructions are available in the Client Services Center for NOCTI testing sites.
+L44: NOCTI respects the intellectual property of others, and we ask you to do the same. All NOCTI Blueprints, including those of its partners, are copyrighted materials and are intended for personal or educational classroom usage. No part of any blueprint content, including NOCTI competencies, may be reproduced in any form, incorporated into any information retrieval system, electronic or mechanical, or used to prepare derivative works, or materials being sold for profit without N
+L48: Education Professional (8)
+L49: Employability Skills (2)
+L50: Foundational (20)
+L51: Job Ready (67)
+L52: Partner Credentials (117)
+L53: Pilot (17)
+L54: Teacher (52)
+L60: Business Management & Administration (17)
+L62: Employability Skills (4)
+L63: Finance (4)
+L68: Information Technology (18)
+L71: Marketing (9)

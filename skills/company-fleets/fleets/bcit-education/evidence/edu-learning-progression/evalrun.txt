@@ -1,0 +1,29 @@
+$ python3 fleets/bcit-education/evalrun.py run --file <scratchpad>/records/edu-learning-progression.json --write
+# run 2026-11-25 (cwd: company-fleets)
+{
+  "ran": 4,
+  "failed": 0,
+  "results": [
+    {
+      "id": "bcit-education.eval.progression-9-12-valid",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/edu-learning-progression/progression-9-12-valid.txt"
+    },
+    {
+      "id": "bcit-education.eval.progression-cycle-and-band-jump-rejected",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/edu-learning-progression/progression-cycle-and-band-jump-rejected.txt"
+    },
+    {
+      "id": "bcit-education.eval.progression-bridged-university-concept",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/edu-learning-progression/progression-bridged-university-concept.txt"
+    },
+    {
+      "id": "bcit-education.eval.progression-invalid-band-refused",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/edu-learning-progression/progression-invalid-band-refused.txt"
+    }
+  ]
+}
+# exit 0

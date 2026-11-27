@@ -1,0 +1,18 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json decision=approved-for-human-execution --json clause=AUP-4.2 --json approved_by=human:abuse-policy-owner --json executed=false --contains 'human executes' -- sh -c 'mkdir -p {tmp}/in && { cat fleets/hosting/fixtures/abuse-response/phishing-report-tenant-b.txt; echo '"'"'Forwarded with ticket EV-abuse-response-authorized-suspend-human-executes'"'"'; } > {tmp}/in/phishing-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/phishing-report-tenant-b.txt --case-dir {tmp}/case --tenant tenant-b --category phishing >/dev/null && python3 ../hosting-abuse-response/scripts/abuse_case.py propose --case-dir {tmp}/case --action suspend >/dev/null && python3 ../hosting-abuse-response/scripts/abuse_case.py approve --case-dir {tmp}/case --by human:abuse-policy-owner'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-authorized-suspend-human-executes kind boundary synthetic true
+{
+  "action": "suspend",
+  "approved_by": "human:abuse-policy-owner",
+  "case_id": "case-1f15d5d9bfff",
+  "clause": "AUP-4.2",
+  "custody_head_sha256": "42cf6411569b2cb12b34d0353a828bd7c6ec76795ae064b6f9c54f512a5fd1a3",
+  "decision": "approved-for-human-execution",
+  "executed": false,
+  "instruction": "A human executes this action in the hosting panel. This script changed and sent nothing.",
+  "recorded": true,
+  "state": "approved-for-human-execution",
+  "subject_sha256": "bfe00b6aa3031fe5f2f458ebe0f946c08ed7c76bac0c9cbfb6067389a40f1ae1",
+  "tenant_id": "tenant-b"
+}
+# expect: met
+# exit 0

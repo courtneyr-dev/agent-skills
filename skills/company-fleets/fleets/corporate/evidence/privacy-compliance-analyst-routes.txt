@@ -1,0 +1,107 @@
+# eval corporate.eval.privacy-compliance-analyst-routes (positive, target corporate.privacy-compliance-analyst)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "corporate.privacy-compliance-analyst" --absent "installed": false -- bin/fleet resolve --profile enterprise --workload corporate.workload.risk-review
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "enterprise",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Security lead",
+      "fleet": "corporate",
+      "id": "corporate.security-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "ciso-advisor",
+          "installed": true,
+          "path": "skills/ciso-advisor/SKILL.md"
+        },
+        {
+          "id": "isms-audit-expert",
+          "installed": true,
+          "path": "skills/isms-audit-expert/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Privacy and compliance analyst",
+      "fleet": "corporate",
+      "id": "corporate.privacy-compliance-analyst",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "compliance-os",
+          "installed": true,
+          "path": "skills/compliance-os/SKILL.md"
+        },
+        {
+          "id": "gdpr-dsgvo-expert",
+          "installed": true,
+          "path": "skills/gdpr-dsgvo-expert/SKILL.md"
+        },
+        {
+          "id": "soc2-compliance",
+          "installed": true,
+          "path": "skills/soc2-compliance/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Legal and contract liaison",
+      "fleet": "corporate",
+      "id": "corporate.contract-liaison",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "general-counsel-advisor",
+          "installed": true,
+          "path": "skills/general-counsel-advisor/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Internal audit reviewer",
+      "fleet": "corporate",
+      "id": "corporate.internal-auditor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "id": "soc2-compliance",
+          "installed": true,
+          "path": "skills/soc2-compliance/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.risk-review"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

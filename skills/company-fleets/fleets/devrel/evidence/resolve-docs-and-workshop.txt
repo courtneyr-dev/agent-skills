@@ -1,0 +1,227 @@
+$ sh -c 'bin/fleet resolve --profile devrel --workload devrel.workload.docs-and-workshop | tee /dev/stderr | python3 -c '"'"'import json,sys; r=json.load(sys.stdin); print(sorted(x["id"] for x in r["roles"])); assert r["coordinator"]; assert [x for x in r["files_read"] if x.startswith("fleets/")] == ["fleets/devrel/roles.json"], r["files_read"]'"'"''
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:06Z
+# case: devrel.eval.resolve-docs-and-workshop (positive, target devrel.program-lead, synthetic=True)
+# expected: One coordinator (devrel.program-lead), five roles, only devrel roles files read.
+# exit: 0 -> pass
+--- stdout ---
+['devrel.demo-producer', 'devrel.developer-educator', 'devrel.docs-architect', 'devrel.program-lead', 'devrel.sample-app-engineer']
+--- stderr ---
+{
+  "coordinator": "devrel.program-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/devrel/roles.json"
+  ],
+  "profile": "devrel",
+  "roles": [
+    {
+      "display_name": "Head of DevRel and program strategist (coordinator)",
+      "fleet": "devrel",
+      "id": "devrel.program-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "developer-relations-kickoff",
+          "installed": true,
+          "path": "skills/developer-relations-kickoff/SKILL.md"
+        },
+        {
+          "id": "devrel-program-kit",
+          "installed": true,
+          "path": "skills/devrel-program-kit/SKILL.md"
+        },
+        {
+          "id": "devrel-strategy",
+          "installed": true,
+          "path": "skills/devrel-strategy/SKILL.md"
+        },
+        {
+          "id": "devrel-team-structure",
+          "installed": true,
+          "path": "skills/devrel-team-structure/SKILL.md"
+        },
+        {
+          "id": "devrel-budget-allocation",
+          "installed": true,
+          "path": "skills/devrel-budget-allocation/SKILL.md"
+        },
+        {
+          "id": "devrel-engine",
+          "installed": true,
+          "path": "skills/devrel-engine/SKILL.md"
+        },
+        {
+          "id": "kanban-guru",
+          "installed": true,
+          "path": "skills/kanban-guru/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Technical writer and docs architect",
+      "fleet": "devrel",
+      "id": "devrel.docs-architect",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "developer-quickstart-guide",
+          "installed": true,
+          "path": "skills/developer-quickstart-guide/SKILL.md"
+        },
+        {
+          "id": "developer-docs-structure-audit",
+          "installed": true,
+          "path": "skills/developer-docs-structure-audit/SKILL.md"
+        },
+        {
+          "id": "developer-how-to-guide",
+          "installed": true,
+          "path": "skills/developer-how-to-guide/SKILL.md"
+        },
+        {
+          "id": "developer-troubleshooting-docs",
+          "installed": true,
+          "path": "skills/developer-troubleshooting-docs/SKILL.md"
+        },
+        {
+          "id": "docs-versioning-strategy",
+          "installed": true,
+          "path": "skills/docs-versioning-strategy/SKILL.md"
+        },
+        {
+          "id": "docs-localization-strategy",
+          "installed": true,
+          "path": "skills/docs-localization-strategy/SKILL.md"
+        },
+        {
+          "id": "docs-site-platform-selection",
+          "installed": true,
+          "path": "skills/docs-site-platform-selection/SKILL.md"
+        },
+        {
+          "id": "devrel-quickstart-replay",
+          "installed": true,
+          "path": "skills/devrel-quickstart-replay/SKILL.md"
+        },
+        {
+          "blocked_reason": "Sibling collection samber/developer-platform-skills isn't installed; developer-docs-structure-audit covers structure only",
+          "id": "api-reference-quality",
+          "installed": false,
+          "path": "skills/api-reference-quality/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Sample-application engineer",
+      "fleet": "devrel",
+      "id": "devrel.sample-app-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "docs-code-sample-standards",
+          "installed": true,
+          "path": "skills/docs-code-sample-standards/SKILL.md"
+        },
+        {
+          "id": "devrel-quickstart-replay",
+          "installed": true,
+          "path": "skills/devrel-quickstart-replay/SKILL.md"
+        },
+        {
+          "id": "readme-optimization",
+          "installed": true,
+          "path": "skills/readme-optimization/SKILL.md"
+        },
+        {
+          "id": "version-migration-guide",
+          "installed": true,
+          "path": "skills/version-migration-guide/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Developer educator and curriculum designer",
+      "fleet": "devrel",
+      "id": "devrel.developer-educator",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "developer-education-strategy",
+          "installed": true,
+          "path": "skills/developer-education-strategy/SKILL.md"
+        },
+        {
+          "id": "developer-tutorial",
+          "installed": true,
+          "path": "skills/developer-tutorial/SKILL.md"
+        },
+        {
+          "id": "developer-workshop-program",
+          "installed": true,
+          "path": "skills/developer-workshop-program/SKILL.md"
+        },
+        {
+          "id": "developer-certification-program",
+          "installed": true,
+          "path": "skills/developer-certification-program/SKILL.md"
+        },
+        {
+          "id": "student-developer-programs",
+          "installed": true,
+          "path": "skills/student-developer-programs/SKILL.md"
+        },
+        {
+          "id": "devrel-quickstart-replay",
+          "installed": true,
+          "path": "skills/devrel-quickstart-replay/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Speaker, demo and video or workshop producer",
+      "fleet": "devrel",
+      "id": "devrel.demo-producer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "tech-talk-outline",
+          "installed": true,
+          "path": "skills/tech-talk-outline/SKILL.md"
+        },
+        {
+          "id": "developer-live-demo-design",
+          "installed": true,
+          "path": "skills/developer-live-demo-design/SKILL.md"
+        },
+        {
+          "id": "technical-video-script",
+          "installed": true,
+          "path": "skills/technical-video-script/SKILL.md"
+        },
+        {
+          "id": "devrel-webinar-program",
+          "installed": true,
+          "path": "skills/devrel-webinar-program/SKILL.md"
+        },
+        {
+          "id": "devrel-live-streaming",
+          "installed": true,
+          "path": "skills/devrel-live-streaming/SKILL.md"
+        },
+        {
+          "id": "devrel-youtube-channel",
+          "installed": true,
+          "path": "skills/devrel-youtube-channel/SKILL.md"
+        },
+        {
+          "id": "devrel-quickstart-replay",
+          "installed": true,
+          "path": "skills/devrel-quickstart-replay/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "devrel.workload.docs-and-workshop"
+}

@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "fleet": "community",
+  "skills": [
+    {
+      "id": "community-moderation-review",
+      "fleet": "community",
+      "summary": "Checks an agent-drafted moderation recommendation against its case record so the allegation stays unproven and authority stays human.",
+      "triggers": [
+        "Draft or review a moderation recommendation"
+      ],
+      "boundaries": [
+        "Never decides, sanctions or messages",
+        "Doesn't write policy"
+      ],
+      "inputs": [
+        "Case record JSON",
+        "Draft JSON"
+      ],
+      "prerequisites": [
+        "A case record with a named human decision maker and appeal route"
+      ],
+      "method": [
+        "Read the case's own records",
+        "Draft unproven findings",
+        "Recommend for the human decider",
+        "Recuse conflicts",
+        "Copy the appeal route",
+        "Run case_check"
+      ],
+      "stopping_conditions": [
+        "case_check exits 0",
+        "Two failed fix rounds: hand to the trust-and-safety lead",
+        "Live harm: human runbook"
+      ],
+      "output_contract": "JSON: ok, violations with rule, location and message, and the authority line.",
+      "failure_states": [
+        "Exit 2 malformed input",
+        "Phrase rules can miss reworded verdicts"
+      ],
+      "references": [
+        {
+          "title": "samber/developer-relations-skills developer-community-moderation",
+          "location": "<skills-root>/developer-community-moderation",
+          "version": "commit c3a1b6912791539567727723baf626b4fec5ac7a (2026-11-08)",
+          "rights": "MIT, copyright 2026 Samuel Berthe; cited, not copied"
+        }
+      ],
+      "scripts": [
+        "scripts/case_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "community.eval.moderation-good-draft-passes",
+          "community.eval.moderation-unit-tests"
+        ],
+        "negative": [
+          "community.eval.moderation-decides-refused",
+          "community.eval.moderation-conflict-refused"
+        ],
+        "boundary": [
+          "community.eval.moderation-invented-report-refused",
+          "community.eval.moderation-needs-information-passes"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Case log export (JSON)",
+          "kind": "document",
+          "required": true
+        }
+      ],
+      "missing_capability": "Without a structured case record, the skill stops and asks the record owner for one; it never infers parties or authority.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/community-moderation-review (devrel-and-community workstream)",
+        "revision": "1.0.0 (2026-11-25)",
+        "license": "MIT (agent-skills); cites MIT upstream without copying"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/community/evidence/installed-skills.txt",
+          "note": "Canonical files resolve through the skills root"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has selected it yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/community/evidence/moderation-unit-tests.txt",
+          "note": "Deterministic unit tests and fleet eval cases pass; human usability and model-run behavior are not measured"
+        }
+      }
+    },
+    {
+      "id": "community-health-measures",
+      "fleet": "community",
+      "summary": "Lints a community measurement plan and computes consent-aware aggregates that name no one.",
+      "triggers": [
+        "Community health or measurement plan",
+        "Board or newsletter numbers"
+      ],
+      "boundaries": [
+        "No rankings",
+        "No inference",
+        "No case records"
+      ],
+      "inputs": [
+        "Plan JSON",
+        "Activity JSON"
+      ],
+      "prerequisites": [
+        "Consented, already-collected activity"
+      ],
+      "method": [
+        "Pick questions",
+        "Lint",
+        "Aggregate",
+        "Report with definitions"
+      ],
+      "stopping_conditions": [
+        "Lint exit 1: rewrite the metric",
+        "Per-person questions go to private conversations"
+      ],
+      "output_contract": "lint: ok and violations; aggregate: metrics, exclusions, no identifiers.",
+      "failure_states": [
+        "Exit 2 malformed input",
+        "Phrase rules may flag innocent wording"
+      ],
+      "references": [
+        {
+          "title": "CHAOSS metrics",
+          "location": "https://chaoss.community/kb/",
+          "version": "Pages returned HTTP 200 on 2026-11-25",
+          "rights": "MIT per GitHub license API for chaoss/metrics and chaoss/website"
+        },
+        {
+          "title": "samber/developer-relations-skills developer-community-health",
+          "location": "<skills-root>/developer-community-health",
+          "version": "commit c3a1b6912791539567727723baf626b4fec5ac7a (2026-11-08)",
+          "rights": "MIT, copyright 2026 Samuel Berthe; cited, not copied"
+        }
+      ],
+      "scripts": [
+        "scripts/measures.py"
+      ],
+      "evals": {
+        "positive": [
+          "community.eval.measures-good-plan-aggregates",
+          "community.eval.measures-unit-tests"
+        ],
+        "negative": [
+          "community.eval.measures-ranking-plan-refused",
+          "community.eval.maintainer-burnout-watch-refused"
+        ],
+        "boundary": [
+          "community.eval.measures-small-groups-suppressed",
+          "community.eval.measures-threshold-refused"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Activity export (JSON)",
+          "kind": "document",
+          "required": true
+        }
+      ],
+      "missing_capability": "Without an activity export, lint still runs and aggregates are reported as not computed.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/community-health-measures (devrel-and-community workstream)",
+        "revision": "1.0.0 (2026-11-25)",
+        "license": "MIT (agent-skills); cites MIT upstream without copying"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/community/evidence/installed-skills.txt",
+          "note": "Canonical files resolve through the skills root"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has selected it yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/community/evidence/measures-unit-tests.txt",
+          "note": "Deterministic unit tests and fleet eval cases pass; human usability and model-run behavior are not measured"
+        }
+      }
+    },
+    {
+      "id": "community-operating-kit",
+      "fleet": "community",
+      "summary": "Assembles and checks the eight-section community operating kit, with local procedures for non-developer communities.",
+      "triggers": [
+        "Community charter, governance map or playbook"
+      ],
+      "boundaries": [
+        "Never posts or recruits",
+        "No case details in the kit"
+      ],
+      "inputs": [
+        "Kit Markdown",
+        "Measurement plan JSON"
+      ],
+      "prerequisites": [
+        "community-health-measures beside it for plan lint"
+      ],
+      "method": [
+        "Write sections per kit-map.md",
+        "Fill the governance table with human owners",
+        "Route moderation drafts through community-moderation-review",
+        "Lint the plan",
+        "Run kit_check"
+      ],
+      "stopping_conditions": [
+        "kit_check exits 0",
+        "Unowned decisions stay human:unassigned"
+      ],
+      "output_contract": "JSON: ok, violations with rule and section, notes.",
+      "failure_states": [
+        "Exit 2 unreadable or sectionless file",
+        "Plan not linted when the measures skill is absent (noted)"
+      ],
+      "references": [
+        {
+          "title": "samber/developer-relations-skills oss-governance",
+          "location": "<skills-root>/oss-governance",
+          "version": "commit c3a1b6912791539567727723baf626b4fec5ac7a (2026-11-08)",
+          "rights": "MIT, copyright 2026 Samuel Berthe; cited, not copied"
+        },
+        {
+          "title": "samber/developer-relations-skills developer-community-launch",
+          "location": "<skills-root>/developer-community-launch",
+          "version": "commit c3a1b6912791539567727723baf626b4fec5ac7a (2026-11-08)",
+          "rights": "MIT, copyright 2026 Samuel Berthe; cited, not copied"
+        },
+        {
+          "title": "Open source guides from the TODO Group",
+          "location": "https://todogroup.org/resources/guides/",
+          "version": "Returned HTTP 200 on 2026-11-25",
+          "rights": "todogroup.org repository LICENSE is CC BY 4.0; the guides page also names CC BY-SA 4.0; check each guide"
+        }
+      ],
+      "scripts": [
+        "scripts/kit_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "community.eval.kit-community-a-passes",
+          "community.eval.kit-unit-tests"
+        ],
+        "negative": [
+          "community.eval.kit-incomplete-refused"
+        ],
+        "boundary": [
+          "community.eval.kit-bad-plan-refused"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "community-health-measures (sibling skill)",
+          "kind": "cli",
+          "required": false
+        }
+      ],
+      "missing_capability": "Without community-health-measures, the kit check notes that the plan wasn't linted instead of passing it silently.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/community-operating-kit (devrel-and-community workstream)",
+        "revision": "1.0.0 (2026-11-25)",
+        "license": "MIT (agent-skills); cites MIT upstream without copying"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/community/evidence/installed-skills.txt",
+          "note": "Canonical files resolve through the skills root"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has selected it yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/community/evidence/kit-unit-tests.txt",
+          "note": "Deterministic unit tests and fleet eval cases pass; human usability and model-run behavior are not measured"
+        }
+      }
+    }
+  ]
+}

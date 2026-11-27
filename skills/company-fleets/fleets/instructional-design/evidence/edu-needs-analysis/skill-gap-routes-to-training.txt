@@ -1,0 +1,41 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains SKILL-TRAINING --contains "course_indicated": true --absent ENV-RESOURCE -- python3 ../edu-needs-analysis/scripts/needs.py route fleets/instructional-design/fixtures/edu-needs-analysis/skill-gap-pivot-tables.json
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.skill-gap-routes-to-training
+{
+  "audience_task_analysis": {
+    "analysis_gaps": [],
+    "audience": {
+      "access_needs": "None recorded",
+      "context": "Spreadsheet users new to pivot tables",
+      "size": 4,
+      "who": "Fixture Co analysts hired this quarter"
+    },
+    "task": {
+      "conditions": "Company spreadsheet tool",
+      "criticality": "Feeds the finance close",
+      "frequency": "monthly",
+      "name": "Build the monthly revenue pivot report",
+      "steps": [
+        "Import the export",
+        "Build the pivot",
+        "Group by month",
+        "Check totals against the ledger"
+      ]
+    }
+  },
+  "course_indicated": true,
+  "not_recommended": [],
+  "notes": [],
+  "questions": [],
+  "remedies": [
+    {
+      "because": "Fixture onboarding record: none had built a pivot table before",
+      "code": "SKILL-TRAINING",
+      "factor": "knowledge-and-skill",
+      "remedy": "Teach the skill with practice and feedback on the real task; try a job aid first when the task is rare or short."
+    }
+  ],
+  "status": "route",
+  "warnings": []
+}
+# expect: met
+# exit 0

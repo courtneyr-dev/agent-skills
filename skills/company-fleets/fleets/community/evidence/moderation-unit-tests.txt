@@ -1,0 +1,36 @@
+$ python3 -W ignore -m unittest discover -s ../community-moderation-review/scripts/tests -p 'test_*.py' -v
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.moderation-unit-tests (positive, target community-moderation-review, synthetic=True)
+# expected: All pass.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+test_exit_codes (test_case_check.Cli.test_exit_codes) ... ok
+test_invalid_input_is_rejected (test_case_check.Cli.test_invalid_input_is_rejected) ... ok
+test_a_private_draft_to_a_party_may_reference_their_report (test_case_check.PublicLeaks.test_a_private_draft_to_a_party_may_reference_their_report) ... ok
+test_any_unrecognized_field_is_treated_as_public (test_case_check.PublicLeaks.test_any_unrecognized_field_is_treated_as_public) ... ok
+test_draft_messages_to_channels_are_public (test_case_check.PublicLeaks.test_draft_messages_to_channels_are_public) ... ok
+test_lowercase_ids_in_public_outputs_leak (test_case_check.PublicLeaks.test_lowercase_ids_in_public_outputs_leak) ... ok
+test_quoting_the_report_publicly_is_a_leak (test_case_check.PublicLeaks.test_quoting_the_report_publicly_is_a_leak) ... ok
+test_a_party_cannot_review (test_case_check.ReviewerIdentity.test_a_party_cannot_review) ... ok
+test_someone_outside_the_moderator_roster_cannot_review (test_case_check.ReviewerIdentity.test_someone_outside_the_moderator_roster_cannot_review) ... ok
+test_allegation_stays_unproven (test_case_check.Rules.test_allegation_stays_unproven) ... ok
+test_appeal_route_is_preserved (test_case_check.Rules.test_appeal_route_is_preserved) ... ok
+test_careful_draft_passes (test_case_check.Rules.test_careful_draft_passes) ... ok
+test_case_identifiers_never_reach_public_outputs (test_case_check.Rules.test_case_identifiers_never_reach_public_outputs) ... ok
+test_case_with_non_independent_or_conflicted_authority_is_flagged (test_case_check.Rules.test_case_with_non_independent_or_conflicted_authority_is_flagged) ... ok
+test_conflicted_moderator_must_be_recused (test_case_check.Rules.test_conflicted_moderator_must_be_recused) ... ok
+test_evidence_not_held_cannot_support_a_finding (test_case_check.Rules.test_evidence_not_held_cannot_support_a_finding) ... ok
+test_final_status_is_refused (test_case_check.Rules.test_final_status_is_refused) ... ok
+test_invented_reports_and_evidence_are_refused (test_case_check.Rules.test_invented_reports_and_evidence_are_refused) ... ok
+test_messages_stay_drafts (test_case_check.Rules.test_messages_stay_drafts) ... ok
+test_preparer_cannot_review_its_own_draft (test_case_check.Rules.test_preparer_cannot_review_its_own_draft) ... ok
+test_sanction_cannot_be_issued_or_decided_by_the_agent (test_case_check.Rules.test_sanction_cannot_be_issued_or_decided_by_the_agent) ... ok
+test_verdict_language_is_refused_but_unproven_is_not (test_case_check.Rules.test_verdict_language_is_refused_but_unproven_is_not) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.005s
+
+OK

@@ -1,0 +1,21 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): professional sources cited by the unit and the faculty roles.",
+  "references": [
+    {
+      "name": "CSTA",
+      "relation": "standards-source"
+    },
+    {
+      "name": "SIGCSE",
+      "relation": "knowledge-source"
+    },
+    {
+      "name": "ACTE",
+      "relation": "resource"
+    },
+    {
+      "name": "Pennsylvania Business Education Association",
+      "relation": "community"
+    }
+  ]
+}

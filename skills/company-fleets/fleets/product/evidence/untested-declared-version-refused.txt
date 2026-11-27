@@ -1,0 +1,23 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.untested-declared-version-refused (boundary, target product-release-gate).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains "code": "untested-host-version" -- python3 ../product-release-gate/scripts/release_gate.py compat --matrix ../product-release-gate/fixtures/compat-untested-max.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-release-gate/scripts/release_gate.py compat --matrix ../product-release-gate/fixtures/compat-untested-max.json
+{
+  "errors": [
+    {
+      "code": "untested-host-version",
+      "message": "wordpress 6.9 is inside the declared range 6.6-6.9 and has no test result"
+    }
+  ],
+  "product": {
+    "id": "fixture-co-forms-connector",
+    "platform": "wordpress-plugin",
+    "version": "2.0.0"
+  },
+  "status": "fail"
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains '"code": "untested-host-version"': ok
+VERDICT pass

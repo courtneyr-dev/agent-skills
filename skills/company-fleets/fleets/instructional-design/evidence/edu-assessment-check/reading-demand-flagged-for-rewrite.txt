@@ -1,0 +1,58 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains irrelevant-reading-demand --contains without lowering -- python3 ../edu-assessment-check/scripts/assessment_check.py check fleets/bcit-education/fixtures/bcit-unit-store/assessment-barriers.json
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.reading-demand-flagged-for-rewrite
+{
+  "ok": false,
+  "errors": [
+    {
+      "code": "unlabeled-student-work",
+      "where": "W9",
+      "message": "student work must be labeled synthetic; real student work goes through edu-student-data-guard first"
+    }
+  ],
+  "flags": [
+    {
+      "code": "irrelevant-reading-demand",
+      "where": "T1",
+      "message": "prompt reads above grade 18 (Flesch-Kincaid 35.1) against a grade 9 target; simplify the wording without lowering the task's demand"
+    },
+    {
+      "code": "paid-software",
+      "where": "T1",
+      "message": "the task requires paid software; offer a free or school-provided route"
+    },
+    {
+      "code": "no-offline-route",
+      "where": "T1",
+      "message": "the task needs internet access and names no offline or low-bandwidth alternative"
+    },
+    {
+      "code": "color-only",
+      "where": "T1",
+      "message": "meaning carried by color alone excludes some learners; add text or pattern cues"
+    },
+    {
+      "code": "speed-not-in-construct",
+      "where": "T1",
+      "message": "a time limit adds speed to a construct that does not include it"
+    },
+    {
+      "code": "tool-specific",
+      "where": "T1",
+      "message": "requiring Microsoft Excel 365 tests tool familiarity, not the stated construct"
+    }
+  ],
+  "objectives": {
+    "O1": {
+      "level": "apply",
+      "tasks": [
+        "T1"
+      ],
+      "criteria": [
+        "R1"
+      ]
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: the same construct wrapped in construct-irrelevant barriers, plus unlabeled student work."
+}
+# expect: met
+# exit 0

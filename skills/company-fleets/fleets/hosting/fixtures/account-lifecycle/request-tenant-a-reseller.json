@@ -1,0 +1,34 @@
+{
+  "label": "SYNTHETIC: provisioning request for Fixture Co tenant-a (Client A) on the reseller profile. No real customer, domain or provider data.",
+  "request_id": "req-fixture-0001",
+  "account_id": "acct-tenant-a-001",
+  "tenant_id": "tenant-a",
+  "profile": "reseller",
+  "domain": "client-a.example",
+  "package": "reseller-starter",
+  "packages": [
+    {
+      "id": "reseller-starter",
+      "name": "Reseller starter (fixture)",
+      "php_versions": [
+        "8.2",
+        "8.3"
+      ],
+      "disk_quota_mb": 10240
+    },
+    {
+      "id": "reseller-plus",
+      "name": "Reseller plus (fixture)",
+      "php_versions": [
+        "8.2",
+        "8.3",
+        "8.4"
+      ],
+      "disk_quota_mb": 51200
+    }
+  ],
+  "ownership": {
+    "method": "dns-txt"
+  },
+  "initial_term_until": "2027-11-25"
+}

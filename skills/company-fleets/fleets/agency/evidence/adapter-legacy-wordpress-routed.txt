@@ -1,0 +1,33 @@
+# eval agency.eval.adapter-legacy-wordpress-routed (negative, target agency-platform-adapters)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 1 --contains "decision": "legacy" --contains 6.8.3 is below 7.0 -- python3 ../agency-platform-adapters/scripts/resolve_adapter.py --project ../agency-platform-adapters/fixtures/project-wordpress-legacy.json
+run on 2026-11-26, exit 0
+
+{
+  "decision": "legacy",
+  "limits": [
+    "Resolves the adapter from the platform and version the project reports; run wp-project-triage or the project's own tooling to confirm those facts first.",
+    "A skill counts as present when its SKILL.md exists in the named mount; presence does not prove the skill's guidance is correct for this project.",
+    "Supported ranges are the upstream's own statements at the pinned revision; a null range means the upstream states none, not that every version works."
+  ],
+  "ok": false,
+  "platform": "wordpress",
+  "reason": "wordpress 6.8.3 is below 7.0. Below WordPress 7.0 or PHP 7.4.0: run wp-project-triage for detection only and have a human CMS specialist confirm which APIs exist before applying guidance that assumes 7.0.",
+  "skills": [
+    {
+      "id": "wp-project-triage",
+      "mount": "agents",
+      "path": "<skills-root>/wp-project-triage/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "code-standards-checker",
+      "mount": "rig",
+      "path": "<skills-root>/code-standards-checker/SKILL.md",
+      "present": true
+    }
+  ],
+  "source": "WordPress/agent-skills docs/compatibility-policy.md at 32ea909f7d01 (GPL-2.0-or-later)",
+  "version": "6.8.3",
+  "warnings": []
+}
+[expect] exit 1 (expected 1); missing none; forbidden present none -> PASS

@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "id": "agency-engagement",
+  "code": "AGE",
+  "name": "Agency engagement",
+  "source": "Company Agent Fleets prompt 2, section 12, workflow table row 1 (lines 619-626)",
+  "profile": "managed",
+  "coordinator": "agency.engagement-director",
+  "home_workload": "agency.workload.client-engagement",
+  "outcome": "A scoped client deliverable built, verified, hosted when Fixture Co hosts it, taught to the client and handed to customer success.",
+  "final_consumer": "human:client-owner",
+  "stop_conditions": [
+    "Every acceptance criterion is met or refused with a reason",
+    "The step's budget is reached",
+    "A required human decision or human data is missing"
+  ],
+  "cancellation": "Stop the step's tools, keep partial outputs labeled partial in the run folder, and release the coordinator lease with its epoch.",
+  "steps": [
+    {
+      "id": "commercial",
+      "stage": "Commercial",
+      "producer": "agency.estimator",
+      "reviewer": "corporate.deal-desk",
+      "acceptance_owner": "agency.engagement-director",
+      "outcome": "A priced, scoped brief with exclusions and a margin above the floor.",
+      "acceptance_criteria": [
+        "The engagement gate passes the brief and rates",
+        "Exclusions and assumptions are written down"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "scoped brief and estimate",
+      "skills": [
+        "agency-engagement-gate"
+      ]
+    },
+    {
+      "id": "discovery",
+      "stage": "Research, brand and content",
+      "producer": "agency.research-strategist",
+      "reviewer": "agency.content-strategist",
+      "acceptance_owner": "agency.engagement-director",
+      "outcome": "Research questions, brand constraints and a content plan, with human research marked as not yet done.",
+      "acceptance_criteria": [
+        "No research finding is stated without a source",
+        "Untrusted client text is treated as data"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "research, brand and content plan",
+      "skills": []
+    },
+    {
+      "id": "architecture",
+      "stage": "Architecture",
+      "producer": "agency.solution-architect",
+      "reviewer": "agency.security-reviewer",
+      "acceptance_owner": "agency.engagement-director",
+      "outcome": "A platform choice and architecture routed through the platform adapters.",
+      "acceptance_criteria": [
+        "The adapter matches the client's platform and versions"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "architecture decision",
+      "skills": [
+        "agency-platform-adapters"
+      ]
+    },
+    {
+      "id": "engineering",
+      "stage": "Engineering",
+      "producer": "agency.web-engineer",
+      "reviewer": "agency.qa-engineer",
+      "acceptance_owner": "agency.engagement-director",
+      "outcome": "Working pages built from source, with design tokens checked.",
+      "acceptance_criteria": [
+        "The build runs from source",
+        "Token contrast and value checks pass"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "built deliverable",
+      "skills": []
+    },
+    {
+      "id": "localization",
+      "stage": "Localization",
+      "producer": "agency.i18n-engineer",
+      "reviewer": "human:language-reviewer",
+      "acceptance_owner": "agency.engagement-director",
+      "outcome": "Catalogs and RTL layout checked mechanically; linguistic review stays with a person.",
+      "acceptance_criteria": [
+        "Placeholder, plural, RTL and untranslated-string checks run",
+        "Linguistic review is recorded as required, not done"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "i18n report",
+      "skills": [
+        "agency-i18n-check"
+      ],
+      "when": "localization"
+    },
+    {
+      "id": "assurance",
+      "stage": "Assurance",
+      "producer": "agency.accessibility-specialist",
+      "reviewer": "agency.qa-engineer",
+      "acceptance_owner": "agency.engagement-director",
+      "outcome": "Keyboard and automated accessibility results for every page.",
+      "acceptance_criteria": [
+        "Every page has a keyboard walk and an automated scan",
+        "Defects found by the walk are listed even when the scan reports none"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "accessibility results",
+      "skills": [
+        "agency-keyboard-audit"
+      ]
+    },
+    {
+      "id": "release-to-hosting",
+      "stage": "Hosting",
+      "producer": "agency.support-handoff-owner",
+      "reviewer": "agency.release-engineer",
+      "acceptance_owner": "agency.engagement-director",
+      "outcome": "The release folder and support runbook handed to hosting intake.",
+      "acceptance_criteria": [
+        "The runbook passes the support completeness check"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract",
+        "Hosting intake role is named"
+      ],
+      "artifact": "release and runbook",
+      "skills": [
+        "agency-engagement-gate"
+      ],
+      "when": "hosting"
+    },
+    {
+      "id": "hosting-intake",
+      "stage": "Hosting",
+      "producer": "hosting.support-engineer",
+      "reviewer": "hosting.service-assurance-lead",
+      "acceptance_owner": "human:hosting-operations-owner",
+      "outcome": "Hosting intake accepts the site with a restore point and support contacts.",
+      "acceptance_criteria": [
+        "A restore of the handed-over site has been exercised or is listed as not measured"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "hosting intake record",
+      "skills": [
+        "hosting-restore-exercise"
+      ],
+      "when": "hosting"
+    },
+    {
+      "id": "client-education",
+      "stage": "Client education",
+      "producer": "agency.training-lead",
+      "reviewer": "agency.content-strategist",
+      "acceptance_owner": "agency.engagement-director",
+      "outcome": "Client training material for editing and support paths.",
+      "acceptance_criteria": [
+        "Training covers every handed-over task",
+        "No learning outcome is claimed before a session runs"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "client training guide",
+      "skills": []
+    },
+    {
+      "id": "customer-success",
+      "stage": "Customer success",
+      "producer": "corporate.customer-success-lead",
+      "reviewer": "agency.delivery-lead",
+      "acceptance_owner": "human:client-owner",
+      "outcome": "An onboarding plan and success measures the client owner can accept.",
+      "acceptance_criteria": [
+        "Success measures are hypotheses until measured"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "customer success plan",
+      "skills": []
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.compliance-report-may-issue (positive, target consult-compliance-engagement).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "decision": "report-may-issue" -- python3 ../consult-compliance-engagement/scripts/engagement_check.py --engagement ../consult-compliance-engagement/fixtures/engagement-ok.json --selector ../consult-compliance-engagement/fixtures/selector-output.json --evidence-root ../consult-compliance-engagement/fixtures/evidence-store
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-compliance-engagement/scripts/engagement_check.py --engagement ../consult-compliance-engagement/fixtures/engagement-ok.json --selector ../consult-compliance-engagement/fixtures/selector-output.json --evidence-root ../consult-compliance-engagement/fixtures/evidence-store
+{
+  "decision": "report-may-issue",
+  "engagement_id": "ENG-FX-COMP-1",
+  "human_decisions_required": [
+    "Applicability sign-off by each review_authority",
+    "Risk acceptance for any open gap",
+    "Report authorization by the engagement owner",
+    "Any certification or legal conclusion by its external issuer"
+  ],
+  "not_checked": [
+    "whether a control is designed well",
+    "the content of each evidence artifact",
+    "the current edition at the publisher",
+    "contractual or sector obligations not listed in the applicability record"
+  ],
+  "stages": [
+    {
+      "errors": [],
+      "stage": "applicability",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "control-owners",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "evidence-collection",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "gap-remediation",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "independent-review",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "authorized-report",
+      "status": "pass"
+    }
+  ]
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"decision": "report-may-issue"': ok
+VERDICT pass

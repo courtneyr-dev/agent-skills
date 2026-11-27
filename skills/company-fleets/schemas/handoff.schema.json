@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "company-fleets/handoff.schema.json",
+  "title": "Cross-fleet handoff (handoff.v1)",
+  "description": "Extends the factory-rig task contract (bound by contract_hash) with the fields in section 12 of the fleet prompt. Protected fields are set by the contract owner; a worker may only add outputs, evidence, summary, assumptions, unresolved decisions and untrusted-content findings.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "handoff_id", "workload_id", "tenant_id", "client_id", "operating_profile",
+    "outcome", "scope", "exclusions", "acceptance_criteria", "sources", "producer", "reviewer",
+    "acceptance_owner", "execution_owner", "inputs", "outputs", "evidence", "summary", "assumptions",
+    "unresolved_decisions", "data", "authority", "budget", "stop_conditions", "cancellation",
+    "next_consumer", "readiness_criteria", "contract_hash", "idempotency_key",
+    "reconciliation_state", "untrusted_findings"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "handoff_id": {"type": "string", "pattern": "^HO-[A-Z0-9][A-Z0-9-]{1,62}$"},
+    "workload_id": {"$ref": "common.schema.json#/$defs/workload_id"},
+    "tenant_id": {"$ref": "common.schema.json#/$defs/slug"},
+    "client_id": {"type": ["string", "null"]},
+    "operating_profile": {"$ref": "common.schema.json#/$defs/slug"},
+    "outcome": {"$ref": "common.schema.json#/$defs/text"},
+    "scope": {"$ref": "common.schema.json#/$defs/text_list"},
+    "exclusions": {"$ref": "common.schema.json#/$defs/text_list_or_empty"},
+    "acceptance_criteria": {"$ref": "common.schema.json#/$defs/text_list"},
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref", "revision"],
+        "properties": {"ref": {"$ref": "common.schema.json#/$defs/text"}, "revision": {"$ref": "common.schema.json#/$defs/text"}}
+      }
+    },
+    "producer": {"$ref": "common.schema.json#/$defs/role_id"},
+    "reviewer": {"$ref": "common.schema.json#/$defs/principal"},
+    "acceptance_owner": {"$ref": "common.schema.json#/$defs/principal"},
+    "execution_owner": {"$ref": "common.schema.json#/$defs/principal"},
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref", "tenant_id", "classification", "trust"],
+        "properties": {
+          "ref": {"$ref": "common.schema.json#/$defs/text"},
+          "tenant_id": {"$ref": "common.schema.json#/$defs/slug"},
+          "classification": {"$ref": "common.schema.json#/$defs/classification"},
+          "trust": {"enum": ["trusted", "untrusted"]},
+          "source_kind": {"enum": ["client-file", "issue", "community-text", "lesson-resource", "fetched-page", "rig-record"]},
+          "category": {"$ref": "common.schema.json#/$defs/slug"},
+          "sha256": {"$ref": "common.schema.json#/$defs/sha256"}
+        }
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "artifact_type"],
+        "properties": {
+          "path": {"$ref": "common.schema.json#/$defs/relpath"},
+          "sha256": {"$ref": "common.schema.json#/$defs/sha256"},
+          "artifact_type": {"$ref": "common.schema.json#/$defs/text"}
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "about", "about_sha256", "contract_hash"],
+        "properties": {
+          "path": {"$ref": "common.schema.json#/$defs/relpath"},
+          "sha256": {"$ref": "common.schema.json#/$defs/sha256"},
+          "about": {"$ref": "common.schema.json#/$defs/relpath"},
+          "about_sha256": {"$ref": "common.schema.json#/$defs/sha256"},
+          "contract_hash": {"$ref": "common.schema.json#/$defs/sha256"}
+        }
+      }
+    },
+    "summary": {"$ref": "common.schema.json#/$defs/text"},
+    "assumptions": {"$ref": "common.schema.json#/$defs/text_list_or_empty"},
+    "unresolved_decisions": {"$ref": "common.schema.json#/$defs/text_list_or_empty"},
+    "data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "allowed_destinations"],
+      "properties": {
+        "classification": {"$ref": "common.schema.json#/$defs/classification"},
+        "allowed_destinations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^(?:tenant|rig|staging|external):[^\\s]+$"}
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tools", "mutation", "external_actions", "publication"],
+      "properties": {
+        "tools": {"$ref": "common.schema.json#/$defs/text_list_or_empty"},
+        "mutation": {"enum": ["none", "staged", "scoped-write"]},
+        "external_actions": {"enum": ["none", "draft-only", "human-approved"]},
+        "publication": {"enum": ["none", "staged-only", "human-approved"]}
+      }
+    },
+    "budget": {"$ref": "common.schema.json#/$defs/budget"},
+    "stop_conditions": {"$ref": "common.schema.json#/$defs/text_list"},
+    "cancellation": {"$ref": "common.schema.json#/$defs/text"},
+    "next_consumer": {"$ref": "common.schema.json#/$defs/principal"},
+    "readiness_criteria": {"$ref": "common.schema.json#/$defs/text_list"},
+    "contract_hash": {"$ref": "common.schema.json#/$defs/sha256"},
+    "idempotency_key": {"type": "string", "pattern": "^[0-9a-f]{32}$"},
+    "reconciliation_state": {"enum": ["submitted", "accepted", "rejected", "superseded"]},
+    "untrusted_findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref", "line", "category", "excerpt"],
+        "properties": {
+          "ref": {"$ref": "common.schema.json#/$defs/text"},
+          "line": {"type": "integer", "minimum": 1},
+          "category": {"enum": ["authority", "exfiltration", "tenant-access", "evidence", "publication", "override"]},
+          "excerpt": {"type": "string"}
+        }
+      }
+    }
+  }
+}

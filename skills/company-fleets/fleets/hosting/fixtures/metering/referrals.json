@@ -1,0 +1,41 @@
+{
+  "label": "SYNTHETIC: affiliate referrals for Fixture Co. ref-002 has no disclosure; ref-003 is refunded 15 days after purchase, inside the 30-day clawback window; ref-004 is refunded 70 days after, outside it.",
+  "referrals": [
+    {
+      "referral_id": "ref-001",
+      "affiliate_id": "aff-1",
+      "qualified": true,
+      "disclosure_shown": true,
+      "order_amount": 200.0,
+      "converted_at": "2026-10-01",
+      "refunded_at": null
+    },
+    {
+      "referral_id": "ref-002",
+      "affiliate_id": "aff-2",
+      "qualified": true,
+      "disclosure_shown": false,
+      "order_amount": 150.0,
+      "converted_at": "2026-10-03",
+      "refunded_at": null
+    },
+    {
+      "referral_id": "ref-003",
+      "affiliate_id": "aff-1",
+      "qualified": true,
+      "disclosure_shown": true,
+      "order_amount": 100.0,
+      "converted_at": "2026-10-05",
+      "refunded_at": "2026-10-20"
+    },
+    {
+      "referral_id": "ref-004",
+      "affiliate_id": "aff-3",
+      "qualified": true,
+      "disclosure_shown": true,
+      "order_amount": 125.0,
+      "converted_at": "2026-09-01",
+      "refunded_at": "2026-11-10"
+    }
+  ]
+}

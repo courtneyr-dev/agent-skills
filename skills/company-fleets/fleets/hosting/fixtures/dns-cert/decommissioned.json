@@ -1,0 +1,8 @@
+{
+  "label": "SYNTHETIC: Fixture Co list of decommissioned hosts for tenant-a.",
+  "hosts": [
+    "tenant-a-old.platform.example",
+    "ns1.old-dns.example",
+    "198.51.100.7"
+  ]
+}

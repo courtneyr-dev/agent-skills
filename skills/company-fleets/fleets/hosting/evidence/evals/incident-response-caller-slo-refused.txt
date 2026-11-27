@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=slo-not-owner-file -- sh -c 'printf '"'"'%s'"'"' '"'"'{"name": "lax", "sli": {"kind": "availability", "good_when": {"status_lt": 500}}, "target": 0.5, "window_days": 1}'"'"' > {tmp}/lax.json && python3 ../hosting-incident-response/scripts/incident.py incident open --record {tmp}/r.jsonl --id INC-EV-LAX --title t --commander hosting.incident-commander --comms-coordinator hosting.communications-coordinator --slo {tmp}/lax.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.incident-response-caller-slo-refused kind negative synthetic true
+{
+  "detail": "an incident is judged only against the owner's SLO $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/incident-response/slo.json; the caller-named $TMPDIR/hosting-eval-ibn0foch/lax.json is refused",
+  "refusal": "slo-not-owner-file",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

@@ -1,0 +1,34 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains computing-only curriculum --contains Cyber Ops -- python3 ../edu-standards-alignment/scripts/standards_check.py coverage fleets/bcit-education/fixtures/bcit-unit-store/program-computing-only.json --record nbea-2023 --field nbea_areas
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.computing-only-not-bcit
+{
+  "ok": false,
+  "record": "nbea-2023",
+  "covered": {
+    "Information Technology": [
+      "C1",
+      "C2",
+      "C3"
+    ]
+  },
+  "missing": [
+    "Accounting",
+    "Business Law",
+    "Career Development",
+    "Communication",
+    "Economics and Personal Finance",
+    "Entrepreneurship",
+    "International Business",
+    "Management",
+    "Marketing"
+  ],
+  "unknown_labels": [
+    {
+      "item": "C3",
+      "label": "Cyber Ops"
+    }
+  ],
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: a computing-only program presented as BCIT.",
+  "finding": "a computing-only curriculum does not satisfy the ten NBEA content areas"
+}
+# expect: met
+# exit 0

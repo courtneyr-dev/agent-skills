@@ -1,0 +1,11 @@
+{
+  "label": "SYNTHETIC: Fixture Co tenant-a scheduled DNS change.",
+  "changes": [
+    {
+      "name": "www",
+      "type": "CNAME",
+      "at": "2026-12-01T12:00:00Z",
+      "action": "repoint to the new platform host"
+    }
+  ]
+}

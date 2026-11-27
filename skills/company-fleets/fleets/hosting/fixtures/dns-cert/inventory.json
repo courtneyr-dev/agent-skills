@@ -1,0 +1,29 @@
+{
+  "label": "SYNTHETIC: Fixture Co tenant-a certificate inventory.",
+  "certificates": [
+    {
+      "id": "tenant-a-apex",
+      "host": "tenant-a.example",
+      "not_after": "2027-01-15T00:00:00Z",
+      "owner_role": "platform-engineer"
+    },
+    {
+      "id": "tenant-a-wildcard",
+      "host": "*.tenant-a.example",
+      "not_after": "2027-03-01T00:00:00Z",
+      "owner_role": "dns-operator"
+    },
+    {
+      "id": "tenant-a-mail",
+      "host": "mail.tenant-a.example",
+      "not_after": "2026-12-10T00:00:00Z",
+      "owner_role": "mail-operator"
+    },
+    {
+      "id": "tenant-a-legacy",
+      "host": "legacy.tenant-a.example",
+      "not_after": "2026-11-20T00:00:00Z",
+      "owner_role": "platform-engineer"
+    }
+  ]
+}

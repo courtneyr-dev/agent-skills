@@ -1,0 +1,49 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.email-cross-tenant-contact-refused (negative, target consult-email-send-gate).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains "code": "tenant-mismatch" --contains "sends_performed": 0 -- python3 ../consult-email-send-gate/scripts/send_gate.py --campaign ../consult-email-send-gate/fixtures/campaign-cross-tenant.json --ledger ../consult-email-send-gate/fixtures/ledger-fixture-co.json --sender-auth ../consult-email-send-gate/fixtures/sender-auth-good.json --now 2026-11-25T12:00:00Z
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-email-send-gate/scripts/send_gate.py --campaign ../consult-email-send-gate/fixtures/campaign-cross-tenant.json --ledger ../consult-email-send-gate/fixtures/ledger-fixture-co.json --sender-auth ../consult-email-send-gate/fixtures/sender-auth-good.json --now 2026-11-25T12:00:00Z
+{
+  "approval_sha256": "e9a820e569ebb67d8c8d9b2dd1de892c93f89d68a9f1b3b8d7cb9b37e9bd1197",
+  "authorized_for_dispatch": false,
+  "campaign_id": "cmp-cross-001",
+  "defects": [
+    {
+      "code": "tenant-mismatch",
+      "location": "audience:c7",
+      "message": "contact c7 belongs to tenant tenant-other-synthetic, not tenant-fixture-co",
+      "severity": "error"
+    }
+  ],
+  "dispatch_route": "the tenant's existing authorized email system, by a human",
+  "eligible": [
+    "c1"
+  ],
+  "excluded": [
+    {
+      "id": "c7",
+      "reason": "tenant-mismatch"
+    }
+  ],
+  "human_review_required": [
+    "a named human approves dispatch in the tenant's existing authorized email system",
+    "the consent steward confirms the ledger is current; only the steward removes a suppression",
+    "a human reviews the rendered email with a screen reader or equivalent"
+  ],
+  "mode": "staged",
+  "not_checked": [
+    "live DNS: SPF, DKIM and DMARC come from the fixture, not from the domain",
+    "DKIM signature validity and SPF alignment with the sending IP",
+    "whether the consent ledger matches the tenant's live email system",
+    "copy quality, claims, legal and CAN-SPAM or GDPR footer content",
+    "colour contrast, reading order and link text in the rendered email",
+    "that the unsubscribe endpoint exists and honors a one-click POST",
+    "provider reputation and complaint rates"
+  ],
+  "sends_performed": 0
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains '"code": "tenant-mismatch"': ok
+CHECK contains '"sends_performed": 0': ok
+VERDICT pass

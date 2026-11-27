@@ -1,0 +1,7 @@
+SYNTHETIC FIXTURE: phishing abuse report about Client A's site (tenant-a) at Fixture Co. Every name, address and URL is invented.
+From: reporter@reports.example
+To: abuse@fixture-co.example
+Subject: Phishing form on client-a.example
+
+The form at https://client-a.example/account-check collects card numbers and posts them to a third party.
+It went up on 2026-11-24.

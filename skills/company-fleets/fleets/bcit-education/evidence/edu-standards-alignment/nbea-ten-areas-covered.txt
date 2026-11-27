@@ -1,0 +1,43 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "missing": [] -- python3 ../edu-standards-alignment/scripts/standards_check.py coverage fleets/bcit-education/fixtures/bcit-unit-store/program-bcit.json --record nbea-2023 --field nbea_areas
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.nbea-ten-areas-covered
+{
+  "ok": true,
+  "record": "nbea-2023",
+  "covered": {
+    "Accounting": [
+      "C2"
+    ],
+    "Business Law": [
+      "C4"
+    ],
+    "Career Development": [
+      "C1"
+    ],
+    "Communication": [
+      "C1"
+    ],
+    "Economics and Personal Finance": [
+      "C3"
+    ],
+    "Entrepreneurship": [
+      "C5"
+    ],
+    "Information Technology": [
+      "C1"
+    ],
+    "International Business": [
+      "C6"
+    ],
+    "Management": [
+      "C6"
+    ],
+    "Marketing": [
+      "C5"
+    ]
+  },
+  "missing": [],
+  "unknown_labels": [],
+  "label": "SYNTHETIC FIXTURE (Fixture Co): BCIT program map (course titles and area tags only)."
+}
+# expect: met
+# exit 0

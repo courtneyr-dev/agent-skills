@@ -1,0 +1,28 @@
+$ cd skills/cs-classroom-instruction/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v
+# run 2026-11-26 (python 3.14.7)
+test_complete_lesson_passes (test_lesson.CheckTests.test_complete_lesson_passes) ... ok
+test_grade_band_and_assignment_status_required (test_lesson.CheckTests.test_grade_band_and_assignment_status_required) ... ok
+test_missing_sections_and_alternative_are_reported (test_lesson.CheckTests.test_missing_sections_and_alternative_are_reported) ... ok
+test_no_transfer_task_is_reported (test_lesson.CheckTests.test_no_transfer_task_is_reported) ... ok
+test_passing_code_rubric_is_rejected (test_lesson.CheckTests.test_passing_code_rubric_is_rejected) ... ok
+test_standards_mixups_and_bundled_text (test_lesson.CheckTests.test_standards_mixups_and_bundled_text) ... ok
+test_wrong_expected_output_is_caught (test_lesson.CheckTests.test_wrong_expected_output_is_caught) ... ok
+test_exit_codes_for_check (test_lesson.CliTests.test_exit_codes_for_check) ... ok
+test_respond_without_work_exits_0_and_waits (test_lesson.CliTests.test_respond_without_work_exits_0_and_waits) ... ok
+test_usage_and_invalid_input_exit_2 (test_lesson.CliTests.test_usage_and_invalid_input_exit_2) ... ok
+test_ai_generated_passing_work_is_not_evidence (test_lesson.RespondTests.test_ai_generated_passing_work_is_not_evidence) ... ok
+test_complete_trace_goes_to_teacher_review_without_progress_claim (test_lesson.RespondTests.test_complete_trace_goes_to_teacher_review_without_progress_claim) ... ok
+test_empty_work_waits (test_lesson.RespondTests.test_empty_work_waits) ... ok
+test_failing_work_quotes_actual_output_and_probe (test_lesson.RespondTests.test_failing_work_quotes_actual_output_and_probe) ... ok
+test_no_work_waits (test_lesson.RespondTests.test_no_work_waits) ... ok
+test_passing_without_explanation_is_not_evidence (test_lesson.RespondTests.test_passing_without_explanation_is_not_evidence) ... ok
+test_prediction_misconception (test_lesson.RespondTests.test_prediction_misconception) ... ok
+test_runtime_error_is_quoted (test_lesson.RespondTests.test_runtime_error_is_quoted) ... ok
+test_timeout_is_reported_not_hung (test_lesson.RespondTests.test_timeout_is_reported_not_hung) ... ok
+test_trace_missing_values_is_not_evidence (test_lesson.RespondTests.test_trace_missing_values_is_not_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 11.427s
+
+OK
+# exit 0

@@ -1,0 +1,41 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "flags": [] -- python3 ../edu-assessment-check/scripts/assessment_check.py check fleets/bcit-education/fixtures/bcit-unit-store/assessment.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.assessment-aligned
+{
+  "ok": true,
+  "errors": [],
+  "flags": [],
+  "objectives": {
+    "O1": {
+      "level": "apply",
+      "tasks": [
+        "T0",
+        "T1"
+      ],
+      "criteria": [
+        "R1"
+      ]
+    },
+    "O2": {
+      "level": "analyze",
+      "tasks": [
+        "T2"
+      ],
+      "criteria": [
+        "R2"
+      ]
+    },
+    "O3": {
+      "level": "evaluate",
+      "tasks": [
+        "T3"
+      ],
+      "criteria": [
+        "R3",
+        "R4"
+      ]
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): assessment for the student-run store unit."
+}
+# expect: met
+# exit 0

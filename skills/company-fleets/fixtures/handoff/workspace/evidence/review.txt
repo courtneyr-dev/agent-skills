@@ -1,0 +1,5 @@
+SYNTHETIC review evidence for out/accessibility-findings.md
+reviewer: agency.engagement-coordinator
+checked: three defects, each with criterion, steps and observed result
+result: findings reproducible on the synthetic staging description
+reviewed-sha256: 4c31e76d1e48165486541e6de4d4ad2a13d5b08a6c1c0c384edc4bc31dea0247

@@ -1,0 +1,17 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: a state standard the rig cannot access is claimed as a verified match.",
+  "context": {
+    "learner_audience": "students"
+  },
+  "alignments": [
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "pa-bcit-standards-2030",
+      "standard_id": "BCIT.10.2.A",
+      "status": "verified",
+      "reviewer": "human:teacher-of-record",
+      "evidence": "unit map"
+    }
+  ]
+}

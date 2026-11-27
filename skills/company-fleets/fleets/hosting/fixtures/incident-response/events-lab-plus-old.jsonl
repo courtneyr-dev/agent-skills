@@ -1,0 +1,12 @@
+{"label": "SYNTHETIC: the 20-minute load-test run plus one event a day earlier, for Fixture Co. Spans the 1-day window but holds data in only 1 of its 24 hours."}
+{"ts": "2026-11-24T11:59:00Z", "status": 200, "count": 1}
+{"ts": "2026-11-25T11:40:00Z", "status": 200, "count": 100}
+{"ts": "2026-11-25T11:42:00Z", "status": 200, "count": 100}
+{"ts": "2026-11-25T11:44:00Z", "status": 200, "count": 100}
+{"ts": "2026-11-25T11:46:00Z", "status": 200, "count": 100}
+{"ts": "2026-11-25T11:48:00Z", "status": 200, "count": 100}
+{"ts": "2026-11-25T11:50:00Z", "status": 200, "count": 100}
+{"ts": "2026-11-25T11:52:00Z", "status": 200, "count": 100}
+{"ts": "2026-11-25T11:54:00Z", "status": 200, "count": 100}
+{"ts": "2026-11-25T11:56:00Z", "status": 200, "count": 100}
+{"ts": "2026-11-25T11:58:00Z", "status": 200, "count": 100}

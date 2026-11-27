@@ -1,0 +1,58 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample manifest that merges evidence lines on purpose.",
+  "kind": "teacher-education-module",
+  "files": {
+    "guide": "module.md",
+    "rubric": "rubric.json",
+    "calibration_exercise": "calibration-exercise.md",
+    "calibration_ratings": "calibration-practice-ratings.json",
+    "evidence_plan": "evidence-plan.json",
+    "observation_instrument": "observation-instrument.json",
+    "answer_key": "answer-key.json"
+  },
+  "iste_educator_labels": [
+    "Learner",
+    "Designer",
+    "Facilitator",
+    "Analyst",
+    "Collaborator",
+    "Citizen",
+    "Empowered Learner"
+  ],
+  "evidence_lines": {
+    "business_subject_mastery": {
+      "status": "planned",
+      "evidence": [
+        "Candidate answers to the store task scored against the executed key (rubric C1)",
+        "Observation item OB1"
+      ],
+      "inferred_from": []
+    },
+    "technology_fluency": {
+      "status": "planned",
+      "evidence": [
+        "Candidate formulas and queries executed against answer-key.json (rubric C2)",
+        "Observation item OB2"
+      ],
+      "inferred_from": [
+        "business_subject_mastery"
+      ]
+    },
+    "pedagogical_competence": {
+      "status": "planned",
+      "evidence": [
+        "Microteaching and reteach observed by a human supervisor (OB3 to OB5, rubric C4)",
+        "Written rationale (rubric C3)"
+      ],
+      "inferred_from": []
+    },
+    "occupational_assessment_readiness": {
+      "status": "claimed",
+      "evidence": [],
+      "inferred_from": [
+        "pedagogical_competence"
+      ],
+      "note": "Counterexample: claims credential readiness from a microteaching rating."
+    }
+  }
+}

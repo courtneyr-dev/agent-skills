@@ -1,0 +1,47 @@
+# SYNTHETIC sample registry (fixtures/sample-fleets on a temp root). Raw output, 2026-11-26T03:15Z
+$ bin/fleet resolve --profile agency --workload agency.workload.accessibility-audit
+{
+  "coordinator": "agency.engagement-coordinator",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/agency/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Engagement coordinator (sample)",
+      "fleet": "agency",
+      "id": "agency.engagement-coordinator",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Accessibility specialist (sample)",
+      "fleet": "agency",
+      "id": "agency.accessibility-specialist",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "blocked_reason": "Not built yet; the corporate-and-agency workstream owns it",
+          "id": "agency-keyboard-audit",
+          "installed": false,
+          "path": "skills/agency-keyboard-audit/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "agency.workload.accessibility-audit"
+}
+exit=0

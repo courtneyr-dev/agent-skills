@@ -9,7 +9,8 @@ import transforms as T
 import publish_skills as P
 
 PUBLIC_AUTHORED = ["wiki-cycle", "weekly-site-health-audit", "wiki-memory",
-                   "readwise-methods-review", "job-search"]
+                   "readwise-methods-review", "job-search",
+                   "company-fleets", "factory-rig", "factory-execute"]
 
 
 def _canonical_available():
@@ -96,11 +97,11 @@ class Transforms(unittest.TestCase):
 
 
 class PublicAuthoredProtection(unittest.TestCase):
-    """The five hand-authored editions must be structurally unreachable by generation."""
+    """The hand-authored editions must be structurally unreachable by generation."""
     def setUp(self):
         self.pol = P.load_policy()
 
-    def test_all_five_declared_public_authored(self):
+    def test_each_declared_public_authored(self):
         for n in PUBLIC_AUTHORED:
             self.assertEqual(self.pol["skills"][n]["mode"], "public-authored", n)
 

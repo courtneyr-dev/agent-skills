@@ -1,0 +1,27 @@
+$ python3 ../devrel-program-kit/scripts/check_routes.py --skills-root .. routes fleets/devrel/fixtures/program/routes-installed.json
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:06Z
+# case: devrel.eval.routes-installed-pass (positive, target devrel-program-kit, synthetic=True)
+# expected: Exit 0; seven routes installed.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "devrel-program-kit/check_routes",
+  "version": "1.0.0",
+  "ok": true,
+  "counts": {
+    "installed": 7
+  },
+  "unresolved": [],
+  "installed": [
+    "samber/developer-relations-skills@developer-journey-map",
+    "samber/developer-relations-skills@developer-quickstart-guide",
+    "docs-code-sample-standards",
+    "devrel-quickstart-replay",
+    "samber/developer-relations-skills@developer-workshop-program",
+    "samber/developer-relations-skills@developer-feedback-loop",
+    "samber/developer-relations-skills@devrel-metrics"
+  ]
+}
+--- stderr ---
+

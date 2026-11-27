@@ -1,0 +1,24 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains technology_fluency is inferred from business_subject_mastery --contains occupational_assessment_readiness is inferred from pedagogical_competence --contains Empowered Learner -- python3 ../edu-trainer-development/scripts/package.py check fleets/bcit-education/fixtures/bcit-teacher-education-module/manifest-merged-evidence.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.teacher-module-merged-evidence-rejected
+{
+  "calibration": {
+    "discussion_items": 5,
+    "status": "practice-only"
+  },
+  "evidence_lines": {
+    "business_subject_mastery": "planned",
+    "occupational_assessment_readiness": "claimed",
+    "pedagogical_competence": "planned",
+    "technology_fluency": "planned"
+  },
+  "evidence_plan": "accepted",
+  "findings": [
+    "evidence line technology_fluency is inferred from business_subject_mastery; evidence for one line does not establish another",
+    "evidence line occupational_assessment_readiness is inferred from pedagogical_competence; evidence for one line does not establish another",
+    "unknown ISTE Educator labels Empowered Learner"
+  ],
+  "kind": "teacher-education-module",
+  "status": "incomplete"
+}
+# expect: met
+# exit 0

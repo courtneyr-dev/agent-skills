@@ -1,0 +1,2 @@
+SYNTHETIC FIXTURE: preview source map for tenant-a at Fixture Co. Carries a generic synthetic token that is not in the manifest.
+{"version":3,"sources":["src/api.js"],"note":"const stripeKey = 'fx_demo_StrayDebugToken000000001'"}

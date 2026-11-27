@@ -1,0 +1,113 @@
+{
+  "label": "FIXTURE: synthetic tenants and records for Fixture Co (registry/company.json). No real clients, classrooms, students or community members.",
+  "company": "fixture-co",
+  "tenants": [
+    {
+      "id": "tenant-a",
+      "kind": "client",
+      "name": "Client A (fixture)"
+    },
+    {
+      "id": "tenant-b",
+      "kind": "client",
+      "name": "Client B (fixture)"
+    },
+    {
+      "id": "classroom-a",
+      "kind": "classroom",
+      "name": "Classroom A (fixture)"
+    },
+    {
+      "id": "classroom-b",
+      "kind": "classroom",
+      "name": "Classroom B (fixture)"
+    },
+    {
+      "id": "community-a",
+      "kind": "community",
+      "name": "Community A (fixture)"
+    }
+  ],
+  "principals": [
+    {
+      "id": "tenant-a-worker",
+      "tenant_id": "tenant-a",
+      "max_classification": "restricted"
+    },
+    {
+      "id": "classroom-a-assistant",
+      "tenant_id": "classroom-a",
+      "max_classification": "restricted"
+    },
+    {
+      "id": "corporate-analyst",
+      "tenant_id": "fixture-co",
+      "max_classification": "confidential"
+    }
+  ],
+  "records": [
+    {
+      "id": "A-BRIEF",
+      "tenant_id": "tenant-a",
+      "classification": "confidential",
+      "category": "client-file"
+    },
+    {
+      "id": "A-ACCESS",
+      "tenant_id": "tenant-a",
+      "classification": "restricted",
+      "category": "access-inventory"
+    },
+    {
+      "id": "B-BRIEF",
+      "tenant_id": "tenant-b",
+      "classification": "confidential",
+      "category": "client-file"
+    },
+    {
+      "id": "B-ACCESS",
+      "tenant_id": "tenant-b",
+      "classification": "restricted",
+      "category": "access-inventory"
+    },
+    {
+      "id": "CA-UNIT",
+      "tenant_id": "classroom-a",
+      "classification": "internal",
+      "category": "lesson-plan"
+    },
+    {
+      "id": "CA-ROSTER",
+      "tenant_id": "classroom-a",
+      "classification": "restricted",
+      "category": "student-record"
+    },
+    {
+      "id": "CB-ROSTER",
+      "tenant_id": "classroom-b",
+      "classification": "restricted",
+      "category": "student-record"
+    },
+    {
+      "id": "CB-GRADES",
+      "tenant_id": "classroom-b",
+      "classification": "restricted",
+      "category": "student-record"
+    },
+    {
+      "id": "CM-CASE-1",
+      "tenant_id": "community-a",
+      "classification": "confidential",
+      "category": "moderation-case",
+      "approved_abstraction": true
+    },
+    {
+      "id": "PATTERN-A11Y",
+      "tenant_id": "fixture-co",
+      "classification": "internal",
+      "category": "method",
+      "approved_abstraction": true,
+      "derived_from": "A-BRIEF"
+    }
+  ]
+}

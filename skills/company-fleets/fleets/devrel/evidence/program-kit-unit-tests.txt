@@ -1,0 +1,31 @@
+$ python3 -W ignore -m unittest discover -s ../devrel-program-kit/scripts/tests -p 'test_*.py' -v
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:06Z
+# case: devrel.eval.program-kit-unit-tests (positive, target devrel-program-kit, synthetic=True)
+# expected: All pass.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+test_budget_figures_need_the_owners_source (test_kit.Program.test_budget_figures_need_the_owners_source) ... ok
+test_clean_plan_passes (test_kit.Program.test_clean_plan_passes) ... ok
+test_context_stays_in_devrel_context_md (test_kit.Program.test_context_stays_in_devrel_context_md) ... ok
+test_invalid_input_is_rejected (test_kit.Program.test_invalid_input_is_rejected) ... ok
+test_non_goals_are_required (test_kit.Program.test_non_goals_are_required) ... ok
+test_quotes_and_results_need_sources_and_consent (test_kit.Program.test_quotes_and_results_need_sources_and_consent) ... ok
+test_reach_is_not_success (test_kit.Program.test_reach_is_not_success) ... ok
+test_revenue_needs_attribution_and_no_causal_claim (test_kit.Program.test_revenue_needs_attribution_and_no_causal_claim) ... ok
+test_runnable_chain_needs_replay_and_usability_needs_humans (test_kit.Program.test_runnable_chain_needs_replay_and_usability_needs_humans) ... ok
+test_chain_evidence_must_be_a_passing_replay_of_this_artifact (test_kit.ReviewProbes.test_chain_evidence_must_be_a_passing_replay_of_this_artifact) ... ok
+test_chain_evidence_must_exist (test_kit.ReviewProbes.test_chain_evidence_must_exist) ... ok
+test_sources_and_consent_must_be_retained_records (test_kit.ReviewProbes.test_sources_and_consent_must_be_retained_records) ... ok
+test_unknown_claim_kinds_are_refused (test_kit.ReviewProbes.test_unknown_claim_kinds_are_refused) ... ok
+test_usability_needs_a_session_record_file (test_kit.ReviewProbes.test_usability_needs_a_session_record_file) ... ok
+test_invalid_input_is_rejected (test_kit.Routes.test_invalid_input_is_rejected) ... ok
+test_routes_that_all_resolve_pass (test_kit.Routes.test_routes_that_all_resolve_pass) ... ok
+test_scan_separates_drift_from_missing_siblings_and_offers_installed_fallbacks (test_kit.Routes.test_scan_separates_drift_from_missing_siblings_and_offers_installed_fallbacks) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.012s
+
+OK

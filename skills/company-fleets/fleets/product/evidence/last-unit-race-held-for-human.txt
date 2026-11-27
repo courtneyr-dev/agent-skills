@@ -1,0 +1,53 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.last-unit-race-held-for-human (boundary, target product-payment-events).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains "outcome": "needs-human" --contains "forms-pro-founder-edition": 0 -- python3 ../product-payment-events/scripts/payment_events.py process --config ../product-payment-events/fixtures/config.json --events ../product-payment-events/fixtures/last-unit.jsonl --db {tmp}/store.db
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-payment-events/scripts/payment_events.py process --config ../product-payment-events/fixtures/config.json --events ../product-payment-events/fixtures/last-unit.jsonl --db {tmp}/store.db
+{
+  "entitlements": [
+    {
+      "customer_id": "cus_e",
+      "export_offered": 0,
+      "sku": "forms-pro-founder-edition",
+      "state": "active"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "evt_201",
+      "outcome": "fulfilled"
+    },
+    {
+      "event_id": "evt_202",
+      "outcome": "needs-human"
+    }
+  ],
+  "inventory": {
+    "forms-pro-annual": 10,
+    "forms-pro-founder-edition": 0
+  },
+  "live_calls": 0,
+  "mode": "test",
+  "not_checked": [
+    "real provider API behavior",
+    "tax, shipping and currency conversion",
+    "card-network chargeback rules"
+  ],
+  "outcomes": {
+    "fulfilled": 1,
+    "needs-human": 1
+  },
+  "status": "needs-attention",
+  "store": {
+    "captures": 2,
+    "events": 2,
+    "fulfillments": 1,
+    "holds": 1,
+    "refunds": 0
+  }
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains '"outcome": "needs-human"': ok
+CHECK contains '"forms-pro-founder-edition": 0': ok
+VERDICT pass

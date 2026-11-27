@@ -1,0 +1,79 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: a ten-question recall quiz offered as the only evidence for application and analysis objectives.",
+  "context": {
+    "grade_band": "10-12",
+    "reading_grade_target": 9
+  },
+  "objectives": [
+    {
+      "id": "O1",
+      "level": "apply",
+      "text": "Calculate markup, contribution margin and weekly gross profit for store items with spreadsheet formulas built from cell references.",
+      "construct": "applying markup and gross profit calculations in a spreadsheet"
+    },
+    {
+      "id": "O2",
+      "level": "analyze",
+      "text": "Query a sales table to compare revenue by item and by week, and explain which item drives profit.",
+      "construct": "analyzing sales data with SQL queries"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "Q",
+      "objective_ids": [
+        "O1",
+        "O2"
+      ],
+      "format": "selected-response",
+      "cognitive_level": "remember",
+      "evidence": [
+        "recall"
+      ],
+      "prompt": "Ten multiple-choice questions: define markup, define margin, name the SQL keyword for totals.",
+      "demands": {
+        "paid_software": false,
+        "internet_required": false,
+        "offline_alternative": true,
+        "color_only_cues": false,
+        "timed_minutes": null
+      }
+    }
+  ],
+  "rubric": [
+    {
+      "id": "RQ1",
+      "task_id": "Q",
+      "objective_id": "O1",
+      "criterion": "Quiz score",
+      "scoring_rationale": "One point per correct answer.",
+      "levels": [
+        {
+          "score": 0,
+          "descriptor": "incorrect"
+        },
+        {
+          "score": 1,
+          "descriptor": "correct"
+        }
+      ]
+    },
+    {
+      "id": "RQ2",
+      "task_id": "Q",
+      "objective_id": "O2",
+      "criterion": "Quiz score",
+      "scoring_rationale": "One point per correct answer.",
+      "levels": [
+        {
+          "score": 0,
+          "descriptor": "incorrect"
+        },
+        {
+          "score": 1,
+          "descriptor": "correct"
+        }
+      ]
+    }
+  ]
+}

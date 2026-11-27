@@ -1,0 +1,38 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json paid_without_disclosure.0.referral_id=ref-001 --json paid_without_disclosure.0.ineligible_reasons.1=disclosure-entry-invalid -- sh -c 'printf '"'"'%s'"'"' '"'"'{"referrals": [{"referral_id": "ref-001", "affiliate_id": "aff-1", "qualified": true, "disclosure_shown": true, "order_amount": 200.0, "converted_at": "2026-09-30", "refunded_at": null}]}'"'"' > {tmp}/r.json && printf '"'"'%s'"'"' '"'"'{"payouts": [{"referral_id": "ref-001", "amount": 20.0}]}'"'"' > {tmp}/p.json && python3 ../hosting-metering-reconcile/scripts/metering.py commission --referrals {tmp}/r.json --payouts {tmp}/p.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.metering-disclosure-after-conversion-refused kind negative synthetic true
+{
+  "assumptions": [
+    "A referral earns commission only when it is qualified, the affiliate disclosure was shown, and it was not refunded within clawback_days of converted_at (inclusive).",
+    "Commission = order_amount x rate, rounded ROUND_HALF_UP to cents. Payouts for one referral are summed.",
+    "Disclosure comes from Fixture Co's own disclosure log at its fixed path, never from the referral row or a caller file; a row that claims disclosure_shown with no log entry is ineligible and flagged disclosure-claim-unverified.",
+    "A log entry counts only when it was rendered on the checkout page on or before the day the referral converted; any other entry is flagged disclosure-entry-invalid.",
+    "Rate and clawback_days come from Fixture Co's own terms file at its fixed path.",
+    "A payout to a referral with no disclosure is flagged whatever else is true of it, because that payout needs a human decision."
+  ],
+  "clawback_window_days": 30,
+  "command": "commission",
+  "expected_total": "0.00",
+  "matched": [],
+  "overpaid": [],
+  "paid_not_earned": [],
+  "paid_total": "20.00",
+  "paid_without_disclosure": [
+    {
+      "affiliate_id": "aff-1",
+      "expected_commission": "0.00",
+      "ineligible_reasons": [
+        "no-disclosure",
+        "disclosure-entry-invalid",
+        "disclosure-claim-unverified"
+      ],
+      "paid": "20.00",
+      "referral_id": "ref-001"
+    }
+  ],
+  "rate": "0.1",
+  "underpaid": [],
+  "unknown_referral": [],
+  "verdict": "mismatch"
+}
+# expect: met
+# exit 0

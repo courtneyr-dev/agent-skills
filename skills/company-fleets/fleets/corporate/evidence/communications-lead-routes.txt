@@ -1,0 +1,102 @@
+# eval corporate.eval.communications-lead-routes (positive, target corporate.communications-lead)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "corporate.communications-lead" --absent "installed": false -- bin/fleet resolve --profile managed --workload corporate.workload.crisis-communications
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "managed",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Communications lead",
+      "fleet": "corporate",
+      "id": "corporate.communications-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "public-relations",
+          "installed": true,
+          "path": "skills/public-relations/SKILL.md"
+        },
+        {
+          "id": "corporate-claims-check",
+          "installed": true,
+          "path": "skills/corporate-claims-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Legal and contract liaison",
+      "fleet": "corporate",
+      "id": "corporate.contract-liaison",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "general-counsel-advisor",
+          "installed": true,
+          "path": "skills/general-counsel-advisor/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Strategy advisor",
+      "fleet": "corporate",
+      "id": "corporate.strategy-advisor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "ceo-advisor",
+          "installed": true,
+          "path": "skills/ceo-advisor/SKILL.md"
+        },
+        {
+          "id": "competitor-profiling",
+          "installed": true,
+          "path": "skills/competitor-profiling/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Security lead",
+      "fleet": "corporate",
+      "id": "corporate.security-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "ciso-advisor",
+          "installed": true,
+          "path": "skills/ciso-advisor/SKILL.md"
+        },
+        {
+          "id": "isms-audit-expert",
+          "installed": true,
+          "path": "skills/isms-audit-expert/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.crisis-communications"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

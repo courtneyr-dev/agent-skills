@@ -1,0 +1,78 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): standards alignment for the student-run store unit. No human has reviewed these mappings, so none is verified; no standard text is stored.",
+  "context": {
+    "jurisdiction": "Pennsylvania (initial reference; teaching assignment unverified)",
+    "learner_audience": "students",
+    "grade_band": "10-12",
+    "district_adoptions": []
+  },
+  "alignments": [
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "nbea-2023",
+      "label": "Accounting",
+      "status": "gap",
+      "note": "NBEA page unreachable on 2026-11-25; identifiers not public. Coverage label only."
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "nbea-2023",
+      "label": "Information Technology",
+      "status": "gap"
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2026",
+      "label": "Data & Analysis",
+      "status": "unverified",
+      "note": "Concept-level only; a teacher picks the exact HS identifier from the live standards."
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "iste-students",
+      "standard_id": "1.5",
+      "label": "Computational Thinker",
+      "status": "unverified",
+      "reviewer": "human:teacher-of-record",
+      "evidence": ""
+    },
+    {
+      "objective_id": "O3",
+      "criterion_id": "R3",
+      "record_id": "nbea-2023",
+      "label": "Marketing",
+      "status": "gap"
+    },
+    {
+      "objective_id": "O3",
+      "criterion_id": "R4",
+      "record_id": "nbea-2023",
+      "label": "Communication",
+      "status": "gap"
+    },
+    {
+      "objective_id": "O3",
+      "criterion_id": "R3",
+      "record_id": "pa-state-curriculum",
+      "status": "gap",
+      "note": "PA BCIT academic standards edition not verified."
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "nocti-blueprints",
+      "status": "gap",
+      "note": "No NOCTI credential selected; blueprint content is restricted."
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "district-curriculum",
+      "status": "gap"
+    }
+  ]
+}

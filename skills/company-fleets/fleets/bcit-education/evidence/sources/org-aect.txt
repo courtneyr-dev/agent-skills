@@ -1,0 +1,11 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://aect.org/
+# run 2026-11-25
+http_code=200 final_url=https://aect.org/home size=86720
+L1: Home - Association for Educational Communications and Technology
+L9: Divisions
+L17: Center of Excellence for Publishing
+L22: Convention
+L24: International Publishing Summit
+L38: Leading the global study and application of new technologies for learning
+L44: AECT Center of Excellence for Publishing Advisory Board Monthly Meeting
+L57: Publishing Partners

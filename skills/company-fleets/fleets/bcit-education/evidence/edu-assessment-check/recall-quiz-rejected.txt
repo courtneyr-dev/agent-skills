@@ -1,0 +1,41 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains recall-only-evidence -- python3 ../edu-assessment-check/scripts/assessment_check.py check fleets/bcit-education/fixtures/bcit-unit-store/assessment-recall-only.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.recall-quiz-rejected
+{
+  "ok": false,
+  "errors": [
+    {
+      "code": "recall-only-evidence",
+      "where": "O1",
+      "message": "objective asks learners to apply, but its tasks only collect remember-level recall; a recall quiz cannot evidence an application or performance objective"
+    },
+    {
+      "code": "recall-only-evidence",
+      "where": "O2",
+      "message": "objective asks learners to analyze, but its tasks only collect remember-level recall; a recall quiz cannot evidence an application or performance objective"
+    }
+  ],
+  "flags": [],
+  "objectives": {
+    "O1": {
+      "level": "apply",
+      "tasks": [
+        "Q"
+      ],
+      "criteria": [
+        "RQ1"
+      ]
+    },
+    "O2": {
+      "level": "analyze",
+      "tasks": [
+        "Q"
+      ],
+      "criteria": [
+        "RQ2"
+      ]
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: a ten-question recall quiz offered as the only evidence for application and analysis objectives."
+}
+# expect: met
+# exit 0

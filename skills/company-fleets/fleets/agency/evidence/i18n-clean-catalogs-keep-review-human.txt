@@ -1,0 +1,44 @@
+# eval agency.eval.i18n-clean-catalogs-keep-review-human (negative, target agency-i18n-check)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "ok": true --contains "status": "required" --contains "owner": "human:language-reviewer" -- python3 ../agency-i18n-check/scripts/i18n_check.py --pot ../agency-i18n-check/fixtures/donate.pot --po ../agency-i18n-check/fixtures/es.po --po ../agency-i18n-check/fixtures/ar.po --template ../agency-i18n-check/fixtures/page-ok.html --css ../agency-i18n-check/fixtures/styles-logical.css
+run on 2026-11-26, exit 0
+
+{
+  "limits": [
+    "It does not judge meaning, tone, register or cultural fit; a human language reviewer does.",
+    "It does not render the page, so visual overflow beyond declared max-length budgets needs a browser or human check.",
+    "It only knows the plural counts in its table (ar, he, ru, pl, ja, zh_CN, es, fr, de, en, fa, ur); other languages get a non-blocking finding.",
+    "CSS checks read declarations line by line after decoding CSS escapes, including four-value margin, padding, inset, scroll-margin, scroll-padding and border-width, border-style and border-color shorthand; rules built by preprocessors are not inspected, and border-radius corners and background-position keywords are not checked.",
+    "Direction checks read dir on <html> and <body>, and CSS direction in every rule whose subject is html, body, :root or * (with any class, attribute or pseudo-class), inside @media, @supports and similar blocks too. dir=\"auto\", and a direction, margin, padding or inset value built with var(), are refused as unresolved. A dir=\"ltr\" on an inner element, such as an embedded code sample, is allowed."
+  ],
+  "linguistic_review": {
+    "note": "Structural checks only. A named human language reviewer must read every locale before release.",
+    "owner": "human:language-reviewer",
+    "status": "required"
+  },
+  "locales": [
+    {
+      "direction": "ltr",
+      "file": "../agency-i18n-check/fixtures/es.po",
+      "findings": [],
+      "locale": "es"
+    },
+    {
+      "direction": "rtl",
+      "file": "../agency-i18n-check/fixtures/ar.po",
+      "findings": [],
+      "locale": "ar"
+    }
+  ],
+  "ok": true,
+  "template_findings": [
+    {
+      "blocking": false,
+      "excerpt": "left:",
+      "file": "../agency-i18n-check/fixtures/styles-logical.css",
+      "line": 4,
+      "message": "the page author exempted this physical property (icon sprite is mirrored by the image itself); the language reviewer confirms the layout must not flip.",
+      "rule": "rtl-physical-exempted"
+    }
+  ]
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

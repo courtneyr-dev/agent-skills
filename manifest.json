@@ -135,6 +135,16 @@
       "example": "\"we need a charter and an onboarding path\" → the eight kit sections mapped to their sources, with the missing ones named."
     },
     {
+      "name": "company-fleets",
+      "kind": "vendored",
+      "path": "skills/company-fleets",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use when you ask which company fleet, role or workflow handles a piece of work (agency, hosting, product, consultancies, DevRel, community, BCIT education, instructional design, shared corporate services), when a fleet agent adds or checks ",
+      "summary": "Registry and validator for company fleets: pick the smallest role set for a workload and guard handoffs between fleets.",
+      "example": "\"which roles handle a hosting restore?\" → the role set, its one coordinator, and the files each role may read."
+    },
+    {
       "name": "consult-compliance-engagement",
       "kind": "vendored",
       "path": "skills/consult-compliance-engagement",
@@ -343,6 +353,26 @@
       "description": "Use when the user says 'draft my email replies', 'handle my inbox', 'triage Gmail', or asks to prepare (never send) replies to the emails that need answers.",
       "summary": "Triage an inbox and prepare replies — drafts only, never sends.",
       "example": "\"triage my inbox\" → replies prepared for the mail that needs answers. Drafts only; it never sends."
+    },
+    {
+      "name": "factory-execute",
+      "kind": "vendored",
+      "path": "skills/factory-execute",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use only when a router or Noodle prompt says \"Use the factory-execute skill\": implement ONE bounded task contract in the assigned worktree, run its verify command, commit, and report. Not for choosing work, merging, closing tasks, or starti",
+      "summary": "Implement one leased task contract in its worktree, run the verify command, commit, and report.",
+      "example": "the router dispatches one task → a committed candidate and a proof line carrying the commit SHA."
+    },
+    {
+      "name": "factory-rig",
+      "kind": "vendored",
+      "path": "skills/factory-rig",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use when you run software delivery through a factory or backend (Noodle, PMO Platform, Curia, yysun project-manager, Matt Pocock's implement-spec), coordinate several projects or specialists, check which controller owns a task, gate or merg",
+      "summary": "Route each software task to one dispatcher, hold its lease, and merge only after a fresh verify and an independent review.",
+      "example": "\"what may start next?\" → the frontier, with the reason each blocked task can't start."
     },
     {
       "name": "field-notes-draft",
@@ -2494,6 +2524,7 @@
         "community-health-measures",
         "community-moderation-review",
         "community-operating-kit",
+        "company-fleets",
         "consult-compliance-engagement",
         "consult-email-send-gate",
         "consult-i18n-check",
@@ -2538,6 +2569,14 @@
         "hosting-restore-exercise",
         "hosting-service-catalogue",
         "hosting-tenant-isolation"
+      ]
+    },
+    "delivery": {
+      "title": "Delivery factory",
+      "description": "One dispatcher per task, leases, and a merge gate that re-runs verification before anything lands.",
+      "skills": [
+        "factory-execute",
+        "factory-rig"
       ]
     }
   },
@@ -2601,7 +2640,7 @@
   ],
   "source_policy": "Every entry points at the ORIGINAL source, never an intermediary. Where a skill reached this machine through a fork or a collection, the manifest names the upstream that actually published it and the fork is recorded separately. Two checks make that reliable: read the upstream's own credits before treating it as the origin, and never conclude 'no license' from the repo root alone — cursor/plugins has no root LICENSE but licenses each plugin directory, so the root check reports unlicensed for 44 skills that are in fact MIT.",
   "counts": {
-    "vendored": 72,
+    "vendored": 75,
     "external": 79,
     "external_unverified": 4,
     "_note": "Repository truth. Derived from manifest.skills and skills/ on disk; validated in CI."
@@ -2621,7 +2660,7 @@
     "authority": "publish/policy.yml",
     "_note": "Publication mode (generated vs public-authored) is owned by publish/policy.yml, not by this manifest. CI validates that the two agree; it is never declared twice.",
     "generated": 67,
-    "public_authored": 5
+    "public_authored": 8
   },
   "skill_roots": {
     "_note": "~/.agents/skills is a neutral cross-agent mount, NOT automatically the canonical source. Its entries may be real skills or links to canonical sources owned elsewhere.",

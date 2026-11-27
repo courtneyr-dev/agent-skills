@@ -1,0 +1,17 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.unpinned-marketplace-blocks (boundary, target product-release-gate).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../product-release-gate/scripts/tests/test_release_gate.py ReleaseGateTest.test_platform_without_a_pinned_checklist_blocks_instead_of_passing -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-release-gate/scripts/tests/test_release_gate.py ReleaseGateTest.test_platform_without_a_pinned_checklist_blocks_instead_of_passing -v
+
+stderr:
+test_platform_without_a_pinned_checklist_blocks_instead_of_passing (__main__.ReleaseGateTest.test_platform_without_a_pinned_checklist_blocks_instead_of_passing) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.172s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

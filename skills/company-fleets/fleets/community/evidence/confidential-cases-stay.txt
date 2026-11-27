@@ -1,0 +1,19 @@
+$ python3 -W ignore -m unittest discover -s fleets/community/tests -p 'test_*.py' -v -k ConfidentialCases
+# cwd: skills/company-fleets
+# run: 2026-11-27T02:09:50Z
+# case: community.eval.confidential-cases-stay (negative, target community.health-analyst, synthetic=True)
+# expected: Every cross-tenant path refused, even with a human grant on the record or in the owner-recorded list; the same-tenant reader still reads it; metrics name no one and drop case records.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+test_feedback_handoff_refuses_the_case_as_an_input (test_community_fleet.ConfidentialCases.test_feedback_handoff_refuses_the_case_as_an_input) ... ok
+test_moderation_case_never_crosses_tenants_by_default_even_as_an_approved_abstraction (test_community_fleet.ConfidentialCases.test_moderation_case_never_crosses_tenants_by_default_even_as_an_approved_abstraction) ... ok
+test_moderation_draft_that_leaks_into_a_public_update_is_refused (test_community_fleet.ConfidentialCases.test_moderation_draft_that_leaks_into_a_public_update_is_refused) ... ok
+test_public_metrics_exclude_case_records_and_name_no_one (test_community_fleet.ConfidentialCases.test_public_metrics_exclude_case_records_and_name_no_one) ... ok
+test_same_tenant_moderation_reader_can_read_and_no_grant_crosses_tenants (test_community_fleet.ConfidentialCases.test_same_tenant_moderation_reader_can_read_and_no_grant_crosses_tenants) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.011s
+
+OK

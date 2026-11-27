@@ -1,0 +1,52 @@
+{
+  "label": "SYNTHETIC demonstration 6 (Fixture Co trainers): trainer-development package with a facilitation guide, a rubric calibration exercise on generated practice anchors, and a plan to collect actual learning evidence. No trainer, learner or rating is real.",
+  "instance": "DEMO6",
+  "tenant_id": "fixture-co-training",
+  "client_id": null,
+  "profile": "devrel",
+  "needs": [],
+  "exclusions": ["Inter-rater agreement figures", "Learning or transfer results", "Participant surveys presented as learning"],
+  "sources": [{"ref": "company-fleets/fleets/instructional-design/fixtures/edu-trainer-development", "revision": "fixture"},
+              {"ref": "company-fleets/fleets/instructional-design/fixtures/edu-needs-analysis", "revision": "fixture"}],
+  "data": {"classification": "internal", "allowed_destinations": ["tenant:fixture-co-training", "rig:evidence"]},
+  "budget": {"max_minutes": 20, "max_retries": 1},
+  "tools": {
+    "needs": {
+      "collect": [{"from": "{skill}/fleets/instructional-design/fixtures/edu-needs-analysis/skill-gap-pivot-tables.json", "as": "skill-gap.json"},
+                  {"from": "{skill}/fleets/instructional-design/fixtures/edu-needs-analysis/nontraining-publish-tool.json", "as": "nontraining.json"}],
+      "produce": [{"argv": ["{python}", "{skills}/edu-needs-analysis/scripts/needs.py", "route", "{work}/skill-gap.json"], "stdout": "route-skill-gap.json"},
+                  {"argv": ["{python}", "{skills}/edu-needs-analysis/scripts/needs.py", "route", "{work}/nontraining.json"], "stdout": "route-nontraining.json"}],
+      "check": {"argv": ["cat", "{work}/route-skill-gap.json", "{work}/route-nontraining.json"],
+                "contains": ["SKILL-TRAINING", "\"course_indicated\": true", "ENV-RESOURCE-TOOL", "\"course_indicated\": false"]},
+      "outputs": ["skill-gap.json", "nontraining.json", "route-skill-gap.json", "route-nontraining.json"],
+      "summary": "Training is indicated for the pivot-table skill gap; the publishing-tool problem routes to a tool and process fix instead of a course."
+    },
+    "facilitation": {
+      "collect": [{"from": "{skill}/fleets/instructional-design/fixtures/edu-trainer-development", "as": "package"}],
+      "produce": [{"argv": ["{python}", "{skills}/edu-trainer-development/scripts/package.py", "check", "{work}/package/manifest.json"], "stdout": "package-check.json"},
+                  {"argv": ["{python}", "{skills}/edu-trainer-development/scripts/package.py", "check", "{work}/package/counterexample/manifest.json"], "stdout": "package-incomplete.json", "expect_exit": [1]}],
+      "check": {"argv": ["cat", "{work}/package-check.json"], "contains": ["\"status\": \"complete\"", "\"evidence_plan\": \"accepted\""]},
+      "outputs": ["package/facilitation-guide.md", "package/rubric.json", "package/manifest.json", "package-check.json", "package-incomplete.json"],
+      "summary": "The facilitation guide, rubric and package pass; an incomplete package missing its transfer section was rejected."
+    },
+    "calibration": {
+      "collect": [{"from": "{skill}/fleets/instructional-design/fixtures/edu-trainer-development/calibration-exercise.md", "as": "calibration-exercise.md"},
+                  {"from": "{skill}/fleets/instructional-design/fixtures/edu-trainer-development/calibration-practice-ratings.json", "as": "calibration-practice-ratings.json"}],
+      "produce": [{"argv": ["{python}", "{skills}/edu-trainer-development/scripts/agreement.py", "stats", "{work}/calibration-practice-ratings.json"], "stdout": "calibration-stats.json", "expect_exit": [1]}],
+      "check": {"argv": ["cat", "{work}/calibration-stats.json"], "contains": ["practice-only: no inter-rater agreement claimed"]},
+      "outputs": ["calibration-exercise.md", "calibration-practice-ratings.json", "calibration-stats.json"],
+      "summary": "The calibration exercise runs on generated practice anchors; the agreement script reports practice only and computes no agreement statistic.",
+      "assumptions": ["Agreement needs real ratings from human:<id> raters; none exist."]
+    },
+    "evidence-plan": {
+      "collect": [{"from": "{skill}/fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan.json", "as": "evidence-plan.json"},
+                  {"from": "{skill}/fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan-prefilled.json", "as": "evidence-plan-prefilled.json"}],
+      "produce": [{"argv": ["{python}", "{skills}/edu-trainer-development/scripts/evidence_plan.py", "check", "{work}/evidence-plan.json"], "stdout": "evidence-plan-check.json"},
+                  {"argv": ["{python}", "{skills}/edu-trainer-development/scripts/evidence_plan.py", "check", "{work}/evidence-plan-prefilled.json"], "stdout": "evidence-plan-prefilled-check.json", "expect_exit": [1]}],
+      "check": {"argv": ["cat", "{work}/evidence-plan-check.json", "{work}/evidence-plan-prefilled-check.json"],
+                "contains": ["\"status\": \"accepted\"", "transfer_measures", "pre-filled outcome values"]},
+      "outputs": ["evidence-plan.json", "evidence-plan-check.json", "evidence-plan-prefilled-check.json"],
+      "summary": "The plan to collect actual learning and transfer evidence is accepted with human owners and no results; a plan with pre-filled results was rejected."
+    }
+  }
+}

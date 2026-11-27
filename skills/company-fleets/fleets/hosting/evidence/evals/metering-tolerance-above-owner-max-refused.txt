@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=tolerance-above-owner-max -- python3 ../hosting-metering-reconcile/scripts/metering.py reconcile --events fleets/hosting/fixtures/metering/usage-events.jsonl --invoices fleets/hosting/fixtures/metering/invoices.json --tolerance 1000
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.metering-tolerance-above-owner-max-refused kind negative synthetic true
+{
+  "detail": "--tolerance 1000.00 is above the max_tolerance 0.05 that Fixture Co's price list $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/metering/prices.json allows",
+  "refusal": "tolerance-above-owner-max",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

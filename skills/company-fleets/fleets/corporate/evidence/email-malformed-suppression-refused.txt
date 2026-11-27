@@ -1,0 +1,15 @@
+# eval corporate.eval.email-malformed-suppression-refused (negative, target corporate-email-guard)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../corporate-email-guard/scripts/tests/test_email_guard.py -v SuppressionRowTests
+run on 2026-11-26, exit 0
+
+[stderr]
+test_send_refuses_a_malformed_suppression_list (__main__.SuppressionRowTests.test_send_refuses_a_malformed_suppression_list) ... ok
+test_trailing_dot_and_zero_width_entries_still_suppress (__main__.SuppressionRowTests.test_trailing_dot_and_zero_width_entries_still_suppress) ... ok
+test_unknown_suppression_reason_is_invalid_input (__main__.SuppressionRowTests.test_unknown_suppression_reason_is_invalid_input) ... ok
+test_unparseable_suppression_row_fails_loudly (__main__.SuppressionRowTests.test_unparseable_suppression_row_fails_loudly) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.049s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

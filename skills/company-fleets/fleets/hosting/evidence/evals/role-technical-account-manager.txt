@@ -1,0 +1,34 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json verdict=pass --json checks.database_checksum_equal=true --json checks.files_equal=true --json file_count=2 -- python3 ../hosting-data-migration/scripts/data_migration.py roundtrip --seed fleets/hosting/fixtures/data-migration/seed.sql --files fleets/hosting/fixtures/data-migration/tenant-a-files --tenant tenant-a
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.role-technical-account-manager kind positive synthetic true
+{
+  "assumptions": [
+    "SQLite and a files folder stand in for the site's database and uploads; engine-specific SQL (MySQL, PostgreSQL) is not tested.",
+    "Databases are assumed idle, in rollback-journal mode, with one writer; take the site into maintenance mode first.",
+    "sqlite_sequence content and file permissions are not part of the checksums."
+  ],
+  "checks": {
+    "database_checksum_equal": true,
+    "files_equal": true,
+    "table_checksums_equal": true
+  },
+  "database_checksum": "3c4b269086a25b4d04b8448d523e4c477237becc3b1434ccceb06278e7ded0c1",
+  "file_count": 2,
+  "tables": {
+    "comments": {
+      "checksum": "72002ea874dfcb325b3801315a9e2d74b7ab4806df4d9cbf02c6209b569e603f",
+      "rows": 3
+    },
+    "options": {
+      "checksum": "6f908de33d0dc8d88f868f002af5f2b3b29a1332a9f1bca8cbfaa95c3508ef93",
+      "rows": 2
+    },
+    "posts": {
+      "checksum": "39b2d2103d4f9176ef83dc324eada83394d9bb330e5bd3b53bb3c30367d2d149",
+      "rows": 3
+    }
+  },
+  "tenant": "tenant-a",
+  "verdict": "pass"
+}
+# expect: met
+# exit 0

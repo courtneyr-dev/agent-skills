@@ -1,0 +1,17 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): new analysts cannot build the monthly pivot report. Invented for evaluation.",
+  "problem": "New Fixture Co analysts cannot produce the monthly revenue pivot report without help.",
+  "requested_solution": "course",
+  "audience": {"who": "Fixture Co analysts hired this quarter", "size": 4, "context": "Spreadsheet users new to pivot tables", "access_needs": "None recorded"},
+  "task": {"name": "Build the monthly revenue pivot report", "steps": ["Import the export", "Build the pivot", "Group by month", "Check totals against the ledger"], "frequency": "monthly", "criticality": "Feeds the finance close", "conditions": "Company spreadsheet tool"},
+  "evidence": {
+    "can_do_when_required": {"value": false, "source": "Fixture observation: 0 of 4 analysts completed the pivot in a supervised attempt with the data and tool ready"},
+    "did_it_before": {"value": false, "source": "Fixture onboarding record: none had built a pivot table before"},
+    "expectations_clear": {"value": true, "source": "Report template names every field"},
+    "feedback_given": {"value": true, "source": "Finance lead reviews each report"},
+    "tools_adequate": {"value": true, "source": "Spreadsheet tool licensed for all analysts"},
+    "process_clear": {"value": true, "source": "Fixture close calendar lists the step"},
+    "access_ok": {"value": true, "source": "All analysts can open the export"},
+    "consequences_aligned": {"value": true, "source": "Accurate reports are part of the role review"}
+  }
+}

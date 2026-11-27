@@ -1,0 +1,4946 @@
+{
+ "schema_version": 1,
+ "generated": "2026-11-26T08:29:19-05:00",
+ "generator": "sources/build_sources.py",
+ "statuses": [
+  "blocked-authentication",
+  "blocked-platform",
+  "installed-and-verified",
+  "installed-inactive",
+  "source-only",
+  "verification-failed"
+ ],
+ "native_tools_on_reference_install": "Checked 2026-11-26 with command -v: present gh (signed in), uv, docker, node, npm, composer, wp, php, go, jq, git; absent terraform, packer, wrangler, ddev, snyk, semgrep, pdflatex, xelatex; python-docx not importable.",
+ "closure": {
+  "repo": "samber/developer-relations-skills",
+  "method": "every samber/developer-relations-skills@<name> reference in skills/**/*.md at the pinned revision",
+  "skills_in_tree": 93,
+  "published_count": "65 (skills/developer-relations-kickoff/SKILL.md:12)",
+  "references": 1224,
+  "distinct_names": 94,
+  "unresolved": {
+   "substack-playbook": 4
+  },
+  "external_collections_not_pinned": {
+   "acme/client": 1,
+   "addyosmani/agent-skills": 1,
+   "agic/gtm-skills": 2,
+   "anthropics/knowledge-work-plugins": 3,
+   "example/sdk": 1,
+   "jeffallan/claude-skills": 1,
+   "jonathimer/devmarketing-skills": 2,
+   "mattpocock/skills": 1,
+   "penpot/penpot-ai-kit": 1,
+   "pigeon/client": 1,
+   "refoundai/lenny-skills": 1,
+   "samber/cc-skills": 1,
+   "samber/dev-event-organizer-skills": 24,
+   "samber/developer-platform-skills": 86,
+   "wshobson/agents": 1
+  }
+ },
+ "repos": [
+  {
+   "id": "alirezarezvani/claude-skills",
+   "url": "https://github.com/alirezarezvani/claude-skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/claude-skills",
+   "revision": "ea7b5ab8da93bbba8880152d9ccb8c9979f12252",
+   "revision_date": "2026-11-23T06:14:12+01:00",
+   "head_author": "Alireza Rezvani",
+   "owner": "alirezarezvani",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2025 Alireza Rezvani",
+    "other_licenses": [
+     "engineering-team/playwright-pro/LICENSE",
+     "engineering-team/self-improving-agent/LICENSE",
+     "engineering/book-to-skill/LICENSE",
+     "engineering/collab-proof/LICENSE",
+     "engineering/hivemind/LICENSE.txt"
+    ],
+    "share_alike": false,
+    "note": "Nested license files sit outside the 30 installed directories; installed skills that carry a license field say MIT."
+   },
+   "rights": "Redistributable under MIT with the notice. VERIFIED.md measures activation only: Claude Code 2.1.317, sonnet, the skill's own plugin installed, 2 positive and 1 negative prompt, one run. It proves neither business accuracy nor Codex behavior.",
+   "side_effects": [
+    "scripts/codex-install.sh copies skills into $HOME/.codex/skills (lines 33, 196, 205)",
+    "business-growth/hooks/hooks.json registers a UserPromptSubmit router hook; 20+ plugin hooks.json files exist outside the installed directories",
+    "engineering/skillopt-sleep/scripts/install-cron.sh installs a cron job (outside the installed directories)",
+    "skill-sync copied only the 30 skill directories, so no hook, cron or plugin manifest was installed"
+   ],
+   "native_tools": [
+    "python3 stdlib scripts (README.md:436 says no pip installs); 6 of 30 SKILL.md files read, the other 24 unread"
+   ],
+   "decision": "Selected 30 corporate, commercial, finance, operations, product and compliance packages; medical-device and regulatory families excluded (S07-018).",
+   "installed": [
+    {
+     "name": "access-lifecycle",
+     "dest": "<skills-root>/access-lifecycle"
+    },
+    {
+     "name": "capacity-planner",
+     "dest": "<skills-root>/capacity-planner"
+    },
+    {
+     "name": "ceo-advisor",
+     "dest": "<skills-root>/ceo-advisor"
+    },
+    {
+     "name": "cfo-advisor",
+     "dest": "<skills-root>/cfo-advisor"
+    },
+    {
+     "name": "channel-economics",
+     "dest": "<skills-root>/channel-economics"
+    },
+    {
+     "name": "chro-advisor",
+     "dest": "<skills-root>/chro-advisor"
+    },
+    {
+     "name": "ciso-advisor",
+     "dest": "<skills-root>/ciso-advisor"
+    },
+    {
+     "name": "compliance-os",
+     "dest": "<skills-root>/compliance-os"
+    },
+    {
+     "name": "coo-advisor",
+     "dest": "<skills-root>/coo-advisor"
+    },
+    {
+     "name": "cpo-advisor",
+     "dest": "<skills-root>/cpo-advisor"
+    },
+    {
+     "name": "cro-advisor",
+     "dest": "<skills-root>/cro-advisor"
+    },
+    {
+     "name": "cto-advisor",
+     "dest": "<skills-root>/cto-advisor"
+    },
+    {
+     "name": "customer-success-manager",
+     "dest": "<skills-root>/customer-success-manager"
+    },
+    {
+     "name": "deal-desk",
+     "dest": "<skills-root>/deal-desk"
+    },
+    {
+     "name": "financial-analyst",
+     "dest": "<skills-root>/financial-analyst"
+    },
+    {
+     "name": "gdpr-dsgvo-expert",
+     "dest": "<skills-root>/gdpr-dsgvo-expert"
+    },
+    {
+     "name": "general-counsel-advisor",
+     "dest": "<skills-root>/general-counsel-advisor"
+    },
+    {
+     "name": "isms-audit-expert",
+     "dest": "<skills-root>/isms-audit-expert"
+    },
+    {
+     "name": "month-end-close",
+     "dest": "<skills-root>/month-end-close"
+    },
+    {
+     "name": "partnerships-architect",
+     "dest": "<skills-root>/partnerships-architect"
+    },
+    {
+     "name": "pricing-strategist",
+     "dest": "<skills-root>/pricing-strategist"
+    },
+    {
+     "name": "process-mapper",
+     "dest": "<skills-root>/process-mapper"
+    },
+    {
+     "name": "procurement-optimizer",
+     "dest": "<skills-root>/procurement-optimizer"
+    },
+    {
+     "name": "product-analytics",
+     "dest": "<skills-root>/product-analytics"
+    },
+    {
+     "name": "revenue-operations",
+     "dest": "<skills-root>/revenue-operations"
+    },
+    {
+     "name": "rfp-responder",
+     "dest": "<skills-root>/rfp-responder"
+    },
+    {
+     "name": "sales-engineer",
+     "dest": "<skills-root>/sales-engineer"
+    },
+    {
+     "name": "soc2-compliance",
+     "dest": "<skills-root>/soc2-compliance"
+    },
+    {
+     "name": "support-ops",
+     "dest": "<skills-root>/support-ops"
+    },
+    {
+     "name": "vendor-management",
+     "dest": "<skills-root>/vendor-management"
+    }
+   ]
+  },
+  {
+   "id": "msitarzewski/agency-agents",
+   "url": "https://github.com/msitarzewski/agency-agents",
+   "clone": "$FRIG_UPSTREAM_ROOT/agency-agents",
+   "revision": "8ae6164602c95ca78828b148b9052460ee426885",
+   "revision_date": "2026-11-08T18:27:04-06:00",
+   "head_author": "Michael Sitarzewski",
+   "owner": "msitarzewski",
+   "status": "source-only",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2025 AgentLand Contributors",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "MIT. Role briefs are seeds only: product/product-manager.md:14 invents '10+ years' of experience; engineering/engineering-cms-developer.md:469,516,519 states universal Core Web Vitals and TTFB targets. specialized/agents-orchestrator.md is a top-level orchestrator and is not adopted.",
+   "side_effects": [
+    "scripts/install.sh copies or symlinks agents into ~/.claude/agents (:863) and ~/.github/agents (:878) after probing $HOME dotdirs (:532-548)",
+    "integrations/mcp-memory/setup.sh reads ~/.config/claude/mcp.json and ~/.cursor/mcp.json (:39, :44) and prints pip/npm steps"
+   ],
+   "native_tools": [
+    "none for seed reading"
+   ],
+   "decision": "Nothing installed. Fleet roles may paraphrase responsibilities, never the biographies or numeric targets.",
+   "installed": []
+  },
+  {
+   "id": "magnus919/agent-skills",
+   "url": "https://github.com/magnus919/agent-skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/agent-skills",
+   "revision": "6806511df28cef9e8e497898f8b06e3663a02798",
+   "revision_date": "2026-11-25T10:41:41-05:00",
+   "head_author": "Magnus Hedemark",
+   "owner": "magnus919",
+   "status": "installed-and-verified",
+   "status_owner": "skills/factory-rig/registry/components.json#magnus",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE.md",
+    "holder": "Copyright (c) 2026 Magnus Hedemark",
+    "other_licenses": [
+     "agent-council/LICENSE",
+     "artifact-pyramids/LICENSE",
+     "harness-engineering/LICENSE",
+     "promise-theory/LICENSE",
+     "semantic-spacetime/LICENSE"
+    ],
+    "share_alike": false,
+    "note": "kanban-guru has no license field in its frontmatter; nested licenses are outside the installed set."
+   },
+   "rights": "MIT with the notice.",
+   "side_effects": [
+    "Makefile targets are dev-only (lint, test, deps) and pip-install into .venv (:12-13)",
+    ".claude-plugin/marketplace.json, .codex-plugin/plugin.json and .agents/plugins/marketplace.json are not used; skill-sync installs directories"
+   ],
+   "native_tools": [
+    "web-accessibility: no runtime dependency (SKILL.md:10)",
+    "release-engineering scripts run git log"
+   ],
+   "decision": "Ten management skills from the earlier install plus web-accessibility added 2026-11-25 for the accessibility gap.",
+   "installed": [
+    {
+     "name": "agent-evals-and-observability",
+     "dest": "<skills-root>/agent-evals-and-observability"
+    },
+    {
+     "name": "implementation-planning",
+     "dest": "<skills-root>/implementation-planning"
+    },
+    {
+     "name": "incident-learning",
+     "dest": "<skills-root>/incident-learning"
+    },
+    {
+     "name": "kanban-guru",
+     "dest": "<skills-root>/kanban-guru"
+    },
+    {
+     "name": "multi-agent-coordination",
+     "dest": "<skills-root>/multi-agent-coordination"
+    },
+    {
+     "name": "production-readiness",
+     "dest": "<skills-root>/production-readiness"
+    },
+    {
+     "name": "release-engineering",
+     "dest": "<skills-root>/release-engineering"
+    },
+    {
+     "name": "technical-program-management",
+     "dest": "<skills-root>/technical-program-management"
+    },
+    {
+     "name": "technical-project-management",
+     "dest": "<skills-root>/technical-project-management"
+    },
+    {
+     "name": "verification-methodology",
+     "dest": "<skills-root>/verification-methodology"
+    },
+    {
+     "name": "web-accessibility",
+     "dest": "<skills-root>/web-accessibility"
+    }
+   ]
+  },
+  {
+   "id": "kanopi/cms-cultivator",
+   "url": "https://github.com/kanopi/cms-cultivator",
+   "clone": "$FRIG_UPSTREAM_ROOT/cms-cultivator",
+   "revision": "ff328fcc77af838f5239c7a79f72c75919824b0f",
+   "revision_date": "2026-11-17T15:00:12-05:00",
+   "head_author": "Jim Birch",
+   "owner": "kanopi",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "GPL-2.0-or-later",
+    "file": "LICENSE.md",
+    "holder": "No holder line; .claude-plugin/plugin.json:10 declares GPL-2.0-or-later",
+    "other_licenses": [],
+    "share_alike": true,
+    "note": "Copyleft: redistributed modifications stay GPL."
+   },
+   "rights": "GPL v2 or later. Public workflows only; Kanopi's private Audit, DevOps and PM libraries are not available and not claimed.",
+   "side_effects": [
+    "No installer script or hooks; .claude-plugin and .codex-plugin manifests unused",
+    "pr-quality-report carries its own 'Side Effect Warning' (creates or edits PRs and comments through gh)"
+   ],
+   "native_tools": [
+    "code-standards-checker: DDEV prefix when .ddev/ exists (SKILL.md:76-77), Kanopi composer scripts (:107-114), falls back without DDEV (:151)",
+    "composer-security-update: Teamwork task flow and kanopi.teamwork.com (:10-34, :77-84), ddev snapshot/exec/drush (:66-286), scripts/audit_table.py",
+    "pr-quality-report: snyk code test (:103), gh pr view/edit/create/comment (:143-223)"
+   ],
+   "decision": "Three delivery procedures adopted; DDEV, Teamwork and Snyk steps run only through the actual tools of a project (absent on the reference installation: ddev, snyk).",
+   "installed": [
+    {
+     "name": "code-standards-checker",
+     "dest": "<skills-root>/code-standards-checker"
+    },
+    {
+     "name": "composer-security-update",
+     "dest": "<skills-root>/composer-security-update"
+    },
+    {
+     "name": "pr-quality-report",
+     "dest": "<skills-root>/pr-quality-report"
+    }
+   ]
+  },
+  {
+   "id": "WordPress/agent-skills",
+   "url": "https://github.com/WordPress/agent-skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/wordpress-agent-skills",
+   "revision": "32ea909f7d01be2e08fee6aff6ae449a42b9b34f",
+   "revision_date": "2026-11-25T07:24:18-06:00",
+   "head_author": "Jeffrey Paul",
+   "owner": "WordPress",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "GPL-2.0-or-later",
+    "file": "LICENSE",
+    "holder": "Copyright (C) 2026 WordPress Contributors",
+    "other_licenses": [],
+    "share_alike": true,
+    "note": ""
+   },
+   "rights": "GPL v2 or later. Default branch trunk; skills target WordPress 7.0+ and PHP 7.4+ (README.md:187), so legacy client sites route by their actual versions.",
+   "side_effects": [
+    "shared/scripts/skillpack-install.mjs --global writes ~/.claude/skills, ~/.cursor/skills and ~/.gemini/antigravity/skills (:166-172); not run",
+    "Installed through skill-sync; wp-ability-development lands in ~/.agents/skills (dest)"
+   ],
+   "native_tools": [
+    "bash and node; wp-env needs Docker and Node 18.12+; wp-playground Node 20.18+; wp-wpcli-and-ops WP-CLI; wpds a WPDS MCP server; wp-phpstan Composer"
+   ],
+   "decision": "Canonical WordPress source, installed before tonight (19 skills) plus wp-ability-development. Model-visible; this ledger holds no behavioral evidence for it.",
+   "installed": [
+    {
+     "name": "blueprint",
+     "dest": "<skills-root>/blueprint"
+    },
+    {
+     "name": "wordpress-router",
+     "dest": "<skills-root>/wordpress-router"
+    },
+    {
+     "name": "wp-abilities-api",
+     "dest": "<skills-root>/wp-abilities-api"
+    },
+    {
+     "name": "wp-abilities-audit",
+     "dest": "<skills-root>/wp-abilities-audit"
+    },
+    {
+     "name": "wp-abilities-verify",
+     "dest": "<skills-root>/wp-abilities-verify"
+    },
+    {
+     "name": "wp-ability-development",
+     "dest": "<skills-root>/wp-ability-development"
+    },
+    {
+     "name": "wp-block-development",
+     "dest": "<skills-root>/wp-block-development"
+    },
+    {
+     "name": "wp-block-themes",
+     "dest": "<skills-root>/wp-block-themes"
+    },
+    {
+     "name": "wp-env",
+     "dest": "<skills-root>/wp-env"
+    },
+    {
+     "name": "wp-interactivity-api",
+     "dest": "<skills-root>/wp-interactivity-api"
+    },
+    {
+     "name": "wp-patterns",
+     "dest": "<skills-root>/wp-patterns"
+    },
+    {
+     "name": "wp-performance",
+     "dest": "<skills-root>/wp-performance"
+    },
+    {
+     "name": "wp-phpstan",
+     "dest": "<skills-root>/wp-phpstan"
+    },
+    {
+     "name": "wp-playground",
+     "dest": "<skills-root>/wp-playground"
+    },
+    {
+     "name": "wp-plugin-development",
+     "dest": "<skills-root>/wp-plugin-development"
+    },
+    {
+     "name": "wp-plugin-directory-guidelines",
+     "dest": "<skills-root>/wp-plugin-directory-guidelines"
+    },
+    {
+     "name": "wp-project-triage",
+     "dest": "<skills-root>/wp-project-triage"
+    },
+    {
+     "name": "wp-rest-api",
+     "dest": "<skills-root>/wp-rest-api"
+    },
+    {
+     "name": "wp-wpcli-and-ops",
+     "dest": "<skills-root>/wp-wpcli-and-ops"
+    },
+    {
+     "name": "wpds",
+     "dest": "<skills-root>/wpds"
+    }
+   ]
+  },
+  {
+   "id": "woocommerce/agent-skills",
+   "url": "https://github.com/woocommerce/agent-skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/woocommerce-agent-skills",
+   "revision": "89cc969d2273ac9eb668c48b7284f77e0862bb21",
+   "revision_date": "2026-08-25T09:38:43-04:00",
+   "head_author": "Darren Ethier",
+   "owner": "woocommerce",
+   "status": "source-only",
+   "license": {
+    "spdx": "GPL-2.0-or-later",
+    "file": "LICENSE",
+    "holder": "Copyright (C) 2026 WooCommerce Contributors",
+    "other_licenses": [],
+    "share_alike": true,
+    "note": "GPL version line not read; recheck before redistribution."
+   },
+   "rights": "GPL. Two narrow skills: abilities-api-implement (WordPress 6.9+, WooCommerce 10.9+) and woocommerce-stale-pr-audit (gh, Node 20+).",
+   "side_effects": [
+    "shared/scripts/skillpack-install.mjs, same layout as WordPress; not run"
+   ],
+   "native_tools": [
+    "gh, Python 3.9+, Node 20+ for woocommerce-stale-pr-audit"
+   ],
+   "decision": "Not installed: neither skill covers a required capability that the Automattic toolkit and WordPress skills leave open.",
+   "installed": []
+  },
+  {
+   "id": "Automattic/claude-woocommerce-toolkit",
+   "url": "https://github.com/Automattic/claude-woocommerce-toolkit",
+   "clone": "$FRIG_UPSTREAM_ROOT/claude-woocommerce-toolkit",
+   "revision": "d70538707247a4d3e6a940c554a9dd4e7010b3d1",
+   "revision_date": "2026-06-08T12:07:28-05:00",
+   "head_author": "Andrew Wikel",
+   "owner": "Automattic",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "GPL-2.0-or-later",
+    "file": "LICENSE",
+    "holder": "GNU GPL v2 text, no holder line",
+    "other_licenses": [],
+    "share_alike": true,
+    "note": "Version clause not confirmed beyond the v2 header."
+   },
+   "rights": "GPL v2. The three installed SKILL.md files use no Claude-only features; the Claude-specific agents/ and docs/installation.md are not installed.",
+   "side_effects": [
+    "docs/installation.md tells users to cp skills into ~/.claude/skills and agents into ~/.claude/agents; not run"
+   ],
+   "native_tools": [
+    "PHPStan level 7+ (woocommerce-finalize SKILL.md:56)",
+    "git diff between tags (woocommerce-upgrade-safety :72-73)",
+    "PHPUnit and Playwright (woocommerce-plugin-dev references/testing.md)"
+   ],
+   "decision": "Commerce engineering procedures; Codex compatibility not exercised.",
+   "installed": [
+    {
+     "name": "woocommerce-finalize",
+     "dest": "<skills-root>/woocommerce-finalize"
+    },
+    {
+     "name": "woocommerce-plugin-dev",
+     "dest": "<skills-root>/woocommerce-plugin-dev"
+    },
+    {
+     "name": "woocommerce-upgrade-safety",
+     "dest": "<skills-root>/woocommerce-upgrade-safety"
+    }
+   ]
+  },
+  {
+   "id": "cloudflare/skills",
+   "url": "https://github.com/cloudflare/skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/cloudflare-skills",
+   "revision": "ff191de7d903788eceaf516a514ae7d3b56b924a",
+   "revision_date": "2026-11-24T09:10:12-08:00",
+   "head_author": "Karlo Peranovic",
+   "owner": "cloudflare",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "Apache-2.0",
+    "file": "LICENSE",
+    "holder": "Holder line not captured",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "Apache-2.0; keep LICENSE and any NOTICE.",
+   "side_effects": [
+    "mcp.json and .mcp.json register https://mcp.cloudflare.com/mcp; the plugin manifests are unused, so no MCP server was added",
+    "Scripts exist only under skills/turnstile-spin (not installed)"
+   ],
+   "native_tools": [
+    "wrangler with wrangler login OAuth, a wrangler.jsonc project and an API token (absent on the reference installation)",
+    "cloudflare-one and gateway-workers need a Zero Trust account and Access service tokens"
+   ],
+   "decision": "Four platform skills. Live use is blocked until a Cloudflare account and scope are named; no account is configured.",
+   "installed": [
+    {
+     "name": "cloudflare-one",
+     "dest": "<skills-root>/cloudflare-one"
+    },
+    {
+     "name": "gateway-workers",
+     "dest": "<skills-root>/gateway-workers"
+    },
+    {
+     "name": "workers-best-practices",
+     "dest": "<skills-root>/workers-best-practices"
+    },
+    {
+     "name": "wrangler",
+     "dest": "<skills-root>/wrangler"
+    }
+   ]
+  },
+  {
+   "id": "hashicorp/agent-skills",
+   "url": "https://github.com/hashicorp/agent-skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/hashicorp-agent-skills",
+   "revision": "5e30fa5c867ba6777c37e4206babfd08049c396f",
+   "revision_date": "2026-11-03T20:26:36-05:00",
+   "head_author": "CatherineCao2016",
+   "owner": "hashicorp",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "MPL-2.0",
+    "file": "LICENSE",
+    "holder": "metadata.copyright: Copyright IBM Corp. 2026 (terraform-test SKILL.md:6)",
+    "other_licenses": [],
+    "share_alike": true,
+    "note": "File-level copyleft."
+   },
+   "rights": "MPL-2.0. terraform-test SKILL.md:28: apply is the default test mode and creates real resources; local qualification must use command = plan or mock providers (Terraform 1.7.0+, SKILL.md:27).",
+   "side_effects": [
+    "Plugin manifests unused; scripts/validate-structure.sh and check-links.py are maintainer tools"
+   ],
+   "native_tools": [
+    "terraform CLI 1.7.0+ for mocks, 1.9.0+ for parallel; optional tflint (terraform and packer absent on the reference installation)"
+   ],
+   "decision": "terraform-test and terraform-style-guide only. No test runs against a real provider; nothing ran because terraform is absent.",
+   "installed": [
+    {
+     "name": "terraform-style-guide",
+     "dest": "<skills-root>/terraform-style-guide"
+    },
+    {
+     "name": "terraform-test",
+     "dest": "<skills-root>/terraform-test"
+    }
+   ]
+  },
+  {
+   "id": "trailofbits/skills",
+   "url": "https://github.com/trailofbits/skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/trailofbits-skills",
+   "revision": "149d7b21f4067765b82e67029730b42d228ef4b4",
+   "revision_date": "2026-11-12T12:48:47-05:00",
+   "head_author": "Scott Arciszewski",
+   "owner": "trailofbits",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "CC-BY-SA-4.0",
+    "file": "LICENSE",
+    "holder": "Holder line not in the first lines read; README.md:165-167 confirms the license",
+    "other_licenses": [],
+    "share_alike": true,
+    "note": "ShareAlike: adapted material must carry the same license and attribution."
+   },
+   "rights": "CC BY-SA 4.0. Local adapters that copy text from these skills inherit ShareAlike; prefer linking by path.",
+   "side_effects": [
+    "plugins/fp-check/hooks/hooks.json registers Stop and SubagentStop prompt hooks; not installed (outside the skill directory)",
+    "differential-review commands/ and agents/, and fp-check's three agents, are outside the installed directories"
+   ],
+   "native_tools": [
+    "differential-review: git",
+    "supply-chain-risk-auditor: uv run, gh auth status, network to GitHub and package registries, Python 3.11+"
+   ],
+   "decision": "Assurance methods for product and agency review. fp-check runs without its hooks, so its gate is advisory.",
+   "installed": [
+    {
+     "name": "differential-review",
+     "dest": "<skills-root>/differential-review"
+    },
+    {
+     "name": "fp-check",
+     "dest": "<skills-root>/fp-check"
+    },
+    {
+     "name": "supply-chain-risk-auditor",
+     "dest": "<skills-root>/supply-chain-risk-auditor"
+    }
+   ]
+  },
+  {
+   "id": "coreyhaines31/marketingskills",
+   "url": "https://github.com/coreyhaines31/marketingskills",
+   "clone": "$FRIG_UPSTREAM_ROOT/marketingskills",
+   "revision": "8fd2fcade2fd6629026e9dfe6d133b55b36968b9",
+   "revision_date": "2026-11-23T13:00:55-08:00",
+   "head_author": "Corey Haines",
+   "owner": "coreyhaines31",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2025 Corey Haines",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "MIT with the notice. Canonical marketing procedures. Shared context files (.agents/product-marketing.md) need one owner each.",
+   "side_effects": [
+    "Plugin manifests unused; validate-skills scripts are maintainer tools; tools/clis/*.js outside the installed set"
+   ],
+   "native_tools": [
+    "Optional third-party tools and MCP servers listed per skill (seo-audit:470, ads:458, analytics:353); none required"
+   ],
+   "decision": "22 skills. Sends, scheduling and publishing go through the rig's send gates, never the skills directly.",
+   "installed": [
+    {
+     "name": "ab-testing",
+     "dest": "<skills-root>/ab-testing"
+    },
+    {
+     "name": "ad-creative",
+     "dest": "<skills-root>/ad-creative"
+    },
+    {
+     "name": "ads",
+     "dest": "<skills-root>/ads"
+    },
+    {
+     "name": "ai-seo",
+     "dest": "<skills-root>/ai-seo"
+    },
+    {
+     "name": "analytics",
+     "dest": "<skills-root>/analytics"
+    },
+    {
+     "name": "attribution",
+     "dest": "<skills-root>/attribution"
+    },
+    {
+     "name": "competitor-profiling",
+     "dest": "<skills-root>/competitor-profiling"
+    },
+    {
+     "name": "content-strategy",
+     "dest": "<skills-root>/content-strategy"
+    },
+    {
+     "name": "conversion-tracking",
+     "dest": "<skills-root>/conversion-tracking"
+    },
+    {
+     "name": "customer-research",
+     "dest": "<skills-root>/customer-research"
+    },
+    {
+     "name": "emails",
+     "dest": "<skills-root>/emails"
+    },
+    {
+     "name": "launch",
+     "dest": "<skills-root>/launch"
+    },
+    {
+     "name": "marketing-loops",
+     "dest": "<skills-root>/marketing-loops"
+    },
+    {
+     "name": "marketing-plan",
+     "dest": "<skills-root>/marketing-plan"
+    },
+    {
+     "name": "product-marketing",
+     "dest": "<skills-root>/product-marketing"
+    },
+    {
+     "name": "prospecting",
+     "dest": "<skills-root>/prospecting"
+    },
+    {
+     "name": "public-relations",
+     "dest": "<skills-root>/public-relations"
+    },
+    {
+     "name": "referrals",
+     "dest": "<skills-root>/referrals"
+    },
+    {
+     "name": "sales-enablement",
+     "dest": "<skills-root>/sales-enablement"
+    },
+    {
+     "name": "schema",
+     "dest": "<skills-root>/schema"
+    },
+    {
+     "name": "seo-audit",
+     "dest": "<skills-root>/seo-audit"
+    },
+    {
+     "name": "site-architecture",
+     "dest": "<skills-root>/site-architecture"
+    }
+   ]
+  },
+  {
+   "id": "zstvns/design-skills",
+   "url": "https://github.com/zstvns/design-skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/design-skills",
+   "revision": "d612aa928d7e254da4b5970f4a33040d2e3640c6",
+   "revision_date": "2026-11-25T13:55:03-08:00",
+   "head_author": "zstvns",
+   "owner": "zstvns",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2026 Zach Stevens",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "MIT with the notice. Canonical brand and design procedures.",
+   "side_effects": [
+    "INSTALL.md documents /plugin marketplace add and npx skills add --all, which write .agents/skills, a duplicate tree and .claude/skills symlinks plus skills-lock.json; not run"
+   ],
+   "native_tools": [
+    "None required (INSTALL.md:3); product-film needs Remotion and Chrome; design-system ships scripts/check-foundations.py"
+   ],
+   "decision": "All 11 skills.",
+   "installed": [
+    {
+     "name": "art-direction",
+     "dest": "<skills-root>/art-direction"
+    },
+    {
+     "name": "brand",
+     "dest": "<skills-root>/brand"
+    },
+    {
+     "name": "brand-strategy",
+     "dest": "<skills-root>/brand-strategy"
+    },
+    {
+     "name": "collateral-design",
+     "dest": "<skills-root>/collateral-design"
+    },
+    {
+     "name": "creative-direction",
+     "dest": "<skills-root>/creative-direction"
+    },
+    {
+     "name": "design-principles",
+     "dest": "<skills-root>/design-principles"
+    },
+    {
+     "name": "design-system",
+     "dest": "<skills-root>/design-system"
+    },
+    {
+     "name": "logo-design",
+     "dest": "<skills-root>/logo-design"
+    },
+    {
+     "name": "motion-design",
+     "dest": "<skills-root>/motion-design"
+    },
+    {
+     "name": "product-film",
+     "dest": "<skills-root>/product-film"
+    },
+    {
+     "name": "web-design",
+     "dest": "<skills-root>/web-design"
+    }
+   ]
+  },
+  {
+   "id": "samber/developer-relations-skills",
+   "url": "https://github.com/samber/developer-relations-skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/developer-relations-skills",
+   "revision": "c3a1b6912791539567727723baf626b4fec5ac7a",
+   "revision_date": "2026-11-08T22:54:32+01:00",
+   "head_author": "Samuel Berthe",
+   "owner": "samber",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2026 Samuel Berthe",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": "All 93 SKILL.md files carry license: MIT."
+   },
+   "rights": "MIT with the notice. Attribution to Samuel Berthe stays in every installed directory.",
+   "side_effects": [
+    "README:24, 44, 73 give npx skills add, /plugin install and gemini extensions install; not run",
+    "references/context-artifact.md has the agent write devrel-context.md to the project root; devrel-program-kit maps it"
+   ],
+   "native_tools": [
+    "8 helper shell scripts, e.g. changelog-writing needs bash 3.2+ and git 2.21+"
+   ],
+   "decision": "Complete tree (93 of 93) installed to keep the dependency closure; see closure.",
+   "installed": [
+    {
+     "name": "bluesky-dev-playbook",
+     "dest": "<skills-root>/bluesky-dev-playbook"
+    },
+    {
+     "name": "build-in-public",
+     "dest": "<skills-root>/build-in-public"
+    },
+    {
+     "name": "changelog-writing",
+     "dest": "<skills-root>/changelog-writing"
+    },
+    {
+     "name": "coding-agent-docs-optimization",
+     "dest": "<skills-root>/coding-agent-docs-optimization"
+    },
+    {
+     "name": "conference-cfp-submission",
+     "dest": "<skills-root>/conference-cfp-submission"
+    },
+    {
+     "name": "dailydev-playbook",
+     "dest": "<skills-root>/dailydev-playbook"
+    },
+    {
+     "name": "developer-booth-playbook",
+     "dest": "<skills-root>/developer-booth-playbook"
+    },
+    {
+     "name": "developer-case-study",
+     "dest": "<skills-root>/developer-case-study"
+    },
+    {
+     "name": "developer-certification-program",
+     "dest": "<skills-root>/developer-certification-program"
+    },
+    {
+     "name": "developer-champions",
+     "dest": "<skills-root>/developer-champions"
+    },
+    {
+     "name": "developer-community-health",
+     "dest": "<skills-root>/developer-community-health"
+    },
+    {
+     "name": "developer-community-launch",
+     "dest": "<skills-root>/developer-community-launch"
+    },
+    {
+     "name": "developer-community-moderation",
+     "dest": "<skills-root>/developer-community-moderation"
+    },
+    {
+     "name": "developer-docs-ai-visibility",
+     "dest": "<skills-root>/developer-docs-ai-visibility"
+    },
+    {
+     "name": "developer-docs-structure-audit",
+     "dest": "<skills-root>/developer-docs-structure-audit"
+    },
+    {
+     "name": "developer-ecosystem-strategy",
+     "dest": "<skills-root>/developer-ecosystem-strategy"
+    },
+    {
+     "name": "developer-education-strategy",
+     "dest": "<skills-root>/developer-education-strategy"
+    },
+    {
+     "name": "developer-event-followup",
+     "dest": "<skills-root>/developer-event-followup"
+    },
+    {
+     "name": "developer-event-sponsorship",
+     "dest": "<skills-root>/developer-event-sponsorship"
+    },
+    {
+     "name": "developer-feedback-loop",
+     "dest": "<skills-root>/developer-feedback-loop"
+    },
+    {
+     "name": "developer-first-gtm",
+     "dest": "<skills-root>/developer-first-gtm"
+    },
+    {
+     "name": "developer-how-to-guide",
+     "dest": "<skills-root>/developer-how-to-guide"
+    },
+    {
+     "name": "developer-journey-map",
+     "dest": "<skills-root>/developer-journey-map"
+    },
+    {
+     "name": "developer-keyword-research",
+     "dest": "<skills-root>/developer-keyword-research"
+    },
+    {
+     "name": "developer-live-demo-design",
+     "dest": "<skills-root>/developer-live-demo-design"
+    },
+    {
+     "name": "developer-meetup-program",
+     "dest": "<skills-root>/developer-meetup-program"
+    },
+    {
+     "name": "developer-office-hours-program",
+     "dest": "<skills-root>/developer-office-hours-program"
+    },
+    {
+     "name": "developer-quickstart-guide",
+     "dest": "<skills-root>/developer-quickstart-guide"
+    },
+    {
+     "name": "developer-relations-kickoff",
+     "dest": "<skills-root>/developer-relations-kickoff"
+    },
+    {
+     "name": "developer-segmentation",
+     "dest": "<skills-root>/developer-segmentation"
+    },
+    {
+     "name": "developer-survey-design",
+     "dest": "<skills-root>/developer-survey-design"
+    },
+    {
+     "name": "developer-troubleshooting-docs",
+     "dest": "<skills-root>/developer-troubleshooting-docs"
+    },
+    {
+     "name": "developer-tutorial",
+     "dest": "<skills-root>/developer-tutorial"
+    },
+    {
+     "name": "developer-workshop-program",
+     "dest": "<skills-root>/developer-workshop-program"
+    },
+    {
+     "name": "devrel-analytics",
+     "dest": "<skills-root>/devrel-analytics"
+    },
+    {
+     "name": "devrel-budget-allocation",
+     "dest": "<skills-root>/devrel-budget-allocation"
+    },
+    {
+     "name": "devrel-career",
+     "dest": "<skills-root>/devrel-career"
+    },
+    {
+     "name": "devrel-competitor-analysis",
+     "dest": "<skills-root>/devrel-competitor-analysis"
+    },
+    {
+     "name": "devrel-content-calendar",
+     "dest": "<skills-root>/devrel-content-calendar"
+    },
+    {
+     "name": "devrel-exec-reporting",
+     "dest": "<skills-root>/devrel-exec-reporting"
+    },
+    {
+     "name": "devrel-field-events",
+     "dest": "<skills-root>/devrel-field-events"
+    },
+    {
+     "name": "devrel-hiring",
+     "dest": "<skills-root>/devrel-hiring"
+    },
+    {
+     "name": "devrel-live-streaming",
+     "dest": "<skills-root>/devrel-live-streaming"
+    },
+    {
+     "name": "devrel-metrics",
+     "dest": "<skills-root>/devrel-metrics"
+    },
+    {
+     "name": "devrel-newsletter-deliverability",
+     "dest": "<skills-root>/devrel-newsletter-deliverability"
+    },
+    {
+     "name": "devrel-newsletter-growth",
+     "dest": "<skills-root>/devrel-newsletter-growth"
+    },
+    {
+     "name": "devrel-newsletter-issue",
+     "dest": "<skills-root>/devrel-newsletter-issue"
+    },
+    {
+     "name": "devrel-newsletter-program",
+     "dest": "<skills-root>/devrel-newsletter-program"
+    },
+    {
+     "name": "devrel-newsletter-sourcing",
+     "dest": "<skills-root>/devrel-newsletter-sourcing"
+    },
+    {
+     "name": "devrel-newsletter-sponsorship",
+     "dest": "<skills-root>/devrel-newsletter-sponsorship"
+    },
+    {
+     "name": "devrel-radar",
+     "dest": "<skills-root>/devrel-radar"
+    },
+    {
+     "name": "devrel-strategy",
+     "dest": "<skills-root>/devrel-strategy"
+    },
+    {
+     "name": "devrel-team-structure",
+     "dest": "<skills-root>/devrel-team-structure"
+    },
+    {
+     "name": "devrel-webinar-program",
+     "dest": "<skills-root>/devrel-webinar-program"
+    },
+    {
+     "name": "devrel-youtube-channel",
+     "dest": "<skills-root>/devrel-youtube-channel"
+    },
+    {
+     "name": "devto-playbook",
+     "dest": "<skills-root>/devto-playbook"
+    },
+    {
+     "name": "devtools-business-model",
+     "dest": "<skills-root>/devtools-business-model"
+    },
+    {
+     "name": "devtools-pricing-strategy",
+     "dest": "<skills-root>/devtools-pricing-strategy"
+    },
+    {
+     "name": "discord-community-playbook",
+     "dest": "<skills-root>/discord-community-playbook"
+    },
+    {
+     "name": "discourse-forums-playbook",
+     "dest": "<skills-root>/discourse-forums-playbook"
+    },
+    {
+     "name": "docs-code-sample-standards",
+     "dest": "<skills-root>/docs-code-sample-standards"
+    },
+    {
+     "name": "docs-localization-strategy",
+     "dest": "<skills-root>/docs-localization-strategy"
+    },
+    {
+     "name": "docs-seo",
+     "dest": "<skills-root>/docs-seo"
+    },
+    {
+     "name": "docs-site-platform-selection",
+     "dest": "<skills-root>/docs-site-platform-selection"
+    },
+    {
+     "name": "docs-versioning-strategy",
+     "dest": "<skills-root>/docs-versioning-strategy"
+    },
+    {
+     "name": "engineering-blog-post",
+     "dest": "<skills-root>/engineering-blog-post"
+    },
+    {
+     "name": "github-profile-optimization",
+     "dest": "<skills-root>/github-profile-optimization"
+    },
+    {
+     "name": "hackernews-playbook",
+     "dest": "<skills-root>/hackernews-playbook"
+    },
+    {
+     "name": "kaggle-playbook",
+     "dest": "<skills-root>/kaggle-playbook"
+    },
+    {
+     "name": "medium-playbook",
+     "dest": "<skills-root>/medium-playbook"
+    },
+    {
+     "name": "open-source-company-strategy",
+     "dest": "<skills-root>/open-source-company-strategy"
+    },
+    {
+     "name": "open-standards-strategy",
+     "dest": "<skills-root>/open-standards-strategy"
+    },
+    {
+     "name": "oss-contributor-onboarding",
+     "dest": "<skills-root>/oss-contributor-onboarding"
+    },
+    {
+     "name": "oss-distribution-strategy",
+     "dest": "<skills-root>/oss-distribution-strategy"
+    },
+    {
+     "name": "oss-governance",
+     "dest": "<skills-root>/oss-governance"
+    },
+    {
+     "name": "oss-issue-triage",
+     "dest": "<skills-root>/oss-issue-triage"
+    },
+    {
+     "name": "oss-launch",
+     "dest": "<skills-root>/oss-launch"
+    },
+    {
+     "name": "oss-license-strategy",
+     "dest": "<skills-root>/oss-license-strategy"
+    },
+    {
+     "name": "oss-maintainer-sustainability",
+     "dest": "<skills-root>/oss-maintainer-sustainability"
+    },
+    {
+     "name": "oss-monetization",
+     "dest": "<skills-root>/oss-monetization"
+    },
+    {
+     "name": "oss-release-policy",
+     "dest": "<skills-root>/oss-release-policy"
+    },
+    {
+     "name": "oss-security-disclosure",
+     "dest": "<skills-root>/oss-security-disclosure"
+    },
+    {
+     "name": "oss-sponsors-brand-strategy",
+     "dest": "<skills-root>/oss-sponsors-brand-strategy"
+    },
+    {
+     "name": "oss-sponsors-fundraising",
+     "dest": "<skills-root>/oss-sponsors-fundraising"
+    },
+    {
+     "name": "producthunt-playbook",
+     "dest": "<skills-root>/producthunt-playbook"
+    },
+    {
+     "name": "readme-optimization",
+     "dest": "<skills-root>/readme-optimization"
+    },
+    {
+     "name": "student-developer-programs",
+     "dest": "<skills-root>/student-developer-programs"
+    },
+    {
+     "name": "tech-employer-branding",
+     "dest": "<skills-root>/tech-employer-branding"
+    },
+    {
+     "name": "tech-podcast-interview-prep",
+     "dest": "<skills-root>/tech-podcast-interview-prep"
+    },
+    {
+     "name": "tech-press-relations",
+     "dest": "<skills-root>/tech-press-relations"
+    },
+    {
+     "name": "tech-talk-outline",
+     "dest": "<skills-root>/tech-talk-outline"
+    },
+    {
+     "name": "technical-video-script",
+     "dest": "<skills-root>/technical-video-script"
+    },
+    {
+     "name": "version-migration-guide",
+     "dest": "<skills-root>/version-migration-guide"
+    }
+   ]
+  },
+  {
+   "id": "learning-commons-org/agent-skills",
+   "url": "https://github.com/learning-commons-org/agent-skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/learning-commons-agent-skills",
+   "revision": "b23623c8b50fe0f5fd4e657b1d3c0e3e6618ada6",
+   "revision_date": "2026-11-19T16:39:10-08:00",
+   "head_author": "Katy Ho",
+   "owner": "learning-commons-org",
+   "status": "installed-inactive",
+   "license": {
+    "spdx": "Apache-2.0",
+    "file": "LICENSE",
+    "holder": "NOTICE: Copyright 2026 Anthropic, PBC; Copyright 2026 Learning Commons",
+    "other_licenses": [
+     "skills/*/LICENSE (Apache-2.0)",
+     "skills/*/NOTICE",
+     "skills/k12-check-for-understanding/NOTICE (Student Achievement Partners acknowledgment, not an endorsement)"
+    ],
+    "share_alike": false,
+    "note": "Each installed directory carries its own LICENSE and NOTICE; k12-fixing-lesson-plans has no license field in SKILL.md."
+   },
+   "rights": "Apache-2.0; keep LICENSE and NOTICE. Rubric CSVs live under evals/ (not installed); evals/README.md:40 says using them needs manual setup or an existing harness, and no evaluator code is published.",
+   "side_effects": [
+    "scripts/render_all.sh runs python3 -m pip install python-docx==1.1.2 when docx is missing (k12-lesson-differentiation :22, k12-lesson-plan-creation :23); never run"
+   ],
+   "native_tools": [
+    "python3; python-docx for .docx output (absent); optional Learning Commons Knowledge Graph connector (not configured)"
+   ],
+   "decision": "Canonical K-12 teaching source, all five skills. No same-named Anthropic teaching skills installed.",
+   "installed": [
+    {
+     "name": "k12-check-for-understanding",
+     "dest": "<skills-root>/k12-check-for-understanding"
+    },
+    {
+     "name": "k12-fixing-lesson-plans",
+     "dest": "<skills-root>/k12-fixing-lesson-plans"
+    },
+    {
+     "name": "k12-lesson-differentiation",
+     "dest": "<skills-root>/k12-lesson-differentiation"
+    },
+    {
+     "name": "k12-lesson-plan-creation",
+     "dest": "<skills-root>/k12-lesson-plan-creation"
+    },
+    {
+     "name": "k12-lesson-prep",
+     "dest": "<skills-root>/k12-lesson-prep"
+    }
+   ]
+  },
+  {
+   "id": "DaRL-GenAI/instructional_agents-skills",
+   "url": "https://github.com/DaRL-GenAI/instructional_agents-skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/instructional_agents-skills",
+   "revision": "c8d3a36de517aded114c128c4d58e8a50cd56e94",
+   "revision_date": "2026-04-15T16:49:56-07:00",
+   "head_author": "Hua Wei",
+   "owner": "DaRL-GenAI",
+   "status": "source-only",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2026 DaRL-GenAI",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "MIT. Research wrappers for arXiv 2508.19611. slide-evaluate's 'Test Student' (SKILL.md:13; scripts/evaluate.py:48) is an LLM persona review, a fixture, not learner evidence.",
+   "side_effects": [
+    "README:28-34: pip install instructional-agents, /plugin install, or clone into ~/.claude/plugins; not run"
+   ],
+   "native_tools": [
+    "Python 3.11+, the instructional-agents pip package, OPENAI_API_KEY, Node and npm -g pptxgenjs, pdflatex or xelatex (absent)"
+   ],
+   "decision": "Not installed: needs a network pip install, an OpenAI key and LaTeX; the default model and simulated student are not accepted.",
+   "installed": []
+  },
+  {
+   "id": "DaRL-GenAI/instructional_agents",
+   "url": "https://github.com/DaRL-GenAI/instructional_agents",
+   "clone": "$FRIG_UPSTREAM_ROOT/instructional_agents",
+   "revision": "c19c6a5284965ce967dea77c5b716f3c44e0cbca",
+   "revision_date": "2026-11-19T17:38:13-07:00",
+   "head_author": "huaiyuan",
+   "owner": "DaRL-GenAI",
+   "status": "source-only",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2025 DaRL-GenAI",
+    "other_licenses": [
+     "assets/slide_gen/skill/LICENSE (MIT, Zara Zhang)",
+     "assets/slide_gen/runtime/licenses/ (MathJax, OFL fonts; names only)"
+    ],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "MIT. ADDIE research pipeline; src/evaluate.py:27-28 defines a Test Student prompt. Higher-education results do not transfer to K-12 BCIT without evidence.",
+   "side_effects": [
+    "Dockerfile installs texlive, pipes nodesource setup into bash and npm -g installs; start.sh runs docker compose and curls localhost:8000; not run"
+   ],
+   "native_tools": [
+    "Python 3.11+, openai, fastapi, playwright, python-pptx, Docker, OPENAI_API_KEY"
+   ],
+   "decision": "Reference for gap analysis only.",
+   "installed": []
+  },
+  {
+   "id": "wateryqz/instructional_agents112",
+   "url": "https://github.com/wateryqz/instructional_agents112",
+   "clone": "$FRIG_UPSTREAM_ROOT/instructional_agents112",
+   "revision": "8b7d9ab0dfbce6d9c7c4f67ab7060c427cec0399",
+   "revision_date": "2026-04-17T20:07:04-07:00",
+   "head_author": "Hua Wei",
+   "owner": "wateryqz",
+   "status": "source-only",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2025 DaRL-GenAI (owner is wateryqz)",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "MIT. A near-copy of DaRL-GenAI/instructional_agents last changed 2026-04-17; the README does not say it is a fork.",
+   "side_effects": [
+    "Same Dockerfile, start.sh and pyproject as instructional_agents; not run"
+   ],
+   "native_tools": [
+    "Same as instructional_agents"
+   ],
+   "decision": "Not used; the canonical DaRL repository supersedes it.",
+   "installed": []
+  },
+  {
+   "id": "mattpocock/skills",
+   "url": "https://github.com/mattpocock/skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/mattpocock-skills",
+   "revision": "6f7f7831a625f040a8e06a0e7954826b87ce775a",
+   "revision_date": "2026-11-25T12:08:23Z",
+   "head_author": "Matt Pocock",
+   "owner": "mattpocock",
+   "status": "installed-and-verified",
+   "status_owner": "skills/factory-rig/registry/components.json#matt-stable",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2026 Matt Pocock",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "MIT with the notice.",
+   "side_effects": [
+    "scripts/link-skills.sh (dev-only) symlinks skills into ~/.claude/skills and ~/.agents/skills; not run",
+    "git-guardrails-claude-code, when invoked, copies a hook script and merges a PreToolUse hook into settings.json"
+   ],
+   "native_tools": [
+    "gh for GitHub trackers; npm, husky, lint-staged and prettier for setup-pre-commit"
+   ],
+   "decision": "Earlier install; factory-rig owns the status (matt-stable verified, matt-experimental inactive).",
+   "installed": [
+    {
+     "name": "ask-matt",
+     "dest": "<skills-root>/ask-matt"
+    },
+    {
+     "name": "chief-of-staff",
+     "dest": "<skills-root>/chief-of-staff"
+    },
+    {
+     "name": "claude-handoff",
+     "dest": "<skills-root>/claude-handoff"
+    },
+    {
+     "name": "code-review",
+     "dest": "<skills-root>/code-review"
+    },
+    {
+     "name": "codebase-design",
+     "dest": "<skills-root>/codebase-design"
+    },
+    {
+     "name": "diagnosing-bugs",
+     "dest": "<skills-root>/diagnosing-bugs"
+    },
+    {
+     "name": "domain-modeling",
+     "dest": "<skills-root>/domain-modeling"
+    },
+    {
+     "name": "git-guardrails-claude-code",
+     "dest": "<skills-root>/git-guardrails-claude-code"
+    },
+    {
+     "name": "grill-me",
+     "dest": "<skills-root>/grill-me"
+    },
+    {
+     "name": "grill-with-docs",
+     "dest": "<skills-root>/grill-with-docs"
+    },
+    {
+     "name": "grilling",
+     "dest": "<skills-root>/grilling"
+    },
+    {
+     "name": "handoff",
+     "dest": "<skills-root>/handoff"
+    },
+    {
+     "name": "implement",
+     "dest": "<skills-root>/implement"
+    },
+    {
+     "name": "implement-spec",
+     "dest": "<skills-root>/implement-spec"
+    },
+    {
+     "name": "improve-codebase-architecture",
+     "dest": "<skills-root>/improve-codebase-architecture"
+    },
+    {
+     "name": "loop-me",
+     "dest": "<skills-root>/loop-me"
+    },
+    {
+     "name": "migrate-to-shoehorn",
+     "dest": "<skills-root>/migrate-to-shoehorn"
+    },
+    {
+     "name": "pr",
+     "dest": "<skills-root>/pr"
+    },
+    {
+     "name": "prototype",
+     "dest": "<skills-root>/prototype"
+    },
+    {
+     "name": "research",
+     "dest": "<skills-root>/research"
+    },
+    {
+     "name": "scaffold-exercises",
+     "dest": "<skills-root>/scaffold-exercises"
+    },
+    {
+     "name": "setup-matt-pocock-skills",
+     "dest": "<skills-root>/setup-matt-pocock-skills"
+    },
+    {
+     "name": "setup-pre-commit",
+     "dest": "<skills-root>/setup-pre-commit"
+    },
+    {
+     "name": "setup-ts-deep-modules",
+     "dest": "<skills-root>/setup-ts-deep-modules"
+    },
+    {
+     "name": "software-factory",
+     "dest": "<skills-root>/software-factory"
+    },
+    {
+     "name": "to-questionnaire",
+     "dest": "<skills-root>/to-questionnaire"
+    },
+    {
+     "name": "to-spec",
+     "dest": "<skills-root>/to-spec"
+    },
+    {
+     "name": "to-tickets",
+     "dest": "<skills-root>/to-tickets"
+    },
+    {
+     "name": "wait-what",
+     "dest": "<skills-root>/wait-what"
+    },
+    {
+     "name": "wayfinder",
+     "dest": "<skills-root>/wayfinder"
+    },
+    {
+     "name": "wizard",
+     "dest": "<skills-root>/wizard"
+    },
+    {
+     "name": "writing-beats",
+     "dest": "<skills-root>/writing-beats"
+    },
+    {
+     "name": "writing-for-agents",
+     "dest": "<skills-root>/writing-for-agents"
+    },
+    {
+     "name": "writing-fragments",
+     "dest": "<skills-root>/writing-fragments"
+    },
+    {
+     "name": "writing-shape",
+     "dest": "<skills-root>/writing-shape"
+    }
+   ]
+  },
+  {
+   "id": "poteto/noodle",
+   "url": "https://github.com/poteto/noodle",
+   "clone": "$FRIG_UPSTREAM_ROOT/noodle",
+   "revision": "82d2921c52370f23f29086de81ccfb600939c037",
+   "revision_date": "2026-03-19T00:41:03-07:00",
+   "head_author": "lauren",
+   "owner": "poteto",
+   "status": "installed-and-verified",
+   "status_owner": "skills/factory-rig/registry/components.json#noodle",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2026 Lauren Tan",
+    "other_licenses": [
+     ".agents/skills/frontend-design/LICENSE.txt (Apache-2.0)",
+     ".agents/skills/skill-creator/LICENSE.txt (Apache-2.0)"
+    ],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "MIT; the Apache-2.0 nested skills are not installed.",
+   "side_effects": [
+    "INSTALL.md: brew install or release download, fetches skill files into .agents/skills/noodle, writes .noodle.toml; the rig built the binary instead (factory-rig record)"
+   ],
+   "native_tools": [
+    "noodle Go binary built at 82d2921; Claude or Codex provider"
+   ],
+   "decision": "Execution backend under factory-rig.",
+   "installed": [
+    {
+     "name": "noodle",
+     "dest": "<skills-root>/noodle"
+    }
+   ]
+  },
+  {
+   "id": "yysun/project-manager",
+   "url": "https://github.com/yysun/project-manager",
+   "clone": "$FRIG_UPSTREAM_ROOT/project-manager",
+   "revision": "e96369e2a130a1018e8d60b2899503443eba28d8",
+   "revision_date": "2026-09-11T12:50:34-04:00",
+   "head_author": "Yiyi Sun",
+   "owner": "yysun",
+   "status": "installed-and-verified",
+   "status_owner": "skills/factory-rig/registry/components.json#yysun-project-manager",
+   "license": {
+    "spdx": "NOASSERTION",
+    "file": null,
+    "holder": "No LICENSE file (git ls-files finds none); plugin.json:6 declares MIT; holder unstated",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": "Treat redistribution as unlicensed until a LICENSE file exists."
+   },
+   "rights": "Private use only; do not redistribute.",
+   "side_effects": [
+    "mcp.json registers a stdio MCP server (node bin/project-manager-mcp.mjs); assets/studio.sh launches a local studio"
+   ],
+   "native_tools": [
+    "Node.js scripts; optional pm_project_status and pm_open_board MCP tools"
+   ],
+   "decision": "PM layer owner; earlier install.",
+   "installed": [
+    {
+     "name": "brd-writer",
+     "dest": "<skills-root>/brd-writer"
+    },
+    {
+     "name": "project-manager",
+     "dest": "<skills-root>/project-manager"
+    },
+    {
+     "name": "test-manager",
+     "dest": "<skills-root>/test-manager"
+    }
+   ]
+  },
+  {
+   "id": "cody-hutson/pmo-platform",
+   "url": "https://github.com/cody-hutson/pmo-platform",
+   "clone": "$FRIG_UPSTREAM_ROOT/pmo-platform",
+   "revision": "8ed5e273d301f80bb0e281222e06a22432090ebb",
+   "revision_date": "2026-11-23T16:19:40-06:00",
+   "head_author": "CHutson",
+   "owner": "cody-hutson",
+   "status": "installed-inactive",
+   "status_owner": "skills/factory-rig/registry/components.json#pmo-platform",
+   "license": {
+    "spdx": "BUSL-1.1",
+    "file": "LICENSE",
+    "holder": "Licensed Work (c) 2026 Cody Hutson",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": "Additional Use Grant: non-production, personal, educational and internal business use; Change Date 2030-05-27 to Apache-2.0. Source-available, not open source."
+   },
+   "rights": "Do not redistribute or offer as a hosted or managed service.",
+   "side_effects": [
+    "install.sh and core/deploy/deploy.sh write ~/.claude/skills, ~/.claude/rules, ~/.config/pmo-platform and ~/Claude; core/settings.json.template defines hooks; the rig installed into a separate workspace (factory-rig record)"
+   ],
+   "native_tools": [
+    "macOS 12+, python3, shasum, git, jq, Claude Code"
+   ],
+   "decision": "Earlier install; not in skill-sync.",
+   "installed": []
+  },
+  {
+   "id": "alp82/curia",
+   "url": "https://github.com/alp82/curia",
+   "clone": "$FRIG_UPSTREAM_ROOT/curia",
+   "revision": "0c61595315e7b3ff22eaf61729288dcf624113c4",
+   "revision_date": "2026-09-21T05:55:43Z",
+   "head_author": "curia-sh[bot]",
+   "owner": "alp82",
+   "status": "blocked-platform",
+   "status_owner": "skills/factory-rig/registry/components.json#curia",
+   "license": {
+    "spdx": "NOASSERTION",
+    "file": null,
+    "holder": "No root license; skills/LICENSE is MIT (Matt Pocock) for the vendored skills only",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": "Treat the application as all rights reserved."
+   },
+   "rights": "No license for Curia's own code.",
+   "side_effects": [
+    "deploy/bootstrap/curia-install.sh downloads an npm tarball, a Node runtime and a Compose bundle into $HOME/.local/share/curia; not run"
+   ],
+   "native_tools": [
+    "Linux x86_64 only (curia-install.sh:127-131), Node 22+, tmux, Docker, Tailscale, Discord, gh"
+   ],
+   "decision": "Blocked: no supported host.",
+   "installed": []
+  },
+  {
+   "id": "obsidianmd/obsidian-skills",
+   "url": "https://github.com/obsidianmd/obsidian-skills",
+   "clone": "$FRIG_UPSTREAM_ROOT/obsidian-skills",
+   "revision": "79e85b73ef041fdfb6437ab3824e2fe29eda9244",
+   "revision_date": "2026-11-25T12:02:14-08:00",
+   "head_author": "Steph Ango",
+   "owner": "obsidianmd",
+   "status": "installed-and-verified",
+   "status_owner": "skills/factory-rig/registry/components.json#obsidian-connectors",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2026 Steph Ango (@kepano)",
+    "other_licenses": [
+     "plugins/obsidian/LICENSE (MIT)"
+    ],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "MIT with the notice.",
+   "side_effects": [
+    "Installed as Claude plugin obsidian@obsidian-skills 1.2.3 and by npx skills into ~/.agents/skills (factory-rig record); not managed by skill-sync"
+   ],
+   "native_tools": [
+    "Obsidian app with the obsidian CLI; defuddle via npm -g; ob and Node 22+ for headless; Node 20+ for knap"
+   ],
+   "decision": "Earlier install; seven skills in ~/.agents/skills.",
+   "installed": []
+  },
+  {
+   "id": "t3dotgg/tstack",
+   "url": "https://github.com/t3dotgg/tstack",
+   "clone": "$SKILL_SYNC_HOME/repos/t3dotgg__tstack",
+   "revision": "11e37a74d0a6868c121cd0910ab2b3bd9873b92a",
+   "revision_date": "2026-11-11T03:33:02-08:00",
+   "head_author": "Theo Browne",
+   "owner": "t3dotgg",
+   "status": "installed-and-verified",
+   "status_owner": "skills/factory-rig/registry/components.json#tstack",
+   "license": {
+    "spdx": "MIT",
+    "file": "LICENSE",
+    "holder": "Copyright (c) 2026 Theo Browne",
+    "other_licenses": [],
+    "share_alike": false,
+    "note": ""
+   },
+   "rights": "MIT with the notice. takeover references modernize, which is not installed.",
+   "side_effects": [
+    "README:29-35 tells users to cp skills into ~/.claude/skills or ~/.codex/skills; not run"
+   ],
+   "native_tools": [
+    "gh and jq; babysit-pr's pr-wait polls GitHub PR state"
+   ],
+   "decision": "Earlier install; no upstream clone, so the revision is read from the skill-sync cache.",
+   "installed": [
+    {
+     "name": "babysit-pr",
+     "dest": "<skills-root>/babysit-pr"
+    },
+    {
+     "name": "council",
+     "dest": "<skills-root>/council"
+    },
+    {
+     "name": "file-pr",
+     "dest": "<skills-root>/file-pr"
+    },
+    {
+     "name": "full-send",
+     "dest": "<skills-root>/full-send"
+    },
+    {
+     "name": "full-stop",
+     "dest": "<skills-root>/full-stop"
+    },
+    {
+     "name": "leaving-pr-comments",
+     "dest": "<skills-root>/leaving-pr-comments"
+    },
+    {
+     "name": "sol-loop",
+     "dest": "<skills-root>/sol-loop"
+    },
+    {
+     "name": "takeover",
+     "dest": "<skills-root>/takeover"
+    }
+   ]
+  }
+ ],
+ "items": [
+  {
+   "name": "access-lifecycle",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "ra-qm-team/skills/access-lifecycle",
+   "dest": "<skills-root>/access-lifecycle",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "d630398813b1bef9f9c9d629be7637ae2a0e6a4272b3008996d42eef27ffe174"
+  },
+  {
+   "name": "capacity-planner",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "business-operations/skills/capacity-planner",
+   "dest": "<skills-root>/capacity-planner",
+   "status": "installed-and-verified",
+   "model_invocation": "disabled",
+   "tree_sha256": "c2e3119bf6bf3f7f90839281b22c59cfaac941cf2d13aa5c068996d9b99e86d7"
+  },
+  {
+   "name": "ceo-advisor",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "c-level-advisor/skills/ceo-advisor",
+   "dest": "<skills-root>/ceo-advisor",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "100e742d9b80bdf26ec058b98fb46109cc59e8f82d825cd51c466739f4ae4b29",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../agent-protocol/SKILL.md",
+     "reason": "sibling skill agent-protocol not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "cfo-advisor",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "c-level-advisor/skills/cfo-advisor",
+   "dest": "<skills-root>/cfo-advisor",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "f4177ef72b5f447aa29aecb1d5ae314765951216712c29244c9144fda2a89479",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../agent-protocol/SKILL.md",
+     "reason": "sibling skill agent-protocol not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "channel-economics",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "commercial/skills/channel-economics",
+   "dest": "<skills-root>/channel-economics",
+   "status": "installed-and-verified",
+   "model_invocation": "disabled",
+   "tree_sha256": "0a9caa93b037c29823803be5e69b7576b7e75a404c916c16014a33b8787e3340"
+  },
+  {
+   "name": "chro-advisor",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "c-level-advisor/skills/chro-advisor",
+   "dest": "<skills-root>/chro-advisor",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "eeb6b4df9cc6e0581fc65e523f2a4e1dfb4ee0254218ed2d6a9331571a8d03f7",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../agent-protocol/SKILL.md",
+     "reason": "sibling skill agent-protocol not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "ciso-advisor",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "c-level-advisor/skills/ciso-advisor",
+   "dest": "<skills-root>/ciso-advisor",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "1667df4d96908bc6398bbd2ddd7a828b5d1db89c2dc55f12907cc71bda52dca9",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../agent-protocol/SKILL.md",
+     "reason": "sibling skill agent-protocol not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "compliance-os",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "compliance-os/skills/compliance-os",
+   "dest": "<skills-root>/compliance-os",
+   "status": "installed-and-verified",
+   "model_invocation": "disabled",
+   "tree_sha256": "a1400be7f37c6ec1568be11a9d0cf38d9a0f8a76467c88257cb08e6894dbd989"
+  },
+  {
+   "name": "coo-advisor",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "c-level-advisor/skills/coo-advisor",
+   "dest": "<skills-root>/coo-advisor",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "cb0cbb2d616376afe2c8f479c3f29830878e4ecbd1e892f994be42d50ad6593f",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../agent-protocol/SKILL.md",
+     "reason": "sibling skill agent-protocol not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "cpo-advisor",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "c-level-advisor/skills/cpo-advisor",
+   "dest": "<skills-root>/cpo-advisor",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "08620948f0e53b7d6ed0a48d8bf1f07642deed57b22379f1294e4127fab831ac",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../agent-protocol/SKILL.md",
+     "reason": "sibling skill agent-protocol not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "cro-advisor",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "c-level-advisor/skills/cro-advisor",
+   "dest": "<skills-root>/cro-advisor",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "4d241d31c99f4ead7c8b50c15843f3c4fdc09f1657cda1db88b565cbc5fdd448",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../agent-protocol/SKILL.md",
+     "reason": "sibling skill agent-protocol not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "cto-advisor",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "c-level-advisor/skills/cto-advisor",
+   "dest": "<skills-root>/cto-advisor",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6fb9e502ebd676631c7f32ea46cd4eeebac331c6cb146652b15f87388de8c095",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../agent-protocol/SKILL.md",
+     "reason": "sibling skill agent-protocol not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "customer-success-manager",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "business-growth/skills/customer-success-manager",
+   "dest": "<skills-root>/customer-success-manager",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "47b202f2523aa2f644ee61d071c566e1b9ccc94b8f7601bf55dbba776e37895e"
+  },
+  {
+   "name": "deal-desk",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "commercial/skills/deal-desk",
+   "dest": "<skills-root>/deal-desk",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "396335ac3c99ac9f6fe1108cbcfea09572dce0a82ba26d206c28bf12e4df8693"
+  },
+  {
+   "name": "financial-analyst",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "finance/skills/financial-analyst",
+   "dest": "<skills-root>/financial-analyst",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "2cda15edccc4314f86fbd481984098b2de909a93d4c413058d69314507689858"
+  },
+  {
+   "name": "gdpr-dsgvo-expert",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "ra-qm-team/skills/gdpr-dsgvo-expert",
+   "dest": "<skills-root>/gdpr-dsgvo-expert",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6394e3ae5c9e5dc6400ce792e888e5d64ba01e58a7f6065ce4fd450e966bec30"
+  },
+  {
+   "name": "general-counsel-advisor",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "c-level-advisor/skills/general-counsel-advisor",
+   "dest": "<skills-root>/general-counsel-advisor",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "74a566c7c76a3c8983cec64e3e65cbad2fc312475c38528eedc65cccfe47563c"
+  },
+  {
+   "name": "isms-audit-expert",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "ra-qm-team/skills/isms-audit-expert",
+   "dest": "<skills-root>/isms-audit-expert",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "26f64e1fe6a9aacb3485cb7d449cacccdd75c981adfb90149d7f79753cc4fc98"
+  },
+  {
+   "name": "month-end-close",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "finance/skills/month-end-close",
+   "dest": "<skills-root>/month-end-close",
+   "status": "installed-and-verified",
+   "model_invocation": "disabled",
+   "tree_sha256": "034cf6ace9d539bb5158b6e0be10bb8603c96f1d13242e6c55595f5b0e41b399"
+  },
+  {
+   "name": "partnerships-architect",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "commercial/skills/partnerships-architect",
+   "dest": "<skills-root>/partnerships-architect",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "ac2d7990c61c1ae4a6d79568b967dfefda2b2643e9d939858399830f77e5c7e2"
+  },
+  {
+   "name": "pricing-strategist",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "commercial/skills/pricing-strategist",
+   "dest": "<skills-root>/pricing-strategist",
+   "status": "installed-and-verified",
+   "model_invocation": "disabled",
+   "tree_sha256": "6d0c668a41ffd35ae7b2a10f4fd966dfc12c93c1b53e1fecf39b20f8e8e4e2c0"
+  },
+  {
+   "name": "process-mapper",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "business-operations/skills/process-mapper",
+   "dest": "<skills-root>/process-mapper",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "8bc6c7701cf7afe71316baf619055fc35fcdc7d48f1fe06f7e8afb2e0c4b5bdd"
+  },
+  {
+   "name": "procurement-optimizer",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "business-operations/skills/procurement-optimizer",
+   "dest": "<skills-root>/procurement-optimizer",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "66e53a895757cc7fee098ee191575e7f0fd9e96852e619cc0e1fbb6527e51b04"
+  },
+  {
+   "name": "product-analytics",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "product-team/skills/product-analytics",
+   "dest": "<skills-root>/product-analytics",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "dcee817ecb88cc230d743ed17b12d27c95cf787a0ad8c07201b5e092940dd165"
+  },
+  {
+   "name": "revenue-operations",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "business-growth/skills/revenue-operations",
+   "dest": "<skills-root>/revenue-operations",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "cd06841a74d50865393f967041383e2d525973105c6f43a2a6755879d5962b4b"
+  },
+  {
+   "name": "rfp-responder",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "commercial/skills/rfp-responder",
+   "dest": "<skills-root>/rfp-responder",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "c66a0bce3a58c7e6a94032f96d5699e6c625902b867e42ee24647ab1303bfab2"
+  },
+  {
+   "name": "sales-engineer",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "business-growth/skills/sales-engineer",
+   "dest": "<skills-root>/sales-engineer",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "5dfae7eb0eb5e1dd13867c0694018e172f49b6c3c43f623d1f425672ac68aabc"
+  },
+  {
+   "name": "soc2-compliance",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "ra-qm-team/skills/soc2-compliance",
+   "dest": "<skills-root>/soc2-compliance",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "edc28c947c2a2fb221dc131356220cc22284b02e247b7057ef9039bbf4de565a",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../information-security-manager-iso27001/SKILL.md",
+     "reason": "sibling skill information-security-manager-iso27001 not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "support-ops",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "business-growth/skills/support-ops",
+   "dest": "<skills-root>/support-ops",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "b415f03f191d86dc422e6c94864421e19df74da200c1b56bbbe200fcdba6bc14"
+  },
+  {
+   "name": "vendor-management",
+   "repo": "alirezarezvani/claude-skills",
+   "path": "business-operations/skills/vendor-management",
+   "dest": "<skills-root>/vendor-management",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "f2122911020df71abdc1ed0e1a5736f5bfa12beb62add78b0cca430fe6bc0696"
+  },
+  {
+   "name": "agent-evals-and-observability",
+   "repo": "magnus919/agent-skills",
+   "path": "agent-evals-and-observability",
+   "dest": "<skills-root>/agent-evals-and-observability",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "a741efe319891445739440d1c4bb49fc2388abb22f9ba3088ffb8fc75e4061d4",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../system-one/SKILL.md",
+     "reason": "sibling skill system-one not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../supabase/references/agent-evals.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../systematic-debugging/SKILL.md",
+     "reason": "sibling skill systematic-debugging not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../secure-software-engineering/SKILL.md",
+     "reason": "sibling skill secure-software-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../supabase/references/agent-evals.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/event-runtime-evaluation.md",
+     "link": "../../harness-engineering/references/infinity-sources.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/event-runtime-evaluation.md",
+     "link": "../../harness-engineering/references/event-runtime-worked-example.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/framework-routing.md",
+     "link": "../../pydanticai/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/framework-routing.md",
+     "link": "../../langgraph/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/framework-routing.md",
+     "link": "../../systematic-debugging/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/framework-routing.md",
+     "link": "../../secure-software-engineering/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/lesson-validation.md",
+     "link": "../../harness-engineering/references/lesson-to-pr.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/lesson-validation.md",
+     "link": "../../harness-engineering/templates/lesson-candidate.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/self-service-eval-journey.md",
+     "link": "../../platform-engineering/references/platform-product-evidence.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/self-service-eval-journey.md",
+     "link": "../../product-discovery/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    }
+   ]
+  },
+  {
+   "name": "implementation-planning",
+   "repo": "magnus919/agent-skills",
+   "path": "implementation-planning",
+   "dest": "<skills-root>/implementation-planning",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "48dc5ec94657aed56dd66736bbaea833cdb0eabe4a9485b6af9eef612b32eba9",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../product-discovery/SKILL.md",
+     "reason": "sibling skill product-discovery not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../spec-driven-development/SKILL.md",
+     "reason": "sibling skill spec-driven-development not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../backend-engineering/SKILL.md",
+     "reason": "sibling skill backend-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../frontend-engineering/SKILL.md",
+     "reason": "sibling skill frontend-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../software-architecture-analysis/SKILL.md",
+     "reason": "sibling skill software-architecture-analysis not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../bmad/SKILL.md",
+     "reason": "sibling skill bmad not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../spec-driven-development/SKILL.md",
+     "reason": "sibling skill spec-driven-development not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-discovery/SKILL.md",
+     "reason": "sibling skill product-discovery not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../adr-authoring/SKILL.md",
+     "reason": "sibling skill adr-authoring not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../spec-driven-development/SKILL.md",
+     "reason": "sibling skill spec-driven-development not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-discovery/SKILL.md",
+     "reason": "sibling skill product-discovery not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../qa-methodology/SKILL.md",
+     "reason": "sibling skill qa-methodology not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../bmad/SKILL.md",
+     "reason": "sibling skill bmad not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../platform-engineering/SKILL.md",
+     "reason": "sibling skill platform-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../secure-software-engineering/SKILL.md",
+     "reason": "sibling skill secure-software-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../adr-authoring/SKILL.md",
+     "reason": "sibling skill adr-authoring not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../api-design-and-evolution/SKILL.md",
+     "reason": "sibling skill api-design-and-evolution not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../data-engineering/SKILL.md",
+     "reason": "sibling skill data-engineering not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "incident-learning",
+   "repo": "magnus919/agent-skills",
+   "path": "incident-learning",
+   "dest": "<skills-root>/incident-learning",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "4971add7a728e89231a165509f64c984b162563cf7474a34f204807c6f8d01e5",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../systematic-debugging/SKILL.md",
+     "reason": "sibling skill systematic-debugging not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../qa-methodology/SKILL.md",
+     "reason": "sibling skill qa-methodology not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-lifecycle-learning/SKILL.md",
+     "reason": "sibling skill product-lifecycle-learning not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../resilience-and-recovery/SKILL.md",
+     "reason": "sibling skill resilience-and-recovery not installed (selective install)"
+    },
+    {
+     "from": "references/follow-up-domains.md",
+     "link": "../../product-lifecycle-learning/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/follow-up-domains.md",
+     "link": "../../backend-engineering/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/follow-up-domains.md",
+     "link": "../../frontend-engineering/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/follow-up-domains.md",
+     "link": "../../qa-methodology/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/follow-up-domains.md",
+     "link": "../../site-reliability-engineering/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    }
+   ]
+  },
+  {
+   "name": "kanban-guru",
+   "repo": "magnus919/agent-skills",
+   "path": "kanban-guru",
+   "dest": "<skills-root>/kanban-guru",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "c0245dfcca58b42545f1ee4be474b3953717fae085c560a074cbdfc27a2235f2"
+  },
+  {
+   "name": "multi-agent-coordination",
+   "repo": "magnus919/agent-skills",
+   "path": "multi-agent-coordination",
+   "dest": "<skills-root>/multi-agent-coordination",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "bafe68106f0a0ea5d3a3bdc124450bfcb65475b41e6a3f5eba30944ba0f855eb",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../harness-engineering/SKILL.md",
+     "reason": "sibling skill harness-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../agent-council/SKILL.md",
+     "reason": "sibling skill agent-council not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../promise-theory/SKILL.md",
+     "reason": "sibling skill promise-theory not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../agent-production-operations/SKILL.md",
+     "reason": "sibling skill agent-production-operations not installed (selective install)"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../harness-engineering/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../promise-theory/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../agent-production-operations/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../ai-governance/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../langgraph/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../autogen/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../crewai/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../pydanticai/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../agent-council/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../operational-design/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../ai-operating-economics/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../research-methodology/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/catalog-boundaries.md",
+     "link": "../../systematic-debugging/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/decomposition-and-topology.md",
+     "link": "../../ai-operating-economics/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    }
+   ]
+  },
+  {
+   "name": "production-readiness",
+   "repo": "magnus919/agent-skills",
+   "path": "production-readiness",
+   "dest": "<skills-root>/production-readiness",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "bca17fe38ae896ffc72e8382e3625a15801191ea72ddb2c68555c17dbd76cd5b",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../secure-software-engineering/SKILL.md",
+     "reason": "sibling skill secure-software-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../security-audit-methodology/SKILL.md",
+     "reason": "sibling skill security-audit-methodology not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../data-engineering/SKILL.md",
+     "reason": "sibling skill data-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../qa-methodology/SKILL.md",
+     "reason": "sibling skill qa-methodology not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../platform-engineering/SKILL.md",
+     "reason": "sibling skill platform-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../spec-driven-development/SKILL.md",
+     "reason": "sibling skill spec-driven-development not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../api-design-and-evolution/SKILL.md",
+     "reason": "sibling skill api-design-and-evolution not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../data-scientist/SKILL.md",
+     "reason": "sibling skill data-scientist not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../secure-software-engineering/SKILL.md",
+     "reason": "sibling skill secure-software-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../data-engineering/SKILL.md",
+     "reason": "sibling skill data-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../qa-methodology/SKILL.md",
+     "reason": "sibling skill qa-methodology not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../platform-engineering/SKILL.md",
+     "reason": "sibling skill platform-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../spec-driven-development/SKILL.md",
+     "reason": "sibling skill spec-driven-development not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../api-design-and-evolution/SKILL.md",
+     "reason": "sibling skill api-design-and-evolution not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../data-scientist/SKILL.md",
+     "reason": "sibling skill data-scientist not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "release-engineering",
+   "repo": "magnus919/agent-skills",
+   "path": "release-engineering",
+   "dest": "<skills-root>/release-engineering",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "fb1822addb85e45a8d119ab060e39642576dcc194901f2b454865f77670fabf1",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../backend-engineering/SKILL.md",
+     "reason": "sibling skill backend-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../frontend-engineering/SKILL.md",
+     "reason": "sibling skill frontend-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../systematic-debugging/SKILL.md",
+     "reason": "sibling skill systematic-debugging not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../secure-software-engineering/SKILL.md",
+     "reason": "sibling skill secure-software-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../platform-engineering/SKILL.md",
+     "reason": "sibling skill platform-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../data-engineering/SKILL.md",
+     "reason": "sibling skill data-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../spec-driven-development/SKILL.md",
+     "reason": "sibling skill spec-driven-development not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../api-design-and-evolution/SKILL.md",
+     "reason": "sibling skill api-design-and-evolution not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../qa-methodology/SKILL.md",
+     "reason": "sibling skill qa-methodology not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../backend-engineering/SKILL.md",
+     "reason": "sibling skill backend-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../frontend-engineering/SKILL.md",
+     "reason": "sibling skill frontend-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../systematic-debugging/SKILL.md",
+     "reason": "sibling skill systematic-debugging not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../secure-software-engineering/SKILL.md",
+     "reason": "sibling skill secure-software-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../platform-engineering/SKILL.md",
+     "reason": "sibling skill platform-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../data-engineering/SKILL.md",
+     "reason": "sibling skill data-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../spec-driven-development/SKILL.md",
+     "reason": "sibling skill spec-driven-development not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../api-design-and-evolution/SKILL.md",
+     "reason": "sibling skill api-design-and-evolution not installed (selective install)"
+    },
+    {
+     "from": "references/release-operations-and-triage.md",
+     "link": "../../spec-driven-development/templates/FEATURE-MAP.md",
+     "reason": "upstream file outside the installed directory"
+    }
+   ]
+  },
+  {
+   "name": "technical-program-management",
+   "repo": "magnus919/agent-skills",
+   "path": "technical-program-management",
+   "dest": "<skills-root>/technical-program-management",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "8678900cbb92458aa02beedcc01823e13f93a3a4754b3d16356baa6e7c3068be",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../product-roadmapping-and-portfolio/SKILL.md",
+     "reason": "sibling skill product-roadmapping-and-portfolio not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../strategy-frameworks/SKILL.md",
+     "reason": "sibling skill strategy-frameworks not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-roadmapping-and-portfolio/SKILL.md",
+     "reason": "sibling skill product-roadmapping-and-portfolio not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../strategy-frameworks/SKILL.md",
+     "reason": "sibling skill strategy-frameworks not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-roadmapping-and-portfolio/SKILL.md",
+     "reason": "sibling skill product-roadmapping-and-portfolio not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-operations-and-governance/SKILL.md",
+     "reason": "sibling skill product-operations-and-governance not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../enterprise-architecture/SKILL.md",
+     "reason": "sibling skill enterprise-architecture not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../org-design/SKILL.md",
+     "reason": "sibling skill org-design not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-roadmapping-and-portfolio/SKILL.md",
+     "reason": "sibling skill product-roadmapping-and-portfolio not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-operations-and-governance/SKILL.md",
+     "reason": "sibling skill product-operations-and-governance not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../enterprise-architecture/SKILL.md",
+     "reason": "sibling skill enterprise-architecture not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../technology-radar/SKILL.md",
+     "reason": "sibling skill technology-radar not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../strategy-frameworks/SKILL.md",
+     "reason": "sibling skill strategy-frameworks not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../org-design/SKILL.md",
+     "reason": "sibling skill org-design not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-adoption/SKILL.md",
+     "reason": "sibling skill product-adoption not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-lifecycle-learning/SKILL.md",
+     "reason": "sibling skill product-lifecycle-learning not installed (selective install)"
+    },
+    {
+     "from": "references/assurance-and-intervention.md",
+     "link": "../../site-reliability-engineering/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/assurance-and-intervention.md",
+     "link": "../../org-design/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/benefits-and-transformation.md",
+     "link": "../../product-adoption/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/benefits-and-transformation.md",
+     "link": "../../product-analytics-and-measurement/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/benefits-and-transformation.md",
+     "link": "../../org-design/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/benefits-and-transformation.md",
+     "link": "../../product-roadmapping-and-portfolio/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/benefits-and-transformation.md",
+     "link": "../../strategy-frameworks/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/benefits-dependency-and-tranches.md",
+     "link": "../../product-roadmapping-and-portfolio/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/benefits-dependency-and-tranches.md",
+     "link": "../../product-analytics-and-measurement/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/benefits-dependency-and-tranches.md",
+     "link": "../../product-adoption/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/benefits-dependency-and-tranches.md",
+     "link": "../../org-design/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    }
+   ]
+  },
+  {
+   "name": "technical-project-management",
+   "repo": "magnus919/agent-skills",
+   "path": "technical-project-management",
+   "dest": "<skills-root>/technical-project-management",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "867fccbb1644385bea8e2fef1bef73da2d6274e6aba993d7ae492df14e298895",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../product-discovery/SKILL.md",
+     "reason": "sibling skill product-discovery not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-roadmapping-and-portfolio/SKILL.md",
+     "reason": "sibling skill product-roadmapping-and-portfolio not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-shaping/SKILL.md",
+     "reason": "sibling skill product-shaping not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-operations-and-governance/SKILL.md",
+     "reason": "sibling skill product-operations-and-governance not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../chief-of-staff-methodology/SKILL.md",
+     "reason": "sibling skill chief-of-staff-methodology not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../site-reliability-engineering/SKILL.md",
+     "reason": "sibling skill site-reliability-engineering not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../jira/SKILL.md",
+     "reason": "sibling skill jira not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../linear/SKILL.md",
+     "reason": "sibling skill linear not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../financial-modeling/SKILL.md",
+     "reason": "sibling skill financial-modeling not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../legal-strategy/SKILL.md",
+     "reason": "sibling skill legal-strategy not installed (selective install)"
+    },
+    {
+     "from": "references/control-and-communication.md",
+     "link": "../../chief-of-staff-methodology/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    }
+   ]
+  },
+  {
+   "name": "verification-methodology",
+   "repo": "magnus919/agent-skills",
+   "path": "verification-methodology",
+   "dest": "<skills-root>/verification-methodology",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "50e8bea4c8c95501d1f51c1159efd24e77d723950326f4732d42ce97b1568988",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../playwright/SKILL.md",
+     "reason": "sibling skill playwright not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../documents/SKILL.md",
+     "reason": "sibling skill documents not installed (selective install)"
+    },
+    {
+     "from": "references/evidence-standards.md",
+     "link": "../../spec-driven-development/templates/FEATURE-MAP.md",
+     "reason": "upstream file outside the installed directory"
+    }
+   ]
+  },
+  {
+   "name": "web-accessibility",
+   "repo": "magnus919/agent-skills",
+   "path": "web-accessibility",
+   "dest": "<skills-root>/web-accessibility",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "0c26e1dbbac6261c1698105a0459c1f9ab4959ac6f7ea06981cdd4c913138b75",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../hugo-theme/SKILL.md",
+     "reason": "sibling skill hugo-theme not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../hugo-theme/references/design-accessibility.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-discovery/SKILL.md",
+     "reason": "sibling skill product-discovery not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-methodology/SKILL.md",
+     "reason": "sibling skill product-methodology not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../product-design-and-ux/SKILL.md",
+     "reason": "sibling skill product-design-and-ux not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../react/SKILL.md",
+     "reason": "sibling skill react not installed (selective install)"
+    },
+    {
+     "from": "SKILL.md",
+     "link": "../vite/SKILL.md",
+     "reason": "sibling skill vite not installed (selective install)"
+    },
+    {
+     "from": "references/routing.md",
+     "link": "../../hugo-theme/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/routing.md",
+     "link": "../../hugo-theme/references/design-accessibility.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/routing.md",
+     "link": "../../product-discovery/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/routing.md",
+     "link": "../../product-methodology/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    },
+    {
+     "from": "references/routing.md",
+     "link": "../../product-design-and-ux/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    }
+   ]
+  },
+  {
+   "name": "code-standards-checker",
+   "repo": "kanopi/cms-cultivator",
+   "path": "skills/code-standards-checker",
+   "dest": "<skills-root>/code-standards-checker",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "10106c024743acaaffadefebd277d4b817128abeaa963c191cee7643b9387187"
+  },
+  {
+   "name": "composer-security-update",
+   "repo": "kanopi/cms-cultivator",
+   "path": "skills/composer-security-update",
+   "dest": "<skills-root>/composer-security-update",
+   "status": "verification-failed",
+   "model_invocation": "disabled",
+   "tree_sha256": "368ef9c58913c975aada58cfc5569e8763f9a0445ab2590773b09c05736d9fa6"
+  },
+  {
+   "name": "pr-quality-report",
+   "repo": "kanopi/cms-cultivator",
+   "path": "skills/pr-quality-report",
+   "dest": "<skills-root>/pr-quality-report",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "30de25117851e311d9ae4a1d43de560332d0812e885e25653bfc080d5139092b"
+  },
+  {
+   "name": "blueprint",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/blueprint",
+   "dest": "<skills-root>/blueprint",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "8e46d5e986933613c9b3a5b69dfad444baf373ffe83ba3a1fb6095ef6b0e8a3d"
+  },
+  {
+   "name": "wordpress-router",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wordpress-router",
+   "dest": "<skills-root>/wordpress-router",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "844aa95049c049b1c6fc6433fefec3bf34f8badfd06fad82737e8c4066eb3264"
+  },
+  {
+   "name": "wp-abilities-api",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-abilities-api",
+   "dest": "<skills-root>/wp-abilities-api",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "b20b5ad456c068de8d43c5455704372da2e5e9788f8f6aeed7fc68574123b5fe"
+  },
+  {
+   "name": "wp-abilities-audit",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-abilities-audit",
+   "dest": "<skills-root>/wp-abilities-audit",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "94d460ecc6a817c17004d9e5b3fd3af724d758132dc428c9c591e3486af670ba"
+  },
+  {
+   "name": "wp-abilities-verify",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-abilities-verify",
+   "dest": "<skills-root>/wp-abilities-verify",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "599e99fe38aa2358b795b205dbc7e29e158ba6dd110bb95ec2a396d0fce624ec"
+  },
+  {
+   "name": "wp-ability-development",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-ability-development",
+   "dest": "<skills-root>/wp-ability-development",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "2e89304a3251bc23dc77c97f1afd6bfd77c5d4a111b8950758004672486b0127"
+  },
+  {
+   "name": "wp-block-development",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-block-development",
+   "dest": "<skills-root>/wp-block-development",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "2c2f32ac7acfa0abeaf2c5550ca383ff6e3ce8ddd2cc70730f35fa82a028ae1a"
+  },
+  {
+   "name": "wp-block-themes",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-block-themes",
+   "dest": "<skills-root>/wp-block-themes",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "eeeee282a94d3145467591a7eb201c2d223a07929255b327b881f7bffbba3899"
+  },
+  {
+   "name": "wp-env",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-env",
+   "dest": "<skills-root>/wp-env",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "ace5e0a448c7675735f20b7c8f063acaffd4a32a786dfc9ccf06e0ac96156725"
+  },
+  {
+   "name": "wp-interactivity-api",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-interactivity-api",
+   "dest": "<skills-root>/wp-interactivity-api",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "84c6618ff719e2705653281749723f207bc38617324dffe590b321a2fb46bb38"
+  },
+  {
+   "name": "wp-patterns",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-patterns",
+   "dest": "<skills-root>/wp-patterns",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "376b688e0f1c53766db676ead252b086d5c8fee94e39aa1c451ce05d62d49b5b"
+  },
+  {
+   "name": "wp-performance",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-performance",
+   "dest": "<skills-root>/wp-performance",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "1f593f6cdb5d471dd299b284a28400fb0dd6fe5588e7a0ac415f225b54072240"
+  },
+  {
+   "name": "wp-phpstan",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-phpstan",
+   "dest": "<skills-root>/wp-phpstan",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "4b4356c8e62d07142d9b29d842ebba48a6038b7a48999e01a63e0d3a51c7e980"
+  },
+  {
+   "name": "wp-playground",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-playground",
+   "dest": "<skills-root>/wp-playground",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "2cf266d2d07ba250c6cc8fa34ceffd3827efb4c8ef104203f884fe0aad21cce1"
+  },
+  {
+   "name": "wp-plugin-development",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-plugin-development",
+   "dest": "<skills-root>/wp-plugin-development",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "510ed08b80e837b5d7c0a199f05b8340f5dc6b2fa2a316fd69adc02a9b1b8196"
+  },
+  {
+   "name": "wp-plugin-directory-guidelines",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-plugin-directory-guidelines",
+   "dest": "<skills-root>/wp-plugin-directory-guidelines",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "40c3da64449d508306f8aed49cc04776f0d53578a2456dd2249d8d9840af9137"
+  },
+  {
+   "name": "wp-project-triage",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-project-triage",
+   "dest": "<skills-root>/wp-project-triage",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "16469ace623411674c8c41c8b3ef5422edff399d05e400a553436563d392882f"
+  },
+  {
+   "name": "wp-rest-api",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-rest-api",
+   "dest": "<skills-root>/wp-rest-api",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "688876e79e7e38ff3eb37926edd6f92212e1837e6d7e68d7912f52fd0cb33369"
+  },
+  {
+   "name": "wp-wpcli-and-ops",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wp-wpcli-and-ops",
+   "dest": "<skills-root>/wp-wpcli-and-ops",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "e2aba35668c3f7afe85aefa00dc3e5789b2ee9e82da7cf9973209bdd397ad9b6"
+  },
+  {
+   "name": "wpds",
+   "repo": "WordPress/agent-skills",
+   "path": "skills/wpds",
+   "dest": "<skills-root>/wpds",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "1d1de8e12eda09ed0261982b4d423c9034949219609fdf6178421d668e69ef13"
+  },
+  {
+   "name": "woocommerce-finalize",
+   "repo": "Automattic/claude-woocommerce-toolkit",
+   "path": "skills/woocommerce-finalize",
+   "dest": "<skills-root>/woocommerce-finalize",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "cbe2a9a5ff332b74bdfdd3f7a6a53b9b66d7c4079f69b18002bfc284e41d33c7"
+  },
+  {
+   "name": "woocommerce-plugin-dev",
+   "repo": "Automattic/claude-woocommerce-toolkit",
+   "path": "skills/woocommerce-plugin-dev",
+   "dest": "<skills-root>/woocommerce-plugin-dev",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "b94c87dccd489ab0ac0ea4a43ae2d3340055fce51ef5967c5ba92bb445def0f1"
+  },
+  {
+   "name": "woocommerce-upgrade-safety",
+   "repo": "Automattic/claude-woocommerce-toolkit",
+   "path": "skills/woocommerce-upgrade-safety",
+   "dest": "<skills-root>/woocommerce-upgrade-safety",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "8f71855fb52578a9812c211e8c6ea9fdb6628063c230285cec8c19bce77c38ea"
+  },
+  {
+   "name": "cloudflare-one",
+   "repo": "cloudflare/skills",
+   "path": "skills/cloudflare-one",
+   "dest": "<skills-root>/cloudflare-one",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "ba4a2097f42b8ca178d012af8bf6417309dc8f64b071e367ecdb294cc0d405c9"
+  },
+  {
+   "name": "gateway-workers",
+   "repo": "cloudflare/skills",
+   "path": "skills/gateway-workers",
+   "dest": "<skills-root>/gateway-workers",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "f1b999b521e8beb2f6957c798e3450869097336d018a66c53f554a2c492c5ed1",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../cloudflare/SKILL.md",
+     "reason": "sibling skill cloudflare not installed (selective install)"
+    }
+   ]
+  },
+  {
+   "name": "workers-best-practices",
+   "repo": "cloudflare/skills",
+   "path": "skills/workers-best-practices",
+   "dest": "<skills-root>/workers-best-practices",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "b64f3f4542c875f8d2b40668258d8e13a7b142b8af85d36237ebc483a26eb45f"
+  },
+  {
+   "name": "wrangler",
+   "repo": "cloudflare/skills",
+   "path": "skills/wrangler",
+   "dest": "<skills-root>/wrangler",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "f3e4389b4e03a8359d81a7b210e2517a09b11c86e8ae5dfc1bc16180eaafcca5"
+  },
+  {
+   "name": "terraform-style-guide",
+   "repo": "hashicorp/agent-skills",
+   "path": "plugins/terraform/skills/terraform-style-guide",
+   "dest": "<skills-root>/terraform-style-guide",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "290efae6e71e73e47ea8d8a3f0209a88ac66a87d5ce9d7eff0b55305ab3fe502"
+  },
+  {
+   "name": "terraform-test",
+   "repo": "hashicorp/agent-skills",
+   "path": "plugins/terraform/skills/terraform-test",
+   "dest": "<skills-root>/terraform-test",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "e49956fd194be65f0c8861e19c0ed4fc4a21f4fcf3eca5eda3272c7d6c163e3d"
+  },
+  {
+   "name": "differential-review",
+   "repo": "trailofbits/skills",
+   "path": "plugins/differential-review/skills/differential-review",
+   "dest": "<skills-root>/differential-review",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "23765d0645210c5b8f6c255333258aa60a35ac4a45a2147b8f50f97a303e77af"
+  },
+  {
+   "name": "fp-check",
+   "repo": "trailofbits/skills",
+   "path": "plugins/fp-check/skills/fp-check",
+   "dest": "<skills-root>/fp-check",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "00d7e671388f7dfdeaaaa7221bf6a345ca27b41830c4bad839b8c56aec48069e"
+  },
+  {
+   "name": "supply-chain-risk-auditor",
+   "repo": "trailofbits/skills",
+   "path": "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor",
+   "dest": "<skills-root>/supply-chain-risk-auditor",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "f8c7574fbe9eb17543090a56ddb92142d2ca9f179d455110cc188c27730bcf93"
+  },
+  {
+   "name": "ab-testing",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/ab-testing",
+   "dest": "<skills-root>/ab-testing",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "18ad962b97ae2cfb11d18e466715cf0164ee1ee41197cff210be50d2bcb4857d"
+  },
+  {
+   "name": "ad-creative",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/ad-creative",
+   "dest": "<skills-root>/ad-creative",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "ce7ac201196ecb0786f0c273ab557c38ddfbd7e4f0888302b77f1b09e7cd6f66"
+  },
+  {
+   "name": "ads",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/ads",
+   "dest": "<skills-root>/ads",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "cc66bdce2798d590d0cb3ae271e292f9e3b494761347f04495169e886322bcc5",
+   "dangling_links": [
+    {
+     "from": "references/creative-research-automation.md",
+     "link": "../../copywriting/SKILL.md",
+     "reason": "upstream file outside the installed directory"
+    }
+   ]
+  },
+  {
+   "name": "ai-seo",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/ai-seo",
+   "dest": "<skills-root>/ai-seo",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "2dcba0886c656d1a2872e790e2203731bd2a3fdd8a933309c62b34b1f0ff09b4"
+  },
+  {
+   "name": "analytics",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/analytics",
+   "dest": "<skills-root>/analytics",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "91ff8516d8f3bcbf320bbbb965333b8d1e80fb93afd11fc783623cbca3cb877b"
+  },
+  {
+   "name": "attribution",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/attribution",
+   "dest": "<skills-root>/attribution",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6893c62995934250291d1e415eee55e7f40d596f31f4bfb5f2e984f8049cf9ac"
+  },
+  {
+   "name": "competitor-profiling",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/competitor-profiling",
+   "dest": "<skills-root>/competitor-profiling",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "bb765413a0a728e3dc8cad353e4e098c772153e91cce6b43e5c7321b46a18989"
+  },
+  {
+   "name": "content-strategy",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/content-strategy",
+   "dest": "<skills-root>/content-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "b5d89426447c0e976e66c1c6e96954d9487225a7dc3a0af8b9221a7766df3d4d"
+  },
+  {
+   "name": "conversion-tracking",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/conversion-tracking",
+   "dest": "<skills-root>/conversion-tracking",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "a8671b694cb1759ee35e7e90ff0f0fda69ebed0be465bf6799348581bffdcccb"
+  },
+  {
+   "name": "customer-research",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/customer-research",
+   "dest": "<skills-root>/customer-research",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "a3f66204f22a55138d50a48ca8ee0b5c51db278fb65726ac328cdecc6f63cd39"
+  },
+  {
+   "name": "emails",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/emails",
+   "dest": "<skills-root>/emails",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "9d9ad643fad42d569939b0241fbeed15ba621bc0c6d6af588570a5c4acbc4cfe"
+  },
+  {
+   "name": "launch",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/launch",
+   "dest": "<skills-root>/launch",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "b56c0ea9a8355c9efcb2a5e99b23f2100bbaf27c77fa1b516a647af4dbf264cf"
+  },
+  {
+   "name": "marketing-loops",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/marketing-loops",
+   "dest": "<skills-root>/marketing-loops",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "e8edcbdd02c31dddf8e1c3d195492f838bde9436916c0608cf550d9510556a13"
+  },
+  {
+   "name": "marketing-plan",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/marketing-plan",
+   "dest": "<skills-root>/marketing-plan",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "5311bca453b49e7b21b5cf220e37a8cd044fbfd55970af36cfd9446ccfc98f13"
+  },
+  {
+   "name": "product-marketing",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/product-marketing",
+   "dest": "<skills-root>/product-marketing",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "b6daee8e726108e86a508dc444f76e3fcf237404f190f0404bd88c8b2b0af721"
+  },
+  {
+   "name": "prospecting",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/prospecting",
+   "dest": "<skills-root>/prospecting",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "e7a82979d20c4539463037fc8c672d160fcb125c5c2c3741647ec6a184631db0"
+  },
+  {
+   "name": "public-relations",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/public-relations",
+   "dest": "<skills-root>/public-relations",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "9fdd302e71a82ad6c6a2b235e148db7a81a39bb4ee461a967364855d09f4966c"
+  },
+  {
+   "name": "referrals",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/referrals",
+   "dest": "<skills-root>/referrals",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "5a235de74e80b16d3721b82c832bbbbd2cdb77aed6fc777e309b62f9941882ab"
+  },
+  {
+   "name": "sales-enablement",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/sales-enablement",
+   "dest": "<skills-root>/sales-enablement",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "9b58bf8b5d0ba1fcc500b464f94d0ab6a9408d0f6ce0be349e47a45053ba60ac"
+  },
+  {
+   "name": "schema",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/schema",
+   "dest": "<skills-root>/schema",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "a1447f63fc82c8331e92de084b1d0d2ada7ad552754b3855a8792f48033cc5a3"
+  },
+  {
+   "name": "seo-audit",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/seo-audit",
+   "dest": "<skills-root>/seo-audit",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "3c710cad873928133d416ac12750ebb9251454bc956171a74f480010a2685374"
+  },
+  {
+   "name": "site-architecture",
+   "repo": "coreyhaines31/marketingskills",
+   "path": "skills/site-architecture",
+   "dest": "<skills-root>/site-architecture",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "74d69223526c5bd867718ae900485569f7fd773c326d73608e2e2b054b2e468c"
+  },
+  {
+   "name": "art-direction",
+   "repo": "zstvns/design-skills",
+   "path": "skills/art-direction",
+   "dest": "<skills-root>/art-direction",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "68832995e0ecbd220bbc6c9c6daf7ae353fa0dfa8bab7a5c5855013fd7860178"
+  },
+  {
+   "name": "brand",
+   "repo": "zstvns/design-skills",
+   "path": "skills/brand",
+   "dest": "<skills-root>/brand",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "8fe8e95da384cde7996166e6c84c9a8a919abc480ad8e75dd8729aa4c301685c"
+  },
+  {
+   "name": "brand-strategy",
+   "repo": "zstvns/design-skills",
+   "path": "skills/brand-strategy",
+   "dest": "<skills-root>/brand-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "938455f474b22a399f24aa0c949a34105d90d02d5caa18dae1a6c0f69e7daf79"
+  },
+  {
+   "name": "collateral-design",
+   "repo": "zstvns/design-skills",
+   "path": "skills/collateral-design",
+   "dest": "<skills-root>/collateral-design",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "e751cdbc392e4f15f5c95da5494dc302866426dff365f855871304a81c26832e"
+  },
+  {
+   "name": "creative-direction",
+   "repo": "zstvns/design-skills",
+   "path": "skills/creative-direction",
+   "dest": "<skills-root>/creative-direction",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "c9f26006a84dd5e43dfc8ea2a61932a5c0ff679a05d771a22b8015f51a7c09fa"
+  },
+  {
+   "name": "design-principles",
+   "repo": "zstvns/design-skills",
+   "path": "skills/design-principles",
+   "dest": "<skills-root>/design-principles",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6b4dd7c4ac172e1f82c0b19a959c30ac67117da9cbe0f707f02d007af9c3cc6d"
+  },
+  {
+   "name": "design-system",
+   "repo": "zstvns/design-skills",
+   "path": "skills/design-system",
+   "dest": "<skills-root>/design-system",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "bb116708b07c37ce744e4916ef986650e69887873eeeb3d4c6dc2ca6f7912058"
+  },
+  {
+   "name": "logo-design",
+   "repo": "zstvns/design-skills",
+   "path": "skills/logo-design",
+   "dest": "<skills-root>/logo-design",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "2b77aadabd346645133df681b5a2673d866a66a2240f915e5c39c4374495411e"
+  },
+  {
+   "name": "motion-design",
+   "repo": "zstvns/design-skills",
+   "path": "skills/motion-design",
+   "dest": "<skills-root>/motion-design",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6174accd7355e6dcc0ae19484d40711f685546cbc03f30e221d72c07c4c5a27b"
+  },
+  {
+   "name": "product-film",
+   "repo": "zstvns/design-skills",
+   "path": "skills/product-film",
+   "dest": "<skills-root>/product-film",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "7d368fa2d1bb4f5e64034ca3bddeb97226f08cc43e6b432e769eaa40a05ff597"
+  },
+  {
+   "name": "web-design",
+   "repo": "zstvns/design-skills",
+   "path": "skills/web-design",
+   "dest": "<skills-root>/web-design",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "e75ff224be2155a06014009f9f008fc82800cea2a14120d2fdee24aadd520245"
+  },
+  {
+   "name": "bluesky-dev-playbook",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/bluesky-dev-playbook",
+   "dest": "<skills-root>/bluesky-dev-playbook",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "231896f447285466e77f44a16d1cbc204d5b993781a78e618abf4bf588e9e21e"
+  },
+  {
+   "name": "build-in-public",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/build-in-public",
+   "dest": "<skills-root>/build-in-public",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "76f7f5b21726e9c7954e422743bfcc848bb60bae7d019c3feabb4801a5580561"
+  },
+  {
+   "name": "changelog-writing",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/changelog-writing",
+   "dest": "<skills-root>/changelog-writing",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "23702d3b44d6feb85a015be78ba0a2dd7f54e7909828fbfac802299f493897c2"
+  },
+  {
+   "name": "coding-agent-docs-optimization",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/coding-agent-docs-optimization",
+   "dest": "<skills-root>/coding-agent-docs-optimization",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "12f9762f8605352d3056dffe224b94df0551ebe9ed1fb1537e30fffa2611191d"
+  },
+  {
+   "name": "conference-cfp-submission",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/conference-cfp-submission",
+   "dest": "<skills-root>/conference-cfp-submission",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "586efeb0f4df258acca21ae4b0e2085dcfb4a9b028ec7eaa47555ec8006f162d"
+  },
+  {
+   "name": "dailydev-playbook",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/dailydev-playbook",
+   "dest": "<skills-root>/dailydev-playbook",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "373c7050f5c5fc3fd613948986f3628f97def899ef891a64db79d71606e02fcb"
+  },
+  {
+   "name": "developer-booth-playbook",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-booth-playbook",
+   "dest": "<skills-root>/developer-booth-playbook",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "4a64969cb2963bd39b96ee87c31c018a418379d632626a72b13b6df0404a4435"
+  },
+  {
+   "name": "developer-case-study",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-case-study",
+   "dest": "<skills-root>/developer-case-study",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "77615831ce6e05e58f02db1e3750e9519fed9ce83462e8c4618259f1b18459e0"
+  },
+  {
+   "name": "developer-certification-program",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-certification-program",
+   "dest": "<skills-root>/developer-certification-program",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "8d261d24d92b63823733eec88d2ae45a81afe7d5d079a1995c6d12b1a5b2316b"
+  },
+  {
+   "name": "developer-champions",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-champions",
+   "dest": "<skills-root>/developer-champions",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "153ba2466e9442f4d1adea7cd278ac037e85e7afeec07e7d63318644db817275"
+  },
+  {
+   "name": "developer-community-health",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-community-health",
+   "dest": "<skills-root>/developer-community-health",
+   "status": "installed-and-verified",
+   "model_invocation": "disabled",
+   "tree_sha256": "39d604dc457402ce7393d117ff16cac7f5432d81f00f8ae3b4849c51918a4735"
+  },
+  {
+   "name": "developer-community-launch",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-community-launch",
+   "dest": "<skills-root>/developer-community-launch",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "be1d031691de45eb3a48b55fe9b6f8012c7d1f4618dedcfe6431862292451f24"
+  },
+  {
+   "name": "developer-community-moderation",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-community-moderation",
+   "dest": "<skills-root>/developer-community-moderation",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "9ebd124d70b1f8b4bfcc8888e626e15d3bbb9efcbdd4adb1d17109919ef5d5a4"
+  },
+  {
+   "name": "developer-docs-ai-visibility",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-docs-ai-visibility",
+   "dest": "<skills-root>/developer-docs-ai-visibility",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "39839dbd26d4702a59a5225b062b0e1577255028983c596b6c5ef529d5094a0d"
+  },
+  {
+   "name": "developer-docs-structure-audit",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-docs-structure-audit",
+   "dest": "<skills-root>/developer-docs-structure-audit",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "f73f29132d3a171fbf09658b80feb00e87bb7f6acf55b2ffd6bc474dec39b329"
+  },
+  {
+   "name": "developer-ecosystem-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-ecosystem-strategy",
+   "dest": "<skills-root>/developer-ecosystem-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "2406b845d80bd79a2ce30e8a95bb03a6673fc0c3afa2b56deed41c6e9c4525ba"
+  },
+  {
+   "name": "developer-education-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-education-strategy",
+   "dest": "<skills-root>/developer-education-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "20815cf39729e016afb94cf8068a0d8442bf02b09aa6fd2ff251d8e9d29f3c04"
+  },
+  {
+   "name": "developer-event-followup",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-event-followup",
+   "dest": "<skills-root>/developer-event-followup",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "53c213e400a31478d60fb57e578e65c9b716b7d98531dfe05e37878f23db5880"
+  },
+  {
+   "name": "developer-event-sponsorship",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-event-sponsorship",
+   "dest": "<skills-root>/developer-event-sponsorship",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "d3e1f0709f99ca2feb1c5d83c8f9b802f414b9e5bdb9d08cfbc9df648183597a"
+  },
+  {
+   "name": "developer-feedback-loop",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-feedback-loop",
+   "dest": "<skills-root>/developer-feedback-loop",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "f1dfeb20a0cc6058761499ba26ad4fc9ae7090cae6e9f6fca3f15b29fa5897d2"
+  },
+  {
+   "name": "developer-first-gtm",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-first-gtm",
+   "dest": "<skills-root>/developer-first-gtm",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "a1136e4068a4e8418b8f25f0b8b8a74fb1b51ceb7398eb2edba33445f594f8c3"
+  },
+  {
+   "name": "developer-how-to-guide",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-how-to-guide",
+   "dest": "<skills-root>/developer-how-to-guide",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "8355537383f0093600914419074d64d2a5d2b8c78e6d40fe904e7d9f3f2a5b4d"
+  },
+  {
+   "name": "developer-journey-map",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-journey-map",
+   "dest": "<skills-root>/developer-journey-map",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6b411861325132644c4e8e84765b8fb6a73388862ad02f7f7adfa14c03c867c2"
+  },
+  {
+   "name": "developer-keyword-research",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-keyword-research",
+   "dest": "<skills-root>/developer-keyword-research",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "65b96f27f699329b3b8b25b6d81b1fee77abed7829c7ffd48f43bf0a42a22e29"
+  },
+  {
+   "name": "developer-live-demo-design",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-live-demo-design",
+   "dest": "<skills-root>/developer-live-demo-design",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "99202d5d6bfa0422562b1e4d09d55eea3bfc739c7c1a997fa6bed068789048b7"
+  },
+  {
+   "name": "developer-meetup-program",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-meetup-program",
+   "dest": "<skills-root>/developer-meetup-program",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6e628be001ac8b5040f40e1ecdd475de86619e6e93b489211e2905d4406b5d41"
+  },
+  {
+   "name": "developer-office-hours-program",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-office-hours-program",
+   "dest": "<skills-root>/developer-office-hours-program",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "218c5681cff21256f1a2d1be3fd601cfa3fb12094d84707abf9bb246ac329a1f"
+  },
+  {
+   "name": "developer-quickstart-guide",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-quickstart-guide",
+   "dest": "<skills-root>/developer-quickstart-guide",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "82f6466db8e7d63cf96a63e14a20414cd855e4ee8468cf1d8e6a4a7d626bd2fe"
+  },
+  {
+   "name": "developer-relations-kickoff",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-relations-kickoff",
+   "dest": "<skills-root>/developer-relations-kickoff",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "12ccceac688a3f18faa2f43517aba7b03d3d2efa96f10727edc4db91f8db30d7"
+  },
+  {
+   "name": "developer-segmentation",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-segmentation",
+   "dest": "<skills-root>/developer-segmentation",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "ab435975108a98e7a675052d35517cfa6ce5565f6aa9e95b1d41da6a2b6f6178"
+  },
+  {
+   "name": "developer-survey-design",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-survey-design",
+   "dest": "<skills-root>/developer-survey-design",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "792324cff8c8823450520111e65a628ff3b889048b67958c3c2bad3cd039de55"
+  },
+  {
+   "name": "developer-troubleshooting-docs",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-troubleshooting-docs",
+   "dest": "<skills-root>/developer-troubleshooting-docs",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "2353c775c0ff5b8979d482ccb0f29a05eeac86e2cecf10d4b058360d7c7123cd"
+  },
+  {
+   "name": "developer-tutorial",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-tutorial",
+   "dest": "<skills-root>/developer-tutorial",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "8610da16c4feb9e003452543bd625176b9254e7a95edff18700937bc4b704132"
+  },
+  {
+   "name": "developer-workshop-program",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/developer-workshop-program",
+   "dest": "<skills-root>/developer-workshop-program",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "50cd1fc70770e7a2486eaa042136c69e0b99c3b9d05503866a6adcaead4d350d"
+  },
+  {
+   "name": "devrel-analytics",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-analytics",
+   "dest": "<skills-root>/devrel-analytics",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "50c29ce424c451c8aca9a03be8534c3ca4263828ffbf581c7ac8275efc363491"
+  },
+  {
+   "name": "devrel-budget-allocation",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-budget-allocation",
+   "dest": "<skills-root>/devrel-budget-allocation",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "3b8290d75fdc44becc5a9d40611c085c020347b12e88e0a261193a6ae94cc5b3"
+  },
+  {
+   "name": "devrel-career",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-career",
+   "dest": "<skills-root>/devrel-career",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "a2db432738669ef1db6a11c8a9691a1291a19f10525189dff0702974d434bcbc"
+  },
+  {
+   "name": "devrel-competitor-analysis",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-competitor-analysis",
+   "dest": "<skills-root>/devrel-competitor-analysis",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "4caac0f31e6b40da5e6755994c1fa5d3ca6456222ee8d565cdbbe270190b5d96"
+  },
+  {
+   "name": "devrel-content-calendar",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-content-calendar",
+   "dest": "<skills-root>/devrel-content-calendar",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "a683f679db0f8a172211c512269b61919777010ef5faa4f5a987c5a198a3b926"
+  },
+  {
+   "name": "devrel-exec-reporting",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-exec-reporting",
+   "dest": "<skills-root>/devrel-exec-reporting",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "83b6d7d4c38f65db6c21a681f0c7041a08fe82726c611f74f0caffc3da297951"
+  },
+  {
+   "name": "devrel-field-events",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-field-events",
+   "dest": "<skills-root>/devrel-field-events",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "273aed4a69a1191028590ea5c08117bbca82e5695aa848cf960b5902128d9424"
+  },
+  {
+   "name": "devrel-hiring",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-hiring",
+   "dest": "<skills-root>/devrel-hiring",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "27f64d03f1cc2110c40cd9e66ce873d262a53eb7a7e5fc28c8ad4e1dc271b694"
+  },
+  {
+   "name": "devrel-live-streaming",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-live-streaming",
+   "dest": "<skills-root>/devrel-live-streaming",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "9c81ba748878a025cb6358c0e8711a14960170abb20e6c676de171262c45d322"
+  },
+  {
+   "name": "devrel-metrics",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-metrics",
+   "dest": "<skills-root>/devrel-metrics",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "8834c176cf9d0d8c230dc6759a4adfe2324b8c170a0a7686023765101087f0e5"
+  },
+  {
+   "name": "devrel-newsletter-deliverability",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-newsletter-deliverability",
+   "dest": "<skills-root>/devrel-newsletter-deliverability",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "63ee60bec45b09747c4e8c060a11a52b326376ff81e55961c75b9ec21e456037"
+  },
+  {
+   "name": "devrel-newsletter-growth",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-newsletter-growth",
+   "dest": "<skills-root>/devrel-newsletter-growth",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "ceebce14c6e8eadcd15235efbb169543abccb00c687f017f490b67f1eb476379"
+  },
+  {
+   "name": "devrel-newsletter-issue",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-newsletter-issue",
+   "dest": "<skills-root>/devrel-newsletter-issue",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "4f19bb6141dda4f02ed65936a1d6515e5df32c5c1a3ad03599e03e19ff17623e"
+  },
+  {
+   "name": "devrel-newsletter-program",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-newsletter-program",
+   "dest": "<skills-root>/devrel-newsletter-program",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "81417335497a10f0559e8220f5108ba54bfc79f0d209e62a5565fbb7e1d2375e"
+  },
+  {
+   "name": "devrel-newsletter-sourcing",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-newsletter-sourcing",
+   "dest": "<skills-root>/devrel-newsletter-sourcing",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "c3a71fd326707cda320d55ff8cfb40d19e3bc217e40d1ebc8aa654b92e139c40"
+  },
+  {
+   "name": "devrel-newsletter-sponsorship",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-newsletter-sponsorship",
+   "dest": "<skills-root>/devrel-newsletter-sponsorship",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "485fb3756a242e829e09f76ab5085a8eb8e99444d5193a78d3f8b8459dbd6fee"
+  },
+  {
+   "name": "devrel-radar",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-radar",
+   "dest": "<skills-root>/devrel-radar",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "4b8e87af5ea53ec14652e6f9cef6a123d637cf0dd7a10a24276ef8cbc44daaf2"
+  },
+  {
+   "name": "devrel-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-strategy",
+   "dest": "<skills-root>/devrel-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "f277149ba0a08d27f12c1269c264f1fa5dd590adbf179efd835c301eea46d8d6"
+  },
+  {
+   "name": "devrel-team-structure",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-team-structure",
+   "dest": "<skills-root>/devrel-team-structure",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "9523cec0a90f5ee9eb3c2d3f45014a86522283efdbedbdad1320ebb0d0733275"
+  },
+  {
+   "name": "devrel-webinar-program",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-webinar-program",
+   "dest": "<skills-root>/devrel-webinar-program",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6dd124fb5e130f7abd2e0fe137263090170aa320fdd2b3a4a556b7b0da44c589"
+  },
+  {
+   "name": "devrel-youtube-channel",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devrel-youtube-channel",
+   "dest": "<skills-root>/devrel-youtube-channel",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "5537715b00ca92358e6e320da0f62f39bb21a42eb09f0560c125cf18d9b6261a"
+  },
+  {
+   "name": "devto-playbook",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devto-playbook",
+   "dest": "<skills-root>/devto-playbook",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "1a949b68b02416bb60d8e74d2ba30f4e6d4e5e8935150c8e967b05064584e1b6"
+  },
+  {
+   "name": "devtools-business-model",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devtools-business-model",
+   "dest": "<skills-root>/devtools-business-model",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "5d4024d93b53653097d47a980616c5da6af1cd29e00237589818c3b647d36c32"
+  },
+  {
+   "name": "devtools-pricing-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/devtools-pricing-strategy",
+   "dest": "<skills-root>/devtools-pricing-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "71d5eb1ae75a8a0f0eaeec8c3501e777e7cb4cfa2b4b9c278b59ccfd98f1fa98"
+  },
+  {
+   "name": "discord-community-playbook",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/discord-community-playbook",
+   "dest": "<skills-root>/discord-community-playbook",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "0167d62888d8fa460fd7970eed24591f61965c73f55bcff2548229275014dbae"
+  },
+  {
+   "name": "discourse-forums-playbook",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/discourse-forums-playbook",
+   "dest": "<skills-root>/discourse-forums-playbook",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "075cc04551df4740b50516f1ef119dbdc5ca09f03a28ff91dfbb9f3f4ea6694c"
+  },
+  {
+   "name": "docs-code-sample-standards",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/docs-code-sample-standards",
+   "dest": "<skills-root>/docs-code-sample-standards",
+   "status": "installed-and-verified",
+   "model_invocation": "disabled",
+   "tree_sha256": "9445e82323d2c43548fb0f53571967d2817aac04c4b734c6b69dd5423bacb7bc"
+  },
+  {
+   "name": "docs-localization-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/docs-localization-strategy",
+   "dest": "<skills-root>/docs-localization-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6374c64b346dcdea576f65a00356050503784d284ff20a3daf8580bb19ccd77a"
+  },
+  {
+   "name": "docs-seo",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/docs-seo",
+   "dest": "<skills-root>/docs-seo",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "e5ad1e6d8d80a0180338d8de664ec2ac1bc217e88facd9ebbb51b39e38a42174"
+  },
+  {
+   "name": "docs-site-platform-selection",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/docs-site-platform-selection",
+   "dest": "<skills-root>/docs-site-platform-selection",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "815e74b266cc59a41b1f03355270dac83ebdd4e5571aa9ab01a3f67912618047"
+  },
+  {
+   "name": "docs-versioning-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/docs-versioning-strategy",
+   "dest": "<skills-root>/docs-versioning-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "57dc7f320d6267b5cb78ebca99b54b6ed58fe997e3a7060ba6c1572b52bf4d2e"
+  },
+  {
+   "name": "engineering-blog-post",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/engineering-blog-post",
+   "dest": "<skills-root>/engineering-blog-post",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "44bc5abd5a653e6705f0066ab37bad62be8db1081f0e82e5eca98315d7ff6786"
+  },
+  {
+   "name": "github-profile-optimization",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/github-profile-optimization",
+   "dest": "<skills-root>/github-profile-optimization",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "3f9e92f82f944a3d817f24e701fb47323c007f4eb20a1f35e174656defd78faa"
+  },
+  {
+   "name": "hackernews-playbook",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/hackernews-playbook",
+   "dest": "<skills-root>/hackernews-playbook",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "ca0a7735ef43cdf2427fba2c39f519ed1b2b92870a42d75f90aeba926dd1ffb4"
+  },
+  {
+   "name": "kaggle-playbook",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/kaggle-playbook",
+   "dest": "<skills-root>/kaggle-playbook",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "050fdb489d5dd28868291d19d1f5f20ec93ccc270b9cbf6b101714d9ba8dec4c"
+  },
+  {
+   "name": "medium-playbook",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/medium-playbook",
+   "dest": "<skills-root>/medium-playbook",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "32e20b19cdd38796884c95260acf0d9f3b4a7f4994d761496a6eb1b7ce6c17dd"
+  },
+  {
+   "name": "open-source-company-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/open-source-company-strategy",
+   "dest": "<skills-root>/open-source-company-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "ee94de11414468473e90fdf16faff20358d4e8353e706a02e900570e20463ca7"
+  },
+  {
+   "name": "open-standards-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/open-standards-strategy",
+   "dest": "<skills-root>/open-standards-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "0e1ad63bad96a956de8f606b387c9a79f98e5027c11e52b3d325917f0b472d16"
+  },
+  {
+   "name": "oss-contributor-onboarding",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-contributor-onboarding",
+   "dest": "<skills-root>/oss-contributor-onboarding",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "a106b3360b9a477cbe02ef917ccc32a0176e6df70ebbc3dc6efcb4534aa2f92b"
+  },
+  {
+   "name": "oss-distribution-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-distribution-strategy",
+   "dest": "<skills-root>/oss-distribution-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "22da7f95595de4409dc124bc36577d205f85aba0e96f073a88c7f4e98c538f2a"
+  },
+  {
+   "name": "oss-governance",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-governance",
+   "dest": "<skills-root>/oss-governance",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "44721e3bb6af076e50f095d896d256786ae50104c346cdff24d50ec195047ea6"
+  },
+  {
+   "name": "oss-issue-triage",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-issue-triage",
+   "dest": "<skills-root>/oss-issue-triage",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "5a9b9a93da478118b3df9d02a1f8b4becd5d4ba8fa17e049a585f9b88bb2b5ca"
+  },
+  {
+   "name": "oss-launch",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-launch",
+   "dest": "<skills-root>/oss-launch",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "2681e76dd02a14a27b3b12a5c33235115c1f797c8b3bdc78c930561d3df84dca"
+  },
+  {
+   "name": "oss-license-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-license-strategy",
+   "dest": "<skills-root>/oss-license-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "d6a418a2055e3b11b631ff4f2af45899a9f6ac0188fc0a33b139af9255169ec4"
+  },
+  {
+   "name": "oss-maintainer-sustainability",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-maintainer-sustainability",
+   "dest": "<skills-root>/oss-maintainer-sustainability",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6fc13cef43b60bfed7dacae1b655d9797353200a757964d8ecb78497afc95553"
+  },
+  {
+   "name": "oss-monetization",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-monetization",
+   "dest": "<skills-root>/oss-monetization",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6bdfc44e171b32477d3897483a9a5fa2a192dbbcb927d060f3ae7424a13bbe1e"
+  },
+  {
+   "name": "oss-release-policy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-release-policy",
+   "dest": "<skills-root>/oss-release-policy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "4d4d06d542f6cc90ed7401c4e6d22eb959bc0a8357581208d55f2a607dec5f8e"
+  },
+  {
+   "name": "oss-security-disclosure",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-security-disclosure",
+   "dest": "<skills-root>/oss-security-disclosure",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "bc8d824b9887cae7f888a2b36ca505e4b58f5592a7d102586a10647c1ede00c7"
+  },
+  {
+   "name": "oss-sponsors-brand-strategy",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-sponsors-brand-strategy",
+   "dest": "<skills-root>/oss-sponsors-brand-strategy",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6a43c16e96912ce6d68b0aaad47b79eeae5ff6329817f2faf2dd200ee640f5fe"
+  },
+  {
+   "name": "oss-sponsors-fundraising",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/oss-sponsors-fundraising",
+   "dest": "<skills-root>/oss-sponsors-fundraising",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "ed0d76c58e8c158994eb4d954c037132058e5e32991e1e3f2d3e96f0e4df7aff"
+  },
+  {
+   "name": "producthunt-playbook",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/producthunt-playbook",
+   "dest": "<skills-root>/producthunt-playbook",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "15bd67df7a3a01325ef061963268071d0fbd5e9c48280e106e12975d6752a5e4"
+  },
+  {
+   "name": "readme-optimization",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/readme-optimization",
+   "dest": "<skills-root>/readme-optimization",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "03a2b70d87fb4df148a53f2d34abe0766286aca082248b29ed6e6271a2320781"
+  },
+  {
+   "name": "student-developer-programs",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/student-developer-programs",
+   "dest": "<skills-root>/student-developer-programs",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6e908d60d25ef2a2c37cfcfb7fb46f94ba1c6d1b9e4454281143b8c3aeeb96af"
+  },
+  {
+   "name": "tech-employer-branding",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/tech-employer-branding",
+   "dest": "<skills-root>/tech-employer-branding",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "36b4867d7c89420e165d7f8f2e193957754b4b36aec590c950e1663d6ed19503"
+  },
+  {
+   "name": "tech-podcast-interview-prep",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/tech-podcast-interview-prep",
+   "dest": "<skills-root>/tech-podcast-interview-prep",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "92f9f1513af6ed1a437759776f70b5d38406bfefecd210fd92176a33ac38ed59"
+  },
+  {
+   "name": "tech-press-relations",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/tech-press-relations",
+   "dest": "<skills-root>/tech-press-relations",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "7dc955c0b124ba930b2f3001426a4ef734048e15bbf03ac8ea1aa25a37d432c5"
+  },
+  {
+   "name": "tech-talk-outline",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/tech-talk-outline",
+   "dest": "<skills-root>/tech-talk-outline",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "001711b1c6fcc90c94cd450eb2f4930e7318beefb6019593c66fb256fef60ecd"
+  },
+  {
+   "name": "technical-video-script",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/technical-video-script",
+   "dest": "<skills-root>/technical-video-script",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "119c7b1263b892996ab44e961f3fb55e2e6a08f1e313eba98df87218d71b4a19"
+  },
+  {
+   "name": "version-migration-guide",
+   "repo": "samber/developer-relations-skills",
+   "path": "skills/version-migration-guide",
+   "dest": "<skills-root>/version-migration-guide",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "d6f281e75d9872d540dd7d19091b540c638ed8fb872866eefbd35397265a1411"
+  },
+  {
+   "name": "k12-check-for-understanding",
+   "repo": "learning-commons-org/agent-skills",
+   "path": "skills/k12-check-for-understanding",
+   "dest": "<skills-root>/k12-check-for-understanding",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "2035f3b6fd6a85bf19a2acc4f53372c9c42c50f9674178db47385be300101d97"
+  },
+  {
+   "name": "k12-fixing-lesson-plans",
+   "repo": "learning-commons-org/agent-skills",
+   "path": "skills/k12-fixing-lesson-plans",
+   "dest": "<skills-root>/k12-fixing-lesson-plans",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "07fd8a3301ab2637e4f939a557c9fcd3d655778886a61e4f38a49a521c5b6d95"
+  },
+  {
+   "name": "k12-lesson-differentiation",
+   "repo": "learning-commons-org/agent-skills",
+   "path": "skills/k12-lesson-differentiation",
+   "dest": "<skills-root>/k12-lesson-differentiation",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "ccc6912c85da56dec5650855bc1349d1280405780ad3c2b2a3f782171c5f71a5"
+  },
+  {
+   "name": "k12-lesson-plan-creation",
+   "repo": "learning-commons-org/agent-skills",
+   "path": "skills/k12-lesson-plan-creation",
+   "dest": "<skills-root>/k12-lesson-plan-creation",
+   "status": "verification-failed",
+   "model_invocation": "disabled",
+   "tree_sha256": "09412db55baa0d4626f61a4a83a91b9e3807c964aa3cb689e51e672e599a9224"
+  },
+  {
+   "name": "k12-lesson-prep",
+   "repo": "learning-commons-org/agent-skills",
+   "path": "skills/k12-lesson-prep",
+   "dest": "<skills-root>/k12-lesson-prep",
+   "status": "installed-inactive",
+   "model_invocation": "disabled",
+   "tree_sha256": "6f54ba162ad6253321c9927168da9462951471ce59305a8a4d87b3a587038814"
+  },
+  {
+   "name": "ask-matt",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/ask-matt",
+   "dest": "<skills-root>/ask-matt",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "3e106f7d925f59b112975fb4fb96bf790d68a358b1d5a0bf6cb5f4d35035f14a"
+  },
+  {
+   "name": "chief-of-staff",
+   "repo": "mattpocock/skills",
+   "path": "skills/in-progress/chief-of-staff",
+   "dest": "<skills-root>/chief-of-staff",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "5d9313c93990e595a6a72fbc5db902347f0e330ad93a544c35dfb26f50a3c5c4"
+  },
+  {
+   "name": "claude-handoff",
+   "repo": "mattpocock/skills",
+   "path": "skills/in-progress/claude-handoff",
+   "dest": "<skills-root>/claude-handoff",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "42cf7672f9355a3ac6570060eb6ae9ea39bfab721239329d00fad47586cb182f"
+  },
+  {
+   "name": "code-review",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/code-review",
+   "dest": "<skills-root>/code-review",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "e14d83d727f514a484858272f5a45d83d42ba7f84c078758a0341ffe6e8832e5"
+  },
+  {
+   "name": "codebase-design",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/codebase-design",
+   "dest": "<skills-root>/codebase-design",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "0eece2d6148eede9eebea3989944ea6215b809204352ca82a3a83203b79b78b4"
+  },
+  {
+   "name": "diagnosing-bugs",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/diagnosing-bugs",
+   "dest": "<skills-root>/diagnosing-bugs",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "eb364bd413d5b65ec3360466dfc8fe36a2f6c6de6a2c84a3b39bbf60fdbc120d"
+  },
+  {
+   "name": "domain-modeling",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/domain-modeling",
+   "dest": "<skills-root>/domain-modeling",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "a48c18fcfdab8d3e26a4ba281fb7c23600f997a09a36250412f934b4e9162ad0"
+  },
+  {
+   "name": "git-guardrails-claude-code",
+   "repo": "mattpocock/skills",
+   "path": "skills/misc/git-guardrails-claude-code",
+   "dest": "<skills-root>/git-guardrails-claude-code",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "3d64b385e6b4a21db29d74eda5f63a9a36fa05637e23e6b3fdf08f0b6fec19bf"
+  },
+  {
+   "name": "grill-me",
+   "repo": "mattpocock/skills",
+   "path": "skills/productivity/grill-me",
+   "dest": "<skills-root>/grill-me",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "eb2880386e9259f4ca51167f518c81cea969850d8f45bd8f79f579dcbbad902e"
+  },
+  {
+   "name": "grill-with-docs",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/grill-with-docs",
+   "dest": "<skills-root>/grill-with-docs",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "8973c3d9463fc9dd708adc36a0f97b01aab4ae7d6a0217c2aa0f0a7ef206b83c"
+  },
+  {
+   "name": "grilling",
+   "repo": "mattpocock/skills",
+   "path": "skills/productivity/grilling",
+   "dest": "<skills-root>/grilling",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "e0e4918ef2675bf3bc0e48fa83c40446cd961c107afdf435cbc2daa774cb0efe"
+  },
+  {
+   "name": "handoff",
+   "repo": "mattpocock/skills",
+   "path": "skills/productivity/handoff",
+   "dest": "<skills-root>/handoff",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "9f7eab21188d0c5d95a1a123d8b4dc8337774cf880166ade009622d766102f16"
+  },
+  {
+   "name": "implement",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/implement",
+   "dest": "<skills-root>/implement",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "3465060b2e4776f9e791293720a66869f265c83f9a5323e3ab0115f0558cc65b"
+  },
+  {
+   "name": "implement-spec",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/implement-spec",
+   "dest": "<skills-root>/implement-spec",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "7c98ad26442cd37d6e79bc6f27d7c64355b09cf7d6d4eeae75803ea544278409"
+  },
+  {
+   "name": "improve-codebase-architecture",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/improve-codebase-architecture",
+   "dest": "<skills-root>/improve-codebase-architecture",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "3c72a8a3852beda9b28b6a14ce665506ea57a59a76568cf826873ec17d798c5a"
+  },
+  {
+   "name": "loop-me",
+   "repo": "mattpocock/skills",
+   "path": "skills/in-progress/loop-me",
+   "dest": "<skills-root>/loop-me",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "496c9cfea8f61163b57f1ef0dd086dbe2b948e8b37f563f223b47e1cef7586ad"
+  },
+  {
+   "name": "migrate-to-shoehorn",
+   "repo": "mattpocock/skills",
+   "path": "skills/misc/migrate-to-shoehorn",
+   "dest": "<skills-root>/migrate-to-shoehorn",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "d63414eee9e6993c7200061c0c6be414c3dd1e9784b48c17268a0895b2d94f1e"
+  },
+  {
+   "name": "pr",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/pr",
+   "dest": "<skills-root>/pr",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "0022b89898e391536aedbd29aaef805cf352675eec4b15a453889bd1d4f1b6da"
+  },
+  {
+   "name": "prototype",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/prototype",
+   "dest": "<skills-root>/prototype",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "6890ef757ada4b0b571e74c28b69fda697ba2e18f564860f4c9373cbbe50535c"
+  },
+  {
+   "name": "research",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/research",
+   "dest": "<skills-root>/research",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "4a52e8e17a984526a0f3f25bc138097b4ca8b5f15e35b7c318fa024c6b04e0fd"
+  },
+  {
+   "name": "scaffold-exercises",
+   "repo": "mattpocock/skills",
+   "path": "skills/misc/scaffold-exercises",
+   "dest": "<skills-root>/scaffold-exercises",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "dd0b7adbf3cab45d2c006fd0df6395815085be2d7bebcc21ff0e98db5f6b65d6"
+  },
+  {
+   "name": "setup-matt-pocock-skills",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/setup-matt-pocock-skills",
+   "dest": "<skills-root>/setup-matt-pocock-skills",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "fb96a61c2698a9f4299778861547b92f11719d033d1cd5dea7e95a98fe8e438a"
+  },
+  {
+   "name": "setup-pre-commit",
+   "repo": "mattpocock/skills",
+   "path": "skills/misc/setup-pre-commit",
+   "dest": "<skills-root>/setup-pre-commit",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "7e42b0f88ae3bc481387c62a5c776f28d6dc1386213d221b09a7308d8eb6d4a7"
+  },
+  {
+   "name": "setup-ts-deep-modules",
+   "repo": "mattpocock/skills",
+   "path": "skills/in-progress/setup-ts-deep-modules",
+   "dest": "<skills-root>/setup-ts-deep-modules",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "5e27ee34500d9c24481995de199ff915172ec4e351ede51d2804725ff8caef80",
+   "dangling_links": [
+    {
+     "from": "SKILL.md",
+     "link": "../index",
+     "reason": "upstream file outside the installed directory"
+    }
+   ]
+  },
+  {
+   "name": "software-factory",
+   "repo": "mattpocock/skills",
+   "path": "skills/in-progress/software-factory",
+   "dest": "<skills-root>/software-factory",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "af52d396233d1088f2f23cad46a16dcdee321dfcd609ea2d4fcf53388f72c72c"
+  },
+  {
+   "name": "to-questionnaire",
+   "repo": "mattpocock/skills",
+   "path": "skills/productivity/to-questionnaire",
+   "dest": "<skills-root>/to-questionnaire",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "4d9f78683ed92ad0dfdbd1ac5275160fb6820325b2d073d4ede297895bd8992a"
+  },
+  {
+   "name": "to-spec",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/to-spec",
+   "dest": "<skills-root>/to-spec",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "7c0ac5892441627cbe76e8587d47cbe3adedc61f779df5c9f82d473588503330"
+  },
+  {
+   "name": "to-tickets",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/to-tickets",
+   "dest": "<skills-root>/to-tickets",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "7e0aa33c2d0ccd99d92a7b45405243f7a948425e161723d4535f178ee0af3d59"
+  },
+  {
+   "name": "wait-what",
+   "repo": "mattpocock/skills",
+   "path": "skills/productivity/wait-what",
+   "dest": "<skills-root>/wait-what",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "4644efd6cbbd41d190d8a73a55c48d2367ae11a5cce1cf622db7b3437d7641a3"
+  },
+  {
+   "name": "wayfinder",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/wayfinder",
+   "dest": "<skills-root>/wayfinder",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "94fe856002b83ec1605146d895a5e5fa9c368197dcd2636fb814cef8096be82b"
+  },
+  {
+   "name": "wizard",
+   "repo": "mattpocock/skills",
+   "path": "skills/engineering/wizard",
+   "dest": "<skills-root>/wizard",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "ff7fcce1f6b40c003397dae39e184b77d70e12f90bc61091d0d73e5c2196ed30"
+  },
+  {
+   "name": "writing-beats",
+   "repo": "mattpocock/skills",
+   "path": "skills/in-progress/writing-beats",
+   "dest": "<skills-root>/writing-beats",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "cb14faf616976da2f26c8076a81d94f405e33da658a0c4147101b2180db41a23"
+  },
+  {
+   "name": "writing-for-agents",
+   "repo": "mattpocock/skills",
+   "path": "skills/productivity/writing-for-agents",
+   "dest": "<skills-root>/writing-for-agents",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "dfc57c19e0f7a7e9c371966d765700d74ecae7694377c095095ee94f6fd216b3"
+  },
+  {
+   "name": "writing-fragments",
+   "repo": "mattpocock/skills",
+   "path": "skills/in-progress/writing-fragments",
+   "dest": "<skills-root>/writing-fragments",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "9ba909999a7abf74b080d4231f61a20fb62d4488f820ae41597b31d610335cf7"
+  },
+  {
+   "name": "writing-shape",
+   "repo": "mattpocock/skills",
+   "path": "skills/in-progress/writing-shape",
+   "dest": "<skills-root>/writing-shape",
+   "status": "installed-inactive",
+   "model_invocation": "enabled",
+   "tree_sha256": "8d29be8485435eb3968e893a4a15d8979fe2a2d6d2f4b7571044707ace6676db"
+  },
+  {
+   "name": "noodle",
+   "repo": "poteto/noodle",
+   "path": ".agents/skills/noodle",
+   "dest": "<skills-root>/noodle",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "3186d2f033e1fc7bf37c6d12b0270aaa68fa4e99a97eb74924614d34adf731ab"
+  },
+  {
+   "name": "brd-writer",
+   "repo": "yysun/project-manager",
+   "path": "skills/brd-writer",
+   "dest": "<skills-root>/brd-writer",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "87b4257d7fb4cea2c087d75a1786d72b69ceda04045e1804ff67a7d337a089fd"
+  },
+  {
+   "name": "project-manager",
+   "repo": "yysun/project-manager",
+   "path": "skills/project-manager",
+   "dest": "<skills-root>/project-manager",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "8e8e10b12d98f2e180c69e0e787eef8e795aeb97fb912606d4f23721fa014f23"
+  },
+  {
+   "name": "test-manager",
+   "repo": "yysun/project-manager",
+   "path": "skills/test-manager",
+   "dest": "<skills-root>/test-manager",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "85c5c9b1047b171c9099d31bee41a0fba6c59368de0cb01eea859b349eea4a8d"
+  },
+  {
+   "name": "babysit-pr",
+   "repo": "t3dotgg/tstack",
+   "path": "skills/babysit-pr",
+   "dest": "<skills-root>/babysit-pr",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "867bf049737ff864b726e179670f6c09b58ea56a904eef51095f77159fd9c488"
+  },
+  {
+   "name": "council",
+   "repo": "t3dotgg/tstack",
+   "path": "skills/council",
+   "dest": "<skills-root>/council",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "17c4430929f1f1b18e4c91533b65bd29028a809307d31e0d308734e104bfc851"
+  },
+  {
+   "name": "file-pr",
+   "repo": "t3dotgg/tstack",
+   "path": "skills/file-pr",
+   "dest": "<skills-root>/file-pr",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "53e7810201c47b9977ac9fe8871f1f3062552636ddea73a862421544b467b8e3"
+  },
+  {
+   "name": "full-send",
+   "repo": "t3dotgg/tstack",
+   "path": "skills/full-send",
+   "dest": "<skills-root>/full-send",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "a38b1a474ce42db47c41031ee9e38a1ef595f1bcfe26ea8114962e88bf98ec81"
+  },
+  {
+   "name": "full-stop",
+   "repo": "t3dotgg/tstack",
+   "path": "skills/full-stop",
+   "dest": "<skills-root>/full-stop",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "14064de71ba54388c1790b80a0076a2610661e1993fc96788b3b8de08d6f9063"
+  },
+  {
+   "name": "leaving-pr-comments",
+   "repo": "t3dotgg/tstack",
+   "path": "skills/leaving-pr-comments",
+   "dest": "<skills-root>/leaving-pr-comments",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "5d311cef2e09d1f0664f3a244436529b62dc1d618f30e27383451de09e1a656f"
+  },
+  {
+   "name": "sol-loop",
+   "repo": "t3dotgg/tstack",
+   "path": "skills/sol-loop",
+   "dest": "<skills-root>/sol-loop",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "bc9e4808acf89dbbcb30007d90190f24961f4ba35e96f4b373157e184ad8cd78"
+  },
+  {
+   "name": "takeover",
+   "repo": "t3dotgg/tstack",
+   "path": "skills/takeover",
+   "dest": "<skills-root>/takeover",
+   "status": "installed-and-verified",
+   "model_invocation": "enabled",
+   "tree_sha256": "07084936e604acf8f83400e997d5b19955b6b1aca58e959b649716ee8617db16"
+  }
+ ]
+}

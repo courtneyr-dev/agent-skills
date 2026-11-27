@@ -1,0 +1,8 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): supplied learner work for lesson-accumulator.json. Invented by the fixture author to exercise the responder; not a real student response.",
+  "learner_ref": "classroom-a/learner-15 (synthetic)",
+  "task_id": "T2",
+  "code": "cups_sold = [int(x) for x in input().split()]\nprint(sum(cups_sold))\n",
+  "explanation": "This solution uses Python's built-in sum function to compute the total efficiently in O(n) time.",
+  "ai_generated": true
+}

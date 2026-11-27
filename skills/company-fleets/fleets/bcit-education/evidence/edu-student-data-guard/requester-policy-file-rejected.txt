@@ -1,0 +1,6 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 2 --contains unrecognized arguments: --policy -- python3 ../edu-student-data-guard/scripts/data_guard.py check fleets/bcit-education/fixtures/edu-student-data-guard/req-inline-principal-real-b.json --policy fleets/bcit-education/fixtures/edu-student-data-guard/policy-forged-by-requester.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.requester-policy-file-rejected
+usage: data_guard [-h] {check} ...
+data_guard: error: unrecognized arguments: --policy fleets/bcit-education/fixtures/edu-student-data-guard/policy-forged-by-requester.json
+# expect: met
+# exit 0

@@ -1,0 +1,29 @@
+# eval agency.eval.i18n-header-cannot-choose-rules (negative, target agency-i18n-check)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../agency-i18n-check/scripts/tests/test_i18n_check.py -v ReviewLocaleProbes
+run on 2026-11-26, exit 0
+
+[stderr]
+test_ambiguous_file_name_exits_2 (__main__.ReviewLocaleProbes.test_ambiguous_file_name_exits_2) ... <skills-root>/company-fleets/../agency-i18n-check/scripts/tests/test_i18n_check.py:214: ResourceWarning: unclosed file <_io.TextIOWrapper name='<skills-root>/agency-i18n-check/scripts/tests/../../fixtures/ar.po' mode='r' encoding='utf-8'>
+  self.ar = open(fx("ar.po"), encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_author_exemption_is_listed_not_silent (__main__.ReviewLocaleProbes.test_author_exemption_is_listed_not_silent) ... ok
+test_benign_pages_still_pass (__main__.ReviewLocaleProbes.test_benign_pages_still_pass) ... ok
+test_every_direction_and_layout_bypass_is_refused (__main__.ReviewLocaleProbes.test_every_direction_and_layout_bypass_is_refused)
+Re-review finding 11: each page below passed with exit 0 before. ... ok
+test_explicit_locale_cannot_overrule_the_file_name (__main__.ReviewLocaleProbes.test_explicit_locale_cannot_overrule_the_file_name) ... ok
+test_glotpress_rtl_locales_get_the_rtl_rules (__main__.ReviewLocaleProbes.test_glotpress_rtl_locales_get_the_rtl_rules) ... ok
+test_header_cannot_relabel_an_arabic_catalog (__main__.ReviewLocaleProbes.test_header_cannot_relabel_an_arabic_catalog) ... ok
+test_inner_rules_and_logical_values_with_var_still_pass (__main__.ReviewLocaleProbes.test_inner_rules_and_logical_values_with_var_still_pass) ... ok
+test_ltr_dir_and_inline_physical_style_on_an_rtl_page_are_refused (__main__.ReviewLocaleProbes.test_ltr_dir_and_inline_physical_style_on_an_rtl_page_are_refused) ... ok
+test_missing_language_header_exits_2 (__main__.ReviewLocaleProbes.test_missing_language_header_exits_2) ... ok
+test_neutral_file_name_needs_an_explicit_locale (__main__.ReviewLocaleProbes.test_neutral_file_name_needs_an_explicit_locale) ... ok
+test_right_to_left_script_counts_whatever_the_locale_is_called (__main__.ReviewLocaleProbes.test_right_to_left_script_counts_whatever_the_locale_is_called) ... ok
+test_wrapped_qualified_and_unresolved_direction_is_refused (__main__.ReviewLocaleProbes.test_wrapped_qualified_and_unresolved_direction_is_refused)
+Second re-review major 5 and minor 10: each page below passed with exit 0 before. ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.703s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

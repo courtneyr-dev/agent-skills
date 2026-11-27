@@ -1,0 +1,14 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "status": "awaiting-learner-response" --contains "feedback": null --contains "progress_claim": null --absent tests-failing -- python3 ../cs-classroom-instruction/scripts/lesson.py respond fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json fleets/bcit-education/fixtures/cs-classroom-instruction/learner-empty.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.cs-empty-work-awaits
+{
+  "progress_claim": null,
+  "note": "The script never records mastery or progress. The teacher of record reviews the work and decides.",
+  "task_id": "T2",
+  "learner_ref": "classroom-a/learner-19 (synthetic)",
+  "status": "awaiting-learner-response",
+  "feedback": null,
+  "next_action": null,
+  "reason": "The supplied work is empty. Nothing was attempted, so there is nothing to give feedback on."
+}
+# expect: met
+# exit 0

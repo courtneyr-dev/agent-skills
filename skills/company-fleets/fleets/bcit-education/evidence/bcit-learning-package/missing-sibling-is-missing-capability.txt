@@ -1,0 +1,43 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains missing-capability --absent "ok": true -- python3 ../bcit-learning-package/scripts/package_check.py check fleets/bcit-education/fixtures/bcit-unit-store/package.json --skills-root fleets/bcit-education/fixtures/bcit-unit-store/empty-skills-root
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.missing-sibling-is-missing-capability
+{
+  "ok": false,
+  "errors": [
+    {
+      "code": "missing-capability",
+      "message": "edu-assessment-check is not installed at <skills-root>/company-fleets/fleets/bcit-education/fixtures/bcit-unit-store/empty-skills-root/edu-assessment-check/scripts/assessment_check.py; this part of the package is unchecked"
+    },
+    {
+      "code": "missing-capability",
+      "message": "edu-answer-key-check is not installed at <skills-root>/company-fleets/fleets/bcit-education/fixtures/bcit-unit-store/empty-skills-root/edu-answer-key-check/scripts/answer_key.py; this part of the package is unchecked"
+    },
+    {
+      "code": "missing-capability",
+      "message": "edu-standards-alignment is not installed at <skills-root>/company-fleets/fleets/bcit-education/fixtures/bcit-unit-store/empty-skills-root/edu-standards-alignment/scripts/standards_check.py; this part of the package is unchecked"
+    }
+  ],
+  "notes": [],
+  "checks": {
+    "assessment": {
+      "skill": "edu-assessment-check",
+      "status": "missing-capability",
+      "ok": false,
+      "message": "edu-assessment-check is not installed at <skills-root>/company-fleets/fleets/bcit-education/fixtures/bcit-unit-store/empty-skills-root/edu-assessment-check/scripts/assessment_check.py; this part of the package is unchecked"
+    },
+    "answer_key": {
+      "skill": "edu-answer-key-check",
+      "status": "missing-capability",
+      "ok": false,
+      "message": "edu-answer-key-check is not installed at <skills-root>/company-fleets/fleets/bcit-education/fixtures/bcit-unit-store/empty-skills-root/edu-answer-key-check/scripts/answer_key.py; this part of the package is unchecked"
+    },
+    "alignment": {
+      "skill": "edu-standards-alignment",
+      "status": "missing-capability",
+      "ok": false,
+      "message": "edu-standards-alignment is not installed at <skills-root>/company-fleets/fleets/bcit-education/fixtures/bcit-unit-store/empty-skills-root/edu-standards-alignment/scripts/standards_check.py; this part of the package is unchecked"
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): BCIT learning package for the student-run store unit. Draft: standards mappings are gaps or unverified; no learning evidence has been collected."
+}
+# expect: met
+# exit 0

@@ -1,0 +1,14 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): microteaching observation instrument. Empty of observations; a human observer fills it.",
+  "instrument_id": "fixture-co-bcit-microteaching-v1",
+  "use": "A human supervisor or peer observer completes one copy per 12-minute microteaching segment.",
+  "rating_scale": [0, 1, 2, 3],
+  "items": [
+    {"id": "OB1", "focus": "Business accuracy", "evidence_line": "business_subject_mastery", "iste_educator_labels": [], "look_fors": ["States break-even as fixed costs divided by contribution margin per unit", "Classifies the printer lease as fixed and ink as variable, with the store example"]},
+    {"id": "OB2", "focus": "Spreadsheet modeling", "evidence_line": "technology_fluency", "iste_educator_labels": ["Designer"], "look_fors": ["Builds formulas from cell references, not typed numbers", "Changes the price cell to show the model updating"]},
+    {"id": "OB3", "focus": "Worked example, then faded practice", "evidence_line": "pedagogical_competence", "iste_educator_labels": ["Designer", "Facilitator"], "look_fors": ["Shows one complete example and names why each step happens", "Removes steps for the next example instead of repeating the full demo"]},
+    {"id": "OB4", "focus": "Checking for understanding from actual responses", "evidence_line": "pedagogical_competence", "iste_educator_labels": ["Analyst", "Facilitator"], "look_fors": ["Asks peers to predict before computing", "Follows up differently depending on the answers given"]},
+    {"id": "OB5", "focus": "Access and accessibility", "evidence_line": "pedagogical_competence", "iste_educator_labels": ["Designer", "Citizen"], "look_fors": ["Offers the printed or low-bandwidth version", "Avoids color-only cues in the spreadsheet", "Reads numbers aloud as well as showing them"]}
+  ],
+  "observations": []
+}

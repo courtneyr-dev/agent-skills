@@ -1,0 +1,622 @@
+{
+  "schema_version": 1,
+  "fleet": "devrel",
+  "evals": [
+    {
+      "id": "devrel.eval.replay-quickstart",
+      "kind": "positive",
+      "target": "devrel.docs-architect",
+      "input": "Replay the Fixture Co quickstart in a clean environment with the sample app as its asset.",
+      "expected": "Exit 0; all four machine criteria true; criterion 5 (unfamiliar reader) unverified; sandbox-exec isolation named.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "../devrel-quickstart-replay/scripts/replay.py",
+          "fleets/devrel/fixtures/docs/quickstart.md",
+          "--asset",
+          "fleets/devrel/fixtures/fixture-co-notes"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/replay-quickstart.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/docs/quickstart.md"
+      ]
+    },
+    {
+      "id": "devrel.eval.replay-workshop-lab",
+      "kind": "positive",
+      "target": "devrel.developer-educator",
+      "input": "Replay workshop lab 1 clean.",
+      "expected": "Exit 0; notes 1 and 3 found by --contains oat.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "../devrel-quickstart-replay/scripts/replay.py",
+          "fleets/devrel/fixtures/docs/workshop-lab.md",
+          "--asset",
+          "fleets/devrel/fixtures/fixture-co-notes"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/replay-workshop-lab.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/docs/workshop-lab.md"
+      ]
+    },
+    {
+      "id": "devrel.eval.replay-feedback-repro",
+      "kind": "positive",
+      "target": "devrel.feedback-liaison",
+      "input": "Replay the FB-1 repro (empty title returns HTTP 500) clean.",
+      "expected": "Exit 0: the defect reproduces from a clean environment, so product receives a reproducible issue.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "../devrel-quickstart-replay/scripts/replay.py",
+          "fleets/devrel/fixtures/docs/feedback-repro.md",
+          "--asset",
+          "fleets/devrel/fixtures/fixture-co-notes"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/replay-feedback-repro.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/docs/feedback-repro.md"
+      ]
+    },
+    {
+      "id": "devrel.eval.replay-hidden-prereq-fails",
+      "kind": "negative",
+      "target": "devrel.sample-app-engineer",
+      "input": "Replay a quickstart that relies on FIXTURE_NOTES_PORT exported in its author's shell.",
+      "expected": "Replay exits 1 at step 3 (no server address); the author's environment never leaks in.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "python3 ../devrel-quickstart-replay/scripts/replay.py fleets/devrel/fixtures/docs/quickstart-hidden-prereq.md --asset fleets/devrel/fixtures/fixture-co-notes; test $? -eq 1"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/replay-hidden-prereq-fails.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/docs/quickstart-hidden-prereq.md"
+      ]
+    },
+    {
+      "id": "devrel.eval.replay-rejects-unmarked-doc",
+      "kind": "boundary",
+      "target": "devrel.demo-producer",
+      "input": "Replay untrusted developer feedback that contains no tier=run block.",
+      "expected": "Exit 2 invalid input: nothing runs, so text in an unmarked doc can never execute.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "python3 ../devrel-quickstart-replay/scripts/replay.py fleets/devrel/fixtures/untrusted/docs-feedback.md; test $? -eq 2"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/replay-rejects-unmarked-doc.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/untrusted/docs-feedback.md"
+      ]
+    },
+    {
+      "id": "devrel.eval.replay-unit-tests",
+      "kind": "positive",
+      "target": "devrel-quickstart-replay",
+      "input": "Run the replay unit tests.",
+      "expected": "All pass: invalid input rejected, env isolation, home-read denial, process cleanup, budget.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "-W",
+          "ignore",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "../devrel-quickstart-replay/scripts/tests",
+          "-p",
+          "test_*.py",
+          "-v"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/replay-unit-tests.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "devrel.eval.program-good-passes",
+      "kind": "positive",
+      "target": "devrel-program-kit",
+      "input": "Check the Fixture Co program plan.",
+      "expected": "Exit 0: non-goals, usefulness headline, attribution limits, owner-to-provide budget, replay evidence per chain link.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "../devrel-program-kit/scripts/check_program.py",
+          "fleets/devrel/fixtures/program/program-good.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/program-good-passes.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/program/program-good.json"
+      ]
+    },
+    {
+      "id": "devrel.eval.program-reach-only-refused",
+      "kind": "negative",
+      "target": "devrel.content-editor",
+      "input": "Check a plan with a reach-only headline, an unsourced testimonial, 'DevRel drove $1.2M', an invented budget and memory as the context store.",
+      "expected": "Exit 1 with reach-headline, fabrication-risk, causal-revenue, invented-budget, competing-context, untested-chain and unmeasured-usability.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "python3 ../devrel-program-kit/scripts/check_program.py fleets/devrel/fixtures/program/program-reach-only.json; test $? -eq 1"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/program-reach-only-refused.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/program/program-reach-only.json"
+      ]
+    },
+    {
+      "id": "devrel.eval.program-boundary-passes",
+      "kind": "boundary",
+      "target": "devrel.developer-advocate",
+      "input": "Check a plan at the wording edges: 'caused' only inside an attribution denial, a sourced and consented synthetic quote, a mixed headline.",
+      "expected": "Exit 0: denials of causation and sourced claims pass.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "../devrel-program-kit/scripts/check_program.py",
+          "fleets/devrel/fixtures/program/program-boundary.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/program-boundary-passes.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/program/program-boundary.json"
+      ]
+    },
+    {
+      "id": "devrel.eval.routes-installed-pass",
+      "kind": "positive",
+      "target": "devrel-program-kit",
+      "input": "Check the launch short-list after fallbacks replaced the uninstalled route.",
+      "expected": "Exit 0; seven routes installed.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "../devrel-program-kit/scripts/check_routes.py",
+          "--skills-root",
+          "..",
+          "routes",
+          "fleets/devrel/fixtures/program/routes-installed.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/routes-installed-pass.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/program/routes-installed.json"
+      ]
+    },
+    {
+      "id": "devrel.eval.routes-launch-flags-sibling",
+      "kind": "negative",
+      "target": "devrel-program-kit",
+      "input": "Check a kickoff short-list that routes to samber/developer-platform-skills@sample-app-strategy.",
+      "expected": "Exit 1; the route is sibling-not-installed with fallbacks docs-code-sample-standards and devrel-quickstart-replay, coverage partial.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "python3 ../devrel-program-kit/scripts/check_routes.py --skills-root .. routes fleets/devrel/fixtures/program/routes-launch.json; test $? -eq 1"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/routes-launch-flags-sibling.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/program/routes-launch.json"
+      ]
+    },
+    {
+      "id": "devrel.eval.routes-scan-finds-drift",
+      "kind": "boundary",
+      "target": "devrel-program-kit",
+      "input": "Scan devto-playbook and medium-playbook, which name samber/developer-relations-skills@substack-playbook.",
+      "expected": "One drift finding: named in this collection but absent from its tree, distinct from a missing sibling.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "python3 ../devrel-program-kit/scripts/check_routes.py --skills-root .. scan ../devto-playbook ../medium-playbook | tee /dev/stderr | python3 -c 'import json,sys; r=json.load(sys.stdin); assert r[\"counts\"].get(\"drift\") == 1, r[\"counts\"]'"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/routes-scan-finds-drift.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "devrel.eval.program-kit-unit-tests",
+      "kind": "positive",
+      "target": "devrel-program-kit",
+      "input": "Run the program-kit unit tests.",
+      "expected": "All pass.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "-W",
+          "ignore",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "../devrel-program-kit/scripts/tests",
+          "-p",
+          "test_*.py",
+          "-v"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/program-kit-unit-tests.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "devrel.eval.resolve-docs-and-workshop",
+      "kind": "positive",
+      "target": "devrel.program-lead",
+      "input": "Resolve the docs-and-workshop workload under the devrel profile.",
+      "expected": "One coordinator (devrel.program-lead), five roles, only devrel roles files read.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "bin/fleet resolve --profile devrel --workload devrel.workload.docs-and-workshop | tee /dev/stderr | python3 -c 'import json,sys; r=json.load(sys.stdin); print(sorted(x[\"id\"] for x in r[\"roles\"])); assert r[\"coordinator\"]; assert [x for x in r[\"files_read\"] if x.startswith(\"fleets/\")] == [\"fleets/devrel/roles.json\"], r[\"files_read\"]'"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/resolve-docs-and-workshop.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "devrel.eval.resolve-product-adds-onboarding",
+      "kind": "boundary",
+      "target": "devrel.onboarding-specialist",
+      "input": "Resolve the same workload under the product profile.",
+      "expected": "by_profile adds devrel.onboarding-specialist and nothing else.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "bin/fleet resolve --profile product --workload devrel.workload.docs-and-workshop | tee /dev/stderr | python3 -c 'import json,sys; r=json.load(sys.stdin); print(sorted(x[\"id\"] for x in r[\"roles\"])); assert r[\"coordinator\"]; assert \"devrel.onboarding-specialist\" in [x[\"id\"] for x in r[\"roles\"]] and len(r[\"roles\"]) == 6'"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/resolve-product-adds-onboarding.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "devrel.eval.resolve-program-plan",
+      "kind": "positive",
+      "target": "devrel.program-analyst",
+      "input": "Resolve the program-plan workload.",
+      "expected": "Coordinator plus analyst and researcher.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "bin/fleet resolve --profile devrel --workload devrel.workload.program-plan | tee /dev/stderr | python3 -c 'import json,sys; r=json.load(sys.stdin); print(sorted(x[\"id\"] for x in r[\"roles\"])); assert r[\"coordinator\"]; pass'"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/resolve-program-plan.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "devrel.eval.resolve-feedback-to-product",
+      "kind": "positive",
+      "target": "devrel.feedback-liaison",
+      "input": "Resolve the feedback-to-product workload.",
+      "expected": "Coordinator plus feedback liaison and researcher.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "bin/fleet resolve --profile devrel --workload devrel.workload.feedback-to-product | tee /dev/stderr | python3 -c 'import json,sys; r=json.load(sys.stdin); print(sorted(x[\"id\"] for x in r[\"roles\"])); assert r[\"coordinator\"]; pass'"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/resolve-feedback-to-product.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "devrel.eval.resolve-event-program",
+      "kind": "positive",
+      "target": "devrel.events-manager",
+      "input": "Resolve the event-program workload.",
+      "expected": "Coordinator plus events, advocate, demo and content roles; the blocked hackathon skill is listed with its reason.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "bin/fleet resolve --profile devrel --workload devrel.workload.event-program | tee /dev/stderr | python3 -c 'import json,sys; r=json.load(sys.stdin); print(sorted(x[\"id\"] for x in r[\"roles\"])); assert r[\"coordinator\"]; assert any(s.get(\"blocked_reason\") for x in r[\"roles\"] for s in x[\"skills\"])'"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/resolve-event-program.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "devrel.eval.resolve-ecosystem-and-oss",
+      "kind": "positive",
+      "target": "devrel.partner-engineer",
+      "input": "Resolve the ecosystem-and-oss workload.",
+      "expected": "Coordinator plus partner engineer and OSS liaison.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "bin/fleet resolve --profile devrel --workload devrel.workload.ecosystem-and-oss | tee /dev/stderr | python3 -c 'import json,sys; r=json.load(sys.stdin); print(sorted(x[\"id\"] for x in r[\"roles\"])); assert r[\"coordinator\"]; pass'"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/resolve-ecosystem-and-oss.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "devrel.eval.resolve-community-profile-refused",
+      "kind": "negative",
+      "target": "devrel.program-lead",
+      "input": "Resolve a DevRel workload under the community profile, which doesn't activate the devrel fleet.",
+      "expected": "Exit 1: the router can't load DevRel roles for a community-only workload.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "bin/fleet resolve --profile community --workload devrel.workload.program-plan; test $? -eq 1"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/resolve-community-profile-refused.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "devrel.eval.untrusted-feedback-scan",
+      "kind": "positive",
+      "target": "devrel.feedback-liaison",
+      "input": "Scan developer feedback FB-3, which embeds authority, evidence, exfiltration and publication redirects.",
+      "expected": "Lines 7, 8, 9 and 11 flagged; the output also reports line 10 ('Publish ... now without review'). The scanner missed line 10 until the foundation widened it on 2026-11-26 and now flags it (5 findings). The protected-field guard holds either way (see untrusted-feedback-held).",
+      "check": {
+        "method": "script",
+        "argv": [
+          "sh",
+          "-c",
+          "bin/fleet scan fleets/devrel/fixtures/untrusted/docs-feedback.md | tee /dev/stderr | python3 -c 'import json,sys; r=json.load(sys.stdin); lines = {f[\"line\"] for f in r[\"findings\"]}; assert {7, 8, 9, 11} <= lines, lines; print(\"scanner flags line 10:\", 10 in lines)'"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/untrusted-feedback-scan.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/untrusted/docs-feedback.md"
+      ]
+    },
+    {
+      "id": "devrel.eval.untrusted-feedback-held",
+      "kind": "negative",
+      "target": "devrel.feedback-liaison",
+      "input": "Apply a worker update that tries to take acceptance, raise publication, lower criteria and add an external destination, while carrying FB-3's legitimate finding.",
+      "expected": "Four protected fields refused; publication stays staged-only; the --contains finding goes through; the handoff validates.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "-W",
+          "ignore",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "fleets/devrel/tests",
+          "-p",
+          "test_*.py",
+          "-v",
+          "-k",
+          "UntrustedFeedback"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/untrusted-feedback-held.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/handoff/owner.json"
+      ]
+    },
+    {
+      "id": "devrel.eval.replay-evidence-goes-stale",
+      "kind": "boundary",
+      "target": "devrel.docs-architect",
+      "input": "Bind a clean replay report to the quickstart bytes in a handoff, then edit the quickstart.",
+      "expected": "Fresh evidence satisfies the gate; after the edit the output is reported as changed and the evidence no longer counts.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "-W",
+          "ignore",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "fleets/devrel/tests",
+          "-p",
+          "test_*.py",
+          "-v",
+          "-k",
+          "CleanReplayHandoff"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/replay-evidence-goes-stale.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/devrel/fixtures/handoff/contract.json"
+      ]
+    },
+    {
+      "id": "devrel.eval.devrel-cannot-read-moderation-case",
+      "kind": "negative",
+      "target": "devrel.oss-liaison",
+      "input": "A DevRel principal (tenant fixture-co, confidential clearance) asks for Community A's moderation case.",
+      "expected": "Refused: moderation cases never cross tenants by default, even when marked an approved abstraction.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "-W",
+          "ignore",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "fleets/devrel/tests",
+          "-p",
+          "test_*.py",
+          "-v",
+          "-k",
+          "Tenancy"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/devrel/evidence/devrel-cannot-read-moderation-case.txt",
+        "run_on": "2026-11-26"
+      },
+      "fixtures": [
+        "fleets/community/fixtures/moderation/case-cm-1.json"
+      ]
+    },
+    {
+      "id": "devrel.eval.human-onboarding-usability",
+      "kind": "boundary",
+      "target": "devrel.dx-researcher",
+      "input": "Measure whether an unfamiliar developer reaches the quickstart's success moment unaided.",
+      "expected": "Needs a session with real, consenting readers; a replay or a model can't stand in for it.",
+      "check": {
+        "method": "human"
+      },
+      "synthetic": false,
+      "outcome": {
+        "status": "blocked",
+        "note": "Human-data boundary: no reader sessions have been run; human usability stays unverified"
+      }
+    }
+  ]
+}

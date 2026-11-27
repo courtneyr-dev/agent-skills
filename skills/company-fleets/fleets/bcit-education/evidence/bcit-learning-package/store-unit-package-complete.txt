@@ -1,0 +1,51 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "ok": true --contains standards coverage is partial -- python3 ../bcit-learning-package/scripts/package_check.py check fleets/bcit-education/fixtures/bcit-unit-store/package.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.store-unit-package-complete
+{
+  "ok": true,
+  "errors": [],
+  "notes": [
+    "standards coverage is partial; the package is labeled a draft until a teacher verifies the mappings"
+  ],
+  "checks": {
+    "assessment": {
+      "skill": "edu-assessment-check",
+      "status": "ran",
+      "exit": 0,
+      "ok": true,
+      "errors": [],
+      "flags": []
+    },
+    "answer_key": {
+      "skill": "edu-answer-key-check",
+      "status": "ran",
+      "exit": 0,
+      "ok": true,
+      "summary": {
+        "match": 7,
+        "mismatch": 0,
+        "error": 0,
+        "unsupported": 0,
+        "submitted_mismatch": 0
+      },
+      "flagged": []
+    },
+    "alignment": {
+      "skill": "edu-standards-alignment",
+      "status": "ran",
+      "exit": 0,
+      "ok": true,
+      "errors": 0,
+      "coverage": "partial",
+      "supported_counts": {
+        "gap": 6,
+        "unverified": 3,
+        "partial": 0,
+        "verified": 0,
+        "not-applicable": 0
+      }
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): BCIT learning package for the student-run store unit. Draft: standards mappings are gaps or unverified; no learning evidence has been collected."
+}
+# expect: met
+# exit 0

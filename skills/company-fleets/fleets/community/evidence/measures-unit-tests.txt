@@ -1,0 +1,30 @@
+$ python3 -W ignore -m unittest discover -s ../community-health-measures/scripts/tests -p 'test_*.py' -v
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.measures-unit-tests (positive, target community-health-measures, synthetic=True)
+# expected: All pass.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+test_groups_below_the_minimum_are_suppressed_not_estimated (test_measures.Aggregate.test_groups_below_the_minimum_are_suppressed_not_estimated) ... ok
+test_output_names_no_one_and_drops_confidential_and_withdrawn_records (test_measures.Aggregate.test_output_names_no_one_and_drops_confidential_and_withdrawn_records) ... ok
+test_repeat_records_from_one_person_do_not_reach_the_floor (test_measures.Aggregate.test_repeat_records_from_one_person_do_not_reach_the_floor) ... ok
+test_a_case_like_record_type_is_refused (test_measures.CaseRecordsNeverFeedMetrics.test_a_case_like_record_type_is_refused) ... ok
+test_a_case_metric_is_refused_from_its_words (test_measures.CaseRecordsNeverFeedMetrics.test_a_case_metric_is_refused_from_its_words) ... ok
+test_records_marked_as_cases_are_dropped (test_measures.CaseRecordsNeverFeedMetrics.test_records_marked_as_cases_are_dropped) ... ok
+test_aggregate_refuses_a_plan_that_fails_lint (test_measures.Cli.test_aggregate_refuses_a_plan_that_fails_lint) ... ok
+test_aggregate_refuses_to_publish_a_case_count (test_measures.Cli.test_aggregate_refuses_to_publish_a_case_count) ... ok
+test_invalid_input_is_rejected (test_measures.Cli.test_invalid_input_is_rejected) ... ok
+test_defined_sourced_aggregated_metric_passes (test_measures.Lint.test_defined_sourced_aggregated_metric_passes) ... ok
+test_group_floor_consent_and_source_are_required (test_measures.Lint.test_group_floor_consent_and_source_are_required) ... ok
+test_inferred_burnout_and_protected_traits_are_refused (test_measures.Lint.test_inferred_burnout_and_protected_traits_are_refused) ... ok
+test_moderation_cases_never_feed_metrics (test_measures.Lint.test_moderation_cases_never_feed_metrics) ... ok
+test_sales_leads_are_refused_but_leadership_is_not (test_measures.Lint.test_sales_leads_are_refused_but_leadership_is_not) ... ok
+test_undefined_health_score_is_refused_and_a_defined_one_passes (test_measures.Lint.test_undefined_health_score_is_refused_and_a_defined_one_passes) ... ok
+test_volunteer_rankings_are_refused (test_measures.Lint.test_volunteer_rankings_are_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.010s
+
+OK

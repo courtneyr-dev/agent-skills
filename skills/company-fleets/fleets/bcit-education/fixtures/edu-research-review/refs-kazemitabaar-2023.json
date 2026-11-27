@@ -1,0 +1,31 @@
+{
+  "label": "DERIVED FROM A REAL PUBLIC PAPER (not synthetic): reference entries copied from the reference list of Kazemitabaar et al. 2023, arXiv 2302.07427v2 (CC BY 4.0), as printed there. Surnames only; identifiers only where the paper prints one.",
+  "source": "Kazemitabaar, Chow, Ma, Ericson, Weintrop, Grossman (2023). Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming. CHI '23. arXiv 2302.07427v2.",
+  "references": [
+    {"id": "P-doi", "doi": "10.1145/3544548.3580919", "cited": {"title": "Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming", "year": 2023, "authors": ["Kazemitabaar", "Chow", "Ma", "Ericson", "Weintrop", "Grossman"]}},
+    {"id": "P-arxiv", "arxiv": "2302.07427", "cited": {"title": "Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming", "year": 2023, "authors": ["Kazemitabaar", "Chow", "Ma", "Ericson", "Weintrop", "Grossman"]}},
+    {"id": "Altadmri2015", "cited": {"title": "37 million compilations: Investigating novice programming mistakes in large-scale student data", "year": 2015, "authors": ["Altadmri", "Brown"]}},
+    {"id": "Becker2019", "cited": {"title": "50 years of cs1 at sigcse: A review of the evolution of introductory programming education research", "year": 2019, "authors": ["Becker", "Quille"]}},
+    {"id": "Chen2021", "arxiv": "2107.03374", "cited": {"title": "Evaluating large language models trained on code", "year": 2021, "authors": ["Chen", "Tworek", "Jun"]}},
+    {"id": "Ericson2017", "cited": {"title": "Solving parsons problems versus fixing and writing code", "year": 2017, "authors": ["Ericson", "Margulieux", "Rick"]}},
+    {"id": "Ericson2018", "cited": {"title": "Evaluating the efficiency and effectiveness of adaptive parsons problems", "year": 2018, "authors": ["Ericson", "Foley", "Rick"]}},
+    {"id": "Feng2020", "arxiv": "2002.08155", "cited": {"title": "Codebert: A pre-trained model for programming and natural languages", "year": 2020, "authors": ["Feng", "Guo", "Tang"]}},
+    {"id": "FinnieAnsley2022", "cited": {"title": "The robots are coming: Exploring the implications of openai codex on introductory programming", "year": 2022, "authors": ["Finnie-Ansley", "Denny", "Becker"]}},
+    {"id": "Franklin2020", "cited": {"title": "An Analysis of Use-Modify-Create Pedagogical Approach's Success in Balancing Structure and Student Agency", "year": 2020, "authors": ["Franklin", "Coenraad", "Palmer"]}},
+    {"id": "Grover2013", "cited": {"title": "Computational thinking in K-12: A review of the state of the field", "year": 2013, "authors": ["Grover", "Pea"]}},
+    {"id": "Kirschner2006", "cited": {"title": "Why unguided learning does not work: An analysis of the failure of discovery learning, problem-based learning, experiential learning and inquiry-based learning", "year": 2006, "authors": ["Kirschner", "Sweller", "Clark"]}},
+    {"id": "Kumar2013", "cited": {"title": "A study of the influence of code-tracing problems on code-writing skills", "year": 2013, "authors": ["Kumar"]}},
+    {"id": "Lister2009", "cited": {"title": "Further evidence of a relationship between explaining, tracing and writing skills in introductory programming", "year": 2009, "authors": ["Lister", "Fidge", "Teague"]}},
+    {"id": "Lu2021", "arxiv": "2102.04664", "cited": {"title": "Codexglue: A machine learning benchmark dataset for code understanding and generation", "year": 2021, "authors": ["Lu", "Guo", "Ren"]}},
+    {"id": "LuxtonReilly2018", "cited": {"title": "Introductory programming: a systematic literature review", "year": 2018, "authors": ["Luxton-Reilly", "Albluwi", "Becker"]}},
+    {"id": "Margulieux2012", "cited": {"title": "Subgoal-labeled instructional material improves performance and transfer in learning to develop mobile applications", "year": 2012, "authors": ["Margulieux", "Guzdial", "Catrambone"]}},
+    {"id": "Parsons2006", "cited": {"title": "Parson's programming puzzles: a fun and effective learning tool for first programming courses", "year": 2006, "authors": ["Parsons", "Haden"]}},
+    {"id": "Popat2019", "cited": {"title": "Learning to code or coding to learn? A systematic review", "year": 2019, "authors": ["Popat", "Starkey"]}},
+    {"id": "Qian2017", "cited": {"title": "Students' misconceptions and other difficulties in introductory programming: A literature review", "year": 2017, "authors": ["Qian", "Lehman"]}},
+    {"id": "Resnick2009", "cited": {"title": "Scratch: programming for all", "year": 2009, "authors": ["Resnick", "Maloney", "Monroy-Hernandez"]}},
+    {"id": "Sarsa2022", "cited": {"title": "Automatic generation of programming exercises and code explanations using large language models", "year": 2022, "authors": ["Sarsa", "Denny", "Hellas", "Leinonen"]}},
+    {"id": "Sweller2019", "cited": {"title": "Cognitive architecture and instructional design: 20 years later", "year": 2019, "authors": ["Sweller", "van Merrienboer", "Paas"]}},
+    {"id": "Vaithilingam2022", "cited": {"title": "Expectation vs. experience: Evaluating the usability of code generation tools powered by large language models", "year": 2022, "authors": ["Vaithilingam", "Zhang", "Glassman"]}},
+    {"id": "Wing2006", "cited": {"title": "Computational thinking", "year": 2006, "authors": ["Wing"]}}
+  ]
+}

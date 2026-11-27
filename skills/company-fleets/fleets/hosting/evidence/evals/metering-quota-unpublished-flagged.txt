@@ -1,0 +1,88 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json violations.0.tenant_id=tenant-b --json violations.0.reasons.0=missing-published-value --json quotas.0.status=warn --json quotas.2.status=over -- python3 ../hosting-metering-reconcile/scripts/metering.py usage --events fleets/hosting/fixtures/metering/usage-events.jsonl --quotas fleets/hosting/fixtures/metering/quotas.json
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.metering-quota-unpublished-flagged kind negative synthetic true
+{
+  "assumptions": [
+    "A repeated event_id counts once (first delivery wins) and is listed under duplicates, so a retried meter delivery never double-bills. Ids are compared with surrounding whitespace stripped.",
+    "A new event_id with the same tenant, meter, quantity and ts as an earlier event counts once and fails the check as same-payload-new-id: a human decides whether it is a retry.",
+    "A duplicate event_id carrying a different tenant, meter or quantity is a conflict: the first value counts and the check fails.",
+    "Quota status is a stated policy: warn at or above 80 percent of the limit, over only when used exceeds the limit.",
+    "A quota is publishable only when it is customer-visible, has a unit, and its published value equals the enforced limit.",
+    "Usage has no time window here: pass the events for one billing period."
+  ],
+  "command": "usage",
+  "duplicates": [
+    {
+      "event_id": "evt-a-003",
+      "first_line": 4,
+      "identical": true,
+      "line": 5,
+      "meter": "bandwidth_gb",
+      "quantity": "50",
+      "tenant_id": "tenant-a"
+    }
+  ],
+  "policy": {
+    "over_means": "used > limit",
+    "warn_at": "0.80"
+  },
+  "quotas": [
+    {
+      "limit": "300",
+      "meter": "bandwidth_gb",
+      "status": "warn",
+      "tenant_id": "tenant-a",
+      "unit": "GB",
+      "used": "250.5",
+      "utilization": "0.8350"
+    },
+    {
+      "limit": "100",
+      "meter": "storage_gb",
+      "status": "ok",
+      "tenant_id": "tenant-a",
+      "unit": "GB",
+      "used": "40",
+      "utilization": "0.4000"
+    },
+    {
+      "limit": "400",
+      "meter": "bandwidth_gb",
+      "status": "over",
+      "tenant_id": "tenant-b",
+      "unit": "GB",
+      "used": "500.25",
+      "utilization": "1.2506"
+    },
+    {
+      "limit": "100",
+      "meter": "storage_gb",
+      "status": "ok",
+      "tenant_id": "tenant-b",
+      "unit": "GB",
+      "used": "75",
+      "utilization": "0.7500"
+    }
+  ],
+  "totals": {
+    "tenant-a": {
+      "bandwidth_gb": "250.5",
+      "storage_gb": "40"
+    },
+    "tenant-b": {
+      "bandwidth_gb": "500.25",
+      "storage_gb": "75"
+    }
+  },
+  "verdict": "violation",
+  "violations": [
+    {
+      "meter": "storage_gb",
+      "reasons": [
+        "missing-published-value"
+      ],
+      "tenant_id": "tenant-b"
+    }
+  ]
+}
+# expect: met
+# exit 0

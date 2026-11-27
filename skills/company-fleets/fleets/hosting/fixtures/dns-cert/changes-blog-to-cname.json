@@ -1,0 +1,10 @@
+{
+  "label": "SYNTHETIC: blog moves from an A record to a CNAME at 2026-12-01T12:00:00Z.",
+  "changes": [
+    {
+      "name": "blog",
+      "type": "CNAME",
+      "at": "2026-12-01T12:00:00Z"
+    }
+  ]
+}

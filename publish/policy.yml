@@ -818,6 +818,17 @@ skills:
   job-search:
     mode: public-authored
     reason: public-only; no private counterpart (nearest relative devrel2026 is employer-specific)
+  company-fleets:
+    mode: public-authored
+    reason: public edition of a private rig skill; run output, review reports, demo output and machine
+      paths are left out, upstream skill attachments are marked external, and paths are config-driven
+  factory-rig:
+    mode: public-authored
+    reason: public edition of a private rig skill; live-pilot evidence and the settings.json allowlist
+      writer are left out, and every machine path is an environment variable with a skill-relative default
+  factory-execute:
+    mode: public-authored
+    reason: public edition; the implementation worker factory-rig dispatches
 retired: {}
 reviewed_policy_corrections:
   gatherer: '''she owns'' -> ''you own'' (public had ''owns'')'

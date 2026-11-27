@@ -1,0 +1,949 @@
+{
+  "schema_version": 1,
+  "fleet": "bcit-education",
+  "skills": [
+    {
+      "id": "edu-standards-alignment",
+      "fleet": "bcit-education",
+      "summary": "Checks objective-to-standard alignments and professional-source references against live-verified registries; missing, protected or unverified sources become honest gaps.",
+      "triggers": [
+        "Map a unit, course or module to standards",
+        "Check NBEA ten-area or ISTE educator-role coverage",
+        "Check whether a standard edition or identifier is right",
+        "Review a document that names educator organizations"
+      ],
+      "boundaries": [
+        "Does not decide what a standard's text means for a lesson; the teacher of record reviews it",
+        "Stores no protected standard or assessment text",
+        "Never records memberships or credentials"
+      ],
+      "inputs": [
+        "Alignment JSON (objective, criterion, record id, standard id, status)",
+        "Program map with area labels",
+        "Organization reference list"
+      ],
+      "prerequisites": [
+        "Python 3.9+",
+        "The two registries in references/"
+      ],
+      "method": [
+        "Validate both registries",
+        "Compute the supported status per row from source status, identifier scheme, audience, edition and adoption, and human review",
+        "Mark overclaims as errors",
+        "Report NBEA or ISTE label coverage",
+        "Check organization names and relations"
+      ],
+      "stopping_conditions": [
+        "Every row has a supported status and every error is fixed or kept as a recorded gap",
+        "A needed source is unreachable: keep the gap and name the human resume step"
+      ],
+      "output_contract": "JSON with ok, errors, coverage (verified|partial|gap), supported counts, per-objective best status and per-row findings; exit 0 ok, 1 findings or invalid, 2 usage.",
+      "failure_states": [
+        "invalid input",
+        "invalid-registry",
+        "overclaimed rows",
+        "restricted or bundled content"
+      ],
+      "references": [
+        {
+          "title": "Standards registry (23 records, live-verified)",
+          "location": "skills/edu-standards-alignment/references/standards-registry.json",
+          "version": "verified 2026-11-25",
+          "rights": "Metadata and public labels only; per-record license fields"
+        },
+        {
+          "title": "CSTA K-12 Computer Science Standards",
+          "location": "https://csteachers.org/pk12standards/",
+          "version": "2026 (and superseded 2017)",
+          "rights": "CC BY-NC-SA; cite identifiers, never bundle text"
+        },
+        {
+          "title": "NOCTI blueprints",
+          "location": "https://www.nocti.org/credentials/blueprints/",
+          "version": "live index 2026-11-25",
+          "rights": "No reproduction or incorporation into retrieval systems without consent"
+        },
+        {
+          "title": "Organizations registry (12 records, live-verified)",
+          "location": "skills/edu-standards-alignment/references/organizations.json",
+          "version": "verified 2026-11-25",
+          "rights": "Knowledge sources only; no membership"
+        }
+      ],
+      "scripts": [
+        "scripts/standards_check.py",
+        "scripts/tests/test_standards_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "bcit-education.eval.standards-honest-gaps-pass",
+          "bcit-education.eval.source-registries-valid",
+          "bcit-education.eval.org-sources-cited-correctly",
+          "bcit-education.eval.nbea-ten-areas-covered"
+        ],
+        "negative": [
+          "bcit-education.eval.standards-overclaim-rejected",
+          "bcit-education.eval.missing-standard-is-a-gap",
+          "bcit-education.eval.standards-mixup-and-edition-caught",
+          "bcit-education.eval.computing-only-not-bcit",
+          "bcit-education.eval.org-credential-claims-rejected",
+          "bcit-education.eval.invented-wellformed-ids-rejected"
+        ],
+        "boundary": [
+          "bcit-education.eval.district-adoption-preserved"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Learning Commons Knowledge Graph",
+          "kind": "api",
+          "required": false
+        }
+      ],
+      "missing_capability": "Without a verified source the row is a gap naming the source and limitation; connector availability is never treated as standards coverage.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets education workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "partial",
+          "note": "NBEA and PBEA pages refused automated fetches; district curriculum and local policies are unknown, so those records are gaps"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/unittest.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No router session has selected this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/standards-honest-gaps-pass.txt",
+          "note": "10 script cases on synthetic fixtures; see evals.json. No classroom use measured."
+        }
+      }
+    },
+    {
+      "id": "edu-answer-key-check",
+      "fleet": "bcit-education",
+      "summary": "Executes spreadsheet formulas, SQL queries, Python code and calculations in an answer key or solution and compares results with the key and any submitted answer.",
+      "triggers": [
+        "Check an answer key before a lesson or assessment ships",
+        "Verify a formula, query or code answer",
+        "Check an intentionally incorrect practice solution"
+      ],
+      "boundaries": [
+        "Does not grade real learners",
+        "Spreadsheet engine is a declared subset, not Excel",
+        "Runs only teaching-example code"
+      ],
+      "inputs": [
+        "Answer-key JSON with items of kind spreadsheet, sql, python or calc"
+      ],
+      "prerequisites": [
+        "Python 3.9+ with sqlite3"
+      ],
+      "method": [
+        "Work each key by hand",
+        "Execute every item",
+        "Compare executed result with key and submitted answer",
+        "Report unsupported constructs as unchecked"
+      ],
+      "stopping_conditions": [
+        "Every item matches",
+        "Each remaining finding is recorded with the side believed wrong"
+      ],
+      "output_contract": "JSON with ok, engine versions, summary counts, flagged ids and per-item computed, key, key_status and submitted_status; exit 0 only when all match.",
+      "failure_states": [
+        "unsupported construct",
+        "execution error (div/0, circular, SQL, crash, timeout)",
+        "invalid input"
+      ],
+      "references": [
+        {
+          "title": "Microsoft Support: PMT, FV and ROUND functions",
+          "location": "https://support.microsoft.com/",
+          "version": "pages current 2026-11",
+          "rights": "Cited, not copied"
+        },
+        {
+          "title": "SQLite via Python sqlite3",
+          "location": "https://www.sqlite.org/",
+          "version": "printed in each result",
+          "rights": "Public domain"
+        }
+      ],
+      "scripts": [
+        "scripts/answer_key.py",
+        "scripts/tests/test_answer_key.py"
+      ],
+      "evals": {
+        "positive": [
+          "bcit-education.eval.unit-answer-key-executes",
+          "bcit-education.eval.teacher-module-answer-key-verified"
+        ],
+        "negative": [
+          "bcit-education.eval.incorrect-solution-caught",
+          "bcit-education.eval.teacher-module-draft-key-error-caught",
+          "bcit-education.eval.teacher-module-candidate-errors-caught"
+        ],
+        "boundary": [
+          "bcit-education.eval.unsupported-formula-not-passed"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Spreadsheet application (Excel, Sheets, LibreOffice)",
+          "kind": "cli",
+          "required": false
+        }
+      ],
+      "missing_capability": "No spreadsheet application is installed; formulas outside the subset are reported unsupported and must be checked in the real tool by a person.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets education workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/bcit-education/evidence/edu-answer-key-check/unittest.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No router session has selected this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/bcit-education/evidence/edu-answer-key-check/unit-answer-key-executes.txt",
+          "note": "6 script cases on synthetic fixtures; see evals.json. No classroom use measured."
+        }
+      }
+    },
+    {
+      "id": "edu-assessment-check",
+      "fleet": "bcit-education",
+      "summary": "Checks objective, task, rubric and scoring-rationale alignment, evidence validity for the objective's level, and construct-irrelevant barriers.",
+      "triggers": [
+        "Review a rubric, quiz, lab or performance task",
+        "Ask whether a quiz is enough evidence",
+        "Check an assessment for fairness or accessibility barriers"
+      ],
+      "boundaries": [
+        "Does not score learners",
+        "Reading grade is a screen a teacher confirms",
+        "Refuses unlabeled student work"
+      ],
+      "inputs": [
+        "Assessment JSON with objectives, tasks, rubric and optional student work"
+      ],
+      "prerequisites": [
+        "Python 3.9+"
+      ],
+      "method": [
+        "Check alignment",
+        "Check evidence validity (recall-only, output-only)",
+        "Flag reading, tool, access, color and speed barriers outside the construct",
+        "Refuse unlabeled student work"
+      ],
+      "stopping_conditions": [
+        "No errors and no flags, or each accepted flag has a teacher's written reason"
+      ],
+      "output_contract": "JSON with ok, errors, flags (code, where, message) and per-objective tasks and criteria; exit 0 only when both lists are empty.",
+      "failure_states": [
+        "invalid input",
+        "alignment errors",
+        "validity errors",
+        "fairness flags"
+      ],
+      "references": [
+        {
+          "title": "Anderson and Krathwohl, A Taxonomy for Learning, Teaching, and Assessing",
+          "location": "ISBN 0-8013-1903-X",
+          "version": "2001",
+          "rights": "Cited; level names only"
+        },
+        {
+          "title": "Standards for Educational and Psychological Testing",
+          "location": "https://www.testingstandards.net/",
+          "version": "2014",
+          "rights": "Cited"
+        },
+        {
+          "title": "CAST UDL Guidelines",
+          "location": "https://udlguidelines.cast.org/",
+          "version": "3.0",
+          "rights": "Cited"
+        }
+      ],
+      "scripts": [
+        "scripts/assessment_check.py",
+        "scripts/tests/test_assessment_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "bcit-education.eval.assessment-aligned"
+        ],
+        "negative": [
+          "bcit-education.eval.recall-quiz-rejected",
+          "bcit-education.eval.passing-code-not-understanding",
+          "bcit-education.eval.fairness-barriers-flagged",
+          "bcit-education.eval.mislabeled-recall-quiz-rejected",
+          "bcit-education.eval.mislabeled-ai-output-rejected",
+          "bcit-education.eval.prompt-paid-tool-online-flagged"
+        ],
+        "boundary": [
+          "bcit-education.eval.speed-construct-not-flagged"
+        ]
+      },
+      "adapters": [],
+      "missing_capability": "No adapter needed; real student work waits for edu-student-data-guard.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets education workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/bcit-education/evidence/edu-assessment-check/unittest.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No router session has selected this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/bcit-education/evidence/edu-assessment-check/assessment-aligned.txt",
+          "note": "5 script cases on synthetic fixtures; see evals.json. No classroom use measured."
+        }
+      }
+    },
+    {
+      "id": "edu-student-data-guard",
+      "fleet": "bcit-education",
+      "summary": "Student-data policy adapter: decides whether a workflow may read one student-related record under company-fleets tenant rules and the school's verified policy.",
+      "triggers": [
+        "Before any roster, grade, accommodation or learner-work task",
+        "Before sending anything student-related anywhere"
+      ],
+      "boundaries": [
+        "Not a legal determination",
+        "Authorizes no real record until a named human verifies the school policy"
+      ],
+      "inputs": [
+        "Request JSON (principal, record, data origin, tool, purpose, destination)",
+        "School policy JSON (fixed path)",
+        "Owner grants JSON (fixed path)",
+        "Tenants file (fixed path)"
+      ],
+      "prerequisites": [
+        "company-fleets installed beside it (imports fleetlib.tenancy)"
+      ],
+      "method": [
+        "Apply the tenant rule with the owner-recorded grants; another classroom's student records stay refused whatever the grant",
+        "Require a complete human-verified policy for real data",
+        "Refuse external destinations for student records"
+      ],
+      "stopping_conditions": [
+        "A decision is printed; only a human-verified policy, or a human grant in the owner file for a record that is not a student record, changes a refusal"
+      ],
+      "output_contract": "JSON with decision allow|refuse, reasons, policy_verified and the request; exit 0 allow, 1 refuse.",
+      "failure_states": [
+        "invalid request",
+        "unknown principal or record",
+        "tenant boundary",
+        "human-data boundary"
+      ],
+      "references": [
+        {
+          "title": "FERPA, 20 U.S.C. 1232g; 34 CFR Part 99",
+          "location": "https://www.ecfr.gov/current/title-34/subtitle-A/part-99",
+          "version": "current",
+          "rights": "Public law; cited, not interpreted"
+        },
+        {
+          "title": "COPPA, 15 U.S.C. 6501-6506; PPRA, 20 U.S.C. 1232h",
+          "location": "https://uscode.house.gov/",
+          "version": "current",
+          "rights": "Public law; cited"
+        }
+      ],
+      "scripts": [
+        "scripts/data_guard.py",
+        "scripts/tests/test_data_guard.py"
+      ],
+      "evals": {
+        "positive": [
+          "bcit-education.eval.same-classroom-synthetic-allowed"
+        ],
+        "negative": [
+          "bcit-education.eval.classroom-b-roster-refused",
+          "bcit-education.eval.external-roster-send-refused",
+          "bcit-education.eval.inline-principal-refused"
+        ],
+        "boundary": [
+          "bcit-education.eval.real-records-stop-at-boundary",
+          "bcit-education.eval.requester-policy-file-rejected"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "School student-information system or LMS",
+          "kind": "api",
+          "required": false
+        }
+      ],
+      "missing_capability": "No school system is connected; the adapter is the unverified policy file and every real-data request is refused.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets education workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "partial",
+          "note": "The actual school's policy is unknown, so the adapter enforces refusal for real data until a person fills and verifies it"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/bcit-education/evidence/edu-student-data-guard/unittest.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No router session has selected this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/bcit-education/evidence/edu-student-data-guard/same-classroom-synthetic-allowed.txt",
+          "note": "4 script cases on synthetic fixtures; see evals.json. No classroom use measured."
+        }
+      }
+    },
+    {
+      "id": "bcit-learning-package",
+      "fleet": "bcit-education",
+      "summary": "Builds and checks a complete BCIT unit package and runs the assessment, answer-key and standards checks on its own files.",
+      "triggers": [
+        "A teacher asks for a BCIT unit, lab or lesson sequence",
+        "Review a BCIT unit for completeness"
+      ],
+      "boundaries": [
+        "Not the teacher of record",
+        "Generates no learner answers, observations, grades or gains",
+        "Not for CS interactive teaching or generic K-12 core subjects"
+      ],
+      "inputs": [
+        "Course context from the teacher",
+        "Package manifest and files"
+      ],
+      "prerequisites": [
+        "edu-assessment-check, edu-answer-key-check and edu-standards-alignment installed"
+      ],
+      "method": [
+        "Draft objectives",
+        "Map standards honestly",
+        "Write the assessment first",
+        "Write teacher guide, student materials and worked example",
+        "Run package_check and fix every error"
+      ],
+      "stopping_conditions": [
+        "package_check ok, or each error reported to the teacher as a blocker"
+      ],
+      "output_contract": "A package folder plus package_check JSON (ok, errors, notes, sibling results); exit 0 ok, 1 findings, 2 usage.",
+      "failure_states": [
+        "file-missing",
+        "section-missing",
+        "demand-lowered",
+        "invented-learning-evidence",
+        "missing-capability"
+      ],
+      "references": [
+        {
+          "title": "Learning Commons agent-skills (k12-lesson-differentiation, k12-fixing-lesson-plans)",
+          "location": "https://github.com/learning-commons-org/agent-skills",
+          "version": "b23623c8b50fe0f5fd4e657b1d3c0e3e6618ada6",
+          "rights": "Apache-2.0; LICENSE and NOTICE kept in each installed skill"
+        },
+        {
+          "title": "Wiggins and McTighe, Understanding by Design",
+          "location": "ISBN 978-1-4166-0035-0",
+          "version": "Expanded 2nd edition, 2005",
+          "rights": "Cited"
+        }
+      ],
+      "scripts": [
+        "scripts/package_check.py",
+        "scripts/tests/test_package_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "bcit-education.eval.store-unit-package-complete"
+        ],
+        "negative": [
+          "bcit-education.eval.incomplete-package-rejected"
+        ],
+        "boundary": [
+          "bcit-education.eval.missing-sibling-is-missing-capability"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "LMS or gradebook",
+          "kind": "api",
+          "required": false
+        }
+      ],
+      "missing_capability": "No LMS is connected; delivery stays with the teacher, and a missing sibling skill is reported as unchecked.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets education workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/bcit-education/evidence/bcit-learning-package/unittest.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No router session has selected this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/bcit-education/evidence/bcit-learning-package/store-unit-package-complete.txt",
+          "note": "3 script cases on synthetic fixtures; see evals.json. No classroom use measured."
+        }
+      }
+    },
+    {
+      "id": "cs-classroom-instruction",
+      "fleet": "bcit-education",
+      "summary": "Builds a runnable school CS lesson package and responds to supplied learner work with executed, specific feedback; never invents learner responses or progress.",
+      "triggers": [
+        "A CS teacher needs a lesson or lab for a recorded grade band",
+        "Feedback is needed on learner code, a prediction or a trace the learner actually supplied",
+        "A CS answer key or worked example needs executing before use"
+      ],
+      "boundaries": [
+        "Does not invent learner responses, grades or learning gains",
+        "Passing tests, typing speed, memorized syntax or AI output are not evidence of understanding",
+        "Does not verify the teaching assignment or certification; records them as unverified",
+        "Cites CSTA by label and link only; no standards text",
+        "University (CS2023) expectations need a bridge via edu-learning-progression",
+        "Handles synthetic or teacher-supplied work only; real student records go through the school's approved process"
+      ],
+      "inputs": [
+        "Objective, grade band, prior knowledge, duration and actual environment",
+        "Teaching assignment status (PA CSPG 71 for CS 7-12)",
+        "Supplied learner work JSON for respond"
+      ],
+      "prerequisites": [
+        "Python 3.9+ for scripts/lesson.py"
+      ],
+      "method": [
+        "State the objective and prior knowledge",
+        "Show a complete runnable example",
+        "Ask the learner to predict, trace, modify, explain or construct",
+        "Wait for the actual response",
+        "Run lesson.py respond and give feedback quoting the actual output",
+        "Adjust support with decision points and misconception probes",
+        "Assess transfer with a new problem",
+        "Run lesson.py check before use"
+      ],
+      "stopping_conditions": [
+        "check returns ok true",
+        "respond returned one status for the supplied work; the next step waits for the learner",
+        "Python unavailable: deliver the package marked unexecuted"
+      ],
+      "output_contract": "check prints {ok, errors, examples, task_runs}; respond prints {status, feedback, next_action, tests, misconceptions, progress_claim: null} with status awaiting-learner-response, tests-failing, prediction-differs, not-yet-evidence-of-understanding or ready-for-teacher-review.",
+      "failure_states": [
+        "Exit 2 invalid input: unreadable JSON, missing task_id or an undefined task",
+        "Exit 1 from check: wrong stated output, rubric accepting passing code, teacher standard on a student objective, bundled standards text, missing alternative or transfer task",
+        "Learner code timing out after 5 seconds is a failing test"
+      ],
+      "references": [
+        {
+          "title": "CSTA K-12 Computer Science Standards",
+          "location": "https://csteachers.org/pk12standards/",
+          "version": "2026 edition (district-adopted edition wins; 2017 kept as csta-k12-2017)",
+          "rights": "Noncommercial share-alike license; cite label and link, never bundle text"
+        },
+        {
+          "title": "CSTA Standards for CS Teachers",
+          "location": "https://csteachers.org/teacherstandards/",
+          "version": "2020",
+          "rights": "Noncommercial share-alike license; teacher practice only, never a student objective"
+        },
+        {
+          "title": "ACM/IEEE-CS/AAAI CS2023",
+          "location": "https://csed.acm.org/",
+          "version": "2023",
+          "rights": "Cite and link; university scope, bridge required before K-12 use"
+        },
+        {
+          "title": "Pennsylvania CSPG 71, Computer Science 7-12",
+          "location": "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-71-computer-science-7-12",
+          "version": "As published on pa.gov; live check recorded in the edu-standards-alignment registry",
+          "rights": "Public government guidance"
+        },
+        {
+          "title": "Learning Commons agent skills (k12-*)",
+          "location": "https://github.com/learning-commons-org/agent-skills",
+          "version": "commit b23623c8 (2026-11-19)",
+          "rights": "Apache-2.0; copyright Anthropic, PBC and Learning Commons; LICENSE and NOTICE kept in each installed skill; used by invocation only"
+        }
+      ],
+      "scripts": [
+        "scripts/lesson.py",
+        "scripts/tests/test_lesson.py"
+      ],
+      "evals": {
+        "positive": [
+          "bcit-education.eval.cs-lesson-runs-complete",
+          "bcit-education.eval.cs-feedback-quotes-off-by-one",
+          "bcit-education.eval.cs-trace-ready-for-teacher-review",
+          "bcit-education.eval.cs-prediction-misconception"
+        ],
+        "negative": [
+          "bcit-education.eval.cs-wrong-answer-key-caught",
+          "bcit-education.eval.cs-passing-code-not-evidence",
+          "bcit-education.eval.cs-ai-output-not-evidence",
+          "bcit-education.eval.cs-rubric-passing-code-rejected"
+        ],
+        "boundary": [
+          "bcit-education.eval.cs-empty-work-awaits",
+          "bcit-education.eval.cs-unknown-task-refused"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Local Python 3 (python3 -I, temp dir, minimal env, 5 s timeout)",
+          "kind": "cli",
+          "required": true
+        },
+        {
+          "name": "School sandbox or LMS autograder for real learner code",
+          "kind": "cli",
+          "required": false
+        },
+        {
+          "name": "Learning Commons k12 skills (general pedagogy, by invocation)",
+          "kind": "document",
+          "required": false
+        }
+      ],
+      "missing_capability": "Without Python, deliver the package with every expected output marked not executed; never present an unexecuted answer key as checked.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets education workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Covers ED-020 to ED-028, ED-032, ED-051 and the CS parts of ED-052; classroom effectiveness is not measured"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/unittest.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No router session has selected this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/evalrun.txt",
+          "note": "11 script cases passed on 2026-11-25 against synthetic fixtures; no classroom use measured"
+        }
+      }
+    },
+    {
+      "id": "edu-learning-progression",
+      "fleet": "bcit-education",
+      "summary": "Checks a prerequisite map and course sequence: no cycles, prerequisites first, every concept assessed or flagged, and no university concept in a K-12 unit without a bridge.",
+      "triggers": [
+        "Someone needs a prerequisite graph, curriculum map, scope and sequence or learning progression",
+        "A CS or BCIT program pathway spans grade bands or reaches university study",
+        "An instructional-design curriculum map needs a checked prerequisite graph"
+      ],
+      "boundaries": [
+        "Does not claim standards alignment; that belongs to edu-standards-alignment",
+        "Does not apply CS2023 to school learners without a written bridge",
+        "A coherent map is not evidence that learners learn in that order",
+        "Does not override a district's adopted sequence"
+      ],
+      "inputs": [
+        "Audience, grade band or setting, and course length",
+        "Concepts with band, prerequisites and assessing tasks",
+        "Any adopted sequence"
+      ],
+      "prerequisites": [
+        "Python 3.9+ for scripts/progression.py"
+      ],
+      "method": [
+        "Start from the intended end performance",
+        "Name prerequisites and the assessing task per concept",
+        "Place concepts into units, prerequisites first",
+        "Write a bridge for any concept above its unit's band or move it",
+        "Run progression.py check and fix every error",
+        "Send program-level changes to faculty review"
+      ],
+      "stopping_conditions": [
+        "check exits 0 and every unassessed concept is resolved or accepted by a reviewer",
+        "A decision only a human can make (adopted sequence, standards) is handed off"
+      ],
+      "output_contract": "JSON {ok, errors, warnings, unassessed, order, note}; order is a valid prerequisite order or null when a cycle exists.",
+      "failure_states": [
+        "Exit 1: cycle, unknown or duplicate concept, prerequisite out of order, concept placed twice or unplaced, band jump without a bridge",
+        "Exit 2 invalid input: unreadable JSON, missing concepts or sequence, unknown band, non-numeric grade"
+      ],
+      "references": [
+        {
+          "title": "CSTA K-12 Computer Science Standards",
+          "location": "https://csteachers.org/pk12standards/",
+          "version": "2026 edition (district-adopted edition wins; 2017 kept as csta-k12-2017)",
+          "rights": "Noncommercial share-alike license; cite label and link, never bundle text"
+        },
+        {
+          "title": "CSTA research supporting the 2026 standards",
+          "location": "https://csteachers.org/pk12standards/research/",
+          "version": "As published",
+          "rights": "Cite and link; trace claims to the original papers"
+        },
+        {
+          "title": "ACM/IEEE-CS/AAAI CS2023",
+          "location": "https://csed.acm.org/",
+          "version": "2023",
+          "rights": "Cite and link; university scope, bridge required before K-12 use"
+        }
+      ],
+      "scripts": [
+        "scripts/progression.py",
+        "scripts/tests/test_progression.py"
+      ],
+      "evals": {
+        "positive": [
+          "bcit-education.eval.progression-9-12-valid"
+        ],
+        "negative": [
+          "bcit-education.eval.progression-cycle-and-band-jump-rejected"
+        ],
+        "boundary": [
+          "bcit-education.eval.progression-bridged-university-concept",
+          "bcit-education.eval.progression-invalid-band-refused"
+        ]
+      },
+      "adapters": [],
+      "missing_capability": "Without Python, list concepts in prerequisite order by hand and mark the map unchecked.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets education workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Covers ED-031 and ED-044, and the prerequisite-graph part of S11-004"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/bcit-education/evidence/edu-learning-progression/unittest.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No router session has selected this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/bcit-education/evidence/edu-learning-progression/evalrun.txt",
+          "note": "4 script cases passed on 2026-11-25 against synthetic fixtures; no classroom use measured"
+        }
+      }
+    },
+    {
+      "id": "edu-research-review",
+      "fleet": "bcit-education",
+      "summary": "Critiques education research, designs studies and evaluates BCIT or CS programs with traced citations, an overclaim lint, an ethics boundary and dimension-separated program conclusions.",
+      "triggers": [
+        "Review or critique a computing-education or business-education study",
+        "Verify a paper's reference list",
+        "Draft a research question, method, instruments, analysis or ethics plan",
+        "Evaluate a BCIT or CS program's coherence, assessment validity, participation or evidence of learning",
+        "Decide what a study means for a K-12 or BCIT classroom"
+      ],
+      "boundaries": [
+        "Never claims IRB, REB or district approval and never collects or analyzes real participant data",
+        "Never presents a talk, association page or practitioner post as an established finding",
+        "Higher-education CS findings do not transfer to K-12 BCIT or workplace learning without a stated argument",
+        "Standards and credential mapping belong to edu-standards-alignment"
+      ],
+      "inputs": [
+        "Full paper by DOI, arXiv id or PDF",
+        "Study card JSON",
+        "Reference list JSON",
+        "Research plan JSON",
+        "Program evaluation JSON"
+      ],
+      "prerequisites": [
+        "Python 3.9+ standard library",
+        "Network access to api.crossref.org and export.arxiv.org for live citation checks, or a recorded resolver"
+      ],
+      "method": [
+        "Classify the evidence type",
+        "Fill a study card from the methods and results sections and run the claims lint",
+        "Verify the paper's identifier and at least 10 references",
+        "Write the critique with the methods checklist",
+        "Offer classroom use only as a bounded hypothesis",
+        "Design mode: match method to question, then run the design check",
+        "Program mode: tag evidence by kind and dimension, then run the program check"
+      ],
+      "stopping_conditions": [
+        "Every claim and in-scope reference has a status",
+        "Design and program checks pass or list human decisions",
+        "Full paper inaccessible: stop and report blocked"
+      ],
+      "output_contract": "Critique Markdown plus claims and citations JSON (verified, mismatch, unresolved counts); plan or program JSON with its check result. Script exit 0 ok, 1 blocking findings, 2 invalid input.",
+      "failure_states": [
+        "Paper not accessible: blocked with the URL tried",
+        "Lookup failure or rate limit: unresolved with the reason",
+        "Title, year or author differs: mismatch naming the fields",
+        "Book without DOI: unverified by the tool",
+        "Invalid input: exit 2 naming the field"
+      ],
+      "references": [
+        {
+          "title": "AERA Standards for Reporting on Empirical Social Science Research",
+          "location": "https://doi.org/10.3102/0013189X035006033",
+          "version": "2006",
+          "rights": "Cite only"
+        },
+        {
+          "title": "What Works Clearinghouse Procedures and Standards Handbook",
+          "location": "https://ies.ed.gov/ncee/wwc/Handbooks",
+          "version": "5.0 (2022)",
+          "rights": "U.S. government work, public domain"
+        },
+        {
+          "title": "Design-Based Research Collective, Design-based research",
+          "location": "https://doi.org/10.3102/0013189X032001005",
+          "version": "2003",
+          "rights": "Cite only"
+        },
+        {
+          "title": "Lakens, Equivalence tests primer",
+          "location": "https://doi.org/10.1177/1948550617697177",
+          "version": "2017",
+          "rights": "Cite only"
+        },
+        {
+          "title": "Tipton and Olsen, Generalizing from evaluations of educational interventions",
+          "location": "https://doi.org/10.3102/0013189X18781522",
+          "version": "2018",
+          "rights": "Cite only"
+        },
+        {
+          "title": "45 CFR 46 (Common Rule) and Subpart D",
+          "location": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-46",
+          "version": "2018 Requirements; URL not fetched 2026-11-25",
+          "rights": "U.S. government work, public domain"
+        },
+        {
+          "title": "Crossref REST API",
+          "location": "https://api.crossref.org/works",
+          "version": "live 2026-11-25",
+          "rights": "Metadata CC0 per Crossref; used for lookup only"
+        },
+        {
+          "title": "arXiv API",
+          "location": "https://export.arxiv.org/api/query",
+          "version": "live 2026-11-25",
+          "rights": "arXiv API terms of use; metadata lookup only"
+        }
+      ],
+      "scripts": [
+        "scripts/research_check.py",
+        "scripts/tests/test_research_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "bcit-education.eval.research-real-paper-claims-scoped",
+          "bcit-education.eval.research-real-paper-citations-replay",
+          "bcit-education.eval.research-design-complete-plan-passes"
+        ],
+        "negative": [
+          "bcit-education.eval.research-overclaim-rejected",
+          "bcit-education.eval.research-irb-claim-rejected",
+          "bcit-education.eval.research-wrong-citation-caught"
+        ],
+        "boundary": [
+          "bcit-education.eval.research-higher-ed-transfer-flagged",
+          "bcit-education.eval.research-citations-live-network",
+          "bcit-education.eval.research-invalid-input-exit-2"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Crossref REST API",
+          "kind": "api",
+          "required": false
+        },
+        {
+          "name": "arXiv API",
+          "kind": "api",
+          "required": false
+        },
+        {
+          "name": "research_check.py",
+          "kind": "cli",
+          "required": true
+        }
+      ],
+      "missing_capability": "Without network access, run the critique and lint, replay a recorded resolver if one exists, and mark every other citation unverified with the skipped lookups listed.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets education workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Serves addendum capabilities computing-education-research-review, education-research-design and bcit-program-research-review"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/bcit-education/evidence/edu-research-review/unittest.txt"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-overclaim-rejected.txt",
+          "note": "12 of 12 script cases passed on 2026-11-25 (positive, negative, boundary); judgment quality of a critique still needs a human reviewer"
+        }
+      }
+    }
+  ]
+}

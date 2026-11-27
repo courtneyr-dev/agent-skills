@@ -1,0 +1,65 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.gate-ready-candidate (positive, target product-release-gate).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "decision": "ready-for-human-approval" --contains "approval_owner": "human:release-owner" -- python3 ../product-release-gate/scripts/release_gate.py gate --candidate ../product-release-gate/fixtures/candidate-ok.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-release-gate/scripts/release_gate.py gate --candidate ../product-release-gate/fixtures/candidate-ok.json
+{
+  "approval_owner": "human:release-owner",
+  "channel": "stable",
+  "decision": "ready-for-human-approval",
+  "not_checked": [
+    "runtime behavior beyond the recorded test results",
+    "legal review of license compatibility",
+    "marketplace reviewer judgment",
+    "whether platform_facts are still current"
+  ],
+  "product": {
+    "id": "fixture-co-forms-connector",
+    "platform": "wordpress-plugin",
+    "previous_version": "1.4.2",
+    "version": "2.0.0"
+  },
+  "stages": [
+    {
+      "errors": [],
+      "stage": "compatibility",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "semver-and-channel",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "changelog",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "supply-chain",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "migration-and-rollback",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "marketplace-policy",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "evidence-freshness",
+      "status": "pass"
+    }
+  ],
+  "support_boundary": "Supports WordPress 6.6 to 6.9 on PHP 8.1 to 8.4; behavior outside that range is unsupported."
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"decision": "ready-for-human-approval"': ok
+CHECK contains '"approval_owner": "human:release-owner"': ok
+VERDICT pass

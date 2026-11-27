@@ -1,0 +1,8 @@
+# eval corporate.eval.claims-unclosed-fence-refused (boundary, target corporate-claims-check)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 2 --contains never closes -- python3 ../corporate-claims-check/scripts/claims_check.py --draft ../corporate-claims-check/fixtures/draft-unclosed-fence.md --sources ../corporate-claims-check/fixtures/sources.json
+run on 2026-11-26, exit 0
+
+{
+  "error": "the draft opens a ``` fence at line 2 and never closes it, so every later line would be hidden from the check; close it"
+}
+[expect] exit 2 (expected 2); missing none; forbidden present none -> PASS

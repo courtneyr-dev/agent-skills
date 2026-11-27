@@ -1,0 +1,13 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): plan only. No candidate data has been collected; result fields are empty.",
+  "intervention": "Break-even methods module with microteaching, observation and reteach",
+  "intended_performance": "Teacher candidates teach break-even analysis with a correct spreadsheet model and follow up on students' actual responses, in microteaching and later in a field-placement lesson",
+  "human_data_boundary": "The teacher-preparation program collects candidate work and observations under its own policies and consent; human supervisors rate them. The agent drafts instruments and checks answer keys by execution; it records no candidate scores, observations or outcomes.",
+  "revisit_if": "Fewer than half of reteach segments show look-for OB4 after feedback; then revisit the worked-example segment before the next cohort",
+  "measures": [
+    {"id": "T-M1", "kind": "work-sample", "level": "learning", "description": "Candidate's spreadsheet and queries executed against answer-key.json (business accuracy and technology fluency lines, scored separately)", "owner": "human:methods-course-instructor", "timing": "End of session 1", "baseline": "Diagnostic break-even item at the start of session 1", "result": null},
+    {"id": "T-M2", "kind": "observation", "level": "behavior", "description": "Microteaching and reteach segments observed with observation-instrument.json", "owner": "human:methods-course-instructor", "timing": "Session 2, teach and reteach", "baseline": "First teach segment, before feedback", "result": null},
+    {"id": "T-M3", "kind": "observation", "level": "behavior", "description": "One field-placement lesson using the same instrument (transfer)", "owner": "human:university-supervisor", "timing": "Within the placement term", "baseline": "Microteaching reteach ratings", "result": null},
+    {"id": "T-M4", "kind": "self-report", "level": "reaction", "description": "Candidate reflection on what changed between teach and reteach; read for insight, not counted as evidence of competence", "owner": "human:methods-course-instructor", "timing": "After reteach", "baseline": "None"}
+  ]
+}

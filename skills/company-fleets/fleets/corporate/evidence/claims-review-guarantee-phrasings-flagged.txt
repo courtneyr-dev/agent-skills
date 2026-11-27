@@ -1,0 +1,25 @@
+# eval corporate.eval.claims-review-guarantee-phrasings-flagged (negative, target corporate-claims-check)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../corporate-claims-check/scripts/tests/test_claims_check.py -v ReviewProbes
+run on 2026-11-26, exit 0
+
+[stderr]
+test_all_25_review_guarantee_phrasings_are_flagged (__main__.ReviewProbes.test_all_25_review_guarantee_phrasings_are_flagged) ... ok
+test_an_attribution_line_is_still_checked_as_the_authors_text (__main__.ReviewProbes.test_an_attribution_line_is_still_checked_as_the_authors_text) ... ok
+test_cautionary_reporting_and_quoted_sentences_pass (__main__.ReviewProbes.test_cautionary_reporting_and_quoted_sentences_pass) ... ok
+test_cited_outcome_must_be_stated_by_the_source (__main__.ReviewProbes.test_cited_outcome_must_be_stated_by_the_source) ... ok
+test_disguised_and_paraphrased_promises_are_flagged (__main__.ReviewProbes.test_disguised_and_paraphrased_promises_are_flagged) ... ok
+test_every_quote_form_is_compared_with_the_source (__main__.ReviewProbes.test_every_quote_form_is_compared_with_the_source) ... ok
+test_html_links_still_cite_and_lines_keep_their_numbers (__main__.ReviewProbes.test_html_links_still_cite_and_lines_keep_their_numbers) ... ok
+test_number_from_a_different_fact_is_refused (__main__.ReviewProbes.test_number_from_a_different_fact_is_refused) ... ok
+test_reporting_about_rankings_is_not_a_guarantee (__main__.ReviewProbes.test_reporting_about_rankings_is_not_a_guarantee) ... ok
+test_second_review_benign_sentences_pass (__main__.ReviewProbes.test_second_review_benign_sentences_pass) ... ok
+test_second_review_guarantees_are_flagged (__main__.ReviewProbes.test_second_review_guarantees_are_flagged) ... ok
+test_second_review_quote_forms_are_compared_with_the_source (__main__.ReviewProbes.test_second_review_quote_forms_are_compared_with_the_source) ... ok
+test_short_or_partial_word_quotes_are_refused (__main__.ReviewProbes.test_short_or_partial_word_quotes_are_refused) ... ok
+test_text_a_reader_sees_is_checked (__main__.ReviewProbes.test_text_a_reader_sees_is_checked) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.006s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

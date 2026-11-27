@@ -1,0 +1,31 @@
+# Install evidence for the consultancies fleet's original skills. Run 2026-11-26T22:17Z, after the 2026-11-26 review fixes.
+# For each skill: the Claude mount path resolved through <skills-root>, its file count, and skill-creator quick_validate (PyYAML 6.0.2 supplied by uv for this run only).
+# The Codex mount is not claimed: machine-manifest.json is the integrator's.
+
+## consult-compliance-engagement
+<skills-root>/consult-compliance-engagement/SKILL.md
+files: 15
+$ quick_validate.py skills/consult-compliance-engagement
+Skill is valid!
+exit=0
+
+## consult-i18n-check
+<skills-root>/consult-i18n-check/SKILL.md
+files: 11
+$ quick_validate.py skills/consult-i18n-check
+Skill is valid!
+exit=0
+
+## consult-email-send-gate
+<skills-root>/consult-email-send-gate/SKILL.md
+files: 16
+$ quick_validate.py skills/consult-email-send-gate
+Skill is valid!
+exit=0
+
+## consult-search-claims-check
+<skills-root>/consult-search-claims-check/SKILL.md
+files: 16
+$ quick_validate.py skills/consult-search-claims-check
+Skill is valid!
+exit=0

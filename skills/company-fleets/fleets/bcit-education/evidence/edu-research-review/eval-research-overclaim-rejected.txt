@@ -1,0 +1,51 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains causal-from-nonexperimental --contains universal-from-narrow-sample --contains small-single-site --contains self-report-learning --contains weak-evidence-type -- python3 ../edu-research-review/scripts/research_check.py claims fleets/bcit-education/fixtures/edu-research-review/study-synthetic-overclaim.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.research-overclaim-rejected
+{
+  "ok": false,
+  "mode": "claims",
+  "study": "Fixture Co AI tutor pilot (synthetic)",
+  "counts": {
+    "error": 5,
+    "warn": 1,
+    "claims": 1
+  },
+  "findings": [
+    {
+      "rule": "selection",
+      "severity": "warn",
+      "message": "convenience sample from classroom; results describe these participants, not a defined population"
+    },
+    {
+      "rule": "causal-from-nonexperimental",
+      "severity": "error",
+      "message": "causal wording ('causes') but the design is descriptive without random assignment to a comparison group",
+      "claim": "S1"
+    },
+    {
+      "rule": "universal-from-narrow-sample",
+      "severity": "error",
+      "message": "universal wording ('all K-12') from n=24 at 1 site(s), convenience selection",
+      "claim": "S1"
+    },
+    {
+      "rule": "small-single-site",
+      "severity": "error",
+      "message": "n=24 at one site supports a local observation, not a teaching rule; mark it exploratory",
+      "claim": "S1"
+    },
+    {
+      "rule": "self-report-learning",
+      "severity": "error",
+      "message": "learning claim rests only on self-report measures (end-of-unit-survey)",
+      "claim": "S1"
+    },
+    {
+      "rule": "weak-evidence-type",
+      "severity": "error",
+      "message": "conference-talk presented as an established finding; trace it to a peer-reviewed study or review",
+      "claim": "S1"
+    }
+  ]
+}
+# expect: met
+# exit 0

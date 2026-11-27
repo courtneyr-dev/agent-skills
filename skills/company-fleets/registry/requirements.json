@@ -1,0 +1,2355 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "id": "S03-001",
+      "source_section": "3. Shared company services",
+      "source_lines": "218",
+      "text": "Create a shared-services fleet serving every business profile.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S03-002",
+      "source_section": "3. Shared company services",
+      "source_lines": "222",
+      "text": "Executive direction role coverage: Strategy lead/CEO advisor, COO, chief of staff, business-unit leads.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.strategy-advisor",
+      "blocker": null
+    },
+    {
+      "id": "S03-003",
+      "source_section": "3. Shared company services",
+      "source_lines": "222",
+      "text": "Executive direction work products: Strategy choices, service portfolio, operating plan, decision record.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.strategy-decision",
+      "blocker": null
+    },
+    {
+      "id": "S03-004",
+      "source_section": "3. Shared company services",
+      "source_lines": "223",
+      "text": "Technology and architecture role coverage: CTO, enterprise/solution architect, engineering director, AI systems architect.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.technology-advisor",
+      "blocker": null
+    },
+    {
+      "id": "S03-005",
+      "source_section": "3. Shared company services",
+      "source_lines": "223",
+      "text": "Technology and architecture work products: Architecture decisions, technical roadmaps, build/buy choices.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.technology-decision",
+      "blocker": null
+    },
+    {
+      "id": "S03-006",
+      "source_section": "3. Shared company services",
+      "source_lines": "224",
+      "text": "Product leadership role coverage: CPO/product portfolio lead, product operations, business analyst.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.product-portfolio-lead",
+      "blocker": null
+    },
+    {
+      "id": "S03-007",
+      "source_section": "3. Shared company services",
+      "source_lines": "224",
+      "text": "Product leadership work products: Outcomes, portfolio priorities, requirements, investment rationale.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.metric-definition",
+      "blocker": null
+    },
+    {
+      "id": "S03-008",
+      "source_section": "3. Shared company services",
+      "source_lines": "225",
+      "text": "Finance role coverage: CFO advisor, FP&A, controller/bookkeeping workflow, billing, receivables/payables, tax liaison.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.finance-advisor",
+      "blocker": null
+    },
+    {
+      "id": "S03-009",
+      "source_section": "3. Shared company services",
+      "source_lines": "225",
+      "text": "Finance work products: Unit economics, budgets, forecasts, reconciliations, billing exceptions.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.finance-close",
+      "blocker": null
+    },
+    {
+      "id": "S03-010",
+      "source_section": "3. Shared company services",
+      "source_lines": "226",
+      "text": "Commercial role coverage: CRO, business development, sales development, account executive, sales operations, solutions engineer, proposal/RFP lead, deal desk.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.revenue-lead",
+      "blocker": null
+    },
+    {
+      "id": "S03-011",
+      "source_section": "3. Shared company services",
+      "source_lines": "226",
+      "text": "Commercial work products: Qualified opportunity, technical proposal, SOW, pricing and margin analysis.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.proposal-and-pricing",
+      "blocker": null
+    },
+    {
+      "id": "S03-012",
+      "source_section": "3. Shared company services",
+      "source_lines": "227",
+      "text": "Marketing role coverage: CMO/marketing lead, product marketing, demand generation, paid-media specialist, content/lifecycle marketing, marketing operations.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.marketing-lead",
+      "blocker": null
+    },
+    {
+      "id": "S03-013",
+      "source_section": "3. Shared company services",
+      "source_lines": "227",
+      "text": "Marketing work products: Positioning, campaigns, creative briefs, channel economics, measurement, staged assets.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.campaign-staging",
+      "blocker": null
+    },
+    {
+      "id": "S03-014",
+      "source_section": "3. Shared company services",
+      "source_lines": "228",
+      "text": "Partnerships role coverage: Channel/affiliate manager, reseller manager, technology alliances.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.partnerships-manager",
+      "blocker": null
+    },
+    {
+      "id": "S03-015",
+      "source_section": "3. Shared company services",
+      "source_lines": "228",
+      "text": "Partnerships work products: Partner tiering, attribution, economics, obligations, escalation map.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.partner-program",
+      "blocker": null
+    },
+    {
+      "id": "S03-016",
+      "source_section": "3. Shared company services",
+      "source_lines": "229",
+      "text": "Customer operations role coverage: Account director, customer success, onboarding, technical account manager, support operations.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.customer-success-lead",
+      "blocker": null
+    },
+    {
+      "id": "S03-017",
+      "source_section": "3. Shared company services",
+      "source_lines": "229",
+      "text": "Customer operations work products: Success plan, onboarding, health evidence, renewals and escalation.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.customer-onboarding",
+      "blocker": null
+    },
+    {
+      "id": "S03-018",
+      "source_section": "3. Shared company services",
+      "source_lines": "230",
+      "text": "People and capacity role coverage: People operations, recruiting, workforce planning, contractor coordination, compensation/benefits and payroll liaison, enablement.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.people-ops-advisor",
+      "blocker": null
+    },
+    {
+      "id": "S03-019",
+      "source_section": "3. Shared company services",
+      "source_lines": "230",
+      "text": "People and capacity work products: Role requirements, skills matrix, capacity plan, onboarding and development.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.capacity-plan",
+      "blocker": null
+    },
+    {
+      "id": "S03-020",
+      "source_section": "3. Shared company services",
+      "source_lines": "231",
+      "text": "Risk and assurance role coverage: Security lead, privacy steward, compliance analyst, legal/contract liaison, internal auditor.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.security-lead",
+      "blocker": null
+    },
+    {
+      "id": "S03-021",
+      "source_section": "3. Shared company services",
+      "source_lines": "231",
+      "text": "Risk and assurance work products: Risk register, evidence mappings, contract questions, exception records.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.risk-review",
+      "blocker": null
+    },
+    {
+      "id": "S03-022",
+      "source_section": "3. Shared company services",
+      "source_lines": "232",
+      "text": "Internal operations role coverage: Procurement, vendor management, IT/workplace operations, knowledge operations.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.internal-operations",
+      "blocker": null
+    },
+    {
+      "id": "S03-023",
+      "source_section": "3. Shared company services",
+      "source_lines": "232",
+      "text": "Internal operations work products: Supplier reviews, access inventory, SOPs, recoverable knowledge.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.vendor-review",
+      "blocker": null
+    },
+    {
+      "id": "S03-024",
+      "source_section": "3. Shared company services",
+      "source_lines": "233",
+      "text": "Data and business intelligence role coverage: Analytics lead, data steward, experimentation analyst.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.data-analytics-lead",
+      "blocker": null
+    },
+    {
+      "id": "S03-025",
+      "source_section": "3. Shared company services",
+      "source_lines": "233",
+      "text": "Data and business intelligence work products: Metric definitions, lineage, decision dashboards, experiment results.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.metric-definition",
+      "blocker": null
+    },
+    {
+      "id": "S03-026",
+      "source_section": "3. Shared company services",
+      "source_lines": "234",
+      "text": "Communications role coverage: Corporate communications, editorial lead, crisis communications.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.communications-lead",
+      "blocker": null
+    },
+    {
+      "id": "S03-027",
+      "source_section": "3. Shared company services",
+      "source_lines": "234",
+      "text": "Communications work products: Approved narratives, source-backed claims, staged communications.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.crisis-communications",
+      "blocker": null
+    },
+    {
+      "id": "S03-028",
+      "source_section": "3. Shared company services",
+      "source_lines": "236",
+      "text": "Use expert advisory and operational-assistance roles; an agent cannot appoint itself an officer, lawyer, accountant, auditor, teacher of record, or employment decision-maker.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.contract-liaison",
+      "blocker": null
+    },
+    {
+      "id": "S03-029",
+      "source_section": "3. Shared company services",
+      "source_lines": "238",
+      "text": "Use the actual business model; do not apply venture-funded SaaS targets indiscriminately to an agency, cooperative, public-school program, or small reseller.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.strategy-advisor",
+      "blocker": null
+    },
+    {
+      "id": "S03-030",
+      "source_section": "3. Shared company services",
+      "source_lines": "240",
+      "text": "Select relevant Alireza skill families (c-level-advisor, business-growth, business-operations, commercial, finance, product-team, applicable compliance); resolve exact current paths before installation.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S04-001",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "248",
+      "text": "Engagement practice roles: Agency principal, engagement/account director, delivery lead, estimator.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.engagement-director",
+      "blocker": null
+    },
+    {
+      "id": "S04-002",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "248",
+      "text": "Engagement outputs and checks: Qualification, brief, scope, assumptions, acceptance, margin and change control.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "agency-engagement-gate/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S04-003",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "249",
+      "text": "Research and strategy practice roles: Business analyst, UX researcher, service designer, digital strategist.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.research-strategist",
+      "blocker": null
+    },
+    {
+      "id": "S04-004",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "249",
+      "text": "Research and strategy outputs and checks: Research plan, observed findings, journeys, service blueprint, opportunity assessment.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.research-strategist",
+      "blocker": null
+    },
+    {
+      "id": "S04-005",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "250",
+      "text": "Content and information practice roles: Content strategist, information architect, editor, migration specialist.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.content-strategist",
+      "blocker": null
+    },
+    {
+      "id": "S04-006",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "250",
+      "text": "Content and information outputs and checks: Content model, inventory, taxonomy, editorial workflow, migration mapping.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.workload.cms-migration",
+      "blocker": null
+    },
+    {
+      "id": "S04-007",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "251",
+      "text": "Brand and design practice roles: Brand strategist, creative/art director, UX/UI designer, design-systems lead, motion/visual designer.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.brand-design-lead",
+      "blocker": null
+    },
+    {
+      "id": "S04-008",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "251",
+      "text": "Brand and design outputs and checks: Approved direction, accessible prototypes, tokens, components, usage rules.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/demo/client-a-donate/deliverable/tokens.css",
+      "blocker": null
+    },
+    {
+      "id": "S04-009",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "252",
+      "text": "Engineering practice roles: Solution architect, frontend/backend/full-stack engineers, CMS specialists, integration/API engineer, mobile/PWA specialist.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.solution-architect",
+      "blocker": null
+    },
+    {
+      "id": "S04-010",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "252",
+      "text": "Engineering outputs and checks: Working implementation, contracts, tests, performance and maintainability evidence.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/demo/client-a-donate/deliverable/build.py",
+      "blocker": null
+    },
+    {
+      "id": "S04-011",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "253",
+      "text": "Quality practice roles: Functional QA, test automation, accessibility specialist, security reviewer, performance engineer.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.qa-engineer",
+      "blocker": null
+    },
+    {
+      "id": "S04-012",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "253",
+      "text": "Quality outputs and checks: Test plan, reproducible defects, manual and automated evidence.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "agency-keyboard-audit/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S04-013",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "254",
+      "text": "Delivery and operations practice roles: Release engineer, migration lead, platform/DevOps liaison, training lead, support handoff owner.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.release-engineer",
+      "blocker": null
+    },
+    {
+      "id": "S04-014",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "254",
+      "text": "Delivery and operations outputs and checks: Deployment plan, rollback, content freeze, operator training, warranty/maintenance handoff.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/demo/client-a-donate/support/runbook.md",
+      "blocker": null
+    },
+    {
+      "id": "S04-015",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "256-258",
+      "text": "Support WordPress, Drupal, headless CMS, JS/TS apps, PHP frameworks, commerce platforms and API services through explicit platform adapters; register actual adapters and supported versions, no generic CMS persona.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "agency-platform-adapters/references/adapters.json",
+      "blocker": null
+    },
+    {
+      "id": "S04-016",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "260-262",
+      "text": "Implement the workflow: qualified brief, research/requirements, solution/content/brand decisions, prototype, implementation, integrated verification, migration rehearsal, release recommendation, support and improvement.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.workload.client-engagement",
+      "blocker": null
+    },
+    {
+      "id": "S04-017",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "264",
+      "text": "Tie each workflow transition to acceptance evidence; scope changes return through the existing PM contract.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "agency-engagement-gate/references/engagement-stages.md",
+      "blocker": null
+    },
+    {
+      "id": "S04-018",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "266",
+      "text": "Use Kanopi's actual public workflows and official WordPress skills where applicable.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "agency-platform-adapters/references/platform-sources.md",
+      "blocker": null
+    },
+    {
+      "id": "S04-019",
+      "source_section": "4. Web development and design agency fleet",
+      "source_lines": "266",
+      "text": "Respect the local project's coding standards; WordPress PHP follows WordPress Coding Standards and PHPDoc conventions.",
+      "owner_workstream": "corporate-and-agency",
+      "status": "delivered",
+      "deliverable": "agency-platform-adapters/references/adapters.json",
+      "blocker": null
+    },
+    {
+      "id": "S05-001",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "276",
+      "text": "Hosting profile Affiliate/referral: Eligibility, disclosures, attribution, commission reconciliation, customer handoff, provider escalation.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.affiliate-referral",
+      "blocker": null
+    },
+    {
+      "id": "S05-002",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "277",
+      "text": "Hosting profile Reseller/white-label: Packages, upstream obligations, delegated access, billing, provisioning, support boundaries, migrations.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.account-lifecycle",
+      "blocker": "Reseller billing and provisioning run through a fake WHM-shaped adapter; no upstream provider is selected"
+    },
+    {
+      "id": "S05-003",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "278",
+      "text": "Hosting profile Shared cPanel/WHM: Accounts, quotas, DNS, certificates, PHP versions, databases, mail where offered, backups, restores, isolation, abuse.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-account-lifecycle/SKILL.md",
+      "blocker": "Real cPanel/WHM adapter blocked: no provider selected, no credentials; mail is optional and not exercised"
+    },
+    {
+      "id": "S05-004",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "279",
+      "text": "Hosting profile VPS/dedicated and alternative panels: OS lifecycle, server services, storage, backups, capacity, Plesk or another selected panel, administrator/reseller/customer boundaries.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.vps-server-operations",
+      "blocker": "Covered as a workload, not a profile; no real VPS, Plesk or other panel is exercised"
+    },
+    {
+      "id": "S05-005",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "280",
+      "text": "Hosting profile Managed CMS: Updates, compatibility, staging, performance, content workflows, security, multisite/multi-CMS operations.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-service-catalogue/references/functions.json",
+      "blocker": "Compatibility, security and migrations are built and tested; staging, content workflows and multisite operations have no procedure yet"
+    },
+    {
+      "id": "S05-006",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "281",
+      "text": "Hosting profile Developer/vibe-code platform: Source import, previews, builds, runtime isolation, databases, secrets, domains, identity, rollback, quotas, exportability.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.untrusted-app-build",
+      "blocker": "Identity, custom domains and quota enforcement for the developer platform have no runtime demo; builds, previews, secrets, rollback and exportability do"
+    },
+    {
+      "id": "S05-007",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "282",
+      "text": "Hosting profile Managed cloud/PaaS: Infrastructure-as-code, containers, managed data services, deployments, observability, capacity and cost.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.managed-cloud-operations",
+      "blocker": "Terraform checks blocked: the terraform binary is not installed; plan-only and mocked-provider use is documented, never apply"
+    },
+    {
+      "id": "S05-008",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "283",
+      "text": "Hosting profile Enterprise and regulated: SSO/RBAC, audit evidence, data boundaries, change control, service commitments, dedicated tenancy options.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-tenant-isolation/SKILL.md",
+      "blocker": "Audit trail, data boundaries and change control are tested; SSO/RBAC and dedicated tenancy have no procedure or adapter yet"
+    },
+    {
+      "id": "S05-009",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "284",
+      "text": "Hosting profile Advanced resilience: Failure-domain analysis, redundancy, restoration, disaster recovery, failover/failback, dependency and supply-chain resilience.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.resilience-exercise",
+      "blocker": "Failover, failback and restoration are tested on one machine; multi-region failure domains and supply-chain resilience are not exercised"
+    },
+    {
+      "id": "S05-010",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "286",
+      "text": "Keep affiliate, reseller, and operator as distinct responsibilities; a referral service is not responsible for infrastructure it cannot control.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-service-catalogue/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-011",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "290",
+      "text": "Cover the listed hosting roles, from general manager, solutions architect, SRE and cPanel/WHM specialist through incident commander, migration, support tiers, billing/entitlements and service assurance.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S05-012",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "296",
+      "text": "Account lifecycle procedure: qualify, provision, verify ownership, configure, monitor, renew, suspend when authorized, export, decommission.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-account-lifecycle/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-013",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "297",
+      "text": "Service catalogue and responsibility matrix, including upstream-provider dependencies.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-service-catalogue/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-014",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "298",
+      "text": "Tenant isolation, identity, secrets, audit trail, network and build-execution boundaries.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-tenant-isolation/SKILL.md",
+      "blocker": "Identity (SSO) boundaries have no procedure yet"
+    },
+    {
+      "id": "S05-015",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "299",
+      "text": "DNS/certificate lifecycle, backup restoration, data migration, upgrade compatibility, rollback.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-dns-cert-lifecycle/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-016",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "300",
+      "text": "SLI/SLO design, alert routing, incident command, recovery, post-incident learning.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-incident-response/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-017",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "301",
+      "text": "Capacity, quotas, metering, billing reconciliation, cost attribution, customer-visible limits.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-metering-reconcile/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-018",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "302",
+      "text": "Abuse handling with evidence preservation and escalation; no autonomous punitive action without policy authority.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-abuse-response/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-019",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "303",
+      "text": "Portable export and exit procedures for customers.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-data-migration/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-020",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "304",
+      "text": "Business-continuity and disaster-recovery exercises.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-restore-exercise/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-021",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "306",
+      "text": "Use official provider documentation and APIs; build missing cPanel/WHM and reseller adapters against the actual selected provider; a generic Terraform skill is not a complete hosting service.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-account-lifecycle/SKILL.md",
+      "blocker": "No provider is selected and no credentials exist, so the cPanel/WHM and reseller adapters are fakes that mirror WHM API 1 function names; a real adapter needs a chosen provider"
+    },
+    {
+      "id": "S05-022",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "308",
+      "text": "For AI-generated application hosting, test untrusted builds, preview isolation, secret exposure, dependency risk, ephemeral environments, and promotion boundaries.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-tenant-isolation/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-023",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "312",
+      "text": "Create a dated benchmark matrix against public Pantheon, WordPress VIP and Acquia documentation and the actual relevant plan/contract.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/benchmark/2026-11-26-matrix.json",
+      "blocker": "No plan or contract exists for Fixture Co, so the contractual-commitment column is empty by design"
+    },
+    {
+      "id": "S05-024",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "314",
+      "text": "Compare measurable dimensions: restore success, recovery objectives, isolation, deployment reversibility, load performance, observability, support coverage, accessibility, data portability, regional constraints, cost.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-benchmark-matrix/SKILL.md",
+      "blocker": "performance_under_load, support, accessibility, regions and cost have no measurement yet; they stay not-measured"
+    },
+    {
+      "id": "S05-025",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "316",
+      "text": "Record separately: documented provider claim, proposed target, configured capability, measured test result, contractual commitment.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-benchmark-matrix/scripts/benchmark.py",
+      "blocker": null
+    },
+    {
+      "id": "S05-026",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "318",
+      "text": "Do not declare superiority from roster size; do not promise an availability percentage from a single lab run.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "hosting-benchmark-matrix/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-027",
+      "source_section": "5. Hosting and application-platform fleet",
+      "source_lines": "320",
+      "text": "Build disposable local demonstrations and a production-readiness backlog; do not purchase or launch a production hosting company.",
+      "owner_workstream": "hosting",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/benchmark/2026-11-26-readiness-backlog.md",
+      "blocker": null
+    },
+    {
+      "id": "S06-001",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "324",
+      "text": "Cover products beyond WordPress: Drupal modules, CMS integrations, commerce apps, themes/design systems, browser extensions, API/SDK products, developer tooling, hosted SaaS.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": "Gate and matrix are platform-neutral; names seven platforms. Partial: only WordPress.org has a pinned checklist"
+    },
+    {
+      "id": "S06-002",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "328-329",
+      "text": "Roles: product GM/PM/researcher, UX/content designer, ecosystem strategist, platform/extension architect, SDK/API, frontend/backend, integration and developer-experience engineers.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S06-003",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "330-332",
+      "text": "Roles: compatibility, test/release engineer, security maintainer, a11y/localization reviewer, licensing/entitlements, billing, marketplace liaison, pricing, docs, education, support, CS, partnerships, lifecycle/deprecation owner.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S06-004",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "336",
+      "text": "Implement lifecycle: problem evidence, product contract, API/schema/design decisions, implementation, compatibility/security/a11y verification, packaging, distribution recommendation, adoption/support, deprecation or migration.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S06-005",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "340",
+      "text": "Build host/API/version compatibility matrices.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S06-006",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "341",
+      "text": "Build dependency, license, SBOM, vulnerability, and supply-chain records.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S06-007",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "342",
+      "text": "Build upgrade and schema-migration tests, rollback and data-retention behavior.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": "Gate migration-and-rollback stage. Partial: it checks recorded results; it does not run migrations"
+    },
+    {
+      "id": "S06-008",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "343",
+      "text": "Define release channels, semantic compatibility, changelogs, and support boundaries.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S06-009",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "344",
+      "text": "Build entitlement and payment test modes, cancellation/export flows, and webhook idempotency.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S06-010",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "345",
+      "text": "Build marketplace policy checklists based on the actual platform.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": "WordPress.org pinned. Blocker for Chrome Web Store, Mozilla Add-ons, Shopify, Drupal.org, Woo Marketplace and WordPress themes: no pinned policy text; resume by pinning each policy and adding it to the registry"
+    },
+    {
+      "id": "S06-011",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "346",
+      "text": "Provide extension developer onboarding and certification-readiness evidence where applicable.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S06-012",
+      "source_section": "6. Extension, theme, integration, and SaaS product fleet",
+      "source_lines": "348",
+      "text": "A passing WordPress review checklist must not be treated as validating a Shopify app, Drupal module, browser extension, or SaaS service.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/product/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-001",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "352",
+      "text": "Give each consultancy practice a lead, practitioners, an independent reviewer, a repeatable engagement workflow, and evidence-based outputs.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-002",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "356",
+      "text": "Accessibility practice roles and procedures: Accessibility lead, auditor, assistive-technology tester, inclusive designer, remediation engineer, document specialist, training lead.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-003",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "356",
+      "text": "Accessibility acceptance focus: Scope/version-specific WCAG evaluation, keyboard and assistive-tech checks, reproducible findings, remediation and retest.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-004",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "357",
+      "text": "Rebrand practice roles and procedures: Brand strategist, researcher, naming/messaging lead, creative/art director, identity/designer, content lead, rollout manager.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": "Roles and Zach Stevens's skills. Partial: asset-rights and token-consistency checks are manual"
+    },
+    {
+      "id": "S07-005",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "357",
+      "text": "Rebrand acceptance focus: Research provenance, approved direction, token/component use, asset rights, migration consistency.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": "Roles and Zach Stevens's skills. Partial: asset-rights and token-consistency checks are manual"
+    },
+    {
+      "id": "S07-006",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "358",
+      "text": "Internationalization practice roles and procedures: i18n architect, localization PM, terminology lead, translators, transcreation specialist, locale reviewers, localization QA.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-007",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "358",
+      "text": "Internationalization acceptance focus: String extraction, placeholders, plural rules, RTL/bidi, layout, locale formatting, human language review.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-008",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "359",
+      "text": "Compliance practice roles and procedures: Standards analyst, control owner, security/privacy engineer, evidence curator, independent assessor liaison.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-009",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "359",
+      "text": "Compliance acceptance focus: Applicability, control mapping, operating evidence, exceptions, reviewer authority.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-010",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "360",
+      "text": "Ecommerce practice roles and procedures: Commerce architect, merchandising/PIM, catalog/inventory, payments, tax/shipping integration, subscriptions, fraud/chargeback operations, conversion analyst.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-011",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "360",
+      "text": "Ecommerce acceptance focus: Checkout, refunds, webhooks, inventory races, accessibility, internationalization, reconciliation.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-012",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "361",
+      "text": "SEO and AI search practice roles and procedures: Technical SEO, content/search strategist, information architect, structured-data specialist, migration lead, AI-search analyst, measurement analyst.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": "consult-search-claims-check and Corey Haines's skills. Partial: observed visibility needs the tenant's exports"
+    },
+    {
+      "id": "S07-013",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "361",
+      "text": "SEO and AI search acceptance focus: Crawl/index behavior, content accuracy, redirects, structured data, observed visibility, qualified outcomes.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": "consult-search-claims-check and Corey Haines's skills. Partial: observed visibility needs the tenant's exports"
+    },
+    {
+      "id": "S07-014",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "362",
+      "text": "Email and lifecycle practice roles and procedures: Lifecycle strategist, copy/editor, email developer, deliverability specialist, marketing operations, consent/data steward, analyst.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-015",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "362",
+      "text": "Email and lifecycle acceptance focus: Permission state, suppression, authentication, accessible rendering, event logic, attribution, send authorization.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-016",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "364",
+      "text": "Use current primary standards; keep technical conformance, regulatory applicability, organizational certification, and legal conclusions distinct.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-017",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "366",
+      "text": "Build an applicability registry (WCAG, PCI DSS, ISO security, SOC 2, NIST, privacy, sector/client) resolving edition, jurisdiction, scope, licensed text, evidence owner, review authority before any checklist use.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "consult-compliance-engagement/references/applicability-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S07-018",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "366",
+      "text": "Do not install unrelated medical or regulatory workflows simply because a catalogue includes them.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-019",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "368",
+      "text": "Treat automated accessibility scans as one input; do not infer full conformance from a scanner score.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-020",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "370",
+      "text": "Keep translation accuracy separate from technical localization checks; preserve terminology and source revisions; do not fabricate a native-language review.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-021",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "372",
+      "text": "Treat AIO as optimization for AI-mediated search and answers alongside AEO/GEO; ranking factors are hypotheses without primary evidence; no guaranteed placement or fabricated citations.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-022",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "374",
+      "text": "Use Corey Haines's marketing and Zach Stevens's design procedures as canonical; inspect skills such as seo-audit, ai-seo, emails, product-marketing, marketing-plan, marketing-loops, brand, brand-strategy, creative-direction, art-direction, design-system.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-023",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "376",
+      "text": "Preserve shared brand/context documents (.agents/brand.md, .agents/design.md, .agents/product-marketing.md) as mapped records; select one owner per artifact and integrate with existing brand sources.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S07-024",
+      "source_section": "7. Specialist consultancy practices",
+      "source_lines": "378",
+      "text": "Do not enable every marketing cadence; define bounded loops, state, deduplication, stops, staged outputs; route scheduling and publishing through existing authorized systems.",
+      "owner_workstream": "product-and-consultancies",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/consultancies/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S08-001",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "382",
+      "text": "Use samber/developer-relations-skills as the primary procedural foundation, keeping author attribution to Samuel Berthe where the source establishes it.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/devrel/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S08-002",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "384-396",
+      "text": "Cover DevRel roles: head of DevRel, advocate, DX researcher, educator/curriculum designer, docs architect, sample-app engineer, API/SDK onboarding, content editor, speaker/demo/video producer, events, partner engineer, feedback liaison, ops/analyst, OSS liaison.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/devrel/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S08-003",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "399",
+      "text": "Reusable capability: program strategy, audience research, business alignment, budget, staffing, explicit non-goals.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "devrel-program-kit/references/kit-map.md",
+      "blocker": null
+    },
+    {
+      "id": "S08-004",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "400-402",
+      "text": "Reusable capability: developer journey, onboarding friction, first successful API/app use, docs improvement, tested quickstarts, sample apps, tutorials, reference docs, talks, demos, workshops, office hours.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "devrel-quickstart-replay/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S08-005",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "403",
+      "text": "Reusable capability: event planning, accessibility, rehearsal, contingency, follow-up, content reuse.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "devrel-program-kit/references/kit-map.md",
+      "blocker": "(hackathon and event production partial)"
+    },
+    {
+      "id": "S08-006",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "404",
+      "text": "Reusable capability: feedback capture to reproducible product issue to owner response to communication back to developers.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/devrel/fixtures/docs/feedback-repro.md",
+      "blocker": null
+    },
+    {
+      "id": "S08-007",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "405",
+      "text": "Reusable capability: metrics definitions, instrumentation, attribution limits, executive reporting, program retrospectives.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "devrel-program-kit/scripts/check_program.py",
+      "blocker": null
+    },
+    {
+      "id": "S08-008",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "407",
+      "text": "Use the collection's developer-relations-kickoff as a scoped domain router that hands work back to the existing execution owner.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "devrel-program-kit/references/context-and-handback.md",
+      "blocker": null
+    },
+    {
+      "id": "S08-009",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "409",
+      "text": "Include procedures for team structure, budgets, segmentation, journeys, metrics, analytics, reporting, education strategy, quickstarts, tutorials, docs structure/versioning/localization, samples, CFPs, talks, demos, workshops, office hours, events, follow-up; keep sibling dependencies.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "devrel-program-kit/references/kit-map.md",
+      "blocker": null
+    },
+    {
+      "id": "S08-010",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "411",
+      "text": "Map devrel-context.md into the existing context architecture; do not create a competing memory system.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "devrel-program-kit/references/context-and-handback.md",
+      "blocker": null
+    },
+    {
+      "id": "S08-011",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "413",
+      "text": "Preserve speaker identity and source authorship; do not fabricate user quotes, customer results, conference acceptance, or testimonials.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "devrel-program-kit/scripts/check_program.py",
+      "blocker": null
+    },
+    {
+      "id": "S08-012",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "415",
+      "text": "Separate reach from usefulness: evaluate successful developer tasks, repeat use, friction removed, feedback closure, contribution outcomes; treat causal revenue claims cautiously.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "devrel-program-kit/scripts/check_program.py",
+      "blocker": null
+    },
+    {
+      "id": "S08-013",
+      "source_section": "8. Complete developer-relations system",
+      "source_lines": "417",
+      "text": "Produce a developer-program operating kit and a tested content/demo chain, not only a developer-advocate persona.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/devrel/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S09-001",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "420",
+      "text": "Create a distinct community mandate, even where it reuses the DevRel suite.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/community/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S09-002",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "424-431",
+      "text": "Cover community roles: strategy, operations, member success, moderator, trust/safety, independent appeal coordinator, events, volunteers, chapters, contributor experience, maintainer liaison, triage, mentorship, OSPO, recognition, funding, health analyst, inclusion reviewer.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/community/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S09-003",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "435",
+      "text": "Workflow: purpose and membership model, onboarding, first meaningful participation, ongoing contribution, leadership development.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-operating-kit/references/kit-map.md",
+      "blocker": null
+    },
+    {
+      "id": "S09-004",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "436",
+      "text": "Code of conduct and moderation procedures with conflicts of interest, evidence boundaries, appeals, and authorized decisions.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-moderation-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S09-005",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "437",
+      "text": "Contribution path, good first tasks, environment setup, review feedback, recognition, succession, and maintainer support.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-operating-kit/references/kit-map.md",
+      "blocker": null
+    },
+    {
+      "id": "S09-006",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "438",
+      "text": "Event delivery, accessibility, facilitation, volunteer care, and post-event action.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-operating-kit/references/kit-map.md",
+      "blocker": null
+    },
+    {
+      "id": "S09-007",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "439",
+      "text": "Governance records, decision transparency, funding dependencies, sponsorship boundaries, and sustainability risks.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-operating-kit/scripts/kit_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S09-008",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "440",
+      "text": "Feedback and incident escalation without merging confidential case records into public metrics.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-health-measures/scripts/measures.py",
+      "blocker": null
+    },
+    {
+      "id": "S09-009",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "442",
+      "text": "Ground measurement and governance in primary CHAOSS and TODO Group material, selected for the actual community; use the DevRel suite's community and OSS procedures.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-health-measures/references/sources.md",
+      "blocker": null
+    },
+    {
+      "id": "S09-010",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "444",
+      "text": "Include upstream community launch/health/moderation, feedback-loop, champions, forum/chat, contributor onboarding, issue triage, governance, release/disclosure, maintainer sustainability, and sponsorship procedures.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-operating-kit/references/kit-map.md",
+      "blocker": null
+    },
+    {
+      "id": "S09-011",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "444",
+      "text": "Add original local procedures where nondeveloper community needs exceed that scope; do not turn membership participation into automatic sales lead generation.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-operating-kit/references/kit-map.md",
+      "blocker": null
+    },
+    {
+      "id": "S09-012",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "446",
+      "text": "Use consent-aware aggregated measures; no ranking volunteers by commits, no inferring burnout or protected traits, no undefined community health scores.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-health-measures/scripts/measures.py",
+      "blocker": null
+    },
+    {
+      "id": "S09-013",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "448",
+      "text": "An agent may analyze or draft a moderation recommendation but cannot invent reports, issue sanctions, or send messages without applicable authority.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "community-moderation-review/scripts/case_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S09-014",
+      "source_section": "9. Complete community and open-source system",
+      "source_lines": "450",
+      "text": "Deliver a community operating kit: charter, onboarding path, governance map, moderation/escalation design, event playbook, contributor journey, measurement plan, improvement loop.",
+      "owner_workstream": "devrel-and-community",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/community/fixtures/kit/community-a-kit.md",
+      "blocker": null
+    },
+    {
+      "id": "S10-001",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "454",
+      "text": "Build a dedicated BCIT education fleet, not generic computer-science lesson generation.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-002",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "458-467",
+      "text": "BCIT roles: department lead, curriculum/standards specialist, business/entrepreneurship/management, law/ethics, marketing, international business, career dev, accounting/economics/personal finance, communication/productivity, IT/web/database/cyber-lab instructors.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-003",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "468-473",
+      "text": "BCIT support roles: assessment/rubric designer, NOCTI alignment, ISTE coach, a11y/UDL collaborator, work-based learning, classroom facilitation, digital citizenship/AI use, lab operations, feedback analysis, instructional coach/PL facilitator.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-004",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "475",
+      "text": "Represent qualified-teacher practice; do not label the AI certified or authorize it as teacher of record.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-005",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "479-486",
+      "text": "Create separate registry records for state/district curriculum, NBEA standards, selected NOCTI assessment, ISTE standards by audience, teacher certification jurisdiction, and local assessment/accessibility/student-data/instruction policies.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-006",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "488",
+      "text": "Each registry record holds authority, edition/date, standard ID, source location, access rights, permitted use, last verification.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-007",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "490",
+      "text": "Each alignment record links a local objective and original task/rubric criterion to an exact source identifier and version, with evidence, reviewer, status verified/partial/unverified/not applicable; one unit cannot verify a whole subject area or credential.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/scripts/standards_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-008",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "492-494",
+      "text": "Treat Pennsylvania as initial jurisdictional reference but verify actual assignment and jurisdiction first; do not imply NBEA, NOCTI, and ISTE jointly award a teaching license.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-009",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "498-500",
+      "text": "Respect NBEA 2023 edition licensing and NOCTI blueprint restrictions; cover all ten NBEA content areas (a computing-only curriculum fails).",
+      "owner_workstream": "education",
+      "status": "blocked",
+      "deliverable": null,
+      "blocker": "NBEA's page returned HTTP 403 to automated fetches on 2026-11-25, so the 2023 edition and licensing are not observed; the ten-area coverage check works (nbea-ten-areas-covered, computing-only-not-bcit). Resume: a person opens nbea.org/business-education-curriculum-standards and records edition, access and license in the registry."
+    },
+    {
+      "id": "S10-010",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "502",
+      "text": "Select the actual NOCTI credential category and identifier; Job Ready, foundational, teacher, and education-professional assessments are not interchangeable.",
+      "owner_workstream": "education",
+      "status": "blocked",
+      "deliverable": null,
+      "blocker": "No NOCTI credential category or identifier is selected; the program or teacher chooses one. Until then every NOCTI alignment is a gap and blueprint content stays out of the rig."
+    },
+    {
+      "id": "S10-011",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "504",
+      "text": "Map ISTE Educator practices across Learner, Leader, Citizen, Collaborator, Designer, Facilitator, Analyst; verify current terms before bundling text.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/scripts/standards_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-012",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "506",
+      "text": "Use public source links and authorized resources; do not auto-copy protected standards or assessment content into skills, embeddings, public repositories, or the vault.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-013",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "508",
+      "text": "If access rights are missing, record source and limitation; build the alignment workflow with original example objectives and clearly marked unverified mappings.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/scripts/standards_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-014",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "510",
+      "text": "Keep a separate student-data policy adapter for the actual school/jurisdiction (approved tools, retention, role access, consent); installation tests use synthetic data.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-student-data-guard/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S10-015",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "512",
+      "text": "Do not generate purported real exam questions or claim to reproduce secure NOCTI items.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/scripts/standards_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-016",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "516-522",
+      "text": "Adopt the complete Learning Commons skill set at the selected revision (k12-lesson-plan-creation, k12-lesson-prep, k12-lesson-differentiation, k12-check-for-understanding, k12-fixing-lesson-plans).",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S10-017",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "524-526",
+      "text": "Preserve Learning Commons LICENSE and NOTICE; inspect subject scope (general support is not BCIT coverage; formative-check is math-oriented); register original BCIT procedures as local work, not upstream.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "bcit-learning-package/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S10-018",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "528-530",
+      "text": "Use the Learning Commons Knowledge Graph only via its supported interface after verifying it holds the exact standards; label unverified drafts and never invent standard IDs.",
+      "owner_workstream": "education",
+      "status": "blocked",
+      "deliverable": null,
+      "blocker": "The Learning Commons Knowledge Graph is not connected; connector availability would not establish NBEA, NOCTI or ISTE coverage. Drafts stay labeled with the coverage edu-standards-alignment reports."
+    },
+    {
+      "id": "S10-019",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "534",
+      "text": "Implement instructional cycle: context/prerequisites, measurable objectives, standards mapping, authentic assessment, lesson/lab sequence, instruction, learner response, feedback/reteaching, assessment review, curriculum revision.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "bcit-learning-package/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S10-020",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "537-540",
+      "text": "Learning package includes grade/course context, prerequisites, duration, resources, technology constraints, observable objectives, accurate standards references, teacher guidance, student materials, worked example.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "bcit-learning-package/scripts/package_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-021",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "541-545",
+      "text": "Learning package includes guided/independent practice, checks, criteria, rubric, answer rationale, misconceptions, accessible differentiation, offline alternatives, evidence collection, reteaching, extension, teacher review points.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "bcit-learning-package/scripts/package_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-022",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "547",
+      "text": "Use age-appropriate synthetic data in business and computing labs; isolate examples from production services.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/fixtures/bcit-unit-store/package.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-023",
+      "source_section": "10. Public-school BCIT educator system",
+      "source_lines": "549-551",
+      "text": "Do not infer diagnoses or learning styles; respect accommodation plans; do not fabricate learner answers, observations, grades, or gains; teacher controls consequential student decisions.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "bcit-learning-package/scripts/package_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S11-001",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "557-567",
+      "text": "Instructional-design roles: performance consultant, LX architect/ID, SME interviewer, curriculum architect, assessment/evaluation, writer/editor, visual/accessible-document designer, interactive developer/LMS admin, trainer enablement, localization reviewer, learning analyst.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S11-002",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "571",
+      "text": "Start by deciding whether instruction addresses the problem; diagnose knowledge/practice gaps separately from bad tools, incentives, access, or process.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-needs-analysis/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-003",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "573",
+      "text": "Use backward design (performance, evidence, practice/support) and ADDIE or another process with documented rationale.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-004",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "576-579",
+      "text": "Output: needs assessment, audience/task analysis, curriculum map, prerequisite graph, learning objectives, assessment blueprint.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-005",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "580-581",
+      "text": "Output: storyboards, scripts, activities, facilitator and learner materials, accessible media, captions/transcripts, downloadable alternatives.",
+      "owner_workstream": "education",
+      "status": "blocked",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": "Facilitator and learner materials, scripts and accessibility checks exist (edu-trainer-development, edu-assessment-check, web-accessibility); storyboard, caption and transcript production has no tool or procedure yet."
+    },
+    {
+      "id": "S11-006",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "582-583",
+      "text": "Output: delivery/export package and platform integration where required; pilot plan, implementation support, evaluation, maintenance ownership.",
+      "owner_workstream": "education",
+      "status": "blocked",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": "No target LMS or QTI/CASE consumer is named, so no delivery package or platform integration can be validated by an actual import. The evaluation and evidence plan exist (edu-trainer-development/scripts/evidence_plan.py)."
+    },
+    {
+      "id": "S11-007",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "585",
+      "text": "Inspect DaRL-GenAI/instructional_agents-skills and canonical instructional_agents as a bounded ADDIE pipeline; reuse stages only after checking dependencies, source rights, supported tools.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-008",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "587",
+      "text": "Inspect all four wrappers (course-generate, slide-evaluate, latex-compile, latex-to-pptx) and their dependencies; do not accept the default model or silently switch to API billing; if unsupported, register the limitation and finish independently.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-009",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "589",
+      "text": "Do not activate another top-level orchestrator; wrap stages as bounded tasks or register the pipeline as an exclusive backend.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-010",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "591",
+      "text": "Treat higher-education CS course research as not proving effectiveness in K-12 BCIT or workplace learning.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-research-review/scripts/research_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S11-011",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "593",
+      "text": "Use current CAST UDL guidance and relevant 1EdTech specifications when applicable; do not apply every LMS standard.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S11-012",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "595",
+      "text": "Register Quality Matters as optional with access/formal-review boundaries; use CASE and QTI only if the target supports the version, and validate a real export/import.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S11-013",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "599-607",
+      "text": "Trainer procedures: explain design fit, model complete examples, observe practice with specific feedback, calibrate rubric interpretation, fade support, coach trainers to adapt, evaluate transfer and revisit ineffective interventions.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-014",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "609",
+      "text": "Avoid simulated success stories; a generated lesson or happy participant survey is not proof of learning or workplace transfer.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/scripts/evidence_plan.py",
+      "blocker": null
+    },
+    {
+      "id": "S11-015",
+      "source_section": "11. Instructional design and trainer development",
+      "source_lines": "611",
+      "text": "Generated calibration examples only prepare reviewers; real inter-rater agreement needs real reviewer ratings, never invented.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/scripts/agreement.py",
+      "blocker": null
+    },
+    {
+      "id": "ED-001",
+      "source_section": "Education addendum: Doctoral faculty and computer science teaching",
+      "source_lines": "3",
+      "text": "Extend Sections 10-11 and their registries, workflows, evaluations, and vault notes; inherit the original standing rules and architecture.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-002",
+      "source_section": "Education addendum: Doctoral faculty and computer science teaching",
+      "source_lines": "5",
+      "text": "Add a doctoral-level CS education professor, a doctoral-level BCIT education professor, a dedicated CS teacher role, plus relevant professional organizations and scholarly reference systems.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-003",
+      "source_section": "Education addendum: Doctoral faculty and computer science teaching",
+      "source_lines": "7",
+      "text": "Roles are competency-based; do not invent degrees, appointments, licenses, memberships, research participants, or institutional authority.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-004",
+      "source_section": "Education addendum: 1. Professor of Computer Science Education \u2014 doctoral level",
+      "source_lines": "11-13",
+      "text": "Build role cs-education-professor: scholar, teacher educator, advanced instructor covering disciplinary knowledge, pedagogy, research methods, educator preparation.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-005",
+      "source_section": "Education addendum: 1. Professor of Computer Science Education \u2014 doctoral level",
+      "source_lines": "17-19",
+      "text": "Responsibility: computing education research and cognition analysis (novice models, misconceptions, debugging, transfer); learning progressions from school to intro university to advanced study, preserving audience differences.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-006",
+      "source_section": "Education addendum: 1. Professor of Computer Science Education \u2014 doctoral level",
+      "source_lines": "20-21",
+      "text": "Responsibility: preservice/in-service methods courses, microteaching, observation protocols, coaching; graduate seminars, readings, assignments, assessments, supervision plans.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-007",
+      "source_section": "Education addendum: 1. Professor of Computer Science Education \u2014 doctoral level",
+      "source_lines": "22",
+      "text": "Responsibility: research supervision (proposal, dissertation methods, literature review, analysis plans, reproducibility, peer review, publication preparation).",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-008",
+      "source_section": "Education addendum: 1. Professor of Computer Science Education \u2014 doctoral level",
+      "source_lines": "23-24",
+      "text": "Responsibility: program evaluation (coherence, assessment validity, accessibility, participation, evidence) and scholarly service (reviews, research-to-practice briefs, PL resources).",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-009",
+      "source_section": "Education addendum: 1. Professor of Computer Science Education \u2014 doctoral level",
+      "source_lines": "28-30",
+      "text": "Choose method (qualitative, quantitative, mixed, experimental, quasi-experimental, design-based) per question; produce question-to-method rationale, evidence table, measurement and analysis plans, limitations, reproducible artifacts.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-010",
+      "source_section": "Education addendum: 1. Professor of Computer Science Education \u2014 doctoral level",
+      "source_lines": "32",
+      "text": "For human-subjects research prepare ethics and data-management materials; do not claim IRB approval or collect participant data without the applicable process.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-011",
+      "source_section": "Education addendum: 1. Professor of Computer Science Education \u2014 doctoral level",
+      "source_lines": "34",
+      "text": "Evaluate selection bias, confounding, measurement validity, uncertainty, transfer; do not turn a small classroom observation into a universal teaching rule.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-012",
+      "source_section": "Education addendum: 2. Professor of Business, Computer and Information Technology Education \u2014 doctoral level",
+      "source_lines": "40-42",
+      "text": "Build role bcit-education-professor: business teacher educator and scholar across business education, information systems, computing applications, career/technical pathways.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-013",
+      "source_section": "Education addendum: 2. Professor of Business, Computer and Information Technology Education \u2014 doctoral level",
+      "source_lines": "44",
+      "text": "Preserve all ten NBEA content areas; do not substitute a general business consultant or IT administrator.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-014",
+      "source_section": "Education addendum: 2. Professor of Business, Computer and Information Technology Education \u2014 doctoral level",
+      "source_lines": "48-49",
+      "text": "Responsibility: subject-specific business methods courses; program design connecting secondary BCIT, postsecondary, IS programs, career pathways and teacher prep with explicit prerequisites and outcomes.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-015",
+      "source_section": "Education addendum: 2. Professor of Business, Computer and Information Technology Education \u2014 doctoral level",
+      "source_lines": "50-51",
+      "text": "Responsibility: authentic learning tasks (cases, spreadsheet/accounting, data, IS projects, entrepreneurship simulations) and assessment research on rubric validity, scoring consistency, fairness, transfer.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-016",
+      "source_section": "Education addendum: 2. Professor of Business, Computer and Information Technology Education \u2014 doctoral level",
+      "source_lines": "52-55",
+      "text": "Responsibility: clinical preparation (microteaching, observation, mentor calibration; human supervisors keep placement/qualification decisions), scholarship, graduate supervision, trainer development with actual evidence.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-017",
+      "source_section": "Education addendum: 2. Professor of Business, Computer and Information Technology Education \u2014 doctoral level",
+      "source_lines": "59",
+      "text": "Produce program maps, methods-course syllabi, authentic assessment packages, standards crosswalks, research protocols, teacher-observation instruments, scholarly reviews.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-018",
+      "source_section": "Education addendum: 2. Professor of Business, Computer and Information Technology Education \u2014 doctoral level",
+      "source_lines": "61",
+      "text": "Execute spreadsheet formulas, database queries, code, and worked calculations; independently check answer keys and scoring criteria.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-answer-key-check/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-019",
+      "source_section": "Education addendum: 2. Professor of Business, Computer and Information Technology Education \u2014 doctoral level",
+      "source_lines": "63",
+      "text": "Distinguish business subject mastery, technology fluency, pedagogical competence, and occupational assessment readiness; evidence for one does not establish the others.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/references/teacher-education.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-020",
+      "source_section": "Education addendum: 3. Computer Science Teacher \u2014 school classroom practice",
+      "source_lines": "69-71",
+      "text": "Create role cs-classroom-teacher alongside BCIT teacher roles, supporting age-appropriate PK-12 learning and recording the actual grade band and teaching-assignment requirements.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-021",
+      "source_section": "Education addendum: 3. Computer Science Teacher \u2014 school classroom practice",
+      "source_lines": "75-78",
+      "text": "Coverage: computational thinking, decomposition, algorithms, programming, testing, debugging; data; systems, networks, cybersecurity, privacy; social impact, ethics, accessibility, responsible AI use.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-022",
+      "source_section": "Education addendum: 3. Computer Science Teacher \u2014 school classroom practice",
+      "source_lines": "79-81",
+      "text": "Coverage: advanced pathways (software, data science, physical computing, AI); reading/tracing code, worked examples, code ordering, structured debugging; classroom routines, accessible tools, low-bandwidth alternatives, lab recovery.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-023",
+      "source_section": "Education addendum: 3. Computer Science Teacher \u2014 school classroom practice",
+      "source_lines": "83",
+      "text": "Choose languages and tools from objective, age, access needs and actual environment; do not impose one language across every course.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-024",
+      "source_section": "Education addendum: 3. Computer Science Teacher \u2014 school classroom practice",
+      "source_lines": "87-93",
+      "text": "Teaching behavior sequence: objective and prior knowledge, complete example, learner predicts/traces/modifies, wait for actual response, specific feedback, adjust support, assess transfer.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-025",
+      "source_section": "Education addendum: 3. Computer Science Teacher \u2014 school classroom practice",
+      "source_lines": "95",
+      "text": "Never invent student responses or continue as though a learner completed an exercise.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-026",
+      "source_section": "Education addendum: 3. Computer Science Teacher \u2014 school classroom practice",
+      "source_lines": "97",
+      "text": "Distinguish conceptual understanding from typing speed, memorized syntax, polished AI output, or prior computing access.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-027",
+      "source_section": "Education addendum: 3. Computer Science Teacher \u2014 school classroom practice",
+      "source_lines": "101",
+      "text": "Classroom package: teacher guide, runnable examples, student tasks, expected outputs, misconception probes, rubric, answer rationale, accessibility checks, reteaching/extension options.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-028",
+      "source_section": "Education addendum: 3. Computer Science Teacher \u2014 school classroom practice",
+      "source_lines": "103",
+      "text": "Use original or properly licensed materials; preserve parent student-data, accommodation, assessment, teacher-authority boundaries.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-029",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "113",
+      "text": "Capability computing-education-research-review (owner: CS education professor; reuse equivalent installed skills): Source-verified synthesis, methods critique, evidence limits, teaching implications.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-030",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "114",
+      "text": "Capability education-research-design (owner: Both professor roles; reuse equivalent installed skills): Question, theoretical rationale, method, instruments, analysis and ethics plan.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-031",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "115",
+      "text": "Capability cs-learning-progression-design (owner: CS education professor; reuse equivalent installed skills): Prerequisite map, course sequence, concept progression, assessment alignment.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-learning-progression/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-032",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "116",
+      "text": "Capability cs-classroom-instruction (owner: CS teacher; reuse equivalent installed skills): Complete lesson/lab, runnable examples, learner prompts, feedback and assessment.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-033",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "117",
+      "text": "Capability computing-assessment-validation (owner: CS teacher with faculty review; reuse equivalent installed skills): Executed examples, verified answers, misconception checks, construct-valid rubric.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-answer-key-check/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-034",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "118",
+      "text": "Capability bcit-teacher-education (owner: BCIT professor; reuse equivalent installed skills): Methods course, microteaching, observation and coaching package.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/references/teacher-education.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-035",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "119",
+      "text": "Capability bcit-program-research-review (owner: BCIT professor; reuse equivalent installed skills): Program evaluation, standards/credential mapping, evidence-based improvement plan.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-036",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "120",
+      "text": "Capability educator-professional-learning (owner: Relevant professor and teacher roles; reuse equivalent installed skills): Competency gap, source-backed development path, practice task, evidence of improvement.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-037",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "124-126",
+      "text": "Handoffs: professors set research/curriculum/pedagogy rationale; classroom teachers translate objectives and return real implementation evidence; instructional designers package materials and delivery.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-038",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "127-128",
+      "text": "Existing assessment, accessibility, standards, lab specialists give focused checks; the existing PM/router keeps execution ownership with no separate academic scheduler.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-039",
+      "source_section": "Education addendum: 4. Add reusable skills and connect the roles",
+      "source_lines": "130",
+      "text": "Activate faculty review for research, program design, consequential assessment changes, or uncertain pedagogical claims; routine classroom tasks need not summon every role.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-040",
+      "source_section": "Education addendum: 5. Standards and scholarly references",
+      "source_lines": "134-143",
+      "text": "Keep separate records for student outcomes, teacher practice, university curricula, state qualification, occupational assessment; keep NBEA/NOCTI/ISTE records and register PA CS 7-12 staffing guidance and CSTA research.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-041",
+      "source_section": "Education addendum: 5. Standards and scholarly references",
+      "source_lines": "138-139",
+      "text": "Register CSTA 2026 PK-12 CS Standards (verify state/district adoption) and CSTA Standards for CS Teachers as separate documents.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-042",
+      "source_section": "Education addendum: 5. Standards and scholarly references",
+      "source_lines": "140",
+      "text": "Register ACM/IEEE-CS/AAAI CS2023 for university CS curriculum design and competency references.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-043",
+      "source_section": "Education addendum: 5. Standards and scholarly references",
+      "source_lines": "145",
+      "text": "Recheck standards versions during implementation (CSTA student 2026, teacher 2020) and preserve any older edition the school actually adopted.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-044",
+      "source_section": "Education addendum: 5. Standards and scholarly references",
+      "source_lines": "147",
+      "text": "Do not apply university curriculum expectations directly to school learners without a justified progression.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-learning-progression/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-045",
+      "source_section": "Education addendum: 5. Standards and scholarly references",
+      "source_lines": "149",
+      "text": "Record attribution and reuse terms; CSTA standards are noncommercial share-alike, so do not assume bundling text into commercial products is permitted.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-046",
+      "source_section": "Education addendum: 5. Standards and scholarly references",
+      "source_lines": "151",
+      "text": "Trace scholarship claims to the actual paper and methods; distinguish association webpage, conference talk, peer-reviewed study, systematic review.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-research-review/references/evidence-hierarchy.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-047",
+      "source_section": "Education addendum: 6. Professional organizations and communities",
+      "source_lines": "155-172",
+      "text": "Register the twelve listed organizations as knowledge/community sources, not installable packages; prioritize CSTA and SIGCSE for CS, NBEA/CBTR, ACTE Business Education, PBEA for BCIT.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/organizations.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-048",
+      "source_section": "Education addendum: 6. Professional organizations and communities",
+      "source_lines": "174",
+      "text": "Per organization record current name, audience, publications/resources, source URL, access/license terms, PL opportunities, last verification.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/organizations.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-049",
+      "source_section": "Education addendum: 6. Professional organizations and communities",
+      "source_lines": "176",
+      "text": "Keep membership, recognition, licensure, academic qualifications as separate records; infer no memberships and do not enroll, pay, submit, contact, or subscribe on the user's behalf.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/organizations.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-050",
+      "source_section": "Education addendum: 7. Additional acceptance checks",
+      "source_lines": "182-183",
+      "text": "Acceptance demo: CS education professor critiques a real accessible paper, verifies citations, explains limits, proposes bounded application; BCIT professor produces a teacher-education module with business task, computing, rationale, calibrated criteria.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/evidence/edu-research-review/critique-kazemitabaar-2023.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-051",
+      "source_section": "Education addendum: 7. Additional acceptance checks",
+      "source_lines": "184-192",
+      "text": "CS teacher delivers a runnable lesson and responds to supplied learner work without invented progress; success needs usable artifacts and retained evidence, not a persona description.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-052",
+      "source_section": "Education addendum: 7. Additional acceptance checks",
+      "source_lines": "185-187",
+      "text": "Failure cases: detect student/teacher standard mix-up or wrong edition; reject passing code or AI output as evidence of understanding; execute examples and include an intentionally incorrect solution.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/evals.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-053",
+      "source_section": "Education addendum: 7. Additional acceptance checks",
+      "source_lines": "188-189",
+      "text": "Failure cases: identify confounding, unsupported causal claims, overgeneralization; detect assessment demands unrelated to the construct (inaccessible tools, irrelevant reading difficulty).",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/evals.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-054",
+      "source_section": "Education addendum: 7. Additional acceptance checks",
+      "source_lines": "190",
+      "text": "Verify organization names and distinguish professional references from credentials and permissions.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/organizations.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-055",
+      "source_section": "Education addendum: 8. Registry and vault additions",
+      "source_lines": "196",
+      "text": "Extend the existing role, capability, standards, source, evaluation, and override registries.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/evals.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-056",
+      "source_section": "Education addendum: 8. Registry and vault additions",
+      "source_lines": "198-203",
+      "text": "Add or update linked notes for the education fleet's faculty, classroom-teaching, educator-organization and scholarly-source records.",
+      "owner_workstream": "education",
+      "status": "blocked",
+      "deliverable": null,
+      "blocker": "Notes outside this repository are the integrator's step, not this build's. Resume: the integrator adds the four linked entries in its own notes location, with that location's existing frontmatter."
+    },
+    {
+      "id": "ED-057",
+      "source_section": "Education addendum: 8. Registry and vault additions",
+      "source_lines": "205",
+      "text": "Use the existing notes location and frontmatter; preserve its existing records.",
+      "owner_workstream": "education",
+      "status": "blocked",
+      "deliverable": null,
+      "blocker": "Same step as ED-056: the integrator writes the entries in its own notes location and keeps that location's existing frontmatter and records."
+    },
+    {
+      "id": "ED-058",
+      "source_section": "Education addendum: 8. Registry and vault additions",
+      "source_lines": "207",
+      "text": "Keep executable skills in the canonical rig; document entry points, role boundaries, source rights, evaluation outcomes, unresolved gaps; leave other company-fleet scope unchanged.",
+      "owner_workstream": "education",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    }
+  ]
+}

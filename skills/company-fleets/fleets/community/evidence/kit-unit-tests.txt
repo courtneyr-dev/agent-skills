@@ -1,0 +1,22 @@
+$ python3 -W ignore -m unittest discover -s ../community-operating-kit/scripts/tests -p 'test_*.py' -v
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.kit-unit-tests (positive, target community-operating-kit, synthetic=True)
+# expected: All pass.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+test_complete_kit_passes (test_kit_check.KitCheck.test_complete_kit_passes) ... ok
+test_each_section_is_required (test_kit_check.KitCheck.test_each_section_is_required) ... ok
+test_governance_decisions_need_human_owners_records_and_review (test_kit_check.KitCheck.test_governance_decisions_need_human_owners_records_and_review) ... ok
+test_invalid_input_is_rejected (test_kit_check.KitCheck.test_invalid_input_is_rejected) ... ok
+test_linked_plan_is_linted (test_kit_check.KitCheck.test_linked_plan_is_linted) ... ok
+test_load_bearing_parts_are_required (test_kit_check.KitCheck.test_load_bearing_parts_are_required) ... ok
+test_missing_measures_skill_is_noted_not_hidden (test_kit_check.KitCheck.test_missing_measures_skill_is_noted_not_hidden) ... ok
+test_ranking_and_sales_language_is_refused_unless_negated (test_kit_check.KitCheck.test_ranking_and_sales_language_is_refused_unless_negated) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.024s
+
+OK

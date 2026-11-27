@@ -1,0 +1,17 @@
+{
+  "label": "SYNTHETIC toy request (Fixture Co)",
+  "kind": "marketing",
+  "audience": [
+    "alice@example.com",
+    "bob@example.com",
+    "carol@example.com"
+  ],
+  "subject": "Fixture Co update",
+  "producer": "toy.writer",
+  "acceptor": "human:send-owner",
+  "amount": 120,
+  "evidence": {
+    "path": "evidence/review.txt",
+    "sha256": "c40f17c65bf963c3739194c219d510c55d47ab2eab06afcf40c1452d9c0e7238"
+  }
+}

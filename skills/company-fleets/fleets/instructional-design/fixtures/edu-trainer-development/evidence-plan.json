@@ -1,0 +1,13 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): a plan only. No data has been collected; every result field is empty.",
+  "intervention": "The lead facilitator coaches a new trainer through three runs of the accessible publishing session for client editors",
+  "intended_performance": "Client editors publish posts whose alt text and link text score 2 or 3 on the rubric; the new trainer runs the session without the lead stepping in",
+  "human_data_boundary": "Fixture Co's training lead collects published posts from the client's CMS only with the client's written approval and notice to editors. Two human reviewers rate them without knowing which period each post came from. The agent drafts instruments and stops there: it records no ratings, survey results, observations or gains.",
+  "revisit_if": "Median rubric score on published posts doesn't rise by at least one level after two coaching cycles; then rerun edu-needs-analysis before changing the session",
+  "measures": [
+    {"id": "M1", "kind": "work-sample", "level": "behavior", "description": "Rubric scores on up to 10 published posts per editor", "owner": "human:training-lead", "timing": "4 weeks before and 4 weeks after the session", "baseline": "The 4 weeks before the session", "result": null},
+    {"id": "M2", "kind": "performance-task", "level": "learning", "description": "End-of-session task: fix alt text and link text in two new drafts, scored with the rubric", "owner": "human:new-trainer", "timing": "Last 10 minutes of each session", "baseline": "The same task format on one draft at the session start", "result": null},
+    {"id": "M3", "kind": "observation", "level": "behavior", "description": "The lead observes the new trainer's second run with the focus list in the facilitation guide", "owner": "human:lead-facilitator", "timing": "Run 2", "baseline": "Notes from run 1, co-facilitated", "result": null},
+    {"id": "M4", "kind": "satisfaction-survey", "level": "reaction", "description": "Two-question reaction survey, reported apart from learning evidence", "owner": "human:training-lead", "timing": "End of each session", "baseline": "None: first offering"}
+  ]
+}

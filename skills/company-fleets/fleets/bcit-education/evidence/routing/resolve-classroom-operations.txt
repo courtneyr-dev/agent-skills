@@ -1,0 +1,83 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains bcit-education.lab-operations-lead --contains bcit-education.career-wbl-coordinator -- bin/fleet resolve --profile school --workload bcit-education.workload.classroom-operations
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.resolve-classroom-operations
+{
+  "coordinator": "bcit-education.program-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/bcit-education/roles.json"
+  ],
+  "profile": "school",
+  "roles": [
+    {
+      "display_name": "BCIT department and program lead",
+      "fleet": "bcit-education",
+      "id": "bcit-education.program-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "edu-standards-alignment",
+          "installed": true,
+          "path": "skills/edu-standards-alignment/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Classroom and lab operations lead",
+      "fleet": "bcit-education",
+      "id": "bcit-education.lab-operations-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "bcit-learning-package",
+          "installed": true,
+          "path": "skills/bcit-learning-package/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Classroom facilitation, family communication, digital citizenship and responsible AI-use support",
+      "fleet": "bcit-education",
+      "id": "bcit-education.classroom-community-support",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-student-data-guard",
+          "installed": true,
+          "path": "skills/edu-student-data-guard/SKILL.md"
+        },
+        {
+          "id": "bcit-learning-package",
+          "installed": true,
+          "path": "skills/bcit-learning-package/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Career and work-based learning coordinator and student-organization liaison",
+      "fleet": "bcit-education",
+      "id": "bcit-education.career-wbl-coordinator",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "bcit-learning-package",
+          "installed": true,
+          "path": "skills/bcit-learning-package/SKILL.md"
+        },
+        {
+          "id": "edu-standards-alignment",
+          "installed": true,
+          "path": "skills/edu-standards-alignment/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "bcit-education.workload.classroom-operations"
+}
+# expect: met
+# exit 0

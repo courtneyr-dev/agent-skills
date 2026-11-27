@@ -1,0 +1,82 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.stale-matrix-evidence-refused (boundary, target product-release-gate).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains changed after the handoff recorded it --contains it checked a different version of compat-ok.json -- python3 ../product-release-gate/scripts/release_gate.py gate --candidate ../product-release-gate/fixtures/candidate-stale-evidence.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-release-gate/scripts/release_gate.py gate --candidate ../product-release-gate/fixtures/candidate-stale-evidence.json
+{
+  "approval_owner": "human:release-owner",
+  "channel": "stable",
+  "decision": "refused",
+  "not_checked": [
+    "runtime behavior beyond the recorded test results",
+    "legal review of license compatibility",
+    "marketplace reviewer judgment",
+    "whether platform_facts are still current"
+  ],
+  "product": {
+    "id": "fixture-co-forms-connector",
+    "platform": "wordpress-plugin",
+    "previous_version": "1.4.2",
+    "version": "2.0.0"
+  },
+  "stages": [
+    {
+      "errors": [],
+      "stage": "compatibility",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "semver-and-channel",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "changelog",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "supply-chain",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "migration-and-rollback",
+      "status": "pass"
+    },
+    {
+      "errors": [],
+      "stage": "marketplace-policy",
+      "status": "pass"
+    },
+    {
+      "errors": [
+        {
+          "code": "stale-or-invalid-evidence",
+          "message": "output compat-ok.json changed after the handoff recorded it"
+        },
+        {
+          "code": "stale-or-invalid-evidence",
+          "message": "stale evidence evidence/compat-ok.json.review.txt: it checked a different version of compat-ok.json"
+        },
+        {
+          "code": "stale-or-invalid-evidence",
+          "message": "output compat-ok.json has no fresh evidence"
+        },
+        {
+          "code": "review-not-bound-to-output",
+          "message": "evidence/compat-ok.json.review.txt does not name reviewed-sha256 352a62fb4eae for compat-ok.json"
+        }
+      ],
+      "stage": "evidence-freshness",
+      "status": "fail"
+    }
+  ],
+  "support_boundary": "Supports WordPress 6.6 to 6.9 on PHP 8.1 to 8.4; behavior outside that range is unsupported."
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains 'changed after the handoff recorded it': ok
+CHECK contains 'it checked a different version of compat-ok.json': ok
+VERDICT pass

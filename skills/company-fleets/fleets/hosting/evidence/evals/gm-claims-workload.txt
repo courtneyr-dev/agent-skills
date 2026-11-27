@@ -1,0 +1,22 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json lease.epoch=1 --json lease.backend=fleet:hosting -- bin/fleet claim --lease-root '{tmp}/leases' --tenant tenant-a --workload hosting.workload.restore-exercise --instance drill-1 --owner-pid 1 --contract-hash 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef --role hosting.general-manager
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.gm-claims-workload kind positive synthetic true
+{
+  "lease": {
+    "acquired_at": 1795751211.5353951,
+    "attempt_id": "hosting.general-manager",
+    "backend": "fleet:hosting",
+    "contract_hash": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "epoch": 1,
+    "expires_at": 1795751811.5353951,
+    "heartbeat_at": 1795751211.5353951,
+    "owner_fingerprint": "Tue Nov 24 10:00:35 2026",
+    "owner_pid": 1,
+    "repo": "company-fleets/tenant-a",
+    "state": "active",
+    "task_id": "hosting.workload.restore-exercise#drill-1",
+    "token": "<claim token, redacted>",
+    "worktree": ""
+  }
+}
+# expect: met
+# exit 0

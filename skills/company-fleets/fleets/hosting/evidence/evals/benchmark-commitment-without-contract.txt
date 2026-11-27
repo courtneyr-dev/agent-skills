@@ -1,0 +1,34 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json violations.0.rule=no-contract -- python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix fleets/hosting/fixtures/benchmark-matrix/matrix-fabricated-commitment.json
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-commitment-without-contract kind boundary synthetic true
+{
+  "as_of": "2026-11-26",
+  "assumptions": [
+    "Provider claims are what public pages said on retrieved_on; they are not tested.",
+    "A measured value counts only at the evidence file and JSON path the evidence owner recorded for its dimension, while the file's hash matches.",
+    "Targets and statuses come from the owner's benchmark/targets.json; a process running as the same OS user can rewrite the owner's files, which only separate OS accounts or signed records stop."
+  ],
+  "statuses": {
+    "accessibility": "not-measured",
+    "availability": "not-measured",
+    "cost": "not-measured",
+    "data_portability": "met",
+    "deployment_reversibility": "met",
+    "isolation": "met",
+    "observability": "met",
+    "performance_under_load": "not-measured",
+    "recovery_objectives": "unmet",
+    "regional_constraints": "not-measured",
+    "restore": "met",
+    "support_coverage": "not-measured"
+  },
+  "verdict": "fail",
+  "violations": [
+    {
+      "dimension": "restore",
+      "message": "a commitment is recorded but no plan or contract is on record",
+      "rule": "no-contract"
+    }
+  ]
+}
+# expect: met
+# exit 0

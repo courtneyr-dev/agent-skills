@@ -1,0 +1,10 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=anchors-not-owner-ledger -- sh -c 'mkdir -p {tmp}/in && { cat fleets/hosting/fixtures/abuse-response/phishing-report-tenant-b.txt; echo '"'"'Forwarded with ticket EV-caller-anchors'"'"'; } > {tmp}/in/phishing-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/phishing-report-tenant-b.txt --case-dir {tmp}/case --tenant tenant-b --category phishing >/dev/null && echo '"'"'{}'"'"' > {tmp}/mine.jsonl && python3 ../hosting-abuse-response/scripts/abuse_case.py verify --case-dir {tmp}/case --anchors {tmp}/mine.jsonl'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-caller-anchors-refused kind negative synthetic true
+{
+  "detail": "case heads are anchored only in the owner's ledger $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/owner/hosting-abuse-response/anchors.ndjson; the caller-named $TMPDIR/hosting-eval-1_tdpvjb/mine.jsonl is refused",
+  "recorded": false,
+  "refusal": "anchors-not-owner-ledger",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "id": "community-improvement",
+  "code": "COM",
+  "name": "Community improvement",
+  "source": "Company Agent Fleets prompt 2, section 12, workflow table row 6 (lines 619-626)",
+  "profile": "community",
+  "coordinator": "community.operations-manager",
+  "home_workload": "community.workload.onboarding-governance",
+  "outcome": "A contribution-path change grounded in community evidence, reviewed by governance and maintainers, with onboarding updated and follow-up measured on real activity.",
+  "final_consumer": "human:community-steward",
+  "stop_conditions": [
+    "Every acceptance criterion is met or refused with a reason",
+    "The step's budget is reached",
+    "A required human decision or human data is missing"
+  ],
+  "cancellation": "Stop the step's tools, keep partial outputs labeled partial in the run folder, and release the coordinator lease with its epoch.",
+  "steps": [
+    {
+      "id": "evidence",
+      "stage": "Community evidence",
+      "producer": "community.health-analyst",
+      "reviewer": "community.inclusion-reviewer",
+      "acceptance_owner": "community.operations-manager",
+      "outcome": "Aggregate community measures with small groups suppressed and no individual rankings.",
+      "acceptance_criteria": [
+        "No volunteer ranking",
+        "Groups under the threshold are suppressed"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "measures report",
+      "skills": [
+        "community-health-measures"
+      ]
+    },
+    {
+      "id": "governance",
+      "stage": "Governance and maintainer review",
+      "producer": "community.governance-liaison",
+      "reviewer": "community.maintainer-liaison",
+      "acceptance_owner": "community.operations-manager",
+      "outcome": "Governance review of the proposed change with conflicts and appeal routes kept.",
+      "acceptance_criteria": [
+        "Conflicts of interest are declared",
+        "Appeal routes are kept"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "governance review",
+      "skills": [
+        "community-moderation-review"
+      ]
+    },
+    {
+      "id": "contribution-path",
+      "stage": "Contribution-path change",
+      "producer": "community.contributor-experience-lead",
+      "reviewer": "community.maintainer-liaison",
+      "acceptance_owner": "community.operations-manager",
+      "outcome": "The changed contribution path in the operating kit.",
+      "acceptance_criteria": [
+        "The kit passes its completeness check"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "operating kit",
+      "skills": [
+        "community-operating-kit"
+      ]
+    },
+    {
+      "id": "onboarding",
+      "stage": "Onboarding",
+      "producer": "community.member-success-lead",
+      "reviewer": "community.inclusion-reviewer",
+      "acceptance_owner": "community.operations-manager",
+      "outcome": "Onboarding steps for new contributors.",
+      "acceptance_criteria": [
+        "Every onboarding step names its owner"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "onboarding guide",
+      "skills": []
+    },
+    {
+      "id": "feedback-to-product",
+      "stage": "Feedback to product",
+      "producer": "community.member-success-lead",
+      "reviewer": "community.governance-liaison",
+      "acceptance_owner": "human:product-owner",
+      "outcome": "Community feedback handed to the product owner without personal data.",
+      "acceptance_criteria": [
+        "Feedback is aggregated; no member is named"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "product feedback",
+      "skills": [],
+      "when": "product-feedback"
+    },
+    {
+      "id": "follow-up",
+      "stage": "Measured follow-up",
+      "producer": "community.health-analyst",
+      "reviewer": "community.sustainability-analyst",
+      "acceptance_owner": "community.operations-manager",
+      "outcome": "The same measures recomputed on real activity after the change.",
+      "acceptance_criteria": [
+        "Measures come from real community activity"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "follow-up measures",
+      "skills": [
+        "community-health-measures"
+      ],
+      "boundary": "human-data"
+    }
+  ]
+}

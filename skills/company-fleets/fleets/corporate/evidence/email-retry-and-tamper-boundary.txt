@@ -1,0 +1,13 @@
+# eval corporate.eval.email-retry-and-tamper-boundary (boundary, target corporate-email-guard)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../corporate-email-guard/scripts/tests/test_email_guard.py -v SendTests.test_second_send_is_a_no_op SendTests.test_edited_staged_file_is_refused
+run on 2026-11-26, exit 0
+
+[stderr]
+test_second_send_is_a_no_op (__main__.SendTests.test_second_send_is_a_no_op) ... ok
+test_edited_staged_file_is_refused (__main__.SendTests.test_edited_staged_file_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.026s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

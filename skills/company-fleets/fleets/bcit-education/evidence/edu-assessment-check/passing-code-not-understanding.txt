@@ -1,0 +1,27 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains output-only-evidence -- python3 ../edu-assessment-check/scripts/assessment_check.py check fleets/bcit-education/fixtures/bcit-unit-store/assessment-output-only.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.passing-code-not-understanding
+{
+  "ok": false,
+  "errors": [
+    {
+      "code": "output-only-evidence",
+      "where": "O4",
+      "message": "passing tests or AI-generated output do not show the learner's understanding; add an explanation, a trace or an observed performance"
+    }
+  ],
+  "flags": [],
+  "objectives": {
+    "O4": {
+      "level": "understand",
+      "tasks": [
+        "T4"
+      ],
+      "criteria": [
+        "R5"
+      ]
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: passing autograder tests and AI-generated code used as the only evidence of understanding."
+}
+# expect: met
+# exit 0

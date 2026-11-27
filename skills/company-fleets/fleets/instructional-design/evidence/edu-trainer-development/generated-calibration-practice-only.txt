@@ -1,0 +1,61 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains practice-only: no inter-rater agreement claimed --contains "discussion" --absent "kappa" --absent exact_agreement -- python3 ../edu-trainer-development/scripts/agreement.py stats fleets/instructional-design/fixtures/edu-trainer-development/calibration-practice-ratings.json
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.generated-calibration-practice-only
+{
+  "discussion": [
+    {
+      "anchor": 0,
+      "item": "A1",
+      "scores": {
+        "generated:lenient-reader": 1,
+        "generated:literal-reader": 0
+      },
+      "spread_levels": 1
+    },
+    {
+      "anchor": 1,
+      "item": "A2",
+      "scores": {
+        "generated:lenient-reader": 1,
+        "generated:literal-reader": 2
+      },
+      "spread_levels": 1
+    },
+    {
+      "anchor": 2,
+      "item": "A3",
+      "scores": {
+        "generated:lenient-reader": 3,
+        "generated:literal-reader": 2
+      },
+      "spread_levels": 1
+    },
+    {
+      "anchor": 1,
+      "item": "A6",
+      "scores": {
+        "generated:lenient-reader": 2,
+        "generated:literal-reader": 1
+      },
+      "spread_levels": 1
+    },
+    {
+      "anchor": 2,
+      "item": "A7",
+      "scores": {
+        "generated:lenient-reader": 2,
+        "generated:literal-reader": 3
+      },
+      "spread_levels": 1
+    }
+  ],
+  "message": "practice-only: no inter-rater agreement claimed",
+  "reasons": [
+    "the file is labeled synthetic",
+    "ratings with source generated are not human ratings",
+    "raters generated:lenient-reader, generated:literal-reader are not human:<id> principals"
+  ],
+  "rubric_id": "fixture-co-accessible-publishing-v1",
+  "status": "practice-only"
+}
+# expect: met
+# exit 0

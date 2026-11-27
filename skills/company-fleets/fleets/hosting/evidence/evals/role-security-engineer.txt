@@ -1,0 +1,302 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json verdict=isolated --json 'leaks=[]' --json 'lint=[]' -- python3 ../hosting-tenant-isolation/scripts/isolation_check.py records --fixture fleets/hosting/fixtures/tenant-isolation/records.json
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.role-security-engineer kind positive synthetic true
+{
+  "allowed": 18,
+  "assumptions": [
+    "Reads are decided by fleetlib.tenancy.can_read on records whose grants were first filtered: a grant stands only when a listed owner of the record's tenant (tenant-owners.json) approved it, and credential and backup records never cross tenants. fleetlib itself accepts any human: grant.",
+    "A cross-tenant read of a public or internal record is not counted as a leak; only confidential and restricted records are"
+  ],
+  "authorized_cross_tenant": [],
+  "denied": 22,
+  "ignored_grants": [],
+  "leaks": [],
+  "lint": [],
+  "matrix": [
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-a-deploy",
+      "reason": "same tenant",
+      "record": "A-SITE"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-a-deploy",
+      "reason": "same tenant",
+      "record": "A-ACCESS-LOG"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-a-deploy",
+      "reason": "same tenant",
+      "record": "A-DB-CREDS"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-a-deploy",
+      "reason": "same tenant",
+      "record": "A-BACKUP"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-a-deploy",
+      "reason": "same tenant",
+      "record": "A-STATUS"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-a-deploy",
+      "reason": "B-SITE belongs to tenant tenant-b",
+      "record": "B-SITE"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-a-deploy",
+      "reason": "B-ACCESS-LOG belongs to tenant tenant-b",
+      "record": "B-ACCESS-LOG"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-a-deploy",
+      "reason": "B-DB-CREDS belongs to tenant tenant-b",
+      "record": "B-DB-CREDS"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-a-deploy",
+      "reason": "B-BACKUP belongs to tenant tenant-b",
+      "record": "B-BACKUP"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": true,
+      "principal": "tenant-a-deploy",
+      "reason": "public",
+      "record": "B-STATUS"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-a-support",
+      "reason": "same tenant",
+      "record": "A-SITE"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": false,
+      "principal": "tenant-a-support",
+      "reason": "A-ACCESS-LOG is confidential, above the reader's internal clearance",
+      "record": "A-ACCESS-LOG"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": false,
+      "principal": "tenant-a-support",
+      "reason": "A-DB-CREDS is restricted, above the reader's internal clearance",
+      "record": "A-DB-CREDS"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": false,
+      "principal": "tenant-a-support",
+      "reason": "A-BACKUP is restricted, above the reader's internal clearance",
+      "record": "A-BACKUP"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-a-support",
+      "reason": "same tenant",
+      "record": "A-STATUS"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-a-support",
+      "reason": "B-SITE belongs to tenant tenant-b",
+      "record": "B-SITE"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-a-support",
+      "reason": "B-ACCESS-LOG is confidential, above the reader's internal clearance",
+      "record": "B-ACCESS-LOG"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-a-support",
+      "reason": "B-DB-CREDS is restricted, above the reader's internal clearance",
+      "record": "B-DB-CREDS"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-a-support",
+      "reason": "B-BACKUP is restricted, above the reader's internal clearance",
+      "record": "B-BACKUP"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": true,
+      "principal": "tenant-a-support",
+      "reason": "public",
+      "record": "B-STATUS"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-b-deploy",
+      "reason": "A-SITE belongs to tenant tenant-a",
+      "record": "A-SITE"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-b-deploy",
+      "reason": "A-ACCESS-LOG belongs to tenant tenant-a",
+      "record": "A-ACCESS-LOG"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-b-deploy",
+      "reason": "A-DB-CREDS belongs to tenant tenant-a",
+      "record": "A-DB-CREDS"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-b-deploy",
+      "reason": "A-BACKUP belongs to tenant tenant-a",
+      "record": "A-BACKUP"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": true,
+      "principal": "tenant-b-deploy",
+      "reason": "public",
+      "record": "A-STATUS"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-b-deploy",
+      "reason": "same tenant",
+      "record": "B-SITE"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-b-deploy",
+      "reason": "same tenant",
+      "record": "B-ACCESS-LOG"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-b-deploy",
+      "reason": "same tenant",
+      "record": "B-DB-CREDS"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-b-deploy",
+      "reason": "same tenant",
+      "record": "B-BACKUP"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-b-deploy",
+      "reason": "same tenant",
+      "record": "B-STATUS"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-b-support",
+      "reason": "A-SITE belongs to tenant tenant-a",
+      "record": "A-SITE"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-b-support",
+      "reason": "A-ACCESS-LOG is confidential, above the reader's internal clearance",
+      "record": "A-ACCESS-LOG"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-b-support",
+      "reason": "A-DB-CREDS is restricted, above the reader's internal clearance",
+      "record": "A-DB-CREDS"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": true,
+      "principal": "tenant-b-support",
+      "reason": "A-BACKUP is restricted, above the reader's internal clearance",
+      "record": "A-BACKUP"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": true,
+      "principal": "tenant-b-support",
+      "reason": "public",
+      "record": "A-STATUS"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-b-support",
+      "reason": "same tenant",
+      "record": "B-SITE"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": false,
+      "principal": "tenant-b-support",
+      "reason": "B-ACCESS-LOG is confidential, above the reader's internal clearance",
+      "record": "B-ACCESS-LOG"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": false,
+      "principal": "tenant-b-support",
+      "reason": "B-DB-CREDS is restricted, above the reader's internal clearance",
+      "record": "B-DB-CREDS"
+    },
+    {
+      "allowed": false,
+      "cross_tenant": false,
+      "principal": "tenant-b-support",
+      "reason": "B-BACKUP is restricted, above the reader's internal clearance",
+      "record": "B-BACKUP"
+    },
+    {
+      "allowed": true,
+      "cross_tenant": false,
+      "principal": "tenant-b-support",
+      "reason": "same tenant",
+      "record": "B-STATUS"
+    }
+  ],
+  "pairs": 40,
+  "principals": 4,
+  "records": 10,
+  "verdict": "isolated"
+}
+# expect: met
+# exit 0

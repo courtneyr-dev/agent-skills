@@ -1,0 +1,19 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.search-weak-or-self-registered-evidence-rejected (negative, target consult-search-claims-check).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../consult-search-claims-check/scripts/tests/test_claims_check.py ReviewDefectTests.test_one_word_quote_cannot_support_a_claim ReviewDefectTests.test_quote_must_share_terms_with_the_claim ReviewDefectTests.test_self_registered_primary_source_does_not_count_as_primary -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-search-claims-check/scripts/tests/test_claims_check.py ReviewDefectTests.test_one_word_quote_cannot_support_a_claim ReviewDefectTests.test_quote_must_share_terms_with_the_claim ReviewDefectTests.test_self_registered_primary_source_does_not_count_as_primary -v
+
+stderr:
+test_one_word_quote_cannot_support_a_claim (__main__.ReviewDefectTests.test_one_word_quote_cannot_support_a_claim) ... ok
+test_quote_must_share_terms_with_the_claim (__main__.ReviewDefectTests.test_quote_must_share_terms_with_the_claim) ... ok
+test_self_registered_primary_source_does_not_count_as_primary (__main__.ReviewDefectTests.test_self_registered_primary_source_does_not_count_as_primary) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.146s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

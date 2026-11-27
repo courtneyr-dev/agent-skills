@@ -1,0 +1,53 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.live-tampered-foreign-events-refused (negative, target product-payment-events).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains refused-live-mode --contains refused-bad-signature --contains refused-tenant-mismatch --contains "captures": 0 -- python3 ../product-payment-events/scripts/payment_events.py process --config ../product-payment-events/fixtures/config.json --events ../product-payment-events/fixtures/refused.jsonl --db {tmp}/store.db
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-payment-events/scripts/payment_events.py process --config ../product-payment-events/fixtures/config.json --events ../product-payment-events/fixtures/refused.jsonl --db {tmp}/store.db
+{
+  "entitlements": [],
+  "events": [
+    {
+      "event_id": "evt_101",
+      "outcome": "refused-live-mode"
+    },
+    {
+      "event_id": "evt_102",
+      "outcome": "refused-bad-signature"
+    },
+    {
+      "event_id": "evt_103",
+      "outcome": "refused-tenant-mismatch"
+    }
+  ],
+  "inventory": {
+    "forms-pro-annual": 10,
+    "forms-pro-founder-edition": 1
+  },
+  "live_calls": 0,
+  "mode": "test",
+  "not_checked": [
+    "real provider API behavior",
+    "tax, shipping and currency conversion",
+    "card-network chargeback rules"
+  ],
+  "outcomes": {
+    "refused-bad-signature": 1,
+    "refused-live-mode": 1,
+    "refused-tenant-mismatch": 1
+  },
+  "status": "needs-attention",
+  "store": {
+    "captures": 0,
+    "events": 0,
+    "fulfillments": 0,
+    "holds": 0,
+    "refunds": 0
+  }
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains 'refused-live-mode': ok
+CHECK contains 'refused-bad-signature': ok
+CHECK contains 'refused-tenant-mismatch': ok
+CHECK contains '"captures": 0': ok
+VERDICT pass

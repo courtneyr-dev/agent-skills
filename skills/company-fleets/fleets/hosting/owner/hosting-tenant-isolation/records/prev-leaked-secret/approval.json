@@ -1,0 +1,8 @@
+{
+  "approved_by": "human:tenant-a-owner",
+  "kind": "approval",
+  "preview_id": "prev-leaked-secret",
+  "recorded_by": "isolation_check approve",
+  "subject_sha256": "cce85247b8333fb51d04e75bedbcf0f084289cfac155ba5d7a4a8625081a8dc2",
+  "tenant_id": "tenant-a"
+}

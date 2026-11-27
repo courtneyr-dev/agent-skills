@@ -1,0 +1,133 @@
+# hosting skill checks, run 2026-11-26T22:47:05
+# quick_validate: $FLEET_QUICK_VALIDATE
+== hosting-abuse-response :: quick_validate :: exit 1
+$ uv run --offline --no-project --with pyyaml python $FLEET_QUICK_VALIDATE <skills-root>/hosting-abuse-response
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, compatibility, description, license, metadata, name
+== hosting-abuse-response :: unittest 3.14.7 :: exit 0
+$ python3 -W ignore -m unittest discover -s tests
+Ran 36 tests in 0.115s
+
+OK
+== hosting-abuse-response :: unittest /usr/bin/python3 :: exit 0
+$ /usr/bin/python3 -W ignore -m unittest discover -s tests
+Ran 36 tests in 0.133s
+
+OK
+== hosting-account-lifecycle :: quick_validate :: exit 1
+$ uv run --offline --no-project --with pyyaml python $FLEET_QUICK_VALIDATE <skills-root>/hosting-account-lifecycle
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, compatibility, description, license, metadata, name
+== hosting-account-lifecycle :: unittest 3.14.7 :: exit 0
+$ python3 -W ignore -m unittest discover -s tests
+Ran 63 tests in 1.535s
+
+OK
+== hosting-account-lifecycle :: unittest /usr/bin/python3 :: exit 0
+$ /usr/bin/python3 -W ignore -m unittest discover -s tests
+Ran 63 tests in 1.599s
+
+OK
+== hosting-benchmark-matrix :: quick_validate :: exit 1
+$ uv run --offline --no-project --with pyyaml python $FLEET_QUICK_VALIDATE <skills-root>/hosting-benchmark-matrix
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, compatibility, description, license, metadata, name
+== hosting-benchmark-matrix :: unittest 3.14.7 :: exit 0
+$ python3 -W ignore -m unittest discover -s tests
+Ran 24 tests in 0.214s
+
+OK
+== hosting-benchmark-matrix :: unittest /usr/bin/python3 :: exit 0
+$ /usr/bin/python3 -W ignore -m unittest discover -s tests
+Ran 24 tests in 0.274s
+
+OK
+== hosting-data-migration :: quick_validate :: exit 1
+$ uv run --offline --no-project --with pyyaml python $FLEET_QUICK_VALIDATE <skills-root>/hosting-data-migration
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, compatibility, description, license, metadata, name
+== hosting-data-migration :: unittest 3.14.7 :: exit 0
+$ python3 -W ignore -m unittest discover -s tests
+Ran 39 tests in 0.211s
+
+OK
+== hosting-data-migration :: unittest /usr/bin/python3 :: exit 0
+$ /usr/bin/python3 -W ignore -m unittest discover -s tests
+Ran 39 tests in 0.246s
+
+OK
+== hosting-dns-cert-lifecycle :: quick_validate :: exit 1
+$ uv run --offline --no-project --with pyyaml python $FLEET_QUICK_VALIDATE <skills-root>/hosting-dns-cert-lifecycle
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, compatibility, description, license, metadata, name
+== hosting-dns-cert-lifecycle :: unittest 3.14.7 :: exit 0
+$ python3 -W ignore -m unittest discover -s tests
+Ran 65 tests in 4.504s
+
+OK
+== hosting-dns-cert-lifecycle :: unittest /usr/bin/python3 :: exit 0
+$ /usr/bin/python3 -W ignore -m unittest discover -s tests
+Ran 65 tests in 9.770s
+
+OK
+== hosting-incident-response :: quick_validate :: exit 1
+$ uv run --offline --no-project --with pyyaml python $FLEET_QUICK_VALIDATE <skills-root>/hosting-incident-response
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, compatibility, description, license, metadata, name
+== hosting-incident-response :: unittest 3.14.7 :: exit 0
+$ python3 -W ignore -m unittest discover -s tests
+Ran 50 tests in 14.732s
+
+OK
+== hosting-incident-response :: unittest /usr/bin/python3 :: exit 0
+$ /usr/bin/python3 -W ignore -m unittest discover -s tests
+Ran 50 tests in 15.121s
+
+OK
+== hosting-metering-reconcile :: quick_validate :: exit 1
+$ uv run --offline --no-project --with pyyaml python $FLEET_QUICK_VALIDATE <skills-root>/hosting-metering-reconcile
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, compatibility, description, license, metadata, name
+== hosting-metering-reconcile :: unittest 3.14.7 :: exit 0
+$ python3 -W ignore -m unittest discover -s tests
+Ran 46 tests in 5.713s
+
+OK
+== hosting-metering-reconcile :: unittest /usr/bin/python3 :: exit 0
+$ /usr/bin/python3 -W ignore -m unittest discover -s tests
+Ran 46 tests in 5.008s
+
+OK
+== hosting-restore-exercise :: quick_validate :: exit 1
+$ uv run --offline --no-project --with pyyaml python $FLEET_QUICK_VALIDATE <skills-root>/hosting-restore-exercise
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, compatibility, description, license, metadata, name
+== hosting-restore-exercise :: unittest 3.14.7 :: exit 0
+$ python3 -W ignore -m unittest discover -s tests
+Ran 24 tests in 2.829s
+
+OK
+== hosting-restore-exercise :: unittest /usr/bin/python3 :: exit 0
+$ /usr/bin/python3 -W ignore -m unittest discover -s tests
+Ran 24 tests in 3.864s
+
+OK
+== hosting-service-catalogue :: quick_validate :: exit 1
+$ uv run --offline --no-project --with pyyaml python $FLEET_QUICK_VALIDATE <skills-root>/hosting-service-catalogue
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, compatibility, description, license, metadata, name
+== hosting-service-catalogue :: unittest 3.14.7 :: exit 0
+$ python3 -W ignore -m unittest discover -s tests
+Ran 45 tests in 0.037s
+
+OK
+== hosting-service-catalogue :: unittest /usr/bin/python3 :: exit 0
+$ /usr/bin/python3 -W ignore -m unittest discover -s tests
+Ran 45 tests in 0.042s
+
+OK
+== hosting-tenant-isolation :: quick_validate :: exit 1
+$ uv run --offline --no-project --with pyyaml python $FLEET_QUICK_VALIDATE <skills-root>/hosting-tenant-isolation
+Unexpected key(s) in SKILL.md frontmatter: disable-model-invocation. Allowed properties are: allowed-tools, compatibility, description, license, metadata, name
+== hosting-tenant-isolation :: unittest 3.14.7 :: exit 0
+$ python3 -W ignore -m unittest discover -s tests
+Ran 52 tests in 2.793s
+
+OK
+== hosting-tenant-isolation :: unittest /usr/bin/python3 :: exit 0
+$ /usr/bin/python3 -W ignore -m unittest discover -s tests
+Ran 52 tests in 2.659s
+
+OK
+# failed steps: 10

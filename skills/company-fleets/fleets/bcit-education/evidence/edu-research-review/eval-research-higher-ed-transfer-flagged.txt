@@ -1,0 +1,34 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains higher-ed-to-other-level --contains "severity": "warn" -- python3 ../edu-research-review/scripts/research_check.py claims fleets/bcit-education/fixtures/edu-research-review/study-synthetic-higher-ed-transfer.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.research-higher-ed-transfer-flagged
+{
+  "ok": false,
+  "mode": "claims",
+  "study": "Parsons problems in a university CS1 course (synthetic)",
+  "counts": {
+    "error": 1,
+    "warn": 2,
+    "claims": 1
+  },
+  "findings": [
+    {
+      "rule": "causal-from-nonexperimental",
+      "severity": "warn",
+      "message": "causal wording ('raise') but the design is quasi-experimental without random assignment to a comparison group; name the remaining threats",
+      "claim": "T1"
+    },
+    {
+      "rule": "higher-ed-to-other-level",
+      "severity": "error",
+      "message": "claim targets k12 but the sample is higher-ed; give a transfer argument or narrow the claim",
+      "claim": "T1"
+    },
+    {
+      "rule": "setting-shift",
+      "severity": "warn",
+      "message": "claim names setting classroom; the study ran in university-course",
+      "claim": "T1"
+    }
+  ]
+}
+# expect: met
+# exit 0

@@ -1,0 +1,75 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "ok": true --contains "errors": [] -- python3 ../cs-classroom-instruction/scripts/lesson.py check fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.cs-lesson-runs-complete
+{
+  "ok": true,
+  "errors": [],
+  "examples": [
+    {
+      "example": "E1",
+      "match": true,
+      "expected": "54",
+      "actual": "54\n",
+      "stderr": ""
+    },
+    {
+      "example": "E2",
+      "match": true,
+      "expected": "12 12\n9 21\n15 36\n7 43\n11 54",
+      "actual": "12 12\n9 21\n15 36\n7 43\n11 54\n",
+      "stderr": ""
+    }
+  ],
+  "task_runs": [
+    {
+      "task": "T1",
+      "test": "given_code",
+      "match": true,
+      "actual": "11\n"
+    },
+    {
+      "task": "T2",
+      "test": "week",
+      "match": true,
+      "expected": "54",
+      "actual": "54\n"
+    },
+    {
+      "task": "T2",
+      "test": "one-day",
+      "match": true,
+      "expected": "5",
+      "actual": "5\n"
+    },
+    {
+      "task": "T2",
+      "test": "closed-week",
+      "match": true,
+      "expected": "0",
+      "actual": "0\n"
+    },
+    {
+      "task": "T3",
+      "test": "week",
+      "match": true,
+      "expected": "15",
+      "actual": "15\n"
+    },
+    {
+      "task": "T3",
+      "test": "one-day",
+      "match": true,
+      "expected": "4",
+      "actual": "4\n"
+    },
+    {
+      "task": "T3",
+      "test": "first-is-largest",
+      "match": true,
+      "expected": "20",
+      "actual": "20\n"
+    }
+  ],
+  "note": "Executed results check the package's answers; they say nothing about learning. Teacher review decides use."
+}
+# expect: met
+# exit 0

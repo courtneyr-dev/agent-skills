@@ -1,0 +1,23 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains no section on transfer evaluation --contains not labeled generated-practice-anchor --contains evidence plan: no evidence of learning -- python3 ../edu-trainer-development/scripts/package.py check fleets/instructional-design/fixtures/edu-trainer-development/counterexample/manifest.json
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.incomplete-trainer-package-rejected
+{
+  "calibration": {
+    "discussion_items": 5,
+    "status": "practice-only"
+  },
+  "evidence_plan": "rejected",
+  "findings": [
+    "the guide has no section on decision points",
+    "the guide has no section on observation and feedback",
+    "the guide has no section on rubric calibration",
+    "the guide has no section on fading support",
+    "the guide has no section on coaching another trainer",
+    "the guide has no section on transfer evaluation",
+    "anchor X1 is not labeled generated-practice-anchor",
+    "evidence plan: no evidence of learning or transfer: satisfaction surveys, attendance, completion, self-reports and generated artifacts don't show what anyone can now do"
+  ],
+  "kind": "trainer-package",
+  "status": "incomplete"
+}
+# expect: met
+# exit 0

@@ -1,0 +1,9 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.acteonline.org/about/structure/divisions/business-education-division/
+# run 2026-11-25
+http_code=200 final_url=https://www.acteonline.org/about/structure/divisions/business-education-division/ size=111532
+L123: The Business Education Division of ACTE®
+L125: While membership in the Business Education Division is open to all ACTE members, the professional learning, networking and resources offered by this Division will be most relevant to CTE professionals who work with the following
+L130: Educators who prepare students for some career fields under the Digital Technology Cluster; Supply Chain & Transportation Cluster; and Hospitality, Events & Tourism Cluster, as well as those integrating cross-cutting business, marketing and entrepreneurship content in any Cluster, may also find value in this Division.
+L156: Business Education Division Policy Manual
+L157: Business Education Division Strategic Plan
+L218: ©2026, Association for Career & Technical Education® (ACTE®). All rights reserved |

@@ -1,0 +1,10 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=tampered-record --json line=2 -- python3 ../hosting-incident-response/scripts/incident.py incident show --record fleets/hosting/fixtures/incident-response/incident-tampered.jsonl
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.incident-response-tampered-record-refused kind boundary synthetic true
+{
+  "detail": "line 2: sha256 does not match the line's content (line was edited)",
+  "line": 2,
+  "refusal": "tampered-record",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

@@ -1,0 +1,7 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --contains 'is not the coordinator' -- bin/fleet claim --lease-root '{tmp}/leases' --tenant tenant-a --workload hosting.workload.restore-exercise --instance drill-1 --owner-pid 1 --contract-hash 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef --role hosting.incident-commander
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.specialist-cannot-claim-workload kind negative synthetic true
+{
+  "refused": "hosting.incident-commander is not the coordinator of hosting.workload.restore-exercise (coordinator: hosting.general-manager); it cannot claim or dispatch it"
+}
+# expect: met
+# exit 0

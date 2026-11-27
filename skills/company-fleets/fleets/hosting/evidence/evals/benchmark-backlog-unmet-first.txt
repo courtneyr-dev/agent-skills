@@ -1,0 +1,135 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json items.0.dimension=recovery_objectives --json items.0.kind=close-gap -- python3 ../hosting-benchmark-matrix/scripts/benchmark.py backlog --matrix fleets/hosting/benchmark/2026-11-26-matrix.json
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-backlog-unmet-first kind boundary synthetic false
+{
+  "as_of": "2026-11-26",
+  "items": [
+    {
+      "detail": "measured 3 against target {\"max\": 0}; needs log shipping or a shorter backup interval; the lab has neither",
+      "dimension": "recovery_objectives",
+      "kind": "close-gap"
+    },
+    {
+      "detail": "no lab or production measurement on record",
+      "dimension": "performance_under_load",
+      "kind": "measure"
+    },
+    {
+      "detail": "no lab or production measurement on record",
+      "dimension": "support_coverage",
+      "kind": "measure"
+    },
+    {
+      "detail": "no lab or production measurement on record",
+      "dimension": "accessibility",
+      "kind": "measure"
+    },
+    {
+      "detail": "no lab or production measurement on record",
+      "dimension": "regional_constraints",
+      "kind": "measure"
+    },
+    {
+      "detail": "no lab or production measurement on record",
+      "dimension": "cost",
+      "kind": "measure"
+    },
+    {
+      "detail": "no lab or production measurement on record",
+      "dimension": "availability",
+      "kind": "measure"
+    },
+    {
+      "detail": "no configured capability on record",
+      "dimension": "performance_under_load",
+      "kind": "configure"
+    },
+    {
+      "detail": "no configured capability on record",
+      "dimension": "support_coverage",
+      "kind": "configure"
+    },
+    {
+      "detail": "no configured capability on record",
+      "dimension": "accessibility",
+      "kind": "configure"
+    },
+    {
+      "detail": "no configured capability on record",
+      "dimension": "regional_constraints",
+      "kind": "configure"
+    },
+    {
+      "detail": "no configured capability on record",
+      "dimension": "cost",
+      "kind": "configure"
+    },
+    {
+      "detail": "no configured capability on record",
+      "dimension": "availability",
+      "kind": "configure"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "restore",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "recovery_objectives",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "isolation",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "deployment_reversibility",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "performance_under_load",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "observability",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "support_coverage",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "accessibility",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "data_portability",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "regional_constraints",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "cost",
+      "kind": "commit"
+    },
+    {
+      "detail": "no plan or contract; a commercial owner decides whether to commit",
+      "dimension": "availability",
+      "kind": "commit"
+    }
+  ],
+  "matrix_violations": []
+}
+# expect: met
+# exit 0

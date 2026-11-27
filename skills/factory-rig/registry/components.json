@@ -1,0 +1,587 @@
+{
+  "schema": 1,
+  "generated": "2026-11-25",
+  "status_scope": "Statuses, evidence and dates describe the reference installation the rig was built and tested on (macOS on arm64, 2026-11-25 to 2026-11-26). That install's run records are retained privately. A fresh install starts unverified: run the tests and `frig drift` against your own clones. <skills-root> is the folder holding this skill; $FRIG_UPSTREAM_ROOT and the other variables are documented in config/frig.example.env.",
+  "components": [
+    {
+      "id": "matt-stable",
+      "name": "Matt Pocock skills: wayfinder, to-spec, to-tickets, implement-spec (+ implement)",
+      "upstream": "https://github.com/mattpocock/skills",
+      "clone": "mattpocock-skills",
+      "revision": "6f7f7831a625f040a8e06a0e7954826b87ce775a",
+      "license": "MIT (Matt Pocock)",
+      "status": "installed-and-verified",
+      "responsibility": "Wayfinder decisions, specifications, ticket decomposition, implementation methods",
+      "paths": [
+        "<skills-root>/wayfinder",
+        "<skills-root>/to-spec",
+        "<skills-root>/to-tickets",
+        "<skills-root>/implement-spec"
+      ],
+      "consumers": [
+        "claude (plugin mattpocock-skills 1.3.2 + mount)",
+        "codex (mount links)"
+      ],
+      "verify": [
+        "diff -rq $FRIG_UPSTREAM_ROOT/mattpocock-skills/skills/engineering/implement-spec <skills-root>/implement-spec",
+        "skill-sync check"
+      ],
+      "evidence": [
+        "implement-spec byte-identical to upstream (diff exit 0); skill-sync up-to-date; wayfinder has a local overlay (not published)"
+      ],
+      "update": "skill-sync check/apply",
+      "rollback": "sync_skills.py adopt <name>",
+      "overrides": [
+        "OVR-SKILL-INVOCATION"
+      ],
+      "watch": [
+        {
+          "path": "skills/engineering/wayfinder/SKILL.md",
+          "rerun": [
+            "frig drift",
+            "skill-sync check"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matt-experimental",
+      "name": "Matt Pocock in-progress skills: chief-of-staff, software-factory",
+      "upstream": "https://github.com/mattpocock/skills (skills/in-progress)",
+      "clone": "mattpocock-skills",
+      "revision": "6f7f7831a625f040a8e06a0e7954826b87ce775a",
+      "license": "MIT (Matt Pocock)",
+      "status": "installed-inactive",
+      "responsibility": "Delegation memory pattern (chief-of-staff) and shared factory vocabulary (software-factory)",
+      "paths": [
+        "<skills-root>/chief-of-staff",
+        "<skills-root>/software-factory"
+      ],
+      "consumers": [
+        "claude/codex via mount; user-invocable only"
+      ],
+      "verify": [
+        "skill-sync check"
+      ],
+      "evidence": [
+        "both carry disable-model-invocation: true; upstream README: beta, can change or disappear without warning"
+      ],
+      "update": "skill-sync",
+      "rollback": "sync_skills.py remove <name>; delete the mount dirs",
+      "overrides": [
+        "OVR-SKILL-INVOCATION"
+      ]
+    },
+    {
+      "id": "magnus",
+      "name": "Magnus agent-skills (10 management skills)",
+      "upstream": "https://github.com/magnus919/agent-skills",
+      "clone": "agent-skills",
+      "revision": "6806511df28cef9e8e497898f8b06e3663a02798",
+      "license": "MIT (Magnus Hedemark); kanban-guru has no license field in its frontmatter",
+      "status": "installed-and-verified",
+      "responsibility": "Program, project, flow, coordination, evaluation, readiness, release, verification and learning methods",
+      "paths": [
+        "<skills-root>/{technical-program-management,technical-project-management,implementation-planning,kanban-guru,multi-agent-coordination,agent-evals-and-observability,production-readiness,release-engineering,verification-methodology,incident-learning}"
+      ],
+      "consumers": [
+        "claude (symlink)",
+        "codex (mount links)"
+      ],
+      "verify": [
+        "python3 -W ignore -m unittest in skills/technical-project-management/scripts and skills/release-engineering/tests",
+        "management evaluation, evals/management/grades"
+      ],
+      "evidence": [
+        "evals/management/ (scenarios, outputs, rubric, grades)",
+        "listed in the Claude skill inventory"
+      ],
+      "update": "skill-sync check/apply; kanban-guru overlay survives",
+      "rollback": "sync_skills.py remove <name> and delete the dir; remove manifest links",
+      "overrides": [
+        "OVR-KANBAN-MEASURES",
+        "OVR-FORECAST-BASELINES",
+        "OVR-CONTEXT-SIZE"
+      ],
+      "known_limit": "Each skill links to sibling skills that are not installed (about 40 names); the catalogue plugin was deliberately not installed.",
+      "watch": [
+        {
+          "path": "kanban-guru/SKILL.md",
+          "rerun": [
+            "grep OVR-KANBAN-MEASURES skills/kanban-guru/SKILL.md"
+          ]
+        },
+        {
+          "path": "multi-agent-coordination/SKILL.md",
+          "rerun": [
+            "frig dispatch tests"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "noodle",
+      "name": "Noodle execution backend",
+      "upstream": "https://github.com/poteto/noodle",
+      "clone": "noodle",
+      "revision": "82d2921c52370f23f29086de81ccfb600939c037",
+      "license": "MIT (Lauren Tan)",
+      "status": "installed-and-verified",
+      "responsibility": "Worktree execution backend under the router, supervised mode, one worker",
+      "paths": [
+        "$FRIG_NOODLE_BIN (Noodle built at 82d2921)",
+        "<skills-root>/noodle",
+        "<skills-root>/factory-rig",
+        "<skills-root>/factory-execute"
+      ],
+      "consumers": [
+        "claude/codex skills (noodle operating skill)",
+        "frig (runtime)"
+      ],
+      "binary_sha256": "23085c40f9b98c110483e005a84f3e722bdeaddaf6beb22f0558c5fb1fb9f0b2",
+      "build": "clean clone at the revision; pnpm 10.30.3 install --frozen-lockfile --filter noodle-ui...; pnpm --filter noodle-ui build; go build (go1.27.4). `noodle --version` prints v0.1.5 (the VERSION file), so provenance is the revision plus checksum.",
+      "verify": [
+        "cd skills/factory-rig/scripts && python3 -W ignore -m unittest tests.test_core tests.test_flow tests.test_noodle_integration",
+        "frig drift"
+      ],
+      "evidence": [
+        "live pilot 2026-11-25 (run records retained privately, not published)",
+        "tests: 57 passing on 2026-11-25 (35 core, 19 flow, 3 real-Noodle integration)"
+      ],
+      "update": "rebuild in a clean clone at the new revision, rerun the three test modules and a live pilot, update the revision, checksum and this record",
+      "rollback": "point skills/factory-rig/bin policy and noodle-run at the previous binary directory (kept side by side by revision)",
+      "overrides": [
+        "OVR-NOODLE-PROVIDER-LAUNCH",
+        "OVR-NOODLE-COMPLETION",
+        "OVR-NOODLE-SKILL-RESOLUTION",
+        "OVR-NOODLE-SCHEDULER-BUDGET",
+        "OVR-NOODLE-GITIGNORE",
+        "OVR-MODEL-CATALOG"
+      ],
+      "watch": [
+        {
+          "path": "dispatcher/command.go",
+          "rerun": [
+            "ProviderWrapperTests",
+            "real-Noodle integration"
+          ]
+        },
+        {
+          "path": "dispatcher/process_dispatcher.go",
+          "rerun": [
+            "ProviderWrapperTests"
+          ]
+        },
+        {
+          "path": "loop/cook_completion.go",
+          "rerun": [
+            "tests.test_noodle_integration"
+          ]
+        },
+        {
+          "path": "loop/control.go",
+          "rerun": [
+            "tests.test_noodle_integration"
+          ]
+        },
+        {
+          "path": "loop/pending_review.go",
+          "rerun": [
+            "tests.test_noodle_integration"
+          ]
+        },
+        {
+          "path": "internal/orderx/orders.go",
+          "rerun": [
+            "tests.test_noodle_integration"
+          ]
+        },
+        {
+          "path": "skill/resolver.go",
+          "rerun": [
+            "NoodleSetupTests"
+          ]
+        },
+        {
+          "path": "worktree/commands.go",
+          "rerun": [
+            "NoodleSetupTests"
+          ]
+        },
+        {
+          "path": "loop/reconcile.go",
+          "rerun": [
+            "scheduler budget test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pmo-platform",
+      "name": "PMO Platform (scoped native workspace)",
+      "upstream": "https://github.com/cody-hutson/pmo-platform",
+      "clone": "pmo-platform",
+      "revision": "8ed5e273d301f80bb0e281222e06a22432090ebb",
+      "license": "BSL 1.1 (Cody Hutson); non-production, personal, educational and internal business use; change date 2030-05-27 to Apache 2.0. Do not redistribute or publish.",
+      "status": "installed-inactive",
+      "responsibility": "Selectable Scrum, program, delivery and release workflows in Claude Code (ppm-agent, pmo-scrum-master, pmo-technical-program-manager, delivery-engine, release-hub)",
+      "paths": [
+        "$PMO_WORKSPACE/workspace",
+        "$PMO_WORKSPACE/.config-pmo"
+      ],
+      "consumers": [
+        "claude code only, when a session starts in the workspace"
+      ],
+      "verify": [
+        "install.sh --dry-run then real run with PMO_PLATFORM_* exported",
+        "validate-install.sh with the same variables"
+      ],
+      "evidence": [
+        "PMO scoped install 2026-11-26: dry run, install log, validator 11 PASS / 3 FAIL / 2 SKIP, one native pmo-scrum-master task (run records retained privately, not published)"
+      ],
+      "blocker": "Partially verified natively on 2026-11-26: one bounded read-only task invoked the pmo-scrum-master skill through the Skill tool and answered correctly (run records retained privately, not published). Still unverified: the workspace hooks and its 19 allow rules, because the workspace is untrusted and Claude Code ignored them. Resume: run `claude` interactively in $PMO_WORKSPACE/workspace, accept the trust dialog, rerun the task. Validator (full run): 11 PASS, 3 FAIL (A2, A6b, A10), 2 SKIP; all three failures read real-home paths (inference, not tested).",
+      "update": "git pull in the upstream clone, rerun the scoped installer, rerun the validator",
+      "rollback": "remove $PMO_WORKSPACE (nothing else was written)",
+      "overrides": [
+        "OVR-PMO-DOD",
+        "OVR-PMO-PATH-ISOLATION",
+        "OVR-NATIVE-ADAPTERS",
+        "OVR-CONTEXT-SIZE"
+      ],
+      "watch": [
+        {
+          "path": "core/deploy/lib-instance-path.sh",
+          "rerun": [
+            "PMO scoped install + validator"
+          ]
+        },
+        {
+          "path": "docs/scripts/validate-install.sh",
+          "rerun": [
+            "PMO validator"
+          ]
+        },
+        {
+          "path": "operations/skills/delivery-engine/references/gate-definitions.md",
+          "rerun": [
+            "OVR-PMO-DOD review"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yysun-project-manager",
+      "name": "yysun/project-manager (project-manager, test-manager, brd-writer)",
+      "upstream": "https://github.com/yysun/project-manager",
+      "clone": "project-manager",
+      "revision": "e96369e2a130a1018e8d60b2899503443eba28d8",
+      "license": "plugin.json declares MIT; no LICENSE file in the repository (recheck before any redistribution)",
+      "status": "installed-and-verified",
+      "responsibility": "Delivery state in `.projects` for projects that opt in; QA records in `.tests`",
+      "paths": [
+        "<skills-root>/{project-manager,test-manager,brd-writer}",
+        "$FRIG_UPSTREAM_ROOT/project-manager"
+      ],
+      "consumers": [
+        "claude (symlink)",
+        "codex (mount links)",
+        "frig (node scripts)"
+      ],
+      "verify": [
+        "frig tests use project-start-agent.js and project-ingest-agent-manifest.js for real",
+        "npm ci && npm test in a build copy"
+      ],
+      "evidence": [
+        "tests.test_flow: 19 passing against the installed scripts",
+        "upstream npm test log (run records retained privately, not published)"
+      ],
+      "update": "skill-sync check/apply; rerun the flow tests",
+      "rollback": "sync_skills.py remove; delete dirs",
+      "overrides": [
+        "OVR-STATE-AUTHORITY",
+        "OVR-YYSUN-EVIDENCE"
+      ],
+      "watch": [
+        {
+          "path": "skills/project-manager/scripts/lib/contracts.js",
+          "rerun": [
+            "tests.test_flow"
+          ]
+        },
+        {
+          "path": "skills/project-manager/scripts/project-start-agent.js",
+          "rerun": [
+            "tests.test_flow"
+          ]
+        },
+        {
+          "path": "skills/project-manager/scripts/project-ingest-agent-manifest.js",
+          "rerun": [
+            "tests.test_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "curia",
+      "name": "Curia (Wayfinder-oriented execution backend)",
+      "upstream": "https://github.com/alp82/curia",
+      "clone": "curia",
+      "revision": "0c61595315e7b3ff22eaf61729288dcf624113c4",
+      "license": "No root license; skills/LICENSE is MIT (Matt Pocock) for the vendored skills only. Treat the application as all rights reserved until the author says otherwise.",
+      "status": "blocked-platform",
+      "responsibility": "Dispatch Wayfinder tickets across watched GitHub repos to Claude or Codex agents in tmux, worktrees and containers",
+      "paths": [
+        "$FRIG_UPSTREAM_ROOT/curia (source only)"
+      ],
+      "consumers": [
+        "none (the reference host is macOS on arm64)"
+      ],
+      "blocker": "Supported hosts are Ubuntu 24.04 LTS and Debian 13 on x86-64; macOS and arm64 are refused and there is no force flag. No authorized supported host exists. Resume: on such a host follow docs/operator/bootstrap.md (curia-install.sh from the release, release verification with `curia doctor`), keep automatic dispatch off, select watched repos explicitly, run the acceptance test only in an authorized test repo and Discord channel.",
+      "update": "rerun the upstream clone pull and review supported-hosts.md",
+      "rollback": "nothing installed",
+      "overrides": [],
+      "watch": [
+        {
+          "path": "docs/operator/supported-hosts.md",
+          "rerun": [
+            "review platform status"
+          ]
+        }
+      ],
+      "verify": [
+        "read docs/operator/supported-hosts.md in the pinned clone: Ubuntu 24.04 / Debian 13 on x86-64 only, no force flag"
+      ],
+      "evidence": [
+        "docs/operator/supported-hosts.md read in the pinned clone; no install attempted"
+      ]
+    },
+    {
+      "id": "factory-rig",
+      "name": "factory-rig (this repository)",
+      "upstream": "agent-skills skills/factory-rig",
+      "revision": "this repository",
+      "license": "MIT (see the repository LICENSE)",
+      "status": "installed-and-verified",
+      "responsibility": "Router adapters: contracts, frontier, leases, provider wrapper, gate, receipts, bounded Noodle runner, registry, drift",
+      "paths": [
+        "<skills-root>/factory-rig",
+        "<skills-root>/factory-execute"
+      ],
+      "consumers": [
+        "claude",
+        "codex (mount links)"
+      ],
+      "verify": [
+        "cd skills/factory-rig/scripts && python3 -W ignore -m unittest tests.test_core tests.test_flow tests.test_noodle_integration",
+        "frig registry-verify",
+        "frig drift"
+      ],
+      "evidence": [
+        "tests: 59 passing (tests.test_core, tests.test_flow, tests.test_noodle_integration)",
+        "live pilot 2026-11-25 (run records retained privately, not published)"
+      ],
+      "update": "edit, then run the three test modules and `frig registry-verify`",
+      "rollback": "git revert",
+      "overrides": [
+        "OVR-ONE-DISPATCHER",
+        "OVR-UPSTREAM-DRIFT"
+      ]
+    }
+  ],
+  "overrides": [
+    {
+      "id": "OVR-ONE-DISPATCHER",
+      "owner": "factory-rig",
+      "upstream": "Noodle loop scheduler; PMO delivery-engine/release-hub; Curia dispatcher; Matt implement-spec",
+      "conflict": "Each backend can pick and start work from its own queue, so two backends could run one task.",
+      "behavior": "Exactly one dispatcher per workload: `frig dispatch` takes a lease keyed by logical repo + task id with a fencing epoch before anything starts; expiry never reclaims a live holder; `fence` stops it first.",
+      "implementation": "scripts/factory_rig/lease.py, orchestrate.dispatch",
+      "precedence": "Router decision first, lease second; backends only execute.",
+      "verification": "tests.test_core.LeaseTests (8 incl. 8-process race), tests.test_flow.test_competing_backend_cannot_dispatch_the_same_task",
+      "retire_when": "A backend exposes a cross-backend ownership API that gives the same fencing guarantee."
+    },
+    {
+      "id": "OVR-NOODLE-PROVIDER-LAUNCH",
+      "owner": "factory-rig",
+      "upstream": "poteto/noodle dispatcher/command.go @82d2921 (lines 36-59)",
+      "conflict": "Noodle hardcodes `--dangerously-bypass-approvals-and-sandbox` (Codex) and `--permission-mode bypassPermissions` (Claude), then appends [agents.*].args after them, so config cannot remove them.",
+      "behavior": "Noodle launches providers through bin/codex and bin/claude shims. They rewrite argv to the rig policy (Codex `-s workspace-write --ignore-user-config`, reasoning effort per model; Claude acceptEdits + an allowlist), refuse any restored bypass, then exec the real binary by absolute path. HOME, CODEX_HOME and the environment are untouched.",
+      "implementation": "scripts/factory_rig/provider_wrapper.py, bin/codex, bin/claude, config/provider-policy.json ($FRIG_POLICY)",
+      "precedence": "[agents.<p>].path in .noodle.toml points at the rig bin dir; the wrapper outranks Noodle defaults.",
+      "verification": "tests.test_core.ProviderWrapperTests (10), tests.test_noodle_integration (audit shows the flag dropped on every launch), live-pilot provider audit (run records retained privately, not published)",
+      "retire_when": "Noodle exposes a permission policy setting, or the wrapper is replaced by an upstream patch carrying the same tests."
+    },
+    {
+      "id": "OVR-NOODLE-COMPLETION",
+      "owner": "factory-rig",
+      "upstream": "poteto/noodle loop/cook_completion.go @82d2921; adapters/README.md",
+      "conflict": "A runtime completion event is not acceptance; v0.1.5 has no supervised merge check; the backlog `done` callback can remove local work before an external callback succeeds.",
+      "behavior": "Pin 82d2921 (has ModeGate.CanAutoMerge) in supervised mode so candidates park for review. Only `frig complete` lands them after re-running verify in a fresh checkout, an independent review bound to task, attempt, contract hash, candidate and base, and an unchanged base; receipts make each step idempotent and resumable. Noodle's own `merge` control command is sent only afterwards, to close its order.",
+      "implementation": "scripts/factory_rig/gate.py, receipts.py, orchestrate.complete, noodle_control.py, noodle_backlog.py",
+      "precedence": "Gate decides; Noodle state is informational.",
+      "verification": "tests.test_flow (17), tests.test_noodle_integration.test_happy_path_through_real_noodle_supervised_mode, live pilot",
+      "retire_when": "Noodle binds approvals to candidate revisions itself."
+    },
+    {
+      "id": "OVR-NOODLE-SKILL-RESOLUTION",
+      "owner": "factory-rig",
+      "upstream": "poteto/noodle skill/resolver.go @82d2921 (List vs Resolve)",
+      "conflict": "`skills list` and the task-type registry skip symlinked skill directories (DirEntry.IsDir is false for symlinks) while Resolve() follows them, so rig skills reached through the <skills-root> mount are not registered and orders naming them are silently dropped at normalization. Orders for unregistered task types vanish with no error.",
+      "behavior": "`frig noodle-init` writes real-directory copies of factory-execute and the schedule stub into <project>/.agents/skills with hashes; dispatch preflight refuses on a missing skill or any drift from the canonical copy.",
+      "implementation": "scripts/factory_rig/noodle_setup.py, orchestrate.noodle_has_skills",
+      "precedence": "Project .agents/skills is first in skills.paths; first match wins.",
+      "verification": "tests.test_core.NoodleSetupTests, tests.test_flow (skill missing, copy drift), real-Noodle run that dispatched the worker",
+      "retire_when": "Noodle lists and registers symlinked skills."
+    },
+    {
+      "id": "OVR-NOODLE-SCHEDULER-BUDGET",
+      "owner": "factory-rig",
+      "upstream": "poteto/noodle loop/reconcile.go ensureScheduleOrderPresent; loop_cycle_pipeline.go",
+      "conflict": "Every `noodle start` injects a scheduler LLM session and a mise change injects another. If a worker stage fails the failure event waits 'for later recovery' and the scheduler loops: 8 real provider sessions in 3 minutes were observed on 2026-11-25 (first live attempt).",
+      "behavior": "A no-op `schedule` stub skill (empty orders) keeps the scheduler inert; the empty backlog adapter keeps Noodle from scheduling work; `frig noodle-run` owns the process and stops it on a worker failure, on more than 3 scheduler sessions, or at a wall limit. Recovery is `frig abandon` (tracker blocked, lease released, worktree untouched). Budget one start-time scheduler session plus one per mise change.",
+      "implementation": "noodle/schedule-stub/SKILL.md, scripts/factory_rig/noodle_run.py, noodle_backlog.py, orchestrate.abandon",
+      "precedence": "Runner limits outrank Noodle's loop.",
+      "verification": "tests.test_noodle_integration (failed worker stops runner; scheduler budget stop)",
+      "retire_when": "Noodle offers a setting that disables or bounds scheduler sessions."
+    },
+    {
+      "id": "OVR-NOODLE-GITIGNORE",
+      "owner": "factory-rig",
+      "upstream": "poteto/noodle worktree/commands.go Create",
+      "conflict": "With `.worktrees/` (trailing slash) git check-ignore fails before the directory exists, so Noodle appends a duplicate line and dirties the integration checkout, which the gate refuses to merge into.",
+      "behavior": "noodle-init writes the pattern `.worktrees` (no slash) and `.noodle/`.",
+      "implementation": "noodle_setup.ensure_gitignore",
+      "precedence": "n/a",
+      "verification": "tests.test_core.NoodleSetupTests.test_gitignore_pattern_matches_before_the_worktrees_directory_exists",
+      "retire_when": "Upstream checks ignore status of the pattern or the path with a trailing slash."
+    },
+    {
+      "id": "OVR-MODEL-CATALOG",
+      "owner": "factory-rig",
+      "upstream": "a model policy that names a slug the Codex account cannot use",
+      "conflict": "A slug missing from the account's Codex catalog fails with model_not_in_accessible_catalog; a worker launched with it fails within seconds.",
+      "behavior": "Dispatch checks the model slug against $CODEX_HOME/models_cache.json before leasing.",
+      "implementation": "orchestrate.codex_model_problem; policy effort_by_model",
+      "precedence": "Preflight first.",
+      "verification": "a live pilot ran with a catalog slug; the failed first attempt's noodle.log and provider-audit.jsonl are retained privately, not published",
+      "retire_when": "The model policy names current slugs."
+    },
+    {
+      "id": "OVR-SKILL-INVOCATION",
+      "owner": "factory-rig",
+      "upstream": "mattpocock/skills in-progress (disable-model-invocation: true)",
+      "conflict": "chief-of-staff and software-factory are user-invocable only; Codex has allow_implicit_invocation.",
+      "behavior": "Restrictions preserved. They are installed inactive and reached only by the user typing the skill name; the router never reads them indirectly to bypass the restriction.",
+      "implementation": "installed unmodified via skill-sync (dest <skills-root>)",
+      "precedence": "Upstream frontmatter wins.",
+      "verification": "skill-sync check up-to-date; frontmatter inspected",
+      "retire_when": "The skills graduate or are removed."
+    },
+    {
+      "id": "OVR-PMO-DOD",
+      "owner": "factory-rig",
+      "upstream": "pmo-platform delivery-engine gate-definitions.md LG-5 (lines 137-147), pmo-scrum-master SKILL.md",
+      "conflict": "PMO's delivery-engine Mode F merges the Definition of Done check with release readiness (LG-5/G3) and includes Product Owner acceptance; Scrum makes the Definition of Done the Developers' accountability and Sprint Review a non-gate.",
+      "behavior": "When PMO is activated, route DoD checks to the Developers' evidence and treat G3/LG-5 as readiness evidence only. Release authorization stays with the existing release policy. pmo-scrum-master, which omits Mode F, is the default PMO entry for Sprint work.",
+      "implementation": "documented routing rule (references/operating-modes.md); no PMO file edited",
+      "precedence": "factory-rig ownership table over PMO gates",
+      "verification": "design decision; management eval M3 and M4 check the Scrum and readiness separation on installed Magnus skills, not on PMO",
+      "retire_when": "PMO is activated and its gates are tested natively."
+    },
+    {
+      "id": "OVR-STATE-AUTHORITY",
+      "owner": "factory-rig",
+      "upstream": "yysun/project-manager (.projects authoritative), Noodle backlog adapter, PMO hub-state",
+      "conflict": "Several systems hold task state; projections can overwrite the source of truth.",
+      "behavior": "One authority per project: yysun `.projects` in yysun-led mode, otherwise the existing tracker. The Noodle backlog adapter prints nothing, refuses add/edit, and logs `done` callbacks without writing tracker state. Tracker writes happen only through yysun's own scripts.",
+      "implementation": "noodle_backlog.py, yysun.py",
+      "precedence": "Selected authority wins; everything else is a projection.",
+      "verification": "tests.test_core.BacklogAdapterTests, tests.test_flow",
+      "retire_when": "n/a"
+    },
+    {
+      "id": "OVR-YYSUN-EVIDENCE",
+      "owner": "factory-rig",
+      "upstream": "yysun/project-manager skills/project-manager/scripts/lib/contracts.js validateManifest",
+      "conflict": "The tracker validates evidence shape, not truth: a manifest with a fabricated sha256 and an unverified review was accepted (probe 2026-11-25).",
+      "behavior": "Every manifest is built from values the adapter computed: file hashes read from disk, verify exit codes it ran, review record hashes.",
+      "implementation": "yysun.build_manifest",
+      "precedence": "n/a",
+      "verification": "tests.test_flow.test_tracker_accepts_fabricated_evidence_so_the_gate_must_compute_it documents the gap",
+      "retire_when": "The tracker verifies evidence content."
+    },
+    {
+      "id": "OVR-KANBAN-MEASURES",
+      "owner": "factory-rig",
+      "upstream": "magnus919/agent-skills kanban-guru SKILL.md:96",
+      "conflict": "The skill lists Flow Efficiency among four core measures; the Kanban Guide's four are WIP, Throughput, Work Item Age and Cycle Time.",
+      "behavior": "A skill-sync overlay (SKILL.local.md appended) makes the Guide's four core and flow efficiency a supplementary diagnostic.",
+      "implementation": "a local overlay appended to kanban-guru (not published)",
+      "precedence": "Local text after upstream text.",
+      "verification": "grep of installed SKILL.md; management eval M5 and M6 graded",
+      "retire_when": "Upstream aligns with the Kanban Guide."
+    },
+    {
+      "id": "OVR-FORECAST-BASELINES",
+      "owner": "factory-rig",
+      "upstream": "magnus919 technical-project-management SKILL.md:49-66",
+      "conflict": "none observed",
+      "behavior": "Upstream already separates commitments from forecasts and preserves baselines; used unmodified.",
+      "implementation": "none",
+      "precedence": "upstream",
+      "verification": "management eval M1, M2, M5",
+      "retire_when": "n/a"
+    },
+    {
+      "id": "OVR-CONTEXT-SIZE",
+      "owner": "factory-rig",
+      "upstream": "Magnus skills (multi-agent-coordination 340K, release-engineering 588K); PMO (59 skills, 71 KB CLAUDE.md)",
+      "conflict": "Loading everything would exhaust context.",
+      "behavior": "Only each SKILL.md loads by description; references and templates load by link on demand. Skills with dangling sibling links (Magnus links to ~40 uninstalled siblings) are routed by the router, not by following dead links. PMO stays out of ~/.claude (scoped workspace) so its 71 KB CLAUDE.md and hooks load only when a session starts there.",
+      "implementation": "installation choices; factory-rig/SKILL.md is under 120 lines",
+      "precedence": "n/a",
+      "verification": "sizes measured; the live skill list shows only descriptions",
+      "retire_when": "n/a"
+    },
+    {
+      "id": "OVR-NATIVE-ADAPTERS",
+      "owner": "factory-rig",
+      "upstream": "PMO hooks and AskUserQuestion/Agent usage; Curia",
+      "conflict": "Platform-specific tools do not carry over to other consumers.",
+      "behavior": "PMO hooks and tools stay native to Claude Code inside the scoped workspace; Codex gets no PMO capability. Curia stays on its supported Linux host.",
+      "implementation": "none (boundaries documented)",
+      "precedence": "native",
+      "verification": "PMO deployed only under $PMO_WORKSPACE; checked no files in ~/Claude, ~/.config/pmo-platform or ~/.claude/skills",
+      "retire_when": "n/a"
+    },
+    {
+      "id": "OVR-PMO-PATH-ISOLATION",
+      "owner": "factory-rig",
+      "upstream": "pmo-platform install.sh, lib-instance-path.sh:406, validate-install.sh:116,1211, five hooks reading $HOME/.config/pmo-platform",
+      "conflict": "--config-root is honored only through PMO_PLATFORM_CONFIG_ROOT; five hooks and the validator read $HOME paths; the validator checks live ~/.claude/skills unless PMO_PLATFORM_DEPLOY_ROOT is exported.",
+      "behavior": "Install with --workspace-root, --config-root and PMO_PLATFORM_DEPLOY_ROOT/PMO_PLATFORM_CONFIG_ROOT/CLAUDE_WORKSPACE_ROOT all exported to the scoped tree; validate with the same variables. PMO stays installed-inactive.",
+      "implementation": "references/operations.md (commands)",
+      "precedence": "env variables over defaults",
+      "verification": "installer wrote only under the scoped tree; validator A6b FAIL is about user-scope hook wiring (see registry blocker)",
+      "retire_when": "Upstream isolates all readers."
+    },
+    {
+      "id": "OVR-UPSTREAM-DRIFT",
+      "owner": "factory-rig",
+      "upstream": "all pinned sources",
+      "conflict": "Upstream moves; local overrides rot silently.",
+      "behavior": "registry/components.json lists watched files per component with the checks to rerun; `frig drift` compares pinned and current revisions and names affected checks. skill-sync check covers installed skill content.",
+      "implementation": "scripts/factory_rig/drift.py",
+      "precedence": "n/a",
+      "verification": "tests.test_core drift cases; `frig drift` run",
+      "retire_when": "n/a"
+    }
+  ],
+  "decisions": [
+    "The full Magnus catalogue plugin was not installed; only the ten selected skills.",
+    "Matt's in-progress skills are installed inactive and user-invocable only.",
+    "PMO is scoped under $PMO_WORKSPACE and inactive; Curia is blocked-platform.",
+    "Noodle is built from main HEAD 82d2921 because no release contains the supervised merge gate."
+  ]
+}

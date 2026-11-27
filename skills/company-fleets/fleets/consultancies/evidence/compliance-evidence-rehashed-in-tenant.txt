@@ -1,0 +1,19 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.compliance-evidence-rehashed-in-tenant (negative, target consult-compliance-engagement).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../consult-compliance-engagement/scripts/tests/test_engagement_check.py EngagementCheckTest.test_evidence_hash_is_recomputed_from_the_artifact EngagementCheckTest.test_evidence_path_in_another_tenant_is_refused EngagementCheckTest.test_without_artifacts_the_report_cannot_issue -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-compliance-engagement/scripts/tests/test_engagement_check.py EngagementCheckTest.test_evidence_hash_is_recomputed_from_the_artifact EngagementCheckTest.test_evidence_path_in_another_tenant_is_refused EngagementCheckTest.test_without_artifacts_the_report_cannot_issue -v
+
+stderr:
+test_evidence_hash_is_recomputed_from_the_artifact (__main__.EngagementCheckTest.test_evidence_hash_is_recomputed_from_the_artifact) ... ok
+test_evidence_path_in_another_tenant_is_refused (__main__.EngagementCheckTest.test_evidence_path_in_another_tenant_is_refused) ... ok
+test_without_artifacts_the_report_cannot_issue (__main__.EngagementCheckTest.test_without_artifacts_the_report_cannot_issue) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.119s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

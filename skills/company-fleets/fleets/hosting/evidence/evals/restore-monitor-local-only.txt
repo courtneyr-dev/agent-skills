@@ -1,0 +1,7 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 2 --contains 'must be http on 127.0.0.1' -- sh -c 'python3 ../hosting-restore-exercise/scripts/restore_exercise.py monitor --url file:///etc/hosts'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.restore-monitor-local-only kind negative synthetic true
+{
+  "error": "monitor URL must be http on 127.0.0.1, localhost or ::1, got 'file:///etc/hosts'"
+}
+# expect: met
+# exit 0

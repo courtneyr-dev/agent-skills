@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "company-fleets/requirement.schema.json",
+  "title": "Requirement row",
+  "description": "One concrete requirement from sections 3 to 11 of the fleet prompt or the education addendum. Covered means a deliverable path or an explicit blocker is recorded.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "source_section", "source_lines", "text", "owner_workstream", "status", "deliverable", "blocker"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^(?:S0[3-9]|S1[01]|ED)-[0-9]{3}$"},
+    "source_section": {"$ref": "common.schema.json#/$defs/text"},
+    "source_lines": {"type": "string", "pattern": "^[0-9]+(?:-[0-9]+)?$"},
+    "text": {"$ref": "common.schema.json#/$defs/text"},
+    "owner_workstream": {"enum": ["corporate-and-agency", "hosting", "product-and-consultancies", "devrel-and-community", "education"]},
+    "status": {"enum": ["unassigned", "assigned", "delivered", "blocked"]},
+    "deliverable": {"anyOf": [{"type": "null"}, {"$ref": "common.schema.json#/$defs/relpath"}]},
+    "blocker": {"anyOf": [{"type": "null"}, {"$ref": "common.schema.json#/$defs/text"}]}
+  }
+}

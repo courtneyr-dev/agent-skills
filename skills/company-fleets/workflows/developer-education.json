@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "id": "developer-education",
+  "code": "DED",
+  "name": "Developer education",
+  "source": "Company Agent Fleets prompt 2, section 12, workflow table row 5 (lines 619-626)",
+  "profile": "devrel",
+  "coordinator": "devrel.program-lead",
+  "home_workload": "devrel.workload.docs-and-workshop",
+  "outcome": "Developer education built from stated research questions, a tested sample app and docs, delivered by people, with feedback carried to product.",
+  "final_consumer": "human:product-owner",
+  "stop_conditions": [
+    "Every acceptance criterion is met or refused with a reason",
+    "The step's budget is reached",
+    "A required human decision or human data is missing"
+  ],
+  "cancellation": "Stop the step's tools, keep partial outputs labeled partial in the run folder, and release the coordinator lease with its epoch.",
+  "steps": [
+    {
+      "id": "research",
+      "stage": "Developer research",
+      "producer": "devrel.dx-researcher",
+      "reviewer": "devrel.program-analyst",
+      "acceptance_owner": "devrel.program-lead",
+      "outcome": "Research questions and a recruiting plan; findings wait for real participants.",
+      "acceptance_criteria": [
+        "No finding is stated without participants"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "research plan",
+      "skills": []
+    },
+    {
+      "id": "design",
+      "stage": "Instructional design",
+      "producer": "instructional-design.curriculum-architect",
+      "reviewer": "instructional-design.assessment-evaluation-specialist",
+      "acceptance_owner": "instructional-design.learning-experience-architect",
+      "outcome": "Objectives, a practice sequence and an assessment plan for the workshop.",
+      "acceptance_criteria": [
+        "Each objective has a matching practice and assessment"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "design document",
+      "skills": []
+    },
+    {
+      "id": "sample-app",
+      "stage": "Tested sample app",
+      "producer": "devrel.sample-app-engineer",
+      "reviewer": "devrel.docs-architect",
+      "acceptance_owner": "devrel.program-lead",
+      "outcome": "A sample app whose quickstart replays.",
+      "acceptance_criteria": [
+        "The sample replays in a clean environment"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "sample app",
+      "skills": [
+        "devrel-quickstart-replay"
+      ]
+    },
+    {
+      "id": "docs-workshop",
+      "stage": "Docs and workshop",
+      "producer": "devrel.developer-educator",
+      "reviewer": "devrel.docs-architect",
+      "acceptance_owner": "devrel.program-lead",
+      "outcome": "Workshop lab and facilitator notes.",
+      "acceptance_criteria": [
+        "The lab replays"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "workshop materials",
+      "skills": [
+        "devrel-quickstart-replay"
+      ]
+    },
+    {
+      "id": "delivery",
+      "stage": "Delivery",
+      "producer": "devrel.developer-educator",
+      "reviewer": "devrel.program-analyst",
+      "acceptance_owner": "human:workshop-host",
+      "outcome": "The workshop runs with real developers.",
+      "acceptance_criteria": [
+        "Attendance and observations come from the session"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "session record",
+      "skills": [],
+      "boundary": "human-data"
+    },
+    {
+      "id": "feedback",
+      "stage": "Feedback",
+      "producer": "devrel.feedback-liaison",
+      "reviewer": "devrel.dx-researcher",
+      "acceptance_owner": "devrel.program-lead",
+      "outcome": "Feedback reproduced and classified.",
+      "acceptance_criteria": [
+        "Every issue has a reproduction or is marked not reproduced"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "feedback set",
+      "skills": []
+    },
+    {
+      "id": "product-improvement",
+      "stage": "Product improvement",
+      "producer": "devrel.feedback-liaison",
+      "reviewer": "devrel.program-analyst",
+      "acceptance_owner": "human:product-owner",
+      "outcome": "Reproduced issues handed to the product owner.",
+      "acceptance_criteria": [
+        "The product owner decides priority"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "product handoff",
+      "skills": []
+    }
+  ]
+}

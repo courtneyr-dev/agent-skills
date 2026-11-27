@@ -1,0 +1,8 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.sigite.org/about/
+# run 2026-11-25
+http_code=200 final_url=https://www.sigite.org/about/ size=75104
+L1: About – SIGCITE
+L34: Membership
+L35: Membership Benefits
+L74: SIGCITE is the Association for Computing Machinery (ACM) Special Interest Group on Cybersecurity & Information Technology Education (formerly, SIGITE). Our members include cybersecurity and information technology faculty (teachers and researchers), students, and industry professionals.
+L75: With over 400 members worldwide, SIGCITE drives the creation and dissemination of the computing discipline of information technology, including cybersecurity. The organization has created a model undergraduate curriculum and helped create accreditation guidelines for IT programs, and is now defining and promoting IT and Security research.

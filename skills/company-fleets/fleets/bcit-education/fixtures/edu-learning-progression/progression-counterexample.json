@@ -1,0 +1,18 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): COUNTEREXAMPLE progression. It has a prerequisite cycle (functions and testing-debugging need each other), a university-only concept in grade 9 with no bridge, and a concept sequenced before its prerequisite. progression.py check must reject it.",
+  "course": "Introduction to Computer Science (fixture, broken)",
+  "grade_band": "9-12",
+  "concepts": [
+    {"id": "variables", "label": "Variables and assignment", "band": "6-8", "prior": true, "prereqs": []},
+    {"id": "loops", "label": "Repetition with for loops", "band": "6-8", "prereqs": ["variables"], "assessed_by": ["u1-lab"]},
+    {"id": "list-traversal", "label": "Traversing a list", "band": "9-10", "prereqs": ["loops"], "assessed_by": ["u1-lab"]},
+    {"id": "functions", "label": "Functions", "band": "9-10", "prereqs": ["testing-debugging"], "assessed_by": ["u2-project"]},
+    {"id": "testing-debugging", "label": "Testing and debugging", "band": "9-10", "prereqs": ["functions"], "assessed_by": ["u2-log"]},
+    {"id": "asymptotic-notation", "label": "Asymptotic growth notation", "band": "university", "prereqs": ["loops"], "assessed_by": ["u1-quiz"],
+     "source": {"record_id": "cs2023", "label": "Algorithmic Foundations (knowledge area label)"}}
+  ],
+  "sequence": [
+    {"unit": "U1", "grade": 9, "concepts": ["list-traversal", "loops", "asymptotic-notation"]},
+    {"unit": "U2", "grade": 10, "concepts": ["functions", "testing-debugging"]}
+  ]
+}

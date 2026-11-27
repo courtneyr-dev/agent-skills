@@ -1,0 +1,11 @@
+{
+  "label": "SYNTHETIC: Fixture Co owner file. Who may approve sharing each tenant's data with another tenant. isolation_check.py records honors a grant only from these owners.",
+  "owners": {
+    "tenant-a": [
+      "human:tenant-a-owner"
+    ],
+    "tenant-b": [
+      "human:tenant-b-owner"
+    ]
+  }
+}

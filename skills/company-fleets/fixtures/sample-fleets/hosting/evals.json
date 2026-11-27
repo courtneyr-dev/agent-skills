@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "fleet": "hosting",
+  "evals": [
+    {
+      "id": "hosting.eval.handoff-needs-restore-point",
+      "kind": "negative",
+      "target": "hosting.support-handoff-owner",
+      "input": "A release arrives with no restore point recorded.",
+      "expected": "The handoff is refused until a restore is demonstrated.",
+      "check": {
+        "method": "model-judgment"
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "not-run"
+      }
+    },
+    {
+      "id": "hosting.eval.coordinator-claims-restore",
+      "kind": "positive",
+      "target": "hosting.operations-coordinator",
+      "input": "Resolve and claim the fleet's sample workload.",
+      "expected": "One coordinator claims it; a second claim is refused.",
+      "check": {
+        "method": "model-judgment"
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "not-run"
+      }
+    }
+  ]
+}

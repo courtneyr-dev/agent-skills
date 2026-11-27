@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "company-fleets/company.schema.json",
+  "title": "Company context",
+  "description": "Service catalogue, constraints, terminology and record owners. Every company record in this skill is a labeled fixture; fixture must be true until a real context is authorized.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "fixture", "label", "id", "name", "service_catalogue", "constraints", "terminology", "record_owners"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "fixture": {"const": true},
+    "label": {"type": "string", "pattern": "FIXTURE"},
+    "id": {"$ref": "common.schema.json#/$defs/slug"},
+    "name": {"$ref": "common.schema.json#/$defs/text"},
+    "service_catalogue": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "profiles"],
+        "properties": {
+          "id": {"$ref": "common.schema.json#/$defs/slug"},
+          "name": {"$ref": "common.schema.json#/$defs/text"},
+          "profiles": {"type": "array", "minItems": 1, "items": {"$ref": "common.schema.json#/$defs/slug"}}
+        }
+      }
+    },
+    "constraints": {"$ref": "common.schema.json#/$defs/text_list"},
+    "terminology": {"type": "object", "additionalProperties": {"$ref": "common.schema.json#/$defs/text"}},
+    "record_owners": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["record", "owner", "system"],
+        "properties": {
+          "record": {"$ref": "common.schema.json#/$defs/text"},
+          "owner": {"$ref": "common.schema.json#/$defs/human"},
+          "system": {"$ref": "common.schema.json#/$defs/text"}
+        }
+      }
+    }
+  }
+}

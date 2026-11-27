@@ -1,0 +1,4 @@
+#!/bin/sh
+# Noodle backlog adapter entry point: `frig-backlog sync|done <id>|add|edit`.
+here=$(cd "$(dirname "$0")" && pwd)
+PYTHONPATH="$here/../scripts" exec /usr/bin/env python3 -m factory_rig.noodle_backlog "$@"

@@ -1,0 +1,17 @@
+$ python3 -W ignore -m unittest discover -s fleets/community/tests -p 'test_*.py' -v -k UntrustedIssue
+# cwd: skills/company-fleets
+# run: 2026-11-26T22:19:35Z
+# case: community.eval.untrusted-issue-held (negative, target community.member-success-lead, synthetic=True)
+# expected: Four protected fields refused; tenant stays community-a; the repro summary goes through; a community-b case read is refused by tenancy.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+test_issue_cannot_move_tenant_acceptance_destinations_or_publication (test_community_fleet.UntrustedIssue.test_issue_cannot_move_tenant_acceptance_destinations_or_publication) ... ok
+test_scan_flags_the_redirects_as_data (test_community_fleet.UntrustedIssue.test_scan_flags_the_redirects_as_data) ... ok
+test_the_community_b_line_is_refused_by_tenancy_whatever_the_scanner_flags (test_community_fleet.UntrustedIssue.test_the_community_b_line_is_refused_by_tenancy_whatever_the_scanner_flags) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

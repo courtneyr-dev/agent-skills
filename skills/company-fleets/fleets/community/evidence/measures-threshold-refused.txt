@@ -1,0 +1,20 @@
+$ sh -c 'python3 ../community-health-measures/scripts/measures.py lint fleets/community/fixtures/measures/plan-threshold.json; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.measures-threshold-refused (boundary, target community-health-measures, synthetic=True)
+# expected: Exit 1: small-groups only.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "ok": false,
+  "metrics": 1,
+  "violations": [
+    {
+      "metric": "new-contributors",
+      "rule": "small-groups",
+      "message": "min_group_size must be an integer of at least 5"
+    }
+  ]
+}
+--- stderr ---
+

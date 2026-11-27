@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "company-fleets/files.schema.json",
+  "title": "Registry file wrappers",
+  "description": "One $defs entry per registry file. The validator picks the entry from the file's location.",
+  "$defs": {
+    "fleets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "fleets"],
+      "properties": {
+        "schema_version": {"const": 1},
+        "fleets": {"type": "array", "minItems": 1, "items": {"$ref": "fleet.schema.json"}}
+      }
+    },
+    "profiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "profiles"],
+      "properties": {
+        "schema_version": {"const": 1},
+        "profiles": {"type": "array", "minItems": 1, "items": {"$ref": "operating-profile.schema.json"}}
+      }
+    },
+    "roles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "fleet", "roles", "workloads"],
+      "properties": {
+        "schema_version": {"const": 1},
+        "fleet": {"$ref": "common.schema.json#/$defs/slug"},
+        "roles": {"type": "array", "items": {"$ref": "role.schema.json"}},
+        "workloads": {"type": "array", "items": {"$ref": "workload.schema.json"}}
+      }
+    },
+    "skills": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "fleet", "skills"],
+      "properties": {
+        "schema_version": {"const": 1},
+        "fleet": {"$ref": "common.schema.json#/$defs/slug"},
+        "skills": {"type": "array", "items": {"$ref": "skill.schema.json"}}
+      }
+    },
+    "evals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "fleet", "evals"],
+      "properties": {
+        "schema_version": {"const": 1},
+        "fleet": {"$ref": "common.schema.json#/$defs/slug"},
+        "evals": {"type": "array", "items": {"$ref": "eval.schema.json"}}
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "rows"],
+      "properties": {
+        "schema_version": {"const": 1},
+        "rows": {"type": "array", "minItems": 1, "items": {"$ref": "requirement.schema.json"}}
+      }
+    }
+  }
+}

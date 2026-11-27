@@ -1,0 +1,36 @@
+$ python3 -W ignore -m unittest discover -s ../devrel-quickstart-replay/scripts/tests -p 'test_*.py' -v
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:03Z
+# case: devrel.eval.replay-unit-tests (positive, target devrel-quickstart-replay, synthetic=True)
+# expected: All pass: invalid input rejected, env isolation, home-read denial, process cleanup, budget.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+test_failure_inside_a_pipeline_fails_the_step (test_replay.EachCommandChecked.test_failure_inside_a_pipeline_fails_the_step) ... ok
+test_failure_inside_an_and_list_fails_the_step (test_replay.EachCommandChecked.test_failure_inside_an_and_list_fails_the_step) ... ok
+test_handled_failure_and_multiline_commands_still_pass (test_replay.EachCommandChecked.test_handled_failure_and_multiline_commands_still_pass) ... ok
+test_set_plus_e_in_an_earlier_step_does_not_hide_a_later_failure (test_replay.EachCommandChecked.test_set_plus_e_in_an_earlier_step_does_not_hide_a_later_failure) ... ok
+test_expect_before_any_step_is_rejected (test_replay.InvalidInput.test_expect_before_any_step_is_rejected) ... ok
+test_missing_doc_and_missing_asset_are_rejected (test_replay.InvalidInput.test_missing_doc_and_missing_asset_are_rejected) ... ok
+test_no_runnable_block_is_rejected (test_replay.InvalidInput.test_no_runnable_block_is_rejected) ... ok
+test_non_shell_runnable_block_is_rejected (test_replay.InvalidInput.test_non_shell_runnable_block_is_rejected) ... ok
+test_unclosed_fence_is_rejected (test_replay.InvalidInput.test_unclosed_fence_is_rejected) ... ok
+test_assets_are_copied_and_hashed (test_replay.Replay.test_assets_are_copied_and_hashed) ... ok
+test_background_processes_do_not_outlive_the_replay (test_replay.Replay.test_background_processes_do_not_outlive_the_replay) ... ok
+test_exceeding_the_declared_budget_fails (test_replay.Replay.test_exceeding_the_declared_budget_fails) ... ok
+test_expected_lines_must_appear_in_order (test_replay.Replay.test_expected_lines_must_appear_in_order) ... ok
+test_failing_command_stops_later_steps (test_replay.Replay.test_failing_command_stops_later_steps) ... ok
+test_home_is_empty_and_not_the_real_home (test_replay.Replay.test_home_is_empty_and_not_the_real_home) ... ok
+test_inherited_environment_does_not_leak_in (test_replay.Replay.test_inherited_environment_does_not_leak_in) ... ok
+test_missing_expected_line_fails_and_names_the_step (test_replay.Replay.test_missing_expected_line_fails_and_names_the_step) ... ok
+test_passing_doc_reports_every_criterion_and_leaves_the_reader_unverified (test_replay.Replay.test_passing_doc_reports_every_criterion_and_leaves_the_reader_unverified) ... ok
+test_reads_of_the_real_home_are_denied (test_replay.Replay.test_reads_of_the_real_home_are_denied) ... ok
+test_undeclared_tool_fails_before_any_step (test_replay.Replay.test_undeclared_tool_fails_before_any_step) ... ok
+test_documented_value_that_is_a_substring_fails (test_replay.WholeLineExpectations.test_documented_value_that_is_a_substring_fails) ... ok
+test_placeholders_still_match_one_volatile_token (test_replay.WholeLineExpectations.test_placeholders_still_match_one_volatile_token) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 2.357s
+
+OK

@@ -1,0 +1,71 @@
+# eval corporate.eval.customer-success-lead-routes (positive, target corporate.customer-success-lead)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "corporate.customer-success-lead" --absent "installed": false -- bin/fleet resolve --profile managed --workload corporate.workload.customer-onboarding
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "managed",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Customer success lead",
+      "fleet": "corporate",
+      "id": "corporate.customer-success-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "customer-success-manager",
+          "installed": true,
+          "path": "skills/customer-success-manager/SKILL.md"
+        },
+        {
+          "id": "support-ops",
+          "installed": true,
+          "path": "skills/support-ops/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Solutions engineer",
+      "fleet": "corporate",
+      "id": "corporate.solutions-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "sales-engineer",
+          "installed": true,
+          "path": "skills/sales-engineer/SKILL.md"
+        },
+        {
+          "id": "agency-platform-adapters",
+          "installed": true,
+          "path": "skills/agency-platform-adapters/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.customer-onboarding"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

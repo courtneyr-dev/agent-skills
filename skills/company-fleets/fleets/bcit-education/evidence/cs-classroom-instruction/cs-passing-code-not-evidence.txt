@@ -1,0 +1,40 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "status": "not-yet-evidence-of-understanding" --contains Passing tests show the program works --absent "status": "ready-for-teacher-review" -- python3 ../cs-classroom-instruction/scripts/lesson.py respond fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json fleets/bcit-education/fixtures/cs-classroom-instruction/learner-pass-no-explanation.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.cs-passing-code-not-evidence
+{
+  "progress_claim": null,
+  "note": "The script never records mastery or progress. The teacher of record reviews the work and decides.",
+  "task_id": "T2",
+  "learner_ref": "classroom-a/learner-07 (synthetic)",
+  "status": "not-yet-evidence-of-understanding",
+  "tests": [
+    {
+      "id": "week",
+      "input": "12 9 15 7 11\n",
+      "expected": "54",
+      "actual": "54\n",
+      "error": "",
+      "passed": true
+    },
+    {
+      "id": "one-day",
+      "input": "5\n",
+      "expected": "5",
+      "actual": "5\n",
+      "error": "",
+      "passed": true
+    },
+    {
+      "id": "closed-week",
+      "input": "\n",
+      "expected": "0",
+      "actual": "0\n",
+      "error": "",
+      "passed": true
+    }
+  ],
+  "misconceptions": [],
+  "feedback": "All 3 tests pass. Passing tests show the program works, not how you reasoned about it.",
+  "next_action": "In your own words, explain what total holds after each pass for the input 12 9 15 7 11, and why it starts at 0."
+}
+# expect: met
+# exit 0

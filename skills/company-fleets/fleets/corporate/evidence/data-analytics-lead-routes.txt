@@ -1,0 +1,86 @@
+# eval corporate.eval.data-analytics-lead-routes (positive, target corporate.data-analytics-lead)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "corporate.data-analytics-lead" --absent "installed": false -- bin/fleet resolve --profile platform --workload corporate.workload.metric-definition
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "platform",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Data and analytics lead",
+      "fleet": "corporate",
+      "id": "corporate.data-analytics-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "analytics",
+          "installed": true,
+          "path": "skills/analytics/SKILL.md"
+        },
+        {
+          "id": "ab-testing",
+          "installed": true,
+          "path": "skills/ab-testing/SKILL.md"
+        },
+        {
+          "id": "attribution",
+          "installed": true,
+          "path": "skills/attribution/SKILL.md"
+        },
+        {
+          "id": "conversion-tracking",
+          "installed": true,
+          "path": "skills/conversion-tracking/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Product portfolio lead",
+      "fleet": "corporate",
+      "id": "corporate.product-portfolio-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "cpo-advisor",
+          "installed": true,
+          "path": "skills/cpo-advisor/SKILL.md"
+        },
+        {
+          "id": "product-analytics",
+          "installed": true,
+          "path": "skills/product-analytics/SKILL.md"
+        },
+        {
+          "id": "brd-writer",
+          "installed": true,
+          "path": "skills/brd-writer/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.metric-definition"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

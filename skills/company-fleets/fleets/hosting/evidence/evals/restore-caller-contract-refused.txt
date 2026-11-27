@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=refused --json refusal=contract-not-owner-file --absent restored-all-targets-met -- sh -c 'python3 ../hosting-restore-exercise/scripts/restore_exercise.py run --targets fleets/hosting/fixtures/restore-exercise/targets-relaxed-rpo.json --handoff-dir {tmp}/h --workdir {tmp}/lab >/dev/null; python3 ../hosting-restore-exercise/scripts/restore_exercise.py review --handoff-dir {tmp}/h --targets fleets/hosting/fixtures/restore-exercise/targets-relaxed-rpo.json >/dev/null && python3 -c "import hashlib,json;c=json.load(open('"'"'fleets/hosting/fixtures/restore-exercise/contract.json'"'"'));c['"'"'spec'"'"']['"'"'sha256'"'"']=hashlib.sha256(open('"'"'fleets/hosting/fixtures/restore-exercise/targets-relaxed-rpo.json'"'"','"'"'rb'"'"').read()).hexdigest();json.dump(c,open('"'"'{tmp}/contract-mine.json'"'"','"'"'w'"'"'))" && python3 ../hosting-restore-exercise/scripts/restore_exercise.py evidence-gate --handoff-dir {tmp}/h --targets fleets/hosting/fixtures/restore-exercise/targets-relaxed-rpo.json --contract {tmp}/contract-mine.json --workdir {tmp}/gate'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.restore-caller-contract-refused kind negative synthetic true
+{
+  "detail": "the contract comes only from the owner's $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/restore-exercise/contract.json; the caller-named $TMPDIR/hosting-eval-kcgnzmhn/contract-mine.json is refused",
+  "refusal": "contract-not-owner-file",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

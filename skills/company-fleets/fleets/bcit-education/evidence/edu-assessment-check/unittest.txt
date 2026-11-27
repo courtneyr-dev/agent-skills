@@ -1,0 +1,27 @@
+$ cd skills/edu-assessment-check/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v
+# run 2026-11-26 (python 3.14.7)
+test_aligned_package_passes (test_assessment_check.AlignmentTests.test_aligned_package_passes) ... ok
+test_passing_tests_and_ai_output_are_not_understanding (test_assessment_check.AlignmentTests.test_passing_tests_and_ai_output_are_not_understanding) ... ok
+test_recall_quiz_rejected_for_application_objective (test_assessment_check.AlignmentTests.test_recall_quiz_rejected_for_application_objective) ... ok
+test_rubric_must_name_assessed_objective_and_rationale (test_assessment_check.AlignmentTests.test_rubric_must_name_assessed_objective_and_rationale) ... ok
+test_construct_irrelevant_barriers_are_flagged (test_assessment_check.FairnessTests.test_construct_irrelevant_barriers_are_flagged) ... ok
+test_reading_demand_not_flagged_when_reading_is_the_construct (test_assessment_check.FairnessTests.test_reading_demand_not_flagged_when_reading_is_the_construct) ... ok
+test_speed_allowed_when_construct_is_speed (test_assessment_check.FairnessTests.test_speed_allowed_when_construct_is_speed) ... ok
+test_unlabeled_student_work_rejected (test_assessment_check.FairnessTests.test_unlabeled_student_work_rejected) ... ok
+test_rejects_missing_lists_bad_levels_and_duplicates (test_assessment_check.InvalidInputTests.test_rejects_missing_lists_bad_levels_and_duplicates) ... ok
+test_usage (test_assessment_check.InvalidInputTests.test_usage) ... usage: assessment_check.py check FILE
+ok
+test_autograder_only_prompt_labeled_explanation_is_rejected (test_assessment_check.PromptTextOverridesLabels.test_autograder_only_prompt_labeled_explanation_is_rejected) ... ok
+test_chatbot_output_labeled_explanation_is_rejected (test_assessment_check.PromptTextOverridesLabels.test_chatbot_output_labeled_explanation_is_rejected) ... ok
+test_free_tool_and_explanation_prompts_still_pass (test_assessment_check.PromptTextOverridesLabels.test_free_tool_and_explanation_prompts_still_pass) ... ok
+test_honest_weak_labels_are_not_called_mismatched (test_assessment_check.PromptTextOverridesLabels.test_honest_weak_labels_are_not_called_mismatched) ... ok
+test_paid_tool_and_online_step_in_prompt_are_flagged (test_assessment_check.PromptTextOverridesLabels.test_paid_tool_and_online_step_in_prompt_are_flagged) ... ok
+test_recall_quiz_labeled_apply_is_rejected (test_assessment_check.PromptTextOverridesLabels.test_recall_quiz_labeled_apply_is_rejected) ... ok
+test_reviewer_probes_retained_as_fixtures (test_assessment_check.PromptTextOverridesLabels.test_reviewer_probes_retained_as_fixtures) ... ok
+test_store_unit_fixtures_unchanged (test_assessment_check.PromptTextOverridesLabels.test_store_unit_fixtures_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.007s
+
+OK
+# exit 0

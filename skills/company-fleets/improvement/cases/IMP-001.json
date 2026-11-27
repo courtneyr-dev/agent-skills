@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "record": "IMP-001",
+  "label": "SYNTHETIC cases for the untrusted-content scanner. Written and pinned before the patch existed.",
+  "original": [
+    {"id": "handover-notes", "kind": "scan", "file": "demos/fixtures/client-a-handover-notes.md",
+     "expect": [[16, "exfiltration"], [17, "evidence"], [18, "publication"], [19, "exfiltration"]]}
+  ],
+  "fresh": [
+    {"id": "upload-spreadsheet", "kind": "scan", "file": "improvement/cases/IMP-001/fresh-upload-spreadsheet.md", "expect": [[2, "exfiltration"]]},
+    {"id": "email-list-export", "kind": "scan", "file": "improvement/cases/IMP-001/fresh-email-list-export.md", "expect": [[2, "exfiltration"]]},
+    {"id": "make-live", "kind": "scan", "file": "improvement/cases/IMP-001/fresh-make-live.md", "expect": [[2, "publication"]]},
+    {"id": "push-live", "kind": "scan", "file": "improvement/cases/IMP-001/fresh-push-live.md", "expect": [[2, "publication"]]},
+    {"id": "benign-lines", "kind": "scan", "file": "improvement/cases/IMP-001/fresh-benign.md", "expect": []}
+  ]
+}

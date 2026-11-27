@@ -1,0 +1,167 @@
+{
+  "label": "Hosting workstream's proposed values for registry/requirements.json rows S05-001 to S05-027. Paths are relative to the rig skills root. A row with a blocker is blocked: its deliverable holds the part that exists and the blocker names what is missing.",
+  "rows": [
+    {
+      "id": "S05-001",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.affiliate-referral",
+      "blocker": null
+    },
+    {
+      "id": "S05-002",
+      "status": "blocked",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.account-lifecycle",
+      "blocker": "Reseller billing and provisioning run through a fake WHM-shaped adapter; no upstream provider is selected"
+    },
+    {
+      "id": "S05-003",
+      "status": "blocked",
+      "deliverable": "hosting-account-lifecycle/SKILL.md",
+      "blocker": "Real cPanel/WHM adapter blocked: no provider selected, no credentials; mail is optional and not exercised"
+    },
+    {
+      "id": "S05-004",
+      "status": "blocked",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.vps-server-operations",
+      "blocker": "Covered as a workload, not a profile; no real VPS, Plesk or other panel is exercised"
+    },
+    {
+      "id": "S05-005",
+      "status": "blocked",
+      "deliverable": "hosting-service-catalogue/references/functions.json",
+      "blocker": "Compatibility, security and migrations are built and tested; staging, content workflows and multisite operations have no procedure yet"
+    },
+    {
+      "id": "S05-006",
+      "status": "blocked",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.untrusted-app-build",
+      "blocker": "Identity, custom domains and quota enforcement for the developer platform have no runtime demo; builds, previews, secrets, rollback and exportability do"
+    },
+    {
+      "id": "S05-007",
+      "status": "blocked",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.managed-cloud-operations",
+      "blocker": "Terraform checks blocked: the terraform binary is not installed; plan-only and mocked-provider use is documented, never apply"
+    },
+    {
+      "id": "S05-008",
+      "status": "blocked",
+      "deliverable": "hosting-tenant-isolation/SKILL.md",
+      "blocker": "Audit trail, data boundaries and change control are tested; SSO/RBAC and dedicated tenancy have no procedure or adapter yet"
+    },
+    {
+      "id": "S05-009",
+      "status": "blocked",
+      "deliverable": "company-fleets/fleets/hosting/roles.json#hosting.workload.resilience-exercise",
+      "blocker": "Failover, failback and restoration are tested on one machine; multi-region failure domains and supply-chain resilience are not exercised"
+    },
+    {
+      "id": "S05-010",
+      "status": "delivered",
+      "deliverable": "hosting-service-catalogue/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-011",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S05-012",
+      "status": "delivered",
+      "deliverable": "hosting-account-lifecycle/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-013",
+      "status": "delivered",
+      "deliverable": "hosting-service-catalogue/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-014",
+      "status": "blocked",
+      "deliverable": "hosting-tenant-isolation/SKILL.md",
+      "blocker": "Identity (SSO) boundaries have no procedure yet"
+    },
+    {
+      "id": "S05-015",
+      "status": "delivered",
+      "deliverable": "hosting-dns-cert-lifecycle/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-016",
+      "status": "delivered",
+      "deliverable": "hosting-incident-response/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-017",
+      "status": "delivered",
+      "deliverable": "hosting-metering-reconcile/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-018",
+      "status": "delivered",
+      "deliverable": "hosting-abuse-response/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-019",
+      "status": "delivered",
+      "deliverable": "hosting-data-migration/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-020",
+      "status": "delivered",
+      "deliverable": "hosting-restore-exercise/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-021",
+      "status": "blocked",
+      "deliverable": "hosting-account-lifecycle/SKILL.md",
+      "blocker": "No provider is selected and no credentials exist, so the cPanel/WHM and reseller adapters are fakes that mirror WHM API 1 function names; a real adapter needs a chosen provider"
+    },
+    {
+      "id": "S05-022",
+      "status": "delivered",
+      "deliverable": "hosting-tenant-isolation/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-023",
+      "status": "blocked",
+      "deliverable": "company-fleets/fleets/hosting/benchmark/2026-11-26-matrix.json",
+      "blocker": "No plan or contract exists for Fixture Co, so the contractual-commitment column is empty by design"
+    },
+    {
+      "id": "S05-024",
+      "status": "blocked",
+      "deliverable": "hosting-benchmark-matrix/SKILL.md",
+      "blocker": "performance_under_load, support, accessibility, regions and cost have no measurement yet; they stay not-measured"
+    },
+    {
+      "id": "S05-025",
+      "status": "delivered",
+      "deliverable": "hosting-benchmark-matrix/scripts/benchmark.py",
+      "blocker": null
+    },
+    {
+      "id": "S05-026",
+      "status": "delivered",
+      "deliverable": "hosting-benchmark-matrix/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S05-027",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/hosting/benchmark/2026-11-26-readiness-backlog.md",
+      "blocker": null
+    }
+  ]
+}

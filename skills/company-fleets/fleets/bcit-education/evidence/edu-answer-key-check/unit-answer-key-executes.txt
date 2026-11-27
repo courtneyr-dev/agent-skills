@@ -1,0 +1,104 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "match": 7 -- python3 ../edu-answer-key-check/scripts/answer_key.py check fleets/bcit-education/fixtures/bcit-unit-store/answer-key.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.unit-answer-key-executes
+{
+  "ok": true,
+  "engine": "edu-answer-key-check subset evaluator 0.1.0 (not Excel or Sheets); sqlite3 3.54.1; python 3.14.7",
+  "label": "SYNTHETIC FIXTURE (Fixture Co): answer key for the student-run store unit. Each key was worked by hand (see 'worked') before execution, so execution checks an independent derivation.",
+  "summary": {
+    "match": 7,
+    "mismatch": 0,
+    "error": 0,
+    "unsupported": 0,
+    "submitted_mismatch": 0
+  },
+  "flagged": [],
+  "items": [
+    {
+      "id": "Q1-notebook-markup",
+      "kind": "spreadsheet",
+      "key": 0.8182,
+      "computed": 0.8182,
+      "key_status": "match"
+    },
+    {
+      "id": "Q2-week1-gross-profit",
+      "kind": "spreadsheet",
+      "key": 92.85,
+      "computed": 92.85,
+      "key_status": "match"
+    },
+    {
+      "id": "Q3-revenue-by-item",
+      "kind": "sql",
+      "key": [
+        [
+          "sticker",
+          317.5
+        ],
+        [
+          "notebook",
+          148.0
+        ],
+        [
+          "lanyard",
+          78.0
+        ]
+      ],
+      "computed": [
+        [
+          "lanyard",
+          78.0
+        ],
+        [
+          "notebook",
+          148.0
+        ],
+        [
+          "sticker",
+          317.5
+        ]
+      ],
+      "key_status": "match"
+    },
+    {
+      "id": "Q4-best-week",
+      "kind": "sql",
+      "key": [
+        [
+          3,
+          203.0
+        ]
+      ],
+      "computed": [
+        [
+          3,
+          203.0
+        ]
+      ],
+      "key_status": "match"
+    },
+    {
+      "id": "Q5-loop-total",
+      "kind": "python",
+      "key": "175.0",
+      "computed": "175.0",
+      "key_status": "match"
+    },
+    {
+      "id": "Q6-gross-margin",
+      "kind": "calc",
+      "key": 0.5306,
+      "computed": 0.5305714285714286,
+      "key_status": "match"
+    },
+    {
+      "id": "Q7-price-decision",
+      "kind": "spreadsheet",
+      "key": "keep price",
+      "computed": "keep price",
+      "key_status": "match"
+    }
+  ]
+}
+# expect: met
+# exit 0

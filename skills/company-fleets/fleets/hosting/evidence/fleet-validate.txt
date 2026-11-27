@@ -1,0 +1,18 @@
+$ bin/fleet validate --strict --fleet hosting
+# run 2026-11-27T03:48:32Z from the company-fleets root; proves each hosting role record validates and each attached skill folder exists
+{
+  "counts": {
+    "evals": 543,
+    "fleets": 9,
+    "profiles": 11,
+    "requirements": 235,
+    "roles": 166,
+    "skills": 37,
+    "workloads": 72
+  },
+  "errors": [],
+  "ok": true,
+  "scope": "hosting",
+  "strict": true,
+  "warnings": []
+}

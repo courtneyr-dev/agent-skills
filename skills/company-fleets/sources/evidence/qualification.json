@@ -1,0 +1,247 @@
+{
+ "runner": "qualify.py",
+ "ran": "2026-11-26T08:28:56-05:00",
+ "python": "3.14.7",
+ "_note": "Synthetic Fixture Co inputs written to a temporary working directory; outputs truncated to 600 characters. pass means the exit code (and expected text) matched the script's documented contract.",
+ "results": [
+  {
+   "skill": "month-end-close",
+   "case": "positive",
+   "expect": [
+    4
+   ],
+   "expect_text": "UNRECONCILED",
+   "exit": 4,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/month-end-close/scripts/reconciliation_matcher.py --sample --output json",
+   "output_head": "{\n  \"verdict\": \"UNRECONCILED\",\n  \"as_of\": \"2026-10-31\",\n  \"matched\": 3,\n  \"match_methods\": {\n    \"ref+amount\": 3,\n    \"amount+date\": 0\n  },\n  \"proof\": {\n    \"source_balance\": 47144.72,\n    \"gl_balance\": 52708.6,\n    \"adjusted_source\": 52704.72,\n    \"adjusted_gl\": 52677.72,\n    \"opening_difference\": 0.0,\n    \"unexplained_difference\": 27.0\n  },\n  \"aging\": {\n    \"0-30\": 5769.12,\n    \"31-60\": 0,\n    \"61-90\": 0,\n    \">90\": -240.0\n  },\n  \"reconciling_items\": [\n    {\n      \"side\": \"in GL, not in bank\",\n      \"date\": \"2026-10-28\",\n      \"amount\": -1500.0,\n      \"ref\": \"CHK-5530\",\n      \"description\": "
+  },
+  {
+   "skill": "month-end-close",
+   "case": "negative",
+   "expect": [
+    3
+   ],
+   "expect_text": null,
+   "exit": 3,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/month-end-close/scripts/reconciliation_matcher.py --gl bad.csv --source bad.csv",
+   "output_head": "error: bad.csv: CSV needs at least date and amount columns\n"
+  },
+  {
+   "skill": "compliance-os",
+   "case": "positive",
+   "expect": [
+    0
+   ],
+   "expect_text": null,
+   "exit": 0,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/compliance-os/scripts/framework_selector.py profile.json --output json",
+   "output_head": "{\n  \"source\": \"profile.json\",\n  \"company\": \"Fixture Co (synthetic)\",\n  \"industry\": \"saas\",\n  \"applicable_frameworks\": [\n    {\n      \"id\": \"gdpr\",\n      \"name\": \"Regulation (EU) 2016/679 (GDPR)\",\n      \"type\": \"regulation\",\n      \"certifiable\": false,\n      \"binding\": true\n    },\n    {\n      \"id\": \"eu_ai_act\",\n      \"name\": \"Regulation (EU) 2024/1689 (AI Act)\",\n      \"type\": \"regulation\",\n      \"certifiable\": false,\n      \"binding\": true\n    },\n    {\n      \"id\": \"iso_27001\",\n      \"name\": \"ISO/IEC 27001:2022\",\n      \"type\": \"management_system\",\n      \"certifiable\": true,\n      \"binding\": false\n"
+  },
+  {
+   "skill": "compliance-os",
+   "case": "negative",
+   "expect": "nonzero",
+   "expect_text": null,
+   "exit": 1,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/compliance-os/scripts/framework_selector.py malformed.json",
+   "output_head": "error: invalid JSON in malformed.json: Expecting property name enclosed in double quotes: line 1 column 27 (char 26)\n"
+  },
+  {
+   "skill": "pricing-strategist",
+   "case": "positive",
+   "expect": [
+    0
+   ],
+   "expect_text": null,
+   "exit": 0,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/pricing-strategist/scripts/pricing_model_picker.py --sample --output json",
+   "output_head": "{\n  \"profile\": \"saas\",\n  \"context\": {\n    \"industry\": \"B2B SaaS \\u2014 sales intelligence\",\n    \"deal_size_avg\": 18000,\n    \"customer_count\": 220,\n    \"value_drivers\": [\n      \"revenue lift from better leads\",\n      \"time saved in research\",\n      \"conversion uplift\"\n    ],\n    \"adoption_curve\": \"bottom-up\",\n    \"consumption_pattern\": {\n      \"seat-based\": 0.45,\n      \"usage-based\": 0.55,\n      \"value-based\": 0.4,\n      \"hybrid\": 0.5\n    },\n    \"competitor_pricing_models\": [\n      \"subscription seat-based\",\n      \"hybrid seat + usage overage\"\n    ]\n  },\n  \"ranked\": [\n    {\n      \"model\": \"hybr"
+  },
+  {
+   "skill": "pricing-strategist",
+   "case": "negative",
+   "expect": "nonzero",
+   "expect_text": null,
+   "exit": 1,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/pricing-strategist/scripts/pricing_model_picker.py --input malformed.json",
+   "output_head": "Traceback (most recent call last):\n  File \"<skills-root>/pricing-strategist/scripts/pricing_model_picker.py\", line 297, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"<skills-root>/pricing-strategist/scripts/pricing_model_picker.py\", line 275, in main\n    ctx = json.loads(args.input.read_text())\n  File \"<python-prefix>/lib/python3.14/json/__init__.py\", line 352, in loads\n    return _default_decoder.decode(s)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"<python-prefix>",
+   "defect": "rejects with an unhandled Python traceback instead of an error message"
+  },
+  {
+   "skill": "pricing-strategist",
+   "case": "boundary",
+   "expect": [
+    2
+   ],
+   "expect_text": null,
+   "exit": 2,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/pricing-strategist/scripts/pricing_model_picker.py --sample --profile agency",
+   "output_head": "usage: pricing_model_picker.py [-h] [--input INPUT]\n                               [--profile {saas,api,ai-tools,enterprise-software,marketplace}]\n                               [--output {markdown,json}] [--sample]\npricing_model_picker.py: error: argument --profile: invalid choice: 'agency' (choose from 'saas', 'api', 'ai-tools', 'enterprise-software', 'marketplace')\n"
+  },
+  {
+   "skill": "capacity-planner",
+   "case": "positive",
+   "expect": [
+    0
+   ],
+   "expect_text": null,
+   "exit": 0,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/capacity-planner/scripts/capacity_modeler.py --sample --output json",
+   "output_head": "{\n  \"team_name\": \"Tier-1 Support\",\n  \"risk_band\": \"CRITICAL\",\n  \"recommendation\": \"Critically understaffed: have 12.0, need 32.86. Throughput collapse risk per queueing theory at sustained >85% utilization. Escalate.\",\n  \"headroom_extra_tickets_per_day\": 0.0,\n  \"headroom_pct\": 0.0,\n  \"scenarios\": [\n    {\n      \"target_utilization\": 0.7,\n      \"required_fte_raw\": 26,\n      \"required_fte_loaded\": 37.14,\n      \"p_sla_breach_p50\": 0.0,\n      \"p_sla_breach_p90\": 0.0,\n      \"p_sla_breach_p99\": 1.0,\n      \"actual_utilization_at_demand\": 0.6923\n    },\n    {\n      \"target_utilization\": 0.8,\n      \"requ"
+  },
+  {
+   "skill": "capacity-planner",
+   "case": "negative",
+   "expect": "nonzero",
+   "expect_text": null,
+   "exit": 1,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/capacity-planner/scripts/capacity_modeler.py --input malformed.json",
+   "output_head": "Traceback (most recent call last):\n  File \"<skills-root>/capacity-planner/scripts/capacity_modeler.py\", line 431, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"<skills-root>/capacity-planner/scripts/capacity_modeler.py\", line 410, in main\n    raw = json.loads(args.input.read_text())\n  File \"<python-prefix>/lib/python3.14/json/__init__.py\", line 352, in loads\n    return _default_decoder.decode(s)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"<python-prefix>",
+   "defect": "rejects with an unhandled Python traceback instead of an error message"
+  },
+  {
+   "skill": "channel-economics",
+   "case": "positive",
+   "expect": [
+    0
+   ],
+   "expect_text": null,
+   "exit": 0,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/channel-economics/scripts/cost_to_serve_calculator.py --sample --output json",
+   "output_head": "{\n  \"channel_name\": \"partner-led-EMEA\",\n  \"deal_volume\": 80.0,\n  \"gross_revenue\": 4000000.0,\n  \"direct_breakdown\": {\n    \"sdr_attribution\": 60000.0,\n    \"ae_attribution\": 240000.0,\n    \"sales_engineer_attribution\": 90000.0,\n    \"channel_manager_attribution\": 180000.0,\n    \"customer_success_attribution\": 120000.0,\n    \"support_attribution\": 70000.0,\n    \"marketing_attribution\": 50000.0,\n    \"partner_discount\": 600000.0,\n    \"partner_MDF\": 80000.0,\n    \"partner_enablement_time\": 40000.0,\n    \"certification_investment\": 20000.0,\n    \"channel_conflict_overhead\": 15000.0,\n    \"tooling_attribution\":"
+  },
+  {
+   "skill": "channel-economics",
+   "case": "negative",
+   "expect": "nonzero",
+   "expect_text": null,
+   "exit": 1,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/channel-economics/scripts/cost_to_serve_calculator.py --input malformed.json",
+   "output_head": "Traceback (most recent call last):\n  File \"<skills-root>/channel-economics/scripts/cost_to_serve_calculator.py\", line 229, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"<skills-root>/channel-economics/scripts/cost_to_serve_calculator.py\", line 215, in main\n    payload = json.load(f)\n  File \"<python-prefix>/lib/python3.14/json/__init__.py\", line 298, in load\n    return loads(fp.read(),\n        cls=cls, object_hook=object_hook,\n        parse_float=parse_float, parse_int=parse_int,\n ",
+   "defect": "rejects with an unhandled Python traceback instead of an error message"
+  },
+  {
+   "skill": "composer-security-update",
+   "case": "positive",
+   "expect": [
+    0
+   ],
+   "expect_text": "fixture/vulnerable-lib",
+   "exit": 0,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/composer-security-update/scripts/audit_table.py composer.lock < audit.json",
+   "output_head": "| Package | Installed | Severity | CVE | Affected | Advisory |\n| --- | --- | --- | --- | --- | --- |\n| fixture/vulnerable-lib | 1.0.0 | high | PKSA-fixture-0001 | `<1.0.1` | Synthetic advisory for Fixture Co |\n"
+  },
+  {
+   "skill": "composer-security-update",
+   "case": "negative",
+   "expect": "nonzero",
+   "expect_text": null,
+   "exit": 0,
+   "outcome": "fail",
+   "command": "python3 <skills-root>/composer-security-update/scripts/audit_table.py < malformed.json",
+   "output_head": "Could not parse audit JSON: Expecting property name enclosed in double quotes: line 1 column 26 (char 25)\n{\"company\": \"Fixture Co\",\n"
+  },
+  {
+   "skill": "docs-code-sample-standards",
+   "case": "positive",
+   "expect": [
+    0,
+    1
+   ],
+   "expect_text": null,
+   "exit": 0,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/docs-code-sample-standards/scripts/sample-audit.py --format summary docs",
+   "output_head": "samples: 1  files: 1\nlanguages: bash=1\ntiers: unset=1\nflags:\n  clean: 1\n"
+  },
+  {
+   "skill": "docs-code-sample-standards",
+   "case": "negative",
+   "expect": "nonzero",
+   "expect_text": null,
+   "exit": 1,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/docs-code-sample-standards/scripts/sample-audit.py no-such-docs",
+   "output_head": "not a directory: no-such-docs\n"
+  },
+  {
+   "skill": "developer-community-health",
+   "case": "positive",
+   "expect": [
+    0
+   ],
+   "expect_text": null,
+   "exit": 0,
+   "outcome": "pass",
+   "command": "bash <skills-root>/developer-community-health/scripts/contributor-absence-factor.sh -r repo",
+   "output_head": "   1. Ada Fixture                                   6 commits\n   2. Ben Fixture                                   3 commits\n\nTotal commits: 13 (from 5 contributors)\nContributor absence factor at 50%: 2\n"
+  },
+  {
+   "skill": "developer-community-health",
+   "case": "negative",
+   "expect": "nonzero",
+   "expect_text": null,
+   "exit": 1,
+   "outcome": "pass",
+   "command": "bash <skills-root>/developer-community-health/scripts/contributor-absence-factor.sh -r no-such-repo",
+   "output_head": "not a git repository: no-such-repo\n"
+  },
+  {
+   "skill": "developer-community-health",
+   "case": "boundary",
+   "expect": "nonzero",
+   "expect_text": null,
+   "exit": 2,
+   "outcome": "pass",
+   "command": "bash <skills-root>/developer-community-health/scripts/contributor-absence-factor.sh -r repo -p 150",
+   "output_head": "-p must be between 1 and 100\n"
+  },
+  {
+   "skill": "k12-lesson-plan-creation",
+   "case": "positive",
+   "expect": [
+    0
+   ],
+   "expect_text": "wrote lesson.html",
+   "exit": 0,
+   "outcome": "pass",
+   "command": "python3 <skills-root>/k12-lesson-plan-creation/scripts/render_lesson_html.py <skills-root>/k12-lesson-plan-creation/references/example_lesson.json -o lesson.html",
+   "output_head": "wrote lesson.html\n"
+  },
+  {
+   "skill": "k12-lesson-plan-creation",
+   "case": "negative",
+   "expect": "nonzero",
+   "expect_text": null,
+   "exit": 0,
+   "outcome": "fail",
+   "command": "python3 <skills-root>/k12-lesson-plan-creation/scripts/render_lesson_html.py lesson-bad.json -o bad.html",
+   "output_head": "wrote bad.html\n"
+  },
+  {
+   "skill": "k12-lesson-plan-creation",
+   "case": "boundary",
+   "expect": [
+    0
+   ],
+   "expect_text": null,
+   "exit": 1,
+   "outcome": "blocked",
+   "command": "python3 <skills-root>/k12-lesson-plan-creation/scripts/render_lesson_docx.py <skills-root>/k12-lesson-plan-creation/references/example_lesson.json",
+   "output_head": "error: python-docx is required \u2014 pip install \"python-docx==1.1.2\"\n",
+   "blocked_by": "python-docx"
+  }
+ ]
+}

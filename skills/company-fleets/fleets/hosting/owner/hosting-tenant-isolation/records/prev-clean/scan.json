@@ -1,0 +1,20 @@
+{
+  "files": [
+    [
+      "build.log",
+      "78a0567ba946b60c070a61882de409c9e4c706fd941bd9682755202819aec37c"
+    ],
+    [
+      "preview/index.html.txt",
+      "53f0c92351bc3c9e50f0dcf24bb8a6189606704bee67fc00030c4b86195801ad"
+    ]
+  ],
+  "files_scanned": 2,
+  "findings": 0,
+  "kind": "scan",
+  "preview_id": "prev-clean",
+  "recorded_by": "isolation_check secrets scan",
+  "subject_sha256": "09b9ff779d310cde336ffe0e1a8f8d782e30f5b41fc0e57e4578d1fb912bf54c",
+  "tenant_id": "tenant-a",
+  "verdict": "clean"
+}

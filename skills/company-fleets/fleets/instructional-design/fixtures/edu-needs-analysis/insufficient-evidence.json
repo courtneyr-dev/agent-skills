@@ -1,0 +1,12 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): a manager asks for a course with no evidence about the cause. Invented for evaluation.",
+  "problem": "Fixture Co developers write too few tests, according to their manager.",
+  "requested_solution": "course",
+  "audience": {"who": "Fixture Co product developers"},
+  "task": {"name": "Write unit tests for new code", "steps": ["Write the change", "Write tests", "Open the pull request"]},
+  "evidence": {
+    "can_do_when_required": {"value": null, "source": ""},
+    "tools_adequate": {"value": false, "source": ""},
+    "consequences_aligned": {"value": null, "source": ""}
+  }
+}

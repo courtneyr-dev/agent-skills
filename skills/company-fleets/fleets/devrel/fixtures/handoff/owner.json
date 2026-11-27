@@ -1,0 +1,67 @@
+{
+  "handoff_id": "HO-FIX-DEVREL-DOCS-1",
+  "workload_id": "devrel.workload.docs-and-workshop",
+  "tenant_id": "fixture-co",
+  "client_id": null,
+  "operating_profile": "devrel",
+  "outcome": "A quickstart and workshop lab for the Fixture Co Notes API that replay clean, ready for the developer educator to run the workshop.",
+  "scope": [
+    "fixtures/docs/quickstart.md",
+    "fixtures/docs/workshop-lab.md",
+    "fixtures/fixture-co-notes sample app"
+  ],
+  "exclusions": [
+    "Publishing to a public docs site",
+    "Contacting developers or workshop attendees",
+    "Claims about human usability"
+  ],
+  "acceptance_criteria": [
+    "Every runnable block replays clean with matching output",
+    "Human usability stays unverified until a reader session is on record"
+  ],
+  "sources": [
+    {
+      "ref": "fleets/devrel/fixtures/handoff/contract.json",
+      "revision": "FIX-DEVREL-DOCS-1 r1"
+    },
+    {
+      "ref": "samber/developer-relations-skills developer-quickstart-guide",
+      "revision": "c3a1b6912791539567727723baf626b4fec5ac7a"
+    }
+  ],
+  "producer": "devrel.docs-architect",
+  "reviewer": "devrel.sample-app-engineer",
+  "acceptance_owner": "human:head-of-devrel",
+  "execution_owner": "devrel.program-lead",
+  "data": {
+    "classification": "internal",
+    "allowed_destinations": [
+      "tenant:fixture-co",
+      "rig:evidence",
+      "staging:docs-preview"
+    ]
+  },
+  "authority": {
+    "tools": [
+      "devrel-quickstart-replay (local, sandboxed)"
+    ],
+    "mutation": "staged",
+    "external_actions": "none",
+    "publication": "staged-only"
+  },
+  "budget": {
+    "max_minutes": 60,
+    "max_retries": 2
+  },
+  "stop_conditions": [
+    "Every runnable doc replayed clean",
+    "Budget reached",
+    "A step fails twice after fixes"
+  ],
+  "cancellation": "Stop, keep replay reports labeled partial, release the workload lease.",
+  "next_consumer": "devrel.developer-educator",
+  "readiness_criteria": [
+    "Every output has fresh replay evidence under the current contract"
+  ],
+  "contract_hash": "d005eac7c954a9e3e3f58630a93b46e1fc9e84c74fa2c8157f475b993bee0869"
+}

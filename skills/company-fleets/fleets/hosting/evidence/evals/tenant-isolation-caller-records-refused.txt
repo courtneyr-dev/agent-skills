@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=records-not-owner-ledger -- sh -c 'mkdir -p {tmp}/records/prev-clean && python3 ../hosting-tenant-isolation/scripts/isolation_check.py promote --preview fleets/hosting/fixtures/tenant-isolation/preview-clean.json --records {tmp}/records'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.tenant-isolation-caller-records-refused kind negative synthetic true
+{
+  "detail": "owner records live only at $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/owner/hosting-tenant-isolation/records; the caller-named $TMPDIR/hosting-eval-laubrk4u/records is refused",
+  "refusal": "records-not-owner-ledger",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

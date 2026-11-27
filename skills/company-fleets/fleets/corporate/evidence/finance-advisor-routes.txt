@@ -1,0 +1,84 @@
+# eval corporate.eval.finance-advisor-routes (positive, target corporate.finance-advisor)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "corporate.finance-advisor" --absent "installed": false -- bin/fleet resolve --profile enterprise --workload corporate.workload.finance-close
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "enterprise",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Controller and bookkeeping workflow",
+      "fleet": "corporate",
+      "id": "corporate.controller-workflow",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "month-end-close",
+          "installed": true,
+          "path": "skills/month-end-close/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Finance advisor",
+      "fleet": "corporate",
+      "id": "corporate.finance-advisor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "cfo-advisor",
+          "installed": true,
+          "path": "skills/cfo-advisor/SKILL.md"
+        },
+        {
+          "id": "financial-analyst",
+          "installed": true,
+          "path": "skills/financial-analyst/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Internal audit reviewer",
+      "fleet": "corporate",
+      "id": "corporate.internal-auditor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "id": "soc2-compliance",
+          "installed": true,
+          "path": "skills/soc2-compliance/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.finance-close"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

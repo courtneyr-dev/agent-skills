@@ -1,0 +1,21 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://iste.org/standards/students
+# run 2026-11-25
+http_code=200 final_url=https://iste.org/standards/students size=316079
+L91: 1.1 Empowered Learner
+L92: 1.2 Digital Citizen
+L93: 1.3 Knowledge Constructor
+L94: 1.4 Innovative Designer
+L95: 1.5 Computational Thinker
+L96: 1.6 Creative Communicator
+L97: 1.7 Global Collaborator
+L109: 1.1.a Learning Goals
+L357: ISTE Standards © 2024 4.02, ISTE (International Society for Technology in Education), iste.org. All rights reserved.
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://cdn.iste.org/permissions-licensing
+# run 2026-11-25
+http_code=200 final_url=https://cdn.iste.org/permissions-licensing size=101002
+L70: Permitted educational use: Free
+L71: ISTE encourages free use of the ISTE Standards for noncommercial educational purposes under our permitted educational use agreement. This agreement grants you permission to download, link to, digitally publish and/or import the standards onto your intranet or other digital platform.
+L72: Permitted educational use includes using the ISTE Standards to:
+L87: Our reprint agreement allows use of the ISTE Standards in print and digital assets, including books and ebooks. The fee for fewer than 1,000 copies is $200 per set of standards; the fee for more than 1,000 copies is $350 per set of standards. ISTE members receive a 10% discount.
+L92: Commercial use of the ISTE Standards requires a commercial digital use agreement. Please contact
+L98: Any use of the ISTE Standards requires attribution as specified below:

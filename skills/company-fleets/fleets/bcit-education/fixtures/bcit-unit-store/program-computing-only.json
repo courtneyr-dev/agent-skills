@@ -1,0 +1,27 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: a computing-only program presented as BCIT.",
+  "courses": [
+    {
+      "id": "C1",
+      "title": "Web Design",
+      "nbea_areas": [
+        "Information Technology"
+      ]
+    },
+    {
+      "id": "C2",
+      "title": "Databases",
+      "nbea_areas": [
+        "Information Technology"
+      ]
+    },
+    {
+      "id": "C3",
+      "title": "Cybersecurity Lab",
+      "nbea_areas": [
+        "Information Technology",
+        "Cyber Ops"
+      ]
+    }
+  ]
+}

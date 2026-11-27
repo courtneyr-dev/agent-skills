@@ -1,0 +1,129 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.routes-commerce-operations (positive, target consultancies.commerce-operations).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "id": "consultancies.commerce-operations" --contains "path": "skills/product-payment-events/SKILL.md" --absent "fleets/hosting/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile agency --workload consultancies.workload.ecommerce-engagement
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile agency --workload consultancies.workload.ecommerce-engagement
+{
+  "coordinator": "consultancies.practice-coordinator",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/consultancies/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Consultancy practice coordinator",
+      "fleet": "consultancies",
+      "id": "consultancies.practice-coordinator",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Commerce architect and conversion analyst",
+      "fleet": "consultancies",
+      "id": "consultancies.commerce-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "woocommerce-plugin-dev",
+          "installed": true,
+          "path": "skills/woocommerce-plugin-dev/SKILL.md"
+        },
+        {
+          "id": "analytics",
+          "installed": true,
+          "path": "skills/analytics/SKILL.md"
+        },
+        {
+          "id": "product-payment-events",
+          "installed": true,
+          "path": "skills/product-payment-events/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Payments, tax and shipping integration and subscriptions engineer",
+      "fleet": "consultancies",
+      "id": "consultancies.commerce-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "product-payment-events",
+          "installed": true,
+          "path": "skills/product-payment-events/SKILL.md"
+        },
+        {
+          "id": "woocommerce-plugin-dev",
+          "installed": true,
+          "path": "skills/woocommerce-plugin-dev/SKILL.md"
+        },
+        {
+          "id": "woocommerce-upgrade-safety",
+          "installed": true,
+          "path": "skills/woocommerce-upgrade-safety/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Merchandising, catalog and inventory, and fraud and chargeback operations",
+      "fleet": "consultancies",
+      "id": "consultancies.commerce-operations",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "product-payment-events",
+          "installed": true,
+          "path": "skills/product-payment-events/SKILL.md"
+        },
+        {
+          "id": "support-ops",
+          "installed": true,
+          "path": "skills/support-ops/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Independent reviewer (all practices)",
+      "fleet": "consultancies",
+      "id": "consultancies.independent-reviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "id": "fp-check",
+          "installed": true,
+          "path": "skills/fp-check/SKILL.md"
+        },
+        {
+          "id": "differential-review",
+          "installed": true,
+          "path": "skills/differential-review/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "consultancies.workload.ecommerce-engagement"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"id": "consultancies.commerce-operations"': ok
+CHECK contains '"path": "skills/product-payment-events/SKILL.md"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

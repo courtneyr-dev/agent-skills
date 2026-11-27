@@ -1,0 +1,12 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-71-computer-science-7-12
+# run 2026-11-25
+http_code=200 final_url=https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-71-computer-science-7-12 size=214772
+L156: CSPG 71 - Computer Science 7-12
+L157: Modified: April 1, 2022
+L159: Grade Level Scope of Certificate
+L160: A person holding a valid Pennsylvania Computer Science 7-12 certificate is qualified to teach computer science courses in grades 7 through 12. A person holding this certificate is also qualified for assignment in the sixth (6th) grade. (See CSPG #104)
+L162: An educator holding a valid Pennsylvania certificate for Computer Science is qualified to teach courses based on the Computer Science Teachers' Association (CSTA) K-12 standards and concepts including: algorithms and programming, computing systems, data and analysis, impacts of computing, networks and the internet. Additional related sub-concepts include, but are not limited to cybersecurity, devices, hardware and software models, inference, modularity, network communications
+L166: Educators holding any of the Pennsylvania public school certificates listed below and employed to teach computer science in a Commonwealth LEA on December 31, 2022 may continue to do so in the grade level limitations consistent with their certificate.
+L171: Business Computer Information Technology PK-12
+L173: Anyone employed to teach computer science in grades 7-12 for the first time in a Commonwealth LEA after December 31, 2022 or who holds one of the certificates listed above and accepts employment to teach computer science in grades 7-12 in a new Commonwealth LEA after December 31, 2022 must hold the PDE-issued computer science certificate.
+L199: ​4/1/2022

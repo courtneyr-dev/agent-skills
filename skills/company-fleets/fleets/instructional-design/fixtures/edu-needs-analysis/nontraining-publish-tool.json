@@ -1,0 +1,18 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): client editors miss the weekly publishing deadline. Invented for evaluation; no real client, editor or system.",
+  "problem": "Client A's editors publish the weekly update two days late in 7 of the last 8 weeks.",
+  "requested_solution": "course",
+  "audience": {"who": "Client A content editors (fixture)", "size": 6, "context": "Edit in the client CMS three days a week", "access_needs": "One editor uses a screen reader"},
+  "task": {"name": "Publish the weekly update", "steps": ["Draft the update", "Attach images with alt text", "Request legal approval", "Publish"], "frequency": "weekly", "criticality": "Missed deadlines breach the client's own service note", "conditions": "Client CMS, approval queue"},
+  "evidence": {
+    "can_do_when_required": {"value": true, "source": "Fixture observation: 6 of 6 editors published a test update correctly in a supervised session"},
+    "did_it_before": {"value": true, "source": "Fixture CMS log: every editor has published at least once"},
+    "performed_often": {"value": true, "source": "Weekly task"},
+    "expectations_clear": {"value": true, "source": "Fixture interview: all editors state the Tuesday deadline"},
+    "feedback_given": {"value": true, "source": "Fixture dashboard shows late items to editors"},
+    "tools_adequate": {"value": false, "source": "Fixture CMS log: image upload times out above 2 MB and editors retry for hours"},
+    "process_clear": {"value": false, "source": "Fixture approval queue: legal approval waits a median 41 hours; editors cannot publish before it"},
+    "access_ok": {"value": true, "source": "Fixture access list: all editors hold publish rights"},
+    "consequences_aligned": {"value": true, "source": "Fixture interview: no penalty for publishing on time"}
+  }
+}

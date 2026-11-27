@@ -1,0 +1,99 @@
+# eval agency.eval.performance-engineer-routes (positive, target agency.performance-engineer)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "agency.performance-engineer" --absent "installed": false -- bin/fleet resolve --profile managed --workload agency.workload.security-and-performance-review
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "agency.engagement-director",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/agency/roles.json"
+  ],
+  "profile": "managed",
+  "roles": [
+    {
+      "display_name": "Engagement director (agency coordinator)",
+      "fleet": "agency",
+      "id": "agency.engagement-director",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Security reviewer",
+      "fleet": "agency",
+      "id": "agency.security-reviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "differential-review",
+          "installed": true,
+          "path": "skills/differential-review/SKILL.md"
+        },
+        {
+          "id": "fp-check",
+          "installed": true,
+          "path": "skills/fp-check/SKILL.md"
+        },
+        {
+          "id": "supply-chain-risk-auditor",
+          "installed": true,
+          "path": "skills/supply-chain-risk-auditor/SKILL.md"
+        },
+        {
+          "id": "composer-security-update",
+          "installed": true,
+          "path": "skills/composer-security-update/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Performance engineer",
+      "fleet": "agency",
+      "id": "agency.performance-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-platform-adapters",
+          "installed": true,
+          "path": "skills/agency-platform-adapters/SKILL.md"
+        },
+        {
+          "id": "wordpress-performance",
+          "installed": true,
+          "path": "skills/wordpress-performance/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Solution and integration architect",
+      "fleet": "agency",
+      "id": "agency.solution-architect",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-platform-adapters",
+          "installed": true,
+          "path": "skills/agency-platform-adapters/SKILL.md"
+        },
+        {
+          "id": "production-readiness",
+          "installed": true,
+          "path": "skills/production-readiness/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "agency.workload.security-and-performance-review"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

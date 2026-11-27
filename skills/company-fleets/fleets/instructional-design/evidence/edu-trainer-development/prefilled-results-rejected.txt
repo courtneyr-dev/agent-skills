@@ -1,0 +1,23 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains M1 has pre-filled outcome values --contains the plan has pre-filled outcome values -- python3 ../edu-trainer-development/scripts/evidence_plan.py check fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan-prefilled.json
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.prefilled-results-rejected
+{
+  "evidence_measures": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "findings": [
+    "M1 has pre-filled outcome values (result); results come from real collection, not the plan",
+    "M4 has pre-filled outcome values (score); results come from real collection, not the plan",
+    "the plan has pre-filled outcome values (results); results come from real collection, not the plan"
+  ],
+  "measures": 4,
+  "status": "rejected",
+  "transfer_measures": [
+    "M1",
+    "M3"
+  ],
+  "warnings": []
+}
+# expect: met
+# exit 0

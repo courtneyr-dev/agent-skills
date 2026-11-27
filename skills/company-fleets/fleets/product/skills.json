@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "fleet": "product",
+  "skills": [
+    {
+      "id": "product-release-gate",
+      "fleet": "product",
+      "summary": "Packaging gate: compatibility first, then SemVer and channel, changelog, SBOM licenses and advisories, migration and rollback, the platform's own marketplace checklist, and fresh hash-bound evidence.",
+      "triggers": [
+        "Before asking a human to approve packaging or distribution of an extension, theme, module, SDK or SaaS release",
+        "Checking a host/API/version compatibility matrix"
+      ],
+      "boundaries": [
+        "Never approves, tags or publishes",
+        "A checklist for one platform never validates another"
+      ],
+      "inputs": [
+        "compat-matrix.v1",
+        "release-candidate.v1",
+        "handoff.v1 and factory-rig contract"
+      ],
+      "prerequisites": [
+        "release-engineering scripts beside it",
+        "company-fleets fleetlib over factory-rig"
+      ],
+      "method": [
+        "Run compat on the matrix",
+        "Run gate on the candidate",
+        "Fix refusals at their source and rebind evidence",
+        "Hand ready results to the human release owner"
+      ],
+      "stopping_conditions": [
+        "Compatibility refused: later stages not-run",
+        "All stages ran"
+      ],
+      "output_contract": "JSON with decision (ready-for-human-approval, refused, blocked), approval_owner, per-stage status and error codes; exit 0, 1 or 2.",
+      "failure_states": [
+        "Missing adapter: stage blocked with the path",
+        "Unpinned marketplace: decision blocked",
+        "An input rehashed without a new review naming its bytes: refused",
+        "Invalid input: exit 2"
+      ],
+      "references": [
+        {
+          "title": "Semantic Versioning",
+          "location": "https://semver.org/spec/v2.0.0.html",
+          "version": "2.0.0",
+          "rights": "CC BY 3.0"
+        },
+        {
+          "title": "Keep a Changelog",
+          "location": "https://keepachangelog.com/en/1.1.0/",
+          "version": "1.1.0",
+          "rights": "MIT"
+        },
+        {
+          "title": "CycloneDX JSON",
+          "location": "https://cyclonedx.org/docs/1.5/json/",
+          "version": "1.5",
+          "rights": "Apache-2.0"
+        },
+        {
+          "title": "magnus919/agent-skills release-engineering scripts",
+          "location": "skills/release-engineering/scripts",
+          "version": "upstream 6806511",
+          "rights": "MIT"
+        }
+      ],
+      "scripts": [
+        "scripts/release_gate.py",
+        "scripts/tests/test_release_gate.py",
+        "scripts/tests/fixture_handoff.py"
+      ],
+      "evals": {
+        "positive": [
+          "product.eval.gate-ready-candidate"
+        ],
+        "negative": [
+          "product.eval.incompatible-host-refused-before-packaging",
+          "product.eval.retired-api-version-refused",
+          "product.eval.wordpress-review-not-valid-for-shopify",
+          "product.eval.release-gate-rejects-invalid-input",
+          "product.eval.candidate-claims-need-review",
+          "product.eval.producer-review-refused",
+          "product.eval.migration-must-be-declared",
+          "product.eval.inverted-or-empty-compat-refused"
+        ],
+        "boundary": [
+          "product.eval.untested-declared-version-refused",
+          "product.eval.stale-matrix-evidence-refused",
+          "product.eval.contract-edited-evidence-stale",
+          "product.eval.unpinned-marketplace-blocks",
+          "product.eval.rehash-without-review-refused"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "release-engineering semver_check.py and changelog_check.py",
+          "kind": "cli",
+          "required": true
+        },
+        {
+          "name": "company-fleets fleetlib handoff validation",
+          "kind": "cli",
+          "required": true
+        }
+      ],
+      "missing_capability": "A missing adapter blocks its stage and the decision becomes blocked; the gate never reports ready without it.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/product-release-gate (product-and-consultancies workstream)",
+        "revision": "0.1.0, 2026-11-25",
+        "license": "agent-skills (MIT); no upstream text copied"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Marketplace checklists beyond WordPress.org are recorded as not pinned"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/product/evidence/skills-installed.txt",
+          "note": "Present under skills/"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/product/evidence/product-release-gate-unittest.txt",
+          "note": "Deterministic script behavior verified by unit tests and script evals; model use of the skill not evaluated"
+        }
+      }
+    },
+    {
+      "id": "product-payment-events",
+      "fleet": "product",
+      "summary": "Test-mode payment, entitlement and subscription webhook processing where replays and retries cannot create a second capture, fulfillment, decrement or refund.",
+      "triggers": [
+        "Building or reviewing commerce, licensing, subscription or SaaS billing integrations",
+        "Proving webhook idempotency or inventory-race behavior"
+      ],
+      "boundaries": [
+        "Test mode only; live-mode events are refused",
+        "No real provider accounts, card data, tax or chargeback rules"
+      ],
+      "inputs": [
+        "payment-config.v1",
+        "payment-event.v1 JSON lines signed with the published test key"
+      ],
+      "prerequisites": [
+        "python3 with sqlite3"
+      ],
+      "method": [
+        "Sign fixture events",
+        "Process into a disposable store",
+        "Replay and race",
+        "Reconcile",
+        "Hand holds to a human"
+      ],
+      "stopping_conditions": [
+        "All events applied or refused and reconcile ran",
+        "Any refusal or hold stops for a human"
+      ],
+      "output_contract": "process prints per-event outcomes, store counts, inventory, entitlements and live_calls 0; reconcile prints mismatches and holds; exit 0, 1 or 2.",
+      "failure_states": [
+        "Bad signature, live mode, foreign tenant: refused",
+        "Stock exhausted: held for a human",
+        "Invalid input: exit 2"
+      ],
+      "references": [
+        {
+          "title": "RFC 2104 HMAC",
+          "location": "https://www.rfc-editor.org/rfc/rfc2104",
+          "version": "February 1997",
+          "rights": "IETF Trust; cite only"
+        },
+        {
+          "title": "SQLite transactions and INSERT OR IGNORE",
+          "location": "https://www.sqlite.org/lang_transaction.html",
+          "version": "SQLite 3 bundled with Python",
+          "rights": "Public domain"
+        },
+        {
+          "title": "Automattic/claude-woocommerce-toolkit woocommerce-plugin-dev testing reference",
+          "location": "skills/woocommerce-plugin-dev/references/testing.md",
+          "version": "upstream d705387",
+          "rights": "GPL-2.0; not copied"
+        }
+      ],
+      "scripts": [
+        "scripts/payment_events.py",
+        "scripts/tests/test_payment_events.py"
+      ],
+      "evals": {
+        "positive": [
+          "product.eval.replayed-payment-events-idempotent"
+        ],
+        "negative": [
+          "product.eval.live-tampered-foreign-events-refused",
+          "product.eval.event-id-key-counterexample"
+        ],
+        "boundary": [
+          "product.eval.last-unit-race-held-for-human",
+          "product.eval.concurrent-replay-captures-once",
+          "product.eval.refund-hold-then-stockout-converges",
+          "product.eval.out-of-order-cancel-stays-canceled"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Fake signed provider event files",
+          "kind": "fake",
+          "required": true
+        }
+      ],
+      "missing_capability": "Without a provider sandbox, real retry schedules, signature headers and partial refunds stay unverified and are listed in not_checked.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/product-payment-events (product-and-consultancies workstream)",
+        "revision": "0.1.0, 2026-11-25",
+        "license": "agent-skills (MIT); no upstream text copied"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/product/evidence/skills-installed.txt",
+          "note": "Present under skills/"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/product/evidence/product-payment-events-unittest.txt",
+          "note": "Deterministic script behavior verified by unit tests and script evals; model use of the skill not evaluated"
+        }
+      }
+    }
+  ]
+}

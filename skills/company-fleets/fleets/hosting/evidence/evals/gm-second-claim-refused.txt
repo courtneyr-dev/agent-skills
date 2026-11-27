@@ -1,0 +1,25 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --contains '"lease"' --contains 'held by fleet:hosting' -- sh -c 'bin/fleet claim --lease-root {tmp}/l --tenant tenant-a --workload hosting.workload.restore-exercise --instance d1 --role hosting.general-manager --owner-pid 1 --contract-hash 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef && bin/fleet claim --lease-root {tmp}/l --tenant tenant-a --workload hosting.workload.restore-exercise --instance d1 --role hosting.general-manager --owner-pid 1 --contract-hash 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.gm-second-claim-refused kind boundary synthetic true
+{
+  "lease": {
+    "acquired_at": 1795751211.781909,
+    "attempt_id": "hosting.general-manager",
+    "backend": "fleet:hosting",
+    "contract_hash": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "epoch": 1,
+    "expires_at": 1795751811.781909,
+    "heartbeat_at": 1795751211.781909,
+    "owner_fingerprint": "Tue Nov 24 10:00:35 2026",
+    "owner_pid": 1,
+    "repo": "company-fleets/tenant-a",
+    "state": "active",
+    "task_id": "hosting.workload.restore-exercise#d1",
+    "token": "<claim token, redacted>",
+    "worktree": ""
+  }
+}
+{
+  "refused": "held by fleet:hosting (attempt hosting.general-manager) until 1795751812"
+}
+# expect: met
+# exit 0

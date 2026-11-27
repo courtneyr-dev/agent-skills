@@ -1,0 +1,11 @@
+{
+  "label": "SYNTHETIC: Fixture Co proposed restore targets for tenant-a. Hypotheses to test, not service commitments.",
+  "tenant_id": "tenant-a",
+  "source": "Proposed by Fixture Co hosting operations as a lab hypothesis on 2026-11-25; no contract exists",
+  "targets": {
+    "detection_seconds": {"max": 10},
+    "rto_seconds": {"max": 60},
+    "rpo_lost_writes": {"max": 0},
+    "restore_success": {"required": true}
+  }
+}

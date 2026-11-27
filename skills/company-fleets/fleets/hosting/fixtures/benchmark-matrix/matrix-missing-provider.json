@@ -1,0 +1,501 @@
+{
+  "label": "SYNTHETIC COUNTEREXAMPLE: the isolation dimension drops its Acquia entry instead of recording what the docs say.",
+  "as_of": "2026-11-26",
+  "subject": "Fixture Co managed hosting profile, disposable lab",
+  "contract": null,
+  "contract_note": "No plan or contract exists for Fixture Co, so every contractual_commitment is null.",
+  "statements": [
+    {
+      "text": "Fixture Co restored a crashed lab site in under a minute in one lab run on 2026-11-26; zero-loss recovery is not met."
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "restore",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "Cloud Platform keeps automatic daily database backups for three days (cannot be disabled); on-demand backups persist until deleted. Restore is Databases > Backups tab > kebab menu > Restore. Files have only internal disaster-recovery snapshots not available to subscribers, so customers back up files themselves.",
+          "quote": "Daily backups from the last three days are always available in the Cloud Platform user interface",
+          "url": "https://docs.acquia.com/acquia-cloud-platform/taking-backups",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "Daily automatic backups run on paid sites: nightly backups kept for a week and weekly backups kept for a month; manual backups can be kept 1 or 6 months. Restore is a Backup Log > Restore button (code, database, files together), documented at https://docs.pantheon.io/guides/backups/restore-from-backup; the button only shows on Dev and Multidev in Git mode.",
+          "quote": "A nightly backup is created and stored for a week and your weekly backup is stored for a month when automatic backups is enabled.",
+          "url": "https://docs.pantheon.io/guides/backups",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "Production databases are backed up every hour and non-production daily; backups are retained 30 days, hourly copies are downloadable for 72 hours then daily copies, downloadable from the VIP Dashboard or VIP-CLI. The DR page says backups can roll an environment back, but no self-service restore procedure was found on the pages checked.",
+          "quote": "Databases for production environments are backed up every hour, including custom tables, and non-production databases are backed up daily.",
+          "url": "https://docs.wpvip.com/databases/backups/",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        }
+      ],
+      "proposed_target": {
+        "max": 60,
+        "unit": "seconds",
+        "source": "Proposed by Fixture Co hosting operations, 2026-11-26; a hypothesis, not a commitment",
+        "note": "keep restore time under a minute for one site"
+      },
+      "configured_capability": {
+        "value": "One backup before failure; restore with the SQLite backup API into a fresh folder and a new process (lab)",
+        "evidence": "skills/hosting-restore-exercise/SKILL.md"
+      },
+      "measured_result": {
+        "value": 0.058,
+        "unit": "seconds",
+        "evidence": "fleets/hosting/evidence/restore-exercise-2026-11-26.json",
+        "evidence_sha256": "d2e8dc803709aca570da137934596e4889f76a8c28fdc6cfe5816fb0fc2010cc",
+        "json_path": "measured.rto_seconds",
+        "runs": 1,
+        "kind": "lab",
+        "note": "Crash of the disposable tenant-a site, restored and healthy through the router"
+      },
+      "contractual_commitment": null
+    },
+    {
+      "id": "recovery_objectives",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "Published RPO is one hour for production on Cloud Platform Enterprise and Site Factory, and RTO is up to 1 hour per 50 GB of data; the multi-region failover option lists an RPO under 1 minute and an RTO of 30 minutes (https://docs.acquia.com/acquia-cloud-platform/using-multi-region-failover).",
+          "quote": "(RPO) for production environments running on Cloud Platform Enterprise and Site Factory is one hour.",
+          "url": "https://docs.acquia.com/acquia-cloud-platform/cloud-platform-enterprise-availability-and-disaster-recovery",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "Pantheon publishes an RPO of 5 minutes and an RTO of 15 minutes, but only for sites with the paid Multizone Failover add-on (Elite plans except Elite Starter); no RPO or RTO is published for other plans.",
+          "quote": "For sites with Multizone Failover enabled, Pantheon’s RPO is 5 minutes.",
+          "url": "https://docs.pantheon.io/multizone-failover",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "No numeric RPO or RTO found. Geographical Redundancy docs say only that an environment can be restored within minutes, and that without it a very large database could take several hours; pages checked: disaster-recovery, geographical-redundancy, pricing, package-definitions.",
+          "quote": "fully restored within minutes in the event of a disaster",
+          "url": "https://docs.wpvip.com/infrastructure/disaster-recovery/geographical-redundancy/",
+          "retrieved_on": "2026-11-25",
+          "status": "not documented publicly"
+        }
+      ],
+      "proposed_target": {
+        "max": 0,
+        "unit": "writes lost",
+        "source": "Proposed by Fixture Co hosting operations, 2026-11-26; a hypothesis, not a commitment",
+        "note": "needs log shipping or a shorter backup interval; the lab has neither"
+      },
+      "configured_capability": {
+        "value": "Backups only, no write-ahead log shipping (lab)",
+        "evidence": "skills/hosting-restore-exercise/SKILL.md"
+      },
+      "measured_result": {
+        "value": 3,
+        "unit": "writes lost",
+        "evidence": "fleets/hosting/evidence/restore-exercise-2026-11-26.json",
+        "evidence_sha256": "d2e8dc803709aca570da137934596e4889f76a8c28fdc6cfe5816fb0fc2010cc",
+        "json_path": "measured.rpo_lost_writes",
+        "runs": 1,
+        "kind": "lab",
+        "note": "Writes made after the last backup"
+      },
+      "contractual_commitment": null
+    },
+    {
+      "id": "isolation",
+      "provider_claims": [
+        {
+          "provider": "pantheon",
+          "claim": "Each site runs in provisioned, isolated Linux containers (own Nginx, PHP worker) bound to a dedicated MySQL container; every environment (Dev, Test, Live) runs on its own container.",
+          "quote": "We serve our customers by provisioning isolated Linux containers with an optimized PHP stack in place.",
+          "url": "https://docs.pantheon.io/application-containers",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "VIP says every application gets its own containerized database with unique credentials and read-only web containers.",
+          "quote": "WordPress VIP runs every customer in full isolation.",
+          "url": "https://wpvip.com/capabilities/security/",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        }
+      ],
+      "proposed_target": {
+        "equals": "isolated",
+        "source": "Proposed by Fixture Co hosting operations, 2026-11-26; a hypothesis, not a commitment"
+      },
+      "configured_capability": {
+        "value": "Per-tenant record classification checked with company-fleets tenancy rules; untrusted builds in a no-network container",
+        "evidence": "skills/hosting-tenant-isolation/SKILL.md"
+      },
+      "measured_result": {
+        "value": "isolated",
+        "unit": "verdict",
+        "evidence": "fleets/hosting/evidence/isolation-records-2026-11-26.json",
+        "evidence_sha256": "ae920e0f540f2b75373bb19b88697b896b0adb72f2b158bec16833187d459b8b",
+        "json_path": "verdict",
+        "runs": 1,
+        "kind": "lab",
+        "note": "Tenant-a and tenant-b record access matrix"
+      },
+      "contractual_commitment": null
+    },
+    {
+      "id": "deployment_reversibility",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "Production rollback means redeploying the previously deployed tag via the Cloud UI; if the deploy included database updates, the matching database backup must also be restored, which loses data created after that backup.",
+          "quote": "you can simply roll back the code that was deployed to the previous tag.",
+          "url": "https://docs.acquia.com/acquia-cloud-platform/help/93256-rolling-back-production-deploys",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "Commits already pushed to Test or Live can be reversed with git revert (history kept) or reset; the database is not versioned, so a code revert does not undo database changes.",
+          "quote": "However, you can reverse commits pushed to your Test or Live environment on Pantheon.",
+          "url": "https://docs.pantheon.io/guides/git/undo-commits",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "A VIP Dashboard rollback redeploys the image of a previous deployment (last 3 unique production deployments, last 2 non-production) without changing GitHub history or the database; reverting the pull request in GitHub is the alternative.",
+          "quote": "A rollback only deploys the image of the application code’s previous state to the environment.",
+          "url": "https://docs.wpvip.com/code-deployment/rollbacks/",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        }
+      ],
+      "proposed_target": {
+        "equals": true,
+        "source": "Proposed by Fixture Co hosting operations, 2026-11-26; a hypothesis, not a commitment"
+      },
+      "configured_capability": {
+        "value": "Migration rehearsal with backup, one transaction and checksum-proven rollback (lab)",
+        "evidence": "skills/hosting-data-migration/SKILL.md"
+      },
+      "measured_result": {
+        "value": true,
+        "unit": "checksums equal after rollback",
+        "evidence": "fleets/hosting/evidence/migration-rollback-2026-11-26.json",
+        "evidence_sha256": "db2e23a818fd6e8f071f6140931ed148708a2fc2d8c0e5df4c1dae0ccfbbbc49",
+        "json_path": "checksums_equal",
+        "runs": 1,
+        "kind": "lab",
+        "note": "A migration that fails at statement 3"
+      },
+      "contractual_commitment": null
+    },
+    {
+      "id": "performance_under_load",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "Docs describe dynamic auto-scaling on Cloud Platform: production can scale to a predefined ceiling above subscription capacity, Acquia Support audits usage near it, non-production must not be used for load testing, and capacity releases after spikes; no numeric throughput claim found.",
+          "quote": "Once a spike in resource utilization subsides, all environments automatically reduce the amount of dedicated capacity",
+          "url": "https://docs.acquia.com/acquia-cloud-platform/key-concepts-cloud-platform",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "No numeric load or autoscaling claim found; docs say Test and Live get at least two load-balanced application containers from Performance Medium up, paid plans get failover containers, and the support page lists concierge pre-launch load testing for Diamond Elite sites.",
+          "quote": "all Test and Live environments have at least two application containers serving the site for smooth scaling",
+          "url": "https://docs.pantheon.io/application-containers",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "Marketing page claims auto-scaling capacity and a 99.99% uptime SLA, with traffic-spike customer examples; no numeric throughput guarantee or load-test policy found on the pages checked.",
+          "quote": "Capacity scales automatically with traffic.",
+          "url": "https://wpvip.com/capabilities/performance/",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        }
+      ],
+      "proposed_target": null,
+      "configured_capability": null,
+      "measured_result": null,
+      "contractual_commitment": null
+    },
+    {
+      "id": "observability",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "Customer-facing tools are log files, log forwarding, log streaming, Stack Metrics and New Relic APM Pro (license included with the subscription); New Relic is not supported as a log forwarding destination.",
+          "quote": "Cloud Platform provides a variety of tools you can use to monitor your applications and the infrastructure they run on.",
+          "url": "https://docs.acquia.com/acquia-cloud-platform/monitoring-your-applications-and-infrastructure",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "New Relic APM (transaction traces, error analytics, browser monitoring) is available on all plans except Basic; per-environment log files are fetched over SFTP, with nginx-access.log kept up to 60 days; logs are destroyed during appserver migration.",
+          "quote": "New Relic® Performance Monitoring offers a wide array of metrics that provide a nearly real-time look into the performance of a web application.",
+          "url": "https://docs.pantheon.io/guides/new-relic",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "New Relic APM is available for all WordPress and Node.js environments; Runtime Logs (PHP errors, application and batch logs) are viewable in the Dashboard and VIP-CLI but not guaranteed to persist; HTTP request Log Shipping to a cloud bucket must be enabled per environment.",
+          "quote": "New Relic is an application performance monitoring (APM) tool that is available for all WordPress environments and Node.js environments.",
+          "url": "https://docs.wpvip.com/guidebooks/develop-on-wpvip/logs-and-monitoring/",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        }
+      ],
+      "proposed_target": {
+        "max": 10,
+        "unit": "seconds",
+        "source": "Proposed by Fixture Co hosting operations, 2026-11-26; a hypothesis, not a commitment"
+      },
+      "configured_capability": {
+        "value": "HTTP health monitor with database quick_check, 0.05 s polling (lab)",
+        "evidence": "skills/hosting-restore-exercise/SKILL.md"
+      },
+      "measured_result": {
+        "value": 0.002,
+        "unit": "seconds",
+        "evidence": "fleets/hosting/evidence/restore-exercise-2026-11-26.json",
+        "evidence_sha256": "d2e8dc803709aca570da137934596e4889f76a8c28fdc6cfe5816fb0fc2010cc",
+        "json_path": "measured.detection_seconds",
+        "runs": 1,
+        "kind": "lab",
+        "note": "Time from failure to the monitor reporting unhealthy"
+      },
+      "contractual_commitment": null
+    },
+    {
+      "id": "support_coverage",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "SLA table for Cloud Enterprise: critical issues get 24x7 response in 1 hour (Standard, Plus, Premium) or 30 minutes (Elite); high urgency 8, 4, 2, 1 hours respectively; medium 24 hours. Site Factory has its own table on the same page.",
+          "quote": "",
+          "url": "https://docs.acquia.com/service-offerings/service-level-agreement-sla",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "Support table by account tier: Silver has no live chat or tickets; Gold 24x7 chat, 24x5 general ticket at 8 hours; Platinum 24x7 chat, 2-hour general ticket, 1-hour emergency ticket; Diamond 1-hour general and 15-minute emergency ticket. Sales and Billing are business days 9AM to 5PM PST.",
+          "quote": "Pantheon offers a range of support options for mission-critical sites, such as 24x7x365 emergency ticket",
+          "url": "https://docs.pantheon.io/guides/support",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "24x7 support in all time zones on the package definitions page; pricing page lists urgent and non-urgent response SLAs: Standard 60 minutes and 24 hours, Enhanced 30 minutes and 12 hours, Signature 15 minutes and 4 hours (https://wpvip.com/pricing/).",
+          "quote": "Round-the-clock support in all time zones within issue-severity defined SLAs.",
+          "url": "https://wpvip.com/package-definitions/",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        }
+      ],
+      "proposed_target": null,
+      "configured_capability": null,
+      "measured_result": null,
+      "contractual_commitment": null
+    },
+    {
+      "id": "accessibility",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "The Cloud Platform compliance page links a downloadable VPAT for Cloud Platform, states ICT partially complies with Section 508, and the disclaimer references Acquia's interpretation of WCAG 2.1. The VPAT file itself was not fetched.",
+          "quote": "To download Acquia’s VPAT report, access VPAT - Cloud Platform",
+          "url": "https://docs.acquia.com/acquia-cloud-platform/compliance-standards-and-regulations",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "Pantheon's accessibility statement says an external audit of the platform's accessibility features was completed and results are in a WCAG 2.2 AA VPAT; a 2023 release note references an earlier WCAG 2.1 AA VPAT. The VPAT document itself was not fetched, so its scope (dashboard vs platform) is unverified.",
+          "quote": "the results are available in our WCAG 2.2 AA VPAT.",
+          "url": "https://pantheon.io/accessibility-statement",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "VIP states it is currently compliant with WCAG 2.0 AA and Section 508 and targets WCAG 2.2 AA. No VPAT or conformance report for the VIP Dashboard was found on the accessibility page, docs or trust page; /accessibility/ redirects to this page.",
+          "quote": "Currently compliant with WCAG 2.0 AA and Section 508, targeting WCAG 2.2 AA.",
+          "url": "https://wpvip.com/capabilities/security/",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        }
+      ],
+      "proposed_target": null,
+      "configured_capability": null,
+      "measured_result": null,
+      "contractual_commitment": null
+    },
+    {
+      "id": "data_portability",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "Docs say the whole application (code, themes, database, files) can be exported at any time to a site archive file via Drush archive-dump, usable to host elsewhere; database backups also download from the UI.",
+          "quote": "You can export the whole application—code, themes, database, and files—at any time to a site archive file",
+          "url": "https://docs.acquia.com/acquia-cloud-platform/manage-apps/export",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "Every backup yields three downloadable archives (code and files as .tar.gz, database as .sql.gz) from the Backup Log, Terminus or wget; links are temporary Google Cloud Storage URLs; docs recommend an external backup solution for long-term retention.",
+          "quote": "A new backup appears in your Backup Log with three separate archives (code, database, and files).",
+          "url": "https://docs.pantheon.io/guides/backups/access-backups",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "The retirement doc says customers must save a production database backup, a media backup and a copy of their wpcomvip GitHub repository to archive or migrate to other hosting; media and database archives download from the VIP Dashboard.",
+          "quote": "A full backup of media files and a backup of an environment’s database can be downloaded from the VIP Dashboard of an application.",
+          "url": "https://docs.wpvip.com/vip-support/retire-a-site/",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        }
+      ],
+      "proposed_target": {
+        "equals": "pass",
+        "source": "Proposed by Fixture Co hosting operations, 2026-11-26; a hypothesis, not a commitment"
+      },
+      "configured_capability": {
+        "value": "Export bundle (SQL dump, deterministic tar, hash manifest) re-imported into a fresh location",
+        "evidence": "skills/hosting-data-migration/SKILL.md"
+      },
+      "measured_result": {
+        "value": "pass",
+        "unit": "roundtrip verdict",
+        "evidence": "fleets/hosting/evidence/portability-roundtrip-2026-11-26.json",
+        "evidence_sha256": "687cbfdf50247280651bdf1571807812308db1398821e5955b8ca105838193b0",
+        "json_path": "verdict",
+        "runs": 1,
+        "kind": "lab",
+        "note": "Tenant-a export and re-import"
+      },
+      "contractual_commitment": null
+    },
+    {
+      "id": "regional_constraints",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "Customers may choose the application's AWS region; listed zones are US (East and West), Canada, Europe (Frankfurt, Ireland, London), Asia Pacific (Tokyo, Singapore, Sydney), South America and Middle East (UAE), with the caveat that applications are available in only a subset.",
+          "quote": "Cloud Platform customers may choose the geographic region for their application's location.",
+          "url": "https://docs.acquia.com/acquia-cloud-platform/cloud-platform-architecture-and-key-concepts",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "Four regions can be chosen at site creation: United States (default), Australia, Canada, European Union; all site resources and backups stay in the chosen region, and moving an existing site to another region requires migrating to a new site.",
+          "quote": "Four regions are available when creating a new site:",
+          "url": "https://docs.pantheon.io/regions",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "Docs list four origin data centers (Dallas, Los Angeles, Washington D.C., Amsterdam) and a 28-city edge network; the FAQ names a different origin list (Amsterdam, Ashburn, Los Angeles, Richardson). No customer-selectable region or data-residency commitment was found.",
+          "quote": "The primary data centers are located in or around Dallas, Los Angeles, Washington D.C., and Amsterdam.",
+          "url": "https://docs.wpvip.com/infrastructure/disaster-recovery/",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        }
+      ],
+      "proposed_target": null,
+      "configured_capability": null,
+      "measured_result": null,
+      "contractual_commitment": null
+    },
+    {
+      "id": "cost",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "Pricing-plans page shows plan comparison tables (support contacts, features, uptime SLA) with Contact Us calls to action; no prices are published.",
+          "quote": "",
+          "url": "https://www.acquia.com/products/acquia-cloud-platform/pricing-plans",
+          "retrieved_on": "2026-11-25",
+          "status": "not documented publicly"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "Pricing page publishes self-serve plan prices (Silver and Gold tiers, Basic through Performance 2XL); Platinum and Diamond are Custom with a contact-us flow.",
+          "quote": "Contact us to discuss your traffic needs for our Platinum and Diamond workspaces.",
+          "url": "https://pantheon.io/plans/pricing",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "Pricing page lists three packages (Standard, Enhanced, Signature) but publishes no prices; each shows a Request pricing button.",
+          "quote": "Request pricing",
+          "url": "https://wpvip.com/pricing/",
+          "retrieved_on": "2026-11-25",
+          "status": "not documented publicly"
+        }
+      ],
+      "proposed_target": null,
+      "configured_capability": null,
+      "measured_result": null,
+      "contractual_commitment": null
+    },
+    {
+      "id": "availability",
+      "provider_claims": [
+        {
+          "provider": "acquia",
+          "claim": "Service Level Policy commits to commercially reasonable efforts at 99.95% production availability per calendar month, with a purchasable premium add-on at 99.99%; availability is subject to listed exclusions.",
+          "quote": "Acquia will use commercially reasonable efforts to make production PaaS infrastructure available for 99.95%",
+          "url": "https://docs.acquia.com/service-offerings/service-level-policy-product-guide",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "pantheon",
+          "claim": "Pricing comparison table shows 99.9% availability as an SLO (objective) for the first five plan columns and a 99.95% SLA for the last column, tied to Elite sites with uptime SLA; the Multizone Failover add-on carries a 99.99% SLA per the docs page https://docs.pantheon.io/multizone-failover.",
+          "quote": "Elite sites with uptime SLA",
+          "url": "https://pantheon.io/plans/pricing",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        },
+        {
+          "provider": "wpvip",
+          "claim": "Pricing page lists a 99.95% uptime SLA for Standard and 99.99% for Enhanced and Signature; the FAQ words it as guaranteeing up to 99.99%; the contract SLA text itself is not published on the pages checked.",
+          "quote": "99.99% uptime SLA",
+          "url": "https://wpvip.com/pricing/",
+          "retrieved_on": "2026-11-25",
+          "status": "documented"
+        }
+      ],
+      "proposed_target": {
+        "summary": "Hypothesis: 99.9% monthly, to be measured over at least 30 days of production traffic before anyone states it",
+        "source": "Proposed by Fixture Co hosting operations, 2026-11-26; a hypothesis, not a commitment",
+        "hypothesis": true
+      },
+      "configured_capability": null,
+      "measured_result": null,
+      "contractual_commitment": null
+    }
+  ]
+}

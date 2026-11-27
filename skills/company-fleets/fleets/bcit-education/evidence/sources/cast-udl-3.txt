@@ -1,0 +1,10 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://udlguidelines.cast.org/
+# run 2026-11-25
+http_code=200 final_url=https://udlguidelines.cast.org/ size=81556
+L76: About the Guidelines 3.0 Update
+L80: This page is for Guidelines 3.0. If you are looking for Guidelines 2.2, please navigate to the
+L224: Introducing CAST UDL Guidelines 3.0
+L225: The UDL Guidelines are a living, dynamic tool that is continuously developed based on new research and feedback from practitioners. After launching our most recent effort to update the UDL Guidelines in 2020, on July 30th, 2024 we are thrilled to release
+L226: UDL Guidelines 3.0!
+L228: Explore the Future of Education with CAST’s UDL Guidelines 3.0 Webinars!
+L229: View our series of free, dynamic webinars designed to empower educators, administrators, and leaders with the latest insights and practical strategies from the UDL Guidelines 3.0.

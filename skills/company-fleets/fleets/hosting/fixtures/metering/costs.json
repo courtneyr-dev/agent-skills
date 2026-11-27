@@ -1,0 +1,14 @@
+{
+  "label": "SYNTHETIC: shared cost pools for Fixture Co in November. Made-up amounts.",
+  "currency": "USD",
+  "pools": [
+    {
+      "pool_id": "edge-egress",
+      "amount": 1000.0
+    },
+    {
+      "pool_id": "shared-observability",
+      "amount": 333.33
+    }
+  ]
+}

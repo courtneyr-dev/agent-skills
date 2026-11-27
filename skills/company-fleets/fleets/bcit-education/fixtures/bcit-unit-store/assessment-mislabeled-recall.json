@@ -1,0 +1,59 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): reviewer probe, a recall quiz labeled apply with product and explanation evidence.",
+  "context": {
+    "grade_band": "9-10",
+    "reading_grade_target": 8
+  },
+  "objectives": [
+    {
+      "id": "O1",
+      "level": "apply",
+      "text": "Calculate break-even units for a product from fixed cost, price and variable cost in a spreadsheet.",
+      "construct": "applying break-even analysis"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T1",
+      "objective_ids": [
+        "O1"
+      ],
+      "cognitive_level": "apply",
+      "evidence": [
+        "product",
+        "explanation"
+      ],
+      "prompt": "Ten multiple-choice questions: define fixed cost, define variable cost, define break-even.",
+      "demands": {
+        "paid_software": false,
+        "internet_required": false,
+        "offline_alternative": true,
+        "color_only_cues": false,
+        "timed_minutes": null
+      }
+    }
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "task_id": "T1",
+      "objective_id": "O1",
+      "criterion": "Break-even formula and explanation",
+      "scoring_rationale": "Correct formula from references and a correct reason.",
+      "levels": [
+        {
+          "score": 0,
+          "descriptor": "missing"
+        },
+        {
+          "score": 1,
+          "descriptor": "partly right"
+        },
+        {
+          "score": 2,
+          "descriptor": "right with reason"
+        }
+      ]
+    }
+  ]
+}

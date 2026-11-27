@@ -1,0 +1,15 @@
+{
+  "label": "SYNTHETIC: unit prices for Fixture Co hosting meters and the largest reconciliation tolerance finance allows. Made-up numbers, not a real price list. metering.py reads this owner file by fixed path.",
+  "currency": "USD",
+  "prices": [
+    {
+      "meter": "bandwidth_gb",
+      "unit_price": 0.08
+    },
+    {
+      "meter": "storage_gb",
+      "unit_price": 0.023
+    }
+  ],
+  "max_tolerance": 0.05
+}

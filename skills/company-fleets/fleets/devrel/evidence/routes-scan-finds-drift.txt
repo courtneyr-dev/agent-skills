@@ -1,0 +1,39 @@
+$ sh -c 'python3 ../devrel-program-kit/scripts/check_routes.py --skills-root .. scan ../devto-playbook ../medium-playbook | tee /dev/stderr | python3 -c '"'"'import json,sys; r=json.load(sys.stdin); assert r["counts"].get("drift") == 1, r["counts"]'"'"''
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:06Z
+# case: devrel.eval.routes-scan-finds-drift (boundary, target devrel-program-kit, synthetic=True)
+# expected: One drift finding: named in this collection but absent from its tree, distinct from a missing sibling.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+{
+  "tool": "devrel-program-kit/check_routes",
+  "version": "1.0.0",
+  "ok": false,
+  "counts": {
+    "installed": 9,
+    "drift": 1
+  },
+  "unresolved": [
+    {
+      "ref": "samber/developer-relations-skills@substack-playbook",
+      "status": "drift",
+      "skill": "substack-playbook",
+      "fallback": [],
+      "coverage": "blocked",
+      "why": "the sibling collection isn't installed in the rig; the sources workstream decides whether to install it"
+    }
+  ],
+  "installed": [
+    "samber/developer-relations-skills@bluesky-dev-playbook",
+    "samber/developer-relations-skills@dailydev-playbook",
+    "samber/developer-relations-skills@devrel-analytics",
+    "samber/developer-relations-skills@devrel-content-calendar",
+    "samber/developer-relations-skills@devto-playbook",
+    "samber/developer-relations-skills@engineering-blog-post",
+    "samber/developer-relations-skills@hackernews-playbook",
+    "samber/developer-relations-skills@medium-playbook",
+    "samber/developer-relations-skills@oss-launch"
+  ]
+}

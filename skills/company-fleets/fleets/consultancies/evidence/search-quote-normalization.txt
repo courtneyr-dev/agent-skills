@@ -1,0 +1,44 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.search-quote-normalization (boundary, target consult-search-claims-check).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "status": "pass" -- python3 ../consult-search-claims-check/scripts/claims_check.py --claims ../consult-search-claims-check/fixtures/report-boundary.json --sources ../consult-search-claims-check/fixtures/register.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-search-claims-check/scripts/claims_check.py --claims ../consult-search-claims-check/fixtures/report-boundary.json --sources ../consult-search-claims-check/fixtures/register.json
+{
+  "claims": [
+    {
+      "defects": [],
+      "id": "b1",
+      "verdict": "supported"
+    },
+    {
+      "defects": [],
+      "id": "b2",
+      "verdict": "hypothesis"
+    }
+  ],
+  "counts": {
+    "by_code": {},
+    "claims": 2,
+    "errors": 0,
+    "hypothesis": 1,
+    "rejected": 0,
+    "supported": 1
+  },
+  "human_review_required": [
+    "Observed visibility needs the tenant's own Search Console or analytics exports",
+    "Every claim the script passes still needs a human read, including guarantee wording outside the pattern list",
+    "Recommendations are judgment calls; the script only checks their evidence and wording"
+  ],
+  "not_checked": [
+    "whether a cited source is itself accurate",
+    "whether a quote supports the claim it is attached to",
+    "live search or AI-answer state",
+    "whether a primary source's current text still matches the capture"
+  ],
+  "report_id": "fixture-boundary-1",
+  "status": "pass"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"status": "pass"': ok
+VERDICT pass

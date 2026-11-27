@@ -1,0 +1,36 @@
+{
+  "label": "SYNTHETIC FIXTURE: the Fixture Co developer program plan for the Notes API. Invented program, no real budget, staff, customers or developers. Expected to pass check_program.",
+  "program": "Fixture Co Notes API developer program",
+  "context_record": "fleets/devrel/fixtures/program/devrel-context.md",
+  "goals": [
+    "More developers reach a first successful API call without help",
+    "Developer feedback reaches the product owner as reproducible issues and gets an answer"
+  ],
+  "non_goals": [
+    "No paid advertising or sponsored content",
+    "No sales lead capture from workshops or community spaces",
+    "No conference sponsorship this cycle"
+  ],
+  "segments": [
+    {"name": "Python developers integrating a notes feature", "evidence": "Assumption to test: no research has been run yet"}
+  ],
+  "budget": {"status": "owner-to-provide", "owner": "human:devrel-budget-owner"},
+  "staffing": {"status": "owner-to-provide", "owner": "human:head-of-devrel"},
+  "metrics": [
+    {"id": "quickstart-first-success", "class": "usefulness", "definition": "Share of new API keys that make a successful POST /notes within 24 hours of creation", "instrumentation": "API request log joined to key creation date; no personal data", "owner": "devrel.program-analyst"},
+    {"id": "feedback-closure", "class": "usefulness", "definition": "Share of reproducible feedback items with an owner response communicated back within 30 days", "instrumentation": "Feedback tracker states captured, reproduced, owner-responded, communicated", "owner": "devrel.feedback-liaison"},
+    {"id": "docs-visits", "class": "reach", "definition": "Unique visitors to the quickstart page per month", "instrumentation": "Docs analytics, aggregated", "owner": "devrel.program-analyst"},
+    {"id": "paid-conversions-after-workshop", "class": "business", "definition": "Workshop attendees' organizations that start a paid plan within 90 days", "instrumentation": "Billing records joined by organization, aggregated", "owner": "devrel.program-analyst",
+     "attribution": "Correlational only: attendance overlaps with intent to buy, so the number can't show the workshop caused a purchase"}
+  ],
+  "claims": [],
+  "reports": [
+    {"audience": "exec", "headline_metrics": ["quickstart-first-success", "feedback-closure", "docs-visits"]}
+  ],
+  "chain": [
+    {"type": "sample-app", "artifact": "fleets/devrel/fixtures/fixture-co-notes", "verified_by": "devrel-quickstart-replay", "evidence": "fleets/devrel/evidence/replay-quickstart.txt", "human_usability": "unverified"},
+    {"type": "quickstart", "artifact": "fleets/devrel/fixtures/docs/quickstart.md", "verified_by": "devrel-quickstart-replay", "evidence": "fleets/devrel/evidence/replay-quickstart.txt", "human_usability": "unverified"},
+    {"type": "workshop-lab", "artifact": "fleets/devrel/fixtures/docs/workshop-lab.md", "verified_by": "devrel-quickstart-replay", "evidence": "fleets/devrel/evidence/replay-workshop-lab.txt", "human_usability": "unverified"},
+    {"type": "repro", "artifact": "fleets/devrel/fixtures/docs/feedback-repro.md", "verified_by": "devrel-quickstart-replay", "evidence": "fleets/devrel/evidence/replay-feedback-repro.txt", "human_usability": "unverified"}
+  ]
+}

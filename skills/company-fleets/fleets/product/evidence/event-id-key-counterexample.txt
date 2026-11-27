@@ -1,0 +1,27 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.event-id-key-counterexample (negative, target product-payment-events).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "mutant_captures": 3 --contains "real_captures": 2 -- python3 fleets/product/tests/counterexample_event_key.py
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 fleets/product/tests/counterexample_event_key.py
+{
+  "fixture_catches_regression": true,
+  "label": "SYNTHETIC Fixture Co replay fixture",
+  "mutant": {
+    "captures": 3,
+    "fulfillments": 3,
+    "inventory": 7
+  },
+  "mutant_captures": 3,
+  "mutation": "captures and fulfillments keyed on event id",
+  "real": {
+    "captures": 2,
+    "fulfillments": 2,
+    "inventory": 8
+  },
+  "real_captures": 2
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"mutant_captures": 3': ok
+CHECK contains '"real_captures": 2': ok
+VERDICT pass

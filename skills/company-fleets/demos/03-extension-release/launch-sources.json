@@ -1,0 +1,10 @@
+{
+  "label": "SYNTHETIC (Fixture Co): source register for the staged launch copy. Both sources are rig artifacts from this demonstration. Deliberately unsigned: no person has checked the excerpts, so the claims check must hold the copy at register-not-signed-off.",
+  "author": "corporate.marketing-lead",
+  "sources": [
+    {"id": "Q1", "title": "Create your first note with the Fixture Co Notes API", "url": "https://www.example.com/fixture-co/notes/quickstart", "retrieved": "2026-11-26",
+     "excerpts": ["You'll start the sample server, create one note, and read it back. It takes under a minute."]},
+    {"id": "G1", "title": "Fixture Co Notes release gate result", "url": "https://www.example.com/fixture-co/notes/release-gate", "retrieved": "2026-11-26",
+     "excerpts": ["decision: ready-for-human-approval; approval_owner: human:release-owner"]}
+  ]
+}

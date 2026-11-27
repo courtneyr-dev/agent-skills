@@ -1,0 +1,20 @@
+{
+  "label": "SYNTHETIC: Fixture Co's own page log of affiliate disclosures rendered at checkout, written by Fixture Co's site, not by the affiliate. ref-002's checkout rendered no disclosure.",
+  "shown": [
+    {
+      "referral_id": "ref-001",
+      "page": "checkout",
+      "rendered_at": "2026-10-01"
+    },
+    {
+      "referral_id": "ref-003",
+      "page": "checkout",
+      "rendered_at": "2026-10-05"
+    },
+    {
+      "referral_id": "ref-004",
+      "page": "checkout",
+      "rendered_at": "2026-09-01"
+    }
+  ]
+}

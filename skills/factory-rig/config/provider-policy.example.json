@@ -1,0 +1,17 @@
+{
+  "codex": {
+    "real": "/absolute/path/to/codex",
+    "sandbox": "workspace-write",
+    "ignore_user_config": true,
+    "effort_by_model": {
+      "gpt-6-sol": "high",
+      "gpt-6-luna": "medium"
+    }
+  },
+  "claude": {
+    "real": "/absolute/path/to/claude",
+    "permission_mode": "acceptEdits",
+    "allowed_tools": "Bash Read Edit Write Glob Grep"
+  },
+  "audit": "/absolute/path/to/factory-rig/provider-audit.jsonl"
+}

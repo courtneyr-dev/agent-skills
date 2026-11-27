@@ -1,0 +1,434 @@
+# eval agency.eval.research-strategist-routes (positive, target agency.research-strategist)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "agency.research-strategist" --absent "installed": false -- bin/fleet resolve --profile agency --workload agency.workload.client-engagement
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "agency.engagement-director",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/agency/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Engagement director (agency coordinator)",
+      "fleet": "agency",
+      "id": "agency.engagement-director",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Delivery lead",
+      "fleet": "agency",
+      "id": "agency.delivery-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        },
+        {
+          "id": "implementation-planning",
+          "installed": true,
+          "path": "skills/implementation-planning/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Estimator",
+      "fleet": "agency",
+      "id": "agency.estimator",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Research and strategy lead",
+      "fleet": "agency",
+      "id": "agency.research-strategist",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "customer-research",
+          "installed": true,
+          "path": "skills/customer-research/SKILL.md"
+        },
+        {
+          "id": "brd-writer",
+          "installed": true,
+          "path": "skills/brd-writer/SKILL.md"
+        },
+        {
+          "id": "competitor-profiling",
+          "installed": true,
+          "path": "skills/competitor-profiling/SKILL.md"
+        },
+        {
+          "id": "process-mapper",
+          "installed": true,
+          "path": "skills/process-mapper/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Content and information architecture lead",
+      "fleet": "agency",
+      "id": "agency.content-strategist",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "content-strategy",
+          "installed": true,
+          "path": "skills/content-strategy/SKILL.md"
+        },
+        {
+          "id": "site-architecture",
+          "installed": true,
+          "path": "skills/site-architecture/SKILL.md"
+        },
+        {
+          "id": "schema",
+          "installed": true,
+          "path": "skills/schema/SKILL.md"
+        },
+        {
+          "id": "corporate-claims-check",
+          "installed": true,
+          "path": "skills/corporate-claims-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Brand and creative lead",
+      "fleet": "agency",
+      "id": "agency.brand-design-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "brand-strategy",
+          "installed": true,
+          "path": "skills/brand-strategy/SKILL.md"
+        },
+        {
+          "id": "brand",
+          "installed": true,
+          "path": "skills/brand/SKILL.md"
+        },
+        {
+          "id": "creative-direction",
+          "installed": true,
+          "path": "skills/creative-direction/SKILL.md"
+        },
+        {
+          "id": "art-direction",
+          "installed": true,
+          "path": "skills/art-direction/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "UX/UI and visual designer",
+      "fleet": "agency",
+      "id": "agency.ux-ui-designer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "web-design",
+          "installed": true,
+          "path": "skills/web-design/SKILL.md"
+        },
+        {
+          "id": "design-principles",
+          "installed": true,
+          "path": "skills/design-principles/SKILL.md"
+        },
+        {
+          "id": "motion-design",
+          "installed": true,
+          "path": "skills/motion-design/SKILL.md"
+        },
+        {
+          "id": "agency-keyboard-audit",
+          "installed": true,
+          "path": "skills/agency-keyboard-audit/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Design systems lead",
+      "fleet": "agency",
+      "id": "agency.design-systems-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "design-system",
+          "installed": true,
+          "path": "skills/design-system/SKILL.md"
+        },
+        {
+          "id": "agency-keyboard-audit",
+          "installed": true,
+          "path": "skills/agency-keyboard-audit/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Solution and integration architect",
+      "fleet": "agency",
+      "id": "agency.solution-architect",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-platform-adapters",
+          "installed": true,
+          "path": "skills/agency-platform-adapters/SKILL.md"
+        },
+        {
+          "id": "production-readiness",
+          "installed": true,
+          "path": "skills/production-readiness/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Web engineer",
+      "fleet": "agency",
+      "id": "agency.web-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-platform-adapters",
+          "installed": true,
+          "path": "skills/agency-platform-adapters/SKILL.md"
+        },
+        {
+          "id": "code-standards-checker",
+          "installed": true,
+          "path": "skills/code-standards-checker/SKILL.md"
+        },
+        {
+          "id": "typescript-best-practices",
+          "installed": true,
+          "path": "skills/typescript-best-practices/SKILL.md"
+        },
+        {
+          "id": "tdd",
+          "installed": true,
+          "path": "skills/tdd/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "CMS specialist",
+      "fleet": "agency",
+      "id": "agency.cms-specialist",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-platform-adapters",
+          "installed": true,
+          "path": "skills/agency-platform-adapters/SKILL.md"
+        },
+        {
+          "id": "code-standards-checker",
+          "installed": true,
+          "path": "skills/code-standards-checker/SKILL.md"
+        },
+        {
+          "id": "composer-security-update",
+          "installed": true,
+          "path": "skills/composer-security-update/SKILL.md"
+        },
+        {
+          "id": "woocommerce-plugin-dev",
+          "installed": true,
+          "path": "skills/woocommerce-plugin-dev/SKILL.md"
+        },
+        {
+          "id": "wp-playground",
+          "installed": true,
+          "path": "skills/wp-playground/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "QA and test automation engineer",
+      "fleet": "agency",
+      "id": "agency.qa-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "test-manager",
+          "installed": true,
+          "path": "skills/test-manager/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "id": "pr-quality-report",
+          "installed": true,
+          "path": "skills/pr-quality-report/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Accessibility specialist",
+      "fleet": "agency",
+      "id": "agency.accessibility-specialist",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-keyboard-audit",
+          "installed": true,
+          "path": "skills/agency-keyboard-audit/SKILL.md"
+        },
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Security reviewer",
+      "fleet": "agency",
+      "id": "agency.security-reviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "differential-review",
+          "installed": true,
+          "path": "skills/differential-review/SKILL.md"
+        },
+        {
+          "id": "fp-check",
+          "installed": true,
+          "path": "skills/fp-check/SKILL.md"
+        },
+        {
+          "id": "supply-chain-risk-auditor",
+          "installed": true,
+          "path": "skills/supply-chain-risk-auditor/SKILL.md"
+        },
+        {
+          "id": "composer-security-update",
+          "installed": true,
+          "path": "skills/composer-security-update/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Performance engineer",
+      "fleet": "agency",
+      "id": "agency.performance-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-platform-adapters",
+          "installed": true,
+          "path": "skills/agency-platform-adapters/SKILL.md"
+        },
+        {
+          "id": "wordpress-performance",
+          "installed": true,
+          "path": "skills/wordpress-performance/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Migration lead",
+      "fleet": "agency",
+      "id": "agency.migration-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-platform-adapters",
+          "installed": true,
+          "path": "skills/agency-platform-adapters/SKILL.md"
+        },
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Release engineer and platform liaison",
+      "fleet": "agency",
+      "id": "agency.release-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "release-engineering",
+          "installed": true,
+          "path": "skills/release-engineering/SKILL.md"
+        },
+        {
+          "id": "production-readiness",
+          "installed": true,
+          "path": "skills/production-readiness/SKILL.md"
+        },
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Training lead",
+      "fleet": "agency",
+      "id": "agency.training-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        },
+        {
+          "id": "technical-writing",
+          "installed": true,
+          "path": "skills/technical-writing/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Support handoff owner",
+      "fleet": "agency",
+      "id": "agency.support-handoff-owner",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "agency.workload.client-engagement"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

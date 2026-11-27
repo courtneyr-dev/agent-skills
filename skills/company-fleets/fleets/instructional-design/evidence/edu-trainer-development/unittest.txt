@@ -1,0 +1,48 @@
+$ cd skills/edu-trainer-development/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v
+# run 2026-11-26 (python 3.14.7)
+test_perfect_agreement_is_one (test_agreement.ComputedTests.test_perfect_agreement_is_one) ... ok
+test_quadratic_weighting_matches_independent_formula (test_agreement.ComputedTests.test_quadratic_weighting_matches_independent_formula) ... ok
+test_single_level_used_reports_undefined_kappa (test_agreement.ComputedTests.test_single_level_used_reports_undefined_kappa) ... ok
+test_textbook_binary_example_gives_kappa_0_4 (test_agreement.ComputedTests.test_textbook_binary_example_gives_kappa_0_4) ... ok
+test_three_raters_give_three_pairs (test_agreement.ComputedTests.test_three_raters_give_three_pairs) ... ok
+test_boolean_and_float_scores_rejected (test_agreement.InvalidInputTests.test_boolean_and_float_scores_rejected) ... ok
+test_duplicate_rating (test_agreement.InvalidInputTests.test_duplicate_rating) ... ok
+test_duplicate_scale_levels (test_agreement.InvalidInputTests.test_duplicate_scale_levels) ... ok
+test_no_shared_items (test_agreement.InvalidInputTests.test_no_shared_items) ... ok
+test_not_json (test_agreement.InvalidInputTests.test_not_json) ... ok
+test_one_rater (test_agreement.InvalidInputTests.test_one_rater) ... ok
+test_score_off_scale (test_agreement.InvalidInputTests.test_score_off_scale) ... ok
+test_usage (test_agreement.InvalidInputTests.test_usage) ... usage: agreement [-h] {stats} ...
+agreement: error: the following arguments are required: cmd
+ok
+test_anchor_mismatch_is_listed_for_discussion (test_agreement.PracticeOnlyTests.test_anchor_mismatch_is_listed_for_discussion) ... ok
+test_generated_ratings_claim_no_agreement (test_agreement.PracticeOnlyTests.test_generated_ratings_claim_no_agreement) ... ok
+test_non_human_rater_blocks_agreement (test_agreement.PracticeOnlyTests.test_non_human_rater_blocks_agreement) ... ok
+test_synthetic_label_blocks_agreement_even_when_sources_say_human (test_agreement.PracticeOnlyTests.test_synthetic_label_blocks_agreement_even_when_sources_say_human) ... ok
+test_generated_artifact_is_not_evidence (test_evidence_plan.CheckTests.test_generated_artifact_is_not_evidence) ... ok
+test_learning_without_transfer_warns (test_evidence_plan.CheckTests.test_learning_without_transfer_warns) ... ok
+test_missing_owner_timing_baseline_and_boundary (test_evidence_plan.CheckTests.test_missing_owner_timing_baseline_and_boundary) ... ok
+test_observation_plan_is_accepted (test_evidence_plan.CheckTests.test_observation_plan_is_accepted) ... ok
+test_prefilled_result_is_rejected (test_evidence_plan.CheckTests.test_prefilled_result_is_rejected) ... ok
+test_prefilled_top_level_outcomes_rejected (test_evidence_plan.CheckTests.test_prefilled_top_level_outcomes_rejected) ... ok
+test_survey_and_attendance_only_is_rejected (test_evidence_plan.CheckTests.test_survey_and_attendance_only_is_rejected) ... ok
+test_duplicate_ids (test_evidence_plan.InvalidInputTests.test_duplicate_ids) ... ok
+test_empty_measures (test_evidence_plan.InvalidInputTests.test_empty_measures) ... ok
+test_missing_intervention (test_evidence_plan.InvalidInputTests.test_missing_intervention) ... ok
+test_not_json (test_evidence_plan.InvalidInputTests.test_not_json) ... ok
+test_unknown_kind (test_evidence_plan.InvalidInputTests.test_unknown_kind) ... ok
+test_unknown_level (test_evidence_plan.InvalidInputTests.test_unknown_level) ... ok
+test_complete_package_passes (test_package.PackageTests.test_complete_package_passes) ... ok
+test_invalid_manifest (test_package.PackageTests.test_invalid_manifest) ... usage: package [-h] {check} ...
+package: error: the following arguments are required: cmd
+ok
+test_missing_section_and_file_are_findings (test_package.PackageTests.test_missing_section_and_file_are_findings) ... ok
+test_synthetic_package_cannot_report_computed_agreement (test_package.PackageTests.test_synthetic_package_cannot_report_computed_agreement) ... ok
+test_teacher_module_rejects_merged_evidence_lines_and_student_labels (test_package.PackageTests.test_teacher_module_rejects_merged_evidence_lines_and_student_labels) ... ok
+test_unlabeled_anchor_is_a_finding (test_package.PackageTests.test_unlabeled_anchor_is_a_finding) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.012s
+
+OK
+# exit 0

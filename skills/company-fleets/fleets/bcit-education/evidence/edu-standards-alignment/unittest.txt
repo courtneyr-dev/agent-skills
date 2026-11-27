@@ -1,0 +1,34 @@
+$ cd skills/edu-standards-alignment/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v
+# run 2026-11-26 (python 3.14.7)
+test_accessibility_standard_is_not_an_alignment (test_standards_check.AlignTests.test_accessibility_standard_is_not_an_alignment) ... ok
+test_honest_unverified_row_passes (test_standards_check.AlignTests.test_honest_unverified_row_passes) ... ok
+test_missing_source_is_a_gap_and_overclaim_fails (test_standards_check.AlignTests.test_missing_source_is_a_gap_and_overclaim_fails) ... ok
+test_restricted_assessment_and_bundled_text (test_standards_check.AlignTests.test_restricted_assessment_and_bundled_text) ... ok
+test_student_standard_for_teacher_objective (test_standards_check.AlignTests.test_student_standard_for_teacher_objective) ... ok
+test_superseded_without_adoption_fails_and_adoption_is_preserved (test_standards_check.AlignTests.test_superseded_without_adoption_fails_and_adoption_is_preserved) ... ok
+test_teacher_standard_for_student_objective (test_standards_check.AlignTests.test_teacher_standard_for_student_objective) ... ok
+test_university_curriculum_needs_bridge (test_standards_check.AlignTests.test_university_curriculum_needs_bridge) ... ok
+test_verified_needs_registry_verification_and_human_review (test_standards_check.AlignTests.test_verified_needs_registry_verification_and_human_review) ... ok
+test_wrong_edition_identifier (test_standards_check.AlignTests.test_wrong_edition_identifier) ... ok
+test_coverage_reports_missing_and_unknown (test_standards_check.CoverageAndOrgRefTests.test_coverage_reports_missing_and_unknown) ... ok
+test_org_refs_against_live_registry (test_standards_check.CoverageAndOrgRefTests.test_org_refs_against_live_registry) ... ok
+test_align_rejects_bad_rows (test_standards_check.InvalidInputTests.test_align_rejects_bad_rows) ... ok
+test_usage_error (test_standards_check.InvalidInputTests.test_usage_error) ... usage: standards_check [-h] {registry,orgs,align,coverage,org-refs} ...
+standards_check: error: argument cmd: invalid choice: 'nope' (choose from 'registry', 'orgs', 'align', 'coverage', 'org-refs')
+ok
+test_invented_wellformed_id_is_not_verified (test_standards_check.PublishedIdTests.test_invented_wellformed_id_is_not_verified) ... ok
+test_live_registry_stores_published_ids (test_standards_check.PublishedIdTests.test_live_registry_stores_published_ids) ... ok
+test_published_id_with_existing_review_evidence_verifies (test_standards_check.PublishedIdTests.test_published_id_with_existing_review_evidence_verifies) ... ok
+test_registry_rejects_stored_ids_outside_the_scheme (test_standards_check.PublishedIdTests.test_registry_rejects_stored_ids_outside_the_scheme) ... ok
+test_review_evidence_file_must_exist (test_standards_check.PublishedIdTests.test_review_evidence_file_must_exist) ... ok
+test_reviewer_probes_against_live_registry (test_standards_check.PublishedIdTests.test_reviewer_probes_against_live_registry) ... ok
+test_scheme_without_stored_ids_caps_at_unverified (test_standards_check.PublishedIdTests.test_scheme_without_stored_ids_caps_at_unverified) ... ok
+test_live_registries_are_valid (test_standards_check.RegistryTests.test_live_registries_are_valid) ... ok
+test_orgs_rejects_membership_and_installable (test_standards_check.RegistryTests.test_orgs_rejects_membership_and_installable) ... ok
+test_registry_rejects_bad_records (test_standards_check.RegistryTests.test_registry_rejects_bad_records) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.019s
+
+OK
+# exit 0

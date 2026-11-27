@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=decommissioned-not-owner-file -- sh -c 'printf '"'"'%s'"'"' '"'"'{"hosts": ["nothing.example"]}'"'"' > {tmp}/hosts.json && python3 ../hosting-dns-cert-lifecycle/scripts/dns_cert.py zone-check --zone fleets/hosting/fixtures/dns-cert/zone-dangling-cname.json --decommissioned {tmp}/hosts.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.dns-cert-caller-decommission-list-refused kind negative synthetic true
+{
+  "detail": "released hosts come only from the owner's $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/dns-cert/decommissioned.json; the caller-named $TMPDIR/hosting-eval-i309_kvw/hosts.json is refused",
+  "refusal": "decommissioned-not-owner-file",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

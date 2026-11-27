@@ -1,0 +1,69 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains sections.offline_alternative -- python3 ../bcit-learning-package/scripts/package_check.py check fleets/bcit-education/fixtures/bcit-unit-store/package-incomplete.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.lab-offline-route-required
+{
+  "ok": false,
+  "errors": [
+    {
+      "code": "file-missing",
+      "message": "files.answer_key answer-key-missing.json does not exist"
+    },
+    {
+      "code": "section-missing",
+      "message": "sections.offline_alternative needs a file#Heading pointer"
+    },
+    {
+      "code": "demand-lowered",
+      "message": "differentiation must keep the intended learning demand; say how supports change access, not the target"
+    },
+    {
+      "code": "invented-learning-evidence",
+      "message": "learning claims ['Students improved 40% on pricing skills'] appear with no collected evidence"
+    },
+    {
+      "code": "assessment-failed",
+      "message": "edu-assessment-check reported findings; see checks.assessment"
+    }
+  ],
+  "notes": [
+    "standards coverage is partial; the package is labeled a draft until a teacher verifies the mappings"
+  ],
+  "checks": {
+    "assessment": {
+      "skill": "edu-assessment-check",
+      "status": "ran",
+      "exit": 1,
+      "ok": false,
+      "errors": [
+        {
+          "code": "recall-only-evidence",
+          "where": "O1",
+          "message": "objective asks learners to apply, but its tasks only collect remember-level recall; a recall quiz cannot evidence an application or performance objective"
+        },
+        {
+          "code": "recall-only-evidence",
+          "where": "O2",
+          "message": "objective asks learners to analyze, but its tasks only collect remember-level recall; a recall quiz cannot evidence an application or performance objective"
+        }
+      ],
+      "flags": []
+    },
+    "alignment": {
+      "skill": "edu-standards-alignment",
+      "status": "ran",
+      "exit": 0,
+      "ok": true,
+      "errors": 0,
+      "coverage": "partial",
+      "supported_counts": {
+        "gap": 6,
+        "unverified": 3,
+        "partial": 0,
+        "verified": 0,
+        "not-applicable": 0
+      }
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: incomplete package that also claims learning gains no one measured."
+}
+# expect: met
+# exit 0

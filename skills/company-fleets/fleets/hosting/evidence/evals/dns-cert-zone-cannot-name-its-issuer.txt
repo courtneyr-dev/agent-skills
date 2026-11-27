@@ -1,0 +1,31 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json violations.0.rule=caa-blocks-issuer --contains zone-issuer-ignored -- python3 ../hosting-dns-cert-lifecycle/scripts/dns_cert.py zone-check --zone fleets/hosting/fixtures/dns-cert/zone-caa-own-issuer.json
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.dns-cert-zone-cannot-name-its-issuer kind negative synthetic true
+{
+  "assumptions": [
+    "Targets are resolved inside the zone only; an MX, NS or CNAME target in another zone is not followed.",
+    "Released hosts come from the owner's decommissioned.json and the CAA issuer from its issuer-policy.json, both at fixed paths; a process running as the same OS user can rewrite those files, which only separate OS accounts or signed records stop.",
+    "An undotted target such as 'host.example' is checked both as written and with the origin appended.",
+    "The TTL rule is a local policy (TTL at or below 300 seconds when a change is due within 48 hours), not an RFC requirement.",
+    "CAA is checked per name that carries a CAA set; issuewild and critical-flag handling are not modeled."
+  ],
+  "origin": "tenant-a.example",
+  "record_count": 6,
+  "verdict": "fail",
+  "violations": [
+    {
+      "detail": "CAA issue set ['evil-ca.example'] does not permit ca.fixture-co.test",
+      "name": "tenant-a.example",
+      "ref": "RFC 8659 section 4",
+      "rule": "caa-blocks-issuer"
+    }
+  ],
+  "warnings": [
+    {
+      "detail": "the zone names issuer 'evil-ca.example'; CAA is checked against the owner's issuer 'ca.fixture-co.test'",
+      "name": "tenant-a.example",
+      "rule": "zone-issuer-ignored"
+    }
+  ]
+}
+# expect: met
+# exit 0

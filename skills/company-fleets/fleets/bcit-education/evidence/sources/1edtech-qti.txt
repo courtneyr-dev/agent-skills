@@ -1,0 +1,7 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.1edtech.org/standards/qti
+# run 2026-11-25
+http_code=200 final_url=https://www.1edtech.org/standards/qti size=105299
+L150: WCAG 2.1 AA compliance)
+L161: Content Presentation has Accessibility Features following WCAG 2.1 AA and Section 508 Guidelines
+L175: QTI 3.0 builds on the earlier versions of QTI and APIP, bringing them together into a single specification with better integration and accommodation solutions. The new specification also includes improved presentation interoperability, web-friendly markup allowing implementations to use standard web components in QTI structures, and more native support for Computer Adaptive Testing (CAT) and Portable Custom Interactions (PCIs) for technology-enhanced item creation and deliver
+L205: Compare QTI 2.2 to QTI 3 Versions

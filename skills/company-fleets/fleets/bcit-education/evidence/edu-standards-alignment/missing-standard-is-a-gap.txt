@@ -1,0 +1,42 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains source-not-registered --contains "supported": "gap" --contains overclaimed -- python3 ../edu-standards-alignment/scripts/standards_check.py align fleets/bcit-education/fixtures/bcit-unit-store/alignment-missing-standard.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.missing-standard-is-a-gap
+{
+  "ok": false,
+  "errors": 1,
+  "coverage": "gap",
+  "supported_counts": {
+    "gap": 1,
+    "unverified": 0,
+    "partial": 0,
+    "verified": 0,
+    "not-applicable": 0
+  },
+  "objectives": {
+    "O1": "gap"
+  },
+  "rows": [
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "pa-bcit-standards-2030",
+      "standard_id": "BCIT.10.2.A",
+      "claimed": "verified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "source-not-registered",
+          "message": "'pa-bcit-standards-2030' is not in the standards registry; the alignment is a gap, not a match"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims verified but the evidence supports gap"
+        }
+      ]
+    }
+  ],
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: a state standard the rig cannot access is claimed as a verified match."
+}
+# expect: met
+# exit 0

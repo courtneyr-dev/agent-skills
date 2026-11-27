@@ -1,0 +1,11 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): trainer-development package manifest.",
+  "kind": "trainer-package",
+  "files": {
+    "guide": "facilitation-guide.md",
+    "rubric": "rubric.json",
+    "calibration_exercise": "calibration-exercise.md",
+    "calibration_ratings": "calibration-practice-ratings.json",
+    "evidence_plan": "evidence-plan.json"
+  }
+}

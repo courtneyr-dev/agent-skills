@@ -1,0 +1,126 @@
+{
+  "label": "SYNTHETIC: 30 daily CPU utilization points for the Fixture Co shared web tier, rising about 1 point a day.",
+  "resource": "fixture-co-shared-web-tier",
+  "points": [
+    {
+      "date": "2026-10-27",
+      "utilization": 0.392
+    },
+    {
+      "date": "2026-10-28",
+      "utilization": 0.41
+    },
+    {
+      "date": "2026-10-29",
+      "utilization": 0.428
+    },
+    {
+      "date": "2026-10-30",
+      "utilization": 0.426
+    },
+    {
+      "date": "2026-10-31",
+      "utilization": 0.444
+    },
+    {
+      "date": "2026-11-01",
+      "utilization": 0.442
+    },
+    {
+      "date": "2026-11-02",
+      "utilization": 0.46
+    },
+    {
+      "date": "2026-11-03",
+      "utilization": 0.478
+    },
+    {
+      "date": "2026-11-04",
+      "utilization": 0.476
+    },
+    {
+      "date": "2026-11-05",
+      "utilization": 0.494
+    },
+    {
+      "date": "2026-11-06",
+      "utilization": 0.492
+    },
+    {
+      "date": "2026-11-07",
+      "utilization": 0.51
+    },
+    {
+      "date": "2026-11-08",
+      "utilization": 0.528
+    },
+    {
+      "date": "2026-11-09",
+      "utilization": 0.526
+    },
+    {
+      "date": "2026-11-10",
+      "utilization": 0.544
+    },
+    {
+      "date": "2026-11-11",
+      "utilization": 0.542
+    },
+    {
+      "date": "2026-11-12",
+      "utilization": 0.56
+    },
+    {
+      "date": "2026-11-13",
+      "utilization": 0.578
+    },
+    {
+      "date": "2026-11-14",
+      "utilization": 0.576
+    },
+    {
+      "date": "2026-11-15",
+      "utilization": 0.594
+    },
+    {
+      "date": "2026-11-16",
+      "utilization": 0.592
+    },
+    {
+      "date": "2026-11-17",
+      "utilization": 0.61
+    },
+    {
+      "date": "2026-11-18",
+      "utilization": 0.628
+    },
+    {
+      "date": "2026-11-19",
+      "utilization": 0.626
+    },
+    {
+      "date": "2026-11-20",
+      "utilization": 0.644
+    },
+    {
+      "date": "2026-11-21",
+      "utilization": 0.642
+    },
+    {
+      "date": "2026-11-22",
+      "utilization": 0.66
+    },
+    {
+      "date": "2026-11-23",
+      "utilization": 0.678
+    },
+    {
+      "date": "2026-11-24",
+      "utilization": 0.676
+    },
+    {
+      "date": "2026-11-25",
+      "utilization": 0.694
+    }
+  ]
+}

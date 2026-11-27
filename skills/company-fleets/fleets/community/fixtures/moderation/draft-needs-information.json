@@ -1,0 +1,15 @@
+{
+  "label": "SYNTHETIC BOUNDARY CASE: the thinnest acceptable draft. It cites no evidence, marks the report needs-information and recommends only a request for information. case_check should accept it.",
+  "case_id": "CM-CASE-1",
+  "prepared_by": "community.moderator",
+  "status": "draft-for-human-decision",
+  "findings": [
+    {"report": "RPT-1", "status": "needs-information", "evidence": [], "reasoning": "Nothing on file yet supports or rules out the intimidation allegation."}
+  ],
+  "recommended_actions": [
+    {"action": "Ask the reporter whether they can share the message", "status": "recommended", "decision_by": "human:trust-safety-lead"}
+  ],
+  "handling": {"assigned_reviewers": ["human:moderator-b"], "recused": [{"id": "human:moderator-a", "reason": "co-maintains a plugin with the subject"}]},
+  "appeal_route": {"reviewer": "human:appeals-coordinator", "window_days": 14, "documented_in": "fixture-coc#appeals"},
+  "messages": []
+}

@@ -1,0 +1,110 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json verdict=restored-all-targets-met --json measured.restore_success=true --contains 'Connection refused' -- python3 ../hosting-restore-exercise/scripts/restore_exercise.py run --targets fleets/hosting/fixtures/restore-exercise/targets-relaxed-rpo.json --failure crash
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.role-storage-backup-engineer kind positive synthetic true
+{
+  "assumptions": [
+    "One lab run on one idle machine. It is a measured test result, not an availability percentage or a service commitment.",
+    "A SQLite file and a local HTTP process stand in for a database server and a hosting node; network, storage and region failures are not exercised.",
+    "Writes after the last backup are lost by design here (no log shipping), so rpo_lost_writes equals the writes made after the backup.",
+    "The lab monitor polls every 0.05 s on the same machine; a production monitor's polling interval and alert delay set the real detection floor.",
+    "Targets come from targets-relaxed-rpo.json: Lab calibration target, 2026-11-25; no contract exists"
+  ],
+  "backup": {
+    "content_sha256": "2cd66b1121ad2011a749a0865a6ff447862ba54b90f8e1ed00d4db41792abaf3",
+    "name": "backup-1",
+    "rows": 20
+  },
+  "exercise": {
+    "failure": "crash",
+    "mode": "restore",
+    "run_at": "2026-11-27T03:46:52+00:00",
+    "seed_rows": 20,
+    "tenant_id": "tenant-a",
+    "writes_after_backup": 3
+  },
+  "label": "SYNTHETIC lab exercise for Fixture Co tenant-a; disposable local service, not production.",
+  "measured": {
+    "detection_seconds": 0.001,
+    "restore_success": true,
+    "rpo_lost_writes": 3,
+    "rto_seconds": 0.063
+  },
+  "monitor_probes": 2,
+  "restore": {
+    "content_sha256": "2cd66b1121ad2011a749a0865a6ff447862ba54b90f8e1ed00d4db41792abaf3",
+    "matches_backup": true,
+    "rows": 20
+  },
+  "targets": {
+    "detection_seconds": {
+      "measured": 0.001,
+      "status": "met",
+      "target": {
+        "max": 10
+      }
+    },
+    "restore_success": {
+      "measured": true,
+      "status": "met",
+      "target": {
+        "required": true
+      }
+    },
+    "rpo_lost_writes": {
+      "measured": 3,
+      "status": "met",
+      "target": {
+        "max": 5
+      }
+    },
+    "rto_seconds": {
+      "measured": 0.063,
+      "status": "met",
+      "target": {
+        "max": 60
+      }
+    }
+  },
+  "timeline": [
+    {
+      "event": "primary-started",
+      "t": 0.125,
+      "url": "http://127.0.0.1:50381"
+    },
+    {
+      "event": "backup-taken",
+      "rows": 20,
+      "t": 0.126
+    },
+    {
+      "count": 3,
+      "event": "writes-after-backup",
+      "rows": 23,
+      "t": 0.129
+    },
+    {
+      "event": "failure-injected",
+      "kind": "crash",
+      "t": 0.129
+    },
+    {
+      "event": "monitor-detected",
+      "reason": "unreachable: [Errno 61] Connection refused",
+      "t": 0.13
+    },
+    {
+      "content_sha256": "2cd66b1121ad2011a749a0865a6ff447862ba54b90f8e1ed00d4db41792abaf3",
+      "event": "backup-restored",
+      "matches_backup": true,
+      "rows": 20,
+      "t": 0.131
+    },
+    {
+      "event": "monitor-healthy",
+      "t": 0.192
+    }
+  ],
+  "unmet": [],
+  "verdict": "restored-all-targets-met"
+}
+# expect: met
+# exit 0

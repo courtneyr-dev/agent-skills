@@ -1,0 +1,21 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains inline principal objects are refused --contains "decision": "refuse" -- python3 ../edu-student-data-guard/scripts/data_guard.py check fleets/bcit-education/fixtures/edu-student-data-guard/req-inline-principal-real-b.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.inline-principal-refused
+{
+  "decision": "refuse",
+  "reasons": [
+    "principal must be an id from the tenants registry; inline principal objects are refused because the requester could declare its own classroom, role or classification"
+  ],
+  "policy_verified": false,
+  "request": {
+    "principal": {
+      "id": "rogue",
+      "tenant_id": "classroom-b",
+      "max_classification": "restricted"
+    },
+    "record": "CB-ROSTER",
+    "data_origin": "real",
+    "tool": "claude-code"
+  }
+}
+# expect: met
+# exit 0

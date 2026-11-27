@@ -1,0 +1,67 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains collect-evidence --contains no source; treated as missing --contains deferred until the open questions --absent ENV-RESOURCE-TOOL --absent SKILL-TRAINING -- python3 ../edu-needs-analysis/scripts/needs.py route fleets/instructional-design/fixtures/edu-needs-analysis/insufficient-evidence.json
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.unsourced-evidence-collects-questions
+{
+  "audience_task_analysis": {
+    "analysis_gaps": [
+      "audience.size",
+      "audience.context",
+      "audience.access_needs",
+      "task.frequency",
+      "task.criticality",
+      "task.conditions"
+    ],
+    "audience": {
+      "who": "Fixture Co product developers"
+    },
+    "task": {
+      "name": "Write unit tests for new code",
+      "steps": [
+        "Write the change",
+        "Write tests",
+        "Open the pull request"
+      ]
+    }
+  },
+  "course_indicated": null,
+  "not_recommended": [
+    "course: deferred until the open questions are answered."
+  ],
+  "notes": [],
+  "questions": [
+    {
+      "key": "can_do_when_required",
+      "question": "Could the performer do the task correctly now if it were required and everything else were in place? Observe a real attempt; a self-report is not enough."
+    },
+    {
+      "key": "expectations_clear",
+      "question": "Do performers know what good performance looks like and when it is expected?"
+    },
+    {
+      "key": "feedback_given",
+      "question": "Do performers get timely, specific feedback on how they performed?"
+    },
+    {
+      "key": "tools_adequate",
+      "question": "Do the tools, systems and materials let a skilled person do the task?"
+    },
+    {
+      "key": "process_clear",
+      "question": "Does the process let the task be done as intended, without conflicting steps or approvals?"
+    },
+    {
+      "key": "access_ok",
+      "question": "Do performers have the access, permissions, time and accommodations the task needs?"
+    },
+    {
+      "key": "consequences_aligned",
+      "question": "Is doing the task well rewarded, and is skipping it free of hidden rewards?"
+    }
+  ],
+  "remedies": [],
+  "status": "collect-evidence",
+  "warnings": [
+    "evidence.tools_adequate has a value but no source; treated as missing"
+  ]
+}
+# expect: met
+# exit 0

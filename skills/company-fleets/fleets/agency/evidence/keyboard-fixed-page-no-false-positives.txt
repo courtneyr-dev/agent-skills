@@ -1,0 +1,30 @@
+# eval agency.eval.keyboard-fixed-page-no-false-positives (negative, target agency-keyboard-audit)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "findings": [] --contains "reached_end": true --env AGENCY_A11Y_NODE_MODULES=/path/to/node_modules -- python3 ../agency-keyboard-audit/scripts/keyboard_audit.py --page ../agency-keyboard-audit/fixtures/donate-after.html --max-tabs 20
+run on 2026-11-26, exit 0
+
+{
+  "adapter": {
+    "axe_core": "4.13.0",
+    "chromium": "151.0.7922.34",
+    "playwright": "1.62.1"
+  },
+  "automated_scan": {
+    "ids": [],
+    "tool": "axe-core",
+    "violations": 0
+  },
+  "findings": [],
+  "limits": [
+    "One page, one starting point, forward Tab only; flows behind clicks, dialogs and Shift+Tab need their own runs or a human tester.",
+    "Click listeners are read per element through the Chrome DevTools Protocol; a listener delegated to document or body is not attributed to the control.",
+    "Focus visibility compares computed outline, box-shadow, border, background, color and text decoration; it does not measure contrast or size against WCAG 2.4.11 or 2.4.13.",
+    "Headless Chromium only; other browsers and assistive technologies can behave differently, and nothing here replaces testing with disabled users.",
+    "It reports defects; it never certifies WCAG conformance."
+  ],
+  "missed_by_automated_scan": [],
+  "ok": true,
+  "page": "donate-after.html",
+  "reached_end": true,
+  "tab_stops": 7
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

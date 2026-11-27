@@ -1,0 +1,11 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample plan whose only evidence is a survey and attendance.",
+  "intervention": "Accessible publishing session for client editors",
+  "intended_performance": "Editors write better alt text",
+  "human_data_boundary": "The training lead runs the survey; the agent records nothing.",
+  "revisit_if": "Average satisfaction falls below 4 of 5",
+  "measures": [
+    {"id": "S1", "kind": "satisfaction-survey", "level": "reaction", "description": "Did you enjoy the session? (1-5)", "owner": "human:training-lead", "timing": "End of session", "baseline": "None"},
+    {"id": "S2", "kind": "attendance", "level": "reaction", "description": "Sign-in sheet", "owner": "human:training-lead", "timing": "Each session", "baseline": "None"}
+  ]
+}

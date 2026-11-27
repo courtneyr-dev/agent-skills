@@ -1,0 +1,12 @@
+{"label": "SYNTHETIC: a 20-minute load-test run for Fixture Co, 11 buckets of 100 requests, no errors. Too short to establish a 1-day availability."}
+{"ts": "2026-11-25T11:40:00Z", "status": 200, "latency_ms": 120, "count": 100}
+{"ts": "2026-11-25T11:42:00Z", "status": 200, "latency_ms": 120, "count": 100}
+{"ts": "2026-11-25T11:44:00Z", "status": 200, "latency_ms": 120, "count": 100}
+{"ts": "2026-11-25T11:46:00Z", "status": 200, "latency_ms": 120, "count": 100}
+{"ts": "2026-11-25T11:48:00Z", "status": 200, "latency_ms": 120, "count": 100}
+{"ts": "2026-11-25T11:50:00Z", "status": 200, "latency_ms": 120, "count": 100}
+{"ts": "2026-11-25T11:52:00Z", "status": 200, "latency_ms": 120, "count": 100}
+{"ts": "2026-11-25T11:54:00Z", "status": 200, "latency_ms": 120, "count": 100}
+{"ts": "2026-11-25T11:56:00Z", "status": 200, "latency_ms": 120, "count": 100}
+{"ts": "2026-11-25T11:58:00Z", "status": 200, "latency_ms": 120, "count": 100}
+{"ts": "2026-11-25T12:00:00Z", "status": 200, "latency_ms": 120, "count": 100}

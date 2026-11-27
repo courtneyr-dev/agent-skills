@@ -1,0 +1,32 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains "missing" --contains Learner --contains Leader --contains Collaborator -- python3 ../edu-standards-alignment/scripts/standards_check.py coverage fleets/bcit-education/fixtures/bcit-teacher-education-module/observation-instrument.json --record iste-educators --field iste_educator_labels
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.iste-educator-coverage-partial
+{
+  "ok": false,
+  "record": "iste-educators",
+  "covered": {
+    "Citizen": [
+      "OB5"
+    ],
+    "Designer": [
+      "OB2",
+      "OB3",
+      "OB5"
+    ],
+    "Facilitator": [
+      "OB3",
+      "OB4"
+    ],
+    "Analyst": [
+      "OB4"
+    ]
+  },
+  "missing": [
+    "Learner",
+    "Leader",
+    "Collaborator"
+  ],
+  "unknown_labels": [],
+  "label": "SYNTHETIC FIXTURE (Fixture Co): microteaching observation instrument. Empty of observations; a human observer fills it."
+}
+# expect: met
+# exit 0

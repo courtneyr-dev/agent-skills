@@ -1,0 +1,48 @@
+# SYNTHETIC FIXTURE (Fixture Co): source strings for Client A's donate page.
+msgid ""
+msgstr ""
+"Project-Id-Version: client-a-donate 1.0\nContent-Type: text/plain; charset=UTF-8\n"
+
+msgid "Skip to main content"
+msgstr ""
+
+#. Accessible name of the main navigation
+msgid "Main"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Programs"
+msgstr ""
+
+msgid "Donate"
+msgstr ""
+
+msgid "Give to Client A"
+msgstr ""
+
+msgid "Every gift stocks the community pantry."
+msgstr ""
+
+msgid "Make this a monthly gift"
+msgstr ""
+
+msgid "Choose an amount"
+msgstr ""
+
+msgid "Email for your receipt"
+msgstr ""
+
+#. max-length: 14
+msgid "Give now"
+msgstr ""
+
+msgid "%d donor gave this week"
+msgid_plural "%d donors gave this week"
+msgstr[0] ""
+msgstr[1] ""
+
+#. i18n-allow-identical: brand name
+msgid "Fixture Co"
+msgstr ""

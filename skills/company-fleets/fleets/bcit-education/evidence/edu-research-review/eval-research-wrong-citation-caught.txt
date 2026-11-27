@@ -1,0 +1,57 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains "verified": 1 --contains "mismatch": 1 --contains "unresolved": 1 --contains S-wrong-year --contains S-fabricated -- python3 ../edu-research-review/scripts/research_check.py citations fleets/bcit-education/fixtures/edu-research-review/refs-synthetic-bad.json --offline fleets/bcit-education/fixtures/edu-research-review/resolver-synthetic-bad.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.research-wrong-citation-caught
+{
+  "ok": false,
+  "mode": "citations",
+  "source": "synthetic bibliography",
+  "counts": {
+    "verified": 1,
+    "mismatch": 1,
+    "unresolved": 1
+  },
+  "results": [
+    {
+      "id": "S-correct",
+      "status": "verified",
+      "key": "doi:10.3102/0013189x12463051",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Computational Thinking in K–12",
+      "resolved_years": [
+        2013
+      ],
+      "resolved_doi": "10.3102/0013189x12463051",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "S-wrong-year",
+      "status": "mismatch",
+      "key": "doi:10.1145/1118178.1118215",
+      "mismatched": [
+        "year"
+      ],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": false,
+      "first_author_ok": true,
+      "resolved_title": "Computational thinking",
+      "resolved_years": [
+        2006
+      ],
+      "resolved_doi": "10.1145/1118178.1118215",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "S-fabricated",
+      "status": "unresolved",
+      "key": "doi:10.9999/fixture-co.2024.001",
+      "reason": "identifier or search found no record"
+    }
+  ],
+  "resolver": "offline:fleets/bcit-education/fixtures/edu-research-review/resolver-synthetic-bad.json"
+}
+# expect: met
+# exit 0

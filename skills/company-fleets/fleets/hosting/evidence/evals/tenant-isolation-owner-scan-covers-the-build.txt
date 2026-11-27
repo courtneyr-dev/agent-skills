@@ -1,0 +1,29 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=findings --json files_scanned=2 --absent TenantADbPassword -- python3 ../hosting-tenant-isolation/scripts/isolation_check.py secrets scan --record-for fleets/hosting/fixtures/tenant-isolation/preview-leaked-secret.json --records fleets/hosting/owner/hosting-tenant-isolation/records
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.tenant-isolation-owner-scan-covers-the-build kind negative synthetic true
+{
+  "assumptions": [
+    "Values are matched as literal substrings; an encoded copy (base64, URL-encoded) is not found",
+    "Findings name the secret and file, never the value"
+  ],
+  "files_scanned": 2,
+  "findings": [
+    {
+      "count": 1,
+      "file": "build.log",
+      "kind": "manifest-secret",
+      "secret": "DB_PASSWORD"
+    },
+    {
+      "file": "preview/app.js.map",
+      "kind": "pattern",
+      "line": 2,
+      "pattern": "fx-demo-synthetic-token",
+      "source": "hosting fleet fixture convention: fx_demo_ plus 16 or more letters or digits marks a synthetic secret"
+    }
+  ],
+  "recorded": "$TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/owner/hosting-tenant-isolation/records/prev-leaked-secret/scan.json",
+  "skipped": [],
+  "verdict": "findings"
+}
+# expect: met
+# exit 0

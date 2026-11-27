@@ -1,0 +1,157 @@
+# eval corporate.eval.unrelated-fleets-stay-unloaded (negative, target corporate.chief-of-staff)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "fleets/corporate/roles.json" --absent fleets/agency/ --absent fleets/bcit-education/ --absent fleets/community/ -- bin/fleet resolve --profile product --workload corporate.workload.campaign-staging
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "product",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Marketing lead",
+      "fleet": "corporate",
+      "id": "corporate.marketing-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "marketing-plan",
+          "installed": true,
+          "path": "skills/marketing-plan/SKILL.md"
+        },
+        {
+          "id": "product-marketing",
+          "installed": true,
+          "path": "skills/product-marketing/SKILL.md"
+        },
+        {
+          "id": "ads",
+          "installed": true,
+          "path": "skills/ads/SKILL.md"
+        },
+        {
+          "id": "ad-creative",
+          "installed": true,
+          "path": "skills/ad-creative/SKILL.md"
+        },
+        {
+          "id": "marketing-loops",
+          "installed": true,
+          "path": "skills/marketing-loops/SKILL.md"
+        },
+        {
+          "id": "corporate-claims-check",
+          "installed": true,
+          "path": "skills/corporate-claims-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Content and lifecycle marketer",
+      "fleet": "corporate",
+      "id": "corporate.lifecycle-marketer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "emails",
+          "installed": true,
+          "path": "skills/emails/SKILL.md"
+        },
+        {
+          "id": "content-strategy",
+          "installed": true,
+          "path": "skills/content-strategy/SKILL.md"
+        },
+        {
+          "id": "seo-audit",
+          "installed": true,
+          "path": "skills/seo-audit/SKILL.md"
+        },
+        {
+          "id": "ai-seo",
+          "installed": true,
+          "path": "skills/ai-seo/SKILL.md"
+        },
+        {
+          "id": "corporate-claims-check",
+          "installed": true,
+          "path": "skills/corporate-claims-check/SKILL.md"
+        },
+        {
+          "id": "corporate-email-guard",
+          "installed": true,
+          "path": "skills/corporate-email-guard/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Data and analytics lead",
+      "fleet": "corporate",
+      "id": "corporate.data-analytics-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "analytics",
+          "installed": true,
+          "path": "skills/analytics/SKILL.md"
+        },
+        {
+          "id": "ab-testing",
+          "installed": true,
+          "path": "skills/ab-testing/SKILL.md"
+        },
+        {
+          "id": "attribution",
+          "installed": true,
+          "path": "skills/attribution/SKILL.md"
+        },
+        {
+          "id": "conversion-tracking",
+          "installed": true,
+          "path": "skills/conversion-tracking/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Communications lead",
+      "fleet": "corporate",
+      "id": "corporate.communications-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "public-relations",
+          "installed": true,
+          "path": "skills/public-relations/SKILL.md"
+        },
+        {
+          "id": "corporate-claims-check",
+          "installed": true,
+          "path": "skills/corporate-claims-check/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.campaign-staging"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

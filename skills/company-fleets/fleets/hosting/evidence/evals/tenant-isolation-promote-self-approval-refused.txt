@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=self-approval -- sh -c 'cp -R fleets/hosting/fixtures/tenant-isolation/build-output-clean fleets/hosting/fixtures/tenant-isolation/tenant-a-src {tmp}/ && python3 -c "import json;d=json.load(open('"'"'fleets/hosting/fixtures/tenant-isolation/preview-clean.json'"'"'));d['"'"'produced_by'"'"']='"'"'human:tenant-a-owner'"'"';json.dump(d,open('"'"'{tmp}/p.json'"'"','"'"'w'"'"'))" && python3 ../hosting-tenant-isolation/scripts/isolation_check.py approve --preview {tmp}/p.json --by human:tenant-a-owner'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.tenant-isolation-promote-self-approval-refused kind boundary synthetic true
+{
+  "detail": "human:tenant-a-owner produced the preview as human:tenant-a-owner and cannot approve it",
+  "refusal": "self-approval",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

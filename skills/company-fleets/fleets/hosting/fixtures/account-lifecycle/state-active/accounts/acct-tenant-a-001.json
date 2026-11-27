@@ -1,0 +1,90 @@
+{
+  "label": "SYNTHETIC: Fixture Co tenant-a account acct-tenant-a-001 in the active state, produced by qualify through monitor against the fixtures in this folder. Read-only: evals that point --state-dir here must refuse before writing.",
+  "account_id": "acct-tenant-a-001",
+  "config": {
+    "php_version": "8.3"
+  },
+  "domain": "client-a.example",
+  "history": [
+    {
+      "action": "request",
+      "actor": "skill:hosting-account-lifecycle",
+      "at": "2026-11-26T03:50:19Z",
+      "epoch": null,
+      "from": null,
+      "to": "requested"
+    },
+    {
+      "action": "qualify",
+      "actor": "skill:hosting-account-lifecycle",
+      "at": "2026-11-26T03:50:19Z",
+      "epoch": null,
+      "from": "requested",
+      "to": "qualified"
+    },
+    {
+      "action": "provision",
+      "actor": "skill:hosting-account-lifecycle",
+      "at": "2026-11-26T03:50:19Z",
+      "epoch": 1,
+      "from": "qualified",
+      "to": "provisioned"
+    },
+    {
+      "action": "verify-ownership",
+      "actor": "skill:hosting-account-lifecycle",
+      "at": "2026-11-26T03:50:19Z",
+      "epoch": null,
+      "from": "provisioned",
+      "to": "ownership-verified"
+    },
+    {
+      "action": "configure",
+      "actor": "skill:hosting-account-lifecycle",
+      "at": "2026-11-26T03:50:19Z",
+      "epoch": null,
+      "from": "ownership-verified",
+      "to": "configured"
+    },
+    {
+      "action": "activate",
+      "actor": "skill:hosting-account-lifecycle",
+      "at": "2026-11-26T03:50:19Z",
+      "epoch": null,
+      "from": "configured",
+      "to": "active"
+    },
+    {
+      "action": "monitor",
+      "actor": "skill:hosting-account-lifecycle",
+      "at": "2026-11-26T03:50:19Z",
+      "epoch": null,
+      "from": "active",
+      "to": "active"
+    }
+  ],
+  "last_check": {
+    "checked_at": "2026-11-25T10:00:00Z",
+    "sha256": "e6c4f9c13d87cff9731b43ffe128742f03f08a8203fd0846ec8486364667992c",
+    "status": "ok"
+  },
+  "ownership": {
+    "expected_token": "fx_demo_k3Q9vT2mLp8ZxW4bN7cR1yHd",
+    "method": "dns-txt",
+    "verified_at": "2026-11-26T03:50:19Z"
+  },
+  "package": {
+    "disk_quota_mb": 10240,
+    "id": "reseller-starter",
+    "name": "Reseller starter (fixture)",
+    "php_versions": [
+      "8.2",
+      "8.3"
+    ]
+  },
+  "profile": "reseller",
+  "renewed_until": "2027-11-25",
+  "request_sha256": "345dfabb800a80a5c8459d7b3f7de13b6911e43ed2e583e2d78e68a65e715cbc",
+  "state": "active",
+  "tenant_id": "tenant-a"
+}

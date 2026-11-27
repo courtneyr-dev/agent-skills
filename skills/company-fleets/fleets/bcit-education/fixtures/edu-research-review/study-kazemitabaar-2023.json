@@ -1,0 +1,66 @@
+{
+  "label": "DERIVED FROM A REAL PUBLIC PAPER (not synthetic): structured study card for Kazemitabaar et al. 2023, built from arXiv 2302.07427v2 (CC BY 4.0). Claim texts are quoted from the sections named in source_location; design facts trace to Sections 4.1-4.4 and 5.",
+  "citation": {
+    "title": "Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming",
+    "authors": ["Kazemitabaar", "Chow", "Ma", "Ericson", "Weintrop", "Grossman"],
+    "year": 2023,
+    "venue": "CHI '23 (ACM Conference on Human Factors in Computing Systems)",
+    "doi": "10.1145/3544548.3580919",
+    "arxiv": "2302.07427v2",
+    "license": "arXiv version CC BY 4.0"
+  },
+  "evidence_type": "peer-reviewed-study",
+  "design": "matched-random",
+  "comparison_group": true,
+  "random_assignment": true,
+  "sample": {
+    "n": 69,
+    "sites": 2,
+    "population": "volunteer learners ages 10-17 (M=12.5) with no prior text-based programming, recruited through coding camps in two North American cities; 48 male, 21 female; all had a personal computer",
+    "setting": "out-of-school-remote",
+    "level": "k12",
+    "ages": "10-17",
+    "selection": "volunteer",
+    "attrition": {"started": 90, "analyzed": 69, "note": "Section 4.2: 21 did not complete; only completers analyzed; groups ended 33 Codex vs 36 Baseline"}
+  },
+  "confound_controls": [
+    "matched groups on a 25-item Scratch pre-test, then random assignment within pairs (Section 4.2.1)",
+    "graders saw no learner identity or condition (Section 4.1.2, Figure 5)",
+    "fixed task order for both groups (Section 4.1.2)"
+  ],
+  "measures": [
+    {"name": "training-authoring-correctness", "kind": "performance", "construct": "code-authoring correctness with the tool available (Codex group only)"},
+    {"name": "training-modification-correctness", "kind": "performance", "construct": "manual code modification without the tool"},
+    {"name": "immediate-posttest", "kind": "performance", "construct": "5 authoring, 5 modification tasks and 40 MCQs one day after training, no tool or docs"},
+    {"name": "retention-posttest", "kind": "performance", "construct": "new parallel tasks one week later, no tool or docs"},
+    {"name": "likert-survey", "kind": "self-report", "construct": "perceived learning, stress, eagerness"}
+  ],
+  "analysis": {
+    "tests": "independent-samples t-tests per metric; Bonferroni only within topic-level and error-type families; Mann-Whitney U for Likert items",
+    "equivalence_test": false,
+    "power_analysis": false,
+    "subgroup_post_hoc": true,
+    "inter_rater": "two graders, 79% exact agreement on a 0/25/50/75/100 rubric (Section 4.4)",
+    "item_exclusion": "evaluation analysis excluded topics where a learner progressed less than 50% in training (Section 5.2)"
+  },
+  "claims": [
+    {"id": "C1", "source_location": "Abstract",
+     "text": "using Codex significantly increased code-authoring performance (1.15x increased completion rate and 1.8x higher scores) while not decreasing performance on manual code-modification tasks",
+     "scope": {"level": "k12", "setting": "out-of-school-remote"}, "basis": ["training-authoring-correctness", "training-modification-correctness"], "result_significant": true},
+    {"id": "C2", "source_location": "Section 6, RQ4",
+     "text": "having access to an AI code generator does not impede learning gains",
+     "scope": {"level": "k12", "setting": "out-of-school-remote"}, "basis": ["immediate-posttest", "retention-posttest"], "result_significant": false},
+    {"id": "C3", "source_location": "Abstract",
+     "text": "learners with higher Scratch pre-test scores performed significantly better on retention post-tests, if they had prior access to Codex",
+     "scope": {"level": "k12", "setting": "out-of-school-remote"}, "basis": ["retention-posttest"], "subgroup": true, "result_significant": true},
+    {"id": "C4", "source_location": "Section 8, Conclusion",
+     "text": "we now have encouraging evidence that integrating AI Coding Assistants into programming support tools can scaffold the learning process for novices, which could help more students to engage in programming and broaden participation in computing",
+     "scope": {"level": "general", "setting": "any"}, "basis": ["immediate-posttest", "retention-posttest"]},
+    {"id": "C5", "source_location": "Section 6, RQ2 (Likert result in 5.4.1: stress U=390.5, p=.056)",
+     "text": "having access to the AI code generator reduced stress and discouragement in addition to improving their eagerness to continue programming later on",
+     "scope": {"level": "k12", "setting": "out-of-school-remote"}, "basis": ["likert-survey"], "result_significant": false},
+    {"id": "C6", "source_location": "Abstract",
+     "text": "learners with access to Codex during the training phase performed slightly better on the evaluation post-tests conducted one week later, although this difference did not reach statistical significance",
+     "scope": {"level": "k12", "setting": "out-of-school-remote"}, "basis": ["retention-posttest"], "result_significant": false}
+  ]
+}

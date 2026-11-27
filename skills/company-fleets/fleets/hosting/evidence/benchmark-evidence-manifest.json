@@ -1,0 +1,35 @@
+{
+  "files": {
+    "fleets/hosting/evidence/isolation-records-2026-11-26.json": "ae920e0f540f2b75373bb19b88697b896b0adb72f2b158bec16833187d459b8b",
+    "fleets/hosting/evidence/migration-rollback-2026-11-26.json": "db2e23a818fd6e8f071f6140931ed148708a2fc2d8c0e5df4c1dae0ccfbbbc49",
+    "fleets/hosting/evidence/portability-roundtrip-2026-11-26.json": "687cbfdf50247280651bdf1571807812308db1398821e5955b8ca105838193b0",
+    "fleets/hosting/evidence/restore-exercise-2026-11-26.json": "d2e8dc803709aca570da137934596e4889f76a8c28fdc6cfe5816fb0fc2010cc"
+  },
+  "label": "Evidence owner's manifest: the sha256 of each benchmark evidence file, recorded by benchmark.py record-evidence when the evidence was produced.",
+  "measurements": {
+    "data_portability": {
+      "evidence": "fleets/hosting/evidence/portability-roundtrip-2026-11-26.json",
+      "json_path": "verdict"
+    },
+    "deployment_reversibility": {
+      "evidence": "fleets/hosting/evidence/migration-rollback-2026-11-26.json",
+      "json_path": "checksums_equal"
+    },
+    "isolation": {
+      "evidence": "fleets/hosting/evidence/isolation-records-2026-11-26.json",
+      "json_path": "verdict"
+    },
+    "observability": {
+      "evidence": "fleets/hosting/evidence/restore-exercise-2026-11-26.json",
+      "json_path": "measured.detection_seconds"
+    },
+    "recovery_objectives": {
+      "evidence": "fleets/hosting/evidence/restore-exercise-2026-11-26.json",
+      "json_path": "measured.rpo_lost_writes"
+    },
+    "restore": {
+      "evidence": "fleets/hosting/evidence/restore-exercise-2026-11-26.json",
+      "json_path": "measured.rto_seconds"
+    }
+  }
+}

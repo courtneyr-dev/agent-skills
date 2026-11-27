@@ -1,0 +1,15 @@
+$ python3 -W ignore -m unittest discover -s fleets/devrel/tests -p 'test_*.py' -v -k CleanReplayHandoff
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:07Z
+# case: devrel.eval.replay-evidence-goes-stale (boundary, target devrel.docs-architect, synthetic=True)
+# expected: Fresh evidence satisfies the gate; after the edit the output is reported as changed and the evidence no longer counts.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+test_replay_evidence_binds_to_doc_bytes_and_goes_stale_after_an_edit (test_devrel_fleet.CleanReplayHandoff.test_replay_evidence_binds_to_doc_bytes_and_goes_stale_after_an_edit) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.153s
+
+OK

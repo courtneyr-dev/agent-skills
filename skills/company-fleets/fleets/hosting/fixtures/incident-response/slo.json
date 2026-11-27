@@ -1,0 +1,12 @@
+{
+  "label": "SYNTHETIC: availability SLO for the Fixture Co hosting edge. 99.9 percent of requests under 500 over a 1-day window (short on purpose so fixtures stay small; production windows are 28 to 30 days).",
+  "name": "fixture-co-edge-availability",
+  "sli": {
+    "kind": "availability",
+    "good_when": {
+      "status_lt": 500
+    }
+  },
+  "target": 0.999,
+  "window_days": 1
+}

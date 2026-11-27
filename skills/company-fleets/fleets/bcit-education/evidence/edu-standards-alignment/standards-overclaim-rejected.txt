@@ -1,0 +1,144 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains source-not-registered --contains restricted-assessment-content --contains text-bundled --contains id-not-in-scheme --contains not-a-learning-standard --contains overclaimed -- python3 ../edu-standards-alignment/scripts/standards_check.py align fleets/bcit-education/fixtures/bcit-unit-store/alignment-overclaim.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.standards-overclaim-rejected
+{
+  "ok": false,
+  "errors": 9,
+  "coverage": "gap",
+  "supported_counts": {
+    "gap": 5,
+    "unverified": 0,
+    "partial": 0,
+    "verified": 0,
+    "not-applicable": 0
+  },
+  "objectives": {
+    "O1": "gap",
+    "O2": "gap",
+    "O3": "gap"
+  },
+  "rows": [
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "pa-bcit-standards-2030",
+      "standard_id": "BCIT.10.2.A",
+      "claimed": "verified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "source-not-registered",
+          "message": "'pa-bcit-standards-2030' is not in the standards registry; the alignment is a gap, not a match"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims verified but the evidence supports gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "nocti-blueprints",
+      "standard_id": "Accounting-Basic-3.2",
+      "claimed": "verified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "error",
+          "code": "restricted-assessment-content",
+          "message": "nocti-blueprints restricts incorporation of its content; no competency ids or items may be mapped without permitted alignment information"
+        },
+        {
+          "severity": "note",
+          "code": "assessment-not-selected",
+          "message": "no NOCTI credential category and identifier is selected; alignment is a gap"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims verified but the evidence supports gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "nbea-2023",
+      "standard_id": "ACC-IV.A.2",
+      "claimed": "verified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "source-unavailable",
+          "message": "nbea-2023 is unreachable in the registry; record the limitation and keep the mapping a gap"
+        },
+        {
+          "severity": "error",
+          "code": "text-bundled",
+          "message": "nbea-2023 text may not be bundled (NOT OBSERVED: the live page returned HTTP 403 (Azure Web Application Firewall) t); link to https://www.nbea.org/business-education-curriculum-standards instead"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims verified but the evidence supports gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2026",
+      "standard_id": "3A-DA-09",
+      "claimed": "verified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "error",
+          "code": "id-not-in-scheme",
+          "message": "'3A-DA-09' is not an identifier in csta-k12-2026's scheme (example HS-ALG-ML-06); check the edition and the student/teacher document"
+        },
+        {
+          "severity": "note",
+          "code": "review-evidence-missing",
+          "message": "review evidence 'map' does not exist next to the alignment file or under company-fleets; a reviewer name alone does not verify a mapping"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims verified but the evidence supports gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O3",
+      "criterion_id": "R3",
+      "record_id": "wcag-22",
+      "standard_id": "1.4.3",
+      "claimed": "verified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "error",
+          "code": "not-a-learning-standard",
+          "message": "wcag-22 is a accessibility-standard; cite it as a design or policy reference, not as an objective alignment"
+        },
+        {
+          "severity": "note",
+          "code": "id-list-not-stored",
+          "message": "wcag-22 has no stored list of published identifiers, so '1.4.3' can't be confirmed to exist; it stays unverified"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims verified but the evidence supports gap"
+        }
+      ]
+    }
+  ],
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: invented and protected alignments claimed as verified."
+}
+# expect: met
+# exit 0

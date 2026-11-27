@@ -1,0 +1,114 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=fail --contains must-not-hold --contains '"function": "restores"' -- sh -c 'python3 -c "import json;d=json.load(open('"'"'fleets/hosting/fixtures/service-catalogue/affiliate-valid.json'"'"'));d['"'"'parties'"'"'].append('"'"'upstream:fixture-co'"'"');s=d['"'"'services'"'"'][0];s['"'"'functions'"'"']+=[{'"'"'function'"'"':f,'"'"'accountable'"'"':'"'"'upstream:fixture-co'"'"'} for f in ('"'"'infrastructure'"'"','"'"'accounts'"'"','"'"'backups'"'"','"'"'restores'"'"','"'"'incident-response'"'"')];s.setdefault('"'"'upstream_dependencies'"'"',[]).append({'"'"'provider'"'"':'"'"'fixture-co'"'"','"'"'obligations'"'"':['"'"'run it'"'"'],'"'"'escalation_path'"'"':['"'"'ops'"'"']});json.dump(d,open('"'"'{tmp}/k.json'"'"','"'"'w'"'"'))" && python3 ../hosting-service-catalogue/scripts/catalogue_check.py check --catalogue {tmp}/k.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.service-catalogue-company-as-upstream-refused kind negative synthetic true
+{
+  "assumptions": [
+    "Rule 1 counts distinct accountable parties per function across all services; one party listed in two services is one party.",
+    "Rule 1 also applies to optional and extra functions a catalogue lists, so an optional function with two owners fails.",
+    "Rule 2 refuses the company as accountable or responsible for a must_not_hold function. In a referral_only profile (affiliate) it also refuses any company duty outside the profile's own list, and any capability set.",
+    "Rule 3 treats placeholder text (TBD, none, n/a, unknown) as an empty obligations or escalation_path entry.",
+    "Rule 3 looks for the upstream_dependencies entry inside the same service as the function.",
+    "upstream:fixture-co is the company itself: it counts as fixture-co for every rule, so an affiliate can't make Fixture Co accountable by calling it an upstream.",
+    "Function ids and per-profile coverage come from references/functions.json (prompt section 5); profile names come from the registry file."
+  ],
+  "checked": {
+    "capability_sets": [],
+    "must_hold": [
+      "eligibility",
+      "disclosures",
+      "attribution",
+      "commission-reconciliation",
+      "customer-handoff",
+      "provider-escalation"
+    ],
+    "optional_absent": [],
+    "optional_present": [],
+    "profile": "affiliate"
+  },
+  "profile": {
+    "id": "affiliate",
+    "name": "Hosting affiliate or referral",
+    "not_responsible_for": [
+      "Infrastructure, accounts, backups or incidents the upstream provider controls"
+    ],
+    "responsible_for": [
+      "Eligibility and disclosures",
+      "Attribution and commission reconciliation",
+      "Customer handoff and provider escalation"
+    ]
+  },
+  "verdict": "fail",
+  "violations": [
+    {
+      "function": "accounts",
+      "message": "accounts has 2 accountable parties: fixture-co (referral-program); upstream:example-host (provider-hosting)",
+      "name": "accountable-party",
+      "rule": 1,
+      "service": null
+    },
+    {
+      "function": "backups",
+      "message": "backups has 2 accountable parties: fixture-co (referral-program); upstream:example-host (provider-hosting)",
+      "name": "accountable-party",
+      "rule": 1,
+      "service": null
+    },
+    {
+      "function": "incident-response",
+      "message": "incident-response has 2 accountable parties: fixture-co (referral-program); upstream:example-host (provider-hosting)",
+      "name": "accountable-party",
+      "rule": 1,
+      "service": null
+    },
+    {
+      "function": "infrastructure",
+      "message": "infrastructure has 2 accountable parties: fixture-co (referral-program); upstream:example-host (provider-hosting)",
+      "name": "accountable-party",
+      "rule": 1,
+      "service": null
+    },
+    {
+      "function": "restores",
+      "message": "restores has 2 accountable parties: fixture-co (referral-program); upstream:example-host (provider-hosting)",
+      "name": "accountable-party",
+      "rule": 1,
+      "service": null
+    },
+    {
+      "function": "accounts",
+      "message": "fixture-co cannot be accountable for accounts in a affiliate catalogue; name the party that controls it",
+      "name": "must-not-hold",
+      "rule": 2,
+      "service": "referral-program"
+    },
+    {
+      "function": "backups",
+      "message": "fixture-co cannot be accountable for backups in a affiliate catalogue; name the party that controls it",
+      "name": "must-not-hold",
+      "rule": 2,
+      "service": "referral-program"
+    },
+    {
+      "function": "incident-response",
+      "message": "fixture-co cannot be accountable for incident-response in a affiliate catalogue; name the party that controls it",
+      "name": "must-not-hold",
+      "rule": 2,
+      "service": "referral-program"
+    },
+    {
+      "function": "infrastructure",
+      "message": "fixture-co cannot be accountable for infrastructure in a affiliate catalogue; name the party that controls it",
+      "name": "must-not-hold",
+      "rule": 2,
+      "service": "referral-program"
+    },
+    {
+      "function": "restores",
+      "message": "fixture-co cannot be accountable for restores in a affiliate catalogue; name the party that controls it",
+      "name": "must-not-hold",
+      "rule": 2,
+      "service": "referral-program"
+    }
+  ]
+}
+# expect: met
+# exit 0

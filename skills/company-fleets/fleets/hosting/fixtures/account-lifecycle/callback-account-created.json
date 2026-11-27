@@ -1,0 +1,9 @@
+{
+  "label": "SYNTHETIC: fake panel webhook for Fixture Co tenant-a. Delivered twice in the recovery scenario; the second delivery must change nothing.",
+  "event_id": "evt-fixture-0001",
+  "type": "account.created",
+  "account_id": "acct-tenant-a-001",
+  "tenant_id": "tenant-a",
+  "occurred_at": "2026-11-25T09:00:00Z",
+  "source": "panel.fixture-co.example"
+}

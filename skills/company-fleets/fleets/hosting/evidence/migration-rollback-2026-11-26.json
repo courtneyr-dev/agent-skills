@@ -1,0 +1,21 @@
+{
+  "assumptions": [
+    "SQLite and a files folder stand in for the site's database and uploads; engine-specific SQL (MySQL, PostgreSQL) is not tested.",
+    "Databases are assumed idle, in rollback-journal mode, with one writer; take the site into maintenance mode first.",
+    "sqlite_sequence content and file permissions are not part of the checksums."
+  ],
+  "backup": {
+    "content_checksum": "3c4b269086a25b4d04b8448d523e4c477237becc3b1434ccceb06278e7ded0c1",
+    "file": "backup-0001.sqlite",
+    "file_sha256": "7d0b44c4136e5b22b3a8837de8ece760408b71206db8319901325910b42f5c9d",
+    "name": "backup-0001"
+  },
+  "checksums_equal": true,
+  "failed_statement": 3,
+  "postconditions": [],
+  "pre_checksum": "3c4b269086a25b4d04b8448d523e4c477237becc3b1434ccceb06278e7ded0c1",
+  "reason": "statement 3 failed: no such table: post_slugs",
+  "restored_checksum": "3c4b269086a25b4d04b8448d523e4c477237becc3b1434ccceb06278e7ded0c1",
+  "statements": 4,
+  "verdict": "rolled-back"
+}

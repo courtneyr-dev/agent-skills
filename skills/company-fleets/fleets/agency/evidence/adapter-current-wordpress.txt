@@ -1,0 +1,87 @@
+# eval agency.eval.adapter-current-wordpress (positive, target agency-platform-adapters)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "decision": "supported" --contains wordpress-router --absent "present": false -- python3 ../agency-platform-adapters/scripts/resolve_adapter.py --project ../agency-platform-adapters/fixtures/project-wordpress-current.json
+run on 2026-11-26, exit 0
+
+{
+  "decision": "supported",
+  "limits": [
+    "Resolves the adapter from the platform and version the project reports; run wp-project-triage or the project's own tooling to confirm those facts first.",
+    "A skill counts as present when its SKILL.md exists in the named mount; presence does not prove the skill's guidance is correct for this project.",
+    "Supported ranges are the upstream's own statements at the pinned revision; a null range means the upstream states none, not that every version works."
+  ],
+  "ok": true,
+  "platform": "wordpress",
+  "skills": [
+    {
+      "id": "wordpress-router",
+      "mount": "agents",
+      "path": "<skills-root>/wordpress-router/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "wp-project-triage",
+      "mount": "agents",
+      "path": "<skills-root>/wp-project-triage/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "wp-plugin-development",
+      "mount": "agents",
+      "path": "<skills-root>/wp-plugin-development/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "wp-block-development",
+      "mount": "agents",
+      "path": "<skills-root>/wp-block-development/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "wp-block-themes",
+      "mount": "agents",
+      "path": "<skills-root>/wp-block-themes/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "wp-rest-api",
+      "mount": "agents",
+      "path": "<skills-root>/wp-rest-api/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "wp-performance",
+      "mount": "agents",
+      "path": "<skills-root>/wp-performance/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "wp-wpcli-and-ops",
+      "mount": "agents",
+      "path": "<skills-root>/wp-wpcli-and-ops/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "wp-phpstan",
+      "mount": "agents",
+      "path": "<skills-root>/wp-phpstan/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "wp-playground",
+      "mount": "rig",
+      "path": "<skills-root>/wp-playground/SKILL.md",
+      "present": true
+    },
+    {
+      "id": "code-standards-checker",
+      "mount": "rig",
+      "path": "<skills-root>/code-standards-checker/SKILL.md",
+      "present": true
+    }
+  ],
+  "source": "WordPress/agent-skills docs/compatibility-policy.md at 32ea909f7d01 (GPL-2.0-or-later)",
+  "standards": "WordPress Coding Standards through the project's PHPCS ruleset, and PHPDoc per the WordPress PHP documentation standards; code-standards-checker runs the project's own commands.",
+  "version": "7.0.1",
+  "warnings": []
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

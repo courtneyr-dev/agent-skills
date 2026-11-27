@@ -1,0 +1,6 @@
+SYNTHETIC FIXTURE: build log for tenant-a at Fixture Co with one leaked synthetic secret. Not a real build.
+[00:00:01] npm ci: 214 packages
+[00:00:09] vite build
+[00:00:10] DEBUG env DB_PASSWORD=fx_demo_TenantADbPassword0001abc
+[00:00:12] dist/index.html 1.2 kB
+[00:00:12] build complete

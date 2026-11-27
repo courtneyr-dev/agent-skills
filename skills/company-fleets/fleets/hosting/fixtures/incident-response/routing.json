@@ -1,0 +1,7 @@
+{
+  "label": "SYNTHETIC: alert routing for Fixture Co hosting. Pages go to the site reliability role, tickets to the support role.",
+  "routes": {
+    "page": "hosting.site-reliability-engineer",
+    "ticket": "hosting.support-engineer"
+  }
+}

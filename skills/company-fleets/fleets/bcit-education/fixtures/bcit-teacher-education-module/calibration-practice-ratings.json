@@ -1,0 +1,21 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): generated rehearsal ratings for supervisor calibration. Not supervisor observations; no agreement claim.",
+  "synthetic": true,
+  "rubric_id": "fixture-co-bcit-break-even-methods-v1",
+  "scale": [0, 1, 2, 3],
+  "anchors": {"T1": 0, "T2": 2, "T3": 0, "T4": 1, "T5": 3, "T6": 3},
+  "ratings": [
+    {"item": "T1", "rater": "generated:outcome-focused", "score": 1, "source": "generated"},
+    {"item": "T2", "rater": "generated:outcome-focused", "score": 3, "source": "generated"},
+    {"item": "T3", "rater": "generated:outcome-focused", "score": 1, "source": "generated"},
+    {"item": "T4", "rater": "generated:outcome-focused", "score": 1, "source": "generated"},
+    {"item": "T5", "rater": "generated:outcome-focused", "score": 3, "source": "generated"},
+    {"item": "T6", "rater": "generated:outcome-focused", "score": 2, "source": "generated"},
+    {"item": "T1", "rater": "generated:descriptor-literal", "score": 0, "source": "generated"},
+    {"item": "T2", "rater": "generated:descriptor-literal", "score": 2, "source": "generated"},
+    {"item": "T3", "rater": "generated:descriptor-literal", "score": 0, "source": "generated"},
+    {"item": "T4", "rater": "generated:descriptor-literal", "score": 2, "source": "generated"},
+    {"item": "T5", "rater": "generated:descriptor-literal", "score": 3, "source": "generated"},
+    {"item": "T6", "rater": "generated:descriptor-literal", "score": 3, "source": "generated"}
+  ]
+}

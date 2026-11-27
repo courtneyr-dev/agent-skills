@@ -1,0 +1,17 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.concurrent-replay-captures-once (boundary, target product-payment-events).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../product-payment-events/scripts/tests/test_payment_events.py PaymentEventsTest.test_two_processes_racing_on_one_store_still_capture_once -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-payment-events/scripts/tests/test_payment_events.py PaymentEventsTest.test_two_processes_racing_on_one_store_still_capture_once -v
+
+stderr:
+test_two_processes_racing_on_one_store_still_capture_once (__main__.PaymentEventsTest.test_two_processes_racing_on_one_store_still_capture_once) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.064s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

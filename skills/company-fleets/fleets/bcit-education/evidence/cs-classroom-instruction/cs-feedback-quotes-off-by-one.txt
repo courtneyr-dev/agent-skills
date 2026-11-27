@@ -1,0 +1,45 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "status": "tests-failing" --contains printed 42 --contains "id": "M1" --contains "progress_claim": null -- python3 ../cs-classroom-instruction/scripts/lesson.py respond fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json fleets/bcit-education/fixtures/cs-classroom-instruction/learner-off-by-one.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.cs-feedback-quotes-off-by-one
+{
+  "progress_claim": null,
+  "note": "The script never records mastery or progress. The teacher of record reviews the work and decides.",
+  "task_id": "T2",
+  "learner_ref": "classroom-a/learner-03 (synthetic)",
+  "status": "tests-failing",
+  "tests": [
+    {
+      "id": "week",
+      "input": "12 9 15 7 11\n",
+      "expected": "54",
+      "actual": "42\n",
+      "error": "",
+      "passed": false
+    },
+    {
+      "id": "one-day",
+      "input": "5\n",
+      "expected": "5",
+      "actual": "0\n",
+      "error": "",
+      "passed": false
+    },
+    {
+      "id": "closed-week",
+      "input": "\n",
+      "expected": "0",
+      "actual": "0\n",
+      "error": "",
+      "passed": true
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "M1",
+      "name": "Loop starts at index 1 and skips the first day"
+    }
+  ],
+  "feedback": "For input '12 9 15 7 11' your program printed 42; the task expects '54'. 42 is 12 less than 54, and 12 is the first day: the loop never added the first day.",
+  "next_action": "Trace your loop for the input 5: write the value of i and total on each pass, then compare with what the program printed."
+}
+# expect: met
+# exit 0

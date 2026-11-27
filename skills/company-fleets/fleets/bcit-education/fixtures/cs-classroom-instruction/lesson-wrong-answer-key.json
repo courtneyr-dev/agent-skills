@@ -1,0 +1,254 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): COUNTEREXAMPLE. Copy of lesson-accumulator.json with two intentionally incorrect answers: E1 states 55 (the code prints 54) and T3's week test states 12 (the largest day is 15). lesson.py check must reject it.",
+  "lesson_id": "cs910-accumulator-loops",
+  "context": {
+    "course": "Introduction to Computer Science (fixture course, classroom-a)",
+    "grade_band": "9-10",
+    "duration_minutes": 50,
+    "prior_knowledge": [
+      "Variables hold a value and can be reassigned",
+      "A for loop repeats its body once per item in a list",
+      "print() shows a value on the screen"
+    ],
+    "resources": [
+      "Python 3 on lab computers or school laptops",
+      "Index cards and a whiteboard for the unplugged version"
+    ],
+    "environment": "Python 3 run locally (IDLE or any plain-text editor plus a terminal). No account or internet connection needed.",
+    "assignment_status": {
+      "teaching_assignment": "unverified",
+      "certification": "unverified",
+      "note": "Pennsylvania CSPG 71 (Computer Science 7-12) is the staffing guideline that applies to CS courses in grades 7-12. The actual teaching assignment, certificate and district course code are not verified for this fixture; the school confirms them."
+    }
+  },
+  "objective": {
+    "id": "O1",
+    "text": "Use a loop with an accumulator variable to total a list of numbers, and explain the running value of the accumulator on each pass.",
+    "level": "apply"
+  },
+  "language_rationale": "Python fits this objective because the loop and the accumulator read close to plain English, it runs offline on the lab machines this fixture assumes, and nothing about the accumulator pattern depends on Python. A block-based tool (Snap!) is the swap for learners who need it; the same trace table works with either.",
+  "standards": [
+    {
+      "record_id": "csta-k12-2026",
+      "label": "Algorithms and Programming (concept label only)",
+      "standard_id": null,
+      "status": "unverified",
+      "note": "Exact identifier not mapped. Check the live 2026 CSTA K-12 standards and the district's adopted edition before claiming alignment. Cite by label and link (https://csteachers.org/pk12standards/); the standards use a noncommercial share-alike license."
+    }
+  ],
+  "teacher_guide": {
+    "sequence": [
+      "1. Objective and prior knowledge (5 min): state O1. Ask what a for loop does with a list; listen for 'once per item'.",
+      "2. Complete example (8 min): run E1, then E2. Point to how `total = total + cups` uses the old total to make the new one.",
+      "3. Learner predicts (5 min): T1. Collect every written prediction before running the code.",
+      "4. Learner constructs and explains (15 min): T2. Learners write the program and a trace table for the first test input.",
+      "5. Specific feedback (7 min): respond to the actual work with `lesson.py respond`; read the feedback aloud only after checking it against the work.",
+      "6. Adjust support (ongoing): learners whose trace is complete move to T3; learners with a probe match redo the trace with index cards.",
+      "7. Transfer (10 min): T3 asks for the largest day, a new problem that reuses the running-value idea."
+    ],
+    "decision_points": [
+      "After T1: if a third or more predict 4 (the last item), reteach with E2's printed trace before T2.",
+      "During T2: a learner whose code passes but who cannot fill the trace table has not shown the objective yet."
+    ],
+    "wait_points": [
+      "Stop after T1 until each learner has written a prediction.",
+      "Stop after T2 until the learner submits code and a trace; do not fill in the trace for them."
+    ]
+  },
+  "examples": [
+    {
+      "id": "E1",
+      "purpose": "Complete worked example: total cups of juice sold at the Fixture Co school store over five days.",
+      "code": "# Cups of juice sold each day this week (synthetic data)\ncups_sold = [12, 9, 15, 7, 11]\ntotal = 0\nfor cups in cups_sold:\n    total = total + cups\nprint(total)\n",
+      "expected_output": "55"
+    },
+    {
+      "id": "E2",
+      "purpose": "Same program with the running value printed on each pass, so the accumulator is visible.",
+      "code": "cups_sold = [12, 9, 15, 7, 11]\ntotal = 0\nfor cups in cups_sold:\n    total = total + cups\n    print(cups, total)\n",
+      "expected_output": "12 12\n9 21\n15 36\n7 43\n11 54"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T1",
+      "kind": "predict",
+      "prompt": "Before running it, write what this program prints. Then explain how you got your answer.",
+      "given_code": "prices = [2, 3, 2, 4]\ntotal = 0\nfor p in prices:\n    total = total + p\nprint(total)\n",
+      "expected_output": "11",
+      "answer_rationale": "total starts at 0 and gains each price in turn: 2, 5, 7, 11. The loop ends after the last price, so the program prints 11 once.",
+      "follow_up_prompt": "Write the value of total after each pass of the loop."
+    },
+    {
+      "id": "T2",
+      "kind": "construct",
+      "prompt": "The program reads one line of cups sold per day, separated by spaces. Finish it so it prints the week's total. Then fill in a trace table for the input 12 9 15 7 11: the value of total after each pass.",
+      "starter_code": "cups_sold = [int(x) for x in input().split()]\n# your code here\n",
+      "tests": [
+        {
+          "id": "week",
+          "stdin": "12 9 15 7 11\n",
+          "expected_output": "54"
+        },
+        {
+          "id": "one-day",
+          "stdin": "5\n",
+          "expected_output": "5"
+        },
+        {
+          "id": "closed-week",
+          "stdin": "\n",
+          "expected_output": "0"
+        }
+      ],
+      "reference_solution": "cups_sold = [int(x) for x in input().split()]\ntotal = 0\nfor cups in cups_sold:\n    total = total + cups\nprint(total)\n",
+      "requires_explanation": true,
+      "trace_values": [
+        12,
+        21,
+        36,
+        43,
+        54
+      ],
+      "answer_rationale": "Start total at 0 before the loop so every day is added once; add inside the loop; print after the loop. The running totals for 12 9 15 7 11 are 12, 21, 36, 43, 54. A one-day week prints that day; an empty week prints 0 because the loop body never runs.",
+      "follow_up_prompt": "In your own words, explain what total holds after each pass for the input 12 9 15 7 11, and why it starts at 0.",
+      "transfer_prompt": "Try T3: find the busiest day using the same running-value idea."
+    },
+    {
+      "id": "T3",
+      "kind": "transfer",
+      "prompt": "New problem: print the largest number of cups sold on any one day. Use a variable that keeps the best value seen so far.",
+      "starter_code": "cups_sold = [int(x) for x in input().split()]\n# your code here\n",
+      "tests": [
+        {
+          "id": "week",
+          "stdin": "12 9 15 7 11\n",
+          "expected_output": "12"
+        },
+        {
+          "id": "one-day",
+          "stdin": "4\n",
+          "expected_output": "4"
+        },
+        {
+          "id": "first-is-largest",
+          "stdin": "20 3 8\n",
+          "expected_output": "20"
+        }
+      ],
+      "reference_solution": "cups_sold = [int(x) for x in input().split()]\nbest = cups_sold[0]\nfor cups in cups_sold:\n    if cups > best:\n        best = cups\nprint(best)\n",
+      "requires_explanation": true,
+      "trace_values": [
+        12,
+        15
+      ],
+      "answer_rationale": "Start best at the first day, not 0, so a list of any non-negative numbers works and the first day is compared. best changes only when a larger day appears: 12, 12, 15, 15, 15.",
+      "follow_up_prompt": "Explain how best changes for the input 12 9 15 7 11 and why it starts at the first day."
+    }
+  ],
+  "misconception_probes": [
+    {
+      "id": "M1",
+      "task_id": "T2",
+      "name": "Loop starts at index 1 and skips the first day",
+      "signals": {
+        "output_equals": {
+          "test": "week",
+          "value": "42"
+        },
+        "code_regex": "range\\(\\s*1\\s*,"
+      },
+      "feedback": "42 is 12 less than 54, and 12 is the first day: the loop never added the first day.",
+      "next_action": "Trace your loop for the input 5: write the value of i and total on each pass, then compare with what the program printed."
+    },
+    {
+      "id": "M2",
+      "task_id": "T2",
+      "name": "Loop stops one item early and skips the last day",
+      "signals": {
+        "output_equals": {
+          "test": "week",
+          "value": "43"
+        },
+        "code_regex": "len\\(\\s*cups_sold\\s*\\)\\s*-\\s*1"
+      },
+      "feedback": "43 is 11 less than 54, and 11 is the last day: the loop stopped before the last day.",
+      "next_action": "List the index values range(len(cups_sold) - 1) produces for five days, then compare with the five indexes the list has."
+    },
+    {
+      "id": "M3",
+      "task_id": "T2",
+      "name": "Accumulator reset inside the loop",
+      "signals": {
+        "output_equals": {
+          "test": "week",
+          "value": "11"
+        }
+      },
+      "feedback": "11 is only the last day, so total was set back to 0 on every pass.",
+      "next_action": "Find the line `total = 0` and decide whether it should run once or once per day."
+    },
+    {
+      "id": "M4",
+      "task_id": "T1",
+      "name": "Reads the accumulator as the last item",
+      "signals": {
+        "prediction_equals": "4"
+      },
+      "feedback": "4 is the last price. total keeps the sum so far, not the most recent price.",
+      "next_action": "Run E2 and read the second number on each line aloud."
+    }
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "The program totals the list correctly for a full week, one day and an empty week.",
+      "levels": {
+        "3": "All three tests pass",
+        "2": "Two tests pass",
+        "1": "One or no tests pass"
+      },
+      "evidence": [
+        "tests"
+      ]
+    },
+    {
+      "id": "R2",
+      "criterion": "The learner explains the accumulator with a trace: the value of total after each pass and why it starts at 0.",
+      "levels": {
+        "3": "Every running value and the reason for starting at 0",
+        "2": "Running values with one gap or no reason",
+        "1": "No trace or a trace that does not match the program"
+      },
+      "evidence": [
+        "trace",
+        "explanation"
+      ]
+    },
+    {
+      "id": "R3",
+      "criterion": "The learner transfers the running-value idea to the busiest-day problem and explains the starting value.",
+      "levels": {
+        "3": "Correct program and a reasoned starting value",
+        "2": "Correct program, starting value unexplained",
+        "1": "Program incorrect"
+      },
+      "evidence": [
+        "tests",
+        "explanation"
+      ]
+    }
+  ],
+  "accessibility": {
+    "checks": [
+      "Code and output use the learner's chosen font size and zoom; nothing depends on color alone (the trace table labels each column).",
+      "Every task works by keyboard alone in a plain-text editor and terminal; confirm with each learner's actual screen reader or switch setup before the lesson.",
+      "Typing speed is not assessed: learners may dictate code or submit a trace table on paper; R2 and R3 judge reasoning, not keystrokes.",
+      "Reading load stays at short sentences; the store context is explained once in E1."
+    ],
+    "low_bandwidth_alternative": "All code runs offline with a local Python install; the trace table and tasks print on one page.",
+    "unplugged_alternative": "Each day's cups go on an index card. One learner holds the 'total' whiteboard and updates it as each card is read aloud; the class records the board after each card."
+  },
+  "reteaching": "Use E2's printed trace with the index-card version. Ask the learner to say the value of total aloud after each card, then rerun T2 with the input 5.",
+  "extension": "Compute the average cups per day, then decide what the program should print for a closed week (no days) and defend the choice."
+}

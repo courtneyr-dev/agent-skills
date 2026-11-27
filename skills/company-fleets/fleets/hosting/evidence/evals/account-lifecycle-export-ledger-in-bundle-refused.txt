@@ -1,0 +1,15 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=refused --contains ledger-not-owner-ledger --absent removeacct -- sh -c 'cp -R fleets/hosting/fixtures/account-lifecycle/state-active {tmp}/s && python3 -c "import sys;sys.path.insert(0,'"'"'../hosting-data-migration/scripts'"'"');import data_migration as dm;dm.build_seed_db('"'"'fleets/hosting/fixtures/data-migration/seed.sql'"'"','"'"'{tmp}/site.sqlite'"'"');dm.export_bundle('"'"'{tmp}/site.sqlite'"'"','"'"'fleets/hosting/fixtures/data-migration/tenant-a-files'"'"','"'"'{tmp}/b'"'"','"'"'tenant-a'"'"','"'"'{tmp}/own.jsonl'"'"')" && cp {tmp}/own.jsonl {tmp}/b/ledger.jsonl && python3 ../hosting-account-lifecycle/scripts/account_lifecycle.py export --state-dir {tmp}/s --account-id acct-tenant-a-001 --bundle {tmp}/b --export-ledger {tmp}/b/ledger.jsonl'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.account-lifecycle-export-ledger-in-bundle-refused kind negative synthetic true
+{
+  "assumptions": [
+    "The panel is a fake WHM-shaped adapter; the real cPanel/WHM adapter is blocked (no provider selected, no credentials).",
+    "Dates are UTC calendar dates; renewal dates come from billing and this skill does not compute them.",
+    "Leases use flock on one host and a 600 s TTL; a takeover needs proof the holder process is gone."
+  ],
+  "reasons": [
+    "export: ledger-not-owner-ledger: exports and backups are recorded only in the owner's ledger $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/owner/hosting-data-migration/ledger.ndjson; the caller-named $TMPDIR/hosting-eval-5bb6edj5/b/ledger.jsonl is refused"
+  ],
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

@@ -1,0 +1,8 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): a request to process real student records with no verified school policy.",
+  "principal": "classroom-a-assistant",
+  "record": "CA-ROSTER",
+  "data_origin": "real",
+  "tool": "claude-code",
+  "purpose": "Draft progress notes from the real gradebook"
+}

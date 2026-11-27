@@ -1,0 +1,11 @@
+# eval corporate.eval.school-profile-excludes-corporate (boundary, target corporate.chief-of-staff)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 1 --contains does not activate fleet corporate -- bin/fleet resolve --profile school --workload corporate.workload.strategy-decision
+run on 2026-11-26, exit 0
+
+{
+  "error": "profile school does not activate fleet corporate",
+  "files_read": [
+    "registry/profiles.json"
+  ]
+}
+[expect] exit 1 (expected 1); missing none; forbidden present none -> PASS

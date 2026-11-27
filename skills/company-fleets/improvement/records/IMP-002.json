@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "IMP-002",
+  "title": "Restore drills lose every write made after the last backup",
+  "classification": "reusable-method",
+  "observation": {
+    "summary": "Demonstration 2's restore drill for Client A restored the backup intact but lost 3 writes made after it (rpo_lost_writes 3 against a proposed target of 0). The drill has no log shipping, so any write after the last backup is lost by design.",
+    "source": "company-fleets/evidence/integration/demos/02-hosting-restoration/work/recover/restore-report.json",
+    "capability": "hosting-restore-exercise/scripts/restore_exercise.py",
+    "observed_by": "hosting.service-assurance-lead (demonstration 2 learning step)",
+    "kind_of_record": "Reusable method (drill design). The target itself is a hypothesis Fixture Co proposed, not a commitment."
+  },
+  "hypothesis": "Shipping the SQLite write-ahead log to the backup folder between backups would bring lost writes to 0 in the crash drill. Untested: no patch exists yet.",
+  "change": {
+    "kind": "procedure",
+    "target": "hosting-restore-exercise/scripts/restore_exercise.py",
+    "target_sha256": "d87306cb58264672563acfa2f78654bb4182bbb32daef47b658eb655332748a2",
+    "patch": null,
+    "exercised_by": ["restore_exercise.py"],
+    "proposed_by": "hosting.service-assurance-lead",
+    "owner": "hosting fleet (owns hosting-restore-exercise)"
+  },
+  "criteria": {"cases": null, "thresholds": {"original": "rpo_lost_writes reaches 0 in the crash drill", "min_fresh_pass": 2, "regression": "every hosting restore eval still passes"}},
+  "review": null,
+  "promotion": {"mechanism": "git in the repository that holds the skills", "command": "the hosting fleet writes the patch and cases, then fleet improve pin and evaluate", "commit": null},
+  "rollback": {"command": "not applicable until a patch exists", "verified_by": "evaluation, once it runs"},
+  "monitor": {"command": "rerun demonstration 2", "signal": "rpo_lost_writes above 0 in the crash drill"}
+}

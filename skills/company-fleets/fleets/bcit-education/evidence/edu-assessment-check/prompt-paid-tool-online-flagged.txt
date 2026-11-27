@@ -1,0 +1,32 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains paid-software --contains Excel 365 --contains no-offline-route -- python3 ../edu-assessment-check/scripts/assessment_check.py check fleets/bcit-education/fixtures/bcit-unit-store/assessment-prompt-paid-online.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.prompt-paid-tool-online-flagged
+{
+  "ok": false,
+  "errors": [],
+  "flags": [
+    {
+      "code": "paid-software",
+      "where": "T1",
+      "message": "the task requires paid software (the prompt names 'Microsoft Excel'); offer a free or school-provided route"
+    },
+    {
+      "code": "no-offline-route",
+      "where": "T1",
+      "message": "the prompt requires an online step ('online') and names no offline or low-bandwidth route; describe it in the prompt or in demands.offline_alternative"
+    }
+  ],
+  "objectives": {
+    "O1": {
+      "level": "apply",
+      "tasks": [
+        "T1"
+      ],
+      "criteria": [
+        "R1"
+      ]
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): reviewer probe, a prompt that requires paid Excel 365 and an online lookup while the demands block says neither."
+}
+# expect: met
+# exit 0

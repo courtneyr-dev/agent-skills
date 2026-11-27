@@ -1,0 +1,39 @@
+{
+  "label": "SYNTHETIC: Fixture Co preview record for tenant-a. Not a real build.",
+  "preview_id": "prev-critical-dep",
+  "tenant_id": "tenant-a",
+  "produced_by": "role:hosting-deploy",
+  "build_output_dir": "build-output-clean",
+  "source_dir": "tenant-a-src-critical",
+  "secrets_scan": {
+    "verdict": "clean",
+    "findings": 0
+  },
+  "sandbox": {
+    "verdict": "isolated",
+    "control": false
+  },
+  "dependency_report": {
+    "generated_by": "supply-chain-risk-auditor report (fixture, not a live run)",
+    "findings": [
+      {
+        "id": "FIXTURE-ADV-1",
+        "package": "left-pad-fixture",
+        "severity": "low"
+      },
+      {
+        "id": "FIXTURE-ADV-2",
+        "package": "tiny-parser-fixture",
+        "severity": "medium"
+      },
+      {
+        "id": "FIXTURE-ADV-3",
+        "package": "image-resize-fixture",
+        "severity": "critical"
+      }
+    ]
+  },
+  "approved_by": "human:tenant-a-owner",
+  "build_output": "[00:00:12] build complete\n",
+  "commit_message": "Update footer copy"
+}

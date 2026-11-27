@@ -1,0 +1,46 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): invented for testing; no real study, school, classroom or participant.",
+  "citation": {
+    "title": "Fixture Co AI tutor pilot (synthetic)",
+    "year": 2026
+  },
+  "evidence_type": "conference-talk",
+  "design": "descriptive",
+  "comparison_group": false,
+  "random_assignment": false,
+  "sample": {
+    "n": 24,
+    "sites": 1,
+    "population": "one grade 9 class, classroom-a (fixture)",
+    "setting": "classroom",
+    "level": "k12",
+    "selection": "convenience"
+  },
+  "confound_controls": [],
+  "measures": [
+    {
+      "name": "end-of-unit-survey",
+      "kind": "self-report",
+      "construct": "students' rating of how much they learned"
+    }
+  ],
+  "analysis": {
+    "tests": "none; percentages only",
+    "equivalence_test": false,
+    "subgroup_post_hoc": false
+  },
+  "claims": [
+    {
+      "id": "S1",
+      "text": "The Fixture Co AI tutor causes all K-12 students to learn programming twice as fast.",
+      "scope": {
+        "level": "k12",
+        "setting": "classroom"
+      },
+      "basis": [
+        "end-of-unit-survey"
+      ],
+      "strength": "established"
+    }
+  ]
+}

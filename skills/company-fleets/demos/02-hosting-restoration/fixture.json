@@ -1,0 +1,79 @@
+{
+  "label": "SYNTHETIC demonstration 2 (Fixture Co, fictional Client A): hosting restoration exercise on a disposable local service, with incident evidence and a follow-up improvement. No production host, customer or message is involved.",
+  "instance": "DEMO2",
+  "tenant_id": "client-a",
+  "client_id": "client-a",
+  "profile": "managed",
+  "needs": [],
+  "exclusions": ["Production hosts", "Customer messages", "Availability percentages"],
+  "sources": [{"ref": "company-fleets/fleets/hosting/fixtures/incident-response/slo.json", "revision": "fixture"},
+              {"ref": "company-fleets/fleets/hosting/fixtures/restore-exercise/targets-proposed.json", "revision": "fixture"},
+              {"ref": "company-fleets/fleets/hosting/fixtures/incident-response/events-recovered.jsonl", "revision": "fixture"}],
+  "data": {"classification": "confidential", "allowed_destinations": ["tenant:client-a", "rig:evidence"]},
+  "budget": {"max_minutes": 20, "max_retries": 1},
+  "tools": {
+    "detect": {
+      "collect": [{"from": "{skill}/fleets/hosting/fixtures/incident-response/slo.json", "as": "slo.json"},
+                  {"from": "{skill}/fleets/hosting/fixtures/incident-response/events-spike.jsonl", "as": "events.jsonl"},
+                  {"from": "{skill}/fleets/hosting/fixtures/incident-response/routing.json", "as": "routing.json"}],
+      "produce": [{"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "slo-check", "--slo", "{work}/slo.json", "--events", "{work}/events.jsonl", "--now", "2026-11-25T12:00:00Z", "--routing", "{work}/routing.json"], "stdout": "slo-check.json", "expect_exit": [1]}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/slo-check.json", "--", "verdict=\"violation\"", "alerts~", "assumptions~"]},
+      "outputs": ["slo-check.json"],
+      "summary": "The SLO check found a burn-rate violation on the synthetic event stream and routed a page alert."
+    },
+    "command": {
+      "produce": [
+        {"argv": ["{python}", "{skill}/demos/run_id.py", "{base}", "--", "{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "open", "--record", "{work}/record.jsonl", "--id", "INC-DEMO2-{run}", "--title", "SYNTHETIC: Client A site returns 5xx in the lab", "--severity", "sev2", "--commander", "hosting.incident-commander", "--comms-coordinator", "hosting.communications-coordinator", "--by", "hosting.incident-commander", "--at", "2026-11-25T12:02:00Z"], "stdout": "open.json"},
+        {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "update", "--record", "{work}/record.jsonl", "--kind", "fact", "--source", "detect/slo-check.json", "--text", "Burn-rate page alert fired on the 5xx SLI.", "--by", "hosting.incident-commander", "--at", "2026-11-25T12:03:00Z"], "stdout": "update.json"},
+        {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "update", "--record", "{work}/record.jsonl", "--kind", "hypothesis", "--text", "The site process crashed; data may need a restore.", "--by", "hosting.incident-commander", "--at", "2026-11-25T12:04:00Z"], "stdout": "hypothesis.json"}],
+      "check": {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "show", "--record", "{work}/record.jsonl"]},
+      "outputs": ["record.jsonl"],
+      "summary": "Opened the incident with one commander and a separate communications coordinator, pinning the owner's SLO and anchoring each record head in the owner's ledger; facts and hypotheses are logged apart.",
+      "assumptions": ["The incident id carries the run stamp because the owner's anchors ledger refuses an id it already holds.", "The timeline replays the owner's synthetic 2026-11-25 events with --at, so `incident show` lists these lines as backdated."]
+    },
+    "mitigate": {
+      "collect": [{"from": "{base}/work/command/record.jsonl", "as": "record.jsonl"}],
+      "produce": [
+        {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "mitigate", "--record", "{work}/record.jsonl", "--text", "Stopped traffic to the crashed lab process; restore from backup next.", "--by", "hosting.site-reliability-engineer", "--at", "2026-11-25T12:20:00Z"], "stdout": "mitigate.json"}],
+      "check": {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "show", "--record", "{work}/record.jsonl"]},
+      "outputs": ["record.jsonl"]
+    },
+    "recover": {
+      "collect": [{"from": "{base}/work/mitigate/record.jsonl", "as": "record.jsonl"},
+                  {"from": "{skill}/fleets/hosting/fixtures/restore-exercise/targets-proposed.json", "as": "targets.json"},
+                  {"from": "{skill}/fleets/hosting/fixtures/incident-response/events-recovered.jsonl", "as": "monitoring-events.jsonl"}],
+      "produce": [
+        {"argv": ["{python}", "{skills}/hosting-restore-exercise/scripts/restore_exercise.py", "run", "--targets", "{work}/targets.json", "--failure", "crash", "--handoff-dir", "{work}/handoff"], "cwd": "{work}", "stdout": "restore-report.json", "expect_exit": [1]},
+        {"argv": ["{python}", "{skills}/hosting-restore-exercise/scripts/restore_exercise.py", "review", "--handoff-dir", "{work}/handoff", "--targets", "{work}/targets.json"], "stdout": "restore-review.json"},
+        {"argv": ["{python}", "{skills}/hosting-restore-exercise/scripts/restore_exercise.py", "evidence-gate", "--handoff-dir", "{work}/handoff", "--targets", "{work}/targets.json"], "stdout": "evidence-gate.json"},
+        {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/restore-review.json", "--", "verdict=\"reviewed\"", "reviewer=\"hosting.service-assurance-lead\""]},
+        {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/evidence-gate.json", "--", "verdict=\"stale-evidence-rejected\""]},
+        {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "update", "--record", "{work}/record.jsonl", "--kind", "fact", "--source", "recover/handoff/report.json", "--text", "Restore from backup-1 matched the backup checksum; service assurance reviewed it and the evidence gate rejected every edited copy.", "--by", "hosting.storage-backup-engineer", "--at", "2026-11-25T12:22:00Z"], "stdout": "restore-fact.json"},
+        {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "monitor", "--record", "{work}/record.jsonl", "--text", "Restored from backup-1; watching the SLI.", "--by", "hosting.site-reliability-engineer", "--at", "2026-11-25T12:25:00Z"], "stdout": "monitor.json"},
+        {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "resolve", "--record", "{work}/record.jsonl", "--recovery-evidence", "{work}/monitoring-events.jsonl", "--text", "No server errors since the 12:20Z mitigation; RPO target unmet in the restore drill.", "--by", "hosting.incident-commander", "--at", "2026-11-25T12:50:00Z"], "stdout": "resolve.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/restore-report.json", "--", "restore.matches_backup=true", "targets.restore_success.status=\"met\"", "targets.rpo_lost_writes.status=\"unmet\"", "unmet~", "assumptions~"]},
+      "outputs": ["restore-report.json", "restore-review.json", "evidence-gate.json", "monitoring-events.jsonl", "record.jsonl"],
+      "summary": "Restore from backup verified by checksum, reviewed by service assurance in a separate step and passed through the owner's evidence gate; detection and RTO targets met; the RPO target stays unmet (3 writes lost after the backup). The incident resolved on the owner's monitoring events, not on the restore report.",
+      "assumptions": ["One lab run on a local SQLite service; not an availability figure.", "Recovery is derived from the owner's synthetic monitoring events for 2026-11-25; the restore drill itself ran at run time."]
+    },
+    "communicate": {
+      "collect": [{"from": "{base}/work/recover/record.jsonl", "as": "record.jsonl"}],
+      "produce": [
+        {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "comms", "--record", "{work}/record.jsonl", "--audience", "external", "--by", "hosting.communications-coordinator", "--text", "SYNTHETIC draft: Client A's site was unavailable for under a minute in a lab drill; content was restored."], "stdout": "comms-draft.json"},
+        {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "approve", "--record", "{work}/record.jsonl", "--seq", "7", "--by", "hosting.incident-commander"], "stdout": "comms-agent-approval.json", "expect_exit": [1]},
+        {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/comms-agent-approval.json", "--", "verdict=\"refused\"", "refusal=\"approver-must-be-human\""]}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/comms-draft.json", "--", "status=\"draft\"", "published=false"]},
+      "outputs": ["comms-draft.json", "comms-agent-approval.json", "record.jsonl"],
+      "summary": "External message held as a draft; an agent role's approval was refused (approver must be human)."
+    },
+    "learn": {
+      "collect": [{"from": "{base}/work/communicate/record.jsonl", "as": "record.jsonl"}],
+      "produce": [
+        {"argv": ["{python}", "{skills}/hosting-incident-response/scripts/incident.py", "incident", "review", "--record", "{work}/record.jsonl", "--out", "{work}/learning.md", "--text", "Restore worked; writes after the last backup were lost. Follow-up: IMP-002 proposes WAL shipping for the drill."], "stdout": "review.json"},
+        {"argv": ["{skill}/bin/fleet", "improve", "gate", "IMP-002"], "stdout": "follow-up-gate.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/follow-up-gate.json", "--", "stage=\"observed\"", "promotable=false", "reasons~"]},
+      "outputs": ["learning.md", "record.jsonl", "follow-up-gate.json"],
+      "summary": "Learning seed written; the follow-up improvement IMP-002 is recorded and held at observed until a patch, pinned cases and an evaluation exist."
+    }
+  }
+}

@@ -1,0 +1,98 @@
+$ sh -c 'bin/fleet resolve --profile community --workload community.workload.moderation-case | tee /dev/stderr | python3 -c '"'"'import json,sys; r=json.load(sys.stdin); print(sorted(x["id"] for x in r["roles"])); assert r["coordinator"]; assert len(r["roles"]) == 4 and not [f for f in r["files_read"] if f.startswith("fleets/") and "community" not in f]'"'"''
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:10Z
+# case: community.eval.resolve-moderation-case (positive, target community.moderator, synthetic=True)
+# expected: Coordinator, moderator, trust-and-safety lead and appeal coordinator; no other fleet's files read.
+# exit: 0 -> pass
+--- stdout ---
+['community.appeal-coordinator', 'community.moderator', 'community.operations-manager', 'community.trust-safety-lead']
+--- stderr ---
+{
+  "coordinator": "community.operations-manager",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/community/roles.json"
+  ],
+  "profile": "community",
+  "roles": [
+    {
+      "display_name": "Community operations manager (coordinator)",
+      "fleet": "community",
+      "id": "community.operations-manager",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        },
+        {
+          "id": "developer-community-health",
+          "installed": true,
+          "path": "skills/developer-community-health/SKILL.md"
+        },
+        {
+          "id": "kanban-guru",
+          "installed": true,
+          "path": "skills/kanban-guru/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Moderator",
+      "fleet": "community",
+      "id": "community.moderator",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "community-moderation-review",
+          "installed": true,
+          "path": "skills/community-moderation-review/SKILL.md"
+        },
+        {
+          "id": "developer-community-moderation",
+          "installed": true,
+          "path": "skills/developer-community-moderation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Trust and safety lead",
+      "fleet": "community",
+      "id": "community.trust-safety-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "community-moderation-review",
+          "installed": true,
+          "path": "skills/community-moderation-review/SKILL.md"
+        },
+        {
+          "id": "developer-community-moderation",
+          "installed": true,
+          "path": "skills/developer-community-moderation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Independent escalation and appeal coordinator",
+      "fleet": "community",
+      "id": "community.appeal-coordinator",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "community-moderation-review",
+          "installed": true,
+          "path": "skills/community-moderation-review/SKILL.md"
+        },
+        {
+          "id": "developer-community-moderation",
+          "installed": true,
+          "path": "skills/developer-community-moderation/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "community.workload.moderation-case"
+}

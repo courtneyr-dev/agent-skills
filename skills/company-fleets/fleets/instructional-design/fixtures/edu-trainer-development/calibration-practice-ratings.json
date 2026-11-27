@@ -1,0 +1,25 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): generated practice ratings for calibration rehearsal. These are not reviewer observations and support no agreement claim.",
+  "synthetic": true,
+  "rubric_id": "fixture-co-accessible-publishing-v1",
+  "scale": [0, 1, 2, 3],
+  "anchors": {"A1": 0, "A2": 1, "A3": 2, "A4": 3, "A5": 0, "A6": 1, "A7": 2, "A8": 3},
+  "ratings": [
+    {"item": "A1", "rater": "generated:literal-reader", "score": 0, "source": "generated"},
+    {"item": "A2", "rater": "generated:literal-reader", "score": 2, "source": "generated"},
+    {"item": "A3", "rater": "generated:literal-reader", "score": 2, "source": "generated"},
+    {"item": "A4", "rater": "generated:literal-reader", "score": 3, "source": "generated"},
+    {"item": "A5", "rater": "generated:literal-reader", "score": 0, "source": "generated"},
+    {"item": "A6", "rater": "generated:literal-reader", "score": 1, "source": "generated"},
+    {"item": "A7", "rater": "generated:literal-reader", "score": 3, "source": "generated"},
+    {"item": "A8", "rater": "generated:literal-reader", "score": 3, "source": "generated"},
+    {"item": "A1", "rater": "generated:lenient-reader", "score": 1, "source": "generated"},
+    {"item": "A2", "rater": "generated:lenient-reader", "score": 1, "source": "generated"},
+    {"item": "A3", "rater": "generated:lenient-reader", "score": 3, "source": "generated"},
+    {"item": "A4", "rater": "generated:lenient-reader", "score": 3, "source": "generated"},
+    {"item": "A5", "rater": "generated:lenient-reader", "score": 0, "source": "generated"},
+    {"item": "A6", "rater": "generated:lenient-reader", "score": 2, "source": "generated"},
+    {"item": "A7", "rater": "generated:lenient-reader", "score": 2, "source": "generated"},
+    {"item": "A8", "rater": "generated:lenient-reader", "score": 3, "source": "generated"}
+  ]
+}

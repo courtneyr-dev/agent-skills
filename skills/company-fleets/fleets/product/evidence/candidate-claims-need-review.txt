@@ -1,0 +1,17 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.candidate-claims-need-review (negative, target product-release-gate).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../product-release-gate/scripts/tests/test_release_gate.py ReleaseGateTest.test_candidate_claims_edited_and_rebound_without_review_are_refused -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-release-gate/scripts/tests/test_release_gate.py ReleaseGateTest.test_candidate_claims_edited_and_rebound_without_review_are_refused -v
+
+stderr:
+test_candidate_claims_edited_and_rebound_without_review_are_refused (__main__.ReleaseGateTest.test_candidate_claims_edited_and_rebound_without_review_are_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.566s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

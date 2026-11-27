@@ -1,0 +1,11 @@
+# eval agency.eval.affiliate-profile-excludes-agency (boundary, target agency.engagement-director)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 1 --contains does not activate fleet agency -- bin/fleet resolve --profile affiliate --workload agency.workload.client-engagement
+run on 2026-11-26, exit 0
+
+{
+  "error": "profile affiliate does not activate fleet agency",
+  "files_read": [
+    "registry/profiles.json"
+  ]
+}
+[expect] exit 1 (expected 1); missing none; forbidden present none -> PASS

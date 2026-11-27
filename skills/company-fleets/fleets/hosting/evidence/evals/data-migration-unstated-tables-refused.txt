@@ -1,0 +1,8 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=refused --contains 'comments, options, posts' -- sh -c 'printf -- '"'"'-- expect-table: posts\nDELETE FROM posts;\nDELETE FROM comments;\n'"'"' > {tmp}/m.sql && python3 ../hosting-data-migration/scripts/data_migration.py migrate --seed fleets/hosting/fixtures/data-migration/seed.sql --migration {tmp}/m.sql'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.data-migration-unstated-tables-refused kind negative synthetic true
+{
+  "reason": "the migration states nothing about the rows of comments, options, posts; add expect-rows-unchanged, expect-rows or expect-no-table for each existing table; nothing was changed",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

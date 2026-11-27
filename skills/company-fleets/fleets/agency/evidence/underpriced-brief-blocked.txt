@@ -1,0 +1,47 @@
+# eval agency.eval.underpriced-brief-blocked (negative, target agency-engagement-gate)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 1 --contains "rule": "margin-below-floor" -- python3 ../agency-engagement-gate/scripts/engagement_gate.py brief --brief ../agency-engagement-gate/fixtures/brief-low-margin.json
+run on 2026-11-26, exit 0
+
+{
+  "brief_sha256": "26c60600b34457c55428436f04d4722938ac2b72ae49d2edc4e78089684da385",
+  "findings": [
+    {
+      "blocking": true,
+      "message": "margin 13.7% is below the 35.0% company floor; rescope, reprice or get a decision from human:finance-owner.",
+      "rule": "margin-below-floor"
+    },
+    {
+      "blocking": false,
+      "message": "the company floor is a hypothesis (Fixture Co has no measured delivery history; human:finance-owner set this floor until delivered work calibrates it.), not calibrated against delivery history.",
+      "rule": "margin-floor-is-hypothesis"
+    }
+  ],
+  "limits": [
+    "Margin uses the pinned rate card's cost rates and the estimate's hours; it is a planning figure, not an accounting result.",
+    "A margin floor marked hypothesis is not calibrated against this company's history; treat a pass as provisional.",
+    "Owner values come only from the owner ledger of the instance the work names, kept at fleets/agency/owner/<instance> in company-fleets and written under the claim token; a ledger whose tenant or contract differ from the work is refused. Not stopped: a same-user process that writes the owner root, reads the owner's token, or claims an instance first, including an instance id it writes into its own brief or contract (company-fleets references/authoring-guide.md, Owner path)."
+  ],
+  "margin": {
+    "basis": "hypothesis",
+    "cost": 5610.0,
+    "currency": "USD",
+    "floor": 0.35,
+    "margin": 0.1369,
+    "pinned": {
+      "margin-policy": {
+        "owner_log_seq": 2,
+        "path": "margin-policy.json",
+        "sha256": "6e7e08cf9380b60579ca93093ce9ccf975cbde9c9152556da660cf1deefb7935"
+      },
+      "rate-card": {
+        "owner_log_seq": 3,
+        "path": "rates.json",
+        "sha256": "86246fb52ed6c56832dbb6dbb48bd52fc42bf950ff16e4d39c31466b23625dcd"
+      }
+    },
+    "policy_owner": "human:finance-owner",
+    "price": 6500.0
+  },
+  "ok": false
+}
+[expect] exit 1 (expected 1); missing none; forbidden present none -> PASS

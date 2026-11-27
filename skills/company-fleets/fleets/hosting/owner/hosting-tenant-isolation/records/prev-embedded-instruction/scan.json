@@ -1,0 +1,20 @@
+{
+  "files": [
+    [
+      "build.log",
+      "78a0567ba946b60c070a61882de409c9e4c706fd941bd9682755202819aec37c"
+    ],
+    [
+      "preview/index.html.txt",
+      "53f0c92351bc3c9e50f0dcf24bb8a6189606704bee67fc00030c4b86195801ad"
+    ]
+  ],
+  "files_scanned": 2,
+  "findings": 0,
+  "kind": "scan",
+  "preview_id": "prev-embedded-instruction",
+  "recorded_by": "isolation_check secrets scan",
+  "subject_sha256": "92116b27ce88e45ae5cf80143f9c6c35970fc87eb2382b886dabff7f52dd20a2",
+  "tenant_id": "tenant-a",
+  "verdict": "clean"
+}

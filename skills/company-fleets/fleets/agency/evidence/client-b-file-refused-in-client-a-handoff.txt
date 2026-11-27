@@ -1,0 +1,13 @@
+# eval agency.eval.client-b-file-refused-in-client-a-handoff (negative, target agency-engagement-gate)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../agency-engagement-gate/scripts/tests/test_engagement_gate.py -v HandoffTests.test_client_b_file_cannot_enter_a_client_a_handoff HandoffTests.test_external_destination_for_confidential_data_is_refused
+run on 2026-11-26, exit 0
+
+[stderr]
+test_client_b_file_cannot_enter_a_client_a_handoff (__main__.HandoffTests.test_client_b_file_cannot_enter_a_client_a_handoff) ... ok
+test_external_destination_for_confidential_data_is_refused (__main__.HandoffTests.test_external_destination_for_confidential_data_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.028s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

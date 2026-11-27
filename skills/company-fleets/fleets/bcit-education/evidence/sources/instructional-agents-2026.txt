@@ -1,0 +1,11 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://aclanthology.org/2026.eacl-long.191/
+# run 2026-11-25
+http_code=200 final_url=https://aclanthology.org/2026.eacl-long.191/ size=44758
+L1: Instructional Agents: Reducing Teaching Faculty Workload through Multi-Agent Instructional Design - ACL Anthology
+L30: Instructional Agents: Reducing Teaching Faculty Workload through Multi-Agent Instructional Design
+L63: Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers)Month:MarchYear:2026Address:Rabat, MoroccoEditors:
+L67: EACLSIG:Publisher:Association for Computational LinguisticsNote:Pages:4087–4109Language:URL:
+L69: 10.18653/v1/2026.eacl-long.191Bibkey:
+L72: Instructional Agents: Reducing Teaching Faculty Workload through Multi-Agent Instructional Design. In Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers), pages 4087–4109, Rabat, Morocco. Association for Computational Linguistics.Cite (Informal):
+L73: Instructional Agents: Reducing Teaching Faculty Workload through Multi-Agent Instructional Design (Yao et al., EACL 2026)Copy Citation:BibTeX
+L107: doi = "10.18653/v1/2026.eacl-long.191",

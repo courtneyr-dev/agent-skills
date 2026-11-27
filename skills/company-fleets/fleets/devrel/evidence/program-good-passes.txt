@@ -1,0 +1,15 @@
+$ python3 ../devrel-program-kit/scripts/check_program.py fleets/devrel/fixtures/program/program-good.json
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:05Z
+# case: devrel.eval.program-good-passes (positive, target devrel-program-kit, synthetic=True)
+# expected: Exit 0: non-goals, usefulness headline, attribution limits, owner-to-provide budget, replay evidence per chain link.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "devrel-program-kit/check_program",
+  "version": "1.0.0",
+  "ok": true,
+  "violations": []
+}
+--- stderr ---
+

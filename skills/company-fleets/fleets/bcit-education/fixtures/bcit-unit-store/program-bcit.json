@@ -1,0 +1,51 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): BCIT program map (course titles and area tags only).",
+  "courses": [
+    {
+      "id": "C1",
+      "title": "Introduction to Business and Computer Applications",
+      "nbea_areas": [
+        "Information Technology",
+        "Communication",
+        "Career Development"
+      ]
+    },
+    {
+      "id": "C2",
+      "title": "Accounting I",
+      "nbea_areas": [
+        "Accounting"
+      ]
+    },
+    {
+      "id": "C3",
+      "title": "Personal Finance",
+      "nbea_areas": [
+        "Economics and Personal Finance"
+      ]
+    },
+    {
+      "id": "C4",
+      "title": "Business Law and Ethics",
+      "nbea_areas": [
+        "Business Law"
+      ]
+    },
+    {
+      "id": "C5",
+      "title": "Marketing and the Student Store",
+      "nbea_areas": [
+        "Marketing",
+        "Entrepreneurship"
+      ]
+    },
+    {
+      "id": "C6",
+      "title": "Management and Global Business",
+      "nbea_areas": [
+        "Management",
+        "International Business"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.1edtech.org/standards/case
+# run 2026-11-25
+http_code=200 final_url=https://www.1edtech.org/standards/case size=109849
+L62: Member Only Resources
+L108: 1EdTech is the leading member-led non-profit edtech partnership accelerating the digital transformation of learning
+L144: CASE 1.1 is a technical specification that establishes a standard way to exchange information about academic standards, competencies, and learning outcomes across platforms and applications.
+L187: CASE 1.1 Specification Overview
+L188: CASE 1.1 Specification (Information Model)
+L189: CASE 1.1 Specification (REST API)
+L193: CASE 1.0 Specification (Information Model)
+L194: CASE 1.0 Specification (REST API)

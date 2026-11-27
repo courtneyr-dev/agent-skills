@@ -1,0 +1,17 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains prerequisite cycle among: functions, testing-debugging --contains asymptotic-notation (band university) sits in unit U1 at grade 9 without a bridge justification --contains list-traversal comes before its prerequisite loops --contains "order": null -- python3 ../edu-learning-progression/scripts/progression.py check fleets/bcit-education/fixtures/edu-learning-progression/progression-counterexample.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.progression-cycle-and-band-jump-rejected
+{
+  "ok": false,
+  "errors": [
+    "prerequisite cycle among: functions, testing-debugging",
+    "asymptotic-notation (band university) sits in unit U1 at grade 9 without a bridge justification",
+    "list-traversal comes before its prerequisite loops in the sequence",
+    "functions comes before its prerequisite testing-debugging in the sequence"
+  ],
+  "warnings": [],
+  "unassessed": [],
+  "order": null,
+  "note": "A valid order shows the map is coherent, not that learners will learn in it. Teacher and faculty review decide use."
+}
+# expect: met
+# exit 0

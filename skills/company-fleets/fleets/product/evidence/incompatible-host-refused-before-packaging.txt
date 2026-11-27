@@ -1,0 +1,78 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.incompatible-host-refused-before-packaging (negative, target product-release-gate).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains "code": "incompatible-host" --contains "note": "compatibility refused first" --contains "decision": "refused" --absent "status": "pass" -- python3 ../product-release-gate/scripts/release_gate.py gate --candidate ../product-release-gate/fixtures/candidate-incompatible-host.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-release-gate/scripts/release_gate.py gate --candidate ../product-release-gate/fixtures/candidate-incompatible-host.json
+{
+  "approval_owner": "human:release-owner",
+  "channel": "stable",
+  "decision": "refused",
+  "not_checked": [
+    "runtime behavior beyond the recorded test results",
+    "legal review of license compatibility",
+    "marketplace reviewer judgment",
+    "whether platform_facts are still current"
+  ],
+  "product": {
+    "id": "fixture-co-forms-connector",
+    "platform": "wordpress-plugin",
+    "previous_version": "1.4.2",
+    "version": "2.0.0"
+  },
+  "stages": [
+    {
+      "errors": [
+        {
+          "code": "incompatible-host",
+          "message": "wordpress 6.6 is inside the declared range 6.6-6.9 and its test failed"
+        }
+      ],
+      "stage": "compatibility",
+      "status": "fail"
+    },
+    {
+      "errors": [],
+      "note": "compatibility refused first",
+      "stage": "semver-and-channel",
+      "status": "not-run"
+    },
+    {
+      "errors": [],
+      "note": "compatibility refused first",
+      "stage": "changelog",
+      "status": "not-run"
+    },
+    {
+      "errors": [],
+      "note": "compatibility refused first",
+      "stage": "supply-chain",
+      "status": "not-run"
+    },
+    {
+      "errors": [],
+      "note": "compatibility refused first",
+      "stage": "migration-and-rollback",
+      "status": "not-run"
+    },
+    {
+      "errors": [],
+      "note": "compatibility refused first",
+      "stage": "marketplace-policy",
+      "status": "not-run"
+    },
+    {
+      "errors": [],
+      "note": "compatibility refused first",
+      "stage": "evidence-freshness",
+      "status": "not-run"
+    }
+  ],
+  "support_boundary": "Supports WordPress 6.6 to 6.9 on PHP 8.1 to 8.4; behavior outside that range is unsupported."
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains '"code": "incompatible-host"': ok
+CHECK contains '"note": "compatibility refused first"': ok
+CHECK contains '"decision": "refused"': ok
+CHECK absent '"status": "pass"': ok
+VERDICT pass

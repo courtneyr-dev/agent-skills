@@ -1,0 +1,73 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: the same construct wrapped in construct-irrelevant barriers, plus unlabeled student work.",
+  "context": {
+    "grade_band": "10-12",
+    "reading_grade_target": 9
+  },
+  "objectives": [
+    {
+      "id": "O1",
+      "level": "apply",
+      "text": "Calculate markup, contribution margin and weekly gross profit for store items with spreadsheet formulas built from cell references.",
+      "construct": "applying markup and gross profit calculations in a spreadsheet"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T1",
+      "objective_ids": [
+        "O1"
+      ],
+      "format": "performance",
+      "cognitive_level": "apply",
+      "evidence": [
+        "product",
+        "explanation"
+      ],
+      "prompt": "Utilizing the proprietary enterprise spreadsheet application, operationalize comprehensive profitability calculations, incorporating differentiated markup methodologies, contribution-margin considerations and organizational inventory-valuation conventions. Subsequently, characterize the consequential implications of hypothetical pricing modifications within the remaining examination interval.",
+      "demands": {
+        "paid_software": true,
+        "internet_required": true,
+        "offline_alternative": false,
+        "color_only_cues": true,
+        "timed_minutes": 10,
+        "construct_is_speed": false,
+        "brand_specific_tool": "Microsoft Excel 365"
+      }
+    }
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "task_id": "T1",
+      "objective_id": "O1",
+      "criterion": "Markup, margin and profit formulas",
+      "scoring_rationale": "Same criterion as the main unit.",
+      "levels": [
+        {
+          "score": 1,
+          "descriptor": "Beginning: values typed in, or calculation wrong"
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing: correct method on some items, one error in references or logic"
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient: correct results from cell references or queries, with a one-sentence explanation"
+        },
+        {
+          "score": 4,
+          "descriptor": "Advanced: proficient, and the model updates correctly when an input changes, with the reason stated"
+        }
+      ]
+    }
+  ],
+  "student_work": [
+    {
+      "id": "W9",
+      "task_id": "T1",
+      "content": "pasted from a learner's file"
+    }
+  ]
+}

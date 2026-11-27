@@ -1,0 +1,139 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains bcit-education.business-pathways-instructor --contains bcit-education.communication-productivity-instructor --absent fleets/agency -- bin/fleet resolve --profile school --workload bcit-education.workload.business-unit
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.resolve-business-unit
+{
+  "coordinator": "bcit-education.program-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/bcit-education/roles.json"
+  ],
+  "profile": "school",
+  "roles": [
+    {
+      "display_name": "BCIT department and program lead",
+      "fleet": "bcit-education",
+      "id": "bcit-education.program-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "edu-standards-alignment",
+          "installed": true,
+          "path": "skills/edu-standards-alignment/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Business, entrepreneurship and management instructor",
+      "fleet": "bcit-education",
+      "id": "bcit-education.business-management-instructor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "bcit-learning-package",
+          "installed": true,
+          "path": "skills/bcit-learning-package/SKILL.md"
+        },
+        {
+          "id": "edu-answer-key-check",
+          "installed": true,
+          "path": "skills/edu-answer-key-check/SKILL.md"
+        },
+        {
+          "id": "k12-lesson-differentiation",
+          "installed": true,
+          "path": "skills/k12-lesson-differentiation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Business law and ethics, marketing, international business and career development instructor",
+      "fleet": "bcit-education",
+      "id": "bcit-education.business-pathways-instructor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "bcit-learning-package",
+          "installed": true,
+          "path": "skills/bcit-learning-package/SKILL.md"
+        },
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        },
+        {
+          "id": "k12-lesson-differentiation",
+          "installed": true,
+          "path": "skills/k12-lesson-differentiation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Business communication and digital productivity instructor",
+      "fleet": "bcit-education",
+      "id": "bcit-education.communication-productivity-instructor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "bcit-learning-package",
+          "installed": true,
+          "path": "skills/bcit-learning-package/SKILL.md"
+        },
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Curriculum and standards specialist",
+      "fleet": "bcit-education",
+      "id": "bcit-education.curriculum-standards-specialist",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-standards-alignment",
+          "installed": true,
+          "path": "skills/edu-standards-alignment/SKILL.md"
+        },
+        {
+          "id": "edu-learning-progression",
+          "installed": true,
+          "path": "skills/edu-learning-progression/SKILL.md"
+        },
+        {
+          "id": "k12-fixing-lesson-plans",
+          "installed": true,
+          "path": "skills/k12-fixing-lesson-plans/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Assessment and rubric designer",
+      "fleet": "bcit-education",
+      "id": "bcit-education.assessment-designer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        },
+        {
+          "id": "edu-answer-key-check",
+          "installed": true,
+          "path": "skills/edu-answer-key-check/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "bcit-education.workload.business-unit"
+}
+# expect: met
+# exit 0

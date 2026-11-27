@@ -1,0 +1,128 @@
+{
+  "label": "SYNTHETIC: valid affiliate service catalogue for Fixture Co. Infrastructure duties sit with the upstream provider.",
+  "company": "fixture-co",
+  "profile": "affiliate",
+  "capability_sets": [],
+  "parties": [
+    "fixture-co",
+    "customer",
+    "upstream:example-host"
+  ],
+  "services": [
+    {
+      "id": "referral-program",
+      "name": "Hosting referral program (fixture)",
+      "functions": [
+        {
+          "function": "eligibility",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co",
+            "customer"
+          ]
+        },
+        {
+          "function": "disclosures",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "attribution",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "commission-reconciliation",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "customer-handoff",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co",
+            "customer"
+          ]
+        },
+        {
+          "function": "provider-escalation",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        }
+      ],
+      "customer_visible_limits": [
+        {
+          "name": "attribution-window",
+          "value": 30,
+          "unit": "days"
+        }
+      ],
+      "upstream_dependencies": []
+    },
+    {
+      "id": "provider-hosting",
+      "name": "Hosting delivered by the upstream provider (fixture)",
+      "functions": [
+        {
+          "function": "infrastructure",
+          "accountable": "upstream:example-host",
+          "responsible": [
+            "upstream:example-host"
+          ]
+        },
+        {
+          "function": "accounts",
+          "accountable": "upstream:example-host",
+          "responsible": [
+            "upstream:example-host"
+          ]
+        },
+        {
+          "function": "backups",
+          "accountable": "upstream:example-host",
+          "responsible": [
+            "upstream:example-host"
+          ]
+        },
+        {
+          "function": "restores",
+          "accountable": "upstream:example-host",
+          "responsible": [
+            "upstream:example-host"
+          ]
+        },
+        {
+          "function": "incident-response",
+          "accountable": "upstream:example-host",
+          "responsible": [
+            "upstream:example-host"
+          ]
+        }
+      ],
+      "customer_visible_limits": [],
+      "upstream_dependencies": [
+        {
+          "provider": "example-host",
+          "service": "Shared hosting plans (fixture)",
+          "obligations": [
+            "Operate servers, accounts and networking",
+            "Run backups and restores",
+            "Handle incidents on their infrastructure"
+          ],
+          "escalation_path": [
+            "Fixture Co partner manager role",
+            "Provider partner desk (support.example-host.example)"
+          ]
+        }
+      ]
+    }
+  ]
+}

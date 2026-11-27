@@ -1,0 +1,77 @@
+$ sh -c 'python3 ../community-operating-kit/scripts/kit_check.py fleets/community/fixtures/kit/kit-bad-plan.md; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.kit-bad-plan-refused (boundary, target community.recognition-lead, synthetic=True)
+# expected: Exit 1 through plan-* violations alone.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "community-operating-kit",
+  "version": "1.0.0",
+  "ok": false,
+  "violations": [
+    {
+      "rule": "plan-individual-level",
+      "section": "measurement plan",
+      "message": "top-contributors-by-commits: level 'person': report at community, cohort or channel level, never per person"
+    },
+    {
+      "rule": "plan-ranking",
+      "section": "measurement plan",
+      "message": "top-contributors-by-commits: 'top contributors' ranks people; report aggregates instead"
+    },
+    {
+      "rule": "plan-small-groups",
+      "section": "measurement plan",
+      "message": "top-contributors-by-commits: min_group_size must be an integer of at least 5"
+    },
+    {
+      "rule": "plan-individual-level",
+      "section": "measurement plan",
+      "message": "burnout-risk-per-maintainer: level 'person': report at community, cohort or channel level, never per person"
+    },
+    {
+      "rule": "plan-ranking",
+      "section": "measurement plan",
+      "message": "burnout-risk-per-maintainer: 'per maintainer' ranks people; report aggregates instead"
+    },
+    {
+      "rule": "plan-inference",
+      "section": "measurement plan",
+      "message": "burnout-risk-per-maintainer: 'burnout' would be inferred from activity; don't infer burnout, wellbeing or protected traits"
+    },
+    {
+      "rule": "plan-undefined-composite",
+      "section": "measurement plan",
+      "message": "community-health-score: a score needs published components that are metrics in this plan, with weights summing to 1"
+    },
+    {
+      "rule": "plan-sales-leads",
+      "section": "measurement plan",
+      "message": "meetup-attendee-leads: 'sales' turns participation into sales leads"
+    },
+    {
+      "rule": "plan-individual-level",
+      "section": "measurement plan",
+      "message": "reports-against-each-member: level 'person': report at community, cohort or channel level, never per person"
+    },
+    {
+      "rule": "plan-small-groups",
+      "section": "measurement plan",
+      "message": "reports-against-each-member: min_group_size must be an integer of at least 5"
+    },
+    {
+      "rule": "plan-no-consent",
+      "section": "measurement plan",
+      "message": "reports-against-each-member: state the consent basis for the data this metric reads"
+    },
+    {
+      "rule": "plan-confidential-source",
+      "section": "measurement plan",
+      "message": "reports-against-each-member: moderation cases never feed metrics; transparency counts come from the case log with human approval"
+    }
+  ],
+  "notes": []
+}
+--- stderr ---
+

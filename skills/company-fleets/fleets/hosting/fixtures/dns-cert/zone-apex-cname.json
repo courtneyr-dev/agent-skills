@@ -1,0 +1,25 @@
+{
+  "label": "SYNTHETIC: Fixture Co tenant-a DNS zone fixture. Domains use .example only. Apex CNAME.",
+  "origin": "tenant-a.example",
+  "issuer": "ca.fixture-co.test",
+  "records": [
+    {
+      "name": "@",
+      "type": "CNAME",
+      "ttl": 3600,
+      "value": "edge.platform.example."
+    },
+    {
+      "name": "mail",
+      "type": "A",
+      "ttl": 3600,
+      "value": "192.0.2.25"
+    },
+    {
+      "name": "www",
+      "type": "CNAME",
+      "ttl": 3600,
+      "value": "edge.platform.example."
+    }
+  ]
+}

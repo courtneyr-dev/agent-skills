@@ -1,0 +1,89 @@
+# eval corporate.eval.partnerships-manager-routes (positive, target corporate.partnerships-manager)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "corporate.partnerships-manager" --absent "installed": false -- bin/fleet resolve --profile affiliate --workload corporate.workload.partner-program
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "affiliate",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Partnerships manager",
+      "fleet": "corporate",
+      "id": "corporate.partnerships-manager",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "partnerships-architect",
+          "installed": true,
+          "path": "skills/partnerships-architect/SKILL.md"
+        },
+        {
+          "id": "channel-economics",
+          "installed": true,
+          "path": "skills/channel-economics/SKILL.md"
+        },
+        {
+          "id": "referrals",
+          "installed": true,
+          "path": "skills/referrals/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Finance advisor",
+      "fleet": "corporate",
+      "id": "corporate.finance-advisor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "cfo-advisor",
+          "installed": true,
+          "path": "skills/cfo-advisor/SKILL.md"
+        },
+        {
+          "id": "financial-analyst",
+          "installed": true,
+          "path": "skills/financial-analyst/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Legal and contract liaison",
+      "fleet": "corporate",
+      "id": "corporate.contract-liaison",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "general-counsel-advisor",
+          "installed": true,
+          "path": "skills/general-counsel-advisor/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.partner-program"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

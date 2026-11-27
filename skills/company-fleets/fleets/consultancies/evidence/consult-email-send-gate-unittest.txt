@@ -1,0 +1,31 @@
+# Unit tests for skills/consult-email-send-gate after the 2026-11-26 review fixes. SYNTHETIC Fixture Co fixtures. Run 2026-11-26T22:17Z.
+$ cd skills/consult-email-send-gate/scripts/tests && python3 -m unittest -v
+test_accessibility_defects (test_send_gate.SendGateTests.test_accessibility_defects) ... ok
+test_approval_does_not_survive_a_kind_flip_to_transactional (test_send_gate.SendGateTests.test_approval_does_not_survive_a_kind_flip_to_transactional) ... ok
+test_approval_does_not_survive_audience_growth (test_send_gate.SendGateTests.test_approval_does_not_survive_audience_growth) ... ok
+test_approval_does_not_survive_subject_sender_or_header_changes (test_send_gate.SendGateTests.test_approval_does_not_survive_subject_sender_or_header_changes) ... ok
+test_authorization_not_human (test_send_gate.SendGateTests.test_authorization_not_human) ... ok
+test_bad_now_rejected (test_send_gate.SendGateTests.test_bad_now_rejected) ... ok
+test_cross_tenant_contact (test_send_gate.SendGateTests.test_cross_tenant_contact) ... ok
+test_dmarc_policy_none_is_a_warning (test_send_gate.SendGateTests.test_dmarc_policy_none_is_a_warning) ... ok
+test_expired_authorization (test_send_gate.SendGateTests.test_expired_authorization) ... ok
+test_malformed_file_rejected (test_send_gate.SendGateTests.test_malformed_file_rejected) ... ok
+test_missing_field_rejected (test_send_gate.SendGateTests.test_missing_field_rejected) ... ok
+test_missing_now_rejected (test_send_gate.SendGateTests.test_missing_now_rejected) ... ok
+test_negative_campaign (test_send_gate.SendGateTests.test_negative_campaign) ... ok
+test_no_authorization_is_not_a_defect (test_send_gate.SendGateTests.test_no_authorization_is_not_a_defect) ... ok
+test_plus_address_and_trailing_dot_variants_stay_suppressed (test_send_gate.SendGateTests.test_plus_address_and_trailing_dot_variants_stay_suppressed) ... ok
+test_positive_clean_campaign (test_send_gate.SendGateTests.test_positive_clean_campaign) ... ok
+test_reoptin_after_unsubscribe_stays_suppressed (test_send_gate.SendGateTests.test_reoptin_after_unsubscribe_stays_suppressed) ... ok
+test_sender_auth_missing (test_send_gate.SendGateTests.test_sender_auth_missing) ... ok
+test_suppressed_alias_suppresses_the_base_mailbox (test_send_gate.SendGateTests.test_suppressed_alias_suppresses_the_base_mailbox) ... ok
+test_transactional_receipt_to_unsubscribed_contact (test_send_gate.SendGateTests.test_transactional_receipt_to_unsubscribed_contact) ... ok
+test_unchanged_campaign_reports_the_hash_a_human_approved (test_send_gate.SendGateTests.test_unchanged_campaign_reports_the_hash_a_human_approved) ... ok
+test_v1_authorization_that_bound_only_content_is_refused (test_send_gate.SendGateTests.test_v1_authorization_that_bound_only_content_is_refused) ... ok
+test_wrong_schema_tag_rejected (test_send_gate.SendGateTests.test_wrong_schema_tag_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 1.158s
+
+OK
+exit=0

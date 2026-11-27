@@ -1,0 +1,3 @@
+SYNTHETIC FIXTURE: Client B (tenant-b) customer export at Fixture Co. Rows are invented.
+customer-001,orders@tenant-b.example,plan-basic
+customer-002,billing@tenant-b.example,plan-pro

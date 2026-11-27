@@ -1,0 +1,15 @@
+# eval corporate.eval.email-send-without-authority-refused (negative, target corporate-email-guard)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../corporate-email-guard/scripts/tests/test_email_guard.py -v SendTests.test_send_without_approval_is_refused SendTests.test_wrong_campaign_hash_is_refused SendTests.test_agent_approver_is_refused SendTests.test_real_transport_is_refused
+run on 2026-11-26, exit 0
+
+[stderr]
+test_send_without_approval_is_refused (__main__.SendTests.test_send_without_approval_is_refused) ... ok
+test_wrong_campaign_hash_is_refused (__main__.SendTests.test_wrong_campaign_hash_is_refused) ... ok
+test_agent_approver_is_refused (__main__.SendTests.test_agent_approver_is_refused) ... ok
+test_real_transport_is_refused (__main__.SendTests.test_real_transport_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.045s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

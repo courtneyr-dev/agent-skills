@@ -1,0 +1,12 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "status": "awaiting-learner-response" --contains "feedback": null --contains "progress_claim": null -- python3 ../cs-classroom-instruction/scripts/lesson.py respond fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.cs-teacher-waits-for-learner
+{
+  "progress_claim": null,
+  "note": "The script never records mastery or progress. The teacher of record reviews the work and decides.",
+  "status": "awaiting-learner-response",
+  "feedback": null,
+  "next_action": null,
+  "reason": "No learner work was supplied. Wait for the learner's actual response."
+}
+# expect: met
+# exit 0

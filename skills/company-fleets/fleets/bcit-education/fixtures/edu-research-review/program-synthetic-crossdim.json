@@ -1,0 +1,76 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): invented for testing; no real study, school, classroom or participant.",
+  "name": "Fixture Co secondary BCIT program review (synthetic)",
+  "evaluation_foci": [
+    "coherence",
+    "assessment-validity",
+    "accessibility",
+    "participation",
+    "evidence-of-learning"
+  ],
+  "standards_mapping": "see edu-standards-alignment output for the program's alignment file",
+  "standards_check": "fleets/bcit-education/evidence/edu-standards-alignment/ (attached by the coordinator when run)",
+  "evidence": [
+    {
+      "id": "E1",
+      "kind": "scored-student-work",
+      "dimensions": [
+        "business-subject-mastery",
+        "technology-fluency"
+      ],
+      "note": "synthetic scored spreadsheet tasks"
+    },
+    {
+      "id": "E2",
+      "kind": "satisfaction-survey",
+      "dimensions": [],
+      "note": "synthetic end-of-course survey"
+    },
+    {
+      "id": "E3",
+      "kind": "classroom-observation",
+      "dimensions": [
+        "pedagogical-competence"
+      ],
+      "note": "synthetic observation of a student teacher with a calibrated instrument"
+    }
+  ],
+  "conclusions": [
+    {
+      "id": "K1",
+      "dimension": "business-subject-mastery",
+      "about_learning": true,
+      "evidence": [
+        "E1"
+      ],
+      "text": "Students applied break-even analysis in scored spreadsheet tasks."
+    },
+    {
+      "id": "K2",
+      "dimension": "pedagogical-competence",
+      "evidence": [
+        "E3"
+      ],
+      "text": "The observed lesson met the instrument's questioning criteria."
+    },
+    {
+      "id": "K3",
+      "dimension": "occupational-assessment-readiness",
+      "about_learning": true,
+      "evidence": [
+        "E1",
+        "E2"
+      ],
+      "text": "Students are ready for an occupational (NOCTI) assessment."
+    },
+    {
+      "id": "K4",
+      "dimension": "technology-fluency",
+      "about_learning": true,
+      "evidence": [
+        "E2"
+      ],
+      "text": "Students learned spreadsheet skills, as the survey shows."
+    }
+  ]
+}

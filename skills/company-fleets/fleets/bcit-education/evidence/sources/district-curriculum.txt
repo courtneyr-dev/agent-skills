@@ -1,0 +1,2 @@
+# run 2026-11-25
+# no command: no school district, course or teaching assignment is known to the rig, so there is nothing to fetch

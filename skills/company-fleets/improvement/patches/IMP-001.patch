@@ -1,0 +1,19 @@
+--- a/company-fleets/scripts/fleetlib/untrusted.py
++++ b/company-fleets/scripts/fleetlib/untrusted.py
+@@ -19,7 +19,7 @@
+     ("authority", r"\b(approve|accept|sign off|certify)\b.{0,40}\b(your own|its own|own output|own work|yourself)\b"),
+     ("authority", r"\b(you are|act as|become)\b.{0,20}\b(the )?(acceptance owner|approver|reviewer|admin(istrator)?|teacher of record)\b"),
+     ("authority", r"\b(grant|give|elevate|escalate)\b.{0,30}\b(yourself|your)\b.{0,30}\b(access|permissions?|privileges?|authority|role)\b"),
+-    ("exfiltration", r"\b(send|e-?mail|upload|post|forward|transmit|export|copy)\b.{0,60}\b(records?|database|data ?base|files?|credentials?|passwords?|tokens?|secrets?|roster|grades?)\b.{0,80}\b(to|at|into)\b\s*\S*(@|https?://)"),
++    ("exfiltration", r"\b(send|e-?mail|upload|post|forward|transmit|export|copy)\b.{0,60}\b(records?|database|data ?base|files?|credentials?|passwords?|tokens?|secrets?|roster|grades?|exports?|lists?|spreadsheets?|dumps?|backups?|contacts?)\b.{0,80}\b(to|at|into)\b\s*\S*(@|https?://)"),
+     ("tenant-access", r"\b(client|tenant|customer|classroom|school|community|organi[sz]ation)\s+[b-z](?:'s)?\b.{0,40}\b(records?|data|files?|accounts?|grades?|cases?)\b"),
+     ("tenant-access", r"\b(all|every|other)\s+(clients?|tenants?|customers?|classrooms?|students?|communit(?:y|ies)|organi[sz]ations?)'?\b.{0,40}\b(records?|data|files?|accounts?|grades?|cases?)\b"),
+     ("evidence", r"\b(skip|bypass|disable|waive|ignore)\b.{0,30}\b(tests?|review|verification|checks?|gate|evidence|qa|scan)\b"),
+@@ -28,6 +28,7 @@
+     # A strong trigger gets a wide window. A bare "now" counts only in a command ("Post the fix now"),
+     # so ordinary prose such as "the release is out now" stays clean.
+     ("publication", r"\b(publish|go live|deploy|post|announce|release|send)\b.{0,80}\b(immediately|right away|without (review|approval|sign-?off))\b"),
++    ("publication", r"\b(put|push|make|take|set|switch)\b(?:\s+\S+){1,5}?\s+(live|public)\b(?![\w-])(?=\s*(?:[.,;:!?)]|$|\band\b|\bnow\b|\btoday\b|\btonight\b|\bas soon\b|\bright\b|\bimmediately\b|\bbefore\b|\bwithout\b|\bonce\b|\bwhen\b))"),
+     ("publication", r"^\W*(?:(?:please|also|then|and)\s+)*(publish|go live|deploy|post|announce|release|send)\b.{0,40}\bnow\b"),
+     ("override", r"\b(ignore|disregard|forget|override)\b.{0,40}\b(previous|prior|above|earlier|all|your)\b.{0,30}\b(instructions?|rules?|guidelines?|prompts?|policy|policies)\b"),
+     ("override", r"\b(you are now|new instructions?|system prompt|developer message|assistant:|ai assistant\b.{0,20}\b(must|should|will))"),

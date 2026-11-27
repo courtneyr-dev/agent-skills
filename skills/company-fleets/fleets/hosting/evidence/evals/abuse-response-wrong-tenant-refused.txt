@@ -1,0 +1,10 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=tenant-mismatch -- sh -c 'mkdir -p {tmp}/in && { cat fleets/hosting/fixtures/abuse-response/phishing-report-tenant-b.txt; echo '"'"'Forwarded with ticket EV-abuse-response-wrong-tenant-refused'"'"'; } > {tmp}/in/phishing-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/phishing-report-tenant-b.txt --case-dir {tmp}/case --tenant tenant-a --category phishing'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-wrong-tenant-refused kind negative synthetic true
+{
+  "detail": "the report names hosts of tenant-b, not tenant-a (owner host map $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/abuse-response/tenant-hosts.json)",
+  "recorded": false,
+  "refusal": "tenant-mismatch",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0
