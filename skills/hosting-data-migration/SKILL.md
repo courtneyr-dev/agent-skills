@@ -110,7 +110,7 @@ checklist for the real engine and mark the production result unverified.
 ## Tests
 
 ```bash
-cd ~/.claude/skills/hosting-data-migration/scripts && python3 -W ignore -m unittest discover -s tests
+cd scripts && python3 -W ignore -m unittest discover -s tests
 ```
 
 ## Evaluation cases

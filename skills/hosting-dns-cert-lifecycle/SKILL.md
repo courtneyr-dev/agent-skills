@@ -87,7 +87,7 @@ claim about the live zone unverified.
 ## Tests
 
 ```bash
-cd ~/.claude/skills/hosting-dns-cert-lifecycle/scripts && python3 -W ignore -m unittest discover -s tests
+cd scripts && python3 -W ignore -m unittest discover -s tests
 ```
 
 ## Evaluation cases

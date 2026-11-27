@@ -13,4 +13,4 @@ Retrieval date for every row: 2026-11-25. The build made no network calls, so we
 | Docker run reference (security and resource flags) | https://docs.docker.com/reference/cli/docker/container/run/ | flags exercised on Docker 29.5.2, 2026-11-25; page not re-fetched | Public docs; cite, don't copy |
 | Linux sysfs network class (`/sys/class/net`) | https://www.kernel.org/doc/html/latest/admin-guide/abi-stable.html | kernel ABI docs; not re-fetched 2026-11-25 | GPL-2.0 kernel documentation; cite, don't copy |
 | supply-chain-risk-auditor skill (source of the dependency report) | skills/supply-chain-risk-auditor/SKILL.md | rig copy of 2026-11-25 | Trail of Bits skill; follow its license, cite, don't copy |
-| Hosting fleet fixture conventions (`fx_demo_` synthetic secrets, `.example` domains) | hosting workstream build brief (company-fleets fleets/hosting) | 2026-11-25 | agent-skills (MIT); original |
+| Hosting fleet fixture conventions (`fx_demo_` synthetic secrets, `.example` domains) | `company-fleets/fleets/hosting/fixtures/` | 2026-11-25 | agent-skills (MIT); original fixtures |

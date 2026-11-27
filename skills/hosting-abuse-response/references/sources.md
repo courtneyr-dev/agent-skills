@@ -9,4 +9,4 @@ Retrieval date for every row: 2026-11-25. The build made no network calls, so we
 | RFC 2606, Reserved Top Level DNS Names (.example, .test) | https://www.rfc-editor.org/rfc/rfc2606 | 1999; not re-fetched 2026-11-25 | IETF RFC; BCP 78 rights, cite, don't copy |
 | RFC 3227, Guidelines for Evidence Collection and Archiving (order of volatility, chain of custody) | https://www.rfc-editor.org/rfc/rfc3227 | 2002; not re-fetched 2026-11-25 | IETF RFC; BCP 78 rights, cite, don't copy |
 | 17 U.S.C. section 512, limitation on liability for online service providers (notice and takedown) | https://www.law.cornell.edu/uscode/text/17/512 | not re-fetched 2026-11-25 | US law, public domain; legal review stays with a human |
-| Hosting fleet fixture conventions and abuse-response fixtures | hosting workstream build brief (company-fleets fleets/hosting) | 2026-11-25 | agent-skills (MIT); original |
+| Hosting fleet fixture conventions and abuse-response fixtures | `company-fleets/fleets/hosting/fixtures/` | 2026-11-25 | agent-skills (MIT); original fixtures |

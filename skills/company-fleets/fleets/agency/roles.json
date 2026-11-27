@@ -1270,7 +1270,7 @@
         },
         {
           "id": "code-standards-checker",
-          "provenance": "upstream: kanopi/cms-cultivator @ff328fcc77af, GPL-2.0 (Kanopi Studios), installed",
+          "provenance": "upstream: kanopi/cms-cultivator @ff328fcc77af, GPL-2.0-or-later (Kanopi Studios), installed",
           "blocked_reason": "external: install from kanopi/cms-cultivator; see the catalog"
         },
         {
@@ -1398,17 +1398,17 @@
         },
         {
           "id": "code-standards-checker",
-          "provenance": "upstream: kanopi/cms-cultivator @ff328fcc77af, GPL-2.0 (Kanopi Studios), installed",
+          "provenance": "upstream: kanopi/cms-cultivator @ff328fcc77af, GPL-2.0-or-later (Kanopi Studios), installed",
           "blocked_reason": "external: install from kanopi/cms-cultivator; see the catalog"
         },
         {
           "id": "composer-security-update",
-          "provenance": "upstream: kanopi/cms-cultivator @ff328fcc77af, GPL-2.0 (Kanopi Studios), installed",
+          "provenance": "upstream: kanopi/cms-cultivator @ff328fcc77af, GPL-2.0-or-later (Kanopi Studios), installed",
           "blocked_reason": "external: install from kanopi/cms-cultivator; see the catalog"
         },
         {
           "id": "woocommerce-plugin-dev",
-          "provenance": "upstream: Automattic/claude-woocommerce-toolkit @d70538707247, GPL-2.0, installed",
+          "provenance": "upstream: Automattic/claude-woocommerce-toolkit @d70538707247, GPL-2.0-or-later, installed",
           "blocked_reason": "external: install from Automattic/claude-woocommerce-toolkit; see the catalog"
         },
         {
@@ -1653,7 +1653,7 @@
         },
         {
           "id": "pr-quality-report",
-          "provenance": "upstream: kanopi/cms-cultivator @ff328fcc77af, GPL-2.0 (Kanopi Studios), installed",
+          "provenance": "upstream: kanopi/cms-cultivator @ff328fcc77af, GPL-2.0-or-later (Kanopi Studios), installed",
           "blocked_reason": "external: install from kanopi/cms-cultivator; see the catalog"
         }
       ],
@@ -2020,7 +2020,7 @@
         },
         {
           "id": "composer-security-update",
-          "provenance": "upstream: kanopi/cms-cultivator @ff328fcc77af, GPL-2.0 (Kanopi Studios), installed",
+          "provenance": "upstream: kanopi/cms-cultivator @ff328fcc77af, GPL-2.0-or-later (Kanopi Studios), installed",
           "blocked_reason": "external: install from kanopi/cms-cultivator; see the catalog"
         }
       ],

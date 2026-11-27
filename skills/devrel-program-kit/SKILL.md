@@ -19,7 +19,7 @@ samber's `developer-relations-kickoff` is the DevRel domain router: it interview
 1. Run the kickoff. Then check its routes resolve:
 
 ```bash
-python3 ~/.claude/skills/devrel-program-kit/scripts/check_routes.py routes routes.json
+python3 scripts/check_routes.py routes routes.json
 ```
 
    An unresolved route comes back with installed fallbacks from `references/fallbacks.json` and a coverage label. Replace it, or record the gap as blocked. Never route to a name the check didn't resolve.
@@ -29,7 +29,7 @@ python3 ~/.claude/skills/devrel-program-kit/scripts/check_routes.py routes route
 5. Check the plan until it exits 0:
 
 ```bash
-python3 ~/.claude/skills/devrel-program-kit/scripts/check_program.py program.json --base DIR
+python3 scripts/check_program.py program.json --base DIR
 ```
 
    Paths in the plan (chain `evidence`, `human_evidence`, claim `source` and `consent`) resolve under `--base`, default the current directory. Each must be an existing file: a passing `devrel-quickstart-replay` report whose `doc_sha256` matches the artifact's current bytes, a recorded session file, or a retained source or consent record.
@@ -64,7 +64,7 @@ python3 ~/.claude/skills/devrel-program-kit/scripts/check_program.py program.jso
 
 ## Boundaries
 
-- Never publish, post, submit a CFP, email developers or contact speakers. Content leaves as drafts for a human; `shared-content-publishing` is archived in this rig, so a human publishes.
+- Never publish, post, submit a CFP, email developers or contact speakers. Content leaves as drafts for a human; no publishing skill ships here, so a human publishes.
 - Never schedule the kickoff's § 7 routines. Propose them as dry-runs to the PM layer (`kanban-guru`, `technical-program-management`); this rig starts no recurring jobs.
 - Don't patch a project's agent-instruction file, as kickoff § 5 allows, without the record owner's approval.
 
@@ -75,5 +75,5 @@ Two sibling collections the kickoff routes to aren't installed: `samber/develope
 ## Tests
 
 ```bash
-cd ~/.claude/skills/devrel-program-kit/scripts/tests && python3 -W ignore -m unittest -v test_kit
+cd scripts/tests && python3 -W ignore -m unittest -v test_kit
 ```

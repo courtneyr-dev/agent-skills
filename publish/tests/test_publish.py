@@ -67,7 +67,7 @@ class Transforms(unittest.TestCase):
             "license: Private rig (x). Original skill; no upstream code copied."), "license: MIT")
         self.assertEqual(T.public_rig_rights("| 2026-11-25 | Private rig; original |"),
                          "| 2026-11-25 | agent-skills (MIT); original |")
-        for path in ("/Users/courtneyrobertson/Downloads/brief.md", "~/Downloads/brief.md", "$HOME/Downloads/brief.md"):
+        for path in (T.HOME + "/Downloads/brief.md", "~/Downloads/brief.md", "$HOME/Downloads/brief.md"):
             for tail in ("", " line 3", ", line 778", " lines 310-320", " lines 419 to 450"):
                 self.assertEqual(T.private_prompt_reference(f"| `{path}`{tail} | x |"),
                                  "| project requirements (not published) | x |", path + tail)

@@ -23,7 +23,7 @@ bin/fleet resolve --profile agency --workload agency.workload.multilingual-launc
 | brand-and-design-system | brand-design-lead, ux-ui-designer, design-systems-lead, accessibility-specialist |
 | platform-routing | solution-architect, cms-specialist, mobile-pwa-specialist |
 
-Each role's `purpose` names the titles it covers. The hosting fleet has no roles yet, so `launch-with-hosting` hands off to the placeholder `human:hosting-intake-owner`; when hosting registers its intake role, add it under `by_profile.managed` and as `next_consumer` in `demo/client-a-donate/handoff/hosting-owner.json`.
+Each role's `purpose` names the titles it covers. The hosting fleet now has 26 roles but no intake role, so `launch-with-hosting` still hands off to the placeholder `human:hosting-intake-owner`; when hosting registers an intake role, add it under `by_profile.managed` and as `next_consumer` in `demo/client-a-donate/handoff/hosting-owner.json`.
 
 ## Platform adapters
 
@@ -33,12 +33,12 @@ Each role's `purpose` names the titles it covers. The hosting fleet has no roles
 
 Adopted (installed upstream, attached by id or routed through the adapter register):
 
-- kanopi/cms-cultivator at `ff328fcc77af`, GPL-2.0: code-standards-checker, composer-security-update, pr-quality-report. Kanopi's private Teamwork, DDEV and audit tooling isn't assumed.
+- kanopi/cms-cultivator at `ff328fcc77af`, GPL-2.0-or-later: code-standards-checker, composer-security-update, pr-quality-report. Kanopi's private Teamwork, DDEV and audit tooling isn't assumed.
 - WordPress/agent-skills at `32ea909f7d01`, GPL-2.0-or-later: wordpress-router, wp-project-triage and seven more, plus wp-playground.
 - zstvns/design-skills at `d612aa928d7e`, MIT: brand-strategy, brand, creative-direction, art-direction, web-design, design-principles, motion-design, design-system (its `check-foundations.py` checks the demo's tokens).
 - magnus919/agent-skills at `6806511df28c`, MIT: web-accessibility, verification-methodology, implementation-planning, release-engineering, production-readiness.
 - trailofbits/skills at `149d7b21f406`, CC BY-SA 4.0: differential-review, fp-check, supply-chain-risk-auditor.
-- Automattic/claude-woocommerce-toolkit at `d70538707247`, GPL-2.0: woocommerce-plugin-dev.
+- Automattic/claude-woocommerce-toolkit at `d70538707247`, GPL-2.0-or-later: woocommerce-plugin-dev.
 - coreyhaines31/marketingskills (MIT): customer-research, content-strategy, site-architecture, schema, competitor-profiling. yysun/project-manager: brd-writer, test-manager. samber/developer-relations-skills (MIT): docs-localization-strategy. pstack: typescript-best-practices. gstack: ios-qa. Rig skills: tdd, wordpress-performance, technical-writing.
 - msitarzewski/agency-agents at `8ae6164602c9` (MIT) was read as a seed for role titles only; its invented experience and numeric targets were not carried over, and nothing from it is installed.
 

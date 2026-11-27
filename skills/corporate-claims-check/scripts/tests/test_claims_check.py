@@ -442,7 +442,7 @@ class RegisterSignOff(unittest.TestCase):
 
     def with_s9(self):
         reg = json.loads(json.dumps(self.register))
-        reg["sources"].append({"id": "S9", "title": "Totally real Gartner report", "url": "https://www.gartner.com/made-up",
+        reg["sources"].append({"id": "S9", "title": "Totally real Fixture Analytics report", "url": "https://analyst.example/made-up",
                                "retrieved": "2026-11-26", "excerpts": ["Fixture Co clients saw 310% more organic traffic and #1 rankings."]})
         return reg
 
@@ -466,7 +466,7 @@ class RegisterSignOff(unittest.TestCase):
         reg["sign_off"] = {"signed_off_by": "human:claims-reviewer", "signed_on": "2026-11-26", "sources_sha256": claims_check_sha(reg["sources"])}
         draft = os.path.join(self.tmp, "d.md")
         with open(draft, "w") as fh:
-            fh.write("Gartner found Fixture Co clients saw 310% more organic traffic[^S9].\n")
+            fh.write("Fixture Analytics found Fixture Co clients saw 310% more organic traffic[^S9].\n")
         code, out = run_here(draft, self.write_register(reg))
         self.assertEqual((code, rules(out)), (1, ["register-not-signed-off"]))
 
@@ -476,7 +476,7 @@ class RegisterSignOff(unittest.TestCase):
         self.sign(path, signer="human:a", author="human:b")
         draft = os.path.join(self.tmp, "d.md")
         with open(draft, "w") as fh:
-            fh.write("Gartner found Fixture Co clients saw 310% more organic traffic[^S9].\n")
+            fh.write("Fixture Analytics found Fixture Co clients saw 310% more organic traffic[^S9].\n")
         code, out = run_here(draft, path)
         self.assertEqual((code, rules(out)), (1, ["ledger-not-for-this-work"]))
 

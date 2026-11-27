@@ -25,7 +25,7 @@ An agent may analyze a case and draft a recommendation. It may not decide an all
 8. Run the check and fix the draft until it exits 0:
 
 ```bash
-python3 ~/.claude/skills/community-moderation-review/scripts/case_check.py --case case.json --draft draft.json
+python3 scripts/case_check.py --case case.json --draft draft.json
 ```
 
 ## Stopping conditions
@@ -68,5 +68,5 @@ The draft JSON has `case_id`, `prepared_by` (a role id), `status: draft-for-huma
 ## Tests
 
 ```bash
-cd ~/.claude/skills/community-moderation-review/scripts/tests && python3 -W ignore -m unittest -v test_case_check
+cd scripts/tests && python3 -W ignore -m unittest -v test_case_check
 ```

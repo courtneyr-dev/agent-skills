@@ -14,10 +14,17 @@
 - `publish_skills.py --only NAME...` to apply or check named skills while other skills drift, and
   `replace_text` in the policy for declared one-off rewrites that fail closed when stale.
 - Seven fleet transforms, each tested, and `.gitleaks.toml` allowing only `idempotency_key` content
-  hashes.
+  hashes. CI runs gitleaks 8.30.1 with it over the tree and the history.
+- `publish/public-authored.files` lists every file of the 8 public-authored skills; `--verify-public`
+  and `--check` fail on an undeclared file and run the privacy scan over every public-authored file.
+- `company-fleets/registry/eval-external-needs.json` names the 55 eval cases that need an upstream
+  skill or a local tool (Docker, Playwright) and what each needs; the other 429 pass from a clone.
 
 ### Changed
 - The installer test compares installed links with `skills/` on disk instead of a fixed count.
+- Fleet sources cite requirement ids instead of the unpublished prompt's sections and lines, and
+  the education fetch logs paraphrase third-party paragraphs. README's license section says quoted
+  or referenced third-party material stays under its owners' terms.
 
 ### Fixed
 - `install.sh -p <path>` and `--guided` work. 1.0.0 listed both, and `--copy`, but the script

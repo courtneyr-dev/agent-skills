@@ -64,5 +64,5 @@ Without `sandbox-exec` (Linux, Windows), the replay still runs with the clean di
 ## Tests
 
 ```bash
-cd ~/.claude/skills/devrel-quickstart-replay/scripts/tests && python3 -W ignore -m unittest -v test_replay
+cd scripts/tests && python3 -W ignore -m unittest -v test_replay
 ```

@@ -23,7 +23,7 @@ The community mandate stands apart from DevRel even where it reuses DevRel's ski
 5. Check the kit until it exits 0:
 
 ```bash
-python3 ~/.claude/skills/community-operating-kit/scripts/kit_check.py kit.md
+python3 scripts/kit_check.py kit.md
 ```
 
 6. Hand the kit to the record owner for acceptance. Feedback for the product goes as a handoff.v1 record to `human:product-owner`.
@@ -64,5 +64,5 @@ The kit is one Markdown file with the eight `##` sections. `kit_check.py` prints
 ## Tests
 
 ```bash
-cd ~/.claude/skills/community-operating-kit/scripts/tests && python3 -W ignore -m unittest -v test_kit_check
+cd scripts/tests && python3 -W ignore -m unittest -v test_kit_check
 ```

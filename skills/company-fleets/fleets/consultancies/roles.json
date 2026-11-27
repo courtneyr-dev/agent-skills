@@ -1482,7 +1482,7 @@
       "skills": [
         {
           "id": "woocommerce-plugin-dev",
-          "provenance": "upstream: Automattic/claude-woocommerce-toolkit (GPL-2.0), installed",
+          "provenance": "upstream: Automattic/claude-woocommerce-toolkit (GPL-2.0-or-later), installed",
           "blocked_reason": "external: install from Automattic/claude-woocommerce-toolkit; see the catalog"
         },
         {
@@ -1606,12 +1606,12 @@
         },
         {
           "id": "woocommerce-plugin-dev",
-          "provenance": "upstream: Automattic/claude-woocommerce-toolkit (GPL-2.0), installed",
+          "provenance": "upstream: Automattic/claude-woocommerce-toolkit (GPL-2.0-or-later), installed",
           "blocked_reason": "external: install from Automattic/claude-woocommerce-toolkit; see the catalog"
         },
         {
           "id": "woocommerce-upgrade-safety",
-          "provenance": "upstream: Automattic/claude-woocommerce-toolkit (GPL-2.0), installed",
+          "provenance": "upstream: Automattic/claude-woocommerce-toolkit (GPL-2.0-or-later), installed",
           "blocked_reason": "external: install from Automattic/claude-woocommerce-toolkit; see the catalog"
         }
       ],

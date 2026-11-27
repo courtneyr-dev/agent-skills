@@ -262,13 +262,13 @@
           "title": "kanopi/cms-cultivator",
           "location": "https://github.com/kanopi/cms-cultivator",
           "version": "ff328fcc77af",
-          "rights": "GPL-2.0"
+          "rights": "GPL-2.0-or-later"
         },
         {
           "title": "Automattic/claude-woocommerce-toolkit",
           "location": "https://github.com/Automattic/claude-woocommerce-toolkit",
           "version": "d70538707247",
-          "rights": "GPL-2.0"
+          "rights": "GPL-2.0-or-later"
         },
         {
           "title": "cloudflare/skills",

@@ -113,7 +113,8 @@ will skip it forever.
 
 ## Transforms
 
-Nineteen explicit named operations in `publish/transforms.py`, applied in the order the policy lists.
+Twenty explicit named operations in `publish/transforms.py`, applied in the order the policy lists.
+`omit_private_context` deletes whole lines that exist only to describe one machine; the rest follow.
 There is deliberately no general "remove anything personal" pass — every rule exists because a
 specific skill needed it, and each has a test.
 

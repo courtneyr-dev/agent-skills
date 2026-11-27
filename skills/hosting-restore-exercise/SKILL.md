@@ -108,7 +108,7 @@ records them as `not measured`.
 ## Tests
 
 ```bash
-cd ~/.claude/skills/hosting-restore-exercise/scripts && python3 -W ignore -m unittest discover -s tests
+cd scripts && python3 -W ignore -m unittest discover -s tests
 ```
 
 ## Evaluation cases

@@ -19,13 +19,13 @@ Measures exist to change a decision, so each one starts from a question. This sk
 2. Lint until it exits 0:
 
 ```bash
-python3 ~/.claude/skills/community-health-measures/scripts/measures.py lint plan.json
+python3 scripts/measures.py lint plan.json
 ```
 
 3. Compute:
 
 ```bash
-python3 ~/.claude/skills/community-health-measures/scripts/measures.py aggregate --plan plan.json --activity activity.json
+python3 scripts/measures.py aggregate --plan plan.json --activity activity.json
 ```
 
 4. Report each value with its definition and source. A suppressed value is reported as suppressed, never estimated. A metric without a compute rule (a survey, say) is collected by the people who own that instrument.
@@ -68,5 +68,5 @@ python3 ~/.claude/skills/community-health-measures/scripts/measures.py aggregate
 ## Tests
 
 ```bash
-cd ~/.claude/skills/community-health-measures/scripts/tests && python3 -W ignore -m unittest -v test_measures
+cd scripts/tests && python3 -W ignore -m unittest -v test_measures
 ```

@@ -50,5 +50,5 @@ Without Node, Playwright or axe-core, the skill returns the manual keyboard test
 ## References
 
 - `references/keyboard-criteria.md`: the WCAG 2.2 criteria checked, the axe-core baseline and the tool versions.
-- `fixtures/donate-before.html` (three defects), `fixtures/donate-after.html` (fixed), `fixtures/walk-before.json` and `fixtures/walk-after.json` (raw recordings from a real run).
+- `fixtures/donate-before.html` (5 defects of three kinds: a trap, an unreachable control and 3 invisible focus states), `fixtures/donate-after.html` (fixed), `fixtures/walk-before.json` and `fixtures/walk-after.json` (raw recordings from a real run).
 - Tests: `cd scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py'` (`scripts/tests/test_keyboard_audit.py`); set `AGENCY_A11Y_NODE_MODULES` to include the live browser test.

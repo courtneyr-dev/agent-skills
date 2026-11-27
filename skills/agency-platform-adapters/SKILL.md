@@ -12,7 +12,7 @@ One register (`references/adapters.json`) maps each platform the agency serves t
 
 Use it when an engagement starts, when a CMS specialist or engineer picks up a client project, and when a client's platform version changes. Use `wp-project-triage` first on WordPress projects to get the real version.
 
-Don't use it to judge code quality or to install skills. Missing skills are restored through the rig's skill-sync pipeline, never from this skill.
+Don't use it to judge code quality or to install skills. Install a missing skill from the source the catalog names for it, never from this skill.
 
 ## Inputs and prerequisites
 

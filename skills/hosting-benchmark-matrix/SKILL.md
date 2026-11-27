@@ -106,7 +106,7 @@ the rig skills this one reads from.
 ## Tests
 
 ```bash
-cd ~/.claude/skills/hosting-benchmark-matrix/scripts && python3 -W ignore -m unittest discover -s tests
+cd scripts && python3 -W ignore -m unittest discover -s tests
 ```
 
 ## Evaluation cases

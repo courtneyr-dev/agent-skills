@@ -69,7 +69,7 @@ No paging, chat or status-page adapter exists here. Alerts name a receiver; a pe
 
 ## Limits
 
-A process running as the same OS user can rewrite the record, the owner's SLO and the anchors ledger together, or run `approve` under any listed name; only separate OS accounts or signed records stop that. What the gates guarantee: a record edited and rehashed without the ledger fails, a ledger or SLO the caller names is refused, a verdict or approval written into the record or a flag by the drafter is refused, and recovery comes from every logged event, not from a file's claim or the `--at` the caller picks.
+A process running as the same OS user can rewrite the record, the owner's SLO and the anchors ledger together, or run `approve` under any listed name; only separate OS accounts or signed records stop that. What the gates check: a record edited and rehashed without the ledger fails, a ledger or SLO the caller names is refused, a verdict or approval written into the record or a flag by the drafter is refused, and recovery comes from every logged event, not from a file's claim or the `--at` the caller picks.
 
 ## References
 

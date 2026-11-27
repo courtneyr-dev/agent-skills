@@ -1080,7 +1080,7 @@
       },
       "voice": "Precise: cuts any sentence without a fact behind it.",
       "limitations": [
-        "Publication needs a human; shared-content-publishing is archived in this rig"
+        "Publication needs a human; no publishing skill ships with this fleet"
       ],
       "verification": {
         "coverage": {

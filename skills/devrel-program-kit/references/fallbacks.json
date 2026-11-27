@@ -2,8 +2,8 @@
   "note": "What to do when samber's developer-relations-kickoff routes to a skill that isn't installed. Recorded 2026-11-25; installing a sibling collection replaces these entries. 'partial' means the installed skill covers part of the job and the gap stays recorded.",
   "collection": "samber/developer-relations-skills",
   "fallbacks": {
-    "samber/dev-event-organizer-skills@hackathon-brief-design": {"use": ["community-os"], "coverage": "partial", "why": "community-os writes hackathon and campaign PRDs, judging and prizes"},
-    "samber/dev-event-organizer-skills@hackathon-cash-prize": {"use": ["community-os"], "coverage": "partial", "why": "prize design only; payment and tax handling stay with a human"},
+    "samber/dev-event-organizer-skills@hackathon-brief-design": {"use": ["community-os"], "coverage": "partial", "why": "community-os, a skill of the author's installation that isn't published, writes hackathon and campaign PRDs, judging and prizes"},
+    "samber/dev-event-organizer-skills@hackathon-cash-prize": {"use": ["community-os"], "coverage": "partial", "why": "community-os (not published) covers prize design only; payment and tax handling stay with a human"},
     "samber/dev-event-organizer-skills@workshop-program-design": {"use": ["developer-workshop-program"], "coverage": "partial", "why": "the installed skill designs workshop programs inside this collection"},
     "samber/dev-event-organizer-skills@event-code-of-conduct": {"use": ["developer-community-moderation"], "coverage": "partial", "why": "code of conduct and moderation playbook; event-specific staffing stays manual"},
     "samber/dev-event-organizer-skills@event-feedback": {"use": ["developer-event-followup", "developer-survey-design"], "coverage": "partial", "why": "follow-up routing and survey design"},

@@ -10,7 +10,7 @@ Generated from `registry/overrides.json` by `frig render-overrides`; edit the JS
 - **Local behavior:** Exactly one dispatcher per workload: `frig dispatch` takes a lease keyed by logical repo + task id with a fencing epoch before anything starts; expiry never reclaims a live holder; `fence` stops it first.
 - **Implementation:** scripts/factory_rig/lease.py, orchestrate.dispatch
 - **Precedence and scope:** Router decision first, lease second; backends only execute.
-- **Verification:** tests.test_core.LeaseTests (8 incl. 8-process race), tests.test_flow.test_competing_backend_cannot_dispatch_the_same_task
+- **Verification:** tests.test_core.LeaseTests (9 incl. 8-process race), tests.test_flow.test_competing_backend_cannot_dispatch_the_same_task
 - **Retire when:** A backend exposes a cross-backend ownership API that gives the same fencing guarantee.
 
 ## OVR-NOODLE-PROVIDER-LAUNCH
@@ -32,7 +32,7 @@ Generated from `registry/overrides.json` by `frig render-overrides`; edit the JS
 - **Local behavior:** Pin 82d2921 (has ModeGate.CanAutoMerge) in supervised mode so candidates park for review. Only `frig complete` lands them after re-running verify in a fresh checkout, an independent review bound to task, attempt, contract hash, candidate and base, and an unchanged base; receipts make each step idempotent and resumable. Noodle's own `merge` control command is sent only afterwards, to close its order.
 - **Implementation:** scripts/factory_rig/gate.py, receipts.py, orchestrate.complete, noodle_control.py, noodle_backlog.py
 - **Precedence and scope:** Gate decides; Noodle state is informational.
-- **Verification:** tests.test_flow (17), tests.test_noodle_integration.test_happy_path_through_real_noodle_supervised_mode, live pilot
+- **Verification:** tests.test_flow (19; they skip without node and yysun project-manager), tests.test_noodle_integration.test_happy_path_through_real_noodle_supervised_mode, a live pilot on the author's machine
 - **Retire when:** Noodle binds approvals to candidate revisions itself.
 
 ## OVR-NOODLE-SKILL-RESOLUTION

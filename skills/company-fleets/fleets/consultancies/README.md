@@ -47,7 +47,7 @@ Adopted, installed upstream (attached by id, not copied):
 | zstvns/design-skills | MIT | brand, brand-strategy, creative-direction, art-direction, logo-design, design-system |
 | magnus919/agent-skills | MIT | web-accessibility, verification-methodology |
 | samber/developer-relations-skills | MIT | docs-localization-strategy |
-| Automattic/claude-woocommerce-toolkit | GPL-2.0 | woocommerce-plugin-dev, woocommerce-upgrade-safety |
+| Automattic/claude-woocommerce-toolkit | GPL-2.0-or-later | woocommerce-plugin-dev, woocommerce-upgrade-safety |
 | Sibling fleets | agent-skills (MIT) | agency-keyboard-audit, agency-i18n-check (corporate-and-agency), product-payment-events (product), company-fleets (foundation) |
 
 Overlap to consolidate: `agency-i18n-check` (gettext PO/POT, templates, CSS) and `consult-i18n-check` (JSON catalogs, CLDR 48 categories, glossary) check the same defect classes in different formats. Both SKILL.md files route by format today; the integrator can merge them later.
@@ -128,6 +128,6 @@ An independent review (product-consultancies.md, not published) found these defe
 Not fixed in this round, by instruction:
 
 - Minor 12: the email gate exits 0 without an authorization (only `authorized_for_dispatch` is false), and it accepts an `approved_at` later than `--now`. Resume: refuse a future `approved_at`, and add a `--require-authorization` flag that exits 1 when authorization is absent.
-- Minor 15: the WooCommerce toolkit is recorded as GPL-2.0; its README says GPL v2 or later (`GPL-2.0-or-later`). Resume: correct the provenance strings in `roles.json` and the table above.
+- Minor 15, fixed: the WooCommerce toolkit's provenance strings and the table above now say `GPL-2.0-or-later`, matching its README and `sources/ledger.json`.
 - The guarantee patterns still flag a negated promise such as "We cannot guarantee a ranking"; the pattern file says so.
 - Foundation gaps: see the product runbook's Follow-ups (evidence reviewer identity is checked only inside product-release-gate; scanner misses two phrasings).
