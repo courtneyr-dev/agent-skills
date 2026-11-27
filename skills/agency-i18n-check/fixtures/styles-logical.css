@@ -1,0 +1,4 @@
+/* SYNTHETIC FIXTURE (Fixture Co): logical properties only, plus one suppressed physical line. */
+.donate-card { margin-inline-start: 1rem; padding-inline-end: 2rem; text-align: start; }
+.donate-badge { float: inline-start; inset-inline-start: 0; border-inline-start: 2px solid #333; }
+.donate-icon { left: 0; } /* i18n-allow-physical: icon sprite is mirrored by the image itself */

@@ -1,0 +1,33 @@
+{
+  "schema": "cldr-plural-categories.v1",
+  "cldr_version": "48.0",
+  "unicode_version": "17.0",
+  "icu_version": "78.3",
+  "source": "Unicode CLDR 48.0 plural rules, read through Intl.PluralRules in Node 26.12.1 (ICU 78.3, Unicode 17.0)",
+  "retrieved": "2026-11-25",
+  "rights": "Unicode License v3",
+  "regenerate": "node -e \"const L='en fr de es pt it ja zh ko ar he ru pl uk cs tr nl fa ur hi'.split(' ');const o={};for(const l of L)o[l]=new Intl.PluralRules(l).resolvedOptions().pluralCategories;console.log(JSON.stringify(o))\"",
+  "note": "Keys are base language subtags. The script matches the base language of a tag such as fr-CA. A language absent from this table is reported as plural-rules-unknown, never guessed.",
+  "categories": {
+    "en": ["one", "other"],
+    "fr": ["one", "many", "other"],
+    "de": ["one", "other"],
+    "es": ["one", "many", "other"],
+    "pt": ["one", "many", "other"],
+    "it": ["one", "many", "other"],
+    "ja": ["other"],
+    "zh": ["other"],
+    "ko": ["other"],
+    "ar": ["zero", "one", "two", "few", "many", "other"],
+    "he": ["one", "two", "other"],
+    "ru": ["one", "few", "many", "other"],
+    "pl": ["one", "few", "many", "other"],
+    "uk": ["one", "few", "many", "other"],
+    "cs": ["one", "few", "many", "other"],
+    "tr": ["one", "other"],
+    "nl": ["one", "other"],
+    "fa": ["one", "other"],
+    "ur": ["one", "other"],
+    "hi": ["one", "other"]
+  }
+}

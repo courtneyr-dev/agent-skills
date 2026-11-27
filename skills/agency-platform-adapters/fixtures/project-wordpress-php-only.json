@@ -1,0 +1,5 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): a WordPress project that reports its PHP version but not its WordPress version.",
+  "platform": "wordpress",
+  "php_version": "8.2"
+}

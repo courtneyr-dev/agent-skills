@@ -1,0 +1,28 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): source register; S1 quotes a public Google page (verified verbatim 2026-11-25), S2 is invented. Its sign-off lives in the owner log of instance FIX-CORP-CLAIMS-1 (company-fleets fleets/corporate/owner/FIX-CORP-CLAIMS-1), not in this file.",
+  "tenant_id": "fixture-co",
+  "instance": "FIX-CORP-CLAIMS-1",
+  "author": "human:content-author",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Do You Need an SEO? Tips for Hiring an SEO",
+      "url": "https://developers.google.com/search/docs/fundamentals/do-i-need-seo",
+      "retrieved": "2026-11-25",
+      "excerpts": [
+        "No one can guarantee a #1 ranking on Google.",
+        "If they guarantee you that their changes will give you first place in search results, find someone else."
+      ]
+    },
+    {
+      "id": "S2",
+      "title": "Fixture Co 2026 customer survey (invented for this fixture)",
+      "url": "https://www.example.com/fixture-co/survey-2026",
+      "retrieved": "2026-11-25",
+      "excerpts": [
+        "In the Fixture Co 2026 customer survey, 42% of 300 respondents said they read the newsletter weekly.",
+        "Median reply time fell from 9 hours to 4 hours after the support rebuild."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "source": {
+    "title": "company-agent-fleets prompt, section 5 Hosting profiles",
+    "location": "project requirements (not published)",
+    "lines": "272-286 (table rows 276-284)",
+    "retrieved": "2026-11-25"
+  },
+  "note": "Function ids are the kebab-case form of the prompt's required coverage. A profile row names must_hold and must_not_hold; the prompt's VPS/dedicated, managed cloud/PaaS and advanced resilience rows are capability sets a catalogue may declare inside a profile, not profiles. A referral_only profile lets the company hold no function outside its must_hold and optional lists, accountable or responsible, and declare no capability set.",
+  "profiles": {
+    "affiliate": {
+      "must_hold": ["eligibility", "disclosures", "attribution", "commission-reconciliation", "customer-handoff", "provider-escalation"],
+      "optional": [],
+      "must_not_hold": ["infrastructure", "accounts", "backups", "restores", "incident-response"],
+      "referral_only": true
+    },
+    "reseller": {
+      "must_hold": ["packages", "upstream-obligations", "delegated-access", "billing", "provisioning", "support-boundary", "migrations"],
+      "optional": [],
+      "must_not_hold": ["hardware", "network", "data-center"]
+    },
+    "shared": {
+      "must_hold": ["accounts", "quotas", "dns", "certificates", "php-versions", "databases", "backups", "restores", "isolation", "abuse"],
+      "optional": ["mail"],
+      "must_not_hold": []
+    },
+    "managed": {
+      "must_hold": ["updates", "compatibility", "staging", "performance", "content-workflows", "security", "multisite"],
+      "optional": [],
+      "must_not_hold": []
+    },
+    "platform": {
+      "must_hold": ["source-import", "previews", "builds", "runtime-isolation", "databases", "secrets", "domains", "identity", "rollback", "quotas", "exportability"],
+      "optional": [],
+      "must_not_hold": []
+    },
+    "enterprise": {
+      "must_hold": ["sso-rbac", "audit-evidence", "data-boundaries", "change-control", "service-commitments", "dedicated-tenancy"],
+      "optional": [],
+      "must_not_hold": []
+    }
+  },
+  "capability_sets": {
+    "vps-dedicated": {
+      "must_hold": ["os-lifecycle", "server-services", "storage", "backups", "capacity", "panel", "admin-reseller-customer-boundaries"]
+    },
+    "managed-cloud": {
+      "must_hold": ["iac", "containers", "managed-data", "deployments", "observability", "capacity", "cost"]
+    },
+    "advanced-resilience": {
+      "must_hold": ["failure-domains", "redundancy", "restoration", "disaster-recovery", "failover-failback", "dependency-resilience"]
+    }
+  }
+}

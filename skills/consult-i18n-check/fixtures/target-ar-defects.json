@@ -1,0 +1,18 @@
+{
+  "schema": "i18n-catalog.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "locale": "ar",
+  "direction": "ltr",
+  "source_revision": "rev-1",
+  "same_as_source_ok": ["brand"],
+  "messages": {
+    "nav.home": {"text": "Home"},
+    "greeting": {"text": "مرحبا بعودتك، {user}!"},
+    "files.count": {"plural": {"one": "{count} ملف في {folder}", "other": "ملفات في المجلد"}},
+    "button.save": {"text": "حفظ جميع التغييرات التي أجريتها الآن"},
+    "workspace.create": {"text": "إنشاء مساحة لـ {name}"},
+    "brand": {"text": "Fixture Co"},
+    "sync.status": {"text": "‫تمت مزامنة ⁦%d من %d عنصرا"},
+    "billing.note": {"text": "راجع الخطة قبل 11/25/2026 فهي بسعر $49"}
+  }
+}

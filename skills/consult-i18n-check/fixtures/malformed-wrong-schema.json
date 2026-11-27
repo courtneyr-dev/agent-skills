@@ -1,0 +1,8 @@
+{
+  "schema": "i18n-catalog.v0",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "locale": "fr",
+  "direction": "ltr",
+  "source_revision": "rev-2",
+  "messages": {"nav.home": {"text": "Accueil"}}
+}

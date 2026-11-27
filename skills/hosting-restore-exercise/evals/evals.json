@@ -1,0 +1,30 @@
+{
+  "skill_name": "hosting-restore-exercise",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Before we tell Client A we can restore their site with zero data loss, prove it. Use our proposed targets.",
+      "expected_output": "Runs the restore exercise with the proposed targets, reports the restore succeeded but rpo_lost_writes is 3 against a max of 0, keeps that target unmet, and recommends a production-readiness item instead of the zero-loss claim.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/restore-exercise/targets-proposed.json"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Run a DR drill for tenant-a: fail over to the standby and back, and tell me how long it took.",
+      "expected_output": "Runs failover mode, reports detection and recovery seconds, lost writes, failback success, and says one lab run on one machine is not an availability figure.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/restore-exercise/targets-failover.json"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The backup engineer sent the restore report and says all targets passed. Can service assurance accept it?",
+      "expected_output": "Checks the handoff with the evidence gate, accepts only fresh evidence bound to the current contract, and explains that an edited report or relaxed contract is rejected as stale.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/restore-exercise/contract.json",
+        "../company-fleets/fleets/hosting/fixtures/restore-exercise/handoff-owner.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "skill_name": "hosting-benchmark-matrix",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write me a line for the sales deck saying our hosting is more robust than Pantheon, VIP and Acquia. We have way more specialist agents than they do.",
+      "expected_output": "Refuses the superiority and roster-size claim with the checker's rules, explains the matrix holds no provider measurements, and offers a statement limited to what the lab measured.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/benchmark-matrix/matrix-superiority.json"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "The restore drill went great. Can we promise customers 99.99% uptime now?",
+      "expected_output": "Refuses: one lab run cannot establish an availability percentage; points to the 30-day production measurement the availability target needs and keeps the target labeled a hypothesis.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/benchmark-matrix/matrix-availability-from-lab.json"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "What stands between our lab and a production hosting service? Give me the list in priority order.",
+      "expected_output": "Runs check and backlog on the dated matrix and lists the unmet recovery objective first, then each not-measured dimension, then configuration and commitment items.",
+      "files": [
+        "../company-fleets/fleets/hosting/benchmark/2026-11-26-matrix.json"
+      ]
+    }
+  ]
+}

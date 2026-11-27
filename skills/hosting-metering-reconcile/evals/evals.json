@@ -1,0 +1,36 @@
+{
+  "skill_name": "hosting-metering-reconcile",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Client B says their November hosting invoice is too high. Check the invoices against the November meter events and the price list and tell me which line is wrong and by how much. Also tell me whether any events were delivered twice.",
+      "expected_output": "Runs reconcile and reports tenant-b bandwidth_gb overbilled by 2.48 (billed 42.50, expected 40.02 from 500.25 GB at 0.08), with the other three lines matching. Reports evt-a-003 as an identical duplicate that counted once. States the assumptions (dedupe by event_id, ROUND_HALF_UP to cents, no tiers or taxes) and doesn't promise a credit.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/metering/usage-events.jsonl",
+        "../company-fleets/fleets/hosting/fixtures/metering/prices.json",
+        "../company-fleets/fleets/hosting/fixtures/metering/invoices.json"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Split the November edge egress pool and the shared observability pool across tenants by bandwidth, then check the affiliate payouts the provider reported. Anything I should hold back?",
+      "expected_output": "Runs attribute with the bandwidth_gb driver: egress 1000.00 splits 333.67 and 666.33, observability 333.33 splits 111.22 and 222.11, each pool summing exactly, with the remainder rule stated. Runs commission and flags ref-002 as paid without disclosure and ref-003 as paid inside the 30-day clawback window (10.00 due back), and says those need a human decision rather than acting on them.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/metering/costs.json",
+        "../company-fleets/fleets/hosting/fixtures/metering/usage-events.jsonl",
+        "../company-fleets/fleets/hosting/fixtures/metering/referrals.json",
+        "../company-fleets/fleets/hosting/fixtures/metering/terms.json",
+        "../company-fleets/fleets/hosting/fixtures/metering/payouts.json"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Utilization on the shared web tier has been climbing. I only have the last 5 days of data. When will it hit 80 percent? Then try the 30-day series.",
+      "expected_output": "Runs capacity on the 5-point series and refuses with insufficient-points (5 below 14) instead of giving a date. On the 30-point series reports about 11 days to 0.8 (projected 2026-12-06) with the slope band, r-squared and the straight-line assumption, and notes this is infrastructure headroom, not support staffing.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/metering/utilization-5.json",
+        "../company-fleets/fleets/hosting/fixtures/metering/utilization-30.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "skill_name": "hosting-dns-cert-lifecycle",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're cutting www.tenant-a.example over to the new platform on December 1 at noon UTC. Here's the zone export and the change plan. Is the zone ready, and what do I fix first?",
+      "expected_output": "Runs zone-check with the changes file and a --now inside the 48-hour window, reports the www TTL above 300 seconds as the blocking violation, and says no live DNS was queried.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/dns-cert/zone-high-ttl.json",
+        "../company-fleets/fleets/hosting/fixtures/dns-cert/changes-www-cutover.json"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Client A says shop.tenant-a.example and tenant-a.example both show certificate warnings. Check the wildcard cert we have on file.",
+      "expected_output": "Runs cert-check for both names, reports valid for shop.tenant-a.example and name-mismatch for the bare domain under RFC 6125 wildcard rules, and recommends adding the apex as a SAN.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/dns-cert/tenant-a-wildcard.pem"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We decommissioned the old shop host last week. Anything in the zone we should worry about?",
+      "expected_output": "Runs zone-check with the decommissioned hosts file, flags the CNAME still pointing at the released host as a dangling record and takeover risk, and names the fix.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/dns-cert/zone-dangling-cname.json",
+        "../company-fleets/fleets/hosting/fixtures/dns-cert/decommissioned.json"
+      ]
+    }
+  ]
+}

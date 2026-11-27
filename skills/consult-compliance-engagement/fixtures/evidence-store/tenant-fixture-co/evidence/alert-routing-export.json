@@ -1,0 +1,1 @@
+{"label": "SYNTHETIC Fixture Co alert routing export", "routes": [{"alert": "5xx-rate", "to": "human:on-call"}]}

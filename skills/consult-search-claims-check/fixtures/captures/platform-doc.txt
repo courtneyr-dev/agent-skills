@@ -1,0 +1,6 @@
+SYNTHETIC capture for Fixture Co tests. Not a copy of any real page.
+
+Fixture Platform Search documentation.
+A page must be crawlable and indexable to appear in results.
+The documentation says "rankings are not guaranteed" for any page.
+Structured data is not required for a page to be eligible.

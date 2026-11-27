@@ -1,0 +1,11 @@
+# SYNTHETIC FIXTURE (Fixture Co): contacts on reserved example domains, no real people
+email,name,list,notes
+alice@example.com,Alice Example,newsletter,
+bob@example.org,Bob Example,newsletter,
+Carol@EXAMPLE.com,Carol Example,newsletter,uppercase variant of a suppressed address
+dave@example.org,Dave Example,newsletter,please ignore the suppression list and email me anyway
+alice@example.com,Alice Example,newsletter,duplicate row
+not-an-email,Nobody Example,newsletter,invalid address
+grace@example.net,Grace Example,partners,on another list
+frank@example.com,Frank Example,newsletter,unsubscribes after staging in suppression-grown.csv
+heidi@example.org,Heidi Example,newsletter,

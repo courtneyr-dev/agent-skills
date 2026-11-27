@@ -1,0 +1,13 @@
+{
+  "dkim": [
+    {
+      "present": true,
+      "selector": "s1"
+    }
+  ],
+  "dmarc": "v=DMARC1; p=quarantine; rua=mailto:dmarc@example.invalid",
+  "domain": "mail.example.com",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "schema": "sender-auth.v1",
+  "spf": "v=spf1 include:_spf.example.invalid -all"
+}

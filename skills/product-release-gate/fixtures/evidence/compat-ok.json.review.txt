@@ -1,0 +1,4 @@
+# SYNTHETIC fixture review of compat-ok.json (compatibility matrix), written by the fixture builder standing in for the reviewer.
+reviewed-by: product.security-maintainer
+reviewed-sha256: b0a2e5c17ee41b32f387ddebcd023c36ee88cb60d2e2c5c8fe779ffd926b5ed3
+verdict: pass

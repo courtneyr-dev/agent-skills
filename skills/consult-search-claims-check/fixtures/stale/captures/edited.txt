@@ -1,0 +1,4 @@
+SYNTHETIC capture for Fixture Co tests. Not a copy of any real page.
+
+Fixture Platform Search documentation, edited after hashing.
+A page must be crawlable and indexable to appear in results, and always ranks first.

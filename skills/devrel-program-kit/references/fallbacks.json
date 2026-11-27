@@ -1,0 +1,18 @@
+{
+  "note": "What to do when samber's developer-relations-kickoff routes to a skill that isn't installed. Recorded 2026-11-25; installing a sibling collection replaces these entries. 'partial' means the installed skill covers part of the job and the gap stays recorded.",
+  "collection": "samber/developer-relations-skills",
+  "fallbacks": {
+    "samber/dev-event-organizer-skills@hackathon-brief-design": {"use": ["community-os"], "coverage": "partial", "why": "community-os writes hackathon and campaign PRDs, judging and prizes"},
+    "samber/dev-event-organizer-skills@hackathon-cash-prize": {"use": ["community-os"], "coverage": "partial", "why": "prize design only; payment and tax handling stay with a human"},
+    "samber/dev-event-organizer-skills@workshop-program-design": {"use": ["developer-workshop-program"], "coverage": "partial", "why": "the installed skill designs workshop programs inside this collection"},
+    "samber/dev-event-organizer-skills@event-code-of-conduct": {"use": ["developer-community-moderation"], "coverage": "partial", "why": "code of conduct and moderation playbook; event-specific staffing stays manual"},
+    "samber/dev-event-organizer-skills@event-feedback": {"use": ["developer-event-followup", "developer-survey-design"], "coverage": "partial", "why": "follow-up routing and survey design"},
+    "samber/dev-event-organizer-skills@event-speaker-coaching": {"use": ["tech-talk-outline", "developer-live-demo-design"], "coverage": "partial", "why": "talk structure and demo rehearsal, not one-to-one coaching"},
+    "samber/dev-event-organizer-skills@virtual-event-production": {"use": ["devrel-webinar-program", "devrel-live-streaming"], "coverage": "partial", "why": "webinar and stream production"},
+    "samber/developer-platform-skills@sample-app-strategy": {"use": ["docs-code-sample-standards", "devrel-quickstart-replay"], "coverage": "partial", "why": "sample policy plus clean-room replay; portfolio strategy is the gap"},
+    "samber/developer-platform-skills@api-reference-quality": {"use": ["developer-docs-structure-audit"], "coverage": "partial", "why": "docs inventory and structure; reference completeness scoring is the gap"},
+    "samber/developer-platform-skills@partner-app-onboarding": {"use": ["developer-ecosystem-strategy"], "coverage": "partial", "why": "platform and partner strategy; partner app review flow is the gap"},
+    "samber/developer-platform-skills@developer-platform-kickoff": {"use": [], "coverage": "blocked", "why": "the sibling router isn't installed; route platform work through the existing router instead"}
+  },
+  "default": {"use": [], "coverage": "blocked", "why": "the sibling collection isn't installed; install it to replace this fallback"}
+}

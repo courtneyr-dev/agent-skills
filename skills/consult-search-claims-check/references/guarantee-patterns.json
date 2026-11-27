@@ -1,0 +1,46 @@
+{
+  "label": "Heuristic regex list for guaranteed-placement promises. A miss is possible: a promise worded outside these patterns passes, and a negated sentence such as 'we cannot guarantee a ranking' is flagged because the script does not parse negation. A human reads every claim the script passes. Version 2 adds the phrasings an independent review found missing on 2026-11-26. placement-then-guaranteed skips a directly negated 'not guaranteed' or 'never guaranteed'.",
+  "source": "Written locally for this skill; no third-party text copied.",
+  "version": "2",
+  "as_of": "2026-11-26",
+  "rights": "Original to this rig; no external license applies.",
+  "flags": "i",
+  "patterns": [
+    {
+      "id": "guarantee-then-placement",
+      "regex": "\\bguarantee[ds]?\\b[^.]{0,30}?(#\\s?1\\b|number\\s+(one|1)\\b|\\btop\\s+(spot|position|rank|ranking|\\d+)|\\bfirst\\s+(place|position|page)|page\\s+(one|1)\\b|\\brank(s|ing|ings)?\\b|placement|\\bposition|citations?|inclusion)"
+    },
+    {
+      "id": "will-rank-first",
+      "regex": "\\bwill\\s+(definitely\\s+|always\\s+)?(rank|appear|show\\s+up)\\s+(first|#\\s?1|number\\s+(one|1)|at\\s+the\\s+top|on\\s+page\\s+(one|1))"
+    },
+    {
+      "id": "always-in-ai-answers",
+      "regex": "\\balways\\s+(appear|show\\s+up|be\\s+(cited|included|featured|surfaced))\\b[^.]{0,40}\\b(ai|answers?|overviews?|chatgpt|perplexity|gemini)"
+    },
+    {
+      "id": "certain-placement",
+      "regex": "\\b(100%|certain|assured)\\s+(ranking|placement|citation|visibility)"
+    },
+    {
+      "id": "placement-then-guaranteed",
+      "regex": "(#\\s?\\d+|\\bnumber\\s+(one|1)\\b|\\btop\\s+\\d+|\\bfirst[- ]page\\b|\\bpage\\s+(one|1)\\b|\\brank(s|ing|ings)?\\b|\\bpositions?\\b|\\bplacement\\b|\\bspot\\b|\\bcitations?\\b)[^.]{0,30}(?<!not )(?<!never )(?<!n't )\\bguaranteed?\\b"
+    },
+    {
+      "id": "guaranteed-to-appear",
+      "regex": "\\bguaranteed\\s+to\\s+(appear|rank|show(\\s+up)?|be\\s+(cited|featured|included|recommended))"
+    },
+    {
+      "id": "promise-placement",
+      "regex": "\\b(promise[sd]?|pledge[sd]?)\\b[^.]{0,30}(#\\s?\\d|\\bnumber\\s+(one|1)\\b|\\btop\\s+\\d+|\\bfirst[- ]page\\b|\\bpage\\s+(one|1)\\b|\\bplacement\\b|\\branking\\b|\\bposition\\b|\\bspot\\b|\\bcit(ed|ation))"
+    },
+    {
+      "id": "cited-every-time",
+      "regex": "\\b(be\\s+)?(cited|featured|recommended|mentioned)\\b[^.]{0,40}\\bevery\\s+(time|query|answer)\\b"
+    },
+    {
+      "id": "ensure-top-spot",
+      "regex": "\\b(ensure|make\\s+sure)s?\\b[^.]{0,30}(#\\s?1\\b|\\bnumber\\s+(one|1)\\b|\\btop\\s+(spot|position|\\d+)\\b|\\bfirst\\s+(place|position|page)\\b|\\bpage\\s+(one|1)\\b)"
+    }
+  ]
+}

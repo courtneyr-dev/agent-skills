@@ -1,0 +1,4 @@
+{
+  "label": "Grants recorded by each tenant's owner, keyed by the tenant that owns the records. The guard reads only this file; a grant written on a record or passed by the requester counts for nothing. A grant is {\"tenant_id\": reader tenant, \"approved_by\": \"human:...\"}. Student records never cross classrooms, whatever this file says. Only a person edits it; as shipped it grants nothing.",
+  "grants": {}
+}

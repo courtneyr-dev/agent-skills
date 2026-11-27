@@ -1,0 +1,23 @@
+{"skill_name": "consult-i18n-check", "evals": [
+  {"id": 1, "kind": "positive",
+   "prompt": "Check the French catalog against the English source before the localization handoff.",
+   "expected_output": "Status pass, no defects, exit 0, with the human locale review still marked required.",
+   "files": ["fixtures/source-en.json", "fixtures/target-fr.json", "fixtures/glossary.json"],
+   "command": "python3 scripts/i18n_check.py --source fixtures/source-en.json --target fixtures/target-fr.json --glossary fixtures/glossary.json",
+   "expect_exit": 0,
+   "expectations": ["status is pass", "defects is empty", "linguistic_review.by is human:locale-reviewer", "not_checked is non-empty"]},
+  {"id": 2, "kind": "negative",
+   "prompt": "Check the Arabic catalog against the English source.",
+   "expected_output": "Status defects, exit 1, with placeholder, plural, bidi, length, terminology, revision and direction defects plus RTL and format warnings.",
+   "files": ["fixtures/source-en.json", "fixtures/target-ar-defects.json", "fixtures/glossary.json"],
+   "command": "python3 scripts/i18n_check.py --source fixtures/source-en.json --target fixtures/target-ar-defects.json --glossary fixtures/glossary.json",
+   "expect_exit": 1,
+   "expectations": ["status is defects", "counts includes all twelve defect codes except plural-rules-unknown", "rtl-placeholder-unisolated has severity warning"]},
+  {"id": 3, "kind": "boundary",
+   "prompt": "Check a catalog for a locale with no plural table entry.",
+   "expected_output": "Status blocked, exit 1, plural-rules-unknown on the plural key, no invented categories; other checks still run.",
+   "files": ["fixtures/source-en.json", "fixtures/target-tlh-unknown.json", "fixtures/glossary.json"],
+   "command": "python3 scripts/i18n_check.py --source fixtures/source-en.json --target fixtures/target-tlh-unknown.json --glossary fixtures/glossary.json",
+   "expect_exit": 1,
+   "expectations": ["status is blocked", "defects include plural-rules-unknown", "no plural-categories defect", "placeholder-mismatch still reported"]}
+]}

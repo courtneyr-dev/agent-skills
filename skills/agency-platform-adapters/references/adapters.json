@@ -1,0 +1,245 @@
+{
+  "label": "Platform adapter register for the agency fleet. Each adapter names installed skills by mount; supported ranges come from the upstream's own compatibility statement at the pinned revision, and a range the upstream does not state is recorded as null.",
+  "schema_version": 1,
+  "mounts": {
+    "rig": "~/.claude/skills",
+    "agents": "~/.agents/skills"
+  },
+  "platforms": [
+    {
+      "id": "wordpress",
+      "name": "WordPress sites, plugins, themes and blocks",
+      "status": "available",
+      "skills": [
+        {
+          "id": "wordpress-router",
+          "mount": "agents"
+        },
+        {
+          "id": "wp-project-triage",
+          "mount": "agents"
+        },
+        {
+          "id": "wp-plugin-development",
+          "mount": "agents"
+        },
+        {
+          "id": "wp-block-development",
+          "mount": "agents"
+        },
+        {
+          "id": "wp-block-themes",
+          "mount": "agents"
+        },
+        {
+          "id": "wp-rest-api",
+          "mount": "agents"
+        },
+        {
+          "id": "wp-performance",
+          "mount": "agents"
+        },
+        {
+          "id": "wp-wpcli-and-ops",
+          "mount": "agents"
+        },
+        {
+          "id": "wp-phpstan",
+          "mount": "agents"
+        },
+        {
+          "id": "wp-playground",
+          "mount": "rig"
+        },
+        {
+          "id": "code-standards-checker",
+          "mount": "rig"
+        }
+      ],
+      "supported": {
+        "min_version": "7.0",
+        "php_min": "7.4.0",
+        "source": "WordPress/agent-skills docs/compatibility-policy.md at 32ea909f7d01 (GPL-2.0-or-later)"
+      },
+      "legacy": {
+        "route": "Below WordPress 7.0 or PHP 7.4.0: run wp-project-triage for detection only and have a human CMS specialist confirm which APIs exist before applying guidance that assumes 7.0.",
+        "skills": [
+          {
+            "id": "wp-project-triage",
+            "mount": "agents"
+          },
+          {
+            "id": "code-standards-checker",
+            "mount": "rig"
+          }
+        ]
+      },
+      "standards": "WordPress Coding Standards through the project's PHPCS ruleset, and PHPDoc per the WordPress PHP documentation standards; code-standards-checker runs the project's own commands."
+    },
+    {
+      "id": "woocommerce",
+      "name": "WooCommerce stores and extensions",
+      "status": "available",
+      "skills": [
+        {
+          "id": "woocommerce-plugin-dev",
+          "mount": "rig"
+        },
+        {
+          "id": "woocommerce-upgrade-safety",
+          "mount": "rig"
+        },
+        {
+          "id": "woocommerce-finalize",
+          "mount": "rig"
+        },
+        {
+          "id": "wp-project-triage",
+          "mount": "agents"
+        },
+        {
+          "id": "code-standards-checker",
+          "mount": "rig"
+        }
+      ],
+      "supported": {
+        "min_version": null,
+        "php_min": null,
+        "source": "Automattic/claude-woocommerce-toolkit at d70538707247 (GPL-2.0) names feature versions but no support range"
+      },
+      "standards": "WordPress Coding Standards plus the WooCommerce extension guidelines the toolkit cites.",
+      "host": {
+        "platform": "wordpress",
+        "version_field": "wordpress_version",
+        "note": "WooCommerce runs on WordPress, so the WordPress minimums (7.0, PHP 7.4.0) and legacy route apply first"
+      }
+    },
+    {
+      "id": "drupal",
+      "name": "Drupal sites and modules",
+      "status": "available",
+      "skills": [
+        {
+          "id": "code-standards-checker",
+          "mount": "rig"
+        },
+        {
+          "id": "composer-security-update",
+          "mount": "rig"
+        },
+        {
+          "id": "pr-quality-report",
+          "mount": "rig"
+        }
+      ],
+      "supported": {
+        "min_version": null,
+        "php_min": null,
+        "source": "kanopi/cms-cultivator at ff328fcc77af (GPL-2.0) states no Drupal support range"
+      },
+      "standards": "Drupal Coding Standards through the project's PHPCS ruleset."
+    },
+    {
+      "id": "cloudflare-workers",
+      "name": "Cloudflare Workers applications",
+      "status": "available",
+      "skills": [
+        {
+          "id": "workers-best-practices",
+          "mount": "rig"
+        },
+        {
+          "id": "wrangler",
+          "mount": "rig"
+        }
+      ],
+      "supported": {
+        "min_version": null,
+        "php_min": null,
+        "source": "cloudflare/skills at ff191de7d903 (Apache-2.0); Workers pin behavior by compatibility date, not version"
+      },
+      "standards": "The project's own wrangler configuration and compatibility date."
+    },
+    {
+      "id": "js-ts-app",
+      "name": "JavaScript and TypeScript web applications",
+      "status": "available",
+      "skills": [
+        {
+          "id": "typescript-best-practices",
+          "mount": "rig"
+        },
+        {
+          "id": "code-standards-checker",
+          "mount": "rig"
+        }
+      ],
+      "supported": {
+        "min_version": null,
+        "php_min": null,
+        "source": "pstack typescript-best-practices, installed from cursor/plugins per skill-sync sources.json; states no runtime range"
+      },
+      "standards": "The project's own ESLint, Prettier and tsconfig settings."
+    },
+    {
+      "id": "headless-cms",
+      "name": "Headless CMS (Contentful, Sanity, Strapi and similar)",
+      "status": "blocked",
+      "blocked_reason": "No installed skill covers a headless CMS content model or delivery API; a human CMS specialist owns this platform until an adapter is adopted or written.",
+      "skills": []
+    },
+    {
+      "id": "php-framework",
+      "name": "PHP frameworks (Laravel, Symfony)",
+      "status": "blocked",
+      "blocked_reason": "No installed Laravel or Symfony skill; code-standards-checker can still run a project's own PHPCS or PHPStan commands, but framework guidance needs a human specialist.",
+      "skills": []
+    },
+    {
+      "id": "commerce-other",
+      "name": "Commerce platforms other than WooCommerce (Shopify, Adobe Commerce, Drupal Commerce)",
+      "status": "blocked",
+      "blocked_reason": "No installed skill for these platforms; woocommerce skills do not transfer.",
+      "skills": []
+    },
+    {
+      "id": "api-service",
+      "name": "API-driven services and integrations",
+      "status": "blocked",
+      "blocked_reason": "No installed skill tests API contracts (OpenAPI or GraphQL schemas); wp-rest-api covers WordPress REST only.",
+      "skills": []
+    },
+    {
+      "id": "ios-swiftui",
+      "name": "Native iOS apps built with SwiftUI",
+      "status": "available",
+      "skills": [
+        {
+          "id": "ios-qa",
+          "mount": "rig"
+        },
+        {
+          "id": "ios-fix",
+          "mount": "rig"
+        },
+        {
+          "id": "ios-design-review",
+          "mount": "rig"
+        }
+      ],
+      "supported": {
+        "min_version": null,
+        "php_min": null,
+        "source": "gstack ios-* skills installed in the rig (not tracked in skill-sync sources.json); no iOS version range stated"
+      },
+      "standards": "The project's own Xcode build settings and SwiftLint configuration, if any."
+    },
+    {
+      "id": "pwa",
+      "name": "Progressive web apps and Android apps",
+      "status": "blocked",
+      "blocked_reason": "No installed PWA or Android skill; a human mobile specialist owns this platform until an adapter is adopted or written.",
+      "skills": []
+    }
+  ]
+}

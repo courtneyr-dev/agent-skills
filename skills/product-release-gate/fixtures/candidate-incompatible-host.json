@@ -1,0 +1,52 @@
+{
+  "schema": "release-candidate.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "product": {
+    "id": "fixture-co-forms-connector",
+    "platform": "wordpress-plugin",
+    "version": "2.0.0",
+    "previous_version": "1.4.2"
+  },
+  "public_api_change": "breaking",
+  "channel": "stable",
+  "distribution": "marketplace",
+  "compat_matrix": "compat-incompatible-host.json",
+  "changelog": "CHANGELOG.md",
+  "sbom": "sbom.json",
+  "license_policy": {
+    "product_license": "GPL-2.0-or-later",
+    "allowed": [
+      "GPL-2.0-or-later",
+      "MIT",
+      "BSD-3-Clause",
+      "Apache-2.0"
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "id": "FX-ADV-0007",
+      "component": "fixture-csv",
+      "severity": "medium",
+      "status": "not-affected",
+      "justification": "The vulnerable parser path is never called; the plugin uses the streaming reader only."
+    }
+  ],
+  "migration": {
+    "schema_from": 3,
+    "schema_to": 4,
+    "up": "pass",
+    "down": "pass",
+    "data_retention": "Rollback keeps entries created under schema 4 in a shadow table for 30 days; uninstall deletes plugin tables only after an export prompt."
+  },
+  "marketplace_review": {
+    "platform": "wordpress-plugin",
+    "checklist": "wordpress-org-compliance",
+    "result": "pass"
+  },
+  "support_boundary": "Supports WordPress 6.6 to 6.9 on PHP 8.1 to 8.4; behavior outside that range is unsupported.",
+  "evidence": {
+    "handoff": "handoff.json",
+    "contract": "contract.json",
+    "base": "."
+  }
+}

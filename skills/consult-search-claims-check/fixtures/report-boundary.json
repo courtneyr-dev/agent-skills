@@ -1,0 +1,12 @@
+{
+  "schema": "search-claims.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "report_id": "fixture-boundary-1",
+  "tenant_id": "fixture-co",
+  "claims": [
+    {"id": "b1", "text": "The platform documentation says rankings are not guaranteed.", "kind": "observation", "status_label": "observed",
+     "evidence": [{"source_id": "src-platform", "quote": "The  DOCUMENTATION says “rankings are not\n   guaranteed” for any page."}]},
+    {"id": "b2", "text": "Exact-match anchor text may influence ranking; we have not confirmed it.", "kind": "ranking-factor", "status_label": "hypothesis",
+     "evidence": [{"source_id": "src-blog", "quote": "exact-match anchor text is a strong ranking factor"}]}
+  ]
+}

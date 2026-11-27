@@ -1,0 +1,8 @@
+{
+  "schema": "i18n-glossary.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "terms": [
+    {"source": "workspace", "locale": "fr", "target": "espace de travail"},
+    {"source": "workspace", "locale": "ar", "target": "مساحة العمل"}
+  ]
+}

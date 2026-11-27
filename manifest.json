@@ -6,6 +6,46 @@
   "skill_format": "https://code.claude.com/docs/en/skills",
   "skills": [
     {
+      "name": "agency-engagement-gate",
+      "kind": "vendored",
+      "path": "skills/agency-engagement-gate",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Gate each transition of an agency client engagement on evidence: qualify and price a scoped brief against a rate card and a sourced margin floor, check that every lifecycle stage from qualified brief to support has hash-matched evidence acc",
+      "summary": "Gate each stage of an agency engagement on hashed, independently accepted evidence and a sourced margin floor.",
+      "example": "\"is this brief ready to price?\" → a margin check against the rate card and a stage-by-stage verdict naming the missing evidence."
+    },
+    {
+      "name": "agency-i18n-check",
+      "kind": "vendored",
+      "path": "skills/agency-i18n-check",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Checks gettext POT and PO catalogs plus page templates and CSS for placeholder mismatches, wrong plural counts, untranslated or fuzzy strings, length-budget overruns and right-to-left layout defects before a release. Always marks linguistic",
+      "summary": "Catch placeholder, plural, untranslated and right-to-left defects in gettext catalogs, templates and CSS.",
+      "example": "\"check the PO files\" → each defect with its file and line, and linguistic review left as a required human step."
+    },
+    {
+      "name": "agency-keyboard-audit",
+      "kind": "vendored",
+      "path": "skills/agency-keyboard-audit",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Keyboard-path audit for a web page or staging build: runs axe-core as the automated baseline, then walks the page with the Tab key in headless Chromium and reports keyboard traps (WCAG 2.1.2), controls that only respond to a mouse (2.1.1), ",
+      "summary": "Tab through a page in headless Chromium and report keyboard traps, mouse-only controls and invisible focus.",
+      "example": "\"keyboard audit the donate page\" → an axe-core baseline plus each WCAG 2.1.1, 2.1.2, 2.4.3 and 2.4.7 failure with steps to reproduce."
+    },
+    {
+      "name": "agency-platform-adapters",
+      "kind": "vendored",
+      "path": "skills/agency-platform-adapters",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Pick the right installed platform skills for a client project instead of a generic CMS persona: resolves the project's platform and version (WordPress, WooCommerce, Drupal, Cloudflare Workers, JavaScript or TypeScript apps, native iOS) to t",
+      "summary": "Map a client project's platform and version to the exact platform skills to load, and route legacy versions.",
+      "example": "\"which skills for a WooCommerce site on PHP 7.2?\" → the legacy route and the skills it needs, or why none apply."
+    },
+    {
       "name": "anti-slop-git-writing",
       "kind": "vendored",
       "path": "skills/anti-slop-git-writing",
@@ -14,6 +54,16 @@
       "description": "Use when writing a commit message, PR or MR title and body, GitHub or GitLab issue, bug report, or code-review comment, and when a bug found while testing or reviewing needs filing. Makes the text read like a specific person wrote it under ",
       "summary": "Commit messages, PRs, and issues that read like a person wrote them under time pressure.",
       "example": "before committing → a message that says what changed and why, in the voice of someone who was there."
+    },
+    {
+      "name": "bcit-learning-package",
+      "kind": "vendored",
+      "path": "skills/bcit-learning-package",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Builds and checks a complete Business, Computer and Information Technology (BCIT) learning package for a public-school course unit: observable objectives, honest standards references, teacher guidance, student materials, a worked example, p",
+      "summary": "Build and check a complete BCIT course-unit package, from objectives to rubric and accessibility notes.",
+      "example": "\"build a unit on spreadsheet budgeting\" → objectives, teacher guide, student materials, practice, rubric, and a package check that names gaps."
     },
     {
       "name": "bible-study",
@@ -55,6 +105,96 @@
       }
     },
     {
+      "name": "community-health-measures",
+      "kind": "vendored",
+      "path": "skills/community-health-measures",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use whenever someone plans, reviews or computes community or open-source measures: a measurement plan, community health metrics, contributor counts, response times, event follow-up numbers, a board or newsletter stat. Lints the plan so ever",
+      "summary": "Lint a community measurement plan and compute its numbers from sourced, consent-aware definitions.",
+      "example": "\"what should our community health metrics be?\" → each metric with a question, a CHAOSS or local definition, and the computed aggregate."
+    },
+    {
+      "name": "community-moderation-review",
+      "kind": "vendored",
+      "path": "skills/community-moderation-review",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use whenever an agent analyzes a code-of-conduct report or drafts a moderation recommendation, before any human sees it: checks the draft against the case record so the allegation stays unproven, no sanction is issued, no message is sent, n",
+      "summary": "Check a moderation recommendation against the case record before any human sees it.",
+      "example": "draft a recommendation for a conduct report → a check that nothing is presumed proven, sent or sanctioned, with recusals and the appeal route kept."
+    },
+    {
+      "name": "community-operating-kit",
+      "kind": "vendored",
+      "path": "skills/community-operating-kit",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use when a community or open-source program needs its operating kit written, reviewed or completed: charter, onboarding path, governance map, moderation and escalation design, event playbook, contributor journey, measurement plan and improv",
+      "summary": "Write or complete a community program's operating kit and check every section is present and sourced.",
+      "example": "\"we need a charter and an onboarding path\" → the eight kit sections mapped to their sources, with the missing ones named."
+    },
+    {
+      "name": "consult-compliance-engagement",
+      "kind": "vendored",
+      "path": "skills/consult-compliance-engagement",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Workflow gate for a compliance consulting engagement (SOC 2, ISO/IEC 27001, PCI DSS, GDPR, NIST, WCAG or a client obligation). Checks six stages in order: applicability with edition, jurisdiction, scope, licensed-text rights and human owner",
+      "summary": "Gate a compliance engagement through applicability, owners, fresh same-tenant evidence, gaps and reporting.",
+      "example": "\"can we issue the SOC 2 readiness report?\" → the first stage that fails and why, or a report ready for human sign-off."
+    },
+    {
+      "name": "consult-email-send-gate",
+      "kind": "vendored",
+      "path": "skills/consult-email-send-gate",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Runs a deterministic pre-send gate on one email campaign for the company-fleets consultancy fleet. It keeps suppressed contacts suppressed, checks marketing permission, tenant, SPF/DKIM/DMARC fixtures, RFC 8058 one-click unsubscribe and acc",
+      "summary": "Pre-send gate for one email campaign: suppression, permission, tenant, sender authentication and unsubscribe. Stages, never sends.",
+      "example": "\"is this campaign ready to send?\" → each blocked recipient with the rule that blocked it, and a staged result for human approval."
+    },
+    {
+      "name": "consult-i18n-check",
+      "kind": "vendored",
+      "path": "skills/consult-i18n-check",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Check a translated string catalog against its source for placeholder, plural-category, RTL and bidi, length, hardcoded-format, glossary and untranslated-string defects with a deterministic script. Use for localization QA on i18n-catalog.v1 ",
+      "summary": "Check a translated string catalog against its source for placeholder, plural, bidi, length and glossary defects.",
+      "example": "\"QA the Arabic catalog\" → each defect by key, with translation accuracy left to a human reviewer."
+    },
+    {
+      "name": "consult-search-claims-check",
+      "kind": "vendored",
+      "path": "skills/consult-search-claims-check",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Check a draft SEO or AI-search report against a register of captured sources and reject fabricated citations, quotes missing from the capture, edited captures, guaranteed-placement promises, and ranking-factor or forecast claims stated as f",
+      "summary": "Reject fabricated citations, edited captures and guaranteed-placement promises in an SEO or AI-search report.",
+      "example": "\"check this SEO audit before it goes out\" → each claim tied to a captured source, or flagged with the reason."
+    },
+    {
+      "name": "corporate-claims-check",
+      "kind": "vendored",
+      "path": "skills/corporate-claims-check",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Gate a marketing, SEO/AIO or communications draft before it is staged: reject guaranteed search rankings or AI-answer inclusion, uncited ranking outcomes and statistics, and fabricated or unverifiable citations, quotes and numbers against a",
+      "summary": "Stop ranking guarantees, uncited statistics and unverifiable quotes in a marketing or comms draft before staging.",
+      "example": "\"claims check this blog post\" → every number and quote matched to the sources register, or flagged."
+    },
+    {
+      "name": "corporate-email-guard",
+      "kind": "vendored",
+      "path": "skills/corporate-email-guard",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Send gate for staged marketing or lifecycle email: drops suppressed, invalid, duplicate and off-list contacts at staging, re-checks suppression at send time, and refuses any send that lacks an approval from a named human bound to the exact ",
+      "summary": "Send gate that drops suppressed and off-list contacts and refuses any send without a named human's hash-bound approval.",
+      "example": "\"send the November newsletter\" → refused until an approval names the exact campaign and recipient hashes; delivery goes to a local fake outbox."
+    },
+    {
       "name": "credit-routing",
       "kind": "vendored",
       "path": "skills/credit-routing",
@@ -63,6 +203,16 @@
       "description": "Use at the start of any non-trivial task, when deciding whether to delegate, when a task has failed twice, before escalating model or effort, or when the user mentions credits, cost, tokens, routing, or 'which model'.",
       "summary": "Decide what to delegate, to which model, at what effort — before starting the work.",
       "example": "at the start of anything non-trivial → which model, what effort, and what to delegate, decided before the work starts."
+    },
+    {
+      "name": "cs-classroom-instruction",
+      "kind": "vendored",
+      "path": "skills/cs-classroom-instruction",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use when a school computer science teacher (PK-12, usually grades 6-12) needs a complete runnable lesson or lab, or needs feedback on learner code, predictions or traces they actually supplied. Builds the teacher guide, runnable examples wi",
+      "summary": "Build a runnable school computer science lesson or lab, or give feedback on code a learner actually wrote.",
+      "example": "\"a grade 9 lab on loops\" → a teacher guide, runnable examples with expected output, misconception probes and a rubric."
     },
     {
       "name": "decision-sync",
@@ -83,6 +233,106 @@
       "description": "Use when the user asks for a DevRel program or strategy, a developer community plan, an ambassador or champion program, a talk or office-hours pipeline, or wants transcripts and community signals turned into prioritized DevRel actions. Camp",
       "summary": "Turn transcripts and community signals into a prioritized DevRel program.",
       "example": "paste a month of community signal → a prioritized program, not a summary."
+    },
+    {
+      "name": "devrel-program-kit",
+      "kind": "vendored",
+      "path": "skills/devrel-program-kit",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use when a developer-relations program needs its operating kit or a check on its claims: after samber's developer-relations-kickoff routes the work, this skill confirms every routed skill is installed (and names the installed fallback when ",
+      "summary": "Keep a DevRel program's routing and claims honest: routed skills installed, program state in one context file.",
+      "example": "\"check our DevRel program plan\" → routed skills that aren't installed, their fallbacks, and claims without evidence."
+    },
+    {
+      "name": "devrel-quickstart-replay",
+      "kind": "vendored",
+      "path": "skills/devrel-quickstart-replay",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use when a quickstart, tutorial, workshop lab, demo script or bug repro has to be proven to work as written in a clean environment: replays its tier=run shell blocks in a fresh temp directory with an empty HOME and a four-key environment (m",
+      "summary": "Prove a quickstart or tutorial works as written by replaying its shell blocks in a clean temp environment.",
+      "example": "\"does our quickstart still work?\" → each step's output checked against the doc, with the first divergence named."
+    },
+    {
+      "name": "edu-answer-key-check",
+      "kind": "vendored",
+      "path": "skills/edu-answer-key-check",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Executes the answers in an answer key or a learner's solution (spreadsheet formulas, SQL queries, Python code and worked calculations) and compares the executed result with the stated key and with any submitted answer. Use whenever a BCIT, ",
+      "summary": "Execute an answer key's formulas, SQL, Python and calculations and compare the results with the stated answers.",
+      "example": "\"check the quiz answer key\" → each answer recomputed, with every mismatch and its executed value."
+    },
+    {
+      "name": "edu-assessment-check",
+      "kind": "vendored",
+      "path": "skills/edu-assessment-check",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Checks that an assessment can show what its objectives claim: objectives, tasks, rubric criteria and scoring rationale line up; the task's evidence matches the objective's cognitive level; and nothing outside the intended construct gets in ",
+      "summary": "Check that an assessment's tasks, rubric and scoring line up with the objectives they claim to measure.",
+      "example": "\"review this rubric\" → misaligned criteria, cognitive-level mismatches and barriers outside the intended construct."
+    },
+    {
+      "name": "edu-learning-progression",
+      "kind": "vendored",
+      "path": "skills/edu-learning-progression",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Use when someone needs a prerequisite map, curriculum map, learning progression or course sequence: CS from school computing through introductory university study, a BCIT program pathway, or an instructional-design curriculum map for workpl",
+      "summary": "Check a prerequisite map or course sequence for cycles, gaps and ordering errors.",
+      "example": "\"map the CS course sequence\" → the progression, with cycles and unreachable topics named."
+    },
+    {
+      "name": "edu-needs-analysis",
+      "kind": "vendored",
+      "path": "skills/edu-needs-analysis",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Decides whether instruction addresses a performance problem before anyone designs a course, workshop, module or e-learning. Use whenever someone asks for training, a course, onboarding or a workshop to fix a performance problem (missed dead",
+      "summary": "Decide whether training fixes a performance problem before anyone builds a course.",
+      "example": "\"we need a course on the new process\" → a diagnosis that separates knowledge and practice from tools, incentives and access."
+    },
+    {
+      "name": "edu-research-review",
+      "kind": "vendored",
+      "path": "skills/edu-research-review",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Critiques education research papers, designs education studies, and evaluates BCIT or computer science programs with traced citations and bounded claims. Use whenever someone asks to review, critique or summarize a computing-education or bu",
+      "summary": "Critique education research and program evaluations with traced citations and bounded claims.",
+      "example": "\"does this study show pair programming works?\" → the design, its threats to validity, and the claim the evidence supports."
+    },
+    {
+      "name": "edu-standards-alignment",
+      "kind": "vendored",
+      "path": "skills/edu-standards-alignment",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Checks education standards alignments and professional-source references against a live-verified registry, so a draft never claims a match it cannot support. Use whenever a lesson, unit, course, program map, teacher-education module or syll",
+      "summary": "Check standards alignments and professional references against a verified registry, so nothing claims an unsupported match.",
+      "example": "\"align this unit to CSTA\" → each cited standard verified, or flagged as a gap."
+    },
+    {
+      "name": "edu-student-data-guard",
+      "kind": "vendored",
+      "path": "skills/edu-student-data-guard",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Student-data policy adapter for the education fleets: decides whether a workflow may read one student-related record, using the company-fleets tenant rules plus the actual school's verified policy. Use before any lesson, feedback, progress-",
+      "summary": "Decide whether a workflow may read a student record under tenant rules and the school's verified policy.",
+      "example": "\"pull last term's grades for feedback\" → allowed or refused, naming the policy clause and the owner grant."
+    },
+    {
+      "name": "edu-trainer-development",
+      "kind": "vendored",
+      "path": "skills/edu-trainer-development",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Develops trainers, facilitators and teachers: facilitation guides with design rationale, complete modeled examples with decision points, observation and specific feedback, rubric calibration, fading support, coaching another trainer to adap",
+      "summary": "Develop trainers and teachers: facilitation guides, modeled examples, observation feedback and rubric calibration.",
+      "example": "\"help our facilitators run this workshop\" → a guide with design rationale, a modeled example and a plan for transfer evidence."
     },
     {
       "name": "email-draft-review",
@@ -133,6 +383,106 @@
       "description": "Use when the user says 'make my repo look good', 'prepare this repo for open source', or asks to audit or add a README, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT, LICENSE, issue or PR templates, or release hygiene in a repository.",
       "summary": "Prepare a repo for open source: README, CONTRIBUTING, SECURITY, templates, release hygiene.",
       "example": "\"prepare this for open source\" → the files a stranger needs before they will trust your repo."
+    },
+    {
+      "name": "hosting-abuse-response",
+      "kind": "vendored",
+      "path": "skills/hosting-abuse-response",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Handles an abuse report against a hosted tenant: preserves the report with sha256 hashes and a hash-chained chain of custody, flags instructions embedded in the report as untrusted data, verifies evidence is untouched, and records a decisio",
+      "summary": "Handle an abuse report with hashed evidence, a chain of custody, and only the actions a policy clause authorizes.",
+      "example": "\"phishing report against tenant B\" → evidence preserved with hashes, embedded instructions flagged as data, and a recorded decision."
+    },
+    {
+      "name": "hosting-account-lifecycle",
+      "kind": "vendored",
+      "path": "skills/hosting-account-lifecycle",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Run a hosted account through qualify, provision, verify ownership, configure, activate, monitor, renew, suspend, export and decommission, with every panel side effect idempotent and recoverable. Use whenever someone asks to onboard, provisi",
+      "summary": "Run a hosted account from qualify to decommission with idempotent, recoverable panel side effects.",
+      "example": "\"provision a reseller account\" → each step recorded once, so a retry after a crash does no duplicate work."
+    },
+    {
+      "name": "hosting-benchmark-matrix",
+      "kind": "vendored",
+      "path": "skills/hosting-benchmark-matrix",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Keep a dated hosting benchmark honest against public Acquia, Pantheon and WordPress VIP documentation: each dimension (restore, recovery objectives, isolation, deployment reversibility, performance under load, observability, support, access",
+      "summary": "Keep a hosting benchmark honest: documented claim, target, configuration, measurement and contract stay separate.",
+      "example": "\"say we're more robust than the big hosts\" → refused, with the readiness backlog that would have to close first."
+    },
+    {
+      "name": "hosting-data-migration",
+      "kind": "vendored",
+      "path": "skills/hosting-data-migration",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Move a hosted site's data safely and prove it: an upgrade-compatibility preflight (runtime, database engine and extension versions), a migration rehearsal that backs up first, applies the change in one transaction, checks stated post-condit",
+      "summary": "Preflight, rehearse and prove a hosted site's data migration, with automatic rollback and a portable export.",
+      "example": "\"upgrade the database engine\" → a compatibility preflight, a rehearsal with checksum proof, and the rollback result."
+    },
+    {
+      "name": "hosting-dns-cert-lifecycle",
+      "kind": "vendored",
+      "path": "skills/hosting-dns-cert-lifecycle",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Check DNS zones and TLS certificates for a hosted site through create, change, migrate, renew and decommission: apex CNAMEs, CNAMEs sharing a name, MX pointing at an alias, dangling records left after a host is decommissioned (takeover risk",
+      "summary": "Check DNS zones and TLS certificates through create, change, migrate, renew and decommission.",
+      "example": "\"we're decommissioning the old host\" → dangling records, takeover risk and certificate problems to fix first."
+    },
+    {
+      "name": "hosting-incident-response",
+      "kind": "vendored",
+      "path": "skills/hosting-incident-response",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Run hosting incidents from alert to learning handoff. Checks SLOs and error-budget burn rates, routes page and ticket alerts to a role, keeps a tamper-evident incident record with a commander and a communications coordinator, refuses to res",
+      "summary": "Run a hosting incident from alert to learning handoff, with a tamper-evident record and external messages held as drafts.",
+      "example": "\"the API error rate is spiking\" → a burn-rate check, a routed page, and a record that won't resolve without recovery evidence."
+    },
+    {
+      "name": "hosting-metering-reconcile",
+      "kind": "vendored",
+      "path": "skills/hosting-metering-reconcile",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Meter hosting usage and check the money against it. Dedupes meter events so a retried delivery counts once (same id, or a new id with the same tenant, meter, quantity and timestamp instant, which also fails for a human to settle), enforces ",
+      "summary": "Dedupe meter events, enforce published quotas and reconcile invoices against metered usage.",
+      "example": "\"reconcile November invoices\" → each invoice line matched to usage, with duplicates and overcharges flagged."
+    },
+    {
+      "name": "hosting-restore-exercise",
+      "kind": "vendored",
+      "path": "skills/hosting-restore-exercise",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Run a real restore or disaster-recovery drill on a disposable local site: break it on purpose (process crash, corrupted database file, deleted database file), let a monitor detect it, restore the latest backup into a fresh data folder or fa",
+      "summary": "Break a disposable site on purpose, restore it, and measure detection time, RTO and RPO.",
+      "example": "\"run a restore drill\" → measured detection, recovery and data-loss times from a real restore."
+    },
+    {
+      "name": "hosting-service-catalogue",
+      "kind": "vendored",
+      "path": "skills/hosting-service-catalogue",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Check a hosting service catalogue and its responsibility matrix against one operating profile (affiliate, reseller, shared, managed, platform or enterprise), including upstream-provider dependencies and customer-visible limits, so the compa",
+      "summary": "Check a hosting service catalogue and its responsibility matrix against one operating profile.",
+      "example": "\"review our reseller catalogue\" → duties claimed but not controlled, and duties owed but missing."
+    },
+    {
+      "name": "hosting-tenant-isolation",
+      "kind": "vendored",
+      "path": "skills/hosting-tenant-isolation",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Tests the boundaries between hosted tenants: whether one tenant's principals can read another's confidential or restricted records, whether the audit trail is tamper-evident, whether build logs and preview artifacts leak secrets, whether an",
+      "summary": "Test tenant boundaries: record access, a tamper-evident audit trail, secrets in build output, and sandboxed untrusted builds.",
+      "example": "\"can this preview be promoted?\" → refused, listing the leaked secret, the failed scan and the missing approval."
     },
     {
       "name": "job-search",
@@ -203,6 +553,26 @@
       "description": "Use when the user says 'Plaud', 'my recordings', 'what did I record', or wants a Plaud transcript, summary, digest, follow-up, or export. Meeting transcripts from other sources go to transcript-processing.",
       "summary": "Pull transcripts, summaries, and follow-ups from Plaud recordings.",
       "example": "\"what did I record yesterday?\" → the transcript, a summary, and the follow-ups pulled out."
+    },
+    {
+      "name": "product-payment-events",
+      "kind": "vendored",
+      "path": "skills/product-payment-events",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Test-mode payment, entitlement and subscription webhook processing that proves duplicate or retried payment events cannot create a second charge capture, fulfillment, inventory decrement or refund. Use when building or reviewing a commerce,",
+      "summary": "Prove duplicate or retried payment webhooks can't capture, fulfill, decrement stock or refund twice.",
+      "example": "replay a webhook log → one capture per order, with replayed and out-of-order events shown converging."
+    },
+    {
+      "name": "product-release-gate",
+      "kind": "vendored",
+      "path": "skills/product-release-gate",
+      "license": "MIT",
+      "redistributable": true,
+      "description": "Packaging gate for an extension, plugin, theme, module, browser extension, SDK, integration or SaaS release candidate. Checks the host, API and version compatibility matrix first and refuses an incompatible or untested version before any pa",
+      "summary": "Gate an extension or SDK release on compatibility, SemVer, changelog, SBOM and review evidence.",
+      "example": "\"is v2.0 ready to publish?\" → refused before packaging if a host version is untested, otherwise ready for human approval."
     },
     {
       "name": "prop-for-that",
@@ -2111,6 +2481,64 @@
         "skill-retro",
         "skill-sync"
       ]
+    },
+    "fleets": {
+      "title": "Company fleets",
+      "description": "Role registry, handoff guards, and the claims, send and release gates its roles call.",
+      "long": "One registry of roles, workloads and eval cases for agency, consulting, product, DevRel, community and corporate work, plus the deterministic gates those roles call. Every company record is a labeled fixture (Fixture Co). The gate skills read shared code and fixtures from company-fleets and factory-rig, which sit beside them in this repository. Roles also attach upstream skills from other people's repos; those are marked external and install from their own sources.",
+      "skills": [
+        "agency-engagement-gate",
+        "agency-i18n-check",
+        "agency-keyboard-audit",
+        "agency-platform-adapters",
+        "community-health-measures",
+        "community-moderation-review",
+        "community-operating-kit",
+        "consult-compliance-engagement",
+        "consult-email-send-gate",
+        "consult-i18n-check",
+        "consult-search-claims-check",
+        "corporate-claims-check",
+        "corporate-email-guard",
+        "devrel-program-kit",
+        "devrel-quickstart-replay",
+        "product-payment-events",
+        "product-release-gate"
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "description": "Course units, assessments, answer keys, standards alignment and student-data rules.",
+      "long": "School and workplace teaching: BCIT and computer science units, assessment and answer-key checks, standards alignment against a verified registry, needs analysis, research review, trainer development, and a student-data guard that refuses reads the school's policy doesn't allow.",
+      "skills": [
+        "bcit-learning-package",
+        "cs-classroom-instruction",
+        "edu-answer-key-check",
+        "edu-assessment-check",
+        "edu-learning-progression",
+        "edu-needs-analysis",
+        "edu-research-review",
+        "edu-standards-alignment",
+        "edu-student-data-guard",
+        "edu-trainer-development"
+      ]
+    },
+    "hosting": {
+      "title": "Hosting operations",
+      "description": "Accounts, DNS and certificates, incidents, restores, isolation, metering, and an honest provider benchmark.",
+      "long": "Gates for running a hosting service on synthetic lab data: account lifecycle, DNS and TLS, incident response, restore drills, data migration, tenant isolation, metering and the service catalogue. The benchmark cites public provider documentation and keeps documented claims, targets, configuration, measurements and contracts in separate fields.",
+      "skills": [
+        "hosting-abuse-response",
+        "hosting-account-lifecycle",
+        "hosting-benchmark-matrix",
+        "hosting-data-migration",
+        "hosting-dns-cert-lifecycle",
+        "hosting-incident-response",
+        "hosting-metering-reconcile",
+        "hosting-restore-exercise",
+        "hosting-service-catalogue",
+        "hosting-tenant-isolation"
+      ]
     }
   },
   "related_repos": [
@@ -2173,7 +2601,7 @@
   ],
   "source_policy": "Every entry points at the ORIGINAL source, never an intermediary. Where a skill reached this machine through a fork or a collection, the manifest names the upstream that actually published it and the fork is recorded separately. Two checks make that reliable: read the upstream's own credits before treating it as the origin, and never conclude 'no license' from the repo root alone — cursor/plugins has no root LICENSE but licenses each plugin directory, so the root check reports unlicensed for 44 skills that are in fact MIT.",
   "counts": {
-    "vendored": 35,
+    "vendored": 72,
     "external": 79,
     "external_unverified": 4,
     "_note": "Repository truth. Derived from manifest.skills and skills/ on disk; validated in CI."
@@ -2192,7 +2620,7 @@
   "publication": {
     "authority": "publish/policy.yml",
     "_note": "Publication mode (generated vs public-authored) is owned by publish/policy.yml, not by this manifest. CI validates that the two agree; it is never declared twice.",
-    "generated": 30,
+    "generated": 67,
     "public_authored": 5
   },
   "skill_roots": {

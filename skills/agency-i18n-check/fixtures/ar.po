@@ -1,0 +1,44 @@
+# SYNTHETIC FIXTURE (Fixture Co): Arabic catalog written for tests. A human language reviewer has not reviewed it.
+msgid ""
+msgstr ""
+"Project-Id-Version: Fixture Co Donate 1.0\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+msgid "Donate now"
+msgstr "تبرع الآن"
+
+msgid "Fixture Co"
+msgstr "Fixture Co"
+
+msgid "Thank you, %s!"
+msgstr "شكرًا لك يا %s!"
+
+msgid "%1$s donated %2$s this month."
+msgstr "تبرع %1$s بمبلغ %2$s هذا الشهر."
+
+msgid "%d donor"
+msgid_plural "%d donors"
+msgstr[0] "لا متبرعين"
+msgstr[1] "متبرع واحد"
+msgstr[2] "متبرعان"
+msgstr[3] "%d متبرعين"
+msgstr[4] "%d متبرعًا"
+msgstr[5] "%d متبرع"
+
+msgid "Your gift supports local programs."
+msgstr "تدعم هديتك البرامج المحلية."
+
+msgctxt "form label"
+msgid "Amount"
+msgstr "المبلغ"
+
+msgid "Receipt sent to {email}"
+msgstr "أُرسل الإيصال إلى {email}"
+
+msgid "Choose a gift amount"
+msgstr "اختر مبلغ الهدية"
+
+msgid "Monthly gifts can be paused anytime."
+msgstr "يمكنك إيقاف الهدايا الشهرية مؤقتًا في أي وقت."

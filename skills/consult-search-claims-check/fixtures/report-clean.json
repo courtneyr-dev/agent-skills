@@ -1,0 +1,15 @@
+{
+  "schema": "search-claims.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "report_id": "fixture-clean-1",
+  "tenant_id": "fixture-co",
+  "claims": [
+    {"id": "c1", "text": "Impressions for the pricing page rose from 1,200 to 1,500 between week 1 and week 4.", "kind": "observation", "status_label": "observed",
+     "evidence": [{"source_id": "src-measure", "quote": "Impressions for the /pricing page rose from 1,200 to 1,500"}]},
+    {"id": "c2", "text": "Keep the pricing page crawlable and indexable.", "kind": "recommendation", "status_label": "recommendation",
+     "evidence": [{"source_id": "src-platform", "quote": "A page must be crawlable and indexable to appear in results."}]},
+    {"id": "c3", "text": "Structured data is not required for a page to be eligible, per the platform documentation.", "kind": "ranking-factor", "status_label": "observed",
+     "evidence": [{"source_id": "src-platform", "quote": "Structured data is not required for a page to be eligible."}]},
+    {"id": "c4", "text": "Clicks may reach about 120 per week if the trend holds.", "kind": "forecast", "status_label": "estimate", "evidence": []}
+  ]
+}

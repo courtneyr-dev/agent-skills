@@ -261,6 +261,548 @@ skills:
       references/standards-and-modules.md: generated
       tests/README.md: generated
       tests/coverage-test.py: generated
+  # Company fleet gate skills. Generated from canonical; files are an explicit allowlist.
+  # They share one transform list without second_person_owner: their scripts hold English
+  # pronoun word lists that the pronoun rule would rewrite.
+  agency-engagement-gate:
+    mode: generated
+    source: agency-engagement-gate
+    transforms: &fleet_transforms
+    - full_name_and_agreement
+    - replace_personal_name
+    - public_license_frontmatter
+    - public_rig_rights
+    - private_prompt_reference
+    - private_branch_reference
+    - credit_pstack_upstream
+    - rig_mount_paths
+    - synthetic_token_prefix
+    - vault_dir_variable
+    - normalize_home_path
+    - genericize_vault_name
+    - collapse_loop_reports_path
+    - strip_para_number_prefix
+    - genericize_domain
+    - genericize_identifiers
+    - genericize_personal_site
+    - placeholder_private_example
+    files:
+      fixtures/brief-bypass.json: generated
+      fixtures/brief-low-margin.json: generated
+      fixtures/brief-ok.json: generated
+      fixtures/margin-policy.json: generated
+      fixtures/rates.json: generated
+      fixtures/runbook-missing.md: generated
+      fixtures/runbook-ok.md: generated
+      references/engagement-stages.md: generated
+      scripts/engagement_gate.py: generated
+      scripts/tests/test_engagement_gate.py: generated
+  agency-i18n-check:
+    mode: generated
+    source: agency-i18n-check
+    transforms: *fleet_transforms
+    files:
+      fixtures/ar-defects.po: generated
+      fixtures/ar.po: generated
+      fixtures/donate.pot: generated
+      fixtures/es.po: generated
+      fixtures/malformed.po: generated
+      fixtures/page-no-dir.html: generated
+      fixtures/page-ok.html: generated
+      fixtures/styles-logical.css: generated
+      fixtures/styles-physical.css: generated
+      references/gettext-and-plurals.md: generated
+      references/rtl-layout.md: generated
+      scripts/i18n_check.py: generated
+      scripts/tests/test_i18n_check.py: generated
+  agency-keyboard-audit:
+    mode: generated
+    source: agency-keyboard-audit
+    transforms: *fleet_transforms
+    files:
+      fixtures/donate-after.html: generated
+      fixtures/donate-before.html: generated
+      fixtures/walk-after.json: generated
+      fixtures/walk-before.json: generated
+      references/keyboard-criteria.md: generated
+      scripts/keyboard_audit.py: generated
+      scripts/keyboard_walk.cjs: generated
+      scripts/tests/test_keyboard_audit.py: generated
+  agency-platform-adapters:
+    mode: generated
+    source: agency-platform-adapters
+    transforms: *fleet_transforms
+    files:
+      fixtures/project-drupal.json: generated
+      fixtures/project-headless.json: generated
+      fixtures/project-invalid.json: generated
+      fixtures/project-unknown.json: generated
+      fixtures/project-woocommerce-current.json: generated
+      fixtures/project-woocommerce-legacy-host.json: generated
+      fixtures/project-woocommerce-no-host.json: generated
+      fixtures/project-wordpress-current.json: generated
+      fixtures/project-wordpress-legacy.json: generated
+      fixtures/project-wordpress-old-php.json: generated
+      fixtures/project-wordpress-php-only.json: generated
+      references/adapters.json: generated
+      references/platform-sources.md: generated
+      scripts/resolve_adapter.py: generated
+      scripts/tests/test_resolve_adapter.py: generated
+  bcit-learning-package:
+    mode: generated
+    source: bcit-learning-package
+    transforms: *fleet_transforms
+    replace_text:
+    - file: SKILL.md
+      old: "Reuse from Learning Commons (installed, Apache-2.0,"
+      new: "Reuse from Learning Commons (external: install from its repository; Apache-2.0,"
+    - file: SKILL.md
+      old: "The sources workstream recorded that"
+      new: "A test run recorded that"
+    files:
+      references/sources.md: generated
+      scripts/package_check.py: generated
+      scripts/tests/test_package_check.py: generated
+  community-health-measures:
+    mode: generated
+    source: community-health-measures
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/measures.py: generated
+      scripts/tests/test_measures.py: generated
+  community-moderation-review:
+    mode: generated
+    source: community-moderation-review
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/case_check.py: generated
+      scripts/tests/test_case_check.py: generated
+  community-operating-kit:
+    mode: generated
+    source: community-operating-kit
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/kit-map.md: generated
+      references/sources.md: generated
+      scripts/kit_check.py: generated
+      scripts/tests/test_kit_check.py: generated
+  consult-compliance-engagement:
+    mode: generated
+    source: consult-compliance-engagement
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      fixtures/engagement-boundary.json: generated
+      fixtures/engagement-gaps.json: generated
+      fixtures/engagement-invalid.json: generated
+      fixtures/engagement-ok.json: generated
+      fixtures/evidence-store/tenant-fixture-co/evidence/access-review-2026-q4.csv: generated
+      fixtures/evidence-store/tenant-fixture-co/evidence/alert-routing-export.json: generated
+      fixtures/evidence-store/tenant-fixture-co/evidence/keyboard-retest-2026-11-20.md: generated
+      fixtures/evidence-store/tenant-fixture-co/evidence/ropa-2026-11.csv: generated
+      fixtures/fixture-co-profile.json: generated
+      fixtures/selector-output.json: generated
+      references/applicability-registry.json: generated
+      scripts/engagement_check.py: generated
+      scripts/tests/test_engagement_check.py: generated
+  consult-email-send-gate:
+    mode: generated
+    source: consult-email-send-gate
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      fixtures/authorization-clean.json: generated
+      fixtures/authorization-expired.json: generated
+      fixtures/authorization-mismatch.json: generated
+      fixtures/campaign-clean-marketing.json: generated
+      fixtures/campaign-cross-tenant.json: generated
+      fixtures/campaign-negative.json: generated
+      fixtures/campaign-reoptin.json: generated
+      fixtures/campaign-transactional.json: generated
+      fixtures/ledger-fixture-co.json: generated
+      fixtures/malformed-campaign.json: generated
+      fixtures/sender-auth-good.json: generated
+      references/sources.md: generated
+      scripts/send_gate.py: generated
+      scripts/tests/test_send_gate.py: generated
+  consult-i18n-check:
+    mode: generated
+    source: consult-i18n-check
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      fixtures/glossary.json: generated
+      fixtures/malformed-wrong-schema.json: generated
+      fixtures/source-en.json: generated
+      fixtures/target-ar-defects.json: generated
+      fixtures/target-fr.json: generated
+      fixtures/target-tlh-unknown.json: generated
+      references/cldr-plural-categories.json: generated
+      scripts/i18n_check.py: generated
+      scripts/tests/test_i18n_check.py: generated
+  consult-search-claims-check:
+    mode: generated
+    source: consult-search-claims-check
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      fixtures/captures/measurement.txt: generated
+      fixtures/captures/platform-doc.txt: generated
+      fixtures/captures/secondary.txt: generated
+      fixtures/malformed.json: generated
+      fixtures/register.json: generated
+      fixtures/report-boundary.json: generated
+      fixtures/report-clean.json: generated
+      fixtures/report-negative.json: generated
+      fixtures/stale/captures/edited.txt: generated
+      fixtures/stale/register-stale.json: generated
+      fixtures/stale/report-stale.json: generated
+      references/guarantee-patterns.json: generated
+      scripts/claims_check.py: generated
+      scripts/tests/test_claims_check.py: generated
+  corporate-claims-check:
+    mode: generated
+    source: corporate-claims-check
+    transforms: *fleet_transforms
+    files:
+      fixtures/draft-cautionary.md: generated
+      fixtures/draft-fabricated-citation.md: generated
+      fixtures/draft-hidden-guarantees.md: generated
+      fixtures/draft-pass.md: generated
+      fixtures/draft-ranking-guarantee.md: generated
+      fixtures/draft-uncited-statistic.md: generated
+      fixtures/draft-unclosed-fence.md: generated
+      fixtures/sources-invalid.json: generated
+      fixtures/sources.json: generated
+      references/claim-rules.md: generated
+      scripts/claims_check.py: generated
+      scripts/tests/test_claims_check.py: generated
+  corporate-email-guard:
+    mode: generated
+    source: corporate-email-guard
+    transforms: *fleet_transforms
+    files:
+      evals/adversarial.json: generated
+      fixtures/approval-not-human.json: generated
+      fixtures/approval-smtp.json: generated
+      fixtures/approval-valid.json: generated
+      fixtures/approval-wrong-hash.json: generated
+      fixtures/campaign.json: generated
+      fixtures/contacts.csv: generated
+      fixtures/suppression-grown.csv: generated
+      fixtures/suppression.csv: generated
+      references/send-authority.md: generated
+      scripts/email_guard.py: generated
+      scripts/tests/test_email_guard.py: generated
+  cs-classroom-instruction:
+    mode: generated
+    source: cs-classroom-instruction
+    transforms: *fleet_transforms
+    files:
+      references/data-shapes.md: generated
+      references/sources.md: generated
+      scripts/lesson.py: generated
+      scripts/tests/test_lesson.py: generated
+  devrel-program-kit:
+    mode: generated
+    source: devrel-program-kit
+    transforms: *fleet_transforms
+    note: the published check_routes.py defaults --skills-root to the folder that holds this skill, not a home path
+    replace_text:
+    - file: SKILL.md
+      old: "stays recorded as blocked until the sources workstream installs them."
+      new: "stays recorded as blocked until you install those collections."
+    - file: references/context-and-handback.md
+      old: "In this rig, Claude Code auto-memory may hold a one-line pointer to the file."
+      new: "Agent memory may hold a one-line pointer to the file."
+    - file: references/context-and-handback.md
+      old: "| Vault | The integrator writes explanatory vault notes that link to the file. Vault notes don't copy program state. |\n"
+      new: ""
+    - file: references/fallbacks.json
+      old: "Judgment by the devrel-and-community workstream on 2026-11-25; a sibling collection install by the sources workstream replaces these entries."
+      new: "Recorded 2026-11-25; installing a sibling collection replaces these entries."
+    - file: references/fallbacks.json
+      old: "the sibling collection isn't installed in the rig; the sources workstream decides whether to install it"
+      new: "the sibling collection isn't installed; install it to replace this fallback"
+    files:
+      evals/evals.json: generated
+      references/context-and-handback.md: generated
+      references/fallbacks.json: generated
+      references/kit-map.md: generated
+      references/sources.md: generated
+      scripts/check_program.py: generated
+      scripts/check_routes.py: public-authored
+      scripts/tests/test_kit.py: generated
+  devrel-quickstart-replay:
+    mode: generated
+    source: devrel-quickstart-replay
+    transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "macOS 26 (Darwin 25.6.0), checked 2026-11-25"
+      new: "macOS 26, checked 2026-11-25"
+    - file: references/sources.md
+      old: "3.9.6 (`/usr/bin/python3`) and later"
+      new: "3.9 and later"
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/replay.py: generated
+      scripts/tests/test_replay.py: generated
+  edu-answer-key-check:
+    mode: generated
+    source: edu-answer-key-check
+    transforms: *fleet_transforms
+    replace_text:
+    - file: SKILL.md
+      old: "No LibreOffice, Excel or Sheets engine exists on this Mac, so"
+      new: "The checker calls no LibreOffice, Excel or Sheets engine, so"
+    files:
+      references/sources.md: generated
+      scripts/answer_key.py: generated
+      scripts/tests/test_answer_key.py: generated
+  edu-assessment-check:
+    mode: generated
+    source: edu-assessment-check
+    transforms: *fleet_transforms
+    files:
+      references/sources.md: generated
+      scripts/assessment_check.py: generated
+      scripts/tests/test_assessment_check.py: generated
+  edu-learning-progression:
+    mode: generated
+    source: edu-learning-progression
+    transforms: *fleet_transforms
+    files:
+      references/sources.md: generated
+      scripts/progression.py: generated
+      scripts/tests/test_progression.py: generated
+  edu-needs-analysis:
+    mode: generated
+    source: edu-needs-analysis
+    transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "Private prompt in the rig owner's Downloads folder"
+      new: "Private task prompt (not published)"
+    files:
+      references/diagnostic-questions.md: generated
+      references/sources.md: generated
+      scripts/needs.py: generated
+      scripts/tests/test_needs.py: generated
+  edu-research-review:
+    mode: generated
+    source: edu-research-review
+    transforms: *fleet_transforms
+    files:
+      references/ethics-boundary.md: generated
+      references/evidence-hierarchy.md: generated
+      references/json-shapes.md: generated
+      references/methods-checklist.md: generated
+      scripts/research_check.py: generated
+      scripts/tests/test_research_check.py: generated
+  edu-standards-alignment:
+    mode: generated
+    source: edu-standards-alignment
+    transforms: *fleet_transforms
+    replace_text:
+    - file: references/standards-registry.json
+      old: "Blueprints are copyrighted and intended for personal or educational classroom use. No part of any blueprint content, including NOCTI competencies, may be reproduced, incorporated into any information retrieval system, or used to prepare derivative works or materials sold for profit without NOCTI's official consent."
+      new: "Copyrighted by NOCTI for personal or classroom use; reproduction, retrieval systems and derivative works need NOCTI's consent. Read the terms on the blueprint index page."
+    files:
+      references/organizations.json: generated
+      references/sources.md: generated
+      references/standards-registry.json: generated
+      scripts/standards_check.py: generated
+      scripts/tests/test_standards_check.py: generated
+  edu-student-data-guard:
+    mode: generated
+    source: edu-student-data-guard
+    transforms: *fleet_transforms
+    files:
+      references/owner-grants.json: generated
+      references/school-policy.json: generated
+      scripts/data_guard.py: generated
+      scripts/tests/test_data_guard.py: generated
+  edu-trainer-development:
+    mode: generated
+    source: edu-trainer-development
+    transforms: *fleet_transforms
+    files:
+      references/procedures.md: generated
+      references/sources.md: generated
+      references/teacher-education.md: generated
+      scripts/agreement.py: generated
+      scripts/evidence_plan.py: generated
+      scripts/package.py: generated
+      scripts/tests/test_agreement.py: generated
+      scripts/tests/test_evidence_plan.py: generated
+      scripts/tests/test_package.py: generated
+  hosting-abuse-response:
+    mode: generated
+    source: hosting-abuse-response
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/abuse_case.py: generated
+      scripts/tests/test_abuse_case.py: generated
+  hosting-account-lifecycle:
+    mode: generated
+    source: hosting-account-lifecycle
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/account_lifecycle.py: generated
+      scripts/tests/test_account_lifecycle.py: generated
+  hosting-benchmark-matrix:
+    mode: generated
+    source: hosting-benchmark-matrix
+    transforms: *fleet_transforms
+    replace_text:
+    - file: SKILL.md
+      old: "what a provider says, what we propose, what we\nconfigured, what we measured and what we signed."
+      new: "what a provider says, what the operator\nproposes, configures, measures and signs."
+    - file: SKILL.md
+      old: "Pantheon, WordPress VIP and Acquia"
+      new: "Acquia, Pantheon and WordPress VIP"
+    - file: SKILL.md
+      old: "Pantheon, WordPress VIP or Acquia"
+      new: "Acquia, Pantheon or WordPress VIP"
+    - file: SKILL.md
+      old: "(Pantheon, WordPress VIP, Acquia,"
+      new: "(Acquia, Pantheon, WordPress VIP,"
+    - file: scripts/benchmark.py
+      old: "PROVIDERS = (\"pantheon\", \"wpvip\", \"acquia\")"
+      new: "PROVIDERS = (\"acquia\", \"pantheon\", \"wpvip\")"
+    - file: scripts/benchmark.py
+      old: "| Dimension | Pantheon claim | WordPress VIP claim | Acquia claim |"
+      new: "| Dimension | Acquia claim | Pantheon claim | WordPress VIP claim |"
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/benchmark.py: generated
+      scripts/tests/test_benchmark.py: generated
+  hosting-data-migration:
+    mode: generated
+    source: hosting-data-migration
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/data_migration.py: generated
+      scripts/tests/test_data_migration.py: generated
+  hosting-dns-cert-lifecycle:
+    mode: generated
+    source: hosting-dns-cert-lifecycle
+    transforms: *fleet_transforms
+    note: the published test builds its synthetic PEM header from two strings, so the private-key gate stays strict
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/dns_cert.py: generated
+      scripts/tests/test_dns_cert.py: public-authored
+  hosting-incident-response:
+    mode: generated
+    source: hosting-incident-response
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/incident.py: generated
+      scripts/tests/test_incident.py: generated
+  hosting-metering-reconcile:
+    mode: generated
+    source: hosting-metering-reconcile
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/metering.py: generated
+      scripts/tests/test_metering.py: generated
+  hosting-restore-exercise:
+    mode: generated
+    source: hosting-restore-exercise
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/restore_exercise.py: generated
+      scripts/site_service.py: generated
+      scripts/tests/test_restore_exercise.py: generated
+  hosting-service-catalogue:
+    mode: generated
+    source: hosting-service-catalogue
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/functions.json: generated
+      references/sources.md: generated
+      scripts/catalogue_check.py: generated
+      scripts/tests/test_catalogue_check.py: generated
+  hosting-tenant-isolation:
+    mode: generated
+    source: hosting-tenant-isolation
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      references/sources.md: generated
+      scripts/isolation_check.py: generated
+      scripts/sandbox_probe.sh: generated
+      scripts/tests/test_isolation_check.py: generated
+  product-payment-events:
+    mode: generated
+    source: product-payment-events
+    transforms: *fleet_transforms
+    files:
+      evals/evals.json: generated
+      fixtures/config.json: generated
+      fixtures/last-unit.jsonl: generated
+      fixtures/malformed.jsonl: generated
+      fixtures/refused.jsonl: generated
+      fixtures/replay.jsonl: generated
+      fixtures/unsigned/last-unit.jsonl: generated
+      fixtures/unsigned/refused.jsonl: generated
+      fixtures/unsigned/replay.jsonl: generated
+      scripts/payment_events.py: generated
+      scripts/tests/test_payment_events.py: generated
+  product-release-gate:
+    mode: generated
+    source: product-release-gate
+    transforms: *fleet_transforms
+    note: the published test skips the three cases that need the external release-engineering adapters and asserts the blocked outcome instead
+    files:
+      evals/adversarial.json: generated
+      evals/evals.json: generated
+      fixtures/CHANGELOG.md: generated
+      fixtures/candidate-incompatible-host.json: generated
+      fixtures/candidate-invalid.json: generated
+      fixtures/candidate-ok.json: generated
+      fixtures/candidate-stale-evidence.json: generated
+      fixtures/compat-incompatible-host.json: generated
+      fixtures/compat-ok.json: generated
+      fixtures/compat-retired-api.json: generated
+      fixtures/compat-untested-max.json: generated
+      fixtures/contract.json: generated
+      fixtures/evidence/CHANGELOG.md.review.txt: generated
+      fixtures/evidence/candidate-ok.json.review.txt: generated
+      fixtures/evidence/candidate-stale-evidence.json.review.txt: generated
+      fixtures/evidence/compat-ok.json.review.txt: generated
+      fixtures/evidence/sbom.json.review.txt: generated
+      fixtures/handoff-stale.json: generated
+      fixtures/handoff.json: generated
+      fixtures/sbom.json: generated
+      references/marketplace-checklists.json: generated
+      scripts/release_gate.py: generated
+      scripts/tests/fixture_handoff.py: generated
+      scripts/tests/test_release_gate.py: public-authored
+
   wiki-cycle:
     mode: public-authored
     reason: hand-written public edition; canonical is the public copy

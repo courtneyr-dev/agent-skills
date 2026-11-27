@@ -1,0 +1,7 @@
+{
+  "schema": "source-register.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "sources": [
+    {"id": "src-platform", "url": "https://docs.fixture.example/search/crawlable", "title": "Fixture Platform Search documentation (synthetic)", "retrieved": "2026-11-20", "kind": "primary-platform-doc", "capture_path": "captures/edited.txt", "sha256": "af448f5ae35404cf62127f86bec656b36769152960513a12cf9de4f051891132"}
+  ]
+}

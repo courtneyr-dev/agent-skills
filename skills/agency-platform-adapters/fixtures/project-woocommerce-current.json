@@ -1,0 +1,7 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): project facts for a client store, as wp-project-triage would report them.",
+  "platform": "woocommerce",
+  "version": "10.3",
+  "wordpress_version": "7.0.1",
+  "php_version": "8.2"
+}

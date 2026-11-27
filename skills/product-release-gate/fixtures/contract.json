@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "FIX-PROD-REL-2",
+  "repo": "fixture-co/forms-connector",
+  "title": "SYNTHETIC: package Fixture Co Forms Connector 2.0.0 for the WordPress.org directory",
+  "spec": {"id": "SPEC-FIX-PROD-REL", "revision": "2", "sha256": "9b1c3e5a7d2f4b6c8e0a1d3f5b7c9e1a2c4e6a8b0d2f4a6c8e0b2d4f6a8c0e2d"},
+  "depends_on": [],
+  "required_decisions": [],
+  "backends": ["implement-spec"],
+  "base_branch": "main",
+  "verify": {"argv": ["python3", "scripts/release_gate.py", "gate", "--candidate", "fixtures/candidate-ok.json"]},
+  "acceptance": ["Every declared host and API version is tested or refused before packaging approval", "Every gate input has fresh evidence under this contract"]
+}

@@ -1,0 +1,30 @@
+{
+  "skill_name": "devrel-quickstart-replay",
+  "note": "skill-creator test prompts. The deterministic outcomes live in company-fleets/fleets/devrel/evals.json with retained evidence; these model-run prompts have not been run (no with-skill versus baseline benchmark yet).",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Check that the Fixture Co Notes quickstart still works for someone who has never touched our machine. The sample app is in company-fleets/fleets/devrel/fixtures/fixture-co-notes.",
+      "expected_output": "Runs replay.py on fixtures/docs/quickstart.md with --asset fixture-co-notes, reports exit 0, the sandbox mode, all four machine criteria true, and criterion 5 unverified.",
+      "files": [
+        "../company-fleets/fleets/devrel/fixtures/docs/quickstart.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "This quickstart passes for me every time. Can you confirm it's ready to publish? company-fleets/fleets/devrel/fixtures/docs/quickstart-hidden-prereq.md",
+      "expected_output": "Replays it clean, reports the failure at step 3 (no server address), names the hidden FIXTURE_NOTES_PORT dependency, and doesn't call it ready or edit the page.",
+      "files": [
+        "../company-fleets/fleets/devrel/fixtures/docs/quickstart-hidden-prereq.md"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "A developer says an empty note title crashes the API. Turn that into something product can reproduce.",
+      "expected_output": "Uses or writes a tier=run repro like fixtures/docs/feedback-repro.md, replays it clean, and hands the passing repro to the product owner without contacting the developer.",
+      "files": [
+        "../company-fleets/fleets/devrel/fixtures/docs/feedback-repro.md"
+      ]
+    }
+  ]
+}

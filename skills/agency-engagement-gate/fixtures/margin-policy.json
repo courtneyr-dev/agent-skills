@@ -1,0 +1,7 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): the company's margin policy, owned by finance, not by any brief.",
+  "owner": "human:finance-owner",
+  "margin_floor": 0.35,
+  "basis": "hypothesis",
+  "source": "Fixture Co has no measured delivery history; human:finance-owner set this floor until delivered work calibrates it."
+}

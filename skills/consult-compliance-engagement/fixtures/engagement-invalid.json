@@ -1,0 +1,5 @@
+{
+  "schema": "compliance-engagement.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person. Evidence hashes are hashes of fixture strings, not real artifacts.",
+  "engagement_id": "ENG-FX-BAD"
+}

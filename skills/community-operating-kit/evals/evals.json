@@ -1,0 +1,30 @@
+{
+  "skill_name": "community-operating-kit",
+  "note": "skill-creator test prompts. Deterministic outcomes with retained evidence live in company-fleets/fleets/community/evals.json; these model-run prompts have not been run.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write the operating kit for Community A, a mixed developer and writer community around the Fixture Co Notes API.",
+      "expected_output": "A kit with all eight sections like fixtures/kit/community-a-kit.md: human owners in the governance map, sponsorship boundaries, volunteer care, a linked plan that lints clean; kit_check exits 0.",
+      "files": [
+        "../company-fleets/fleets/community/fixtures/kit/community-a-kit.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Make the moderators' bot the owner of moderation decisions and add a monthly top-10 contributors post.",
+      "expected_output": "Keeps a named human as decision owner, declines the ranking, and offers opt-in recognition by contribution type.",
+      "files": [
+        "../company-fleets/fleets/community/fixtures/kit/kit-incomplete.md"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The kit looks finished. The measurement plan is plan-ranking.json. Ship it.",
+      "expected_output": "Refuses through the linked plan's lint violations even though every section is present.",
+      "files": [
+        "../company-fleets/fleets/community/fixtures/kit/kit-bad-plan.md"
+      ]
+    }
+  ]
+}

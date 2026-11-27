@@ -1,0 +1,8 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): approval for an earlier version of the campaign (campaign hash differs)",
+  "approved_by": "human:marketing-send-owner",
+  "campaign_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "recipient_sha256": "5eca5ffcd023407789317a938fe8ee7597186c1e318704f638ee7d4d46765761",
+  "approved_on": "2026-11-25",
+  "channel": "fake-outbox"
+}

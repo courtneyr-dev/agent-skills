@@ -1,0 +1,44 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person. Host and API version lists are fixture values, not current platform facts.",
+  "metadata": {
+    "component": {
+      "name": "fixture-co-forms-connector",
+      "version": "2.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-2.0-or-later"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "fixture-http-client",
+      "version": "3.1.0",
+      "purl": "pkg:composer/fixture/http-client@3.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "name": "fixture-csv",
+      "version": "1.2.4",
+      "purl": "pkg:composer/fixture/csv@1.2.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ]
+    }
+  ]
+}

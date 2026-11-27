@@ -1,0 +1,21 @@
+{
+  "label": "Student-data policy for the actual school. The guard reads only this file; requests cannot supply a policy. No school, district or teaching assignment is known, so verified is false and nothing here authorizes real student records. A named person fills it from the school's own policy, sets verified_by, verified_on and an evidence file path that exists, and only then can real records pass.",
+  "school": null,
+  "jurisdiction": "Pennsylvania is the initial reference only; the actual jurisdiction is unverified",
+  "verified": false,
+  "verified_by": null,
+  "verified_on": null,
+  "evidence": null,
+  "approved_tools": [],
+  "role_access": {},
+  "consent_basis": null,
+  "retention_days": null,
+  "external_destinations_allowed": [],
+  "applicable_requirements_to_confirm": [
+    "Family Educational Rights and Privacy Act (FERPA), 20 U.S.C. 1232g and 34 CFR Part 99",
+    "Children's Online Privacy Protection Act (COPPA), 15 U.S.C. 6501-6506, where learners are under 13",
+    "Protection of Pupil Rights Amendment (PPRA), 20 U.S.C. 1232h, for surveys",
+    "Pennsylvania and district rules the school names, including approved-vendor agreements",
+    "The school's accommodation-plan process (IEP and Section 504) and who may see those records"
+  ]
+}

@@ -1,0 +1,5 @@
+/* SYNTHETIC FIXTURE (Fixture Co): physical direction properties that break right-to-left layout. */
+.donate-card { margin-left: 1rem; }
+.donate-note { padding-right: 2rem; }
+.donate-badge { float: left; }
+.donate-title { text-align: left; }

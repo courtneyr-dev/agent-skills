@@ -1,0 +1,4 @@
+label,SYNTHETIC Fixture Co access review; not a real system
+account,role,reviewed_on,decision
+fx-admin-1,admin,2026-11-08,keep
+fx-contractor-2,editor,2026-11-08,removed

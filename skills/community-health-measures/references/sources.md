@@ -1,0 +1,8 @@
+# Sources
+
+| Source | Location | Version | Rights | What this skill takes from it |
+|---|---|---|---|---|
+| CHAOSS metrics: Time to First Response, Contributors, New Contributors, Event Accessibility, Contributor Absence Factor, Issue Response Time, Code of Conduct at Event, Inclusive Leadership | `https://chaoss.community/kb/metric-<name>/` | Pages returned HTTP 200 on 2026-11-25; CHAOSS publishes metrics as living pages, so record the retrieval date with each citation | MIT: the GitHub license API reported MIT for chaoss/metrics and chaoss/website on 2026-11-25; cite and link, don't vendor | Metric definitions the plan cites. The tool checks the URL prefix, not the page content. |
+| TODO Group guides | https://todogroup.org/resources/guides/ | Returned HTTP 200 on 2026-11-25 | The todogroup/todogroup.org LICENSE file is CC BY 4.0; the guides page also names CC BY-SA 4.0, so check each guide's notice before quoting | Program-office measurement and governance practice for `todo-group` sources. |
+| developer-community-health (SKILL.md, `scripts/contributor-absence-factor.sh`) | `~/.claude/skills/developer-community-health/` (upstream `samber/developer-relations-skills`) | commit c3a1b6912791539567727723baf626b4fec5ac7a (2026-11-08) | MIT, copyright 2026 Samuel Berthe | The diagnosis method this skill sits beside. Cited, not copied. |
+| Prompt section 9, line 446 | project requirements (not published) | Research baseline 2026-11-25 | Operator's private brief | Consent-aware aggregates; no volunteer rankings, inferred burnout or protected traits, or undefined scores. |

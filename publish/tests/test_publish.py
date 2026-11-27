@@ -59,6 +59,37 @@ class Transforms(unittest.TestCase):
         self.assertEqual(T.genericize_identifiers("courtneyr-dev/claude-config"), "your-org/claude-config")
         self.assertEqual(T.genericize_personal_site("Robertson's Home"), "a separate personal site")
 
+    def test_fleet_skill_transforms(self):
+        self.assertEqual(T.public_license_frontmatter(
+            '---\nlicense: "Private rig (courtneyr-dev/claude-config)"\n---\n'), "---\nlicense: MIT\n---\n")
+        self.assertEqual(T.public_license_frontmatter(
+            "license: Private rig (x). Original skill; no upstream code copied."), "license: MIT")
+        self.assertEqual(T.public_rig_rights("| 2026-11-25 | Private rig; original |"),
+                         "| 2026-11-25 | agent-skills (MIT); original |")
+        for path in ("/Users/courtneyrobertson/Downloads/brief.md", "~/Downloads/brief.md", "$HOME/Downloads/brief.md"):
+            for tail in ("", " line 3", ", line 778", " lines 310-320", " lines 419 to 450"):
+                self.assertEqual(T.private_prompt_reference(f"| `{path}`{tail} | x |"),
+                                 "| project requirements (not published) | x |", path + tail)
+        self.assertEqual(T.private_branch_reference("rig branch claude/factory-rig, read 2026-11-25"),
+                         "agent-skills, read 2026-11-25")
+        self.assertEqual(T.private_branch_reference("Rig branch claude/factory-rig; claude/factory-rig branch"),
+                         "agent-skills; agent-skills")
+        self.assertEqual(T.credit_pstack_upstream("installed from courtneyr-dev/plugins"),
+                         "installed from cursor/plugins")
+        self.assertEqual(T.rig_mount_paths('"rig": "~/.claude/claude-config/skills", ~/Developer/rig-upstream/x'),
+                         '"rig": "~/.claude/skills", $FRIG_UPSTREAM_ROOT/x')
+        self.assertEqual(T.synthetic_token_prefix('("fxs-synthetic-token", rb"\\bfxs_[A-Za-z0-9]{16,}\\b")'),
+                         '("fx-demo-synthetic-token", rb"\\bfx_demo_[A-Za-z0-9]{16,}\\b")')
+
+    def test_fleet_transform_list_leaves_pronoun_word_lists_alone(self):
+        """second_person_owner rewrote a claims checker's pronoun set ("she" -> "you"); the fleet
+        skills' list must not include it."""
+        pol = P.load_policy()
+        fleet = pol["skills"]["corporate-claims-check"]["transforms"]
+        self.assertNotIn("second_person_owner", fleet)
+        line = 'THIRD = {"he", "she", "they"}  # in (?:its|their|his|her) words'
+        self.assertEqual(T.apply_all(line, fleet), line)
+
     def test_unknown_transform_fails_closed(self):
         with self.assertRaises(KeyError):
             T.apply_all("x", ["no_such_transform"])

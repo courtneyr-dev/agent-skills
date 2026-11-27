@@ -1,0 +1,11 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): invalid register, the only source has no url",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Fixture Co survey with no url",
+      "retrieved": "2026-11-25",
+      "excerpts": ["42% of 300 respondents said they read the newsletter weekly."]
+    }
+  ]
+}

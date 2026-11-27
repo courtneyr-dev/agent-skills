@@ -1,0 +1,10 @@
+{
+  "schema": "search-claims.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "report_id": "fixture-stale-1",
+  "tenant_id": "fixture-co",
+  "claims": [
+    {"id": "s1", "text": "Pages must be crawlable and indexable.", "kind": "observation", "status_label": "observed",
+     "evidence": [{"source_id": "src-platform", "quote": "A page must be crawlable and indexable to appear in results."}]}
+  ]
+}

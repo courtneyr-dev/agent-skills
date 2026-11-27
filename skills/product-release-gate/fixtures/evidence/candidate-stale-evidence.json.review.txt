@@ -1,0 +1,4 @@
+# SYNTHETIC fixture review of candidate-stale-evidence.json (release candidate), written by the fixture builder standing in for the reviewer.
+reviewed-by: product.security-maintainer
+reviewed-sha256: fee029aa8aa824f42e34c0e404ac2ec78c00777adc7381c2cd9695898eab6005
+verdict: pass

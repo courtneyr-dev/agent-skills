@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- SYNTHETIC FIXTURE (Fixture Co): Client A donate page after the fix. Visible focus on every control, a native switch, and native radio buttons that let Tab leave the group. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Donate to Client A (fixture)</title>
+<style>
+  body { font-family: system-ui, sans-serif; color: #1a1a1a; background: #ffffff; margin: 0; }
+  header, main { padding: 1rem; }
+  nav a { color: #0b4f8a; margin-inline-end: 1rem; }
+  :focus-visible { outline: 3px solid #0b4f8a; outline-offset: 2px; }
+  fieldset { border: 1px solid #5c5c5c; margin-block: 1rem; }
+</style>
+</head>
+<body>
+<header>
+  <nav aria-label="Main"><a href="#about">About</a><a href="#programs">Programs</a><a href="#give">Donate</a></nav>
+</header>
+<main>
+  <h1 id="give">Give to Client A</h1>
+  <p>Every gift stocks the community pantry.</p>
+  <p><input type="checkbox" role="switch" id="monthly"> <label for="monthly">Make this a monthly gift</label></p>
+  <fieldset>
+    <legend>Choose an amount</legend>
+    <input type="radio" name="amount" id="amount-10" value="10" checked> <label for="amount-10">$10</label>
+    <input type="radio" name="amount" id="amount-25" value="25"> <label for="amount-25">$25</label>
+    <input type="radio" name="amount" id="amount-50" value="50"> <label for="amount-50">$50</label>
+  </fieldset>
+  <form action="#" onsubmit="return false">
+    <label for="email">Email for your receipt</label>
+    <input id="email" type="email" autocomplete="email">
+    <button type="submit">Give now</button>
+  </form>
+  <h2 id="about">About</h2>
+  <p>Client A runs a volunteer food pantry.</p>
+  <h2 id="programs">Programs</h2>
+  <p>Weekly groceries and school-break meals.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# gitleaks reads this file from the repository root. It extends the default rules.
+
+[extend]
+useDefault = true
+
+# A receipt's idempotency_key is a truncated sha256 of synthetic handoff content
+# (factory_rig.receipts.idempotency_key), not a credential. generic-api-key matches
+# it because the key name ends in "key". Only that exact JSON field and shape pass.
+[[allowlists]]
+description = "idempotency_key content hashes in fixtures and evidence"
+regexTarget = "line"
+regexes = ['''"idempotency_key":\s*"[0-9a-f]{32}"''']

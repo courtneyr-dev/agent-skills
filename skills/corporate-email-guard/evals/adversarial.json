@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "skill": "corporate-email-guard",
+  "label": "SYNTHETIC adversarial probes over this skill's own fixtures, run by company-fleets bin/fleet adversarial. The suppression list and the approval come from the checked-in owner ledger of fixture-news-2026-11 (company-fleets fleets/corporate/owner), which no probe can write; probes change what the caller supplies: contacts and the staged file.",
+  "copy": [
+    "fixtures"
+  ],
+  "command": [
+    "{python}",
+    "{skill}/scripts/email_guard.py",
+    "stage",
+    "--campaign",
+    "{work}/fixtures/campaign.json",
+    "--contacts",
+    "{work}/fixtures/contacts.csv",
+    "--out",
+    "{work}/staged.json"
+  ],
+  "accepted_when": {
+    "exit": [
+      0
+    ],
+    "contains": [
+      "alice@example.com"
+    ],
+    "absent": [
+      "carol@example.com",
+      "dave@example.org"
+    ]
+  },
+  "probes": [
+    {
+      "name": "contact-plus-tag",
+      "class": "malformed-rows",
+      "transforms": [
+        {
+          "op": "address-variant",
+          "file": "fixtures/contacts.csv",
+          "match": "dave@example.org",
+          "variant": "plus-tag"
+        }
+      ],
+      "refused_when": [
+        {
+          "exit": [
+            1,
+            2
+          ]
+        },
+        {
+          "exit": [
+            0
+          ],
+          "absent": [
+            "dave"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contact-trailing-dot",
+      "class": "malformed-rows",
+      "transforms": [
+        {
+          "op": "address-variant",
+          "file": "fixtures/contacts.csv",
+          "match": "dave@example.org",
+          "variant": "trailing-dot"
+        }
+      ],
+      "refused_when": [
+        {
+          "exit": [
+            1,
+            2
+          ]
+        },
+        {
+          "exit": [
+            0
+          ],
+          "absent": [
+            "dave"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contact-zero-width",
+      "class": "malformed-rows",
+      "transforms": [
+        {
+          "op": "address-variant",
+          "file": "fixtures/contacts.csv",
+          "match": "dave@example.org",
+          "variant": "zero-width"
+        }
+      ],
+      "refused_when": [
+        {
+          "exit": [
+            1,
+            2
+          ]
+        },
+        {
+          "exit": [
+            0
+          ],
+          "absent": [
+            "dave"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "grow-audience-after-approval",
+      "class": "approval-binding",
+      "setup": [
+        [
+          "{python}",
+          "{skill}/scripts/email_guard.py",
+          "stage",
+          "--campaign",
+          "{work}/fixtures/campaign.json",
+          "--contacts",
+          "{work}/fixtures/contacts.csv",
+          "--out",
+          "{work}/staged.json"
+        ]
+      ],
+      "command": [
+        "{python}",
+        "{skill}/scripts/email_guard.py",
+        "send",
+        "--staged",
+        "{work}/staged.json",
+        "--outbox",
+        "{work}/outbox"
+      ],
+      "accepted_when": {
+        "exit": [
+          0
+        ],
+        "json": {
+          "sent": 4
+        }
+      },
+      "transforms": [
+        {
+          "op": "grow-list",
+          "file": "staged.json",
+          "pointer": "/recipients",
+          "add": [
+            "mallory@example.com"
+          ]
+        },
+        {
+          "op": "rehash",
+          "file": "staged.json",
+          "pointer": "/recipient_sha256",
+          "of": {
+            "file": "staged.json",
+            "pointer": "/recipients"
+          }
+        }
+      ],
+      "refused_when": [
+        {
+          "exit": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "relabel-subject-after-approval",
+      "class": "approval-binding",
+      "setup": [
+        [
+          "{python}",
+          "{skill}/scripts/email_guard.py",
+          "stage",
+          "--campaign",
+          "{work}/fixtures/campaign.json",
+          "--contacts",
+          "{work}/fixtures/contacts.csv",
+          "--out",
+          "{work}/staged.json"
+        ]
+      ],
+      "command": [
+        "{python}",
+        "{skill}/scripts/email_guard.py",
+        "send",
+        "--staged",
+        "{work}/staged.json",
+        "--outbox",
+        "{work}/outbox"
+      ],
+      "accepted_when": {
+        "exit": [
+          0
+        ],
+        "json": {
+          "sent": 4
+        }
+      },
+      "transforms": [
+        {
+          "op": "relabel",
+          "file": "staged.json",
+          "pointer": "/campaign/subject",
+          "value": "Urgent: confirm your account"
+        },
+        {
+          "op": "rehash",
+          "file": "staged.json",
+          "pointer": "/campaign_sha256",
+          "of": {
+            "file": "staged.json",
+            "pointer": "/campaign"
+          }
+        }
+      ],
+      "refused_when": [
+        {
+          "exit": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "name": "suppressed-contact-relisted-in-staged-file",
+      "class": "approval-binding",
+      "setup": [
+        [
+          "{python}",
+          "{skill}/scripts/email_guard.py",
+          "stage",
+          "--campaign",
+          "{work}/fixtures/campaign.json",
+          "--contacts",
+          "{work}/fixtures/contacts.csv",
+          "--out",
+          "{work}/staged.json"
+        ]
+      ],
+      "command": [
+        "{python}",
+        "{skill}/scripts/email_guard.py",
+        "send",
+        "--staged",
+        "{work}/staged.json",
+        "--outbox",
+        "{work}/outbox"
+      ],
+      "accepted_when": {
+        "exit": [
+          0
+        ],
+        "json": {
+          "sent": 4
+        }
+      },
+      "transforms": [
+        {
+          "op": "grow-list",
+          "file": "staged.json",
+          "pointer": "/recipients",
+          "add": [
+            "carol@example.com"
+          ]
+        },
+        {
+          "op": "rehash",
+          "file": "staged.json",
+          "pointer": "/recipient_sha256",
+          "of": {
+            "file": "staged.json",
+            "pointer": "/recipients"
+          }
+        }
+      ],
+      "refused_when": [
+        {
+          "exit": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ]
+}
