@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.1.0 — 2026-11-27
+
+### Added
+- 40 skills in four new paths: Company fleets (`-p fleets`, 18), Education (`-p education`, 10),
+  Hosting operations (`-p hosting`, 10) and Delivery factory (`-p delivery`, 2). The six existing
+  paths are unchanged.
+- 37 fleet gate skills, generated from canonical with a per-file allowlist; their 1,012 tests run
+  from the published copies.
+- Public editions of `company-fleets`, `factory-rig` and `factory-execute`. Run output, review
+  reports, demo builds, leases and machine paths stay out; machine values are environment
+  variables with skill-relative defaults.
+- `publish_skills.py --only NAME...` to apply or check named skills while other skills drift, and
+  `replace_text` in the policy for declared one-off rewrites that fail closed when stale.
+- Seven fleet transforms, each tested, and `.gitleaks.toml` allowing only `idempotency_key` content
+  hashes.
+
+### Changed
+- The installer test compares installed links with `skills/` on disk instead of a fixed count.
+
+### Notes
+- Roles attach 167 upstream skills this repo doesn't contain. They're marked external with their
+  source repository and install from there.
+- The fleet skills' transform list leaves out `second_person_owner`, which rewrote a pronoun set
+  in a claims checker's code while every test passed.
+- The hosting benchmark cites public provider documentation, lists providers alphabetically, and
+  refuses superiority claims.
+
 ## 1.0.0 — 2026-09-05
 
 First public release.

@@ -237,6 +237,262 @@ Keep GitHub-sourced skills updated, and audit which skills are used, dormant, or
 
 *weekly → GitHub-sourced skills updated, plus an audit of which of yours are used, dormant, or dead.*
 
+## Company fleets — `-p fleets`
+
+One registry of roles, workloads and eval cases for agency, consulting, product, DevRel, community and corporate work, plus the deterministic gates those roles call. Every company record is a labeled fixture (Fixture Co). The gate skills read shared code and fixtures from company-fleets and factory-rig, which sit beside them in this repository. Roles also attach upstream skills from other people's repos; those are marked external and install from their own sources.
+
+### [`agency-engagement-gate`](../skills/agency-engagement-gate/)
+
+Gate each stage of an agency engagement on hashed, independently accepted evidence and a sourced margin floor.
+
+*"is this brief ready to price?" → a margin check against the rate card and a stage-by-stage verdict naming the missing evidence.*
+
+### [`agency-i18n-check`](../skills/agency-i18n-check/)
+
+Catch placeholder, plural, untranslated and right-to-left defects in gettext catalogs, templates and CSS.
+
+*"check the PO files" → each defect with its file and line, and linguistic review left as a required human step.*
+
+### [`agency-keyboard-audit`](../skills/agency-keyboard-audit/)
+
+Tab through a page in headless Chromium and report keyboard traps, mouse-only controls and invisible focus.
+
+*"keyboard audit the donate page" → an axe-core baseline plus each WCAG 2.1.1, 2.1.2, 2.4.3 and 2.4.7 failure with steps to reproduce.*
+
+### [`agency-platform-adapters`](../skills/agency-platform-adapters/)
+
+Map a client project's platform and version to the exact platform skills to load, and route legacy versions.
+
+*"which skills for a WooCommerce site on PHP 7.2?" → the legacy route and the skills it needs, or why none apply.*
+
+### [`community-health-measures`](../skills/community-health-measures/)
+
+Lint a community measurement plan and compute its numbers from sourced, consent-aware definitions.
+
+*"what should our community health metrics be?" → each metric with a question, a CHAOSS or local definition, and the computed aggregate.*
+
+### [`community-moderation-review`](../skills/community-moderation-review/)
+
+Check a moderation recommendation against the case record before any human sees it.
+
+*draft a recommendation for a conduct report → a check that nothing is presumed proven, sent or sanctioned, with recusals and the appeal route kept.*
+
+### [`community-operating-kit`](../skills/community-operating-kit/)
+
+Write or complete a community program's operating kit and check every section is present and sourced.
+
+*"we need a charter and an onboarding path" → the eight kit sections mapped to their sources, with the missing ones named.*
+
+### [`company-fleets`](../skills/company-fleets/)
+
+Registry and validator for company fleets: pick the smallest role set for a workload and guard handoffs between fleets.
+
+*"which roles handle a hosting restore?" → the role set, its one coordinator, and the files each role may read.*
+
+### [`consult-compliance-engagement`](../skills/consult-compliance-engagement/)
+
+Gate a compliance engagement through applicability, owners, fresh same-tenant evidence, gaps and reporting.
+
+*"can we issue the SOC 2 readiness report?" → the first stage that fails and why, or a report ready for human sign-off.*
+
+### [`consult-email-send-gate`](../skills/consult-email-send-gate/)
+
+Pre-send gate for one email campaign: suppression, permission, tenant, sender authentication and unsubscribe. Stages, never sends.
+
+*"is this campaign ready to send?" → each blocked recipient with the rule that blocked it, and a staged result for human approval.*
+
+### [`consult-i18n-check`](../skills/consult-i18n-check/)
+
+Check a translated string catalog against its source for placeholder, plural, bidi, length and glossary defects.
+
+*"QA the Arabic catalog" → each defect by key, with translation accuracy left to a human reviewer.*
+
+### [`consult-search-claims-check`](../skills/consult-search-claims-check/)
+
+Reject fabricated citations, edited captures and guaranteed-placement promises in an SEO or AI-search report.
+
+*"check this SEO audit before it goes out" → each claim tied to a captured source, or flagged with the reason.*
+
+### [`corporate-claims-check`](../skills/corporate-claims-check/)
+
+Stop ranking guarantees, uncited statistics and unverifiable quotes in a marketing or comms draft before staging.
+
+*"claims check this blog post" → every number and quote matched to the sources register, or flagged.*
+
+### [`corporate-email-guard`](../skills/corporate-email-guard/)
+
+Send gate that drops suppressed and off-list contacts and refuses any send without a named human's hash-bound approval.
+
+*"send the November newsletter" → refused until an approval names the exact campaign and recipient hashes; delivery goes to a local fake outbox.*
+
+### [`devrel-program-kit`](../skills/devrel-program-kit/)
+
+Keep a DevRel program's routing and claims honest: routed skills installed, program state in one context file.
+
+*"check our DevRel program plan" → routed skills that aren't installed, their fallbacks, and claims without evidence.*
+
+### [`devrel-quickstart-replay`](../skills/devrel-quickstart-replay/)
+
+Prove a quickstart or tutorial works as written by replaying its shell blocks in a clean temp environment.
+
+*"does our quickstart still work?" → each step's output checked against the doc, with the first divergence named.*
+
+### [`product-payment-events`](../skills/product-payment-events/)
+
+Prove duplicate or retried payment webhooks can't capture, fulfill, decrement stock or refund twice.
+
+*replay a webhook log → one capture per order, with replayed and out-of-order events shown converging.*
+
+### [`product-release-gate`](../skills/product-release-gate/)
+
+Gate an extension or SDK release on compatibility, SemVer, changelog, SBOM and review evidence.
+
+*"is v2.0 ready to publish?" → refused before packaging if a host version is untested, otherwise ready for human approval.*
+
+## Education — `-p education`
+
+School and workplace teaching: BCIT and computer science units, assessment and answer-key checks, standards alignment against a verified registry, needs analysis, research review, trainer development, and a student-data guard that refuses reads the school's policy doesn't allow.
+
+### [`bcit-learning-package`](../skills/bcit-learning-package/)
+
+Build and check a complete BCIT course-unit package, from objectives to rubric and accessibility notes.
+
+*"build a unit on spreadsheet budgeting" → objectives, teacher guide, student materials, practice, rubric, and a package check that names gaps.*
+
+### [`cs-classroom-instruction`](../skills/cs-classroom-instruction/)
+
+Build a runnable school computer science lesson or lab, or give feedback on code a learner actually wrote.
+
+*"a grade 9 lab on loops" → a teacher guide, runnable examples with expected output, misconception probes and a rubric.*
+
+### [`edu-answer-key-check`](../skills/edu-answer-key-check/)
+
+Execute an answer key's formulas, SQL, Python and calculations and compare the results with the stated answers.
+
+*"check the quiz answer key" → each answer recomputed, with every mismatch and its executed value.*
+
+### [`edu-assessment-check`](../skills/edu-assessment-check/)
+
+Check that an assessment's tasks, rubric and scoring line up with the objectives they claim to measure.
+
+*"review this rubric" → misaligned criteria, cognitive-level mismatches and barriers outside the intended construct.*
+
+### [`edu-learning-progression`](../skills/edu-learning-progression/)
+
+Check a prerequisite map or course sequence for cycles, gaps and ordering errors.
+
+*"map the CS course sequence" → the progression, with cycles and unreachable topics named.*
+
+### [`edu-needs-analysis`](../skills/edu-needs-analysis/)
+
+Decide whether training fixes a performance problem before anyone builds a course.
+
+*"we need a course on the new process" → a diagnosis that separates knowledge and practice from tools, incentives and access.*
+
+### [`edu-research-review`](../skills/edu-research-review/)
+
+Critique education research and program evaluations with traced citations and bounded claims.
+
+*"does this study show pair programming works?" → the design, its threats to validity, and the claim the evidence supports.*
+
+### [`edu-standards-alignment`](../skills/edu-standards-alignment/)
+
+Check standards alignments and professional references against a verified registry, so nothing claims an unsupported match.
+
+*"align this unit to CSTA" → each cited standard verified, or flagged as a gap.*
+
+### [`edu-student-data-guard`](../skills/edu-student-data-guard/)
+
+Decide whether a workflow may read a student record under tenant rules and the school's verified policy.
+
+*"pull last term's grades for feedback" → allowed or refused, naming the policy clause and the owner grant.*
+
+### [`edu-trainer-development`](../skills/edu-trainer-development/)
+
+Develop trainers and teachers: facilitation guides, modeled examples, observation feedback and rubric calibration.
+
+*"help our facilitators run this workshop" → a guide with design rationale, a modeled example and a plan for transfer evidence.*
+
+## Hosting operations — `-p hosting`
+
+Gates for running a hosting service on synthetic lab data: account lifecycle, DNS and TLS, incident response, restore drills, data migration, tenant isolation, metering and the service catalogue. The benchmark cites public provider documentation and keeps documented claims, targets, configuration, measurements and contracts in separate fields.
+
+### [`hosting-abuse-response`](../skills/hosting-abuse-response/)
+
+Handle an abuse report with hashed evidence, a chain of custody, and only the actions a policy clause authorizes.
+
+*"phishing report against tenant B" → evidence preserved with hashes, embedded instructions flagged as data, and a recorded decision.*
+
+### [`hosting-account-lifecycle`](../skills/hosting-account-lifecycle/)
+
+Run a hosted account from qualify to decommission with idempotent, recoverable panel side effects.
+
+*"provision a reseller account" → each step recorded once, so a retry after a crash does no duplicate work.*
+
+### [`hosting-benchmark-matrix`](../skills/hosting-benchmark-matrix/)
+
+Keep a hosting benchmark honest: documented claim, target, configuration, measurement and contract stay separate.
+
+*"say we're more robust than the big hosts" → refused, with the readiness backlog that would have to close first.*
+
+### [`hosting-data-migration`](../skills/hosting-data-migration/)
+
+Preflight, rehearse and prove a hosted site's data migration, with automatic rollback and a portable export.
+
+*"upgrade the database engine" → a compatibility preflight, a rehearsal with checksum proof, and the rollback result.*
+
+### [`hosting-dns-cert-lifecycle`](../skills/hosting-dns-cert-lifecycle/)
+
+Check DNS zones and TLS certificates through create, change, migrate, renew and decommission.
+
+*"we're decommissioning the old host" → dangling records, takeover risk and certificate problems to fix first.*
+
+### [`hosting-incident-response`](../skills/hosting-incident-response/)
+
+Run a hosting incident from alert to learning handoff, with a tamper-evident record and external messages held as drafts.
+
+*"the API error rate is spiking" → a burn-rate check, a routed page, and a record that won't resolve without recovery evidence.*
+
+### [`hosting-metering-reconcile`](../skills/hosting-metering-reconcile/)
+
+Dedupe meter events, enforce published quotas and reconcile invoices against metered usage.
+
+*"reconcile November invoices" → each invoice line matched to usage, with duplicates and overcharges flagged.*
+
+### [`hosting-restore-exercise`](../skills/hosting-restore-exercise/)
+
+Break a disposable site on purpose, restore it, and measure detection time, RTO and RPO.
+
+*"run a restore drill" → measured detection, recovery and data-loss times from a real restore.*
+
+### [`hosting-service-catalogue`](../skills/hosting-service-catalogue/)
+
+Check a hosting service catalogue and its responsibility matrix against one operating profile.
+
+*"review our reseller catalogue" → duties claimed but not controlled, and duties owed but missing.*
+
+### [`hosting-tenant-isolation`](../skills/hosting-tenant-isolation/)
+
+Test tenant boundaries: record access, a tamper-evident audit trail, secrets in build output, and sandboxed untrusted builds.
+
+*"can this preview be promoted?" → refused, listing the leaked secret, the failed scan and the missing approval.*
+
+## Delivery factory — `-p delivery`
+
+One dispatcher per task, leases, and a merge gate that re-runs verification before anything lands.
+
+### [`factory-execute`](../skills/factory-execute/)
+
+Implement one leased task contract in its worktree, run the verify command, commit, and report.
+
+*the router dispatches one task → a committed candidate and a proof line carrying the commit SHA.*
+
+### [`factory-rig`](../skills/factory-rig/)
+
+Route each software task to one dispatcher, hold its lease, and merge only after a fresh verify and an independent review.
+
+*"what may start next?" → the frontier, with the reason each blocked task can't start.*
+
 ## Companion repos
 
 ### [wp-release-audit-method](https://github.com/courtneyr-dev/wp-release-audit-method) — GPL-2.0

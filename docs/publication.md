@@ -65,13 +65,14 @@ is a deliberate policy edit, never a side effect of a missing source.
 
 | Mode | Count | Who owns the file | Generator behaviour |
 |---|---:|---|---|
-| `generated` | 29 | the private canonical skill | rewrites it; hand edits are drift |
-| `public-authored` | 5 | this repository | never written; validated only |
+| `generated` | 67 | the private canonical skill | rewrites it; hand edits are drift |
+| `public-authored` | 8 | this repository | never written; validated only |
 
 Public-authored: `wiki-cycle`, `weekly-site-health-audit`, `wiki-memory`,
-`readwise-methods-review`, `job-search`. These are hand-written public editions with setup
-instructions and rationale a private copy has no reason to carry. `job-search` has no private
-counterpart at all.
+`readwise-methods-review`, `job-search`, `company-fleets`, `factory-rig`, `factory-execute`. These
+are hand-written public editions with setup instructions and rationale a private copy has no reason
+to carry. `job-search` has no private counterpart at all. The last three are public editions of rig
+skills whose canonical copies hold run state; see [Company fleet skills](#company-fleet-skills).
 
 A skill with no declared mode is an **error**. Nothing is assumed to be generated.
 
@@ -81,8 +82,14 @@ A skill with no declared mode is an **error**. Nothing is assumed to be generate
 python3 publish/publish_skills.py --dry-run   # default; writes nothing, shows unified diffs
 python3 publish/publish_skills.py --apply     # writes generated skills only
 python3 publish/publish_skills.py --check     # CI drift detector; non-zero on any drift
-python3 publish/tests/test_publish.py         # 19 tests
+python3 publish/publish_skills.py --apply --only NAME...   # publish or check named skills only
+python3 publish/tests/test_publish.py         # 41 tests
 ```
+
+`--only` exists because a full `--apply` refuses while any declared source is missing, and a full
+`--check` reports every skill whose canonical copy moved. With `--only`, apply writes the named
+skills and keeps every other skill's lock lines; check compares the named skills and still
+validates the manifest against the whole policy. `--verify-public` always covers every skill.
 
 `--check` fails when a generated file was hand-edited, a canonical source changed without
 republishing, policy references a missing source, the manifest and policy disagree, or a privacy
@@ -99,7 +106,7 @@ under `canonical_root`). Run `--dry-run`, read the diff, then `--apply`.
 
 ## Transforms
 
-Twelve explicit named operations in `publish/transforms.py`, applied in the order the policy lists.
+Nineteen explicit named operations in `publish/transforms.py`, applied in the order the policy lists.
 There is deliberately no general "remove anything personal" pass — every rule exists because a
 specific skill needed it, and each has a test.
 
@@ -115,8 +122,17 @@ Paths, longest prefix first: `vault_dir_variable`, `normalize_home_path`,
 Identifiers: `genericize_domain`, `genericize_identifiers`, `genericize_personal_site`,
 `placeholder_private_example`.
 
-Per-skill `omit_lines_containing` removes named lines declaratively — the content to drop is
-written in the policy, never guessed.
+Fleet skills: `public_license_frontmatter`, `public_rig_rights`, `private_prompt_reference`,
+`private_branch_reference`, `credit_pstack_upstream`, `rig_mount_paths`, `synthetic_token_prefix`.
+They run only in the fleet skills' shared list (`&fleet_transforms` in the policy), which leaves out
+`second_person_owner`: in a claims checker it rewrote the pronoun set `"she"` to `"you"` and a
+regex's `her` to `your`, and every test still passed. Read the transformed code, not only the
+test result.
+
+Per-skill `omit_lines_containing` removes named SKILL.md lines declaratively, and `replace_text`
+rewrites named text in SKILL.md or a generated supporting file — the content to change is written
+in the policy, never guessed. A `replace_text` entry whose text no longer appears in canonical
+fails closed, so a canonical edit cannot quietly reopen a line the rewrite closed.
 
 ## Safety gates
 
@@ -177,10 +193,41 @@ generated, no `excluded` file is present publicly, and no undeclared file sits i
 directory. It still cannot see canonical drift — that needs the private sources and stays in local
 `--check`.
 
+## Company fleet skills
+
+Added in 1.1.0: 37 gate skills, `company-fleets`, `factory-rig` and `factory-execute`.
+
+- **Gates are generated.** Each gate's files are an explicit allowlist taken from its tracked
+  canonical files: SKILL.md, scripts, tests, references, evals and the fixtures its tests read.
+  Their tests run from the published copies (1,012 tests), because a transform can change code.
+- **Sibling layout is load-bearing.** Gates import `company-fleets/scripts/fleetlib` and
+  `factory-rig/scripts/factory_rig`, and read hosting owner records and fixtures under
+  `company-fleets/fleets/`. All of them sit under `skills/` so the relative paths hold.
+- **Three editions are public-authored.** Their canonical copies hold run folders, owner ledgers,
+  leases, review reports and machine paths. The editions keep what `validate --strict`, the tests
+  and the gates read, measured by tracing file opens, and leave the rest out: 1,027 of 4,706
+  company-fleets files ship. Machine values are environment variables with defaults relative to
+  the skill folder, documented in `config.example.env` and `config/frig.example.env`.
+- **Upstream skills stay external.** Roles attach 167 skills from other repositories. Each such
+  attachment carries `"blocked_reason": "external: install from <owner/repo>; see the catalog"`,
+  `registry/external-skills.json` lists them, and `validate` checks the two agree. Eval cases and
+  acceptance rows that need those skills, Docker or rig-only scripts report blocked or fail in a
+  public checkout; the SKILL.md says which.
+- **Synthetic secrets look synthetic.** Fixture tokens use `fx_demo_`, and the tenant-isolation
+  owner records were rebuilt with the owner commands after the rename. The leaked preview's
+  sandbox record needs Docker to rebuild and still binds the pre-rename bytes; `promote` refuses
+  that preview either way.
+- **The hosting benchmark stays neutral.** It cites public Acquia, Pantheon and WordPress VIP
+  documentation, lists providers alphabetically, states only what each cited page says, and keeps
+  documented claim, proposed target, configured capability, measured result and contractual
+  commitment in separate fields. Superiority claims appear only as inputs the gate must refuse.
+- **gitleaks.** `.gitleaks.toml` extends the default rules with one allowlist: a JSON
+  `"idempotency_key"` of 32 hex characters, a truncated sha256 of synthetic handoff content.
+
 ## Installation is a separate concern
 
 Publication mode (generated vs public-authored) says nothing about installation. Both are
-legitimate public artifacts and `install.sh` treats all 35 identically. The publisher owns how a
+legitimate public artifacts and `install.sh` treats every skill identically. The publisher owns how a
 file gets into `skills/`; the installer owns how it reaches an agent.
 
 `install.sh` is non-destructive by construction: it creates missing links and reports every other

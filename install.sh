@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Install these skills for any SKILL.md-compatible agent.
 #
-# This repository is the canonical source for the 34 skills under skills/. Installing links an
+# This repository is the canonical source for the skills under skills/. Installing links an
 # agent's skill directory at them. Nothing here is destructive: an existing real directory, a
 # customized copy, or a link pointing somewhere else is reported, never overwritten.
 #
