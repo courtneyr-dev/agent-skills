@@ -396,6 +396,40 @@ class CompleteArtifact(unittest.TestCase):
         self.assertEqual(v["demo/link.md"], "BLOCK")
         self.assertTrue(any("symlink" in p for p in probs))
 
+    def test_replace_text_rewrites_and_fails_closed_when_stale(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\nruns on this Mac\n")
+        self.write(self.canon, "demo", "references/r.md", "built by the sources workstream\n")
+        pol = self.policy({"references/r.md": "generated"})
+        pol["skills"]["demo"]["replace_text"] = [
+            {"file": "SKILL.md", "old": "on this Mac", "new": "on macOS"},
+            {"file": "references/r.md", "old": "the sources workstream", "new": "you"}]
+        self.assertEqual(P.cmd_apply(pol), 0)
+        with open(os.path.join(self.pub, "demo/SKILL.md")) as fh:
+            self.assertIn("runs on macOS", fh.read())
+        with open(os.path.join(self.pub, "demo/references/r.md")) as fh:
+            self.assertEqual(fh.read(), "built by you\n")
+        self.write(self.canon, "demo", "references/r.md", "reworded upstream\n")
+        _, probs = self.verbs(pol)
+        self.assertTrue(any("replace_text no longer matches" in p for p in probs), probs)
+
+    def test_scoped_apply_keeps_other_skills_in_the_lock(self):
+        for skill in ("demo", "other"):
+            self.write(self.canon, skill, "SKILL.md", f"---\nname: {skill}\ndescription: d\n---\n")
+            self.write(self.canon, skill, "scripts/run.py", "print(1)\n")
+        pol = self.policy({"scripts/run.py": "generated"})
+        pol["skills"]["other"] = {"mode": "generated", "source": "other", "files": {"scripts/run.py": "generated"}}
+        self.assertEqual(P.cmd_apply(pol), 0)
+        os.remove(os.path.join(self.canon, "other", "scripts/run.py"))   # a full apply now refuses
+        self.assertEqual(P.cmd_apply(pol), 1)
+        self.write(self.canon, "demo", "scripts/run.py", "print(2)\n")
+        self.assertEqual(P.cmd_apply(P.only_skills(pol, ["demo"]), scoped=True), 0)
+        lock = P.read_lock()
+        self.assertIn("other/SKILL.md", lock)
+        self.assertIn("other/scripts/run.py", lock)
+        self.assertEqual(lock["demo/scripts/run.py"][0], P.sha("print(2)\n"))
+        with self.assertRaises(P.Failure):
+            P.only_skills(pol, ["ghost"])
+
     def test_privacy_scan_covers_supporting_files(self):
         self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
         self.write(self.canon, "demo", "scripts/leak.py", 'KEY = "sk-abcdefghijklmnopqrstuvwx"\n')
