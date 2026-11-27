@@ -171,11 +171,17 @@ externals and their licenses. **[Searchable version →](https://courtneyr-dev.g
 ```bash
 git clone https://github.com/courtneyr-dev/agent-skills.git
 cd agent-skills
+./install.sh --guided            # one question per path, then a dry run of your picks
+./install.sh --apply -p fleets    # one path; repeat -p for more
 ./install.sh --dry-run            # default: classify every destination, change nothing
-./install.sh --apply              # create only the links that are missing
+./install.sh --apply              # all 75 skills, creating only the links that are missing
 ./install.sh --apply -a codex     # one agent
-./install.sh --list               # the 75 skills this repo ships
+./install.sh --list -p hosting    # what a path installs; drop -p for all 75
 ```
+
+Each path's skills are listed under `paths` in [manifest.json](manifest.json). The fleets,
+education and hosting paths also link `company-fleets` and `factory-rig`, because their scripts
+import those two from the folder beside them.
 
 This repository is the canonical source for the 75 skills under `skills/`. Installing links your
 agent's skill directory at them, so `git pull` updates every agent at once.
@@ -213,16 +219,17 @@ hundred installed skills is not a hundred available skills; it is a degraded ver
 twenty you actually wanted. Take a path or two.
 
 <details>
-<summary>One-line install (reads a script off the internet — your call)</summary>
+<summary>Why there's no curl one-liner</summary>
+
+`install.sh` links your agent at the `skills/` folder beside it, so it only works from a clone; a
+downloaded copy of the script alone has nothing to link. That suits this repo's argument anyway:
+know where code came from before you run it, and don't pipe a script straight into a shell. Read
+it first:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/courtneyr-dev/agent-skills/main/install.sh -o /tmp/as.sh \
-  && less /tmp/as.sh && bash /tmp/as.sh --guided
+git clone https://github.com/courtneyr-dev/agent-skills.git && cd agent-skills \
+  && less install.sh && ./install.sh --guided
 ```
-
-Deliberately not a `curl | bash` one-liner. This repo's whole argument is that you should know
-where code came from before you run it; piping a script straight into a shell is the opposite of
-that. Read it first.
 </details>
 
 ## Where skills came from

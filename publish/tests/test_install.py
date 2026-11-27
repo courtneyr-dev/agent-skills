@@ -13,10 +13,10 @@ SKILLS = os.path.join(ROOT, "skills")
 SAMPLE = "lmk"
 
 
-def run(home, *args):
+def run(home, *args, stdin=None):
     env = dict(os.environ, HOME=home)
     env["AGENT_SKILLS_DIR"] = os.path.join(home, ".agents", "skills")
-    p = subprocess.run(["bash", INSTALL, *args], capture_output=True, text=True, env=env, cwd=ROOT)
+    p = subprocess.run(["bash", INSTALL, *args], input=stdin, capture_output=True, text=True, env=env, cwd=ROOT)
     return p.returncode, p.stdout + p.stderr
 
 
@@ -135,6 +135,77 @@ class ViaMount(InstallerBase):
         mount = os.path.join(self.home, ".agents", "skills", SAMPLE)
         self.assertTrue(os.path.islink(mount))
         self.assertEqual(os.readlink(self.dest()), mount)
+
+
+def manifest_paths():
+    import json
+    with open(os.path.join(ROOT, "manifest.json")) as fh:
+        return json.load(fh)["paths"]
+
+
+class Paths(InstallerBase):
+    """-p <path> installs only the skills manifest.json lists for that path."""
+
+    def test_every_path_names_real_skills_and_together_cover_all(self):
+        paths = manifest_paths()
+        listed = [s for v in paths.values() for s in v["skills"]]
+        self.assertEqual(sorted(listed), sorted(os.listdir(SKILLS)),
+                         "each skill on disk belongs to exactly one path")
+
+    def test_one_path_installs_exactly_its_skills(self):
+        rc, out = run(self.home, "--apply", "-p", "delivery", "-a", "codex")
+        self.assertEqual(rc, 0, out)
+        self.assertEqual(sorted(os.listdir(self.codex)), sorted(manifest_paths()["delivery"]["skills"]))
+
+    def test_paths_combine(self):
+        run(self.home, "--apply", "-p", "delivery", "-p", "faith", "-a", "codex")
+        paths = manifest_paths()
+        self.assertEqual(sorted(os.listdir(self.codex)),
+                         sorted(paths["delivery"]["skills"] + paths["faith"]["skills"]))
+
+    def test_path_brings_the_siblings_its_gates_import(self):
+        """Hosting gates import company-fleets and factory-rig from beside themselves."""
+        run(self.home, "--apply", "-p", "hosting", "-a", "codex")
+        want = manifest_paths()["hosting"]["skills"] + ["company-fleets", "factory-rig"]
+        self.assertEqual(sorted(os.listdir(self.codex)), sorted(want))
+
+    def test_list_respects_path(self):
+        rc, out = run(self.home, "--list", "-p", "hosting")
+        hosting = manifest_paths()["hosting"]
+        self.assertEqual(out.split(), sorted(hosting["skills"] + hosting["requires"]))
+
+    def test_unknown_path_fails_and_writes_nothing(self):
+        rc, out = run(self.home, "--apply", "-p", "nope", "-a", "codex")
+        self.assertEqual(rc, 2)
+        self.assertIn("unknown path: nope", out)
+        self.assertIn("fleets", out, "the error names the valid paths")
+        self.assertEqual(os.listdir(self.codex), [])
+
+
+class Guided(InstallerBase):
+    """--guided asks one question per path and then behaves like the matching -p flags."""
+
+    def answers(self, yes):
+        return "".join("y\n" if k in yes else "n\n" for k in manifest_paths())
+
+    def test_guided_dry_run_selects_answered_paths_and_prints_the_command(self):
+        rc, out = run(self.home, "--guided", "-a", "codex", stdin=self.answers({"delivery"}))
+        self.assertEqual(rc, 0, out)
+        self.assertIn("LINK      codex/factory-rig", out)
+        self.assertNotIn("codex/lmk", out)
+        self.assertIn("./install.sh --apply -p delivery -a codex", out)
+        self.assertEqual(os.listdir(self.codex), [], "guided without --apply writes nothing")
+
+    def test_guided_apply_installs_answered_paths(self):
+        rc, out = run(self.home, "--guided", "--apply", "-a", "codex", stdin=self.answers({"faith"}))
+        self.assertEqual(rc, 0, out)
+        self.assertEqual(sorted(os.listdir(self.codex)), sorted(manifest_paths()["faith"]["skills"]))
+
+    def test_guided_with_no_answers_installs_nothing(self):
+        rc, out = run(self.home, "--guided", "--apply", "-a", "codex", stdin="")
+        self.assertEqual(rc, 0, out)
+        self.assertIn("no path selected", out)
+        self.assertEqual(os.listdir(self.codex), [])
 
 
 class NoPrivateOrExternalInstall(InstallerBase):

@@ -234,6 +234,12 @@ file gets into `skills/`; the installer owns how it reaches an agent.
 destination state as a conflict. Converting an existing copy, or repointing a link, is a migration
 and is deliberately not automated. `--dry-run` is the default.
 
+`-p <path>` limits a run to the skills `manifest.json` lists under `paths.<path>.skills`, plus any
+`paths.<path>.requires`: the fleets, education and hosting paths require `company-fleets` and
+`factory-rig`, because their scripts import those two from beside themselves. `--guided` asks one
+question per path and then runs the same selection. Without `-p` or `--guided`, `--apply` links
+all 75 skills.
+
 ## Cross-agent evidence
 
 | Agent | Mechanism | Evidence |

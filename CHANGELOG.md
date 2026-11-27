@@ -19,6 +19,12 @@
 ### Changed
 - The installer test compares installed links with `skills/` on disk instead of a fixed count.
 
+### Fixed
+- `install.sh -p <path>` and `--guided` work. 1.0.0 listed both, and `--copy`, but the script
+  parsed none of them. `-p` installs the skills under `paths` in manifest.json; the fleets,
+  education and hosting paths also link `company-fleets` and `factory-rig`, which their scripts
+  import. `--guided` asks one question per path. `--copy` isn't implemented.
+
 ### Notes
 - Roles attach 167 upstream skills this repo doesn't contain. They're marked external with their
   source repository and install from there.

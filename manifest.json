@@ -6504,6 +6504,9 @@
         "devrel-quickstart-replay",
         "product-payment-events",
         "product-release-gate"
+      ],
+      "requires": [
+        "factory-rig"
       ]
     },
     "education": {
@@ -6521,6 +6524,10 @@
         "edu-standards-alignment",
         "edu-student-data-guard",
         "edu-trainer-development"
+      ],
+      "requires": [
+        "company-fleets",
+        "factory-rig"
       ]
     },
     "hosting": {
@@ -6538,6 +6545,10 @@
         "hosting-restore-exercise",
         "hosting-service-catalogue",
         "hosting-tenant-isolation"
+      ],
+      "requires": [
+        "company-fleets",
+        "factory-rig"
       ]
     },
     "delivery": {
