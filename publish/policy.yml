@@ -549,6 +549,9 @@ skills:
     - file: references/sources.md
       old: "3.9.6 (`/usr/bin/python3`) and later"
       new: "3.9 and later"
+    - file: references/sources.md
+      old: "Checked on this Mac on 2026-11-25: Python 3.9.6 ran"
+      new: "Checked on macOS on 2026-11-25: Python 3.9 ran"
     files:
       evals/evals.json: generated
       references/sources.md: generated
