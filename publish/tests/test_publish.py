@@ -470,6 +470,100 @@ class CompleteArtifact(unittest.TestCase):
         self.assertTrue(probs)
 
 
+
+class PublicAuthoredFiles(unittest.TestCase):
+    """Public-authored skills are hand-written here, so no lock hashes them. They still fail closed:
+    every file is declared in the list the policy names, and every file passes the privacy gate."""
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(prefix="pa-")
+        self._root = P.ROOT
+        P.ROOT = self.tmp
+        self.write("public/pa/SKILL.md", "---\nname: pa\ndescription: d\n---\n")
+        self.write("public/pa/references/notes.md", "Run it from the skill folder.\n")
+        self.write("publish/public-authored.files", "# one path per line\npa/references/notes.md\n")
+        self.pol = {"version": 1, "canonical_root": "/nonexistent", "public_root": "public",
+                    "defaults": {"transforms": [], "supporting_files": {
+                        "undeclared_canonical": "excluded", "undeclared_public": "blocked",
+                        "public_authored_list": "publish/public-authored.files"}},
+                    "skills": {"pa": {"mode": "public-authored", "reason": "test"}}, "retired": {}}
+
+    def tearDown(self):
+        P.ROOT = self._root
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def write(self, rel, body):
+        p = os.path.join(self.tmp, rel)
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p, "w") as fh:
+            fh.write(body)
+
+    def test_declared_clean_files_pass(self):
+        problems, n = P.public_authored_problems(self.pol)
+        self.assertEqual((problems, n), ([], 2))
+
+    def test_stray_file_fails(self):
+        self.write("public/pa/references/stray.md", "nobody declared me\n")
+        problems, _ = P.public_authored_problems(self.pol)
+        self.assertTrue(any("pa/references/stray.md" in p and "not declared" in p for p in problems), problems)
+
+    def test_declared_file_that_is_gone_fails(self):
+        os.remove(os.path.join(self.tmp, "public/pa/references/notes.md"))
+        problems, _ = P.public_authored_problems(self.pol)
+        self.assertTrue(any("declared public-authored but missing" in p for p in problems), problems)
+
+    def test_home_path_and_private_marker_fail(self):
+        self.write("public/pa/references/notes.md", "cd /Users/x/projects first\n")
+        self.write("public/pa/SKILL.md", "---\nname: pa\n---\n<!-- private -->\n")
+        problems = " ".join(P.public_authored_problems(self.pol)[0])
+        self.assertIn("pa/references/notes.md: private absolute home path", problems)
+        self.assertIn("pa/SKILL.md: explicit private marker", problems)
+
+    def test_placeholder_home_paths_pass(self):
+        self.write("public/pa/references/notes.md", 'HOME="/home/someone" and a regex r"/Users/[a-z]"\n')
+        self.assertEqual(P.public_authored_problems(self.pol)[0], [])
+
+    def test_missing_list_fails_closed(self):
+        os.remove(os.path.join(self.tmp, "publish/public-authored.files"))
+        problems, _ = P.public_authored_problems(self.pol)
+        self.assertTrue(problems)
+
+
+class PublicAuthoredFilesInThisRepo(unittest.TestCase):
+    """The CLI, on this repository: a stray file or a planted home path in a public-authored skill
+    makes --verify-public exit non-zero."""
+
+    def verify(self):
+        import subprocess
+        env = dict(os.environ, CLAUDE_SKILLS="/nonexistent")
+        return subprocess.run([sys.executable, os.path.join(PUB, "publish_skills.py"), "--verify-public"],
+                              capture_output=True, text=True, env=env)
+
+    def test_stray_file_in_company_fleets_fails(self):
+        stray = os.path.join(ROOT, "skills", "company-fleets", "references", "stray.md")
+        with open(stray, "w") as fh:
+            fh.write("hand-added\n")
+        try:
+            p = self.verify()
+        finally:
+            os.remove(stray)
+        self.assertEqual(p.returncode, 1, p.stdout)
+        self.assertIn("company-fleets/references/stray.md", p.stdout)
+
+    def test_planted_home_path_in_skill_md_fails(self):
+        path = os.path.join(ROOT, "skills", "company-fleets", "SKILL.md")
+        with open(path, encoding="utf-8") as fh:
+            original = fh.read()
+        try:
+            with open(path, "a", encoding="utf-8") as fh:
+                fh.write("\nSee /Users/someoneelse/Developer for the rig.\n")
+            p = self.verify()
+        finally:
+            with open(path, "w", encoding="utf-8") as fh:
+                fh.write(original)
+        self.assertEqual(p.returncode, 1, p.stdout)
+        self.assertIn("company-fleets/SKILL.md: private absolute home path", p.stdout)
+
 if __name__ == "__main__":
     print(f"canonical sources available: {CANONICAL} "
           f"({'full local suite' if CANONICAL else 'CI-safe subset; canonical tests skipped'})\n")

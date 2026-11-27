@@ -1,0 +1,5 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.nbea.org/council-for-business-teaching-and-research-cbtr
+# run 2026-11-25
+http_code=403 final_url=https://www.nbea.org/council-for-business-teaching-and-research-cbtr size=69
+L1: This request has been blocked by the Web Application Firewall policy.
+# note: Blocked by the NBEA Web Application Firewall (403) for the default curl user agent; name and resources NOT verified live.

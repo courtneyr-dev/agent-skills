@@ -20,6 +20,7 @@ defaults:
   supporting_files:
     undeclared_canonical: excluded
     undeclared_public: blocked
+    public_authored_list: publish/public-authored.files
     _note: Explicit allowlist. A canonical supporting file that is not declared here NEVER publishes,
       so a new private file cannot leak by appearing on disk. A PUBLIC file that is not declared is an
       error, so a stale or hand-added public file cannot hide either. Fail closed in both directions.

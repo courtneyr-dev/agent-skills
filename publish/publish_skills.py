@@ -22,7 +22,8 @@ LOCK = os.path.join(ROOT, "publish", "generated.lock")
 
 # --- privacy gate: explicit, narrow, and NOT a proof of absence -------------------------
 SECRET_PATTERNS = [
-    (r"/Users/courtneyrobertson", "private absolute home path"),
+    (r"(?<![\w$~.])/(?:Users|home)/(?!(?:someone|you|user|username|example)\b)[A-Za-z][\w.-]*",
+     "private absolute home path"),
     (r"\bCourtney\b", "personal name not covered by policy"),
     (r"\b2nd Brain\b", "private vault name"),
     (r"\bcourtneyr\.dev\b", "private domain"),
@@ -180,11 +181,57 @@ def cmd_verify_public(pol):
                     problems.append(f"{key}: executable bit differs from the lock")
             else:
                 problems.append(f"{key}: unknown mode {mode!r}")
-    problems += validate_manifest(pol)
+    pa_problems, n_scanned = public_authored_problems(pol)
+    problems += pa_problems + validate_manifest(pol)
     return _report("verify-public", problems,
                    ok=f"{len(_generated_names(pol))} generated SKILL.md + {n_gen_files} generated "
                       f"supporting files match the lock, {len(_public_authored_names(pol))} "
-                      f"public-authored skills and {n_pa_files} public-authored files protected")
+                      f"public-authored skills and {n_pa_files} public-authored supporting files protected, "
+                      f"{n_scanned} public-authored files declared and privacy-scanned")
+
+def _declared_public_authored(pol):
+    """`skill/rel` for every file of every public-authored skill, from the list the policy names, or
+    None when the policy names no list."""
+    rel = _sf_defaults(pol).get("public_authored_list")
+    if not rel:
+        return None
+    path = os.path.join(ROOT, rel)
+    if not os.path.exists(path):
+        return None
+    return {l.strip() for l in read_text(path).splitlines() if l.strip() and not l.startswith("#")}
+
+def public_authored_problems(pol):
+    """Public-authored files are hand-written here, so nothing hashes them. They still fail closed:
+    every file of a public-authored skill is declared in the list `public_authored_list` names, and
+    every public-authored file, whole skills and supporting files of generated skills alike, passes
+    the same privacy gate as generated output. Returns (problems, files scanned)."""
+    declared = _declared_public_authored(pol)
+    if declared is None:
+        return ["policy: defaults.supporting_files.public_authored_list names no readable file"], 0
+    names = _public_authored_names(pol)
+    problems, scan = [], []
+    for key in sorted(k for k in declared if k.split("/", 1)[0] not in names):
+        problems.append(f"{key}: declared public-authored but its skill is not public-authored")
+    for name in names:
+        base = skill_public_dir(pol, name)
+        present = _walk_rel(base)
+        mine = {k.split("/", 1)[1] for k in declared if k.split("/", 1)[0] == name}
+        problems += [f"{name}/{rel}: in a public-authored skill but not declared in the public-authored list"
+                     for rel in sorted(present - mine)]
+        problems += [f"{name}/{rel}: declared public-authored but missing" for rel in sorted(mine - present)]
+        scan += [(name, rel, base) for rel in sorted(present | {"SKILL.md"})]
+    for name in _generated_names(pol):
+        scan += [(name, rel, skill_public_dir(pol, name)) for rel, mode in sorted(supporting_modes(pol, name).items())
+                 if mode == "public-authored"]
+    n = 0
+    for name, rel, base in scan:
+        path = os.path.join(base, rel)
+        if os.path.islink(path):
+            problems.append(f"{name}/{rel}: public-authored file is a symlink")
+        elif os.path.isfile(path):
+            n += 1
+            problems += privacy_scan(read_text(path, errors="replace"), f"{name}/{rel}")
+    return problems, n
 
 def _report(label, problems, ok=""):
     if problems:
@@ -505,7 +552,7 @@ def cmd_check(pol, full=None):
     """
     changes, current, problems = plan(pol)
     facts, fproblems = file_plan(pol)
-    problems = problems + fproblems + validate_manifest(full or pol)
+    problems = problems + fproblems + public_authored_problems(full or pol)[0] + validate_manifest(full or pol)
     drift = [n for n, _, _, _ in changes]
     fdrift = [f"{n}/{rel}" for verb, n, rel, *_ in facts if verb in ("CHANGE", "ADD")]
     if drift:

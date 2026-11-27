@@ -38,7 +38,13 @@ defaults:
   supporting_files:
     undeclared_canonical: excluded   # a new private file cannot leak by appearing on disk
     undeclared_public: blocked       # a stale or hand-added public file cannot hide
+    public_authored_list: publish/public-authored.files
 ```
+
+Public-authored skills have no canonical source and no lock, so `publish/public-authored.files`
+lists every file under them, one `skill/path` per line. A file there that the list doesn't name, or
+a listed file that's gone, fails `--verify-public` and `--check`. Adding a file to a public-authored
+skill means adding its line.
 
 An **allowlist** was chosen over "publish everything except exclusions". Canonical skill
 directories hold `.bak` files, real site configs, run-state ledgers and scripts that push to
@@ -66,7 +72,7 @@ is a deliberate policy edit, never a side effect of a missing source.
 | Mode | Count | Who owns the file | Generator behaviour |
 |---|---:|---|---|
 | `generated` | 67 | the private canonical skill | rewrites it; hand edits are drift |
-| `public-authored` | 8 | this repository | never written; validated only |
+| `public-authored` | 8 | this repository | never written; each file declared and privacy-scanned |
 
 Public-authored: `wiki-cycle`, `weekly-site-health-audit`, `wiki-memory`,
 `readwise-methods-review`, `job-search`, `company-fleets`, `factory-rig`, `factory-execute`. These
@@ -83,7 +89,7 @@ python3 publish/publish_skills.py --dry-run   # default; writes nothing, shows u
 python3 publish/publish_skills.py --apply     # writes generated skills only
 python3 publish/publish_skills.py --check     # CI drift detector; non-zero on any drift
 python3 publish/publish_skills.py --apply --only NAME...   # publish or check named skills only
-python3 publish/tests/test_publish.py         # 41 tests
+python3 publish/tests/test_publish.py         # 49 tests
 ```
 
 `--only` exists because a full `--apply` refuses while any declared source is missing, and a full
@@ -93,16 +99,17 @@ validates the manifest against the whole policy. `--verify-public` always covers
 
 `--check` fails when a generated file was hand-edited, a canonical source changed without
 republishing, policy references a missing source, the manifest and policy disagree, or a privacy
-gate trips. For public-authored skills it only checks the file exists — it never compares them to a
-canonical source.
+gate trips. For public-authored skills it checks that every file is declared and passes the privacy
+gate — it never compares them to a canonical source.
 
 ## Adding a skill
 
 **Generated:** add to `publish/policy.yml` with `mode: generated` and a `source` (a directory name
 under `canonical_root`). Run `--dry-run`, read the diff, then `--apply`.
 
-**Public-authored:** create `skills/<name>/SKILL.md` by hand and add `mode: public-authored` with a
-`reason`. The generator will skip it forever.
+**Public-authored:** create `skills/<name>/SKILL.md` by hand, add `mode: public-authored` with a
+`reason`, and list every other file of the skill in `publish/public-authored.files`. The generator
+will skip it forever.
 
 ## Transforms
 
@@ -136,9 +143,11 @@ fails closed, so a canonical edit cannot quietly reopen a line the rewrite close
 
 ## Safety gates
 
-Generation fails closed on: private absolute home paths, uncovered personal-name forms, the private
-vault name, the private domain, credential-shaped assignments, private-key blocks, GitHub/API token
-shapes, and explicit `<!-- private -->` markers.
+Generation fails closed on: absolute home paths (`/Users/<name>` or `/home/<name>`, except
+placeholders such as `/home/someone`), uncovered personal-name forms, the private vault name, the
+private domain, credential-shaped assignments, private-key blocks, GitHub/API token shapes, and
+explicit `<!-- private -->` markers. `--verify-public` and `--check` run the same scan over every
+public-authored file.
 
 **This is a named-pattern scan. It does not prove the absence of private information.** It catches
 the forms we know about.
@@ -189,9 +198,9 @@ never weakened to make CI green — the skipped tests still run in full locally.
 Since complete-artifact publication landed, `--verify-public` also proves, using only files in
 this repository: every generated supporting file matches its lock hash and executable bit, no
 generated supporting file is missing, no `public-authored` or `excluded` file is hashed as
-generated, no `excluded` file is present publicly, and no undeclared file sits in a generated skill
-directory. It still cannot see canonical drift — that needs the private sources and stays in local
-`--check`.
+generated, no `excluded` file is present publicly, no undeclared file sits in a generated skill
+directory or a public-authored one, and no public-authored file trips the privacy gate. It still
+cannot see canonical drift — that needs the private sources and stays in local `--check`.
 
 ## Company fleet skills
 
@@ -205,9 +214,10 @@ Added in 1.1.0: 37 gate skills, `company-fleets`, `factory-rig` and `factory-exe
   `company-fleets/fleets/`. All of them sit under `skills/` so the relative paths hold.
 - **Three editions are public-authored.** Their canonical copies hold run folders, owner ledgers,
   leases, review reports and machine paths. The editions keep what `validate --strict`, the tests
-  and the gates read, measured by tracing file opens, and leave the rest out: 1,027 of 4,706
-  company-fleets files ship. Machine values are environment variables with defaults relative to
-  the skill folder, documented in `config.example.env` and `config/frig.example.env`.
+  and the gates read, measured by tracing file opens, and leave the rest out: 1,032 company-fleets
+  files ship, each listed in `publish/public-authored.files`. Machine values are environment
+  variables with defaults relative to the skill folder, documented in `config.example.env` and
+  `config/frig.example.env`.
 - **Upstream skills stay external.** Roles attach 167 skills from other repositories. Each such
   attachment carries `"blocked_reason": "external: install from <owner/repo>; see the catalog"`,
   `registry/external-skills.json` lists them, and `validate` checks the two agree. From this
@@ -223,7 +233,8 @@ Added in 1.1.0: 37 gate skills, `company-fleets`, `factory-rig` and `factory-exe
   documented claim, proposed target, configured capability, measured result and contractual
   commitment in separate fields. Superiority claims appear only as inputs the gate must refuse.
 - **gitleaks.** `.gitleaks.toml` extends the default rules with one allowlist: a JSON
-  `"idempotency_key"` of 32 hex characters, a truncated sha256 of synthetic handoff content.
+  `"idempotency_key"` of 32 hex characters, a truncated sha256 of synthetic handoff content. The
+  publication workflow runs gitleaks 8.30.1 with it over the tree and the history.
 
 ## Installation is a separate concern
 
