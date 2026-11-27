@@ -102,7 +102,13 @@ class ProductFleetTest(unittest.TestCase):
         self.assertTrue(claimed)
         for rid, sid in claimed:
             self.assertIn(sid, tob, "%s attaches %s as Trail of Bits but the sources ledger does not list it" % (rid, sid))
-            self.assertTrue(os.path.isfile(os.path.join(SKILLS, sid, "SKILL.md")), sid)
+        for rid, a in attached:
+            if "trailofbits" not in a["provenance"]:
+                continue
+            with self.subTest(role=rid, skill=a["id"]):
+                if not os.path.isfile(os.path.join(SKILLS, a["id"], "SKILL.md")):
+                    self.assertEqual(a.get("blocked_reason"), "external: install from trailofbits/skills; see the catalog")
+                    self.skipTest("%s is not installed beside company-fleets; install it from trailofbits/skills" % a["id"])
         for rid, a in attached:
             if a["id"] in tob:
                 self.assertIn("trailofbits", a["provenance"], "%s attaches %s without Trail of Bits attribution" % (rid, a["id"]))
