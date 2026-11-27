@@ -13,13 +13,13 @@ the working tree:
 - `bin/fleet validate --strict` passes with 0 errors and 0 warnings.
 - 170 script cases pass: 91 original, 39 that replay the first review's probes and 40 that replay the
   re-review's. 166 ran in a temporary copy of the skills root. The 4 Docker cases ran in place, because
-  Docker mounts only the folders it shares and the copy sits in a temp folder it doesn't.
+  Docker mounts only the folders it shares and the copy sits in a temp folder it doesn't. Without a
+  running Docker daemon, `bin/fleet eval-run --fleet hosting` passes 166 and reports those 4 blocked.
 - 444 unit tests pass on Python 3.14.7 and again on 3.9.
 - 6 model-judgment cases are not-run, because the fleet's builder graded their only sample. 1 case is
   blocked (Terraform isn't installed).
 
-A clean checkout passes the same suites only after the new and moved files are committed; the
-change's report lists the paths that need `git add -f`.
+A clean clone of this repository runs the same suites.
 
 ## Run a hosting workload
 
@@ -333,7 +333,7 @@ names the builder as grader, so those grades don't count.
 | | Coverage | Installed | Activated | Behavioral |
 |---|---|---|---|---|
 | Roles (26) | 23 covered, 3 partial | 26 installed | 0 | 0 verified, 26 unverified (6 had a builder-graded sample) |
-| Skills (10) | 8 covered, 2 partial | 10 installed | 0 | 10 verified by their fleet cases |
+| Skills (10) | 8 covered, 2 partial | 10 installed | 0 | 10 tested by their fleet cases; the 4 sandbox cases need Docker |
 
 Activated stays at 0: no router session has selected a hosting skill yet.
 

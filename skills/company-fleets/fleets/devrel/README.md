@@ -42,8 +42,8 @@ Written for verified gaps, each with SKILL.md, references, scripts, unit tests a
 
 | Skill | Gap it fills | State |
 |---|---|---|
-| [devrel-quickstart-replay](../../../devrel-quickstart-replay/SKILL.md) | Upstream describes the cold-run protocol and CI job but ships nothing that runs a page clean | Installed, verified (22 unit tests, 6 eval cases), not activated |
-| [devrel-program-kit](../../../devrel-program-kit/SKILL.md) | Kickoff handback, `devrel-context.md` mapping, route resolution against the installed tree, program-claims check | Installed, verified (17 unit tests, 7 eval cases), not activated; coverage partial |
+| [devrel-quickstart-replay](../../../devrel-quickstart-replay/SKILL.md) | Upstream describes the cold-run protocol and CI job but ships nothing that runs a page clean | In this repository; 22 unit tests and 6 eval cases pass from a clean clone; not activated |
+| [devrel-program-kit](../../../devrel-program-kit/SKILL.md) | Kickoff handback, `devrel-context.md` mapping, route resolution against the installed tree, program-claims check | In this repository; 17 unit tests pass from a clean clone, and 5 of 7 eval cases (the other 2 need samber/developer-relations-skills); not activated; coverage partial |
 
 Blocked attachments, recorded on the roles: `api-reference-quality`, `sdk-package-publishing`, `partner-app-onboarding` (samber/developer-platform-skills) and `hackathon-brief-design` (samber/dev-event-organizer-skills). Neither sibling collection is installed. `references/fallbacks.json` in devrel-program-kit names the installed partial cover for each.
 

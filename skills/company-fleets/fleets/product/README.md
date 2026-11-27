@@ -84,7 +84,7 @@ python3 fleets/product/tests/counterexample_event_key.py              # mutant p
 bin/fleet validate --strict --fleet product
 ```
 
-Each script eval's argv wraps the real command in `tests/expect.py`, which checks the exit code and output and prints `VERDICT`. Raw outputs live in [evidence/](evidence/). Last run, 2026-11-26, after the review fixes: 43 pass, 0 fail, 2 not run (model-judgment persona cases).
+Each script eval's argv wraps the real command in `tests/expect.py`, which checks the exit code and output and prints `VERDICT`. Raw outputs live in [evidence/](evidence/). Last run, 2026-11-26, on the author's machine with the upstream skills installed: 43 pass, 0 fail, 2 not run (model-judgment persona cases). From this repository alone, `bin/fleet eval-run --fleet product` passes 42 of 43: `gate-ready-candidate` needs release-engineering from magnus919/agent-skills, and the fleet test skips its 3 Trail of Bits checks.
 
 Acceptance rows and their evidence:
 

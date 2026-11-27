@@ -57,7 +57,7 @@ python3 fleets/corporate/run_evals.py run --fleet corporate        # every scrip
 python3 fleets/corporate/run_evals.py expect --exit 1 --contains TEXT -- CMD ...   # one self-asserting check
 ```
 
-Results on 2026-11-26, after the second re-review fixes (`run_evals.py run --fleet corporate` in a copy of the skills tree, and `bin/fleet eval-run --fleet corporate` in the real tree): 39 script cases pass, 0 fail; 23 persona cases (model judgment) are recorded and not run. `evidence/run-evals-self-check.txt` shows the runner failing five wrong expectations and passing the control.
+Results on 2026-11-26 on the author's machine, with the upstream skills installed (`run_evals.py run --fleet corporate` in a copy of the skills tree, and `bin/fleet eval-run --fleet corporate` in the real tree): 39 script cases pass, 0 fail. From this repository alone, 16 pass and the 23 routing cases fail on `"installed": false`, because their roles attach upstream skills; `../../registry/eval-external-needs.json` lists them; 23 persona cases (model judgment) are recorded and not run. `evidence/run-evals-self-check.txt` shows the runner failing five wrong expectations and passing the control.
 
 | Acceptance row | Case | Evidence |
 |---|---|---|

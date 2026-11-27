@@ -42,9 +42,9 @@ Written for verified gaps:
 
 | Skill | Gap it fills | State |
 |---|---|---|
-| [community-moderation-review](../../../community-moderation-review/SKILL.md) | Upstream writes the policy; nothing checks an agent's draft against a case record | Installed, verified (22 unit tests, 6 eval cases), not activated |
-| [community-health-measures](../../../community-health-measures/SKILL.md) | Consent-aware aggregates with suppression, and refusal of rankings, inference, undefined scores and sales leads | Installed, verified (16 unit tests, 6 eval cases), not activated |
-| [community-operating-kit](../../../community-operating-kit/SKILL.md) | The eight-section kit, plus local procedures for non-developer communities | Installed, verified (8 unit tests, 4 eval cases), not activated |
+| [community-moderation-review](../../../community-moderation-review/SKILL.md) | Upstream writes the policy; nothing checks an agent's draft against a case record | In this repository; 22 unit tests and 6 eval cases pass from a clean clone; not activated |
+| [community-health-measures](../../../community-health-measures/SKILL.md) | Consent-aware aggregates with suppression, and refusal of rankings, inference, undefined scores and sales leads | In this repository; 16 unit tests and 6 eval cases pass from a clean clone; not activated |
+| [community-operating-kit](../../../community-operating-kit/SKILL.md) | The eight-section kit, plus local procedures for non-developer communities | In this repository; 8 unit tests and 4 eval cases pass from a clean clone; not activated |
 
 ## Acceptance evidence
 

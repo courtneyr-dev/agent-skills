@@ -21,7 +21,7 @@ Generated from `registry/overrides.json` by `frig render-overrides`; edit the JS
 - **Local behavior:** Noodle launches providers through bin/codex and bin/claude shims. They rewrite argv to the rig policy (Codex `-s workspace-write --ignore-user-config`, reasoning effort per model; Claude acceptEdits + an allowlist), refuse any restored bypass, then exec the real binary by absolute path. HOME, CODEX_HOME and the environment are untouched.
 - **Implementation:** scripts/factory_rig/provider_wrapper.py, bin/codex, bin/claude, config/provider-policy.json ($FRIG_POLICY)
 - **Precedence and scope:** [agents.<p>].path in .noodle.toml points at the rig bin dir; the wrapper outranks Noodle defaults.
-- **Verification:** tests.test_core.ProviderWrapperTests (10), tests.test_noodle_integration (audit shows the flag dropped on every launch), live-pilot provider audit (run records retained privately, not published)
+- **Verification:** tests.test_core.ProviderWrapperTests (10), tests.test_noodle_integration (audit shows the flag dropped on every launch), a live-pilot provider audit on the author's machine (its records aren't in this repository)
 - **Retire when:** Noodle exposes a permission policy setting, or the wrapper is replaced by an upstream patch carrying the same tests.
 
 ## OVR-NOODLE-COMPLETION
@@ -76,7 +76,7 @@ Generated from `registry/overrides.json` by `frig render-overrides`; edit the JS
 - **Local behavior:** Dispatch checks the model slug against $CODEX_HOME/models_cache.json before leasing.
 - **Implementation:** orchestrate.codex_model_problem; policy effort_by_model
 - **Precedence and scope:** Preflight first.
-- **Verification:** a live pilot ran with a catalog slug; the failed first attempt's noodle.log and provider-audit.jsonl are retained privately, not published
+- **Verification:** a live pilot on the author's machine ran with a catalog slug after a first attempt failed; those logs aren't in this repository
 - **Retire when:** The model policy names current slugs.
 
 ## OVR-SKILL-INVOCATION

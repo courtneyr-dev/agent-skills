@@ -6,8 +6,8 @@ migrates silently: switching a project's mode is a decision recorded in its own 
 | Mode | Delivery state owner | Executes | Use when | Status on the reference install (macOS, 2026-11-25) |
 |---|---|---|---|---|
 | Tracker-led | The project's existing tracker (Jira, GitHub, Things) | The router's choice: a Codex run, Noodle, or a subagent | The project already lives in a tracker | Works; factory-rig does not touch the tracker |
-| yysun-led | `.projects/<slug>/` (yysun `project-manager`) | Noodle through `frig`, or Matt `implement-spec` | You want contract-based delivery state with evidence manifests | installed-and-verified; live pilot passed 2026-11-25 (run records retained privately) |
-| Noodle | Whatever the project's mode says (Noodle never owns state) | Noodle worktree workers, supervised, one at a time | Isolated implementation of an accepted contract | installed-and-verified, live pilot passed |
+| yysun-led | `.projects/<slug>/` (yysun `project-manager`) | Noodle through `frig`, or Matt `implement-spec` | You want contract-based delivery state with evidence manifests | installed-and-verified on the author's machine, where a live pilot passed on 2026-11-25; those run records aren't in this repository |
+| Noodle | Whatever the project's mode says (Noodle never owns state) | Noodle worktree workers, supervised, one at a time | Isolated implementation of an accepted contract | installed-and-verified on the author's machine, where a live pilot passed; its records aren't in this repository |
 | PMO-native | PMO's hub-state in `$PMO_WORKSPACE/workspace` | Claude Code sessions started in that workspace | Scrum, program or release ceremonies run in Claude | installed-inactive; partly verified natively, see the `pmo-platform` blocker in `registry/components.json` |
 | Curia | GitHub issues (Wayfinder tickets) | Curia agents in containers | Linux host, GitHub-centered Wayfinder flow | blocked-platform |
 | Matt-led | Wayfinder map and ticket files | `implement-spec` (explicitly selected) | Spec-driven work with Matt Pocock's own loop | installed-and-verified (stable skills) |
