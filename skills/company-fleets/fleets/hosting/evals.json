@@ -5450,7 +5450,7 @@
           "--contains",
           "\"dimension\": \"subject\"",
           "--contains",
-          "\"dimension\": \"restore.pantheon claim\"",
+          "\"dimension\": \"restore.acquia claim\"",
           "--contains",
           "availability-from-lab",
           "--",
@@ -5462,8 +5462,8 @@
       "synthetic": true,
       "outcome": {
         "status": "pass",
-        "evidence": "fleets/hosting/evidence/evals/benchmark-claim-summary-and-subject-scanned.txt",
-        "run_on": "2026-11-26"
+        "evidence": "fleets/hosting/evidence/hosting.eval.benchmark-claim-summary-and-subject-scanned.txt",
+        "run_on": "2026-11-27"
       }
     },
     {
