@@ -52,7 +52,7 @@ QUALITY = r"(?:robust|reliable|resilient|secure|stable|available|trusted|advance
 SUPERIORITY = re.compile(r"\b(more " + QUALITY + r"|most " + QUALITY + r"|better|best|outperform\w*|superior\w*|beats?|"
                          r"wins?|winning|industry[- ]leading|market[- ]leading|stronger than|faster than|number one|no\. ?1|"
                          r"top[- ]rated|unmatched|unrivall?ed|second to none)\b|(?<!\w)#1\b", re.I)
-RIVAL = re.compile(r"\b(pantheon|wordpress vip|wp ?vip|acquia|providers?|competitors?|rivals?|other hosts?)\b", re.I)
+RIVAL = re.compile(r"\b(acquia|pantheon|wordpress vip|wp ?vip|providers?|competitors?|rivals?|other hosts?)\b", re.I)
 COMPANY = re.compile(r"\bfixture co\b", re.I)
 COMPARATIVE = re.compile(r"\b(than|exceed\w*|surpass\w*|ahead of|outpace\w*|outrun\w*|out-\w+|outperform\w*|beat\w*|"
                          r"superior|leads?|leading|tops?|trails?|trailing|lags?|lagging|behind|unlike|versus|vs|"

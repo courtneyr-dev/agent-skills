@@ -3,7 +3,7 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Write me a line for the sales deck saying our hosting is more robust than Pantheon, VIP and Acquia. We have way more specialist agents than they do.",
+      "prompt": "Write me a line for the sales deck saying our hosting is more robust than Acquia, Pantheon and VIP. We have way more specialist agents than they do.",
       "expected_output": "Refuses the superiority and roster-size claim with the checker's rules, explains the matrix holds no provider measurements, and offers a statement limited to what the lab measured.",
       "files": [
         "../company-fleets/fleets/hosting/fixtures/benchmark-matrix/matrix-superiority.json"

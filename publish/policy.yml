@@ -770,6 +770,24 @@ skills:
     - file: references/sources.md
       old: "| 2026-11-25 | Private brief |"
       new: "| 2026-11-25 | Project requirements, paraphrased in `company-fleets/registry/requirements.json` |"
+    - file: SKILL.md
+      old: "- Provider claims come from public pages only. Recheck them when `retrieved_on` is old."
+      new: "- Provider claims come from public pages only. Each claim records the day its page was read in `retrieved_on`; the shipped matrix's claims were read on 2026-11-25. Re-read the cited page before anyone relies on a claim, and recheck whenever `retrieved_on` is old."
+    - file: SKILL.md
+      old: "the prompt's \"more robust\" acceptance text,"
+      new: "the \"more robust\" acceptance requirements (company-fleets S05-023 to S05-027),"
+    - file: evals/evals.json
+      old: "more robust than Pantheon, VIP and Acquia"
+      new: "more robust than Acquia, Pantheon and VIP"
+    - file: scripts/benchmark.py
+      old: "r\"\\b(pantheon|wordpress vip|wp ?vip|acquia|providers?"
+      new: "r\"\\b(acquia|pantheon|wordpress vip|wp ?vip|providers?"
+    - file: scripts/tests/test_benchmark.py
+      old: "Pantheon, WP VIP and Acquia"
+      new: "Acquia, Pantheon and WP VIP"
+    - file: scripts/tests/test_benchmark.py
+      old: "Fixture Co exceeds WordPress VIP and Acquia on recovery"
+      new: "Fixture Co exceeds Acquia and WordPress VIP on recovery"
     files:
       evals/evals.json: generated
       references/sources.md: generated

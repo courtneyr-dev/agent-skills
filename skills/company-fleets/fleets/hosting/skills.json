@@ -267,9 +267,9 @@
     {
       "id": "hosting-benchmark-matrix",
       "fleet": "hosting",
-      "summary": "Dated benchmark matrix against public Pantheon, WordPress VIP and Acquia docs that keeps provider claim, proposed target, configured capability, measured result and contractual commitment apart, checks measured values against hashed evidence, refuses superiority, roster-size and lab-availability claims, and builds the production-readiness backlog.",
+      "summary": "Dated benchmark matrix against public Acquia, Pantheon and WordPress VIP docs that keeps provider claim, proposed target, configured capability, measured result and contractual commitment apart, checks measured values against hashed evidence, refuses superiority, roster-size and lab-availability claims, and builds the production-readiness backlog.",
       "triggers": [
-        "Compare hosting with Pantheon, WordPress VIP or Acquia",
+        "Compare hosting with Acquia, Pantheon or WordPress VIP",
         "Draft an uptime, recovery or 'more robust' claim",
         "List what stands between the lab and production"
       ],

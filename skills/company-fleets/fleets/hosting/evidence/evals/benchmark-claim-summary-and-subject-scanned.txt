@@ -1,5 +1,5 @@
-$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --contains "dimension": "subject" --contains "dimension": "restore.acquia claim" --contains availability-from-lab -- sh -c python3 -c "import json;d=json.load(open('fleets/hosting/benchmark/2026-11-26-matrix.json'));dim=lambda i:[x for x in d['dimensions'] if x['id']==i][0];d['subject']='Fixture Co beats Pantheon, WP VIP and Acquia';dim('restore')['provider_claims'][0]['claim']='Restores slower than Fixture Co; Fixture Co guarantees 99.99% uptime';json.dump(d,open('{tmp}/m.json','w'))" && python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix {tmp}/m.json
-# eval-run 2026-11-27, cwd company-fleets (temporary copy), case hosting.eval.benchmark-claim-summary-and-subject-scanned, runner fleets/hosting/tools/evalrun.py
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --contains '"dimension": "subject"' --contains '"dimension": "restore.acquia claim"' --contains availability-from-lab -- sh -c 'python3 -c "import json;d=json.load(open('"'"'fleets/hosting/benchmark/2026-11-26-matrix.json'"'"'));dim=lambda i:[x for x in d['"'"'dimensions'"'"'] if x['"'"'id'"'"']==i][0];d['"'"'subject'"'"']='"'"'Fixture Co beats Acquia, Pantheon and WP VIP'"'"';dim('"'"'restore'"'"')['"'"'provider_claims'"'"'][0]['"'"'claim'"'"']='"'"'Restores slower than Fixture Co; Fixture Co guarantees 99.99% uptime'"'"';json.dump(d,open('"'"'{tmp}/m.json'"'"','"'"'w'"'"'))" && python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix {tmp}/m.json'
+# run 2026-11-27 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-claim-summary-and-subject-scanned kind negative synthetic true
 {
   "as_of": "2026-11-26",
   "assumptions": [
@@ -35,10 +35,10 @@ $ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --contains "dimension"
     },
     {
       "dimension": "subject",
-      "message": "comparative claim 'Fixture Co beats Pantheon, WP VIP and Acquia'; this matrix holds no provider measurements, so it cannot support a superiority claim",
+      "message": "comparative claim 'Fixture Co beats Acquia, Pantheon and WP VIP'; this matrix holds no provider measurements, so it cannot support a superiority claim",
       "rule": "superiority"
     }
   ]
 }
-# exit 1
-# status pass
+# expect: met
+# exit 0

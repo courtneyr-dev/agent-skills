@@ -5157,7 +5157,7 @@
       "outcome": {
         "status": "pass",
         "evidence": "fleets/hosting/evidence/evals/benchmark-superiority-refused.txt",
-        "run_on": "2026-11-26"
+        "run_on": "2026-11-27"
       }
     },
     {
@@ -5420,21 +5420,21 @@
           "--",
           "sh",
           "-c",
-          "python3 -c \"import json,sys;json.dump(['Fixture Co sites stay up 99.99 percent of the time', 'Pantheon trails Fixture Co on recovery', 'Fixture Co delivers four nines of uptime', 'Fixture Co sites never go down', 'Fixture Co offers a 99.99 per cent SLA', 'Unlike Acquia, Fixture Co never loses a write', 'Fixture Co is the most robust WordPress host', 'Fixture Co wins against WordPress VIP on restores', 'Fixture Co is the better choice over Pantheon', 'Fixture Co: the number one host for recovery', 'Pantheon lags behind Fixture Co'],open(sys.argv[1],'w'))\" {tmp}/p.json && python3 -c \"import json,subprocess,sys;m=json.load(open(sys.argv[1]));res={};[res.__setitem__(t,(open(sys.argv[2],'w').write(json.dumps(dict(m,statements=[{'text':t}]))),json.loads(subprocess.run([sys.executable,'../hosting-benchmark-matrix/scripts/benchmark.py','check','--matrix',sys.argv[2]],capture_output=True,text=True).stdout))[1]['verdict']) for t in json.load(open(sys.argv[3]))];print(json.dumps({'phrasings':len(res),'refused':sum(v=='fail' for v in res.values()),'results':res},indent=2))\" fleets/hosting/benchmark/2026-11-26-matrix.json {tmp}/m.json {tmp}/p.json"
+          "python3 -c \"import json,sys;json.dump(['Fixture Co sites stay up 99.99 percent of the time', 'Other hosts trail Fixture Co on recovery', 'Fixture Co delivers four nines of uptime', 'Fixture Co sites never go down', 'Fixture Co offers a 99.99 per cent SLA', 'Unlike Acquia, Fixture Co never loses a write', 'Fixture Co is the most robust WordPress host', 'Fixture Co wins against WordPress VIP on restores', 'Fixture Co is the better choice over Pantheon', 'Fixture Co: the number one host for recovery', 'Pantheon lags behind Fixture Co'],open(sys.argv[1],'w'))\" {tmp}/p.json && python3 -c \"import json,subprocess,sys;m=json.load(open(sys.argv[1]));res={};[res.__setitem__(t,(open(sys.argv[2],'w').write(json.dumps(dict(m,statements=[{'text':t}]))),json.loads(subprocess.run([sys.executable,'../hosting-benchmark-matrix/scripts/benchmark.py','check','--matrix',sys.argv[2]],capture_output=True,text=True).stdout))[1]['verdict']) for t in json.load(open(sys.argv[3]))];print(json.dumps({'phrasings':len(res),'refused':sum(v=='fail' for v in res.values()),'results':res},indent=2))\" fleets/hosting/benchmark/2026-11-26-matrix.json {tmp}/m.json {tmp}/p.json"
         ]
       },
       "synthetic": true,
       "outcome": {
         "status": "pass",
         "evidence": "fleets/hosting/evidence/evals/benchmark-reviewed-phrasings-refused.txt",
-        "run_on": "2026-11-26"
+        "run_on": "2026-11-27"
       }
     },
     {
       "id": "hosting.eval.benchmark-claim-summary-and-subject-scanned",
       "kind": "negative",
       "target": "hosting-benchmark-matrix",
-      "input": "Check the dated matrix with the subject 'Fixture Co beats Pantheon, WP VIP and Acquia' and a provider claim summary 'Restores slower than Fixture Co; Fixture Co guarantees 99.99% uptime'.",
+      "input": "Check the dated matrix with the subject 'Fixture Co beats Acquia, Pantheon and WP VIP' and a provider claim summary 'Restores slower than Fixture Co; Fixture Co guarantees 99.99% uptime'.",
       "fixtures": [
         "fleets/hosting/benchmark/2026-11-26-matrix.json"
       ],
@@ -5456,13 +5456,13 @@
           "--",
           "sh",
           "-c",
-          "python3 -c \"import json;d=json.load(open('fleets/hosting/benchmark/2026-11-26-matrix.json'));dim=lambda i:[x for x in d['dimensions'] if x['id']==i][0];d['subject']='Fixture Co beats Pantheon, WP VIP and Acquia';dim('restore')['provider_claims'][0]['claim']='Restores slower than Fixture Co; Fixture Co guarantees 99.99% uptime';json.dump(d,open('{tmp}/m.json','w'))\" && python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix {tmp}/m.json"
+          "python3 -c \"import json;d=json.load(open('fleets/hosting/benchmark/2026-11-26-matrix.json'));dim=lambda i:[x for x in d['dimensions'] if x['id']==i][0];d['subject']='Fixture Co beats Acquia, Pantheon and WP VIP';dim('restore')['provider_claims'][0]['claim']='Restores slower than Fixture Co; Fixture Co guarantees 99.99% uptime';json.dump(d,open('{tmp}/m.json','w'))\" && python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix {tmp}/m.json"
         ]
       },
       "synthetic": true,
       "outcome": {
         "status": "pass",
-        "evidence": "fleets/hosting/evidence/hosting.eval.benchmark-claim-summary-and-subject-scanned.txt",
+        "evidence": "fleets/hosting/evidence/evals/benchmark-claim-summary-and-subject-scanned.txt",
         "run_on": "2026-11-27"
       }
     },

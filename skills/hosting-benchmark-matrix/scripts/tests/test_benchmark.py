@@ -132,7 +132,7 @@ class MatrixTests(unittest.TestCase):
         self.assertIn("contract-not-on-record", rules(out))
 
     def test_comparisons_with_named_providers_and_availability_promises_are_refused(self):
-        claims = ["Fixture Co restores sites more reliably than Pantheon", "Fixture Co exceeds WordPress VIP and Acquia on recovery",
+        claims = ["Fixture Co restores sites more reliably than Pantheon", "Fixture Co exceeds Acquia and WordPress VIP on recovery",
                   "Fixture Co surpasses Acquia on isolation", "Fixture Co is ahead of all three providers",
                   "Fixture Co out-restores Pantheon", "Fixture Co is more resilient than WordPress VIP"]
         promises = ["Fixture Co offers a 99.99% SLA", "Fixture Co sites stay up 99.99% of the time", "Fixture Co: 99.99% online, every month"]
@@ -187,12 +187,12 @@ class MatrixTests(unittest.TestCase):
 
     def test_subject_contract_note_claim_summaries_and_sources_are_scanned(self):
         """Minor 4: provider_claims[].claim, subject, contract_note and a source key were not scanned."""
-        edits = [lambda d: d.update(subject="Fixture Co beats Pantheon, WP VIP and Acquia"),
+        edits = [lambda d: d.update(subject="Fixture Co beats Acquia, Pantheon and WP VIP"),
                  lambda d: d.update(contract_note="Fixture Co guarantees 99.99% uptime"),
                  lambda d: self.dim(d, "restore")["provider_claims"][0].update(claim="Restores slower than Fixture Co"),
                  lambda d: self.dim(d, "restore")["provider_claims"][0].update(claim="Fixture Co guarantees 99.99% uptime"),
                  lambda d: self.dim(d, "restore").update(configured_capability={"summary": "nightly backups",
-                                                                                "source": "Faster than Pantheon, WP VIP and Acquia"})]
+                                                                                "source": "Faster than Acquia, Pantheon and WP VIP"})]
         for i, edit in enumerate(edits):
             doc = copy.deepcopy(self.doc)
             edit(doc)
@@ -214,7 +214,7 @@ class MatrixTests(unittest.TestCase):
 
     def test_claims_hidden_in_dimension_fields_are_refused(self):
         doc = copy.deepcopy(self.doc)
-        self.dim(doc, "restore")["configured_capability"] = {"summary": "Faster restores than Pantheon, WP VIP and Acquia"}
+        self.dim(doc, "restore")["configured_capability"] = {"summary": "Faster restores than Acquia, Pantheon and WP VIP"}
         self.assertEqual(rules(call("check", "--matrix", self.write(doc), "--root", CF)[1]), ["superiority"])
         doc = copy.deepcopy(self.doc)
         self.dim(doc, "availability")["proposed_target"] = {"summary": "Not a hypothesis: 99.99% uptime, guaranteed", "hypothesis": True}

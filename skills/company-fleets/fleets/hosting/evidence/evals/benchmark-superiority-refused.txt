@@ -1,5 +1,5 @@
 $ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --contains '"rule": "superiority"' --contains '"rule": "roster-size"' -- python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix fleets/hosting/fixtures/benchmark-matrix/matrix-superiority.json
-# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-superiority-refused kind negative synthetic true
+# run 2026-11-27 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-superiority-refused kind negative synthetic true
 {
   "as_of": "2026-11-26",
   "assumptions": [
@@ -25,12 +25,12 @@ $ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --contains '"rule": "s
   "violations": [
     {
       "dimension": "statements.1",
-      "message": "comparative claim 'Fixture Co hosting is more robust than Pantheon, WordPress VIP and Acquia becaus'; this matrix holds no provider measurements, so it cannot support a superiority claim",
+      "message": "comparative claim 'Fixture Co hosting is more robust than Acquia, Pantheon and WordPress VIP becaus'; this matrix holds no provider measurements, so it cannot support a superiority claim",
       "rule": "superiority"
     },
     {
       "dimension": "statements.1",
-      "message": "claim rests on agent or role counts: 'Fixture Co hosting is more robust than Pantheon, WordPress VIP and Acquia becaus'",
+      "message": "claim rests on agent or role counts: 'Fixture Co hosting is more robust than Acquia, Pantheon and WordPress VIP becaus'",
       "rule": "roster-size"
     }
   ]

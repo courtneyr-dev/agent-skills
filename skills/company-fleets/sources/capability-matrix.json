@@ -1153,10 +1153,10 @@
   {
    "requirement": "S05-023",
    "fleet": "hosting",
-   "text": "Create a dated benchmark matrix against public Pantheon, WordPress VIP and Acquia documentation and the actual relevant plan/contract.",
+   "text": "Create a dated benchmark matrix against public Acquia, Pantheon and WordPress VIP documentation and the actual relevant plan/contract.",
    "disposition": "original-local",
    "local_skill": "hosting-service-catalogue",
-   "note": "No Pantheon, VIP or Acquia benchmark matrix found in hosting skills at the 2026-11-26 check; the contract column stays empty because no plan or contract exists.",
+   "note": "No Acquia, Pantheon or VIP benchmark matrix found in hosting skills at the 2026-11-26 check; the contract column stays empty because no plan or contract exists.",
    "builder": "hosting",
    "state_at_build": "present",
    "verification": "Built by the hosting workstream; behavior per its fleet evals.json."

@@ -715,7 +715,7 @@
       "id": "S05-023",
       "source_section": "5. Hosting and application-platform fleet",
       "source_lines": "312",
-      "text": "Create a dated benchmark matrix against public Pantheon, WordPress VIP and Acquia documentation and the actual relevant plan/contract.",
+      "text": "Create a dated benchmark matrix against public Acquia, Pantheon and WordPress VIP documentation and the actual relevant plan/contract.",
       "owner_workstream": "hosting",
       "status": "blocked",
       "deliverable": "company-fleets/fleets/hosting/benchmark/2026-11-26-matrix.json",

@@ -40,7 +40,7 @@ production-readiness backlog. A larger agent roster is never evidence.
   dimension. Targets come from the owner's `fleets/hosting/benchmark/targets.json`. The manifest, the
   targets and the contracts registry (`fleets/hosting/benchmark/contracts.json`) are always read from
   the rig, never from `--root` or the matrix.
-- Provider claims come from public pages only. Recheck them when `retrieved_on` is old.
+- Provider claims come from public pages only. Each claim records the day its page was read in `retrieved_on`; the shipped matrix's claims were read on 2026-11-25. Re-read the cited page before anyone relies on a claim, and recheck whenever `retrieved_on` is old.
 
 ## Method
 
@@ -100,7 +100,7 @@ would fill `performance_under_load` and `availability`; until then they stay `no
 
 ## References
 
-`references/sources.md`: the dated provider pages, the prompt's "more robust" acceptance text, and
+`references/sources.md`: the dated provider pages, the "more robust" acceptance requirements (company-fleets S05-023 to S05-027), and
 the rig skills this one reads from.
 
 ## Tests

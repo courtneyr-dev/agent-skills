@@ -328,7 +328,7 @@ ROWS = {
     "S05-020": O("hosting-incident-response", "No disaster-recovery exercise found in the skill text at the 2026-11-26 check; restore drills only."),
     "S05-021": B("No hosting provider is selected and no provider credentials or test account exist, so no real cPanel/WHM or reseller adapter can be built or tested.", "Choose the provider, record its API documentation revision and a test account, then build the adapter in hosting-account-lifecycle against it."),
     "S05-022": O("hosting-tenant-isolation", "Build-execution and preview boundaries."),
-    "S05-023": O("hosting-service-catalogue", "No Pantheon, VIP or Acquia benchmark matrix found in hosting skills at the 2026-11-26 check; the contract column stays empty because no plan or contract exists."),
+    "S05-023": O("hosting-service-catalogue", "No Acquia, Pantheon or VIP benchmark matrix found in hosting skills at the 2026-11-26 check; the contract column stays empty because no plan or contract exists."),
     "S05-024": O("hosting-service-catalogue", "Benchmark dimensions not found at the 2026-11-26 check."),
     "S05-025": O("hosting-service-catalogue"),
     "S05-026": O("hosting-service-catalogue"),

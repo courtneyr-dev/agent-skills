@@ -564,6 +564,7 @@ company-fleets/fleets/hosting/evidence/evals/account-lifecycle-suspend-needs-aut
 company-fleets/fleets/hosting/evidence/evals/account-lifecycle-suspend-role-id-approver-refused.txt
 company-fleets/fleets/hosting/evidence/evals/benchmark-availability-from-lab-refused.txt
 company-fleets/fleets/hosting/evidence/evals/benchmark-backlog-unmet-first.txt
+company-fleets/fleets/hosting/evidence/evals/benchmark-claim-summary-and-subject-scanned.txt
 company-fleets/fleets/hosting/evidence/evals/benchmark-commitment-without-contract.txt
 company-fleets/fleets/hosting/evidence/evals/benchmark-dated-matrix-passes.txt
 company-fleets/fleets/hosting/evidence/evals/benchmark-lab-labeled-production-refused.txt
@@ -702,7 +703,6 @@ company-fleets/fleets/hosting/evidence/evals/tenant-isolation-sandbox-isolated.t
 company-fleets/fleets/hosting/evidence/evals/tenant-isolation-secret-in-build-log.txt
 company-fleets/fleets/hosting/evidence/evals/tenant-isolation-self-granted-read-denied.txt
 company-fleets/fleets/hosting/evidence/fleet-validate.txt
-company-fleets/fleets/hosting/evidence/hosting.eval.benchmark-claim-summary-and-subject-scanned.txt
 company-fleets/fleets/hosting/evidence/isolation-records-2026-11-26.json
 company-fleets/fleets/hosting/evidence/migration-rollback-2026-11-26.json
 company-fleets/fleets/hosting/evidence/persona-evals-2026-11-26.txt

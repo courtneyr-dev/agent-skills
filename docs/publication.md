@@ -229,9 +229,13 @@ Added in 1.1.0: 37 gate skills, `company-fleets`, `factory-rig` and `factory-exe
   sandbox record needs Docker to rebuild and still binds the pre-rename bytes; `promote` refuses
   that preview either way.
 - **The hosting benchmark stays neutral.** It cites public Acquia, Pantheon and WordPress VIP
-  documentation, lists providers alphabetically, states only what each cited page says, and keeps
-  documented claim, proposed target, configured capability, measured result and contractual
-  commitment in separate fields. Superiority claims appear only as inputs the gate must refuse.
+  documentation, states only what each cited page says, and keeps documented claim, proposed
+  target, configured capability, measured result and contractual commitment in separate fields.
+  Wherever the three appear as a list they're alphabetical: the matrix's claim columns and
+  `PROVIDERS` in `benchmark.py`, the `hosting-benchmark-matrix` SKILL.md and evals, the hosting
+  fleet's `skills.json`, evals and fixtures, and requirement S05-023. Superiority claims appear
+  only as inputs the gate must refuse. Every claim records the day its page was read
+  (2026-11-25); re-read the page before relying on it.
 - **gitleaks.** `.gitleaks.toml` extends the default rules with one allowlist: a JSON
   `"idempotency_key"` of 32 hex characters, a truncated sha256 of synthetic handoff content. The
   publication workflow runs gitleaks 8.30.1 with it over the tree and the history.
