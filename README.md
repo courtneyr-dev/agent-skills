@@ -6,7 +6,7 @@ agents is where they look for it, and how well that is actually proven. Claude C
 are runtime-proven here, as is GitHub Copilot CLI; Cursor, Gemini and OpenClaw are not. Run `./install.sh --grades`, or
 see [Platforms](docs/PLATFORMS.md).
 
-**35 skills here**, plus [79 more](docs/CATALOG.md) that live in other people's
+**35 skills here**, plus [340 more](docs/CATALOG.md) that live in other people's
 repos and install from their own sources.
 
 New to this? **[What is a skill?](docs/WHAT-IS-A-SKILL.md)**
