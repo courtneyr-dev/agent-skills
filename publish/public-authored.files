@@ -1012,6 +1012,7 @@ company-fleets/scripts/tests/test_handoff.py
 company-fleets/scripts/tests/test_improvement.py
 company-fleets/scripts/tests/test_ownerlog.py
 company-fleets/scripts/tests/test_registry.py
+company-fleets/scripts/tests/test_source_logs.py
 company-fleets/scripts/tests/test_workflow.py
 company-fleets/sources/README.md
 company-fleets/sources/build_sources.py

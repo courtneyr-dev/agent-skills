@@ -3,9 +3,9 @@ $ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_e
 http_code=200 final_url=https://sigcse.org/about/ size=18780
 L1: ACM SIGCSE
 L10: Membership
-L24: Business Meeting Minutes - Minutes of the Annual Business Meeting held at the SIGCSE Technical Symposium
-L33: The aim of SIGCSE is to provide an equitable global forum that promotes and advances research, teaching, and practice in computing education at all educational levels across all demographics
+L24 (paraphrase): The page links the minutes of SIGCSE's annual business meeting at its Technical Symposium.
+L33 (paraphrase): SIGCSE states its aim as a global forum for computing education research, teaching and practice at every level.
 L35: ICER '26
 L41: Technical Symposium 2027
 L47: ITiCSE 2027
-L55: Back to top • Site last updated on 2026-11-16 • Blog template built for
+L55 (paraphrase): The site footer shows a last update on 2026-11-16.

@@ -22,6 +22,10 @@ the one hard rule. A public repo with no LICENSE file is all rights reserved, ho
 shared. If a skill came from somewhere else, link to the original instead — `manifest.json` has an
 `external` kind for exactly this.
 
+Quoting a third-party page in a skill's evidence or references: keep identifiers, titles, headings
+and short attributed phrases, and paraphrase anything sentence-length. Standards text stays out;
+link to it.
+
 Check for an earlier copy before assuming something is yours to publish: compare content and
 first-commit dates, not names. Aggregator repos copy in both directions, so a name match proves
 nothing. And never conclude "no license" from a repo root — some repos license each directory

@@ -1,9 +1,9 @@
 $ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/teacherstandards/
 # run 2026-11-25
 http_code=200 final_url=https://csteachers.org/teacherstandards/ size=321385
-L87: In 2019, CSTA launched an effort to revise the Standards for CS Educators in partnership with the International Society for Technology in Education (ISTE). These Standards were created and first published in 2003, updated in 2011, and rewritten in 2019 for a 2020 release. Since the latest release, teams of volunteers have created new resources to support implementation.
-L112: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0). Accordingly, individuals and organizations are free to share and adapt the materials in whole or in part, as long as they provide proper attribution, do not use for commercial purposes, and share contributions or derivations under the same license.
-L113: Suggested citation: Computer Science Teachers Association (2020). Standards for Computer Science Teachers. Retrieved from https://csteachers.org/teacherstandards.
+L87 (paraphrase): CSTA and ISTE revised the CS educator standards in 2019 for a 2020 release; earlier versions date from 2003 and 2011.
+L112 (paraphrase): The teacher standards are licensed CC BY-NC-SA 4.0: share and adapt with attribution, noncommercially, under the same license.
+L113 (citation): Computer Science Teachers Association (2020), Standards for Computer Science Teachers, https://csteachers.org/teacherstandards
 $ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/teacherstandards/teacher-standards-interactive/
 # run 2026-11-25
 http_code=200 final_url=https://csteachers.org/teacherstandards/interactive/ size=381616

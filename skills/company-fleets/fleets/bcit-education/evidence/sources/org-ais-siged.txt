@@ -1,6 +1,6 @@
 $ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://ais-siged.org/about-siged-and-ais/
 # run 2026-11-25
 http_code=200 final_url=https://ais-siged.org/about-siged-and-ais/ size=61919
-L49: The AIS Special Interest Group on Education, SIGED, is dedicated to promoting excellence in information management/systems/technology education, research and practice. Our objective is to provide a forum in which interdisciplinary researchers and educators in information systems can exchange ideas, techniques, and applications. Through various activities including organizing an annual pre-ICIS conference and organizing education tracks at major AIS affiliated conferences incl
-L50: Each year we organize a pre-ICIS conference with a lineup or competitively selected peer-reviewed papers, tutorials, and panel discussions. Formerly known as the International Academy for Information Management, our special interest group on IS education has been organizing this pre-ICIS annual conference for the past 30 years. At the conference, a best paper award is announced. All accepted papers go through a double-blind peer review process and a conference proceedings is 
-L52: Currently we have close to 200 members. Many of them regularly participate in the conferences, workshops and other events organized by SIGED. In addition, members receive regular invitations to participate and organize education tracks in the affiliated conferences. We invite you to join in our activities and contribute. Just login to your AIS account and signup today!
+L49 (paraphrase): AIS SIGED promotes information systems education, research and practice and gives researchers and educators a forum.
+L50 (paraphrase): SIGED has run an annual pre-ICIS conference with peer-reviewed papers, tutorials, panels and a best paper award for about 30 years.
+L52 (paraphrase): SIGED reports close to 200 members and invites AIS members to join.

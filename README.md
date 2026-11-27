@@ -274,6 +274,14 @@ fixed rather than argued about.
 
 ## License
 
-MIT for everything in `skills/` and `scripts/`. External skills stay under their own licenses,
-recorded per entry in [manifest.json](manifest.json).
+MIT for everything in `skills/` and `scripts/` written for this repository. External skills stay
+under their own licenses, recorded per entry in [manifest.json](manifest.json).
+
+Third-party material that a skill quotes or points to stays under its owner's terms, not MIT. That
+covers the short, attributed provider quotes in the hosting benchmark
+(`skills/company-fleets/fleets/hosting/benchmark/`, scoped in
+`skills/hosting-benchmark-matrix/references/sources.md`), the page titles, headings and citations in
+the education fetch logs (`skills/company-fleets/fleets/bcit-education/evidence/sources/`, where
+longer passages are paraphrased), and the names, URLs and terms in the standards and organization
+registries. No standards text is included: those registries carry identifiers and links only.
 

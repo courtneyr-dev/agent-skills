@@ -4,7 +4,7 @@ http_code=200 final_url=https://csteachers.org/pk12standards/resources/ size=452
 L143: Previous Versions of Standards
 L144: 2017 CSTA K-12 Standards, Revised /
 L150: 2026 to 2017 CSTA Standards Crosswalk
-L151: This crosswalk supports practitioners in identifying curricular adjustments when transitioning from the 2017 to the 2026 CSTA K–12 Standards. Rather than a one-to-one mapping, it highlights stable content, where new learning experiences may be needed, and where prior content has been deprioritized or removed.
+L151 (paraphrase): CSTA publishes a crosswalk from the 2017 to the 2026 standards that marks stable, new and removed content instead of mapping one to one.
 $ curl -sSL --max-time 30 -o csta-2017.pdf https://csteachers.org/wp-content/uploads/2025/03/2017-csta-k12-computer-science-standards-al.pdf  # then stdlib zlib text-operator extraction
 # run 2026-11-25
 http_code=200 final_url=https://csteachers.org/wp-content/uploads/2025/03/2017-csta-k12-computer-science-standards-al.pdf size=389909

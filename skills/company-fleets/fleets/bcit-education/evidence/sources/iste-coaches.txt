@@ -9,12 +9,12 @@ L90: 4.5 Professional Learning Facilitator
 L91: 4.6 Data-Driven Decision-Maker
 L92: 4.7 Digital Citizen Advocate
 L103: 4.1.a Create a Shared Vision
-L270: ISTE Standards © 2024 4.02, ISTE (International Society for Technology in Education), iste.org. All rights reserved.
+L270 (paraphrase): ISTE Standards copyright 2024, version 4.02, ISTE; all rights reserved.
 $ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://cdn.iste.org/permissions-licensing
 # run 2026-11-25
 http_code=200 final_url=https://cdn.iste.org/permissions-licensing size=101002
 L70: Permitted educational use: Free
-L71: ISTE encourages free use of the ISTE Standards for noncommercial educational purposes under our permitted educational use agreement. This agreement grants you permission to download, link to, digitally publish and/or import the standards onto your intranet or other digital platform.
+L71 (paraphrase): ISTE allows free noncommercial educational use of the standards, including downloading, linking and posting them internally, under its permitted-use agreement.
 L72: Permitted educational use includes using the ISTE Standards to:
-L92: Commercial use of the ISTE Standards requires a commercial digital use agreement. Please contact
+L92 (paraphrase): Commercial digital use needs a separate ISTE agreement.
 L98: Any use of the ISTE Standards requires attribution as specified below:

@@ -1,9 +1,9 @@
 $ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/pk12standards/research/
 # run 2026-11-25
 http_code=200 final_url=https://csteachers.org/pk12standards/research/ size=408582
-L126: WestEd led a detailed literature review and analysis of related standards and frameworks, as well as a comparison with 12 other sets of instructional guidelines. The research was guided by key questions about alignment with learning progressions, the influence of emerging technologies such as generative AI, pedagogical practices promoting equity, and coverage across existing computer science curricula. WestEd developed design briefs and literature reviews for each standard co
+L126 (paraphrase): WestEd ran the literature review and compared the standards with 12 other sets of guidelines, looking at progressions, generative AI, equity and coverage.
 L127: Research to Inform the CSTA PK–12 Standards Revision
-L128: This report summarizes the research base that informed the 2026 CSTA PK–12 Standards revision, including literature reviews, standards and framework comparisons, and expert recommendations. It highlights how key findings influenced the organization, content, and language of the updated standards. Individual research artifacts used by the standards writing team are available for download below.
+L128 (paraphrase): The report summarizes the research behind the 2026 revision and how it shaped the standards' structure, content and wording.
 L156: Algorithms and Programming Literature Review
 L159: Computing Systems and Security Literature Review
 L162: Data and Analysis Literature Review

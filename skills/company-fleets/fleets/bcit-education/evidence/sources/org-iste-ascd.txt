@@ -7,5 +7,5 @@ L15: ISTE Standards
 L41: Webinars
 L46: Books & Publications
 L57: Expert Webinars
-L118: We guide and inspire educators to create purposeful, high-quality learning experiences – aligning instructional strategy, technology, and teacher practice – so that every student can thrive.
+L118 (paraphrase): ISTE+ASCD states its mission as helping educators align strategy, technology and practice so every student can thrive.
 L149: Privacy Policy

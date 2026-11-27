@@ -4,7 +4,7 @@ http_code=200 final_url=https://csed.acm.org/ size=31619
 L1: CS2023 – ACM/IEEE-CS/AAAI Computer Science Curricula
 L3: CS2023
 L5: CS2023: ACM/IEEE-CS/AAAI Computer Science Curricula
-L7: The Curricular Report (Endorsed by: ACM – Jan 18, 2024, IEEE-CS – Jan 22, 2024, AAAI – Feb 22, 2024)
+L7 (paraphrase): CS2023 is the curricular report endorsed by ACM (2024-01-18), IEEE-CS (2024-01-22) and AAAI (2024-02-22).
 $ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csed.acm.org/knowledge-areas/
 # run 2026-11-25
 http_code=200 final_url=https://csed.acm.org/knowledge-areas/ size=31654

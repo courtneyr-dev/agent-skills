@@ -3,8 +3,8 @@ $ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_e
 http_code=200 final_url=https://www.qualitymatters.org/qa-resources/rubric-standards/k-12-secondary-rubric size=34391
 L29: QM-Certified Courses
 L65: Current Edition: Sixth Edition, 2025
-L66: Note: Quality Matters has released Version 2.0 of the QM K‑12 Rubric, Sixth Edition. These updates do not change the underlying Standards or how they are applied. See the full
+L66 (paraphrase): Quality Matters released version 2.0 of the K-12 Rubric, Sixth Edition, without changing the standards or how they apply.
 L67: Version 2.0 statement for details.
-L69: Membership Requirements: K-12 Basic, K-12 Consortium or K-12 Publisher. This Rubric is also available with an Individual or Supplemental Subscription.
-L92: *Meeting QM's accessibility Standards does not guarantee or imply that specific country/federal/state/local accessibility regulations are met. Please consult with an accessibility specialist to ensure that accessibility regulations are met.
+L69 (paraphrase): The rubric needs a K-12 Basic, Consortium or Publisher membership, or an individual or supplemental subscription.
+L92 (paraphrase): QM notes that meeting its accessibility standards doesn't establish compliance with any jurisdiction's accessibility regulations.
 L106: CRMS to access the fully annotated Rubrics

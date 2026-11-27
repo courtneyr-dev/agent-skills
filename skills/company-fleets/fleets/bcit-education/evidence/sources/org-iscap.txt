@@ -3,8 +3,8 @@ $ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_e
 http_code=200 final_url=https://iscap.us/org/index.php size=35473
 L1: ISCAP: Information Systems & Computing Academic Professionals
 L21: CC2020).
-L24: The 2026 conference will be Nov. 4-7 in Asheville, North Carolina at the
-L35: The ISCAP Conference combines the conferences formerly known as EDSIGCON and CONISAR.
+L24 (paraphrase): The 2026 ISCAP conference runs 4-7 November in Asheville, North Carolina.
+L35 (paraphrase): The ISCAP Conference merges the former EDSIGCON and CONISAR conferences.
 L40: Information Systems Education Journal
 L42: Journal of Information Systems Applied Research and Analytics
 L44: Cybersecurity Pedagogy and Practice Journal

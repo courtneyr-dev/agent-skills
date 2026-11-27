@@ -2,11 +2,11 @@ $ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_e
 # run 2026-11-25
 http_code=200 final_url=https://csteachers.org/pk12standards/ size=375563
 L142: About the 2026 CSTA PK–12 Standards
-L145-L157: overview paragraphs on concepts, practices, foundational and specialty standards; not reproduced here (CC BY-NC-SA), read them at the URL above
+L145-L157 (paraphrase): overview paragraphs on concepts, practices, foundational and specialty standards; not reproduced here (CC BY-NC-SA), read them at the URL above
 L198: Computer Science Teachers Association. (2026). 2026 CSTA PK–12 computer science standards.
 L200: DOI: https://doi.org/10.1145/3820482
 L201: ISBN: 979-8-4007-2780-1
-L203: Individuals and organizations are free to download, print, share, and adapt the materials in whole or in part, as long as they provide proper attribution, use for non-commercial purposes, and share contributions or derivations under the same license.
+L203 (paraphrase): The 2026 standards may be downloaded, shared and adapted with attribution, for noncommercial use, with derivatives under the same license.
 L204: Contact
 $ curl -sSL --max-time 30 -o csta-2026.pdf https://csteachers.org/2026-csta-pk-12-computer-science-standards/  # then stdlib zlib text-operator extraction
 # run 2026-11-25
