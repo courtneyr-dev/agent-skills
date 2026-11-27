@@ -11,6 +11,6 @@ Verification status: cited from the author's knowledge on 2026-11-25. The build 
 | Kirkpatrick, J. D., and Kirkpatrick, W. K. *Kirkpatrick's Four Levels of Training Evaluation* | 2016, ATD Press | The reaction, learning, behavior and results levels in `evidence_plan.py` | Copyrighted book; level names used as labels |
 | Allen, D. W., and Ryan, K. *Microteaching* | 1969, Addison-Wesley | Plan, teach, observe, feedback, reteach cycle | Copyrighted book; cycle described in own words |
 | ISTE Standards for Educators | Edition and terms recorded in `edu-standards-alignment/references/standards-registry.json` (record `iste-educators`) | Seven role labels only | ISTE terms; labels only, no standard text |
-| Company Agent Fleets prompt section 11 and education addendum (local) | Research baseline 2026-11-25 | Requirements S11-013 to S11-015, ED-016, ED-019, ED-034, ED-036 | Private prompts |
+| company-fleets requirements S11-013 to S11-015, ED-016, ED-019, ED-034, ED-036 | Research baseline 2026-11-25 | The trainer procedures and the education role requirements | Project requirements, paraphrased in `company-fleets/registry/requirements.json` |
 
 Research on one population (for example novice adult learners) doesn't establish an effect in another (K-12 BCIT classrooms, workplace onboarding). The procedures use these sources as design rationale to test, not as proof that a package works.

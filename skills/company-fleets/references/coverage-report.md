@@ -4,7 +4,7 @@ Generated 2026-11-27 by `bin/fleet coverage --sync --write` from `registry/requi
 
 ## Requirement rows
 
-- Rows: 235 (sections 3 to 11 of prompt 2 and the education addendum)
+- Rows: 235 (ids S03 to S11 and ED)
 - Delivered with a deliverable: 216, of which 8 also name a blocker for the part still missing
 - Blocked with an explicit blocker: 19
 - Assigned without a deliverable: 0
@@ -35,7 +35,7 @@ No role or skill records `activated`: activation means the router selected it in
 - Section 12 workflows: 8 templates in `workflows/`, checked with `bin/fleet workflow check` and run with `bin/fleet workflow run`.
 - Section 13 compounding improvement: records in `improvement/records/`, gate `bin/fleet improve gate`.
 - Section 14 override register: `registry/overrides.json`, rendered in `references/company-overrides.md`.
-- Section 15 deliverables: this report; the vault index stays with the main-session integrator.
+- Section 15 deliverables: this report.
 
 ## Rows by section
 

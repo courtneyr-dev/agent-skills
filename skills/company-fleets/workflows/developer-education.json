@@ -3,7 +3,7 @@
   "id": "developer-education",
   "code": "DED",
   "name": "Developer education",
-  "source": "Company Agent Fleets prompt 2, section 12, workflow table row 5 (lines 619-626)",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 5 of 8",
   "profile": "devrel",
   "coordinator": "devrel.program-lead",
   "home_workload": "devrel.workload.docs-and-workshop",

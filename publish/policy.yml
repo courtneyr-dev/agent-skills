@@ -287,6 +287,22 @@ skills:
     - genericize_identifiers
     - genericize_personal_site
     - placeholder_private_example
+    replace_text:
+    - file: references/engagement-stages.md
+      old: "Source: Company Agent Fleets task prompt, section 4 \"Web development and design agency fleet\" and section 12 \"Handoff contract\""
+      new: "Source: company-fleets requirements S04-001 to S04-019 (agency fleet, `company-fleets/registry/requirements.json`) and the cross-fleet handoff contract (`company-fleets/schemas/handoff.schema.json`)"
+    - file: references/engagement-stages.md
+      old: "Location: local task prompt ("
+      new: "Location: "
+    - file: references/engagement-stages.md
+      old: " and 630-646)"
+      new: ""
+    - file: references/engagement-stages.md
+      old: "Rights: private task specification; paraphrased"
+      new: "Rights: project requirements, paraphrased in the registry"
+    - file: references/engagement-stages.md
+      old: "Rights: private rig; imported, not copied"
+      new: "Rights: agent-skills (MIT); imported, not copied"
     files:
       fixtures/brief-bypass.json: generated
       fixtures/brief-low-margin.json: generated
@@ -360,6 +376,9 @@ skills:
     - file: SKILL.md
       old: "The sources workstream recorded that"
       new: "A test run recorded that"
+    - file: references/sources.md
+      old: "| Prompt 2, section 10 \"Instructional cycle\" and learning-package list | Research baseline 2026-11-25 | Required package parts and the cycle order | Private task prompt |"
+      new: "| company-fleets requirements S10-019 to S10-021 (instructional cycle and learning-package parts) | Research baseline 2026-11-25 | Required package parts and the cycle order | Project requirements, paraphrased in `company-fleets/registry/requirements.json` |"
     files:
       references/sources.md: generated
       scripts/package_check.py: generated
@@ -368,6 +387,13 @@ skills:
     mode: generated
     source: community-health-measures
     transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "| Prompt section 9, line 446 |"
+      new: "| company-fleets requirement S09-012 |"
+    - file: references/sources.md
+      old: "| Operator's private brief |"
+      new: "| Project requirements, paraphrased in `company-fleets/registry/requirements.json` |"
     files:
       evals/evals.json: generated
       references/sources.md: generated
@@ -377,6 +403,13 @@ skills:
     mode: generated
     source: community-moderation-review
     transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "| Prompt section 9, lines 436 and 448 |"
+      new: "| company-fleets requirements S09-004 and S09-013 |"
+    - file: references/sources.md
+      old: "| Operator's private brief |"
+      new: "| Project requirements, paraphrased in `company-fleets/registry/requirements.json` |"
     files:
       evals/evals.json: generated
       references/sources.md: generated
@@ -386,6 +419,13 @@ skills:
     mode: generated
     source: community-operating-kit
     transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "| Prompt section 9, lines 419 to 450 |"
+      new: "| company-fleets requirements S09-001 to S09-014 |"
+    - file: references/sources.md
+      old: "| Operator's private brief |"
+      new: "| Project requirements, paraphrased in `company-fleets/registry/requirements.json` |"
     files:
       evals/evals.json: generated
       references/kit-map.md: generated
@@ -504,6 +544,16 @@ skills:
     mode: generated
     source: cs-classroom-instruction
     transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "2026 edition per prompt 3;"
+      new: "2026 edition per requirement ED-041;"
+    - file: references/sources.md
+      old: "(prompt 3 section 5)"
+      new: "(requirement ED-045)"
+    - file: references/sources.md
+      old: "restates prompt 3 section 3."
+      new: "restates requirement ED-024."
     files:
       references/data-shapes.md: generated
       references/sources.md: generated
@@ -530,6 +580,15 @@ skills:
     - file: references/fallbacks.json
       old: "the sibling collection isn't installed in the rig; the sources workstream decides whether to install it"
       new: "the sibling collection isn't installed; install it to replace this fallback"
+    - file: references/sources.md
+      old: "| Prompt section 8, lines 407 to 417 |"
+      new: "| company-fleets requirements S08-008 to S08-013 |"
+    - file: references/sources.md
+      old: "| Operator's private brief |"
+      new: "| Project requirements, paraphrased in `company-fleets/registry/requirements.json` |"
+    - file: references/context-and-handback.md
+      old: "shared record from the company-fleets prompt, section 12."
+      new: "shared record the company-fleets cross-fleet handoffs read (`company-fleets/references/handoffs.md`)."
     files:
       evals/evals.json: generated
       references/context-and-handback.md: generated
@@ -593,7 +652,10 @@ skills:
     replace_text:
     - file: references/sources.md
       old: "Private prompt in the rig owner's Downloads folder"
-      new: "Private task prompt (not published)"
+      new: "Project requirement, paraphrased in `company-fleets/registry/requirements.json`"
+    - file: references/sources.md
+      old: "| Company Agent Fleets prompt, section 11 (local) |"
+      new: "| company-fleets requirement S11-002 |"
     files:
       references/diagnostic-questions.md: generated
       references/sources.md: generated
@@ -637,6 +699,13 @@ skills:
     mode: generated
     source: edu-trainer-development
     transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "| Company Agent Fleets prompt section 11 and education addendum (local) | Research baseline 2026-11-25 | Requirements S11-013 to S11-015, ED-016, ED-019, ED-034, ED-036 | Private prompts |"
+      new: "| company-fleets requirements S11-013 to S11-015, ED-016, ED-019, ED-034, ED-036 | Research baseline 2026-11-25 | The trainer procedures and the education role requirements | Project requirements, paraphrased in `company-fleets/registry/requirements.json` |"
+    - file: references/procedures.md
+      old: "The seven procedures from the Company Agent Fleets prompt, section 11."
+      new: "The seven trainer procedures of requirement S11-013 (`company-fleets/registry/requirements.json`)."
     files:
       references/procedures.md: generated
       references/sources.md: generated
@@ -660,6 +729,13 @@ skills:
     mode: generated
     source: hosting-account-lifecycle
     transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "| Company agent fleets prompt, acceptance table (Recovery row: retries, interruptions and callbacks preserve state without duplicate work) |"
+      new: "| company-fleets acceptance matrix (`company-fleets/acceptance/matrix.json`), `recovery` row: retries, interruptions and callbacks preserve state without duplicate work |"
+    - file: references/sources.md
+      old: "| 2026-11-25 | Private prompt; cite the row only |"
+      new: "| 2026-11-25 | Project requirement; row cited, not copied |"
     files:
       evals/evals.json: generated
       references/sources.md: generated
@@ -688,6 +764,12 @@ skills:
     - file: scripts/benchmark.py
       old: "| Dimension | Pantheon claim | WordPress VIP claim | Acquia claim |"
       new: "| Dimension | Acquia claim | Pantheon claim | WordPress VIP claim |"
+    - file: references/sources.md
+      old: "| Section 5 of the fleet prompt, \"More robust\" acceptance |"
+      new: "| company-fleets requirements S05-023 to S05-027 |"
+    - file: references/sources.md
+      old: "| 2026-11-25 | Private brief |"
+      new: "| 2026-11-25 | Project requirements, paraphrased in `company-fleets/registry/requirements.json` |"
     files:
       evals/evals.json: generated
       references/sources.md: generated
@@ -697,6 +779,13 @@ skills:
     mode: generated
     source: hosting-data-migration
     transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "| Section 5 of the fleet prompt (\"Portable export and exit procedures for customers\") |"
+      new: "| company-fleets requirement S05-019 (\"Portable export and exit procedures for customers\") |"
+    - file: references/sources.md
+      old: "| 2026-11-25 | Private brief |"
+      new: "| 2026-11-25 | Project requirement, paraphrased in `company-fleets/registry/requirements.json` |"
     files:
       evals/evals.json: generated
       references/sources.md: generated
@@ -734,6 +823,13 @@ skills:
     mode: generated
     source: hosting-restore-exercise
     transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "| Section 5 of the fleet prompt, \"More robust\" acceptance |"
+      new: "| company-fleets requirements S05-023 to S05-027 |"
+    - file: references/sources.md
+      old: "| 2026-11-25 | Private brief |"
+      new: "| 2026-11-25 | Project requirements, paraphrased in `company-fleets/registry/requirements.json` |"
     files:
       evals/evals.json: generated
       references/sources.md: generated
@@ -744,6 +840,22 @@ skills:
     mode: generated
     source: hosting-service-catalogue
     transforms: *fleet_transforms
+    replace_text:
+    - file: references/sources.md
+      old: "| Company agent fleets prompt, section 5 Hosting profiles ("
+      new: "| company-fleets requirements S05-001 to S05-010, hosting profiles ("
+    - file: references/sources.md
+      old: " (table rows 276-284) | 2026-11-25 | Private prompt; function ids derived, text not copied |"
+      new: " | 2026-11-25 | Project requirements, paraphrased in `company-fleets/registry/requirements.json`; function ids derived, text not copied |"
+    - file: SKILL.md
+      old: "taken from section 5 of the fleets prompt."
+      new: "taken from the hosting profile requirements S05-001 to S05-010."
+    - file: references/functions.json
+      old: "    \"title\": \"company-agent-fleets prompt, section 5 Hosting profiles\","
+      new: "    \"title\": \"company-fleets requirements S05-001 to S05-010, hosting profiles\","
+    - file: references/functions.json
+      old: "    \"lines\": \"272-286 (table rows 276-284)\","
+      new: "    \"requirements\": \"S05-001 to S05-010\","
     files:
       evals/evals.json: generated
       references/functions.json: generated

@@ -1,4 +1,4 @@
-"""Compounding improvement (prompt 2, section 13): a gate between an observed failure and a changed skill.
+"""Compounding improvement (project requirements, section 13): a gate between an observed failure and a changed skill.
 
 A record (improvement/records/<id>.json) carries the loop: observation, hypothesis, proposed patch,
 pinned criteria, evaluation, review, promotion, monitor and rollback. The rules the gate enforces:

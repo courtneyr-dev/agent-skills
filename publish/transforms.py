@@ -125,9 +125,10 @@ def public_rig_rights(t: str) -> str:
     return re.sub(r"\bPrivate rig\b", "agent-skills (MIT)", t)
 
 def private_prompt_reference(t: str) -> str:
-    """A task prompt in the author's Downloads folder becomes 'project requirements (not published)':
-    no filename, no line numbers, since a reader can resolve neither."""
-    path = r"`?(?:~|\$HOME|" + re.escape(HOME) + r")/Downloads/[\w.-]+`?"
+    """A task prompt in the author's Downloads folder, or named bare as `<name>-prompt.md`, becomes
+    'project requirements (not published)': no filename, no line numbers, since a reader can resolve
+    neither."""
+    path = r"`?(?:(?:~|\$HOME|" + re.escape(HOME) + r")/Downloads/[\w.-]+|[\w.-]+-prompt\.md)`?"
     lines = r"(?:,? lines? \d+(?:\s*(?:-|to|and)\s*\d+)?)?"
     return re.sub(path + lines, "project requirements (not published)", t)
 

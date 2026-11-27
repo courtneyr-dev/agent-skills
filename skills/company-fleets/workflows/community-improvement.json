@@ -3,7 +3,7 @@
   "id": "community-improvement",
   "code": "COM",
   "name": "Community improvement",
-  "source": "Company Agent Fleets prompt 2, section 12, workflow table row 6 (lines 619-626)",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 6 of 8",
   "profile": "community",
   "coordinator": "community.operations-manager",
   "home_workload": "community.workload.onboarding-governance",

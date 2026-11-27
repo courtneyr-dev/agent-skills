@@ -28,7 +28,7 @@ This skill checks a service catalogue (a JSON file of services, the functions ea
 ## Inputs and prerequisites
 
 - A catalogue JSON: `label`, `company` (must be `fixture-co`), `profile`, `capability_sets`, `parties`, and `services` with `functions` (`function`, `accountable`, `responsible`), `customer_visible_limits` (`name`, `value`, `unit`) and `upstream_dependencies` (`provider`, `service`, `obligations`, `escalation_path`). Parties are `fixture-co`, `customer` or `upstream:<slug>`, and each must appear in `parties`.
-- `references/functions.json`: function ids per profile (`must_hold`, `optional`, `must_not_hold`) and per capability set, taken from section 5 of the fleets prompt.
+- `references/functions.json`: function ids per profile (`must_hold`, `optional`, `must_not_hold`) and per capability set, taken from the hosting profile requirements S05-001 to S05-010.
 - The registry profiles file, `company-fleets/registry/profiles.json`, read by fixed path. It supplies each profile's name, `responsible_for` and `not_responsible_for` text. A `--profiles` path other than that file is refused (`profiles-not-registry-file`). This skill never edits it.
 
 ## Method

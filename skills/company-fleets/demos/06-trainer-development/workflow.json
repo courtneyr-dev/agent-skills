@@ -3,7 +3,7 @@
   "id": "trainer-development",
   "code": "TRD",
   "name": "Trainer development package",
-  "source": "Company Agent Fleets prompt 2, end-to-end demonstration 6 (line 812) and section 11; demonstration-local template run by the same executor as workflows/",
+  "source": "Project requirements, end-to-end demonstration 6, and requirements S11-001 to S11-015; demonstration-local template run by the same executor as workflows/",
   "profile": "devrel",
   "coordinator": "instructional-design.learning-experience-architect",
   "home_workload": "instructional-design.workload.trainer-development",

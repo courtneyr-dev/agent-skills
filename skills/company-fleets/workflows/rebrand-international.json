@@ -3,7 +3,7 @@
   "id": "rebrand-international",
   "code": "RIL",
   "name": "Rebrand and international launch",
-  "source": "Company Agent Fleets prompt 2, section 12, workflow table row 4 (lines 619-626)",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 4 of 8",
   "profile": "agency",
   "coordinator": "consultancies.practice-coordinator",
   "home_workload": "consultancies.workload.rebrand",

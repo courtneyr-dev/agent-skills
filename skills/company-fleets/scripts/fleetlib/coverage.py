@@ -177,7 +177,7 @@ def render_overrides(reg: Registry) -> str:
     doc = _json(reg.path(OVERRIDES))
     chk = check_overrides(reg)
     out = ["# Company override register", "",
-           "Every local adaptation of an upstream skill source, as section 14 of the fleet prompt requires. "
+           "Every local adaptation of an upstream skill source, as section 14 of the project requirements asks. "
            "The record is `registry/overrides.json`; this page is rendered from it by `bin/fleet overrides --write`. "
            "Factory-rig's own register (`../../factory-rig/references/overrides.md`) covers the delivery layer.", "",
            "Check status at render time: %d overrides, %d errors, %d drifted upstream pins. "
@@ -215,7 +215,7 @@ def render_report(reg: Registry) -> str:
            "Generated %s by `bin/fleet coverage --sync --write` from `registry/requirements.json`, the fleet records and the integration evidence. "
            "Coverage, installation, activation and behavioral verification are four separate states: a delivered row means a deliverable exists, not that it was activated or verified." % today, "",
            "## Requirement rows", "",
-           "- Rows: %d (sections 3 to 11 of prompt 2 and the education addendum)" % len(rows),
+           "- Rows: %d (ids S03 to S11 and ED)" % len(rows),
            "- Delivered with a deliverable: %d, of which %d also name a blocker for the part still missing" % (status["delivered"], partial),
            "- Blocked with an explicit blocker: %d" % status["blocked"],
            "- Assigned without a deliverable: %d" % status["assigned"],
@@ -250,7 +250,7 @@ def render_report(reg: Registry) -> str:
             "- Section 12 workflows: %d templates in `workflows/`, checked with `bin/fleet workflow check` and run with `bin/fleet workflow run`." % len([f for f in os.listdir(reg.path("workflows")) if f.endswith(".json")]),
             "- Section 13 compounding improvement: records in `improvement/records/`, gate `bin/fleet improve gate`.",
             "- Section 14 override register: `registry/overrides.json`, rendered in `references/company-overrides.md`.",
-            "- Section 15 deliverables: this report; the vault index stays with the main-session integrator.", ""]
+            "- Section 15 deliverables: this report.", ""]
     out += ["## Rows by section", ""]
     section = None
     for r in rows:

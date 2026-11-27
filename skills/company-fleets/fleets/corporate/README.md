@@ -46,8 +46,6 @@ Written for this fleet (gaps no installed skill covered):
 - `corporate-claims-check`: rejects guaranteed rankings or AI-answer placement, uncited outcomes and statistics, and fabricated citations, quotes and numbers. It checks the text a reader sees and reads the register's sign-off from the owner log of the instance the register names, never from the register. The SEO/AIO gate.
 - `corporate-email-guard`: suppression at staging and at send, human approval bound to hashes, fake outbox only; the suppression list and the approval come from the campaign's owner log. The email gate.
 
-A helper that stopped on a permission prompt drafted the complete claims check and the email guard script. Both were reviewed and rerun here; the register's Google quotes were checked against the live page, and the email guard's approval fixtures, 14 tests, SKILL.md and reference were written here.
-
 ## Evaluations
 
 `run_evals.py` in this folder serves both this fleet and the agency fleet:

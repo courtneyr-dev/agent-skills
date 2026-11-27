@@ -47,21 +47,12 @@ Real script defects stay visible:
 
 Passing a script case shows the script keeps its contract on synthetic input. It doesn't show that the business advice is right.
 
-## Context budget fix
+## Context budget
 
-The 176 skills installed on 2026-11-25 from 12 new repositories added their descriptions to every session's skill list. Roles load procedures by path, so these skills don't need to be model-visible. Each one now carries `disable-model-invocation: true`, pinned with `sync_skills.py pin <skill> disable-model-invocation` so upstream updates keep it. Skill-sync renders the pin into installs and leaves the raw upstream snapshot untouched.
-
-Measured on the reference installation over `skills/*/SKILL.md` with the parser in `skills/skill-sync/audit_skills.py`:
-
-| Measure | Before (22:57) | After (22:58) |
-|---|---|---|
-| Model-visible skills | 414 | 238 |
-| Description characters of model-visible skills | 173,780 | 68,686 |
-| Listing cost (name + 4 + description, capped at 1,536) | 182,209 | 73,072 |
-
-The drop of 105,094 description characters equals the hidden set's own total, so nothing else changed between the two measurements. The skill audit run ten seconds later still reports the listing at 73,418 of a 32,000-character budget, 2.3 times over, so Claude Code keeps truncating descriptions; the remaining load comes from skills outside this workstream. All 176 hidden skills and the 78 skill-sync entries for Magnus, yysun, Matt, Noodle, tstack and WordPress report `up-to-date` (`evidence/sync-check.txt`).
-
-Excluded from hiding, per the brief: magnus919 (including the new web-accessibility), yysun, mattpocock, t3dotgg, poteto, WordPress (including the new wp-ability-development), and every source installed before 2026-11-25.
+Roles load upstream procedures by path, so those skills don't need to be model-visible. Each one
+installed for the fleets carries `disable-model-invocation: true`, pinned with
+`sync_skills.py pin <skill> disable-model-invocation` so upstream updates keep it. Hiding them
+shrinks the skill list every session loads; `skills/skill-sync/audit_skills.py` measures that list.
 
 ## Decisions
 

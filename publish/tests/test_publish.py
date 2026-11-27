@@ -71,6 +71,9 @@ class Transforms(unittest.TestCase):
             for tail in ("", " line 3", ", line 778", " lines 310-320", " lines 419 to 450"):
                 self.assertEqual(T.private_prompt_reference(f"| `{path}`{tail} | x |"),
                                  "| project requirements (not published) | x |", path + tail)
+        self.assertEqual(T.private_prompt_reference("Location: `fleet-task-prompt.md`, lines 242-267"),
+                         "Location: project requirements (not published)")
+        self.assertEqual(T.private_prompt_reference("see prompt.md and prompts/"), "see prompt.md and prompts/")
         self.assertEqual(T.private_branch_reference("rig branch claude/factory-rig, read 2026-11-25"),
                          "agent-skills, read 2026-11-25")
         self.assertEqual(T.private_branch_reference("Rig branch claude/factory-rig; claude/factory-rig branch"),

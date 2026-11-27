@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "generated": "2026-11-25",
-  "status_scope": "Statuses, evidence and dates describe the reference installation the rig was built and tested on (macOS on arm64, 2026-11-25 to 2026-11-26). That install's run records are retained privately. A fresh install starts unverified: run the tests and `frig drift` against your own clones. <skills-root> is the folder holding this skill; $FRIG_UPSTREAM_ROOT and the other variables are documented in config/frig.example.env.",
+  "status_scope": "Statuses, evidence and dates describe the reference installation the rig was built and tested on (macOS on arm64, 2026-11-25 to 2026-11-26). That install's run records aren't in this repository. A fresh install starts unverified: run the tests and `frig drift` against your own clones. <skills-root> is the folder holding this skill; $FRIG_UPSTREAM_ROOT and the other variables are documented in config/frig.example.env.",
   "components": [
     {
       "id": "matt-stable",
@@ -145,7 +145,7 @@
         "frig drift"
       ],
       "evidence": [
-        "live pilot 2026-11-25 (run records retained privately, not published)",
+        "live pilot 2026-11-25 (on the author's machine; those records aren't in this repository)",
         "tests: 57 passing on 2026-11-25 (35 core, 19 flow, 3 real-Noodle integration)"
       ],
       "update": "rebuild in a clean clone at the new revision, rerun the three test modules and a live pilot, update the revision, checksum and this record",
@@ -237,9 +237,9 @@
         "validate-install.sh with the same variables"
       ],
       "evidence": [
-        "PMO scoped install 2026-11-26: dry run, install log, validator 11 PASS / 3 FAIL / 2 SKIP, one native pmo-scrum-master task (run records retained privately, not published)"
+        "PMO scoped install 2026-11-26: dry run, install log, validator 11 PASS / 3 FAIL / 2 SKIP, one native pmo-scrum-master task (on the author's machine; those records aren't in this repository)"
       ],
-      "blocker": "Partially verified natively on 2026-11-26: one bounded read-only task invoked the pmo-scrum-master skill through the Skill tool and answered correctly (run records retained privately, not published). Still unverified: the workspace hooks and its 19 allow rules, because the workspace is untrusted and Claude Code ignored them. Resume: run `claude` interactively in $PMO_WORKSPACE/workspace, accept the trust dialog, rerun the task. Validator (full run): 11 PASS, 3 FAIL (A2, A6b, A10), 2 SKIP; all three failures read real-home paths (inference, not tested).",
+      "blocker": "Partially verified natively on 2026-11-26: one bounded read-only task invoked the pmo-scrum-master skill through the Skill tool and answered correctly (on the author's machine; those records aren't in this repository). Still unverified: the workspace hooks and its 19 allow rules, because the workspace is untrusted and Claude Code ignored them. Resume: run `claude` interactively in $PMO_WORKSPACE/workspace, accept the trust dialog, rerun the task. Validator (full run): 11 PASS, 3 FAIL (A2, A6b, A10), 2 SKIP; all three failures read real-home paths (inference, not tested).",
       "update": "git pull in the upstream clone, rerun the scoped installer, rerun the validator",
       "rollback": "remove $PMO_WORKSPACE (nothing else was written)",
       "overrides": [
@@ -293,7 +293,7 @@
       ],
       "evidence": [
         "tests.test_flow: 19 passing against the installed scripts",
-        "upstream npm test log (run records retained privately, not published)"
+        "upstream npm test log (on the author's machine; those records aren't in this repository)"
       ],
       "update": "skill-sync check/apply; rerun the flow tests",
       "rollback": "sync_skills.py remove; delete dirs",
@@ -379,7 +379,7 @@
       ],
       "evidence": [
         "tests: 59 passing (tests.test_core, tests.test_flow, tests.test_noodle_integration)",
-        "live pilot 2026-11-25 (run records retained privately, not published)"
+        "live pilot 2026-11-25 (on the author's machine; those records aren't in this repository)"
       ],
       "update": "edit, then run the three test modules and `frig registry-verify`",
       "rollback": "git revert",
@@ -409,7 +409,7 @@
       "behavior": "Noodle launches providers through bin/codex and bin/claude shims. They rewrite argv to the rig policy (Codex `-s workspace-write --ignore-user-config`, reasoning effort per model; Claude acceptEdits + an allowlist), refuse any restored bypass, then exec the real binary by absolute path. HOME, CODEX_HOME and the environment are untouched.",
       "implementation": "scripts/factory_rig/provider_wrapper.py, bin/codex, bin/claude, config/provider-policy.json ($FRIG_POLICY)",
       "precedence": "[agents.<p>].path in .noodle.toml points at the rig bin dir; the wrapper outranks Noodle defaults.",
-      "verification": "tests.test_core.ProviderWrapperTests (10), tests.test_noodle_integration (audit shows the flag dropped on every launch), live-pilot provider audit (run records retained privately, not published)",
+      "verification": "tests.test_core.ProviderWrapperTests (10), tests.test_noodle_integration (audit shows the flag dropped on every launch), a live-pilot provider audit on the author's machine (its records aren't in this repository)",
       "retire_when": "Noodle exposes a permission policy setting, or the wrapper is replaced by an upstream patch carrying the same tests."
     },
     {
@@ -464,7 +464,7 @@
       "behavior": "Dispatch checks the model slug against $CODEX_HOME/models_cache.json before leasing.",
       "implementation": "orchestrate.codex_model_problem; policy effort_by_model",
       "precedence": "Preflight first.",
-      "verification": "a live pilot ran with a catalog slug; the failed first attempt's noodle.log and provider-audit.jsonl are retained privately, not published",
+      "verification": "a live pilot on the author's machine ran with a catalog slug after a first attempt failed; those logs aren't in this repository",
       "retire_when": "The model policy names current slugs."
     },
     {

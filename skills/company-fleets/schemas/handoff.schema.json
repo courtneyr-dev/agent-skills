@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "company-fleets/handoff.schema.json",
   "title": "Cross-fleet handoff (handoff.v1)",
-  "description": "Extends the factory-rig task contract (bound by contract_hash) with the fields in section 12 of the fleet prompt. Protected fields are set by the contract owner; a worker may only add outputs, evidence, summary, assumptions, unresolved decisions and untrusted-content findings.",
+  "description": "Extends the factory-rig task contract (bound by contract_hash) with the fields of the cross-fleet handoff contract (project requirements, section 12). Protected fields are set by the contract owner; a worker may only add outputs, evidence, summary, assumptions, unresolved decisions and untrusted-content findings.",
   "type": "object",
   "additionalProperties": false,
   "required": [

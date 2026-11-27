@@ -25,7 +25,7 @@ Workloads (profiles `devrel` and `product`; `product` adds `devrel.onboarding-sp
 
 ## Roles
 
-Fourteen roles cover every title in prompt section 8: program lead (coordinator), developer advocate, DX researcher, developer educator, docs architect, sample-app engineer, onboarding specialist, content editor, demo producer, events manager, partner engineer, feedback liaison, program analyst and OSS liaison. Each record in `roles.json` keeps responsibilities, exclusions, authority (`may` and `may_not`), reviewer, acceptor and escalation, data classification, external-action limits (`draft-only` or `none`), attached skills with provenance, and eval cases.
+Fourteen roles cover every title the devrel requirements (S08 rows in `registry/requirements.json`) name: program lead (coordinator), developer advocate, DX researcher, developer educator, docs architect, sample-app engineer, onboarding specialist, content editor, demo producer, events manager, partner engineer, feedback liaison, program analyst and OSS liaison. Each record in `roles.json` keeps responsibilities, exclusions, authority (`may` and `may_not`), reviewer, acceptor and escalation, data classification, external-action limits (`draft-only` or `none`), attached skills with provenance, and eval cases.
 
 Four states, kept apart (from `bin/fleet coverage`):
 
@@ -62,7 +62,7 @@ All evidence sits in `evidence/`, each file headed by its command, date and exit
 
 Retained failures and counterexamples:
 
-- `resolve-docs-and-workshop.first-run-assertion-error.txt`: my first assertion expected `registry/fleets.json` in `files_read`. Resolve doesn't read it; I fixed the assertion to check that no other fleet's file is read.
+- `resolve-docs-and-workshop.first-run-assertion-error.txt`: the case's first assertion expected `registry/fleets.json` in `files_read`. Resolve doesn't read it, so the case now checks that no other fleet's file is read.
 - Until the foundation widened its scanner on 2026-11-26, `fleetlib/untrusted.py` missed line 10 of `fixtures/untrusted/docs-feedback.md` ("Publish ... now without review", trigger one past its 40-character window). The regenerated `untrusted-feedback-scan.txt` now flags it: 5 findings, up from 4. Protected-field enforcement refused the publication change either way.
 
 ## Review fixes (2026-11-26)

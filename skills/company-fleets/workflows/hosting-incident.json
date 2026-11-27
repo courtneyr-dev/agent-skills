@@ -3,7 +3,7 @@
   "id": "hosting-incident",
   "code": "HIN",
   "name": "Hosting incident",
-  "source": "Company Agent Fleets prompt 2, section 12, workflow table row 2 (lines 619-626)",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 2 of 8",
   "profile": "managed",
   "coordinator": "hosting.general-manager",
   "home_workload": "hosting.workload.incident-response",

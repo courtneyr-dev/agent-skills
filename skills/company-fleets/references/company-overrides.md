@@ -1,6 +1,6 @@
 # Company override register
 
-Every local adaptation of an upstream skill source, as section 14 of the fleet prompt requires. The record is `registry/overrides.json`; this page is rendered from it by `bin/fleet overrides --write`. Factory-rig's own register (`../../factory-rig/references/overrides.md`) covers the delivery layer.
+Every local adaptation of an upstream skill source, as section 14 of the project requirements asks. The record is `registry/overrides.json`; this page is rendered from it by `bin/fleet overrides --write`. Factory-rig's own register (`../../factory-rig/references/overrides.md`) covers the delivery layer.
 
 Check status at render time: 14 overrides, 0 errors, 0 drifted upstream pins. A drifted pin means the ledger moved past the revision the override was checked against; rerun that override's evidence and re-pin.
 

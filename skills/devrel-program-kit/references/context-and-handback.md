@@ -6,7 +6,7 @@ How samber's `developer-relations-kickoff` fits the rig without becoming a secon
 
 | Question | Answer in this rig |
 |---|---|
-| What is it | `devrel-context.md`, the kickoff's § 5 artifact. It is the "developer/community program context" shared record from the company-fleets prompt, section 12. |
+| What is it | `devrel-context.md`, the kickoff's § 5 artifact. It is the "developer/community program context" shared record the company-fleets cross-fleet handoffs read (`company-fleets/references/handoffs.md`). |
 | Where it lives | The tenant's project root, as the kickoff says. For the Fixture Co fixture: `company-fleets/fleets/devrel/fixtures/program/devrel-context.md`. |
 | Who owns it | One named human per tenant (`human:head-of-devrel` in the fixture). Agents propose patches; the owner accepts them. One authoritative owner per mutable record. |
 | What it doesn't hold | Company facts (read `company-fleets/registry/company.json`), delivery state (the PM layer owns it), community-member personal data, conduct reports or moderation cases, embargoed launches, NDA rates, unpublished pricing. The kickoff's § 6 exclusion list applies. |

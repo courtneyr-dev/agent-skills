@@ -55,7 +55,7 @@ catalogue that makes Fixture Co accountable for an affiliate's infrastructure, b
 
 ## Roles
 
-Each required title from section 5 of the prompt has one role record in `roles.json`, plus
+Each title the hosting requirements (S05 rows) name has one role record in `roles.json`, plus
 `hosting.support-handoff-owner`, which takes agency releases into managed hosting. A persona is a
 professional viewpoint: no biography, credential, employer or authority.
 

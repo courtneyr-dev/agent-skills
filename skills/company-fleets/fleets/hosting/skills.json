@@ -1049,10 +1049,10 @@
       ],
       "references": [
         {
-          "title": "Company agent fleets prompt, section 5 Hosting profiles",
-          "location": "company-agent-fleets-codex-prompt.md (private task prompt, not published) lines 272-286",
+          "title": "company-fleets requirements S05-001 to S05-010, hosting profiles",
+          "location": "registry/requirements.json",
           "version": "2026-11-25",
-          "rights": "Private prompt; ids derived, text not copied"
+          "rights": "Project requirements, paraphrased in the registry; ids derived, text not copied"
         },
         {
           "title": "Operating profiles registry",

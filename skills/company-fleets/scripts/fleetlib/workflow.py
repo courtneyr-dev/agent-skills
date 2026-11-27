@@ -1,4 +1,4 @@
-"""Cross-fleet workflow templates (prompt 2, section 12): check a template, route it, run its handoff chain.
+"""Cross-fleet workflow templates (project requirements, section 12): check a template, route it, run its handoff chain.
 
 A template (workflows/<id>.json) lists steps. Each routed step becomes one handoff.v1 from its producer
 to the next routed step's producer. run() claims the template's home workload with the one coordinator

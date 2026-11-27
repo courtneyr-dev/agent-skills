@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "label": "Acceptance matrix of prompt 2 (lines 767-797) plus the education addendum's section 7 checks. Each row runs the fleet evals that own it or the integration checks this workstream wrote. `bin/fleet acceptance` runs it.",
+  "label": "Acceptance matrix of the project requirements plus the education requirements' additional acceptance checks. Each row runs the fleet evals that own it or an integration check. `bin/fleet acceptance` runs it.",
   "rows": [
     {"id": "coverage", "test": "Coverage", "required": "Every requested business profile, fleet, and capability maps to implementation or explicit blocker", "owner": "integration",
      "checks": [{"kind": "internal", "name": "coverage"}]},

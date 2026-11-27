@@ -11,7 +11,7 @@
 | factory-rig leases (fencing epochs, `LeaseStore`) | skills/factory-rig/scripts/factory_rig/lease.py | agent-skills, read 2026-11-25 | agent-skills (MIT); imported, not copied |
 | factory-rig receipts (`ReceiptStore`, `idempotency_key`) | skills/factory-rig/scripts/factory_rig/receipts.py | agent-skills, read 2026-11-25 | agent-skills (MIT); imported, not copied |
 | factory-rig canonical JSON, sha and atomic write | skills/factory-rig/scripts/factory_rig/canon.py | agent-skills, read 2026-11-25 | agent-skills (MIT); imported, not copied |
-| Company agent fleets prompt, acceptance table (Recovery row: retries, interruptions and callbacks preserve state without duplicate work) | project requirements (not published) | 2026-11-25 | Private prompt; cite the row only |
+| company-fleets acceptance matrix (`company-fleets/acceptance/matrix.json`), `recovery` row: retries, interruptions and callbacks preserve state without duplicate work | project requirements (not published) | 2026-11-25 | Project requirement; row cited, not copied |
 | Synthetic fixtures (Fixture Co, tenant-a, tenant-b) | skills/company-fleets/fleets/hosting/fixtures/account-lifecycle/ | 2026-11-25 | Synthetic; no real customer, domain or provider data |
 
 ## Notes

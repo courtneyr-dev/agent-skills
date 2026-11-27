@@ -1,6 +1,6 @@
 # Trainer-of-trainers procedures
 
-The seven procedures from the Company Agent Fleets prompt, section 11. Each names its output and what counts as done.
+The seven trainer procedures of requirement S11-013 (`company-fleets/registry/requirements.json`). Each names its output and what counts as done.
 
 ## 1. Explain why a design choice fits the learner task
 

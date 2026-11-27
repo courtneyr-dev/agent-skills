@@ -3,7 +3,7 @@
   "id": "agency-engagement",
   "code": "AGE",
   "name": "Agency engagement",
-  "source": "Company Agent Fleets prompt 2, section 12, workflow table row 1 (lines 619-626)",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 1 of 8",
   "profile": "managed",
   "coordinator": "agency.engagement-director",
   "home_workload": "agency.workload.client-engagement",

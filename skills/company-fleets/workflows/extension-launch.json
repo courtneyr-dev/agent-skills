@@ -3,7 +3,7 @@
   "id": "extension-launch",
   "code": "EXT",
   "name": "Extension or SaaS launch",
-  "source": "Company Agent Fleets prompt 2, section 12, workflow table row 3 (lines 619-626)",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 3 of 8",
   "profile": "product",
   "coordinator": "product.product-lead",
   "home_workload": "product.workload.extension-release",

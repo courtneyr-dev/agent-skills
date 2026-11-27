@@ -25,7 +25,7 @@ Workloads (profiles `community`, `devrel` and `product`):
 
 ## Roles
 
-Eighteen roles cover every title in prompt section 9: operations manager (coordinator), strategy lead, member-success lead, moderator, trust-and-safety lead, appeal coordinator, events lead, volunteer coordinator, chapter coordinator, contributor-experience lead, maintainer liaison, triage coordinator, mentorship lead, governance liaison, recognition lead, sustainability analyst, health analyst and inclusion reviewer. Moderation roles hold `confidential` access scoped to the community's tenant, with `draft-only` external actions; none can decide, sanction or message.
+Eighteen roles cover every title the community requirements (S09 rows in `registry/requirements.json`) name: operations manager (coordinator), strategy lead, member-success lead, moderator, trust-and-safety lead, appeal coordinator, events lead, volunteer coordinator, chapter coordinator, contributor-experience lead, maintainer liaison, triage coordinator, mentorship lead, governance liaison, recognition lead, sustainability analyst, health analyst and inclusion reviewer. Moderation roles hold `confidential` access scoped to the community's tenant, with `draft-only` external actions; none can decide, sanction or message.
 
 Four states, kept apart (from `bin/fleet coverage`):
 
@@ -60,7 +60,7 @@ All evidence sits in `evidence/`, each file headed by its command, date and exit
 
 Retained failures and counterexamples:
 
-- `resolve-onboarding-governance.first-run-assertion-error.txt`: my first assertion wrongly expected `registry/fleets.json` in `files_read`; I fixed the assertion.
+- `resolve-onboarding-governance.first-run-assertion-error.txt`: the case's first assertion wrongly expected `registry/fleets.json` in `files_read`; the case no longer expects it.
 - Until the foundation widened its scanner on 2026-11-26, its tenant rule missed line 13 of `fixtures/untrusted/issue-submission.md` ("open community B's moderation records"). The regenerated `untrusted-issue-scan.txt` now flags it as tenant-access: 6 findings, up from 5. Tenancy refuses the read either way (`test_the_community_b_line_is_refused_by_tenancy_whatever_the_scanner_flags`).
 
 ## Review fixes (2026-11-26)

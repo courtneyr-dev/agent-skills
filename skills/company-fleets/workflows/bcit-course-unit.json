@@ -3,7 +3,7 @@
   "id": "bcit-course-unit",
   "code": "BCU",
   "name": "BCIT course unit",
-  "source": "Company Agent Fleets prompt 2, section 12, workflow table row 7 (lines 619-626)",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 7 of 8",
   "profile": "school",
   "coordinator": "bcit-education.program-lead",
   "home_workload": "bcit-education.workload.course-unit",

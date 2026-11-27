@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "label": "The six end-to-end demonstrations of prompt 2 (lines 799-814). One fictional company, Fixture Co; every record is synthetic. Each entry names what its run must show.",
+  "label": "The six end-to-end demonstrations the project requirements call for. One fictional company, Fixture Co; every record is synthetic. Each entry names what its run must show.",
   "moving_at_build": {
     "fleets": ["hosting", "agency", "corporate"],
     "note": "On 2026-11-26 the integration brief said the hosting, agency and corporate fleets might still be finishing, and the foundation tightened its evidence gate and scanner during the build. A demo that loads one of these fleets is marked depends_on_moving_fleet."

@@ -1,8 +1,8 @@
 {
   "source": {
-    "title": "company-agent-fleets prompt, section 5 Hosting profiles",
+    "title": "company-fleets requirements S05-001 to S05-010, hosting profiles",
     "location": "project requirements (not published)",
-    "lines": "272-286 (table rows 276-284)",
+    "requirements": "S05-001 to S05-010",
     "retrieved": "2026-11-25"
   },
   "note": "Function ids are the kebab-case form of the prompt's required coverage. A profile row names must_hold and must_not_hold; the prompt's VPS/dedicated, managed cloud/PaaS and advanced resilience rows are capability sets a catalogue may declare inside a profile, not profiles. A referral_only profile lets the company hold no function outside its must_hold and optional lists, accountable or responsible, and declare no capability set.",

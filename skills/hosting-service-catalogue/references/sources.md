@@ -2,7 +2,7 @@
 
 | Title | Location | Version or retrieved | Rights |
 | --- | --- | --- | --- |
-| Company agent fleets prompt, section 5 Hosting profiles (required coverage per profile; the VPS/dedicated, managed cloud/PaaS and advanced resilience rows become capability sets) | project requirements (not published) (table rows 276-284) | 2026-11-25 | Private prompt; function ids derived, text not copied |
+| company-fleets requirements S05-001 to S05-010, hosting profiles (required coverage per profile; the VPS/dedicated, managed cloud/PaaS and advanced resilience rows become capability sets) | project requirements (not published) | 2026-11-25 | Project requirements, paraphrased in `company-fleets/registry/requirements.json`; function ids derived, text not copied |
 | Function vocabulary derived from that section | skills/hosting-service-catalogue/references/functions.json | 2026-11-25 | agent-skills (MIT); original |
 | Operating profiles registry (`responsible_for`, `not_responsible_for`, kind hosting) | skills/company-fleets/registry/profiles.json | agent-skills, read 2026-11-25 | agent-skills (MIT); read only, never edited |
 | Synthetic catalogue fixtures (Fixture Co; providers `example-host` and `example-upstream` are invented) | skills/company-fleets/fleets/hosting/fixtures/service-catalogue/ | 2026-11-25 | Synthetic; no real provider data or prices |

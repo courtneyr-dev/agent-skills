@@ -1,14 +1,14 @@
 # Engagement stages and their evidence
 
-Source: Company Agent Fleets task prompt, section 4 "Web development and design agency fleet" and section 12 "Handoff contract"
-Location: local task prompt (`company-agent-fleets-codex-prompt.md`, lines 242-267 and 630-646)
+Source: company-fleets requirements S04-001 to S04-019 (agency fleet, `company-fleets/registry/requirements.json`) and the cross-fleet handoff contract (`company-fleets/schemas/handoff.schema.json`)
+Location: project requirements (not published)
 Version or retrieved date: research baseline 2026-11-25
-Rights: private task specification; paraphrased
+Rights: project requirements, paraphrased in the registry
 
 Source: factory-rig contracts and company-fleets handoff.v1
 Location: `skills/factory-rig/scripts/factory_rig/contract.py`, `skills/company-fleets/scripts/fleetlib/handoff.py`, `skills/company-fleets/schemas/handoff.schema.json`
 Version or retrieved date: agent-skills, read 2026-11-25
-Rights: private rig; imported, not copied
+Rights: agent-skills (MIT); imported, not copied
 
 Source: Kanopi cms-cultivator pr-quality-report and code-standards-checker (installed)
 Location: https://github.com/kanopi/cms-cultivator
