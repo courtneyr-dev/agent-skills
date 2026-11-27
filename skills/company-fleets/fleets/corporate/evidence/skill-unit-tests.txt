@@ -1,0 +1,111 @@
+# Skill install and unit-test evidence for the corporate fleet's local skills
+run on 2026-11-26 from <skills-root>, after the fixes for evidence/reviews/corporate-agency-rereview-2.md. The frontmatter check output is carried from the earlier 2026-11-26 run; `git diff` shows no frontmatter change to these SKILL.md files since
+Frontmatter check: a stdlib port of skill-creator's quick_validate.py (PyYAML is not installed); same rules plus referenced-path existence.
+Its allow-list (name, description, license, allowed-tools, metadata, compatibility) matches upstream and predates disable-model-invocation, a Claude Code key these skills set on purpose to stay out of the global skill list. Each finding below is that key only.
+
+$ python3 skill_validate.py corporate-claims-check corporate-email-guard
+{
+  "corporate-claims-check": [
+    "unexpected frontmatter keys: disable-model-invocation"
+  ],
+  "corporate-email-guard": [
+    "unexpected frontmatter keys: disable-model-invocation"
+  ]
+}
+
+
+
+$ (cd corporate-claims-check/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v)
+test_clean_draft_passes (test_claims_check.FixtureRuns.test_clean_draft_passes) ... ok
+test_fabricated_citation_defects_all_caught (test_claims_check.FixtureRuns.test_fabricated_citation_defects_all_caught) ... ok
+test_instruction_line_in_draft_changes_nothing (test_claims_check.FixtureRuns.test_instruction_line_in_draft_changes_nothing) ... ok
+test_limits_name_the_required_gaps (test_claims_check.FixtureRuns.test_limits_name_the_required_gaps) ... ok
+test_negated_guarantee_is_not_flagged (test_claims_check.FixtureRuns.test_negated_guarantee_is_not_flagged) ... ok
+test_output_is_stable_json (test_claims_check.FixtureRuns.test_output_is_stable_json) ... ok
+test_ranking_guarantee_blocks_even_when_cited (test_claims_check.FixtureRuns.test_ranking_guarantee_blocks_even_when_cited) ... ok
+test_uncited_statistic_draft (test_claims_check.FixtureRuns.test_uncited_statistic_draft) ... ok
+test_bad_json_exits_2 (test_claims_check.InvalidInput.test_bad_json_exits_2) ... ok
+test_missing_draft_exits_2 (test_claims_check.InvalidInput.test_missing_draft_exits_2) ... ok
+test_no_args_exits_2 (test_claims_check.InvalidInput.test_no_args_exits_2) ... ok
+test_register_rules (test_claims_check.InvalidInput.test_register_rules) ... ok
+test_source_missing_url_exits_2 (test_claims_check.InvalidInput.test_source_missing_url_exits_2) ... ok
+test_unclosed_fence_exits_2 (test_claims_check.InvalidInput.test_unclosed_fence_exits_2) ... ok
+test_a_ledger_of_another_tenant_for_the_registers_instance_is_refused (test_claims_check.RegisterSignOff.test_a_ledger_of_another_tenant_for_the_registers_instance_is_refused)
+The reviewer's minted corporate ledger: a sign-off recorded under another tenant doesn't count. ... ok
+test_a_register_naming_no_instance_has_no_sign_off (test_claims_check.RegisterSignOff.test_a_register_naming_no_instance_has_no_sign_off) ... ok
+test_agent_role_cannot_sign_off (test_claims_check.RegisterSignOff.test_agent_role_cannot_sign_off) ... ok
+test_author_cannot_sign_off_their_own_register (test_claims_check.RegisterSignOff.test_author_cannot_sign_off_their_own_register) ... ok
+test_missing_owner_log_blocks (test_claims_check.RegisterSignOff.test_missing_owner_log_blocks) ... ok
+test_no_flag_picks_the_ledger (test_claims_check.RegisterSignOff.test_no_flag_picks_the_ledger) ... ok
+test_sign_off_field_inside_the_register_counts_for_nothing (test_claims_check.RegisterSignOff.test_sign_off_field_inside_the_register_counts_for_nothing) ... ok
+test_signed_fixture_register_passes (test_claims_check.RegisterSignOff.test_signed_fixture_register_passes) ... ok
+test_source_added_after_sign_off_blocks (test_claims_check.RegisterSignOff.test_source_added_after_sign_off_blocks) ... ok
+test_the_draft_author_cannot_record_a_sign_off_without_the_claim_token (test_claims_check.RegisterSignOff.test_the_draft_author_cannot_record_a_sign_off_without_the_claim_token) ... ok
+test_unsigned_register_blocks (test_claims_check.RegisterSignOff.test_unsigned_register_blocks) ... ok
+test_all_25_review_guarantee_phrasings_are_flagged (test_claims_check.ReviewProbes.test_all_25_review_guarantee_phrasings_are_flagged) ... ok
+test_an_attribution_line_is_still_checked_as_the_authors_text (test_claims_check.ReviewProbes.test_an_attribution_line_is_still_checked_as_the_authors_text) ... ok
+test_cautionary_reporting_and_quoted_sentences_pass (test_claims_check.ReviewProbes.test_cautionary_reporting_and_quoted_sentences_pass) ... ok
+test_cited_outcome_must_be_stated_by_the_source (test_claims_check.ReviewProbes.test_cited_outcome_must_be_stated_by_the_source) ... ok
+test_disguised_and_paraphrased_promises_are_flagged (test_claims_check.ReviewProbes.test_disguised_and_paraphrased_promises_are_flagged) ... ok
+test_every_quote_form_is_compared_with_the_source (test_claims_check.ReviewProbes.test_every_quote_form_is_compared_with_the_source) ... ok
+test_html_links_still_cite_and_lines_keep_their_numbers (test_claims_check.ReviewProbes.test_html_links_still_cite_and_lines_keep_their_numbers) ... ok
+test_number_from_a_different_fact_is_refused (test_claims_check.ReviewProbes.test_number_from_a_different_fact_is_refused) ... ok
+test_reporting_about_rankings_is_not_a_guarantee (test_claims_check.ReviewProbes.test_reporting_about_rankings_is_not_a_guarantee) ... ok
+test_second_review_benign_sentences_pass (test_claims_check.ReviewProbes.test_second_review_benign_sentences_pass) ... ok
+test_second_review_guarantees_are_flagged (test_claims_check.ReviewProbes.test_second_review_guarantees_are_flagged) ... ok
+test_second_review_quote_forms_are_compared_with_the_source (test_claims_check.ReviewProbes.test_second_review_quote_forms_are_compared_with_the_source) ... ok
+test_short_or_partial_word_quotes_are_refused (test_claims_check.ReviewProbes.test_short_or_partial_word_quotes_are_refused) ... ok
+test_text_a_reader_sees_is_checked (test_claims_check.ReviewProbes.test_text_a_reader_sees_is_checked) ... ok
+test_cue_after_the_phrase_is_not_credited (test_claims_check.RulesInDetail.test_cue_after_the_phrase_is_not_credited) ... ok
+test_findings_carry_line_numbers_across_wrapped_paragraphs (test_claims_check.RulesInDetail.test_findings_carry_line_numbers_across_wrapped_paragraphs) ... ok
+test_footnote_definitions_and_code_fences_are_checked (test_claims_check.RulesInDetail.test_footnote_definitions_and_code_fences_are_checked) ... ok
+test_guarantee_variants_are_flagged (test_claims_check.RulesInDetail.test_guarantee_variants_are_flagged) ... ok
+test_inline_link_citations (test_claims_check.RulesInDetail.test_inline_link_citations) ... ok
+test_marker_after_period_binds_to_its_sentence (test_claims_check.RulesInDetail.test_marker_after_period_binds_to_its_sentence) ... ok
+test_negated_or_reported_guarantees_pass (test_claims_check.RulesInDetail.test_negated_or_reported_guarantees_pass) ... ok
+test_negation_in_an_earlier_clause_does_not_excuse_a_promise (test_claims_check.RulesInDetail.test_negation_in_an_earlier_clause_does_not_excuse_a_promise) ... ok
+test_neutral_ranking_talk_passes (test_claims_check.RulesInDetail.test_neutral_ranking_talk_passes) ... ok
+test_non_statistics_pass (test_claims_check.RulesInDetail.test_non_statistics_pass) ... ok
+test_number_checks_only_cited_sources (test_claims_check.RulesInDetail.test_number_checks_only_cited_sources) ... ok
+test_number_must_appear_in_cited_excerpt (test_claims_check.RulesInDetail.test_number_must_appear_in_cited_excerpt) ... ok
+test_quote_can_hold_a_sentence_break (test_claims_check.RulesInDetail.test_quote_can_hold_a_sentence_break) ... ok
+test_quote_matching_normalizes_curly_quotes_and_whitespace (test_claims_check.RulesInDetail.test_quote_matching_normalizes_curly_quotes_and_whitespace) ... ok
+test_statistic_forms (test_claims_check.RulesInDetail.test_statistic_forms) ... ok
+test_uncited_quote_needs_a_citation_when_attributed (test_claims_check.RulesInDetail.test_uncited_quote_needs_a_citation_when_attributed) ... ok
+test_unsupported_ranking_claim_needs_a_valid_citation (test_claims_check.RulesInDetail.test_unsupported_ranking_claim_needs_a_valid_citation) ... ok
+
+----------------------------------------------------------------------
+Ran 56 tests in 0.864s
+
+OK
+
+$ (cd corporate-email-guard/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v)
+test_checked_in_fixture_ledger_stages_and_sends_to_the_fake_outbox (test_email_guard.InstalledCommand.test_checked_in_fixture_ledger_stages_and_sends_to_the_fake_outbox) ... ok
+test_agent_approver_is_refused (test_email_guard.SendTests.test_agent_approver_is_refused) ... ok
+test_approved_send_reaches_only_the_fake_outbox (test_email_guard.SendTests.test_approved_send_reaches_only_the_fake_outbox) ... ok
+test_caller_written_approval_file_counts_for_nothing (test_email_guard.SendTests.test_caller_written_approval_file_counts_for_nothing)
+The reviewer's major 6: a caller-written approval for the staged hashes sent 6 messages. ... ok
+test_contact_suppressed_after_staging_is_not_sent (test_email_guard.SendTests.test_contact_suppressed_after_staging_is_not_sent) ... ok
+test_edited_staged_file_is_refused (test_email_guard.SendTests.test_edited_staged_file_is_refused) ... ok
+test_limits_name_what_the_guard_does_not_establish (test_email_guard.SendTests.test_limits_name_what_the_guard_does_not_establish) ... ok
+test_real_transport_is_refused (test_email_guard.SendTests.test_real_transport_is_refused) ... ok
+test_second_send_is_a_no_op (test_email_guard.SendTests.test_second_send_is_a_no_op) ... ok
+test_send_without_approval_is_refused (test_email_guard.SendTests.test_send_without_approval_is_refused) ... ok
+test_wrong_campaign_hash_is_refused (test_email_guard.SendTests.test_wrong_campaign_hash_is_refused) ... ok
+test_a_campaign_without_a_pinned_list_is_refused (test_email_guard.StageTests.test_a_campaign_without_a_pinned_list_is_refused) ... ok
+test_bad_contacts_header_is_invalid_input (test_email_guard.StageTests.test_bad_contacts_header_is_invalid_input) ... ok
+test_fixture_approval_hashes_match_a_fresh_stage (test_email_guard.StageTests.test_fixture_approval_hashes_match_a_fresh_stage) ... ok
+test_plus_tags_and_gmail_dots_stay_suppressed (test_email_guard.StageTests.test_plus_tags_and_gmail_dots_stay_suppressed)
+The reviewer's major 6: carol+news@example.com and v.ictim@gmail.com staged with suppressed: 0. ... ok
+test_suppressed_contacts_never_staged_even_with_case_variant_or_note (test_email_guard.StageTests.test_suppressed_contacts_never_staged_even_with_case_variant_or_note) ... ok
+test_the_caller_cannot_hand_the_guard_a_suppression_list (test_email_guard.StageTests.test_the_caller_cannot_hand_the_guard_a_suppression_list) ... ok
+test_send_refuses_a_malformed_suppression_list (test_email_guard.SuppressionRowTests.test_send_refuses_a_malformed_suppression_list) ... ok
+test_trailing_dot_and_zero_width_entries_still_suppress (test_email_guard.SuppressionRowTests.test_trailing_dot_and_zero_width_entries_still_suppress) ... ok
+test_unknown_suppression_reason_is_invalid_input (test_email_guard.SuppressionRowTests.test_unknown_suppression_reason_is_invalid_input) ... ok
+test_unparseable_suppression_row_fails_loudly (test_email_guard.SuppressionRowTests.test_unparseable_suppression_row_fails_loudly) ... ok
+test_missing_subcommand_is_usage_error (test_email_guard.UsageTests.test_missing_subcommand_is_usage_error) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.303s
+
+OK

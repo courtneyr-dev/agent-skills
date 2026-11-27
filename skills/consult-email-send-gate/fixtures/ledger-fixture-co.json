@@ -1,0 +1,109 @@
+{
+  "contacts": [
+    {
+      "email": "ada@example.com",
+      "id": "c1",
+      "permission": {
+        "at": "2026-06-01T00:00:00Z",
+        "marketing": "opted-in",
+        "source": "signup-form-fixture"
+      },
+      "tenant_id": "tenant-fixture-co"
+    },
+    {
+      "email": "ben@example.com",
+      "id": "c2",
+      "permission": {
+        "at": "2026-06-01T00:00:00Z",
+        "marketing": "opted-in",
+        "source": "signup-form-fixture"
+      },
+      "tenant_id": "tenant-fixture-co"
+    },
+    {
+      "email": "cy@example.com",
+      "id": "c3",
+      "permission": {
+        "at": "2026-06-01T00:00:00Z",
+        "marketing": "opted-in",
+        "source": "signup-form-fixture"
+      },
+      "tenant_id": "tenant-fixture-co"
+    },
+    {
+      "email": " Ada@Example.com ",
+      "id": "c4",
+      "permission": {
+        "at": "2026-06-01T00:00:00Z",
+        "marketing": "opted-in",
+        "source": "signup-form-fixture"
+      },
+      "tenant_id": "tenant-fixture-co"
+    },
+    {
+      "email": "dee@example.com",
+      "id": "c5",
+      "permission": {
+        "at": "2026-10-15T00:00:00Z",
+        "marketing": "opted-in",
+        "source": "signup-form-fixture"
+      },
+      "tenant_id": "tenant-fixture-co"
+    },
+    {
+      "email": "eli@example.com",
+      "id": "c6",
+      "permission": {
+        "at": "2026-06-01T00:00:00Z",
+        "marketing": "withdrawn",
+        "source": ""
+      },
+      "tenant_id": "tenant-fixture-co"
+    },
+    {
+      "email": "fay@example.com",
+      "id": "c7",
+      "permission": {
+        "at": "2026-06-01T00:00:00Z",
+        "marketing": "opted-in",
+        "source": "signup-form-fixture"
+      },
+      "tenant_id": "tenant-other-synthetic"
+    },
+    {
+      "email": "gus@example.com",
+      "id": "c8",
+      "permission": {
+        "at": "2026-06-01T00:00:00Z",
+        "marketing": "opted-in",
+        "source": "signup-form-fixture"
+      },
+      "tenant_id": "tenant-fixture-co"
+    }
+  ],
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "schema": "consent-ledger.v1",
+  "suppressions": [
+    {
+      "at": "2026-09-01T00:00:00Z",
+      "email": "CY@example.com",
+      "reason": "unsubscribed"
+    },
+    {
+      "at": "2026-09-01T00:00:00Z",
+      "email": "dee@example.com",
+      "reason": "unsubscribed"
+    },
+    {
+      "at": "2026-09-01T00:00:00Z",
+      "email": "eli@example.com",
+      "reason": "unsubscribed"
+    },
+    {
+      "at": "2026-08-01T00:00:00Z",
+      "email": "gus@example.com",
+      "reason": "hard-bounce"
+    }
+  ],
+  "tenant_id": "tenant-fixture-co"
+}

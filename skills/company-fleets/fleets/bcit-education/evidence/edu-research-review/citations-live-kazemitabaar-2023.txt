@@ -1,0 +1,420 @@
+$ python3 ../edu-research-review/scripts/research_check.py citations fleets/bcit-education/fixtures/edu-research-review/refs-kazemitabaar-2023.json --record fleets/bcit-education/fixtures/edu-research-review/resolver-kazemitabaar-2023.json
+# run 2026-11-25 (cwd: company-fleets) live network: api.crossref.org, export.arxiv.org; 1 s throttle, 2 retries on 429
+{
+  "ok": false,
+  "mode": "citations",
+  "source": "Kazemitabaar, Chow, Ma, Ericson, Weintrop, Grossman (2023). Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming. CHI '23. arXiv 2302.07427v2.",
+  "counts": {
+    "verified": 23,
+    "mismatch": 1,
+    "unresolved": 1
+  },
+  "results": [
+    {
+      "id": "P-doi",
+      "status": "verified",
+      "key": "doi:10.1145/3544548.3580919",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming",
+      "resolved_years": [
+        2023
+      ],
+      "resolved_doi": "10.1145/3544548.3580919",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "P-arxiv",
+      "status": "verified",
+      "key": "arxiv:2302.07427",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming",
+      "resolved_years": [
+        2023
+      ],
+      "resolved_doi": "10.1145/3544548.3580919",
+      "resolved_by": "arxiv"
+    },
+    {
+      "id": "Altadmri2015",
+      "status": "verified",
+      "key": "search:37 million compilations investigating novice programming mistakes in large scale student data altadmri brown 2015",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "37 Million Compilations",
+      "resolved_years": [
+        2015
+      ],
+      "resolved_doi": "10.1145/2676723.2677258",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Becker2019",
+      "status": "verified",
+      "key": "search:50 years of cs1 at sigcse a review of the evolution of introductory programming education research becker quille 2019",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "50 Years of CS1 at SIGCSE",
+      "resolved_years": [
+        2019
+      ],
+      "resolved_doi": "10.1145/3287324.3287432",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Chen2021",
+      "status": "verified",
+      "key": "arxiv:2107.03374",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Evaluating Large Language Models Trained on Code",
+      "resolved_years": [
+        2021
+      ],
+      "resolved_doi": "",
+      "resolved_by": "arxiv"
+    },
+    {
+      "id": "Ericson2017",
+      "status": "verified",
+      "key": "search:solving parsons problems versus fixing and writing code ericson margulieux 2017",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Solving parsons problems versus fixing and writing code",
+      "resolved_years": [
+        2017
+      ],
+      "resolved_doi": "10.1145/3141880.3141895",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Ericson2018",
+      "status": "verified",
+      "key": "search:evaluating the efficiency and effectiveness of adaptive parsons problems ericson foley 2018",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Evaluating the Efficiency and Effectiveness of Adaptive Parsons Problems",
+      "resolved_years": [
+        2018
+      ],
+      "resolved_doi": "10.1145/3230977.3231000",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Feng2020",
+      "status": "verified",
+      "key": "arxiv:2002.08155",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "CodeBERT: A Pre-Trained Model for Programming and Natural Languages",
+      "resolved_years": [
+        2020
+      ],
+      "resolved_doi": "",
+      "resolved_by": "arxiv"
+    },
+    {
+      "id": "FinnieAnsley2022",
+      "status": "verified",
+      "key": "search:the robots are coming exploring the implications of openai codex on introductory programming finnie ansley denny 2022",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "The Robots Are Coming: Exploring the Implications of OpenAI Codex on Introductory Programming",
+      "resolved_years": [
+        2022
+      ],
+      "resolved_doi": "10.1145/3511861.3511863",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Franklin2020",
+      "status": "verified",
+      "key": "search:an analysis of use modify create pedagogical approach s success in balancing structure and student agency franklin coenraad 2020",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "An Analysis of Use-Modify-Create Pedagogical Approach's Success in Balancing Structure and Student Agency",
+      "resolved_years": [
+        2020
+      ],
+      "resolved_doi": "10.1145/3372782.3406256",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Grover2013",
+      "status": "verified",
+      "key": "search:computational thinking in k 12 a review of the state of the field grover pea 2013",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Computational Thinking in K–12",
+      "resolved_years": [
+        2013
+      ],
+      "resolved_doi": "10.3102/0013189x12463051",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Kirschner2006",
+      "status": "mismatch",
+      "key": "search:why unguided learning does not work an analysis of the failure of discovery learning problem based learning experiential learning and inquiry based learning kirschner sweller 2006",
+      "mismatched": [
+        "title"
+      ],
+      "unchecked": [],
+      "title_similarity": 0.755,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Why Minimal Guidance During Instruction Does Not Work: An Analysis of the Failure of Constructivist, Discovery, Problem-Based, Experiential, and Inquiry-Based Teaching",
+      "resolved_years": [
+        2006
+      ],
+      "resolved_doi": "10.1207/s15326985ep4102_1",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Kumar2013",
+      "status": "verified",
+      "key": "search:a study of the influence of code tracing problems on code writing skills kumar 2013",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "A study of the influence of code-tracing problems on code-writing skills",
+      "resolved_years": [
+        2013
+      ],
+      "resolved_doi": "10.1145/2462476.2462507",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Lister2009",
+      "status": "verified",
+      "key": "search:further evidence of a relationship between explaining tracing and writing skills in introductory programming lister fidge 2009",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Further evidence of a relationship between explaining, tracing and writing skills in introductory programming",
+      "resolved_years": [
+        2009
+      ],
+      "resolved_doi": "10.1145/1595496.1562930",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Lu2021",
+      "status": "verified",
+      "key": "arxiv:2102.04664",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "CodeXGLUE: A Machine Learning Benchmark Dataset for Code Understanding and Generation",
+      "resolved_years": [
+        2021
+      ],
+      "resolved_doi": "",
+      "resolved_by": "arxiv"
+    },
+    {
+      "id": "LuxtonReilly2018",
+      "status": "verified",
+      "key": "search:introductory programming a systematic literature review luxton reilly albluwi 2018",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Introductory programming: a systematic literature review",
+      "resolved_years": [
+        2018
+      ],
+      "resolved_doi": "10.1145/3293881.3295779",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Margulieux2012",
+      "status": "verified",
+      "key": "search:subgoal labeled instructional material improves performance and transfer in learning to develop mobile applications margulieux guzdial 2012",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Subgoal-labeled instructional material improves performance and transfer in learning to develop mobile applications",
+      "resolved_years": [
+        2012
+      ],
+      "resolved_doi": "10.1145/2361276.2361291",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Parsons2006",
+      "status": "unresolved",
+      "key": "search:parson s programming puzzles a fun and effective learning tool for first programming courses parsons haden 2006",
+      "reason": "no search candidate resembles the cited title",
+      "best": {
+        "title_similarity": 0.53,
+        "year_ok": true,
+        "first_author_ok": false,
+        "resolved_title": "Developing Active Learning Activities for Computer Programming and Machine Vision Courses",
+        "resolved_years": [
+          2006
+        ],
+        "resolved_doi": "10.13031/2013.21065",
+        "resolved_by": "crossref"
+      }
+    },
+    {
+      "id": "Popat2019",
+      "status": "verified",
+      "key": "search:learning to code or coding to learn a systematic review popat starkey 2019",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Learning to code or coding to learn? A systematic review",
+      "resolved_years": [
+        2019
+      ],
+      "resolved_doi": "10.1016/j.compedu.2018.10.005",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Qian2017",
+      "status": "verified",
+      "key": "search:students misconceptions and other difficulties in introductory programming a literature review qian lehman 2017",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Students’ Misconceptions and Other Difficulties in Introductory Programming",
+      "resolved_years": [
+        2017,
+        2018
+      ],
+      "resolved_doi": "10.1145/3077618",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Resnick2009",
+      "status": "verified",
+      "key": "search:scratch programming for all resnick maloney 2009",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Scratch",
+      "resolved_years": [
+        2009
+      ],
+      "resolved_doi": "10.1145/1592761.1592779",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Sarsa2022",
+      "status": "verified",
+      "key": "search:automatic generation of programming exercises and code explanations using large language models sarsa denny 2022",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Automatic Generation of Programming Exercises and Code Explanations Using Large Language Models",
+      "resolved_years": [
+        2022
+      ],
+      "resolved_doi": "10.1145/3501385.3543957",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Sweller2019",
+      "status": "verified",
+      "key": "search:cognitive architecture and instructional design 20 years later sweller van merrienboer 2019",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Cognitive Architecture and Instructional Design: 20 Years Later",
+      "resolved_years": [
+        2019
+      ],
+      "resolved_doi": "10.1007/s10648-019-09465-5",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Vaithilingam2022",
+      "status": "verified",
+      "key": "search:expectation vs experience evaluating the usability of code generation tools powered by large language models vaithilingam zhang 2022",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Expectation vs. Experience: Evaluating the Usability of Code Generation Tools Powered by Large Language Models",
+      "resolved_years": [
+        2022
+      ],
+      "resolved_doi": "10.1145/3491101.3519665",
+      "resolved_by": "crossref"
+    },
+    {
+      "id": "Wing2006",
+      "status": "verified",
+      "key": "search:computational thinking wing 2006",
+      "mismatched": [],
+      "unchecked": [],
+      "title_similarity": 1.0,
+      "year_ok": true,
+      "first_author_ok": true,
+      "resolved_title": "Computational thinking",
+      "resolved_years": [
+        2006
+      ],
+      "resolved_doi": "10.1145/1118178.1118215",
+      "resolved_by": "crossref"
+    }
+  ],
+  "resolver": "live"
+}
+# exit 1

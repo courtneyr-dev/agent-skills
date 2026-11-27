@@ -1,0 +1,101 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.resolve-support-intake (positive, target product.product-lead).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "coordinator": "product.product-lead" --contains "fleets/product/roles.json" --absent "fleets/hosting/roles.json" --absent "fleets/agency/roles.json" --absent "fleets/consultancies/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile product --workload product.workload.support-intake
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile product --workload product.workload.support-intake
+{
+  "coordinator": "product.product-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/product/roles.json"
+  ],
+  "profile": "product",
+  "roles": [
+    {
+      "display_name": "Product lead (product GM and product manager viewpoint)",
+      "fleet": "product",
+      "id": "product.product-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "cpo-advisor",
+          "installed": true,
+          "path": "skills/cpo-advisor/SKILL.md"
+        },
+        {
+          "id": "brd-writer",
+          "installed": true,
+          "path": "skills/brd-writer/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Support and customer success",
+      "fleet": "product",
+      "id": "product.support-success",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "support-ops",
+          "installed": true,
+          "path": "skills/support-ops/SKILL.md"
+        },
+        {
+          "id": "customer-success-manager",
+          "installed": true,
+          "path": "skills/customer-success-manager/SKILL.md"
+        },
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Compatibility engineer",
+      "fleet": "product",
+      "id": "product.compatibility-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "product-release-gate",
+          "installed": true,
+          "path": "skills/product-release-gate/SKILL.md"
+        },
+        {
+          "id": "wp-playground",
+          "installed": true,
+          "path": "skills/wp-playground/SKILL.md"
+        },
+        {
+          "id": "woocommerce-upgrade-safety",
+          "installed": true,
+          "path": "skills/woocommerce-upgrade-safety/SKILL.md"
+        },
+        {
+          "blocked_reason": "Listed in skill-sync/sources.json (WordPress/agent-skills) but not installed under skills/ on 2026-11-26; resume when the sources workstream installs it",
+          "id": "wp-env",
+          "installed": false,
+          "path": "skills/wp-env/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "product.workload.support-intake"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"coordinator": "product.product-lead"': ok
+CHECK contains '"fleets/product/roles.json"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/agency/roles.json"': ok
+CHECK absent '"fleets/consultancies/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

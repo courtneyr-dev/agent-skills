@@ -1,0 +1,112 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains Q1-notebook-markup --contains Q3-revenue-by-item --contains Q5-loop-total --contains mismatch -- python3 ../edu-answer-key-check/scripts/answer_key.py check fleets/bcit-education/fixtures/bcit-unit-store/solution-incorrect.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.incorrect-solution-caught
+{
+  "ok": false,
+  "engine": "edu-answer-key-check subset evaluator 0.1.0 (not Excel or Sheets); sqlite3 3.54.1; python 3.14.7",
+  "label": "SYNTHETIC FIXTURE (Fixture Co): intentionally incorrect solution set (three planted errors) checked against the verified key.",
+  "summary": {
+    "match": 5,
+    "mismatch": 2,
+    "error": 0,
+    "unsupported": 0,
+    "submitted_mismatch": 1
+  },
+  "flagged": [
+    "Q1-notebook-markup",
+    "Q3-revenue-by-item",
+    "Q5-loop-total"
+  ],
+  "items": [
+    {
+      "id": "Q1-notebook-markup",
+      "kind": "spreadsheet",
+      "key": 0.8182,
+      "computed": 0.8182,
+      "key_status": "match",
+      "submitted": 0.45,
+      "submitted_status": "mismatch"
+    },
+    {
+      "id": "Q2-week1-gross-profit",
+      "kind": "spreadsheet",
+      "key": 92.85,
+      "computed": 92.85,
+      "key_status": "match"
+    },
+    {
+      "id": "Q3-revenue-by-item",
+      "kind": "sql",
+      "key": [
+        [
+          "sticker",
+          317.5
+        ],
+        [
+          "notebook",
+          148.0
+        ],
+        [
+          "lanyard",
+          78.0
+        ]
+      ],
+      "computed": [
+        [
+          "sticker",
+          100.0
+        ],
+        [
+          "notebook",
+          48.0
+        ],
+        [
+          "lanyard",
+          27.0
+        ]
+      ],
+      "key_status": "mismatch",
+      "detail": "executed result differs from the stated key; check the key and the formula, query or code"
+    },
+    {
+      "id": "Q4-best-week",
+      "kind": "sql",
+      "key": [
+        [
+          3,
+          203.0
+        ]
+      ],
+      "computed": [
+        [
+          3,
+          203.0
+        ]
+      ],
+      "key_status": "match"
+    },
+    {
+      "id": "Q5-loop-total",
+      "kind": "python",
+      "key": "175.0",
+      "computed": "75.0",
+      "key_status": "mismatch",
+      "detail": "executed result differs from the stated key; check the key and the formula, query or code"
+    },
+    {
+      "id": "Q6-gross-margin",
+      "kind": "calc",
+      "key": 0.5306,
+      "computed": 0.5305714285714286,
+      "key_status": "match"
+    },
+    {
+      "id": "Q7-price-decision",
+      "kind": "spreadsheet",
+      "key": "keep price",
+      "computed": "keep price",
+      "key_status": "match"
+    }
+  ]
+}
+# expect: met
+# exit 0

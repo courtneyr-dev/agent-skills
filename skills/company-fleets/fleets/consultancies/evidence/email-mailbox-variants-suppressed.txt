@@ -1,0 +1,18 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.email-mailbox-variants-suppressed (boundary, target consult-email-send-gate).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../consult-email-send-gate/scripts/tests/test_send_gate.py SendGateTests.test_plus_address_and_trailing_dot_variants_stay_suppressed SendGateTests.test_suppressed_alias_suppresses_the_base_mailbox -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-email-send-gate/scripts/tests/test_send_gate.py SendGateTests.test_plus_address_and_trailing_dot_variants_stay_suppressed SendGateTests.test_suppressed_alias_suppresses_the_base_mailbox -v
+
+stderr:
+test_plus_address_and_trailing_dot_variants_stay_suppressed (__main__.SendGateTests.test_plus_address_and_trailing_dot_variants_stay_suppressed) ... ok
+test_suppressed_alias_suppresses_the_base_mailbox (__main__.SendGateTests.test_suppressed_alias_suppresses_the_base_mailbox) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.154s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

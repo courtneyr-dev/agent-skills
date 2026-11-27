@@ -1,0 +1,15 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.resolve-refuses-school-profile (negative, target product.product-lead).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains does not activate fleet product -- bin/fleet resolve --profile school --workload product.workload.extension-release
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile school --workload product.workload.extension-release
+{
+  "error": "profile school does not activate fleet product",
+  "files_read": [
+    "registry/profiles.json"
+  ]
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains 'does not activate fleet product': ok
+VERDICT pass

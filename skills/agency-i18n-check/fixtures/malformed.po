@@ -1,0 +1,11 @@
+# SYNTHETIC FIXTURE (Fixture Co): catalog with a syntax error on line 11 for tests.
+msgid ""
+msgstr ""
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Donate now"
+msgstr "Donar ahora"
+
+msgid "Fixture Co"
+msgstr Fixture Co

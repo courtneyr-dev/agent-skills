@@ -1,0 +1,1242 @@
+{
+  "schema_version": 1,
+  "fleet": "hosting",
+  "skills": [
+    {
+      "id": "hosting-abuse-response",
+      "fleet": "hosting",
+      "summary": "Preserves an abuse report against a hosted tenant with hashes and a chain of custody, flags embedded instructions, and records a decision; punitive actions need a policy clause plus a human approver, and a human executes them.",
+      "triggers": [
+        "Handle a phishing, malware, spam or copyright report about a customer site",
+        "Preserve evidence before touching a tenant's content",
+        "Decide whether a tenant may be suspended under policy",
+        "Confirm case evidence still matches its hashes"
+      ],
+      "boundaries": [
+        "Isolation and preview checks belong to hosting-tenant-isolation",
+        "Legal review of copyright claims stays with a human",
+        "Never suspends, removes content, null-routes or sends mail",
+        "Human executes any approved punitive action in the hosting panel"
+      ],
+      "inputs": [
+        "Report file",
+        "Tenant id slug and category",
+        "Owner files: policies.json (clauses and approvers) and tenant-hosts.json",
+        "An anchors ledger kept outside the case folder"
+      ],
+      "prerequisites": [
+        "Python 3.9 or later"
+      ],
+      "method": [
+        "Intake: refuse a report naming another tenant's hosts, copy it read-only, hash it, write the manifest and custody log, anchor the head, flag embedded instructions",
+        "Verify hashes, the custody chain and the owner's anchored head before any action",
+        "Propose: a punitive action needs a clause in the owner's policy and a confirmed tenant, else escalate; tampered evidence refuses everything",
+        "Approve: only a human the owner's policy lists, as a separate step; record approved actions for human execution",
+        "Draft tenant notices without sending; show the case state and integrity"
+      ],
+      "stopping_conditions": [
+        "Case preserved and verified, and the action recorded or escalated",
+        "A tampered case stops all work until a human reviews it"
+      ],
+      "output_contract": "JSON on stdout with verdict or decision, state, case id, hashes, untrusted findings, reasons and assumptions.",
+      "failure_states": [
+        "Exit 1: existing case or tenant mismatch refused, evidence tampered, punitive action escalated, or a named refusal (anchor, policy-not-owner-file, approval-needs-approve-step, approver-not-authorized)",
+        "Exit 2: invalid input",
+        "Exit 3: not used"
+      ],
+      "references": [
+        {
+          "title": "RFC 3227",
+          "location": "https://www.rfc-editor.org/rfc/rfc3227",
+          "version": "2002; not re-fetched 2026-11-25",
+          "rights": "IETF RFC; BCP 78 rights, cite, don't copy"
+        },
+        {
+          "title": "fleetlib.untrusted",
+          "location": "skills/company-fleets/scripts/fleetlib/untrusted.py",
+          "version": "2026-11-25",
+          "rights": "agent-skills (MIT)"
+        },
+        {
+          "title": "17 U.S.C. 512",
+          "location": "https://www.law.cornell.edu/uscode/text/17/512",
+          "version": "not re-fetched 2026-11-25",
+          "rights": "US law, public domain"
+        }
+      ],
+      "scripts": [
+        "scripts/abuse_case.py"
+      ],
+      "evals": {
+        "positive": [
+          "hosting.eval.abuse-response-intake-preserves"
+        ],
+        "negative": [
+          "hosting.eval.abuse-response-suspend-without-policy",
+          "hosting.eval.abuse-response-embedded-instruction-ignored",
+          "hosting.eval.abuse-response-analyst-policy-refused",
+          "hosting.eval.abuse-response-unlisted-approver-refused",
+          "hosting.eval.abuse-response-rewritten-case-refused",
+          "hosting.eval.abuse-response-wrong-tenant-refused"
+        ],
+        "boundary": [
+          "hosting.eval.abuse-response-tampered-evidence-refused",
+          "hosting.eval.abuse-response-authorized-suspend-human-executes"
+        ]
+      },
+      "adapters": [],
+      "missing_capability": "No adapter is needed. Without hosting-panel access a human performs the approved action and notes it in the case thread.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets hosting workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Intake, verify, propose and show have tests and eval cases. The script never contacts a panel, so execution is outside the checked surface."
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/hosting/evidence/skill-tests.txt",
+          "note": "In the rig at skills/hosting-abuse-response; quick_validate and unit tests pass on Python 3.14.7 and 3.9.6. Claude Code loads it from the skills root"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/hosting/evidence/evals/abuse-response-intake-preserves.txt",
+          "note": "All 5 fleet eval cases pass (1 positive, 2 negative, 2 boundary); raw outputs under fleets/hosting/evidence/evals/"
+        }
+      }
+    },
+    {
+      "id": "hosting-account-lifecycle",
+      "fleet": "hosting",
+      "summary": "Moves a hosted account through qualify, provision, verify ownership, configure, activate, monitor, renew, suspend, export and decommission with one transition table, and makes every panel side effect idempotent and recoverable with factory-rig leases and receipts.",
+      "triggers": [
+        "Onboard, provision, renew, export or decommission a hosted account",
+        "Suspend or unsuspend an account after policy and a human approved it",
+        "Resume a half-finished provisioning or handle a duplicate panel webhook"
+      ],
+      "boundaries": [
+        "Abuse decisions belong to hosting-abuse-response",
+        "DNS and certificates belong to hosting-dns-cert-lifecycle",
+        "Site data moves belong to hosting-data-migration",
+        "Does not operate a real cPanel/WHM server"
+      ],
+      "inputs": [
+        "State directory (the owner's account registry)",
+        "Request, observed-answers and check-result JSON per action",
+        "Owner policy suspension-policy.json with clause approvers and decommission approvers",
+        "For an abuse suspension: the approved hosting-abuse-response case and its anchors",
+        "For export: a hosting-data-migration bundle and the data owner's ledger"
+      ],
+      "prerequisites": [
+        "Sibling skill factory-rig for leases, receipts and canonical hashing"
+      ],
+      "method": [
+        "Show the account and its receipt step",
+        "Qualify, issuing the ownership token and refusing affiliate, unlisted packages and a domain another live account holds",
+        "Provision under a lease and receipt, inspecting the panel and ledger before each side effect",
+        "Fence only a dead lease holder and refuse while a holder is alive",
+        "Verify ownership against the issued token, configure, activate, monitor and renew",
+        "Suspend or unsuspend only with a clause in the owner's policy and one of its approvers; an abuse clause also needs the approved abuse case",
+        "Export only a ledger-recorded bundle for this tenant, then decommission with an owner-listed approver and an export that still matches, or an owner-listed waiver",
+        "Record each callback once per account; a changed retry is a conflict"
+      ],
+      "stopping_conditions": [
+        "The account reaches the requested state",
+        "A refusal names every missing authority or the allowed from-states",
+        "A live holder owns the lease"
+      ],
+      "output_contract": "JSON on stdout with sorted keys, verdict, from and to states, the panel calls made, receipt step and lease epoch for provisioning, and an assumptions list.",
+      "failure_states": [
+        "Exit 1: illegal transition, missing authority, ownership mismatch, domain-held, export refused or changed, live lease holder, stale epoch, tenant mismatch or callback conflict",
+        "Exit 2: invalid input or usage",
+        "Exit 3: the real WHM adapter was requested and is blocked"
+      ],
+      "references": [
+        {
+          "title": "WHM API 1 createacct",
+          "location": "https://api.docs.cpanel.net/specifications/whm.openapi/account-creation/accounts-createacct",
+          "version": "2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        },
+        {
+          "title": "WHM API 1 suspendacct",
+          "location": "https://api.docs.cpanel.net/specifications/whm.openapi/suspensions/accounts-suspendacct",
+          "version": "2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        },
+        {
+          "title": "WHM API 1 unsuspendacct",
+          "location": "https://api.docs.cpanel.net/specifications/whm.openapi/suspensions/accounts-unsuspendacct",
+          "version": "2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        },
+        {
+          "title": "WHM API 1 removeacct",
+          "location": "https://api.docs.cpanel.net/specifications/whm.openapi/account-management/accounts-removeacct",
+          "version": "2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        },
+        {
+          "title": "WHM API 1 listaccts",
+          "location": "https://api.docs.cpanel.net/specifications/whm.openapi/account-management/accounts-listaccts",
+          "version": "2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        },
+        {
+          "title": "WHM API 1 changepackage",
+          "location": "https://api.docs.cpanel.net/specifications/whm.openapi/account-management/accounts-changepackage",
+          "version": "2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        },
+        {
+          "title": "factory-rig leases and receipts",
+          "location": "skills/factory-rig/scripts/factory_rig/",
+          "version": "2026-11-25",
+          "rights": "agent-skills (MIT); imported, not copied"
+        }
+      ],
+      "scripts": [
+        "scripts/account_lifecycle.py"
+      ],
+      "evals": {
+        "positive": [
+          "hosting.eval.account-lifecycle-full-path",
+          "hosting.eval.account-lifecycle-recovery-demo"
+        ],
+        "negative": [
+          "hosting.eval.account-lifecycle-suspend-needs-authority",
+          "hosting.eval.account-lifecycle-suspend-role-id-approver-refused",
+          "hosting.eval.account-lifecycle-affiliate-cannot-provision",
+          "hosting.eval.account-lifecycle-held-domain-refused",
+          "hosting.eval.account-lifecycle-own-policy-refused",
+          "hosting.eval.account-lifecycle-abuse-suspend-needs-approved-case",
+          "hosting.eval.account-lifecycle-any-file-export-refused",
+          "hosting.eval.account-lifecycle-callback-conflict"
+        ],
+        "boundary": [
+          "hosting.eval.account-lifecycle-duplicate-callback",
+          "hosting.eval.account-lifecycle-decommission-needs-export-or-waiver"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Fake WHM-shaped panel (panel.json and panel-calls.jsonl)",
+          "kind": "fake",
+          "required": true
+        },
+        {
+          "name": "Real cPanel/WHM (WHM API 1)",
+          "kind": "api",
+          "required": false
+        }
+      ],
+      "missing_capability": "The real cPanel/WHM adapter is blocked: no provider is selected, no credentials exist and the rig runs no real infrastructure. Verdicts prove the lifecycle and recovery logic against the fake panel, not a live panel.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets hosting workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "partial",
+          "note": "All lifecycle actions and the Recovery row run against a fake panel; the real cPanel/WHM adapter is blocked, and changepackage has no lifecycle action."
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/hosting/evidence/skill-tests.txt",
+          "note": "In the rig at skills/hosting-account-lifecycle; quick_validate and unit tests pass on Python 3.14.7 and 3.9.6. Claude Code loads it from the skills root"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/hosting/evidence/evals/account-lifecycle-full-path.txt",
+          "note": "All 7 fleet eval cases pass (2 positive, 3 negative, 2 boundary); raw outputs under fleets/hosting/evidence/evals/"
+        }
+      }
+    },
+    {
+      "id": "hosting-benchmark-matrix",
+      "fleet": "hosting",
+      "summary": "Dated benchmark matrix against public Acquia, Pantheon and WordPress VIP docs that keeps provider claim, proposed target, configured capability, measured result and contractual commitment apart, checks measured values against hashed evidence, refuses superiority, roster-size and lab-availability claims, and builds the production-readiness backlog.",
+      "triggers": [
+        "Compare hosting with Acquia, Pantheon or WordPress VIP",
+        "Draft an uptime, recovery or 'more robust' claim",
+        "List what stands between the lab and production"
+      ],
+      "boundaries": [
+        "Does not run measurements",
+        "Does not publish",
+        "The launch gate belongs to Magnus production-readiness"
+      ],
+      "inputs": [
+        "Matrix JSON with as_of, contract, statements and twelve dimensions",
+        "Evidence files under fleets/hosting/evidence/",
+        "Owner files in the rig: benchmark-evidence-manifest.json and benchmark/contracts.json"
+      ],
+      "prerequisites": [
+        "Python 3.9+",
+        "Provider claims from each provider's own public pages"
+      ],
+      "method": [
+        "Refresh provider claims and record gaps as not documented publicly",
+        "Record each evidence file in the owner manifest, then each measured value with its evidence hash and JSON path",
+        "Run check: hashes against the owner manifest, availability only from a 30-day slo-check claim, contracts only from the registry, wording scanned in every author field",
+        "Run backlog and hand it to the general manager and production-readiness",
+        "Render the readable table"
+      ],
+      "stopping_conditions": [
+        "check passes and the backlog is handed off",
+        "A violation remains and the matrix stays unpublished"
+      ],
+      "output_contract": "check: verdict, violations, per-dimension status (met, unmet, not-measured, measured-no-target); backlog: ordered items; render: Markdown table.",
+      "failure_states": [
+        "Exit 1: any rule violation",
+        "Exit 2: invalid matrix input or an unreadable owner file"
+      ],
+      "references": [
+        {
+          "title": "Pantheon public documentation and plan pages",
+          "location": "https://docs.pantheon.io/",
+          "version": "Retrieved 2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        },
+        {
+          "title": "WordPress VIP public documentation and pricing",
+          "location": "https://docs.wpvip.com/",
+          "version": "Retrieved 2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        },
+        {
+          "title": "Acquia Cloud Platform public documentation",
+          "location": "https://docs.acquia.com/acquia-cloud-platform",
+          "version": "Retrieved 2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        },
+        {
+          "title": "Site Reliability Engineering, chapter 4, Service Level Objectives",
+          "location": "https://sre.google/sre-book/service-level-objectives/",
+          "version": "2016 online edition",
+          "rights": "O'Reilly, free online; cite, don't copy"
+        }
+      ],
+      "scripts": [
+        "scripts/benchmark.py"
+      ],
+      "evals": {
+        "positive": [
+          "hosting.eval.benchmark-dated-matrix-passes"
+        ],
+        "negative": [
+          "hosting.eval.benchmark-superiority-refused",
+          "hosting.eval.benchmark-availability-from-lab-refused",
+          "hosting.eval.benchmark-tampered-measurement-refused",
+          "hosting.eval.benchmark-lab-labeled-production-refused",
+          "hosting.eval.benchmark-self-declared-contract-refused",
+          "hosting.eval.benchmark-named-provider-comparison-refused",
+          "hosting.eval.benchmark-rehashed-evidence-refused"
+        ],
+        "boundary": [
+          "hosting.eval.benchmark-commitment-without-contract",
+          "hosting.eval.benchmark-backlog-unmet-first"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Load-testing or synthetic-monitoring adapter",
+          "kind": "cli",
+          "required": false
+        }
+      ],
+      "missing_capability": "No provider account, contract or load-testing adapter exists, so commitments stay null and performance and availability stay not-measured.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets hosting workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/hosting/evidence/skill-tests.txt",
+          "note": "In the rig at skills/hosting-benchmark-matrix; quick_validate and unit tests pass on Python 3.14.7 and 3.9.6. Claude Code loads it from the skills root"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/hosting/evidence/evals/benchmark-dated-matrix-passes.txt",
+          "note": "All 6 fleet eval cases pass (1 positive, 3 negative, 2 boundary); raw outputs under fleets/hosting/evidence/evals/"
+        },
+        "coverage": {
+          "state": "covered",
+          "note": "Section 5 'more robust' acceptance: dated matrix, five separate fields, no superiority or single-run availability claims, readiness backlog"
+        }
+      }
+    },
+    {
+      "id": "hosting-data-migration",
+      "fleet": "hosting",
+      "summary": "Upgrade-compatibility preflight, migration rehearsal with backup, post-conditions and checksum-proven rollback, and a portable export bundle proven by re-import, for platform moves and customer exit.",
+      "triggers": [
+        "Plan a schema change, runtime or database upgrade",
+        "Move a site between platforms",
+        "Export a customer's data when they leave",
+        "Prove a migration can be rolled back"
+      ],
+      "boundaries": [
+        "Restores after failure belong to hosting-restore-exercise",
+        "Decommission belongs to hosting-account-lifecycle",
+        "Does not run production MySQL or PostgreSQL migrations; SQLite stands in"
+      ],
+      "inputs": [
+        "App requirements JSON and target offer JSON",
+        "SQL seed or database, a files folder and a tenant",
+        "Migration SQL with a row directive for every existing table",
+        "The data owner's ledger, outside every bundle and backup folder"
+      ],
+      "prerequisites": [
+        "Python 3.9+",
+        "Site in maintenance mode so the database is idle"
+      ],
+      "method": [
+        "Run preflight and stop on incompatible or on nothing to check",
+        "Rehearse with migrate: backup recorded in the ledger, one transaction, content-level post-conditions, integrity check, automatic rollback with checksum proof",
+        "Export (recorded in the ledger), then import only a ledger-recorded bundle for the named tenant into an empty location and compare checksums",
+        "Roll back only a backup the ledger records for this database",
+        "Attach outputs and the manifest hash to the handoff"
+      ],
+      "stopping_conditions": [
+        "compatible, migrated and a passing roundtrip",
+        "A refusal, rolled-back or incompatible result: stop and hand the reasons on"
+      ],
+      "output_contract": "JSON with verdict, checksums, post-condition results, reasons and assumptions for preflight, migrate, rollback, export, import and roundtrip.",
+      "failure_states": [
+        "Exit 1: incompatible, refused, rolled back or a roundtrip mismatch",
+        "Exit 2: invalid input"
+      ],
+      "references": [
+        {
+          "title": "SQLite Online Backup API",
+          "location": "https://www.sqlite.org/backup.html",
+          "version": "SQLite 3.x",
+          "rights": "Public domain"
+        },
+        {
+          "title": "Python sqlite3 module (backup, iterdump, set_authorizer)",
+          "location": "https://docs.python.org/3/library/sqlite3.html",
+          "version": "Python 3.9 to 3.14",
+          "rights": "PSF License; cite, don't copy"
+        },
+        {
+          "title": "SQLite PRAGMA integrity_check",
+          "location": "https://www.sqlite.org/pragma.html#pragma_integrity_check",
+          "version": "SQLite 3.x",
+          "rights": "Public domain"
+        },
+        {
+          "title": "Python tarfile extraction filters",
+          "location": "https://docs.python.org/3/library/tarfile.html#tarfile-extraction-filter",
+          "version": "Python 3.9 to 3.14",
+          "rights": "PSF License"
+        }
+      ],
+      "scripts": [
+        "scripts/data_migration.py"
+      ],
+      "evals": {
+        "positive": [
+          "hosting.eval.data-migration-export-import-roundtrip",
+          "hosting.eval.data-migration-compatible-preflight"
+        ],
+        "negative": [
+          "hosting.eval.data-migration-tampered-bundle-refused",
+          "hosting.eval.data-migration-incompatible-runtime",
+          "hosting.eval.data-migration-rehashed-bundle-refused",
+          "hosting.eval.data-migration-relabeled-bundle-refused",
+          "hosting.eval.data-migration-untenanted-export-refused",
+          "hosting.eval.data-migration-other-site-backup-refused",
+          "hosting.eval.data-migration-edited-backup-refused",
+          "hosting.eval.data-migration-content-wipe-caught",
+          "hosting.eval.data-migration-unstated-tables-refused",
+          "hosting.eval.data-migration-empty-preflight-refused"
+        ],
+        "boundary": [
+          "hosting.eval.data-migration-failed-migration-rolls-back",
+          "hosting.eval.data-migration-dropped-rows-caught"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "MySQL, MariaDB or PostgreSQL engine adapter",
+          "kind": "cli",
+          "required": false
+        }
+      ],
+      "missing_capability": "No production database-engine adapter exists; rehearse on a SQLite copy here, hand the same post-conditions to the human operator as a checklist for the real engine, and mark the production result unverified.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets hosting workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "partial",
+          "note": "Covers data migration, upgrade compatibility, rollback and portable export/exit; SQLite stands in for production engines"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/hosting/evidence/skill-tests.txt",
+          "note": "In the rig at skills/hosting-data-migration; quick_validate and unit tests pass on Python 3.14.7 and 3.9.6. Claude Code loads it from the skills root"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/hosting/evidence/evals/data-migration-export-import-roundtrip.txt",
+          "note": "All 6 fleet eval cases pass (2 positive, 2 negative, 2 boundary); raw outputs under fleets/hosting/evidence/evals/"
+        }
+      }
+    },
+    {
+      "id": "hosting-dns-cert-lifecycle",
+      "fleet": "hosting",
+      "summary": "Deterministic DNS zone and TLS certificate lifecycle checks: apex CNAME, CNAME sharing a name, MX to an alias, dangling records after decommission, duplicate SPF, CAA blocking the issuer, TTL before a scheduled change, expiry, renewal window and RFC 6125 wildcard matching.",
+      "triggers": [
+        "Plan or review a DNS cutover, migration or decommission",
+        "Check whether a certificate serves a host and when it expires",
+        "Build a certificate renewal plan"
+      ],
+      "boundaries": [
+        "Reads files only; never queries live DNS or changes records",
+        "Does not issue or renew certificates",
+        "Does not move data; hosting-data-migration owns that"
+      ],
+      "inputs": [
+        "Zone JSON (origin, records)",
+        "Decommissioned hosts and addresses JSON",
+        "Scheduled changes JSON and --now",
+        "Owner issuer-policy.json or --issuer",
+        "Certificate PEM, host name and --now",
+        "Certificate inventory JSON"
+      ],
+      "prerequisites": [
+        "Python 3.9+",
+        "ssl._ssl._test_decode_cert or the openssl CLI"
+      ],
+      "method": [
+        "Run zone-check with the scheduled changes",
+        "Fix every violation before the change window",
+        "Run cert-check for each served name",
+        "Run renewal-plan and hand due items to their owner roles",
+        "Attach the JSON outputs as handoff evidence"
+      ],
+      "stopping_conditions": [
+        "Every touched zone passes and every served name is valid",
+        "A violation remains: stop the cutover and hand the list to the DNS/domain engineer"
+      ],
+      "output_contract": "JSON: zone-check gives verdict, violations, warnings and assumptions; cert-check gives status (valid, renew, expired, name-mismatch), days_left, not_after and parser; renewal-plan gives due items sorted by days left with owner roles.",
+      "failure_states": [
+        "Exit 1: a zone violation or a certificate that is not valid",
+        "Exit 2: invalid JSON or PEM, unknown record type, TTL above 2^31-1, missing --now",
+        "Exit 3: no certificate parser available"
+      ],
+      "references": [
+        {
+          "title": "RFC 1034 section 3.6.2 and RFC 2181 sections 10.1 and 10.3",
+          "location": "https://www.rfc-editor.org/rfc/rfc2181",
+          "version": "RFC 1034 (1987), RFC 2181 (1997)",
+          "rights": "IETF RFC; BCP 78 rights"
+        },
+        {
+          "title": "RFC 7208 SPF section 3.2",
+          "location": "https://www.rfc-editor.org/rfc/rfc7208",
+          "version": "April 2014",
+          "rights": "IETF RFC; BCP 78 rights"
+        },
+        {
+          "title": "RFC 8659 DNS CAA",
+          "location": "https://www.rfc-editor.org/rfc/rfc8659",
+          "version": "November 2019",
+          "rights": "IETF RFC; BCP 78 rights"
+        },
+        {
+          "title": "RFC 6125 section 6.4.3 wildcard matching",
+          "location": "https://www.rfc-editor.org/rfc/rfc6125",
+          "version": "March 2011",
+          "rights": "IETF RFC; BCP 78 rights"
+        },
+        {
+          "title": "OWASP WSTG-CONF-10 subdomain takeover",
+          "location": "https://owasp.org/www-project-web-security-testing-guide/",
+          "version": "v4.2",
+          "rights": "CC BY-SA 4.0; cite, don't copy"
+        }
+      ],
+      "scripts": [
+        "scripts/dns_cert.py"
+      ],
+      "evals": {
+        "positive": [
+          "hosting.eval.dns-cert-valid-zone",
+          "hosting.eval.dns-cert-valid-certificate"
+        ],
+        "negative": [
+          "hosting.eval.dns-cert-dangling-cname",
+          "hosting.eval.dns-cert-apex-cname",
+          "hosting.eval.dns-cert-name-mismatch",
+          "hosting.eval.dns-cert-undotted-dangling-cname",
+          "hosting.eval.dns-cert-dangling-mx-ns-a",
+          "hosting.eval.dns-cert-zone-cannot-name-its-issuer"
+        ],
+        "boundary": [
+          "hosting.eval.dns-cert-renew-window",
+          "hosting.eval.dns-cert-ttl-before-change",
+          "hosting.eval.dns-cert-a-to-cname-cutover-ttl"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Registrar or DNS provider API",
+          "kind": "api",
+          "required": false
+        },
+        {
+          "name": "openssl CLI (fallback parser)",
+          "kind": "cli",
+          "required": false
+        }
+      ],
+      "missing_capability": "No registrar or DNS provider adapter exists because Fixture Co has selected no provider; export the zone to the JSON shape by hand and mark any claim about the live zone unverified.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets hosting workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Covers the DNS and certificate parts of section 5's DNS/certificate lifecycle bullet; live DNS is out of scope"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/hosting/evidence/skill-tests.txt",
+          "note": "In the rig at skills/hosting-dns-cert-lifecycle; quick_validate and unit tests pass on Python 3.14.7 and 3.9.6. Claude Code loads it from the skills root"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/hosting/evidence/evals/dns-cert-valid-zone.txt",
+          "note": "All 7 fleet eval cases pass (2 positive, 3 negative, 2 boundary); raw outputs under fleets/hosting/evidence/evals/"
+        }
+      }
+    },
+    {
+      "id": "hosting-incident-response",
+      "fleet": "hosting",
+      "summary": "SLO and burn-rate checks, alert routing, a hash-chained incident record with recovery evidence before resolution, gated external communications, and a learning handoff to incident-learning.",
+      "triggers": [
+        "A page or ticket alert fired or an SLO is burning",
+        "An incident needs an owner, a record, an update or a close-out",
+        "Someone wants to claim an availability percentage",
+        "A resolved incident needs a learning record seeded"
+      ],
+      "boundaries": [
+        "Does not publish or send any message; a human does",
+        "Does not run the fix; the site reliability role does",
+        "Does not write the postmortem; incident-learning owns it",
+        "Does not compute billing credits or quotas; hosting-metering-reconcile does"
+      ],
+      "inputs": [
+        "SLO file with target and window_days, pinned at open",
+        "Request-event log (ts, status, latency_ms, count)",
+        "Routing file mapping page and ticket to a role",
+        "Monitoring events after mitigation, for resolve",
+        "An anchors ledger kept apart from the record",
+        "Owner file comms-approvers.json"
+      ],
+      "prerequisites": [
+        "skills/factory-rig and skills/company-fleets beside this skill",
+        "skills/incident-learning installed for the handoff"
+      ],
+      "method": [
+        "Run slo-check and read budget, burn rates and alerts; claim availability only with data in every hour of the window",
+        "Open a record with a commander, a different communications coordinator and the pinned SLO",
+        "Log facts (with a source) and hypotheses separately",
+        "Mitigate, monitor, then resolve only when the monitoring events show recovery",
+        "Keep external updates as drafts until a different, owner-listed human approves them in a separate step",
+        "Seed the learning record and hand it to incident-learning"
+      ],
+      "stopping_conditions": [
+        "A refusal stops that step",
+        "A tampered record stops every command",
+        "Stop after review; incident-learning closes the learning"
+      ],
+      "output_contract": "JSON with verdict, sli, budget state, burn rates, alerts with receivers, and assumptions; an append-only record with seq, prev_sha256 and sha256 on every line.",
+      "failure_states": [
+        "Exit 1: alert firing, budget exhausted, or a refusal (insufficient-window, illegal-transition, recovery-evidence-required, not-recovered, slo-mismatch, approver-not-authorized, self-approval, anchor-mismatch, tampered-record)",
+        "Exit 2: invalid SLO, events, routing or flags",
+        "Exit 3: not produced; no external capability is needed"
+      ],
+      "references": [
+        {
+          "title": "The Site Reliability Workbook: Alerting on SLOs",
+          "location": "https://sre.google/workbook/alerting-on-slos/",
+          "version": "2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        },
+        {
+          "title": "incident-learning skill and templates",
+          "location": "skills/incident-learning/",
+          "version": "installed copy, 2026-11-25",
+          "rights": "MIT, Magnus Hedemark; attached by name"
+        }
+      ],
+      "scripts": [
+        "scripts/incident.py"
+      ],
+      "evals": {
+        "positive": [
+          "hosting.eval.incident-response-burn-rate-pages-sre",
+          "hosting.eval.incident-response-steady-state-no-alert",
+          "hosting.eval.incident-response-resolve-with-recovered-events"
+        ],
+        "negative": [
+          "hosting.eval.incident-response-availability-claim-refused",
+          "hosting.eval.incident-response-external-comms-needs-human",
+          "hosting.eval.incident-response-resolve-needs-recovery-evidence",
+          "hosting.eval.incident-response-drafter-cannot-approve-own-update",
+          "hosting.eval.incident-response-resolve-still-down-refused",
+          "hosting.eval.incident-response-claim-lab-run-plus-old-event-refused",
+          "hosting.eval.incident-response-rehashed-record-refused"
+        ],
+        "boundary": [
+          "hosting.eval.incident-response-budget-exactly-exhausted",
+          "hosting.eval.incident-response-tampered-record-refused"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Paging or status-page delivery (not built)",
+          "kind": "fake",
+          "required": false
+        }
+      ],
+      "missing_capability": "No paging or status-page adapter: alerts name a receiver and a person or tool delivers them. Without incident-learning installed, review still writes the skeleton and reports the template folder missing.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets hosting workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Script, 35 tests, fixtures and 7 fleet eval cases cover SLO math, routing, the state table, the three gates and tamper detection. No live paging integration."
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/hosting/evidence/skill-tests.txt",
+          "note": "In the rig at skills/hosting-incident-response; quick_validate and unit tests pass on Python 3.14.7 and 3.9.6. Claude Code loads it from the skills root"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/hosting/evidence/evals/incident-response-burn-rate-pages-sre.txt",
+          "note": "All 7 fleet eval cases pass (2 positive, 3 negative, 2 boundary); raw outputs under fleets/hosting/evidence/evals/"
+        }
+      }
+    },
+    {
+      "id": "hosting-metering-reconcile",
+      "fleet": "hosting",
+      "summary": "Dedupes usage, checks customer-visible quotas, reconciles invoices to metered usage, attributes shared costs to the cent, reconciles affiliate commissions, and forecasts capacity headroom with stated assumptions.",
+      "triggers": [
+        "An invoice looks wrong",
+        "A tenant is near or over quota",
+        "A shared cost pool needs splitting by tenant",
+        "Affiliate payouts need checking",
+        "When will utilization reach a threshold"
+      ],
+      "boundaries": [
+        "Does not set prices, issue credits or change invoices",
+        "Does not size support staff; capacity-planner does",
+        "Does not analyze partner channel economics; channel-economics does",
+        "Does not pay or claw back commissions"
+      ],
+      "inputs": [
+        "Usage events JSONL",
+        "Quotas, prices (with currency) and invoices JSON",
+        "Shared cost pools JSON",
+        "Referrals, terms and payouts JSON, and Fixture Co's own disclosure log",
+        "Daily utilization series JSON"
+      ],
+      "prerequisites": [],
+      "method": [
+        "Dedupe events by event_id with whitespace stripped; flag a new id with the same payload",
+        "Check quota status and publication; one quota per tenant and meter",
+        "Compare expected amount, billed quantity, currency and stated total with each invoice",
+        "Allocate pools with the largest-remainder rule",
+        "Apply the qualified, disclosed (per the owner's log), not-refunded rule to referrals",
+        "Fit a linear trend only with enough points; report reached when the last point is over"
+      ],
+      "stopping_conditions": [
+        "Stop at the report; no billing or payout changes",
+        "Stop on a refusal and name the missing data",
+        "A conflicting duplicate event stops reconciliation"
+      ],
+      "output_contract": "JSON with money as 2-decimal strings, grouped mismatch rows, and an assumptions list on every result.",
+      "failure_states": [
+        "Exit 1: quota violation, invoice or commission mismatch, conflicting or same-payload duplicate, no-driver-usage, disclosure-log-required, insufficient-points",
+        "Exit 2: invalid input such as a negative quantity, a sub-cent amount, a duplicate referral or quota row, a meter without a price or non-increasing dates",
+        "Exit 3: not produced; no external capability is needed"
+      ],
+      "references": [
+        {
+          "title": "NIST/SEMATECH e-Handbook: Linear Least Squares Regression",
+          "location": "https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd141.htm",
+          "version": "2026-11-25",
+          "rights": "US government work; cite"
+        },
+        {
+          "title": "FTC Disclosures 101 for Social Media Influencers",
+          "location": "https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers",
+          "version": "2026-11-25",
+          "rights": "US government work; cite"
+        },
+        {
+          "title": "capacity-planner and channel-economics skills",
+          "location": "skills/capacity-planner/ and skills/channel-economics/",
+          "version": "installed copies v2.8.0, 2026-11-25",
+          "rights": "MIT, Alireza Rezvani; attached by name"
+        }
+      ],
+      "scripts": [
+        "scripts/metering.py"
+      ],
+      "evals": {
+        "positive": [
+          "hosting.eval.metering-invoices-reconcile",
+          "hosting.eval.metering-cost-attribution-sums-exactly",
+          "hosting.eval.metering-capacity-projects-threshold"
+        ],
+        "negative": [
+          "hosting.eval.metering-overbilling-detected",
+          "hosting.eval.metering-undisclosed-referral-flagged",
+          "hosting.eval.metering-quota-unpublished-flagged",
+          "hosting.eval.metering-forged-disclosure-flag-refused",
+          "hosting.eval.metering-invoice-currency-total-quantity-checked"
+        ],
+        "boundary": [
+          "hosting.eval.metering-duplicate-event-not-double-billed",
+          "hosting.eval.metering-capacity-too-few-points",
+          "hosting.eval.metering-capacity-already-over-is-reached"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Billing, meter-store and affiliate-provider export (not built)",
+          "kind": "document",
+          "required": false
+        }
+      ],
+      "missing_capability": "No billing, meter or affiliate-provider adapter: export the data to the documented JSON shapes. Without a payout report only the expected commission is computed; without 14 daily points there is no forecast.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets hosting workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Script, 35 tests, fixtures and 8 fleet eval cases cover dedupe, quotas, reconcile mismatch types, exact allocation, commission rules and the forecast refusal. No live billing or provider data."
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/hosting/evidence/skill-tests.txt",
+          "note": "In the rig at skills/hosting-metering-reconcile; quick_validate and unit tests pass on Python 3.14.7 and 3.9.6. Claude Code loads it from the skills root"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/hosting/evidence/evals/metering-invoices-reconcile.txt",
+          "note": "All 8 fleet eval cases pass (3 positive, 3 negative, 2 boundary); raw outputs under fleets/hosting/evidence/evals/"
+        }
+      }
+    },
+    {
+      "id": "hosting-restore-exercise",
+      "fleet": "hosting",
+      "summary": "Break a disposable local site on purpose (crash, corrupt file, deleted file), detect it with a monitor, restore from backup or fail over and back, measure detection, RTO, RPO and success against targets, keep unmet targets unmet, and prove stale restore evidence fails the handoff gate.",
+      "triggers": [
+        "Test that backups restore",
+        "Run a DR, failover or business-continuity exercise",
+        "Check RTO or RPO",
+        "Accept restore evidence"
+      ],
+      "boundaries": [
+        "Never touches production hosts",
+        "One lab run is not an availability percentage or a commitment",
+        "Schema changes and exports belong to hosting-data-migration"
+      ],
+      "inputs": [
+        "Targets JSON with a stated source",
+        "Failure kind and mode",
+        "For the gate: a factory-rig contract whose spec.sha256 is the targets file, and handoff owner fields"
+      ],
+      "prerequisites": [
+        "Python 3.9+",
+        "A free loopback port"
+      ],
+      "method": [
+        "Seed, start, back up and write after the backup",
+        "Inject the failure and poll the loopback-only monitor until unhealthy",
+        "Restore into a fresh folder or switch to the warm standby",
+        "Confirm healthy with the backup's rows and checksum",
+        "Judge each target met, unmet or not-measured",
+        "Producer writes the handoff, the owner-named reviewer reviews in a separate step, then the gate checks targets against the contract and evidence freshness"
+      ],
+      "stopping_conditions": [
+        "A report with a verdict exists",
+        "Blocked: the service did not start or the failure was never seen within 30 s"
+      ],
+      "output_contract": "JSON report with measured values, per-target status (met, unmet, not-measured), verdict, unmet list, timeline and assumptions; evidence-gate JSON with fresh and stale-case results.",
+      "failure_states": [
+        "Exit 1: a target unmet or not measured, a failed restore, a refused review or fresh handoff, or a gate that accepted stale evidence",
+        "Exit 2: invalid targets or input, or a non-loopback monitor URL",
+        "Exit 3: blocked"
+      ],
+      "references": [
+        {
+          "title": "SQLite Online Backup API",
+          "location": "https://www.sqlite.org/backup.html",
+          "version": "SQLite 3.x",
+          "rights": "Public domain"
+        },
+        {
+          "title": "Site Reliability Engineering, chapter 26, Data Integrity",
+          "location": "https://sre.google/sre-book/data-integrity/",
+          "version": "2016 online edition",
+          "rights": "O'Reilly, free online; cite, don't copy"
+        },
+        {
+          "title": "NIST SP 800-34 Rev. 1 Contingency Planning Guide",
+          "location": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "version": "Rev. 1, 2010-11-11",
+          "rights": "US government work; public domain"
+        },
+        {
+          "title": "company-fleets fleetlib.handoff evidence gate",
+          "location": "skills/company-fleets/scripts/fleetlib/handoff.py",
+          "version": "agent-skills, 2026-11-25",
+          "rights": "agent-skills (MIT)"
+        }
+      ],
+      "scripts": [
+        "scripts/restore_exercise.py",
+        "scripts/site_service.py"
+      ],
+      "evals": {
+        "positive": [
+          "hosting.eval.restore-crash-detected-and-restored",
+          "hosting.eval.restore-corrupt-file-detected",
+          "hosting.eval.restore-failover-failback"
+        ],
+        "negative": [
+          "hosting.eval.restore-unmet-rpo-stays-unmet",
+          "hosting.eval.restore-stale-evidence-rejected",
+          "hosting.eval.restore-relaxed-targets-refused",
+          "hosting.eval.restore-self-review-refused",
+          "hosting.eval.restore-monitor-local-only"
+        ],
+        "boundary": [
+          "hosting.eval.restore-unmeasurable-target-not-met",
+          "hosting.eval.restore-invalid-target-refused"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Production backup tool and staging host",
+          "kind": "cli",
+          "required": false
+        }
+      ],
+      "missing_capability": "No production backup tool or staging host is configured for Fixture Co, so production restore results stay unverified and the benchmark records them as not measured.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets hosting workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/hosting/evidence/skill-tests.txt",
+          "note": "In the rig at skills/hosting-restore-exercise; quick_validate and unit tests pass on Python 3.14.7 and 3.9.6. Claude Code loads it from the skills root"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/hosting/evidence/evals/restore-crash-detected-and-restored.txt",
+          "note": "All 7 fleet eval cases pass (3 positive, 2 negative, 2 boundary); raw outputs under fleets/hosting/evidence/evals/"
+        },
+        "coverage": {
+          "state": "covered",
+          "note": "Backup restoration, recovery, BC/DR exercise, failover and failback on a disposable local service"
+        }
+      }
+    },
+    {
+      "id": "hosting-service-catalogue",
+      "fleet": "hosting",
+      "summary": "Checks a hosting service catalogue and its responsibility matrix against one operating profile, including upstream-provider dependencies and customer-visible limits, so the company never claims a duty it can't control and never drops one it owes.",
+      "triggers": [
+        "Draft or review a hosting plan, package list or support boundary",
+        "Decide who is accountable for backups, accounts, incidents or hardware",
+        "Add an upstream provider or publish customer-visible limits"
+      ],
+      "boundaries": [
+        "Provisioning and suspension belong to hosting-account-lifecycle",
+        "Metering and invoices belong to hosting-metering-reconcile",
+        "Does not certify compliance, set prices or choose providers"
+      ],
+      "inputs": [
+        "Catalogue JSON file",
+        "Registry profiles file (default company-fleets/registry/profiles.json)"
+      ],
+      "prerequisites": [
+        "references/functions.json function vocabulary"
+      ],
+      "method": [
+        "Validate the catalogue (company must be fixture-co)",
+        "Check one accountable party per must_hold function",
+        "Refuse must_not_hold functions held by the company, accountable or responsible; an affiliate holds referral duties only",
+        "Require upstream obligations and an escalation path, placeholders counting as empty",
+        "Require finite, non-negative numeric limits with units",
+        "Render the responsibility matrix"
+      ],
+      "stopping_conditions": [
+        "Verdict pass with assumptions accepted",
+        "A violation needing a business decision goes to a human",
+        "Invalid input is fixed first"
+      ],
+      "output_contract": "JSON on stdout: verdict, profile text from the registry, violations (rule, service, function, message), what was checked and assumptions; matrix returns Markdown.",
+      "failure_states": [
+        "Exit 1: at least one violation",
+        "Exit 2: invalid input or usage"
+      ],
+      "references": [
+        {
+          "title": "company-fleets requirements S05-001 to S05-010, hosting profiles",
+          "location": "registry/requirements.json",
+          "version": "2026-11-25",
+          "rights": "Project requirements, paraphrased in the registry; ids derived, text not copied"
+        },
+        {
+          "title": "Operating profiles registry",
+          "location": "skills/company-fleets/registry/profiles.json",
+          "version": "2026-11-25",
+          "rights": "agent-skills (MIT); read only"
+        }
+      ],
+      "scripts": [
+        "scripts/catalogue_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "hosting.eval.service-catalogue-shared-valid",
+          "hosting.eval.service-catalogue-affiliate-valid",
+          "hosting.eval.service-catalogue-platform-managed-cloud-valid"
+        ],
+        "negative": [
+          "hosting.eval.service-catalogue-affiliate-backups-refused",
+          "hosting.eval.service-catalogue-missing-escalation",
+          "hosting.eval.service-catalogue-affiliate-beyond-referral-refused"
+        ],
+        "boundary": [
+          "hosting.eval.service-catalogue-optional-mail-absent",
+          "hosting.eval.service-catalogue-two-accountable-refused"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Operating profiles registry (profiles.json)",
+          "kind": "document",
+          "required": true
+        }
+      ],
+      "missing_capability": "No external capability is missing. The check can't confirm that an upstream provider performs the listed obligations; a human reviews the provider contract.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets hosting workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Four rules, input validation, optional functions, capability sets and the matrix are tested; provider obligations are unverifiable by design."
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/hosting/evidence/skill-tests.txt",
+          "note": "In the rig at skills/hosting-service-catalogue; quick_validate and unit tests pass on Python 3.14.7 and 3.9.6. Claude Code loads it from the skills root"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/hosting/evidence/evals/service-catalogue-shared-valid.txt",
+          "note": "All 7 fleet eval cases pass (3 positive, 2 negative, 2 boundary); raw outputs under fleets/hosting/evidence/evals/"
+        }
+      }
+    },
+    {
+      "id": "hosting-tenant-isolation",
+      "fleet": "hosting",
+      "summary": "Tests the boundaries between hosted tenants: record access, audit-trail integrity, secret exposure in build output, untrusted build execution in a no-network container, and preview-to-production promotion.",
+      "triggers": [
+        "Check that one hosted tenant can't read another's restricted records",
+        "Review a build log or preview for leaked secrets",
+        "Run an AI-generated or customer-supplied build in isolation",
+        "Decide whether a preview may be promoted to production",
+        "Verify an audit log hasn't been edited"
+      ],
+      "boundaries": [
+        "Abuse reports belong to hosting-abuse-response",
+        "Tenancy rules belong to fleetlib.tenancy; this skill tests them and doesn't edit them",
+        "Does not deploy, change DNS or touch real infrastructure",
+        "The dependency report comes from supply-chain-risk-auditor"
+      ],
+      "inputs": [
+        "Records fixture with principals and records",
+        "Owner files tenant-owners.json, promotion-policy.json and secrets-manifest.json",
+        "Audit log",
+        "Build-output folder and tenant secret manifest",
+        "Tenant source folders and a build script",
+        "Preview record and the owner records folder the pipeline's commands write"
+      ],
+      "prerequisites": [
+        "Python 3.9 or later",
+        "Docker daemon and local image alpine:latest for the sandbox check only; the check never pulls"
+      ],
+      "method": [
+        "Run records through fleetlib.tenancy.can_read after dropping grants the record's tenant owner didn't approve and any grant on credentials or backups; lint approved_abstraction",
+        "Append to and verify the hash-chained audit log; anchor the head hash",
+        "Scan build output for manifest secrets and named patterns without printing values; record the result for a preview",
+        "Run the build script in the hardened container after a trusted mount check, then a weakened control that must fail, then confirm no container remains",
+        "Gate promotion on owner records bound to the preview's content plus a re-scan of its own text; ignore the builder's result fields; treat embedded text as data"
+      ],
+      "stopping_conditions": [
+        "Every requested check printed a verdict",
+        "Any exit 1 stops dependent work until the boundary is fixed",
+        "Exit 3 on the sandbox check is reported as blocked, never as passed"
+      ],
+      "output_contract": "JSON on stdout with a verdict or decision, the evidence behind it and assumptions, plus each check's exit code.",
+      "failure_states": [
+        "Exit 1: leak, tampered, findings, failed sandbox probe, refused promotion or a named refusal (records-required, policy-not-owner-file, approver-not-authorized, self-approval)",
+        "Exit 2: invalid input",
+        "Exit 3: Docker missing, stopped, alpine:latest not local, or --src outside the folders Docker shares"
+      ],
+      "references": [
+        {
+          "title": "fleetlib.tenancy",
+          "location": "skills/company-fleets/scripts/fleetlib/tenancy.py",
+          "version": "2026-11-25",
+          "rights": "agent-skills (MIT)"
+        },
+        {
+          "title": "RFC 7468",
+          "location": "https://www.rfc-editor.org/rfc/rfc7468",
+          "version": "2015; not re-fetched 2026-11-25",
+          "rights": "IETF RFC; BCP 78 rights, cite, don't copy"
+        },
+        {
+          "title": "Docker run reference",
+          "location": "https://docs.docker.com/reference/cli/docker/container/run/",
+          "version": "Docker 29.5.2 exercised 2026-11-25",
+          "rights": "Public docs; cite, don't copy"
+        }
+      ],
+      "scripts": [
+        "scripts/isolation_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "hosting.eval.tenant-isolation-records-isolated",
+          "hosting.eval.tenant-isolation-sandbox-isolated",
+          "hosting.eval.tenant-isolation-promote-clean"
+        ],
+        "negative": [
+          "hosting.eval.tenant-isolation-abstraction-mislabel-caught",
+          "hosting.eval.tenant-isolation-sandbox-control-leaks",
+          "hosting.eval.tenant-isolation-secret-in-build-log",
+          "hosting.eval.tenant-isolation-promote-embedded-instruction",
+          "hosting.eval.tenant-isolation-promote-builder-claims-ignored",
+          "hosting.eval.tenant-isolation-self-granted-read-denied"
+        ],
+        "boundary": [
+          "hosting.eval.tenant-isolation-role-grant-denied",
+          "hosting.eval.tenant-isolation-audit-tamper-detected",
+          "hosting.eval.tenant-isolation-promote-self-approval-refused"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Docker",
+          "kind": "cli",
+          "required": false
+        }
+      ],
+      "missing_capability": "Without Docker, run the other four checks and report the sandbox check as blocked with the exit-3 message; never run the untrusted script on the host.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets hosting workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "All five spec subcommands have tests and eval cases; foundation mislabel case reproduced. Secret-pattern sources were not re-fetched."
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/hosting/evidence/skill-tests.txt",
+          "note": "In the rig at skills/hosting-tenant-isolation; quick_validate and unit tests pass on Python 3.14.7 and 3.9.6. Claude Code loads it from the skills root"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/hosting/evidence/evals/tenant-isolation-records-isolated.txt",
+          "note": "All 10 fleet eval cases pass (3 positive, 4 negative, 3 boundary); raw outputs under fleets/hosting/evidence/evals/"
+        }
+      }
+    }
+  ]
+}

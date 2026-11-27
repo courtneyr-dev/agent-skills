@@ -1,0 +1,16 @@
+{
+  "criteria": {
+    "cases_sha256": "f971799033ce10ff101b01e238daeae123f0337e0f4ff4e6442a6e649aa41420",
+    "regression_selector": [
+      "bin/fleet scan",
+      "untrusted"
+    ],
+    "thresholds": {
+      "min_fresh_pass": 5,
+      "original": "all pass after, all fail before",
+      "regression": "no case that passed before fails after"
+    }
+  },
+  "criteria_sha256": "25ca6a80740c462ea876c790a8580dd93a7ea35e68fa3e2be2608acb72d2d2bc",
+  "record": "IMP-001"
+}

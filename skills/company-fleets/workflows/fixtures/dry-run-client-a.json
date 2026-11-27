@@ -1,0 +1,11 @@
+{
+  "label": "SYNTHETIC dry-run fixture: Fixture Co, tenant client-a. Fake tools only; no real work, people or data.",
+  "instance": "DRY1",
+  "tenant_id": "client-a",
+  "client_id": "client-a",
+  "needs": [],
+  "exclusions": ["Production hosts", "External sends"],
+  "sources": [{"ref": "company-fleets/registry/company.json", "revision": "fixture"}],
+  "data": {"classification": "confidential", "allowed_destinations": ["tenant:client-a", "rig:evidence"]},
+  "budget": {"max_minutes": 30, "max_retries": 1}
+}

@@ -1,0 +1,20 @@
+{
+  "label": "SYNTHETIC: monitoring check result for Fixture Co tenant-a account acct-tenant-a-001.",
+  "account_id": "acct-tenant-a-001",
+  "tenant_id": "tenant-a",
+  "checked_at": "2026-11-25T10:00:00Z",
+  "status": "ok",
+  "checks": [
+    {
+      "name": "http-200",
+      "status": "ok",
+      "value": "200"
+    },
+    {
+      "name": "disk-used-percent",
+      "status": "ok",
+      "value": "41"
+    }
+  ],
+  "message": "All checks passed."
+}

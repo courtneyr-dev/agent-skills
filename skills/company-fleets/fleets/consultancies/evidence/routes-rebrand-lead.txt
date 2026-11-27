@@ -1,0 +1,139 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.routes-rebrand-lead (positive, target consultancies.rebrand-lead).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "id": "consultancies.rebrand-lead" --contains "path": "skills/brand-strategy/SKILL.md" --absent "fleets/hosting/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile agency --workload consultancies.workload.rebrand
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile agency --workload consultancies.workload.rebrand
+{
+  "coordinator": "consultancies.practice-coordinator",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/consultancies/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Consultancy practice coordinator",
+      "fleet": "consultancies",
+      "id": "consultancies.practice-coordinator",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Brand strategist and rollout manager",
+      "fleet": "consultancies",
+      "id": "consultancies.rebrand-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "brand-strategy",
+          "installed": true,
+          "path": "skills/brand-strategy/SKILL.md"
+        },
+        {
+          "id": "brand",
+          "installed": true,
+          "path": "skills/brand/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Brand researcher and naming and messaging lead",
+      "fleet": "consultancies",
+      "id": "consultancies.rebrand-researcher",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "customer-research",
+          "installed": true,
+          "path": "skills/customer-research/SKILL.md"
+        },
+        {
+          "id": "competitor-profiling",
+          "installed": true,
+          "path": "skills/competitor-profiling/SKILL.md"
+        },
+        {
+          "id": "product-marketing",
+          "installed": true,
+          "path": "skills/product-marketing/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Creative and art director, identity designer and content lead",
+      "fleet": "consultancies",
+      "id": "consultancies.rebrand-designer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "creative-direction",
+          "installed": true,
+          "path": "skills/creative-direction/SKILL.md"
+        },
+        {
+          "id": "art-direction",
+          "installed": true,
+          "path": "skills/art-direction/SKILL.md"
+        },
+        {
+          "id": "logo-design",
+          "installed": true,
+          "path": "skills/logo-design/SKILL.md"
+        },
+        {
+          "id": "design-system",
+          "installed": true,
+          "path": "skills/design-system/SKILL.md"
+        },
+        {
+          "id": "content-strategy",
+          "installed": true,
+          "path": "skills/content-strategy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Independent reviewer (all practices)",
+      "fleet": "consultancies",
+      "id": "consultancies.independent-reviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "id": "fp-check",
+          "installed": true,
+          "path": "skills/fp-check/SKILL.md"
+        },
+        {
+          "id": "differential-review",
+          "installed": true,
+          "path": "skills/differential-review/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "consultancies.workload.rebrand"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"id": "consultancies.rebrand-lead"': ok
+CHECK contains '"path": "skills/brand-strategy/SKILL.md"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

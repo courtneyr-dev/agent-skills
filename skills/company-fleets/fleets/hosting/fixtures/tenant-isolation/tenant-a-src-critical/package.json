@@ -1,0 +1,6 @@
+{
+  "label": "SYNTHETIC: Fixture Co tenant-a source fixture. Not a real package.",
+  "name": "tenant-a-site",
+  "version": "0.0.0",
+  "private": true
+}

@@ -1,0 +1,139 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains bcit-education.program-lead --contains fleets/bcit-education/roles.json --absent fleets/agency --absent fleets/hosting --absent fleets/instructional-design -- bin/fleet resolve --profile school --workload bcit-education.workload.course-unit
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.resolve-course-unit
+{
+  "coordinator": "bcit-education.program-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/bcit-education/roles.json"
+  ],
+  "profile": "school",
+  "roles": [
+    {
+      "display_name": "BCIT department and program lead",
+      "fleet": "bcit-education",
+      "id": "bcit-education.program-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "edu-standards-alignment",
+          "installed": true,
+          "path": "skills/edu-standards-alignment/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Curriculum and standards specialist",
+      "fleet": "bcit-education",
+      "id": "bcit-education.curriculum-standards-specialist",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-standards-alignment",
+          "installed": true,
+          "path": "skills/edu-standards-alignment/SKILL.md"
+        },
+        {
+          "id": "edu-learning-progression",
+          "installed": true,
+          "path": "skills/edu-learning-progression/SKILL.md"
+        },
+        {
+          "id": "k12-fixing-lesson-plans",
+          "installed": true,
+          "path": "skills/k12-fixing-lesson-plans/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Accounting, economics and personal finance instructor",
+      "fleet": "bcit-education",
+      "id": "bcit-education.accounting-finance-instructor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "bcit-learning-package",
+          "installed": true,
+          "path": "skills/bcit-learning-package/SKILL.md"
+        },
+        {
+          "id": "edu-answer-key-check",
+          "installed": true,
+          "path": "skills/edu-answer-key-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Information technology, computing, web, database and cybersecurity lab instructor",
+      "fleet": "bcit-education",
+      "id": "bcit-education.it-computing-instructor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "bcit-learning-package",
+          "installed": true,
+          "path": "skills/bcit-learning-package/SKILL.md"
+        },
+        {
+          "id": "edu-answer-key-check",
+          "installed": true,
+          "path": "skills/edu-answer-key-check/SKILL.md"
+        },
+        {
+          "id": "cs-classroom-instruction",
+          "installed": true,
+          "path": "skills/cs-classroom-instruction/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Assessment and rubric designer",
+      "fleet": "bcit-education",
+      "id": "bcit-education.assessment-designer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        },
+        {
+          "id": "edu-answer-key-check",
+          "installed": true,
+          "path": "skills/edu-answer-key-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Accessibility, UDL and accommodations collaborator",
+      "fleet": "bcit-education",
+      "id": "bcit-education.accessibility-udl-collaborator",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        },
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        },
+        {
+          "id": "k12-lesson-differentiation",
+          "installed": true,
+          "path": "skills/k12-lesson-differentiation/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "bcit-education.workload.course-unit"
+}
+# expect: met
+# exit 0

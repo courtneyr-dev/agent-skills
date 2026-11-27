@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=disclosures-not-owner-file -- sh -c 'printf '"'"'%s'"'"' '"'"'{"shown": [{"referral_id": "ref-002", "page": "checkout", "rendered_at": "2026-10-03"}]}'"'"' > {tmp}/mine.json && python3 ../hosting-metering-reconcile/scripts/metering.py commission --referrals fleets/hosting/fixtures/metering/referrals.json --payouts fleets/hosting/fixtures/metering/payouts.json --disclosures {tmp}/mine.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.metering-caller-disclosures-refused kind negative synthetic true
+{
+  "detail": "the disclosures come only from Fixture Co's own $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/metering/disclosure-log.json; the caller-named $TMPDIR/hosting-eval-2lbgtlp9/mine.json is refused",
+  "refusal": "disclosures-not-owner-file",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

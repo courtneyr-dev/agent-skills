@@ -1,0 +1,97 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains Q2-break-even-units --contains Q6-revenue-by-item --contains mismatch -- python3 ../edu-answer-key-check/scripts/answer_key.py check fleets/bcit-education/fixtures/bcit-teacher-education-module/candidate-solutions.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.teacher-module-candidate-errors-caught
+{
+  "ok": false,
+  "engine": "edu-answer-key-check subset evaluator 0.1.0 (not Excel or Sheets); sqlite3 3.54.1; python 3.14.7",
+  "label": "SYNTHETIC FIXTURE (Fixture Co): a sample teacher-candidate solution with two intentionally incorrect answers (Q2 formula, Q6 query). Not a real candidate's work.",
+  "summary": {
+    "match": 5,
+    "mismatch": 2,
+    "error": 0,
+    "unsupported": 0,
+    "submitted_mismatch": 0
+  },
+  "flagged": [
+    "Q2-break-even-units",
+    "Q6-revenue-by-item"
+  ],
+  "items": [
+    {
+      "id": "Q1-contribution-margin",
+      "kind": "spreadsheet",
+      "key": 1.5,
+      "computed": 1.5,
+      "key_status": "match"
+    },
+    {
+      "id": "Q2-break-even-units",
+      "kind": "spreadsheet",
+      "key": 300,
+      "computed": 180.0,
+      "key_status": "mismatch",
+      "detail": "executed result differs from the stated key; check the key and the formula, query or code"
+    },
+    {
+      "id": "Q3-break-even-revenue",
+      "kind": "spreadsheet",
+      "key": 750,
+      "computed": 750.0,
+      "key_status": "match"
+    },
+    {
+      "id": "Q4-target-profit-units",
+      "kind": "spreadsheet",
+      "key": 400,
+      "computed": 400.0,
+      "key_status": "match"
+    },
+    {
+      "id": "Q5-margin-of-safety",
+      "kind": "calc",
+      "key": 0.1667,
+      "computed": 0.16666666666666666,
+      "key_status": "match",
+      "submitted": 0.1667,
+      "submitted_status": "match"
+    },
+    {
+      "id": "Q6-revenue-by-item",
+      "kind": "sql",
+      "key": [
+        [
+          "notebook",
+          144.0
+        ],
+        [
+          "sticker",
+          390.0
+        ]
+      ],
+      "computed": [
+        [
+          "sticker",
+          534.0
+        ]
+      ],
+      "key_status": "mismatch",
+      "detail": "executed result differs from the stated key; check the key and the formula, query or code"
+    },
+    {
+      "id": "Q7-sticker-units",
+      "kind": "sql",
+      "key": [
+        [
+          156
+        ]
+      ],
+      "computed": [
+        [
+          156
+        ]
+      ],
+      "key_status": "match"
+    }
+  ]
+}
+# expect: met
+# exit 0

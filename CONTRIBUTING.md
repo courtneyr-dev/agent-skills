@@ -9,7 +9,11 @@
 3. Put anything long in `references/` and link to it from the body. A `SKILL.md` that cannot be
    skimmed will not be followed.
 4. Add a one-line summary and a realistic example to `manifest.json`, and put the skill in a path.
-5. `./install.sh --list` to confirm it is picked up.
+5. Declare it in `publish/policy.yml` as `mode: public-authored` with a `reason`, and list each of its
+   files other than `SKILL.md` in `publish/public-authored.files`.
+6. `python3 publish/publish_skills.py --verify-public` must pass: it fails on an undeclared file and
+   on a home path, private marker or credential-shaped line.
+7. `./install.sh --list -p <path>` to confirm the path picks it up.
 
 ## What gets rejected
 
@@ -17,6 +21,10 @@
 the one hard rule. A public repo with no LICENSE file is all rights reserved, however freely it is
 shared. If a skill came from somewhere else, link to the original instead — `manifest.json` has an
 `external` kind for exactly this.
+
+Quoting a third-party page in a skill's evidence or references: keep identifiers, titles, headings
+and short attributed phrases, and paraphrase anything sentence-length. Standards text stays out;
+link to it.
 
 Check for an earlier copy before assuming something is yours to publish: compare content and
 first-commit dates, not names. Aggregator repos copy in both directions, so a name match proves

@@ -1,0 +1,49 @@
+$ sh -c 'python3 ../community-health-measures/scripts/measures.py aggregate --plan fleets/community/fixtures/measures/plan-good.json --activity fleets/community/fixtures/measures/activity.json | tee /dev/stderr | python3 -c '"'"'import json,sys; r=json.load(sys.stdin); m = {x["id"]: x for x in r["metrics"]}; s = json.dumps(r); assert m["design-channel-first-response"].get("suppressed"); assert r["excluded_records"] == {"confidential-or-case": 2, "consent-withdrawn": 1}; assert not any(p in s for p in ["p01", "p07", "p10", "member-s1", "CM-CASE-1"])'"'"''
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.measures-small-groups-suppressed (boundary, target community-health-measures, synthetic=True)
+# expected: The design-channel value is suppressed, 2 confidential records and 1 withdrawn record are excluded, and no person id appears.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+{
+  "tool": "community-health-measures",
+  "version": "1.0.0",
+  "community": "community-a",
+  "metrics": [
+    {
+      "id": "newcomer-first-response",
+      "computed": true,
+      "value": 7.0,
+      "unit": "hours (median)",
+      "level": "community",
+      "publish": "public"
+    },
+    {
+      "id": "active-contributors",
+      "computed": true,
+      "value": 9,
+      "unit": "people",
+      "level": "community",
+      "publish": "public"
+    },
+    {
+      "id": "design-channel-first-response",
+      "computed": false,
+      "suppressed": true,
+      "reason": "fewer than 5 people in the group"
+    },
+    {
+      "id": "event-access-requests-met",
+      "computed": false,
+      "reason": "no compute rule; collected outside this tool"
+    }
+  ],
+  "excluded_records": {
+    "confidential-or-case": 2,
+    "consent-withdrawn": 1
+  },
+  "note": "aggregates only; no person identifiers; suppressed values are withheld, not estimated",
+  "ok": true
+}

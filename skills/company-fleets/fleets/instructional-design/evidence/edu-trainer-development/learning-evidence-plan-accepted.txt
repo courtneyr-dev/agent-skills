@@ -1,0 +1,19 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "status": "accepted" --contains "transfer_measures" -- python3 ../edu-trainer-development/scripts/evidence_plan.py check fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan.json
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.learning-evidence-plan-accepted
+{
+  "evidence_measures": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "findings": [],
+  "measures": 4,
+  "status": "accepted",
+  "transfer_measures": [
+    "M1",
+    "M3"
+  ],
+  "warnings": []
+}
+# expect: met
+# exit 0

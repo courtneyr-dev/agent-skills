@@ -1,0 +1,11 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://aclanthology.org/2026.eacl-long.191/
+# run 2026-11-25
+http_code=200 final_url=https://aclanthology.org/2026.eacl-long.191/ size=44758
+L1 (citation): Instructional Agents (Yao et al., EACL 2026), ACL Anthology page
+L30: Instructional Agents: Reducing Teaching Faculty Workload through Multi-Agent Instructional Design
+L63 (citation): EACL 2026 proceedings, Volume 1: Long Papers, Rabat, Morocco, March 2026
+L67: EACLSIG:Publisher:Association for Computational LinguisticsNote:Pages:4087–4109Language:URL:
+L69: 10.18653/v1/2026.eacl-long.191Bibkey:
+L72 (citation): Yao et al., EACL 2026, Volume 1, pages 4087-4109
+L73 (citation): Yao et al., EACL 2026
+L107: doi = "10.18653/v1/2026.eacl-long.191",

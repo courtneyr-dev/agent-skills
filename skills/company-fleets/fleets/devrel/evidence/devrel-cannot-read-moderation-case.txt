@@ -1,0 +1,15 @@
+$ python3 -W ignore -m unittest discover -s fleets/devrel/tests -p 'test_*.py' -v -k Tenancy
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:08Z
+# case: devrel.eval.devrel-cannot-read-moderation-case (negative, target devrel.oss-liaison, synthetic=True)
+# expected: Refused: moderation cases never cross tenants by default, even when marked an approved abstraction.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+test_devrel_cannot_read_a_community_moderation_case (test_devrel_fleet.Tenancy.test_devrel_cannot_read_a_community_moderation_case) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK

@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 # Install these skills for any SKILL.md-compatible agent.
 #
-# This repository is the canonical source for the 34 skills under skills/. Installing links an
+# This repository is the canonical source for the skills under skills/. Installing links an
 # agent's skill directory at them. Nothing here is destructive: an existing real directory, a
 # customized copy, or a link pointing somewhere else is reported, never overwritten.
 #
 #   ./install.sh --dry-run                # default. Classify every destination, change nothing.
 #   ./install.sh --apply                  # create only the missing links
+#   ./install.sh --apply -p fleets -p dev # only the skills of these paths (manifest.json "paths")
+#   ./install.sh --guided                 # one question per path, then a dry run of your picks
 #   ./install.sh --apply -a claude -a codex           # also: copilot (Copilot CLI), cursor, openclaw, gemini
 #   ./install.sh --via-mount              # route through $AGENT_SKILLS_DIR (aggregation topology)
 #   ./install.sh --list                   # list the installable skills
@@ -38,11 +40,15 @@ LIST=0
 EXTERNAL=0
 GRADES=0
 INCLUDE_UNVERIFIED=0
+GUIDED=0
 AGENTS=()
+PATHS=()
 
 while [ $# -gt 0 ]; do
   case "$1" in
     -a|--agent)  AGENTS+=("$2"); shift 2 ;;
+    -p|--path)   PATHS+=("$2"); shift 2 ;;
+    --guided)    GUIDED=1; shift ;;
     --apply)     APPLY=1; shift ;;
     --dry-run)   APPLY=0; shift ;;
     --via-mount) VIA_MOUNT=1; shift ;;
@@ -50,10 +56,13 @@ while [ $# -gt 0 ]; do
     --external)  EXTERNAL=1; shift ;;
     --grades)    GRADES=1; shift ;;
     --include-unverified) INCLUDE_UNVERIFIED=1; shift ;;
-    -h|--help)   sed -n '2,30p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h|--help)   sed -n '2,32p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) echo "unknown option: $1" >&2; exit 2 ;;
   esac
 done
+
+[ -d "$HERE/skills" ] && [ -f "$HERE/manifest.json" ] || {
+  echo "run install.sh from a clone of the repository: it links the skills/ folder beside it" >&2; exit 1; }
 
 agent_dir() {
   case "$1" in
@@ -101,6 +110,36 @@ grade_label() {  # <grade> -> short honest phrase
 
 SKILLS=()
 while IFS= read -r s; do SKILLS+=("$s"); done < <(ls -1 "$HERE/skills" | sort)
+
+# Paths are declared once, in manifest.json: "paths": {"<name>": {"title", "skills", "requires"}}.
+# "requires" names skills from other paths that this path's scripts import from beside themselves.
+if [ "$GUIDED" = 1 ] || [ ${#PATHS[@]} -gt 0 ]; then
+  command -v python3 >/dev/null 2>&1 || { echo "-p and --guided read manifest.json and need python3" >&2; exit 1; }
+  PATH_TABLE="$(python3 - "$HERE/manifest.json" <<'PYEOF'
+import json, sys
+for k, v in json.load(open(sys.argv[1]))["paths"].items():
+    print("%s\t%s\t%s" % (k, v["title"], " ".join(v["skills"] + v.get("requires", []))))
+PYEOF
+)"
+  if [ "$GUIDED" = 1 ]; then
+    exec 3<&0
+    while IFS=$'\t' read -r k title members; do
+      printf 'Install %s (%s skills, -p %s)? [y/N] ' "$title" "$(wc -w <<< "$members" | tr -d ' ')" "$k"
+      read -r ans <&3 || ans=""
+      case "$ans" in y|Y|yes) PATHS+=("$k") ;; esac
+    done <<< "$PATH_TABLE"
+    echo
+    [ ${#PATHS[@]} -eq 0 ] && { echo "no path selected; nothing to install."; exit 0; }
+  fi
+  WANT=""
+  for p in "${PATHS[@]}"; do
+    members="$(printf '%s\n' "$PATH_TABLE" | awk -F'\t' -v p="$p" '$1==p{print $3}')"
+    [ -n "$members" ] || { echo "unknown path: $p (paths: $(printf '%s\n' "$PATH_TABLE" | cut -f1 | paste -sd ' ' -))" >&2; exit 2; }
+    WANT="$WANT $members"
+  done
+  SKILLS=()
+  while IFS= read -r s; do SKILLS+=("$s"); done < <(printf '%s\n' $WANT | sort -u)
+fi
 
 if [ "$GRADES" = 1 ]; then
   if [ -z "$GRADE_TABLE" ]; then
@@ -260,4 +299,8 @@ if [ "$conflicts" -gt 0 ]; then
   echo "converting it is a migration you should make deliberately."
 fi
 [ "$APPLY" = 1 ] && echo && echo "Restart your agent to pick up new skills."
+if [ "$GUIDED" = 1 ] && [ "$APPLY" = 0 ]; then
+  echo
+  echo "To create these links: ./install.sh --apply$(printf ' -p %s' "${PATHS[@]}")$(printf ' -a %s' "${AGENTS[@]}")"
+fi
 exit 0

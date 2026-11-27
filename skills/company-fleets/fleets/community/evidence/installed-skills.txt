@@ -1,0 +1,5 @@
+# run: 2026-11-26T13:47:09Z
+# check: each skill resolves under <skills-root>, names itself, and its scripts compile
+ok   community-moderation-review -> <skills-root>/community-moderation-review/SKILL.md; front matter name community-moderation-review; scripts/case_check.py compiles
+ok   community-health-measures -> <skills-root>/community-health-measures/SKILL.md; front matter name community-health-measures; scripts/measures.py compiles
+ok   community-operating-kit -> <skills-root>/community-operating-kit/SKILL.md; front matter name community-operating-kit; scripts/kit_check.py compiles

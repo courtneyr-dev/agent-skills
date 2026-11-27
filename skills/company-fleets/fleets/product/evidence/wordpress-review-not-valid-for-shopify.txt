@@ -1,0 +1,17 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.wordpress-review-not-valid-for-shopify (negative, target product-release-gate).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../product-release-gate/scripts/tests/test_release_gate.py ReleaseGateTest.test_wordpress_review_does_not_validate_a_shopify_app -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-release-gate/scripts/tests/test_release_gate.py ReleaseGateTest.test_wordpress_review_does_not_validate_a_shopify_app -v
+
+stderr:
+test_wordpress_review_does_not_validate_a_shopify_app (__main__.ReleaseGateTest.test_wordpress_review_does_not_validate_a_shopify_app) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.171s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

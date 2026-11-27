@@ -1,0 +1,25 @@
+$ cd skills/edu-needs-analysis/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v
+# run 2026-11-26 (python 3.14.7)
+test_missing_problem (test_needs.InvalidInputTests.test_missing_problem) ... ok
+test_missing_task_steps (test_needs.InvalidInputTests.test_missing_task_steps) ... ok
+test_not_an_object (test_needs.InvalidInputTests.test_not_an_object) ... ok
+test_not_json (test_needs.InvalidInputTests.test_not_json) ... ok
+test_unknown_evidence_key (test_needs.InvalidInputTests.test_unknown_evidence_key) ... ok
+test_usage_error (test_needs.InvalidInputTests.test_usage_error) ... usage: needs [-h] {route} ...
+needs: error: the following arguments are required: cmd
+ok
+test_value_must_be_boolean_or_null (test_needs.InvalidInputTests.test_value_must_be_boolean_or_null) ... ok
+test_analysis_gaps_list_missing_audience_and_task_fields (test_needs.RouteTests.test_analysis_gaps_list_missing_audience_and_task_fields) ... ok
+test_faded_skill_routes_to_practice_not_a_course (test_needs.RouteTests.test_faded_skill_routes_to_practice_not_a_course) ... ok
+test_never_done_before_routes_to_training (test_needs.RouteTests.test_never_done_before_routes_to_training) ... ok
+test_no_gap_found_is_reported_not_invented (test_needs.RouteTests.test_no_gap_found_is_reported_not_invented) ... ok
+test_tool_obstacle_routes_away_from_a_course (test_needs.RouteTests.test_tool_obstacle_routes_away_from_a_course) ... ok
+test_training_with_environment_obstacle_warns_about_transfer (test_needs.RouteTests.test_training_with_environment_obstacle_warns_about_transfer) ... ok
+test_unknown_skill_question_collects_evidence (test_needs.RouteTests.test_unknown_skill_question_collects_evidence) ... ok
+test_unsourced_value_is_treated_as_missing (test_needs.RouteTests.test_unsourced_value_is_treated_as_missing) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.003s
+
+OK
+# exit 0

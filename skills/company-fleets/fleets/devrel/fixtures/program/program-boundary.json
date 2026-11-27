@@ -1,0 +1,71 @@
+{
+  "label": "SYNTHETIC BOUNDARY CASE: the wording and evidence edges a correct plan may use. The exec headline mixes reach with one usefulness metric; the attribution text says 'caused' only to deny causation; a quote cites a retained synthetic feedback record (records/fb-2.json) for both source and consent. Human usability stays unverified because no reader session has run. Expected to pass check_program. The quote is a fixture record, not a real person or research.",
+  "program": "Fixture Co Notes API developer program",
+  "context_record": "fleets/devrel/fixtures/program/devrel-context.md",
+  "goals": [
+    "More developers reach a first successful API call without help"
+  ],
+  "non_goals": [
+    "No sales lead capture from workshops"
+  ],
+  "segments": [],
+  "budget": {
+    "status": "provided",
+    "amount": 0,
+    "source": "fixture: budget record BUD-0 (synthetic, zero-cost program)"
+  },
+  "staffing": {
+    "status": "owner-to-provide",
+    "owner": "human:head-of-devrel"
+  },
+  "metrics": [
+    {
+      "id": "quickstart-first-success",
+      "class": "usefulness",
+      "definition": "Share of new API keys that make a successful POST /notes within 24 hours",
+      "instrumentation": "API request log",
+      "owner": "devrel.program-analyst"
+    },
+    {
+      "id": "docs-visits",
+      "class": "reach",
+      "definition": "Unique visitors to the quickstart page per month",
+      "instrumentation": "Docs analytics",
+      "owner": "devrel.program-analyst"
+    },
+    {
+      "id": "paid-conversions-after-workshop",
+      "class": "business",
+      "definition": "Attendee organizations that start a paid plan within 90 days",
+      "instrumentation": "Billing records, aggregated",
+      "owner": "devrel.program-analyst",
+      "attribution": "Correlational only; nothing here shows the workshop caused a purchase"
+    }
+  ],
+  "claims": [
+    {
+      "kind": "quote",
+      "text": "\"The search exercise finally made the filter flag click.\"",
+      "source": "fleets/devrel/fixtures/program/records/fb-2.json",
+      "consent": "fleets/devrel/fixtures/program/records/fb-2.json"
+    }
+  ],
+  "reports": [
+    {
+      "audience": "exec",
+      "headline_metrics": [
+        "docs-visits",
+        "quickstart-first-success"
+      ]
+    }
+  ],
+  "chain": [
+    {
+      "type": "quickstart",
+      "artifact": "fleets/devrel/fixtures/docs/quickstart.md",
+      "verified_by": "devrel-quickstart-replay",
+      "evidence": "fleets/devrel/evidence/replay-quickstart.txt",
+      "human_usability": "unverified"
+    }
+  ]
+}

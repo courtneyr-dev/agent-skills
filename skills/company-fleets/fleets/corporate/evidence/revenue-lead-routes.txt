@@ -1,0 +1,135 @@
+# eval corporate.eval.revenue-lead-routes (positive, target corporate.revenue-lead)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "corporate.revenue-lead" --absent "installed": false -- bin/fleet resolve --profile agency --workload corporate.workload.proposal-and-pricing
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Revenue lead",
+      "fleet": "corporate",
+      "id": "corporate.revenue-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "cro-advisor",
+          "installed": true,
+          "path": "skills/cro-advisor/SKILL.md"
+        },
+        {
+          "id": "revenue-operations",
+          "installed": true,
+          "path": "skills/revenue-operations/SKILL.md"
+        },
+        {
+          "id": "prospecting",
+          "installed": true,
+          "path": "skills/prospecting/SKILL.md"
+        },
+        {
+          "id": "sales-enablement",
+          "installed": true,
+          "path": "skills/sales-enablement/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Solutions engineer",
+      "fleet": "corporate",
+      "id": "corporate.solutions-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "sales-engineer",
+          "installed": true,
+          "path": "skills/sales-engineer/SKILL.md"
+        },
+        {
+          "id": "agency-platform-adapters",
+          "installed": true,
+          "path": "skills/agency-platform-adapters/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Proposal and RFP lead",
+      "fleet": "corporate",
+      "id": "corporate.proposal-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "rfp-responder",
+          "installed": true,
+          "path": "skills/rfp-responder/SKILL.md"
+        },
+        {
+          "id": "corporate-claims-check",
+          "installed": true,
+          "path": "skills/corporate-claims-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Deal desk",
+      "fleet": "corporate",
+      "id": "corporate.deal-desk",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "deal-desk",
+          "installed": true,
+          "path": "skills/deal-desk/SKILL.md"
+        },
+        {
+          "id": "pricing-strategist",
+          "installed": true,
+          "path": "skills/pricing-strategist/SKILL.md"
+        },
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Legal and contract liaison",
+      "fleet": "corporate",
+      "id": "corporate.contract-liaison",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "general-counsel-advisor",
+          "installed": true,
+          "path": "skills/general-counsel-advisor/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.proposal-and-pricing"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

@@ -1,0 +1,16 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json verdict=intact --json custody_entries=3 -- sh -c 'mkdir -p {tmp}/in && { cat fleets/hosting/fixtures/abuse-response/phishing-report-tenant-b.txt; echo '"'"'Forwarded with ticket EV-same-report-twice'"'"'; } > {tmp}/in/phishing-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/phishing-report-tenant-b.txt --case-dir {tmp}/one --tenant tenant-b --category phishing >/dev/null && python3 ../hosting-abuse-response/scripts/abuse_case.py propose --case-dir {tmp}/one --action suspend >/dev/null && python3 ../hosting-abuse-response/scripts/abuse_case.py approve --case-dir {tmp}/one --by human:abuse-policy-owner >/dev/null && { python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/phishing-report-tenant-b.txt --case-dir {tmp}/two --tenant tenant-b --category phishing > {tmp}/second.json; true; } && grep -q '"'"'"refusal": "case-exists"'"'"' {tmp}/second.json && test ! -e {tmp}/two && python3 ../hosting-abuse-response/scripts/abuse_case.py verify --case-dir {tmp}/one'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-same-report-twice-refused kind negative synthetic true
+{
+  "assumptions": [
+    "The check recomputes every hash and the custody chain and compares the head with the owner's anchors ledger at its fixed path. A process running as the same OS user can rewrite that ledger too, or run approve under a listed name; only separate OS accounts or signed records stop that."
+  ],
+  "case_id": "case-6277fa3fedf4",
+  "custody_entries": 3,
+  "files_checked": 1,
+  "head_sha256": "159ae0c9b0e63e30fadbab82aa4b8342d689bc78236c1d3f6ace984a160da572",
+  "problems": [],
+  "verdict": "intact",
+  "warnings": []
+}
+# expect: met
+# exit 0

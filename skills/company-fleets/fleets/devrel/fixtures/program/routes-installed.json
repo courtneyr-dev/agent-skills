@@ -1,0 +1,13 @@
+{
+  "label": "SYNTHETIC FIXTURE: the same launch short-list after the uninstalled route is replaced by its installed fallbacks.",
+  "task": "Launch the Notes API to Python developers with tested docs and a workshop",
+  "routes": [
+    {"skill": "samber/developer-relations-skills@developer-journey-map", "order": 1},
+    {"skill": "samber/developer-relations-skills@developer-quickstart-guide", "order": 2},
+    {"skill": "docs-code-sample-standards", "order": 3},
+    {"skill": "devrel-quickstart-replay", "order": 4},
+    {"skill": "samber/developer-relations-skills@developer-workshop-program", "order": 5},
+    {"skill": "samber/developer-relations-skills@developer-feedback-loop", "order": 6},
+    {"skill": "samber/developer-relations-skills@devrel-metrics", "order": 7}
+  ]
+}

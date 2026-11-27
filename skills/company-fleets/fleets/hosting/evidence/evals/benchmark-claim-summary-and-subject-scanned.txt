@@ -1,0 +1,44 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --contains '"dimension": "subject"' --contains '"dimension": "restore.acquia claim"' --contains availability-from-lab -- sh -c 'python3 -c "import json;d=json.load(open('"'"'fleets/hosting/benchmark/2026-11-26-matrix.json'"'"'));dim=lambda i:[x for x in d['"'"'dimensions'"'"'] if x['"'"'id'"'"']==i][0];d['"'"'subject'"'"']='"'"'Fixture Co beats Acquia, Pantheon and WP VIP'"'"';dim('"'"'restore'"'"')['"'"'provider_claims'"'"'][0]['"'"'claim'"'"']='"'"'Restores slower than Fixture Co; Fixture Co guarantees 99.99% uptime'"'"';json.dump(d,open('"'"'{tmp}/m.json'"'"','"'"'w'"'"'))" && python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix {tmp}/m.json'
+# run 2026-11-27 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-claim-summary-and-subject-scanned kind negative synthetic true
+{
+  "as_of": "2026-11-26",
+  "assumptions": [
+    "Provider claims are what public pages said on retrieved_on; they are not tested.",
+    "A measured value counts only at the evidence file and JSON path the evidence owner recorded for its dimension, while the file's hash matches.",
+    "Targets and statuses come from the owner's benchmark/targets.json; a process running as the same OS user can rewrite the owner's files, which only separate OS accounts or signed records stop."
+  ],
+  "statuses": {
+    "accessibility": "not-measured",
+    "availability": "not-measured",
+    "cost": "not-measured",
+    "data_portability": "met",
+    "deployment_reversibility": "met",
+    "isolation": "met",
+    "observability": "met",
+    "performance_under_load": "not-measured",
+    "recovery_objectives": "unmet",
+    "regional_constraints": "not-measured",
+    "restore": "met",
+    "support_coverage": "not-measured"
+  },
+  "verdict": "fail",
+  "violations": [
+    {
+      "dimension": "restore.acquia claim",
+      "message": "comparative claim 'Restores slower than Fixture Co; Fixture Co guarantees 99.99% uptime'; this matrix holds no provider measurements, so it cannot support a superiority claim",
+      "rule": "superiority"
+    },
+    {
+      "dimension": "restore.acquia claim",
+      "message": "availability percentage or uptime promised: 'Restores slower than Fixture Co; Fixture Co guarantees 99.99% uptime'",
+      "rule": "availability-from-lab"
+    },
+    {
+      "dimension": "subject",
+      "message": "comparative claim 'Fixture Co beats Acquia, Pantheon and WP VIP'; this matrix holds no provider measurements, so it cannot support a superiority claim",
+      "rule": "superiority"
+    }
+  ]
+}
+# expect: met
+# exit 0

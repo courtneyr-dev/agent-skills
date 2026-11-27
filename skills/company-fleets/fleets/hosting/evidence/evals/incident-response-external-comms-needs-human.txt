@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=refused --json refusal=approver-must-be-human -- sh -c 'python3 ../hosting-incident-response/scripts/incident.py incident open --record {tmp}/r.jsonl --id INC-EV-COMMS-ROLE --title '"'"'Edge 5xx'"'"' --severity sev2 --commander hosting.incident-commander --comms-coordinator hosting.communications-coordinator --at 2026-11-25T12:05:00Z >/dev/null && python3 ../hosting-incident-response/scripts/incident.py incident update --record {tmp}/r.jsonl --text '"'"'Edge 5xx at 4 percent'"'"' --at 2026-11-25T12:06:00Z >/dev/null && python3 ../hosting-incident-response/scripts/incident.py incident mitigate --record {tmp}/r.jsonl --text '"'"'Rolled back'"'"' --at 2026-11-25T12:20:00Z >/dev/null && python3 ../hosting-incident-response/scripts/incident.py incident monitor --record {tmp}/r.jsonl --text '"'"'Watching'"'"' --at 2026-11-25T12:35:00Z >/dev/null && python3 ../hosting-incident-response/scripts/incident.py incident comms --record {tmp}/r.jsonl --audience external --by human:bot-writer --text '"'"'Service is recovering.'"'"' >/dev/null && python3 ../hosting-incident-response/scripts/incident.py incident approve --record {tmp}/r.jsonl --seq 4 --by hosting.incident-commander'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.incident-response-external-comms-needs-human kind negative synthetic true
+{
+  "detail": "external updates are approved by a human:slug; 'hosting.incident-commander' is not a human",
+  "refusal": "approver-must-be-human",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

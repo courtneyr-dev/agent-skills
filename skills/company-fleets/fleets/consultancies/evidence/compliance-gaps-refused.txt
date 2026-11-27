@@ -1,0 +1,160 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.compliance-gaps-refused (negative, target consult-compliance-engagement).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains "code": "applicability-undetermined" --contains "code": "control-owner-not-human" --contains "code": "evidence-stale" --contains "code": "exception-open" --contains "code": "reviewer-not-independent" --contains "code": "certification-claim-without-attestation" --contains "code": "report-not-authorized-by-human" --absent "status": "pass" -- python3 ../consult-compliance-engagement/scripts/engagement_check.py --engagement ../consult-compliance-engagement/fixtures/engagement-gaps.json --selector ../consult-compliance-engagement/fixtures/selector-output.json --evidence-root ../consult-compliance-engagement/fixtures/evidence-store
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-compliance-engagement/scripts/engagement_check.py --engagement ../consult-compliance-engagement/fixtures/engagement-gaps.json --selector ../consult-compliance-engagement/fixtures/selector-output.json --evidence-root ../consult-compliance-engagement/fixtures/evidence-store
+{
+  "decision": "not-ready",
+  "engagement_id": "ENG-FX-COMP-2",
+  "human_decisions_required": [
+    "Applicability sign-off by each review_authority",
+    "Risk acceptance for any open gap",
+    "Report authorization by the engagement owner",
+    "Any certification or legal conclusion by its external issuer"
+  ],
+  "not_checked": [
+    "whether a control is designed well",
+    "the content of each evidence artifact",
+    "the current edition at the publisher",
+    "contractual or sector obligations not listed in the applicability record"
+  ],
+  "stages": [
+    {
+      "errors": [
+        {
+          "code": "licensed-text-not-obtained",
+          "message": "SOC 2, AICPA Trust Services Criteria text is licensed-free; obtain it before using its checklist",
+          "where": "soc_2"
+        },
+        {
+          "code": "owner-not-human",
+          "message": "evidence_owner must be a named human principal, got 'consultancies.compliance-engineer'",
+          "where": "soc_2"
+        },
+        {
+          "code": "applicability-undetermined",
+          "message": "decide applies or not-applicable before any checklist use",
+          "where": "gdpr"
+        }
+      ],
+      "stage": "applicability",
+      "status": "fail"
+    },
+    {
+      "errors": [
+        {
+          "code": "control-owner-not-human",
+          "message": "control owner must be a named human, got 'consultancies.compliance-engineer'",
+          "where": "SOC2-CC6.1"
+        },
+        {
+          "code": "control-framework-not-applicable",
+          "message": "control maps to gdpr, which is not an applicable framework",
+          "where": "GDPR-ART30"
+        }
+      ],
+      "stage": "control-owners",
+      "status": "fail"
+    },
+    {
+      "errors": [
+        {
+          "code": "evidence-stale",
+          "message": "collected 2026-05-01, 208 days before 2026-11-25; limit 90",
+          "where": "evidence/access-review-2026-q4.csv"
+        },
+        {
+          "code": "collector-is-reviewer",
+          "message": "consultancies.compliance-engineer collected evidence it will review",
+          "where": "evidence/access-review-2026-q4.csv"
+        },
+        {
+          "code": "collector-is-reviewer",
+          "message": "consultancies.compliance-engineer collected evidence it will review",
+          "where": "evidence/ropa-2026-11.csv"
+        },
+        {
+          "code": "control-without-evidence",
+          "message": "no operating evidence collected",
+          "where": "SOC2-CC7.2"
+        }
+      ],
+      "stage": "evidence-collection",
+      "status": "fail"
+    },
+    {
+      "errors": [
+        {
+          "code": "exception-open",
+          "message": "open gap: remediate, or a named human accepts the risk",
+          "where": "EX-3"
+        }
+      ],
+      "stage": "gap-remediation",
+      "status": "fail"
+    },
+    {
+      "errors": [
+        {
+          "code": "reviewer-not-independent",
+          "message": "consultancies.compliance-engineer produced evidence or the report it reviews",
+          "where": "review"
+        },
+        {
+          "code": "review-scope-incomplete",
+          "message": "review did not cover wcag_2_2",
+          "where": "review"
+        }
+      ],
+      "stage": "independent-review",
+      "status": "fail"
+    },
+    {
+      "errors": [
+        {
+          "code": "conformance-claim-exceeds-evidence",
+          "message": "a level or whole-standard conformance claim needs a full-evaluation basis covering every criterion in scope",
+          "where": "C1"
+        },
+        {
+          "code": "claim-category-overreach",
+          "message": "technical-conformance claim uses 'fully compliant'; keep conformance, applicability, certification and legal conclusions apart",
+          "where": "C1"
+        },
+        {
+          "code": "certification-claim-without-attestation",
+          "message": "a certification claim needs an external attestation (SOC 2 report issued by a licensed CPA firm)",
+          "where": "C3"
+        },
+        {
+          "code": "report-not-authorized-by-human",
+          "message": "authorized_by must be a named human, got 'consultancies.compliance-lead'",
+          "where": "report"
+        },
+        {
+          "code": "report-self-authorized",
+          "message": "the report's author or an evidence collector authorized it",
+          "where": "report"
+        },
+        {
+          "code": "report-authorized-with-open-errors",
+          "message": "report marked authorized while earlier stages fail",
+          "where": "report"
+        }
+      ],
+      "stage": "authorized-report",
+      "status": "fail"
+    }
+  ]
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains '"code": "applicability-undetermined"': ok
+CHECK contains '"code": "control-owner-not-human"': ok
+CHECK contains '"code": "evidence-stale"': ok
+CHECK contains '"code": "exception-open"': ok
+CHECK contains '"code": "reviewer-not-independent"': ok
+CHECK contains '"code": "certification-claim-without-attestation"': ok
+CHECK contains '"code": "report-not-authorized-by-human"': ok
+CHECK absent '"status": "pass"': ok
+VERDICT pass

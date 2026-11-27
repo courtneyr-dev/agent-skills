@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "id": "rebrand-international",
+  "code": "RIL",
+  "name": "Rebrand and international launch",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 4 of 8",
+  "profile": "agency",
+  "coordinator": "consultancies.practice-coordinator",
+  "home_workload": "consultancies.workload.rebrand",
+  "outcome": "A rebrand researched, designed, localized, built with honest search claims, checked for accessibility and rolled out in stages.",
+  "final_consumer": "human:client-owner",
+  "stop_conditions": [
+    "Every acceptance criterion is met or refused with a reason",
+    "The step's budget is reached",
+    "A required human decision or human data is missing"
+  ],
+  "cancellation": "Stop the step's tools, keep partial outputs labeled partial in the run folder, and release the coordinator lease with its epoch.",
+  "steps": [
+    {
+      "id": "research",
+      "stage": "Research",
+      "producer": "consultancies.rebrand-researcher",
+      "reviewer": "consultancies.independent-reviewer",
+      "acceptance_owner": "consultancies.rebrand-lead",
+      "outcome": "Research questions and existing evidence, with human research left to people.",
+      "acceptance_criteria": [
+        "No user research finding is invented"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "research brief",
+      "skills": []
+    },
+    {
+      "id": "brand",
+      "stage": "Brand",
+      "producer": "consultancies.rebrand-lead",
+      "reviewer": "consultancies.independent-reviewer",
+      "acceptance_owner": "human:brand-owner",
+      "outcome": "Brand direction for the brand owner to decide.",
+      "acceptance_criteria": [
+        "The brand owner decides; the lead recommends"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "brand direction",
+      "skills": []
+    },
+    {
+      "id": "design-content",
+      "stage": "Design and content",
+      "producer": "consultancies.rebrand-designer",
+      "reviewer": "agency.content-strategist",
+      "acceptance_owner": "consultancies.rebrand-lead",
+      "outcome": "Design tokens and content in the source language.",
+      "acceptance_criteria": [
+        "Tokens pass contrast checks"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "design and content",
+      "skills": []
+    },
+    {
+      "id": "localization",
+      "stage": "Localization",
+      "producer": "consultancies.i18n-lead",
+      "reviewer": "consultancies.localization-qa",
+      "acceptance_owner": "human:language-reviewer",
+      "outcome": "Catalogs checked for placeholders, plurals, RTL and untranslated strings.",
+      "acceptance_criteria": [
+        "Mechanical i18n checks run",
+        "Linguistic review stays with a person"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "i18n report",
+      "skills": [
+        "consult-i18n-check"
+      ]
+    },
+    {
+      "id": "engineering-seo",
+      "stage": "Engineering and SEO",
+      "producer": "agency.web-engineer",
+      "reviewer": "consultancies.technical-seo",
+      "acceptance_owner": "consultancies.practice-coordinator",
+      "outcome": "Built pages and search claims checked against sources.",
+      "acceptance_criteria": [
+        "Unsupported ranking claims and fabricated citations are rejected"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "pages and search report",
+      "skills": [
+        "consult-search-claims-check"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "stage": "Accessibility",
+      "producer": "consultancies.a11y-auditor",
+      "reviewer": "consultancies.independent-reviewer",
+      "acceptance_owner": "consultancies.a11y-lead",
+      "outcome": "Keyboard walk and automated scan results.",
+      "acceptance_criteria": [
+        "Scanner output is not called conformance"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "accessibility results",
+      "skills": [
+        "agency-keyboard-audit"
+      ]
+    },
+    {
+      "id": "rollout",
+      "stage": "Staged rollout",
+      "producer": "agency.release-engineer",
+      "reviewer": "consultancies.independent-reviewer",
+      "acceptance_owner": "human:client-owner",
+      "outcome": "A staged rollout plan held for the client owner.",
+      "acceptance_criteria": [
+        "Nothing goes live without the client owner"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "rollout plan",
+      "skills": [],
+      "authority": {
+        "publication": "staged-only"
+      }
+    }
+  ]
+}

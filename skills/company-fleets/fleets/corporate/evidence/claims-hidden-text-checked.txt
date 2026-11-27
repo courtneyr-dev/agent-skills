@@ -1,0 +1,71 @@
+# eval corporate.eval.claims-hidden-text-checked (negative, target corporate-claims-check)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 1 --contains "rule": "ranking-guarantee" --contains "line": 13 --contains "line": 18 -- python3 ../corporate-claims-check/scripts/claims_check.py --draft ../corporate-claims-check/fixtures/draft-hidden-guarantees.md --sources ../corporate-claims-check/fixtures/sources.json
+run on 2026-11-26, exit 0
+
+{
+  "checked": {
+    "citations": 2,
+    "sentences": 8
+  },
+  "findings": [
+    {
+      "blocking": true,
+      "excerpt": "We guaranteed a #1 ranking on Google.",
+      "line": 4,
+      "message": "Promises a search rank, position or AI-answer inclusion (matched 'guaranteed ... #1'). No one controls a search engine's ranking, so a citation does not fix this. Rewrite as what the work does, with no promised result.",
+      "rule": "ranking-guarantee"
+    },
+    {
+      "blocking": true,
+      "excerpt": "Guaranteed first-page placement for every client.",
+      "line": 6,
+      "message": "Promises a search rank, position or AI-answer inclusion (matched 'guaranteed ... first-page'). No one controls a search engine's ranking, so a citation does not fix this. Rewrite as what the work does, with no promised result.",
+      "rule": "ranking-guarantee"
+    },
+    {
+      "blocking": true,
+      "excerpt": "Guaranteed #1 ranking on Google.",
+      "line": 8,
+      "message": "Promises a search rank, position or AI-answer inclusion (matched 'guaranteed ... #1'). No one controls a search engine's ranking, so a citation does not fix this. Rewrite as what the work does, with no promised result.",
+      "rule": "ranking-guarantee"
+    },
+    {
+      "blocking": true,
+      "excerpt": "Guaranteed No1 on Google.",
+      "line": 10,
+      "message": "Promises a search rank, position or AI-answer inclusion (matched 'guaranteed ... no1'). No one controls a search engine's ranking, so a citation does not fix this. Rewrite as what the work does, with no promised result.",
+      "rule": "ranking-guarantee"
+    },
+    {
+      "blocking": true,
+      "excerpt": "Guaranteed #1 ranking on Google.",
+      "line": 13,
+      "message": "Promises a search rank, position or AI-answer inclusion (matched 'guaranteed ... #1'). No one controls a search engine's ranking, so a citation does not fix this. Rewrite as what the work does, with no promised result.",
+      "rule": "ranking-guarantee"
+    },
+    {
+      "blocking": true,
+      "excerpt": "We guarantee first-page rankings in 30 days.",
+      "line": 18,
+      "message": "Promises a search rank, position or AI-answer inclusion (matched 'guarantee ... first-page'). No one controls a search engine's ranking, so a citation does not fix this. Rewrite as what the work does, with no promised result.",
+      "rule": "ranking-guarantee"
+    }
+  ],
+  "limits": [
+    "Does not check that a registered source really says what its excerpt claims; a human verifies the register against the live page.",
+    "Does not judge tone or brand fit, and does not decide whether a claim is true; it checks that claims carry citations that resolve and that quotes and statistic numbers appear in the cited excerpts.",
+    "Patterns are English. Spanish, French and German guarantee words (garantizado, garanti, garantiert and their forms) and a few position phrases (primer lugar, premi\u00e8re place, Platz 1) are also matched, with their basic negations; any other wording in those languages, and every other language, passes unchecked.",
+    "Matches phrases, not meaning: a promise needs a cue (guarantee, promise, ensure, will, always, money back, or we work for free and similar) plus a rank, position or AI-answer target, said by the author or to the client. A promise with no cue word passes: certain to appear, a sure thing, our pledge, our commitment, we commit to.",
+    "Reads what renders: HTML tags, Markdown emphasis inside a word, combining marks, a hyphenated line break, entities, look-alike letters and invisible characters are removed before matching.",
+    "Compares quotes in straight, curly, low, angle and corner quotation marks, <q> elements, and blockquotes (Markdown or <blockquote>) cited on the quote itself or on an attribution line after it. A code span, italics without quotation marks, or a paraphrase after a colon is not read as a quote, so it is checked as the author's own words.",
+    "Only http(s) inline links count as citations; a sentence is cited when it holds at least one marker or link that resolves to the register.",
+    "The sign-off comes from the owner ledger of the instance the register names, kept at fleets/corporate/owner/<instance> in company-fleets and written under the claim token; a ledger of another tenant is refused. Not stopped: a same-user process that writes the owner root, reads the owner's token, or claims an instance first, including a new instance id the register's author writes into the register and then claims (company-fleets references/authoring-guide.md, Owner path)."
+  ],
+  "ok": false,
+  "sign_off": {
+    "author": "human:content-author",
+    "owner_log_seq": 2,
+    "signed_off_by": "human:claims-reviewer"
+  }
+}
+[expect] exit 1 (expected 1); missing none; forbidden present none -> PASS

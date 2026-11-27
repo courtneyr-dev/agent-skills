@@ -1,0 +1,138 @@
+{
+  "label": "Requirement rows owned by the corporate-and-agency workstream, mapped to deliverables. The integrator copies status, deliverable and blocker into registry/requirements.json; note is context only.",
+  "rows": [
+    {
+      "id": "S04-001",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.engagement-director",
+      "blocker": null,
+      "note": "engagement-director (principal, account director), delivery-lead, estimator"
+    },
+    {
+      "id": "S04-002",
+      "status": "delivered",
+      "deliverable": "agency-engagement-gate/SKILL.md",
+      "blocker": null,
+      "note": "brief subcommand checks qualification, scope, assumptions, acceptance, margin and change control; script-verified"
+    },
+    {
+      "id": "S04-003",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.research-strategist",
+      "blocker": null,
+      "note": "One combined role: business analyst, UX researcher, service designer, digital strategist"
+    },
+    {
+      "id": "S04-004",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.research-strategist",
+      "blocker": null,
+      "note": "Research plan, journeys, blueprint, opportunity assessment as outputs; observed findings stop at the human-data boundary (demo ledger records the skip)"
+    },
+    {
+      "id": "S04-005",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.content-strategist",
+      "blocker": null,
+      "note": "content-strategist (strategist, IA, editor) and migration-lead (migration specialist)"
+    },
+    {
+      "id": "S04-006",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.workload.cms-migration",
+      "blocker": null,
+      "note": "Content model, inventory, taxonomy, workflow via installed skills; migration mapping has no dedicated skill (migration-lead coverage partial)"
+    },
+    {
+      "id": "S04-007",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.brand-design-lead",
+      "blocker": null,
+      "note": "brand-design-lead, ux-ui-designer (incl. motion/visual), design-systems-lead"
+    },
+    {
+      "id": "S04-008",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/demo/client-a-donate/deliverable/tokens.css",
+      "blocker": null,
+      "note": "Tokens pass upstream check-foundations contrast; prototypes pass agency-keyboard-audit"
+    },
+    {
+      "id": "S04-009",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.solution-architect",
+      "blocker": null,
+      "note": "solution-architect (incl. integration/API), web-engineer, cms-specialist, mobile-pwa-specialist (partial: PWA blocked)"
+    },
+    {
+      "id": "S04-010",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/demo/client-a-donate/deliverable/build.py",
+      "blocker": null,
+      "note": "Working three-locale page built from catalogs; verified by keyboard, i18n and contrast checks"
+    },
+    {
+      "id": "S04-011",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.qa-engineer",
+      "blocker": null,
+      "note": "qa-engineer (functional QA, automation), accessibility-specialist, security-reviewer, performance-engineer"
+    },
+    {
+      "id": "S04-012",
+      "status": "delivered",
+      "deliverable": "agency-keyboard-audit/SKILL.md",
+      "blocker": null,
+      "note": "Reproducible defects with steps, axe-core baseline vs keyboard walk; manual steps when blocked"
+    },
+    {
+      "id": "S04-013",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.release-engineer",
+      "blocker": null,
+      "note": "release-engineer (incl. platform/DevOps liaison), migration-lead, training-lead, support-handoff-owner"
+    },
+    {
+      "id": "S04-014",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/demo/client-a-donate/support/runbook.md",
+      "blocker": null,
+      "note": "Deployment, rollback, content freeze, training, warranty; runbook gate and handoff.v1 verified"
+    },
+    {
+      "id": "S04-015",
+      "status": "delivered",
+      "deliverable": "agency-platform-adapters/references/adapters.json",
+      "blocker": null,
+      "note": "WordPress (7.0+, PHP 7.4+), WooCommerce, Drupal, Cloudflare Workers, JS/TS, native iOS available; headless CMS, PHP frameworks, other commerce, API contract testing and PWA blocked with reasons"
+    },
+    {
+      "id": "S04-016",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/agency/roles.json#agency.workload.client-engagement",
+      "blocker": null,
+      "note": "Nine stages in the workload and enforced by engagement_gate.py stages"
+    },
+    {
+      "id": "S04-017",
+      "status": "delivered",
+      "deliverable": "agency-engagement-gate/references/engagement-stages.md",
+      "blocker": null,
+      "note": "Evidence hash per transition; scope change detected against the factory-rig contract spec hash (demo C4)"
+    },
+    {
+      "id": "S04-018",
+      "status": "delivered",
+      "deliverable": "agency-platform-adapters/references/platform-sources.md",
+      "blocker": null,
+      "note": "Kanopi code-standards-checker, composer-security-update, pr-quality-report and WordPress/agent-skills routed; Kanopi private tooling not assumed"
+    },
+    {
+      "id": "S04-019",
+      "status": "delivered",
+      "deliverable": "agency-platform-adapters/references/adapters.json",
+      "blocker": null,
+      "note": "WPCS and PHPDoc recorded as the WordPress standard; code-standards-checker runs the project's own ruleset"
+    }
+  ]
+}

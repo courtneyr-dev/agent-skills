@@ -1,0 +1,43 @@
+{
+  "label": "Marketplace checklist registry for product-release-gate. A platform is 'pinned' only when an installed rig skill or a pinned policy text supplies its checklist. Every other platform blocks the marketplace stage; a checklist for one platform never satisfies another.",
+  "as_of": "2026-11-25",
+  "platforms": {
+    "wordpress-plugin": {
+      "status": "pinned",
+      "checklist": "wordpress-org-compliance",
+      "source": "Installed skill wordpress-org-compliance (hellokhoyer/wordpress-org-compliance, ref main, MIT, copyright 2026 Abul Khoyer), which audits against the WordPress.org Detailed Plugin Guidelines and Plugin Check",
+      "policy_url": "https://developer.wordpress.org/plugins/wordpress-org/detailed-plugin-guidelines/",
+      "note": "Run the skill and record its result as marketplace_review"
+    },
+    "wordpress-theme": {
+      "status": "not-pinned",
+      "policy_url": "https://make.wordpress.org/themes/handbook/review/required/",
+      "note": "No installed theme-review skill; pin the Themes Team required list before use"
+    },
+    "woocommerce-extension": {
+      "status": "not-pinned",
+      "policy_url": "https://woocommerce.com/document/marketplace-overview/",
+      "note": "woocommerce-finalize is a code-health audit, not the Woo Marketplace submission policy; pin that policy before use"
+    },
+    "drupal-module": {
+      "status": "not-pinned",
+      "policy_url": "https://www.drupal.org/drupal-security-team/security-advisory-process-and-permissions-policy",
+      "note": "No installed Drupal.org project or security-coverage checklist"
+    },
+    "browser-extension-chrome": {
+      "status": "not-pinned",
+      "policy_url": "https://developer.chrome.com/docs/webstore/program-policies/",
+      "note": "No installed Chrome Web Store policy checklist"
+    },
+    "browser-extension-firefox": {
+      "status": "not-pinned",
+      "policy_url": "https://extensionworkshop.com/documentation/publish/add-on-policies/",
+      "note": "No installed Mozilla add-on policy checklist"
+    },
+    "shopify-app": {
+      "status": "not-pinned",
+      "policy_url": "https://shopify.dev/docs/apps/launch/app-requirements-checklist",
+      "note": "No installed Shopify App Store requirements checklist"
+    }
+  }
+}

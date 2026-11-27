@@ -4,9 +4,9 @@ name: publication
 #
 # It deliberately does NOT run --check or --apply. Both need the private canonical skill
 # sources, which exist only on the maintainer's machine. CI verifies what it can honestly
-# verify: transform logic, policy integrity, public-authored protection, and that every
-# generated artifact still matches the lock recorded when it was published. Installer tests run
-# entirely in a temporary HOME and never touch a real skill store.
+# verify: transform logic, policy integrity, public-authored protection, that every generated
+# artifact still matches the lock recorded when it was published, and a gitleaks scan. Installer
+# tests run entirely in a temporary HOME and never touch a real skill store.
 
 on:
   push:
@@ -22,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # gitleaks scans the commit history as well as the tree
 
       - uses: actions/setup-python@v5
         with:
@@ -37,5 +39,19 @@ jobs:
         run: python3 publish/tests/test_install.py
 
       - name: Verify public artifacts against the lock
-        # No private canonical sources on the runner; this must pass without them.
+        # No private canonical sources on the runner; this must pass without them. Also fails on an
+        # undeclared file or a privacy-gate hit in a public-authored skill.
         run: python3 publish/publish_skills.py --verify-public
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: gitleaks with .gitleaks.toml (tree and history)
+        # go install checks the module against the Go checksum database. v8.30.1 is the version
+        # the maintainer runs locally; bump both together.
+        run: |
+          go install github.com/zricethezav/gitleaks/v8@v8.30.1
+          gl="$(go env GOPATH)/bin/gitleaks"
+          "$gl" detect --no-git --source . --config .gitleaks.toml --redact --no-banner
+          "$gl" detect --source . --config .gitleaks.toml --redact --no-banner

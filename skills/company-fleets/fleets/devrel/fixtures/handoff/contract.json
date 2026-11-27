@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "FIX-DEVREL-DOCS-1",
+  "repo": "fixture-co/notes-api-docs",
+  "title": "SYNTHETIC: tested quickstart and workshop lab for the Fixture Co Notes API",
+  "spec": {
+    "id": "SPEC-FIX-DEVREL-DOCS",
+    "revision": "1",
+    "sha256": "335feb1f2d630c78d199b560182b014ea0324632bed9ff562aaf44cf79023227"
+  },
+  "depends_on": [],
+  "required_decisions": [],
+  "backends": [
+    "implement-spec"
+  ],
+  "base_branch": "main",
+  "verify": {
+    "argv": [
+      "python3",
+      "../devrel-quickstart-replay/scripts/replay.py",
+      "fleets/devrel/fixtures/docs/quickstart.md",
+      "--asset",
+      "fleets/devrel/fixtures/fixture-co-notes"
+    ]
+  },
+  "acceptance": [
+    "Every runnable block replays clean with matching output",
+    "Human usability stays unverified until a reader session is on record"
+  ]
+}

@@ -1,0 +1,8 @@
+# eval corporate.eval.claims-invalid-register-refused (boundary, target corporate-claims-check)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 2 --contains missing 'url' -- python3 ../corporate-claims-check/scripts/claims_check.py --draft ../corporate-claims-check/fixtures/draft-pass.md --sources ../corporate-claims-check/fixtures/sources-invalid.json
+run on 2026-11-26, exit 0
+
+{
+  "error": "source 1 is missing 'url'"
+}
+[expect] exit 2 (expected 2); missing none; forbidden present none -> PASS

@@ -1,0 +1,4 @@
+{
+  "label": "SYNTHETIC: Fixture Co's certificate issuer. Owned by hosting.platform-engineer; zone-check reads it, a zone file can't override it.",
+  "issuer": "ca.fixture-co.test"
+}

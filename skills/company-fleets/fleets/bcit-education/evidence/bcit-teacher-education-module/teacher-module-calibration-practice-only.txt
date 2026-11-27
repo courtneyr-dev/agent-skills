@@ -1,0 +1,61 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains practice-only: no inter-rater agreement claimed --absent exact_agreement -- python3 ../edu-trainer-development/scripts/agreement.py stats fleets/bcit-education/fixtures/bcit-teacher-education-module/calibration-practice-ratings.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.teacher-module-calibration-practice-only
+{
+  "discussion": [
+    {
+      "anchor": 0,
+      "item": "T1",
+      "scores": {
+        "generated:descriptor-literal": 0,
+        "generated:outcome-focused": 1
+      },
+      "spread_levels": 1
+    },
+    {
+      "anchor": 2,
+      "item": "T2",
+      "scores": {
+        "generated:descriptor-literal": 2,
+        "generated:outcome-focused": 3
+      },
+      "spread_levels": 1
+    },
+    {
+      "anchor": 0,
+      "item": "T3",
+      "scores": {
+        "generated:descriptor-literal": 0,
+        "generated:outcome-focused": 1
+      },
+      "spread_levels": 1
+    },
+    {
+      "anchor": 1,
+      "item": "T4",
+      "scores": {
+        "generated:descriptor-literal": 2,
+        "generated:outcome-focused": 1
+      },
+      "spread_levels": 1
+    },
+    {
+      "anchor": 3,
+      "item": "T6",
+      "scores": {
+        "generated:descriptor-literal": 3,
+        "generated:outcome-focused": 2
+      },
+      "spread_levels": 1
+    }
+  ],
+  "message": "practice-only: no inter-rater agreement claimed",
+  "reasons": [
+    "the file is labeled synthetic",
+    "ratings with source generated are not human ratings",
+    "raters generated:descriptor-literal, generated:outcome-focused are not human:<id> principals"
+  ],
+  "rubric_id": "fixture-co-bcit-break-even-methods-v1",
+  "status": "practice-only"
+}
+# expect: met
+# exit 0

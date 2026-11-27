@@ -1,0 +1,14 @@
+# eval agency.eval.client-b-relabel-refused (negative, target agency-engagement-gate)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../agency-engagement-gate/scripts/tests/test_engagement_gate.py -v HandoffTests.test_worker_cannot_relabel_client_b_as_client_a HandoffTests.test_worker_label_that_disagrees_with_the_intake_is_refused HandoffTests.test_intake_record_is_write_once
+run on 2026-11-26, exit 0
+
+[stderr]
+test_worker_cannot_relabel_client_b_as_client_a (__main__.HandoffTests.test_worker_cannot_relabel_client_b_as_client_a) ... ok
+test_worker_label_that_disagrees_with_the_intake_is_refused (__main__.HandoffTests.test_worker_label_that_disagrees_with_the_intake_is_refused) ... ok
+test_intake_record_is_write_once (__main__.HandoffTests.test_intake_record_is_write_once) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.185s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

@@ -1,0 +1,5 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 2 --contains "error": "invalid input" --contains unknown band -- python3 ../edu-learning-progression/scripts/progression.py check fleets/bcit-education/fixtures/edu-learning-progression/progression-invalid.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.progression-invalid-band-refused
+{"error": "invalid input", "detail": "unknown band 'high school' (use PK-2, 3-5, 6-8, 9-10, 11-12, 9-12 or university)"}
+# expect: met
+# exit 0

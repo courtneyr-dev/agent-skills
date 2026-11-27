@@ -1,0 +1,118 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.resolve-discovery (positive, target product.product-lead).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "coordinator": "product.product-lead" --contains "fleets/product/roles.json" --absent "fleets/hosting/roles.json" --absent "fleets/agency/roles.json" --absent "fleets/consultancies/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile product --workload product.workload.discovery
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile product --workload product.workload.discovery
+{
+  "coordinator": "product.product-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/product/roles.json"
+  ],
+  "profile": "product",
+  "roles": [
+    {
+      "display_name": "Product lead (product GM and product manager viewpoint)",
+      "fleet": "product",
+      "id": "product.product-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "cpo-advisor",
+          "installed": true,
+          "path": "skills/cpo-advisor/SKILL.md"
+        },
+        {
+          "id": "brd-writer",
+          "installed": true,
+          "path": "skills/brd-writer/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Product researcher and ecosystem strategist",
+      "fleet": "product",
+      "id": "product.researcher",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "customer-research",
+          "installed": true,
+          "path": "skills/customer-research/SKILL.md"
+        },
+        {
+          "id": "developer-ecosystem-strategy",
+          "installed": true,
+          "path": "skills/developer-ecosystem-strategy/SKILL.md"
+        },
+        {
+          "id": "product-analytics",
+          "installed": true,
+          "path": "skills/product-analytics/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "UX and content designer",
+      "fleet": "product",
+      "id": "product.ux-content-designer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "web-design",
+          "installed": true,
+          "path": "skills/web-design/SKILL.md"
+        },
+        {
+          "id": "design-system",
+          "installed": true,
+          "path": "skills/design-system/SKILL.md"
+        },
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Licensing, entitlements, subscriptions, billing and pricing owner",
+      "fleet": "product",
+      "id": "product.commerce-owner",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "product-payment-events",
+          "installed": true,
+          "path": "skills/product-payment-events/SKILL.md"
+        },
+        {
+          "id": "pricing-strategist",
+          "installed": true,
+          "path": "skills/pricing-strategist/SKILL.md"
+        },
+        {
+          "id": "devtools-pricing-strategy",
+          "installed": true,
+          "path": "skills/devtools-pricing-strategy/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "product.workload.discovery"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"coordinator": "product.product-lead"': ok
+CHECK contains '"fleets/product/roles.json"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/agency/roles.json"': ok
+CHECK absent '"fleets/consultancies/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

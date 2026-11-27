@@ -1,0 +1,26 @@
+{
+  "label": "Fixture Co's proposed benchmark targets, owned by human:hosting-operations-owner. benchmark.py takes every target and status from this file; a matrix target that differs is refused. Proposed 2026-11-26; hypotheses, not commitments.",
+  "targets": {
+    "restore": {
+      "max": 60,
+      "unit": "seconds"
+    },
+    "recovery_objectives": {
+      "max": 0,
+      "unit": "writes lost"
+    },
+    "isolation": {
+      "equals": "isolated"
+    },
+    "deployment_reversibility": {
+      "equals": true
+    },
+    "observability": {
+      "max": 10,
+      "unit": "seconds"
+    },
+    "data_portability": {
+      "equals": "pass"
+    }
+  }
+}

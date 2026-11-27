@@ -1,0 +1,11 @@
+# SYNTHETIC FIXTURE (Fixture Co): school store sales, weeks 1-3. Made-up numbers for practice.
+week,item,units,unit_price
+1,sticker,40,2.5
+1,notebook,12,4.0
+1,lanyard,9,3.0
+2,sticker,35,2.5
+2,notebook,15,4.0
+2,lanyard,6,3.0
+3,sticker,52,2.5
+3,notebook,10,4.0
+3,lanyard,11,3.0

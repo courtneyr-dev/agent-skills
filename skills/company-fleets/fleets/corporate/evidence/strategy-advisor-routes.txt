@@ -1,0 +1,94 @@
+# eval corporate.eval.strategy-advisor-routes (positive, target corporate.strategy-advisor)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "corporate.strategy-advisor" --absent "installed": false -- bin/fleet resolve --profile reseller --workload corporate.workload.strategy-decision
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "reseller",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Strategy advisor",
+      "fleet": "corporate",
+      "id": "corporate.strategy-advisor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "ceo-advisor",
+          "installed": true,
+          "path": "skills/ceo-advisor/SKILL.md"
+        },
+        {
+          "id": "competitor-profiling",
+          "installed": true,
+          "path": "skills/competitor-profiling/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Operations advisor",
+      "fleet": "corporate",
+      "id": "corporate.operations-advisor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "coo-advisor",
+          "installed": true,
+          "path": "skills/coo-advisor/SKILL.md"
+        },
+        {
+          "id": "process-mapper",
+          "installed": true,
+          "path": "skills/process-mapper/SKILL.md"
+        },
+        {
+          "id": "capacity-planner",
+          "installed": true,
+          "path": "skills/capacity-planner/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Finance advisor",
+      "fleet": "corporate",
+      "id": "corporate.finance-advisor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "cfo-advisor",
+          "installed": true,
+          "path": "skills/cfo-advisor/SKILL.md"
+        },
+        {
+          "id": "financial-analyst",
+          "installed": true,
+          "path": "skills/financial-analyst/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.strategy-decision"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

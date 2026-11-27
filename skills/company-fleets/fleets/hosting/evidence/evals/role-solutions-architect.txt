@@ -1,0 +1,23 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=incompatible --json reasons.0.kind=runtime-version -- python3 ../hosting-data-migration/scripts/data_migration.py preflight --app fleets/hosting/fixtures/data-migration/app.json --target fleets/hosting/fixtures/data-migration/target-php74.json
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.role-solutions-architect kind negative synthetic true
+{
+  "assumptions": [
+    "Ranges compare dotted integers only; a version with a suffix such as 8.4.0RC1 is rejected as invalid input.",
+    "One offered version that satisfies the range is enough.",
+    "SQLite and a files folder stand in for the site's database and uploads; engine-specific SQL (MySQL, PostgreSQL) is not tested."
+  ],
+  "checked": 5,
+  "reasons": [
+    {
+      "kind": "runtime-version",
+      "name": "php",
+      "offered": [
+        "7.4"
+      ],
+      "required": ">=8.1,<8.5"
+    }
+  ],
+  "verdict": "incompatible"
+}
+# expect: met
+# exit 0

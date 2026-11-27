@@ -1,0 +1,33 @@
+$ cd skills/edu-student-data-guard/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v
+# run 2026-11-27 (python 3.14.7)
+test_a_grant_written_on_the_record_counts_for_nothing (test_data_guard.GuardTests.test_a_grant_written_on_the_record_counts_for_nothing) ... ok
+test_another_classrooms_student_record_stays_refused_whatever_the_grant (test_data_guard.GuardTests.test_another_classrooms_student_record_stays_refused_whatever_the_grant) ... ok
+test_external_destination_refused_even_with_policy (test_data_guard.GuardTests.test_external_destination_refused_even_with_policy) ... ok
+test_only_a_human_grant_in_the_owner_file_opens_another_classrooms_lesson_plan (test_data_guard.GuardTests.test_only_a_human_grant_in_the_owner_file_opens_another_classrooms_lesson_plan) ... ok
+test_other_classroom_student_record_refused (test_data_guard.GuardTests.test_other_classroom_student_record_refused) ... ok
+test_real_records_allowed_only_with_complete_verified_policy (test_data_guard.GuardTests.test_real_records_allowed_only_with_complete_verified_policy) ... ok
+test_real_records_refused_under_the_shipped_policy (test_data_guard.GuardTests.test_real_records_refused_under_the_shipped_policy) ... ok
+test_requester_cannot_pass_grants (test_data_guard.GuardTests.test_requester_cannot_pass_grants) ... usage: data_guard [-h] {check} ...
+data_guard: error: unrecognized arguments: --grants references/owner-grants.json
+ok
+test_same_classroom_synthetic_allowed (test_data_guard.GuardTests.test_same_classroom_synthetic_allowed) ... ok
+test_the_cli_reads_grants_only_from_the_owner_file (test_data_guard.GuardTests.test_the_cli_reads_grants_only_from_the_owner_file) ... ok
+test_verified_flag_without_existing_evidence_is_not_verified (test_data_guard.GuardTests.test_verified_flag_without_existing_evidence_is_not_verified) ... ok
+test_missing_fields_and_unknown_ids (test_data_guard.InvalidInputTests.test_missing_fields_and_unknown_ids) ... ok
+test_usage (test_data_guard.InvalidInputTests.test_usage) ... usage: data_guard [-h] {check} ...
+data_guard: error: the following arguments are required: cmd
+ok
+test_inline_principal_claiming_another_classroom_is_refused (test_data_guard.RequesterCannotSupplyIdentityOrPolicy.test_inline_principal_claiming_another_classroom_is_refused) ... ok
+test_inline_record_is_refused (test_data_guard.RequesterCannotSupplyIdentityOrPolicy.test_inline_record_is_refused) ... ok
+test_requester_cannot_pass_a_policy_or_tenants_file (test_data_guard.RequesterCannotSupplyIdentityOrPolicy.test_requester_cannot_pass_a_policy_or_tenants_file) ... usage: data_guard [-h] {check} ...
+data_guard: error: unrecognized arguments: --policy <skills-root>/company-fleets/fleets/bcit-education/fixtures/edu-student-data-guard/policy-forged-by-requester.json
+usage: data_guard [-h] {check} ...
+data_guard: error: unrecognized arguments: --tenants <skills-root>/company-fleets/fleets/bcit-education/fixtures/edu-student-data-guard/policy-forged-by-requester.json
+ok
+test_reviewer_probe_real_classroom_b_roster_refused (test_data_guard.RequesterCannotSupplyIdentityOrPolicy.test_reviewer_probe_real_classroom_b_roster_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.010s
+
+OK
+# exit 0

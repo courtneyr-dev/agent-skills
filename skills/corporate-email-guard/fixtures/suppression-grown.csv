@@ -1,0 +1,6 @@
+# SYNTHETIC FIXTURE (Fixture Co): suppression.csv plus one contact who unsubscribed after staging
+email,reason,recorded_on
+carol@example.com,unsubscribed,2026-09-02
+dave@example.org,bounced,2026-10-11
+erin@example.net,complaint,2026-10-20
+frank@example.com,unsubscribed,2026-11-24

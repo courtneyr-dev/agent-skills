@@ -1,0 +1,66 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.email-unauthorized-defects-refused (negative, target consult-email-send-gate).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains "one-click-unsubscribe-missing" --contains "a11y-img-alt-missing" --contains "authorization-invalid" --contains "sends_performed": 0 --contains "authorized_for_dispatch": false -- python3 ../consult-email-send-gate/scripts/send_gate.py --campaign ../consult-email-send-gate/fixtures/campaign-negative.json --ledger ../consult-email-send-gate/fixtures/ledger-fixture-co.json --sender-auth ../consult-email-send-gate/fixtures/sender-auth-good.json --now 2026-11-25T12:00:00Z --authorization ../consult-email-send-gate/fixtures/authorization-mismatch.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-email-send-gate/scripts/send_gate.py --campaign ../consult-email-send-gate/fixtures/campaign-negative.json --ledger ../consult-email-send-gate/fixtures/ledger-fixture-co.json --sender-auth ../consult-email-send-gate/fixtures/sender-auth-good.json --now 2026-11-25T12:00:00Z --authorization ../consult-email-send-gate/fixtures/authorization-mismatch.json
+{
+  "approval_sha256": "b79b0d3def34c6c5270a574f5db4895d06715b3b0cbbf5f3b4275799787b90db",
+  "authorized_for_dispatch": false,
+  "campaign_id": "cmp-bad-001",
+  "defects": [
+    {
+      "code": "one-click-unsubscribe-missing",
+      "location": "headers.List-Unsubscribe",
+      "message": "List-Unsubscribe needs an https URI (RFC 8058)",
+      "severity": "error"
+    },
+    {
+      "code": "one-click-unsubscribe-missing",
+      "location": "headers.List-Unsubscribe-Post",
+      "message": "List-Unsubscribe-Post must be exactly \"List-Unsubscribe=One-Click\" (RFC 8058)",
+      "severity": "error"
+    },
+    {
+      "code": "a11y-img-alt-missing",
+      "location": "content.html:img[0]",
+      "message": "img #1 has no alt attribute (WCAG 2.2 SC 1.1.1)",
+      "severity": "error"
+    },
+    {
+      "code": "authorization-invalid",
+      "location": "authorization",
+      "message": "approval_sha256 does not match; kind, sender, subject, headers, content or recipients changed after approval",
+      "severity": "error"
+    }
+  ],
+  "dispatch_route": "the tenant's existing authorized email system, by a human",
+  "eligible": [
+    "c1",
+    "c2"
+  ],
+  "excluded": [],
+  "human_review_required": [
+    "a named human approves dispatch in the tenant's existing authorized email system",
+    "the consent steward confirms the ledger is current; only the steward removes a suppression",
+    "a human reviews the rendered email with a screen reader or equivalent"
+  ],
+  "mode": "staged",
+  "not_checked": [
+    "live DNS: SPF, DKIM and DMARC come from the fixture, not from the domain",
+    "DKIM signature validity and SPF alignment with the sending IP",
+    "whether the consent ledger matches the tenant's live email system",
+    "copy quality, claims, legal and CAN-SPAM or GDPR footer content",
+    "colour contrast, reading order and link text in the rendered email",
+    "that the unsubscribe endpoint exists and honors a one-click POST",
+    "provider reputation and complaint rates"
+  ],
+  "sends_performed": 0
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains '"one-click-unsubscribe-missing"': ok
+CHECK contains '"a11y-img-alt-missing"': ok
+CHECK contains '"authorization-invalid"': ok
+CHECK contains '"sends_performed": 0': ok
+CHECK contains '"authorized_for_dispatch": false': ok
+VERDICT pass

@@ -1,0 +1,18 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://iste.org/standards/education-leaders
+# run 2026-11-25
+http_code=200 final_url=https://iste.org/standards/education-leaders size=180146
+L86: 3.1 Digital Citizenship Advocate
+L87: 3.2 Visionary Planner
+L88: 3.3 Empowering Leader
+L89: 3.4 Systems Designer
+L90: 3.5 Connected Learner
+L99: 3.1.a Ensure Access to Skilled Teachers
+L236 (paraphrase): ISTE Standards copyright 2024, version 4.02, ISTE; all rights reserved.
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://cdn.iste.org/permissions-licensing
+# run 2026-11-25
+http_code=200 final_url=https://cdn.iste.org/permissions-licensing size=101002
+L70: Permitted educational use: Free
+L71 (paraphrase): ISTE allows free noncommercial educational use of the standards, including downloading, linking and posting them internally, under its permitted-use agreement.
+L72: Permitted educational use includes using the ISTE Standards to:
+L92 (paraphrase): Commercial digital use needs a separate ISTE agreement.
+L98: Any use of the ISTE Standards requires attribution as specified below:

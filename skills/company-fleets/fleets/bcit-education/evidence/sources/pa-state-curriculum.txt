@@ -1,0 +1,11 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.pdesas.org/Standard/Views
+# run 2026-11-25
+http_code=200 final_url=https://www.pdesas.org/Standard/View size=204365
+L62: Personal Finance
+L158: Business, Computer and Information Technology
+L159: Career Education and Work
+L164: Computer Science
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/curriculum/academic-standards
+# run 2026-11-25
+http_code=404 final_url=https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/curriculum/academic-standards size=75700
+# note: PDE's SAS site lists the subject; the adoption date, edition and identifier scheme were not visible on the static listing.

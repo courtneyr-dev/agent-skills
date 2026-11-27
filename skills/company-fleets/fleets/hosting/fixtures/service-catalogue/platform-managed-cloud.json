@@ -1,0 +1,169 @@
+{
+  "label": "SYNTHETIC: valid developer-platform catalogue for Fixture Co that also declares the managed-cloud capability set.",
+  "company": "fixture-co",
+  "profile": "platform",
+  "capability_sets": [
+    "managed-cloud"
+  ],
+  "parties": [
+    "fixture-co",
+    "customer"
+  ],
+  "services": [
+    {
+      "id": "app-platform",
+      "name": "Application platform (fixture)",
+      "functions": [
+        {
+          "function": "source-import",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co",
+            "customer"
+          ]
+        },
+        {
+          "function": "previews",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "builds",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "runtime-isolation",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "databases",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "secrets",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "domains",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co",
+            "customer"
+          ]
+        },
+        {
+          "function": "identity",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "rollback",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "quotas",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "exportability",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        }
+      ],
+      "customer_visible_limits": [
+        {
+          "name": "build-minutes",
+          "value": 600,
+          "unit": "minutes per month"
+        },
+        {
+          "name": "preview-environments",
+          "value": 5,
+          "unit": "environments"
+        }
+      ],
+      "upstream_dependencies": []
+    },
+    {
+      "id": "cloud-operations",
+      "name": "Managed cloud operations (fixture)",
+      "functions": [
+        {
+          "function": "iac",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "containers",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "managed-data",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "deployments",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "observability",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "capacity",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "cost",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        }
+      ],
+      "customer_visible_limits": [],
+      "upstream_dependencies": []
+    }
+  ]
+}

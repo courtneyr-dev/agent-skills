@@ -1,0 +1,7 @@
+{
+  "schema": "payment-config.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person. The signing key is a published test value, not a secret.",
+  "tenant_id": "tenant-fixture-co",
+  "signing_key": "fixture-test-signing-key-published-not-secret",
+  "inventory": {"forms-pro-annual": 10, "forms-pro-founder-edition": 1}
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "id": "hosting-incident",
+  "code": "HIN",
+  "name": "Hosting incident",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 2 of 8",
+  "profile": "managed",
+  "coordinator": "hosting.general-manager",
+  "home_workload": "hosting.workload.incident-response",
+  "outcome": "An incident detected, commanded, recovered with evidence, communicated only with human approval, and turned into a learning record.",
+  "final_consumer": "human:hosting-operations-owner",
+  "stop_conditions": [
+    "Every acceptance criterion is met or refused with a reason",
+    "The step's budget is reached",
+    "A required human decision or human data is missing"
+  ],
+  "cancellation": "Stop the step's tools, keep partial outputs labeled partial in the run folder, and release the coordinator lease with its epoch.",
+  "steps": [
+    {
+      "id": "detect",
+      "stage": "Support and observability",
+      "producer": "hosting.support-engineer",
+      "reviewer": "hosting.site-reliability-engineer",
+      "acceptance_owner": "hosting.incident-commander",
+      "outcome": "An alert routed to a role with the SLO and burn rate it breached.",
+      "acceptance_criteria": [
+        "The alert names the SLO, the measured burn and the routing rule"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "alert record",
+      "skills": [
+        "hosting-incident-response"
+      ]
+    },
+    {
+      "id": "command",
+      "stage": "Incident command",
+      "producer": "hosting.incident-commander",
+      "reviewer": "hosting.service-assurance-lead",
+      "acceptance_owner": "hosting.general-manager",
+      "outcome": "A declared incident with a commander, a communications coordinator and a timeline.",
+      "acceptance_criteria": [
+        "One commander is named",
+        "The timeline is tamper-evident"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "incident record",
+      "skills": [
+        "hosting-incident-response"
+      ]
+    },
+    {
+      "id": "mitigate",
+      "stage": "Platform and security",
+      "producer": "hosting.site-reliability-engineer",
+      "reviewer": "hosting.security-engineer",
+      "acceptance_owner": "hosting.incident-commander",
+      "outcome": "Mitigation applied to the disposable lab service only.",
+      "acceptance_criteria": [
+        "No production host is touched"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "mitigation log",
+      "skills": []
+    },
+    {
+      "id": "recover",
+      "stage": "Verified recovery",
+      "producer": "hosting.storage-backup-engineer",
+      "reviewer": "hosting.service-assurance-lead",
+      "acceptance_owner": "hosting.incident-commander",
+      "outcome": "A restore measured against stated targets, with unmet targets left unmet.",
+      "acceptance_criteria": [
+        "Every target is met, unmet or not-measured exactly as measured",
+        "Restored content matches the backup checksum"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "restore report",
+      "skills": [
+        "hosting-restore-exercise"
+      ]
+    },
+    {
+      "id": "communicate",
+      "stage": "Authorized communications",
+      "producer": "hosting.communications-coordinator",
+      "reviewer": "hosting.incident-commander",
+      "acceptance_owner": "human:communications-approver",
+      "outcome": "Customer messages drafted and held until a named person approves them.",
+      "acceptance_criteria": [
+        "No message is sent",
+        "Every draft names its approver"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "held communication drafts",
+      "skills": [
+        "hosting-incident-response"
+      ],
+      "authority": {
+        "external_actions": "draft-only",
+        "publication": "staged-only"
+      }
+    },
+    {
+      "id": "learn",
+      "stage": "Post-incident learning",
+      "producer": "hosting.service-assurance-lead",
+      "reviewer": "hosting.site-reliability-engineer",
+      "acceptance_owner": "human:hosting-operations-owner",
+      "outcome": "A learning record with contributing factors and one follow-up improvement.",
+      "acceptance_criteria": [
+        "The follow-up is a proposed change with an owner, not a completed fix"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "learning record",
+      "skills": [
+        "incident-learning"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "FIX-A11Y-1",
+  "repo": "fixture-co/tenant-a-site",
+  "title": "SYNTHETIC: accessibility audit of Client A staging build",
+  "spec": {"id": "SPEC-FIX-A11Y", "revision": "1", "sha256": "4f1c0d5b0a3e1c9b8f7d6e5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c"},
+  "depends_on": [],
+  "required_decisions": [],
+  "backends": ["implement-spec"],
+  "base_branch": "main",
+  "verify": {"argv": ["true"]},
+  "acceptance": ["Each defect names the criterion, the steps and the observed result"]
+}

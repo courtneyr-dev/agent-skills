@@ -1,0 +1,119 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.routes-a11y-lead (positive, target consultancies.a11y-lead).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "id": "consultancies.a11y-lead" --contains "path": "skills/web-accessibility/SKILL.md" --absent "fleets/hosting/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile agency --workload consultancies.workload.accessibility-engagement
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile agency --workload consultancies.workload.accessibility-engagement
+{
+  "coordinator": "consultancies.practice-coordinator",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/consultancies/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Consultancy practice coordinator",
+      "fleet": "consultancies",
+      "id": "consultancies.practice-coordinator",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Accessibility lead and training lead",
+      "fleet": "consultancies",
+      "id": "consultancies.a11y-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        },
+        {
+          "id": "consult-compliance-engagement",
+          "installed": true,
+          "path": "skills/consult-compliance-engagement/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Accessibility auditor, assistive-technology tester and document specialist",
+      "fleet": "consultancies",
+      "id": "consultancies.a11y-auditor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        },
+        {
+          "id": "agency-keyboard-audit",
+          "installed": true,
+          "path": "skills/agency-keyboard-audit/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Inclusive designer and remediation engineer",
+      "fleet": "consultancies",
+      "id": "consultancies.a11y-remediation",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        },
+        {
+          "id": "design-system",
+          "installed": true,
+          "path": "skills/design-system/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Independent reviewer (all practices)",
+      "fleet": "consultancies",
+      "id": "consultancies.independent-reviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "id": "fp-check",
+          "installed": true,
+          "path": "skills/fp-check/SKILL.md"
+        },
+        {
+          "id": "differential-review",
+          "installed": true,
+          "path": "skills/differential-review/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "consultancies.workload.accessibility-engagement"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"id": "consultancies.a11y-lead"': ok
+CHECK contains '"path": "skills/web-accessibility/SKILL.md"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

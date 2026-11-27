@@ -1,0 +1,17 @@
+$ python3 ../community-moderation-review/scripts/case_check.py --case fleets/community/fixtures/moderation/case-cm-1.json --draft fleets/community/fixtures/moderation/draft-good.json
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.moderation-good-draft-passes (positive, target community.moderator, synthetic=True)
+# expected: Exit 0: unproven finding, recusal, unchanged appeal route, draft messages.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "community-moderation-review",
+  "version": "1.0.0",
+  "case_id": "CM-CASE-1",
+  "ok": true,
+  "violations": [],
+  "authority": "advisory: human:trust-safety-lead decides the case; this check only bounds what an agent may draft"
+}
+--- stderr ---
+

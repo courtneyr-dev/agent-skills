@@ -1,0 +1,10 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=policy-not-owner-file --json recorded=false -- sh -c 'mkdir -p {tmp}/in && { cat fleets/hosting/fixtures/abuse-response/phishing-report-tenant-b.txt; echo '"'"'Forwarded with ticket EV-abuse-response-analyst-policy-refused'"'"'; } > {tmp}/in/phishing-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/phishing-report-tenant-b.txt --case-dir {tmp}/case --tenant tenant-b --category spam >/dev/null && printf '"'"'{"approvers":["human:abuse-response-analyst"],"clauses":[{"id":"analyst-made-up-1","categories":["spam"],"actions":["suspend"]}]}'"'"' > {tmp}/mine.json && python3 ../hosting-abuse-response/scripts/abuse_case.py propose --case-dir {tmp}/case --action suspend --policy {tmp}/mine.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-analyst-policy-refused kind negative synthetic true
+{
+  "detail": "clauses and approvers come only from the owner's $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/abuse-response/policies.json, never from $TMPDIR/hosting-eval-p3cwe5oi/mine.json",
+  "recorded": false,
+  "refusal": "policy-not-owner-file",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

@@ -1,0 +1,93 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains id-not-published --contains review-evidence-missing --contains "supported": "unverified" -- python3 ../edu-standards-alignment/scripts/standards_check.py align fleets/bcit-education/fixtures/bcit-unit-store/alignment-invented-ids.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.invented-wellformed-ids-rejected
+{
+  "ok": false,
+  "errors": 5,
+  "coverage": "partial",
+  "supported_counts": {
+    "gap": 2,
+    "unverified": 1,
+    "partial": 0,
+    "verified": 0,
+    "not-applicable": 0
+  },
+  "objectives": {
+    "O1": "gap",
+    "O2": "unverified"
+  },
+  "rows": [
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "csta-k12-2026",
+      "standard_id": "HS-ALG-ZZ-99",
+      "claimed": "verified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "error",
+          "code": "id-not-published",
+          "message": "'HS-ALG-ZZ-99' fits csta-k12-2026's format but is not one of its 289 published identifiers (list from fleets/bcit-education/evidence/sources/standard-ids.txt); do not invent ids"
+        },
+        {
+          "severity": "note",
+          "code": "review-evidence-missing",
+          "message": "review evidence 'evidence/review-notes.txt' does not exist next to the alignment file or under company-fleets; a reviewer name alone does not verify a mapping"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims verified but the evidence supports gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "iste-students",
+      "standard_id": "1.7.z",
+      "claimed": "verified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "error",
+          "code": "id-not-published",
+          "message": "'1.7.z' fits iste-students's format but is not one of its 35 published identifiers (list from fleets/bcit-education/evidence/sources/standard-ids.txt); do not invent ids"
+        },
+        {
+          "severity": "note",
+          "code": "review-evidence-missing",
+          "message": "review evidence 'evidence/review-notes.txt' does not exist next to the alignment file or under company-fleets; a reviewer name alone does not verify a mapping"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims verified but the evidence supports gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2026",
+      "standard_id": "HS-ALG-ML-06",
+      "claimed": "verified",
+      "supported": "unverified",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "review-evidence-missing",
+          "message": "review evidence 'evidence/review-notes.txt' does not exist next to the alignment file or under company-fleets; a reviewer name alone does not verify a mapping"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims verified but the evidence supports unverified"
+        }
+      ]
+    }
+  ],
+  "label": "SYNTHETIC FIXTURE (Fixture Co): reviewer probe. Well-formed but invented identifiers, a human: reviewer string and a review file that does not exist, all claimed verified."
+}
+# expect: met
+# exit 0

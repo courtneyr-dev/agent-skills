@@ -1,0 +1,45 @@
+{
+  "label": "SYNTHETIC stale-evidence cases for the handoff gate. Each case starts from a fresh handoff over fixtures/handoff/workspace and applies one change.",
+  "cases": [
+    {
+      "id": "fresh",
+      "change": "none",
+      "expect": null
+    },
+    {
+      "id": "output-edited-after-review",
+      "change": "edit-output",
+      "expect": "changed after the handoff recorded it"
+    },
+    {
+      "id": "evidence-file-edited",
+      "change": "edit-evidence",
+      "expect": "its file was edited after it was recorded"
+    },
+    {
+      "id": "contract-edited-after-review",
+      "change": "edit-contract",
+      "expect": "is bound to contract"
+    },
+    {
+      "id": "evidence-from-old-contract",
+      "change": "evidence-old-contract",
+      "expect": "it was produced under contract"
+    },
+    {
+      "id": "evidence-about-old-output",
+      "change": "rehash-output-keep-evidence",
+      "expect": "it checked a different version"
+    },
+    {
+      "id": "output-replaced-and-fully-rehashed",
+      "change": "rehash-output-about-and-key",
+      "expect": "it does not name the output hash it reviewed"
+    },
+    {
+      "id": "no-evidence-for-output",
+      "change": "drop-evidence",
+      "expect": "has no fresh evidence"
+    }
+  ]
+}

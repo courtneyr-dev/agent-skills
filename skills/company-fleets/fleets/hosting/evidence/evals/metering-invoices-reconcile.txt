@@ -1,0 +1,98 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json verdict=ok --json 'amounts.overbilled="0.00"' --json 'overbilled=[]' -- python3 ../hosting-metering-reconcile/scripts/metering.py reconcile --events fleets/hosting/fixtures/metering/usage-events.jsonl --invoices fleets/hosting/fixtures/metering/invoices-clean.json
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.metering-invoices-reconcile kind positive synthetic true
+{
+  "amounts": {
+    "billed_unmetered": "0.00",
+    "overbilled": "0.00",
+    "unbilled_usage": "0.00",
+    "underbilled": "0.00"
+  },
+  "assumptions": [
+    "Metered quantity is deduplicated by event_id first; a retried delivery is not billed twice.",
+    "Every invoice must be in the price file's currency (currency_mismatch otherwise); a stated invoice total must equal the sum of its lines (total_mismatch); a billed quantity must equal the metered quantity (quantity_mismatch). Amounts with fractions of a cent are invalid input.",
+    "Expected amount = metered quantity x unit price per tenant and meter, rounded ROUND_HALF_UP to cents; invoice lines for one tenant and meter are summed.",
+    "A mismatch is an absolute amount difference above the tolerance (default 0.00); differences inside it list under within_tolerance.",
+    "Prices and the largest allowed tolerance come from Fixture Co's own price list at its fixed path, as given: no tiers, discounts, taxes or credits. Negative amounts are rejected as invalid input."
+  ],
+  "billed_unmetered": [],
+  "command": "reconcile",
+  "conflicts": [],
+  "currency": "USD",
+  "currency_mismatch": [],
+  "duplicates": [
+    {
+      "event_id": "evt-a-003",
+      "first_line": 4,
+      "identical": true,
+      "line": 5,
+      "meter": "bandwidth_gb",
+      "quantity": "50",
+      "tenant_id": "tenant-a"
+    }
+  ],
+  "matched": [
+    {
+      "billed_amount": "20.04",
+      "billed_quantity": "250.5",
+      "difference": "0.00",
+      "expected_amount": "20.04",
+      "invoices": [
+        "inv-a-2611"
+      ],
+      "meter": "bandwidth_gb",
+      "metered_quantity": "250.5",
+      "tenant_id": "tenant-a",
+      "unit_price": "0.08"
+    },
+    {
+      "billed_amount": "0.92",
+      "billed_quantity": "40",
+      "difference": "0.00",
+      "expected_amount": "0.92",
+      "invoices": [
+        "inv-a-2611"
+      ],
+      "meter": "storage_gb",
+      "metered_quantity": "40",
+      "tenant_id": "tenant-a",
+      "unit_price": "0.023"
+    },
+    {
+      "billed_amount": "40.02",
+      "billed_quantity": "500.25",
+      "difference": "0.00",
+      "expected_amount": "40.02",
+      "invoices": [
+        "inv-b-2611"
+      ],
+      "meter": "bandwidth_gb",
+      "metered_quantity": "500.25",
+      "tenant_id": "tenant-b",
+      "unit_price": "0.08"
+    },
+    {
+      "billed_amount": "1.73",
+      "billed_quantity": "75",
+      "difference": "0.00",
+      "expected_amount": "1.73",
+      "invoices": [
+        "inv-b-2611"
+      ],
+      "meter": "storage_gb",
+      "metered_quantity": "75",
+      "tenant_id": "tenant-b",
+      "unit_price": "0.023"
+    }
+  ],
+  "max_tolerance": "0.05",
+  "overbilled": [],
+  "quantity_mismatch": [],
+  "tolerance": "0.00",
+  "total_mismatch": [],
+  "unbilled_usage": [],
+  "underbilled": [],
+  "verdict": "ok",
+  "within_tolerance": []
+}
+# expect: met
+# exit 0

@@ -1,0 +1,33 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains cross-dimension --contains not-learning-evidence -- python3 ../edu-research-review/scripts/research_check.py program fleets/bcit-education/fixtures/edu-research-review/program-synthetic-crossdim.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.research-program-cross-dimension-rejected
+{
+  "ok": false,
+  "mode": "program",
+  "program": "Fixture Co secondary BCIT program review (synthetic)",
+  "counts": {
+    "error": 3,
+    "warn": 0
+  },
+  "findings": [
+    {
+      "rule": "cross-dimension",
+      "severity": "error",
+      "message": "concludes about occupational-assessment-readiness but the cited evidence covers business-subject-mastery, technology-fluency; evidence for one dimension does not establish another",
+      "claim": "K3"
+    },
+    {
+      "rule": "cross-dimension",
+      "severity": "error",
+      "message": "concludes about technology-fluency but the cited evidence covers nothing; evidence for one dimension does not establish another",
+      "claim": "K4"
+    },
+    {
+      "rule": "not-learning-evidence",
+      "severity": "error",
+      "message": "learning conclusion rests on satisfaction-survey, which is not evidence of learning",
+      "claim": "K4"
+    }
+  ]
+}
+# expect: met
+# exit 0

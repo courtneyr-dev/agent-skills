@@ -1,0 +1,8 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): campaign definition for the fake outbox",
+  "campaign_id": "fixture-news-2026-11",
+  "subject": "Fixture Co November update",
+  "body": "Hello from Fixture Co. This is a synthetic update. Reply STOP to opt out.",
+  "audience": "newsletter",
+  "channel": "fake-outbox"
+}

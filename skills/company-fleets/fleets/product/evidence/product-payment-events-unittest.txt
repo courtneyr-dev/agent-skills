@@ -1,0 +1,20 @@
+# Unit tests for skills/product-payment-events after the 2026-11-26 review fixes. SYNTHETIC Fixture Co fixtures. Run 2026-11-26T22:17Z.
+$ cd skills/product-payment-events/scripts/tests && python3 -m unittest -v
+test_cancel_that_arrives_before_its_checkout_keeps_the_entitlement_canceled (test_payment_events.PaymentEventsTest.test_cancel_that_arrives_before_its_checkout_keeps_the_entitlement_canceled) ... ok
+test_events_need_a_parseable_created_time (test_payment_events.PaymentEventsTest.test_events_need_a_parseable_created_time) ... ok
+test_invalid_inputs_exit_2 (test_payment_events.PaymentEventsTest.test_invalid_inputs_exit_2) ... ok
+test_last_unit_race_fulfills_one_order_and_holds_the_other_for_a_human (test_payment_events.PaymentEventsTest.test_last_unit_race_fulfills_one_order_and_holds_the_other_for_a_human) ... ok
+test_live_tampered_and_foreign_events_are_refused_without_side_effects (test_payment_events.PaymentEventsTest.test_live_tampered_and_foreign_events_are_refused_without_side_effects) ... ok
+test_reconcile_reports_a_capture_with_no_fulfillment (test_payment_events.PaymentEventsTest.test_reconcile_reports_a_capture_with_no_fulfillment) ... ok
+test_refund_hold_then_stockout_does_not_crash_and_reruns_converge (test_payment_events.PaymentEventsTest.test_refund_hold_then_stockout_does_not_crash_and_reruns_converge) ... ok
+test_refund_revokes_and_cancel_offers_export (test_payment_events.PaymentEventsTest.test_refund_revokes_and_cancel_offers_export) ... ok
+test_replayed_and_retried_events_create_one_capture_and_fulfillment_per_order (test_payment_events.PaymentEventsTest.test_replayed_and_retried_events_create_one_capture_and_fulfillment_per_order) ... ok
+test_resume_after_a_partial_run_converges_to_the_single_run_state (test_payment_events.PaymentEventsTest.test_resume_after_a_partial_run_converges_to_the_single_run_state) ... ok
+test_second_full_replay_changes_nothing (test_payment_events.PaymentEventsTest.test_second_full_replay_changes_nothing) ... ok
+test_two_processes_racing_on_one_store_still_capture_once (test_payment_events.PaymentEventsTest.test_two_processes_racing_on_one_store_still_capture_once) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.136s
+
+OK
+exit=0

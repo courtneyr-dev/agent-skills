@@ -1,0 +1,12 @@
+{
+  "label": "SYNTHETIC FIXTURE: a developer-relations-kickoff short-list for the Fixture Co Notes API launch. One route names a sibling-collection skill that isn't installed.",
+  "task": "Launch the Notes API to Python developers with tested docs and a workshop",
+  "routes": [
+    {"skill": "samber/developer-relations-skills@developer-journey-map", "order": 1},
+    {"skill": "samber/developer-relations-skills@developer-quickstart-guide", "order": 2},
+    {"skill": "samber/developer-platform-skills@sample-app-strategy", "order": 3},
+    {"skill": "samber/developer-relations-skills@developer-workshop-program", "order": 4},
+    {"skill": "samber/developer-relations-skills@developer-feedback-loop", "order": 5},
+    {"skill": "samber/developer-relations-skills@devrel-metrics", "order": 6}
+  ]
+}

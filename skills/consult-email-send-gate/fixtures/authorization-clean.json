@@ -1,0 +1,9 @@
+{
+  "approval_sha256": "8e7ef7f08c01e1525c2aeae9c2d621a20011a698851ef7f3289a49495466269b",
+  "approved_at": "2026-11-24T10:00:00Z",
+  "approved_by": "human:reviewer@example.com",
+  "campaign_id": "cmp-clean-001",
+  "expires_at": "2026-11-30T00:00:00Z",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "schema": "send-authorization.v2"
+}

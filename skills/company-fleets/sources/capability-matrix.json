@@ -1,0 +1,3142 @@
+{
+ "schema_version": 1,
+ "generated": "2026-11-26T08:29:19-05:00",
+ "generator": "sources/build_sources.py",
+ "requirements": "skills/company-fleets/registry/requirements.json",
+ "dispositions": [
+  "blocker",
+  "existing-skill",
+  "original-local",
+  "upstream-skill"
+ ],
+ "summary_by_fleet": {
+  "corporate": {
+   "rows": 30,
+   "existing-skill": 0,
+   "upstream-skill": 26,
+   "original-local": 4,
+   "original-local-planned": 0,
+   "blocker": 0
+  },
+  "agency": {
+   "rows": 19,
+   "existing-skill": 6,
+   "upstream-skill": 7,
+   "original-local": 6,
+   "original-local-planned": 0,
+   "blocker": 0
+  },
+  "hosting": {
+   "rows": 27,
+   "existing-skill": 2,
+   "upstream-skill": 2,
+   "original-local": 20,
+   "original-local-planned": 0,
+   "blocker": 3
+  },
+  "product": {
+   "rows": 12,
+   "existing-skill": 1,
+   "upstream-skill": 5,
+   "original-local": 6,
+   "original-local-planned": 0,
+   "blocker": 0
+  },
+  "consultancies": {
+   "rows": 24,
+   "existing-skill": 1,
+   "upstream-skill": 9,
+   "original-local": 14,
+   "original-local-planned": 0,
+   "blocker": 0
+  },
+  "devrel": {
+   "rows": 13,
+   "existing-skill": 0,
+   "upstream-skill": 7,
+   "original-local": 6,
+   "original-local-planned": 0,
+   "blocker": 0
+  },
+  "community": {
+   "rows": 14,
+   "existing-skill": 0,
+   "upstream-skill": 4,
+   "original-local": 10,
+   "original-local-planned": 0,
+   "blocker": 0
+  },
+  "bcit-education": {
+   "rows": 81,
+   "existing-skill": 0,
+   "upstream-skill": 2,
+   "original-local": 76,
+   "original-local-planned": 0,
+   "blocker": 3
+  },
+  "instructional-design": {
+   "rows": 15,
+   "existing-skill": 0,
+   "upstream-skill": 0,
+   "original-local": 11,
+   "original-local-planned": 0,
+   "blocker": 4
+  }
+ },
+ "rows": [
+  {
+   "requirement": "S03-001",
+   "fleet": "corporate",
+   "text": "Create a shared-services fleet serving every business profile.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "Fleet record fleets/corporate/; its roles.json had 0 roles at the 2026-11-26 check.",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S03-002",
+   "fleet": "corporate",
+   "text": "Executive direction role coverage: Strategy lead/CEO advisor, COO, chief of staff, business-unit leads.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "ceo-advisor",
+    "coo-advisor"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register). Chief of staff maps to Matt's chief-of-staff (inactive).",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/ceo-advisor",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/coo-advisor"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-003",
+   "fleet": "corporate",
+   "text": "Executive direction work products: Strategy choices, service portfolio, operating plan, decision record.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "ceo-advisor",
+    "coo-advisor"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register). Decision records go to the existing decision log, not a new store.",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/ceo-advisor",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/coo-advisor"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-004",
+   "fleet": "corporate",
+   "text": "Technology and architecture role coverage: CTO, enterprise/solution architect, engineering director, AI systems architect.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "cto-advisor"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register).",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cto-advisor"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-005",
+   "fleet": "corporate",
+   "text": "Technology and architecture work products: Architecture decisions, technical roadmaps, build/buy choices.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "cto-advisor"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register).",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cto-advisor"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-006",
+   "fleet": "corporate",
+   "text": "Product leadership role coverage: CPO/product portfolio lead, product operations, business analyst.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "cpo-advisor",
+    "product-analytics"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register).",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cpo-advisor",
+    "alirezarezvani/claude-skills:product-team/skills/product-analytics"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-007",
+   "fleet": "corporate",
+   "text": "Product leadership work products: Outcomes, portfolio priorities, requirements, investment rationale.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "cpo-advisor"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register). Requirements stay with yysun brd-writer.",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cpo-advisor"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-008",
+   "fleet": "corporate",
+   "text": "Finance role coverage: CFO advisor, FP&A, controller/bookkeeping workflow, billing, receivables/payables, tax liaison.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "cfo-advisor",
+    "financial-analyst",
+    "month-end-close"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register). No tax or audit opinion.",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cfo-advisor",
+    "alirezarezvani/claude-skills:finance/skills/financial-analyst",
+    "alirezarezvani/claude-skills:finance/skills/month-end-close"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-009",
+   "fleet": "corporate",
+   "text": "Finance work products: Unit economics, budgets, forecasts, reconciliations, billing exceptions.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "financial-analyst",
+    "month-end-close"
+   ],
+   "adapter": "month-end-close scripts take synthetic ledgers; exit 4 means the reconciliation does not prove. Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register).",
+   "upstream": [
+    "alirezarezvani/claude-skills:finance/skills/financial-analyst",
+    "alirezarezvani/claude-skills:finance/skills/month-end-close"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-010",
+   "fleet": "corporate",
+   "text": "Commercial role coverage: CRO, business development, sales development, account executive, sales operations, solutions engineer, proposal/RFP lead, deal desk.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "cro-advisor",
+    "revenue-operations",
+    "sales-engineer",
+    "rfp-responder",
+    "deal-desk"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register).",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cro-advisor",
+    "alirezarezvani/claude-skills:business-growth/skills/revenue-operations",
+    "alirezarezvani/claude-skills:business-growth/skills/sales-engineer",
+    "alirezarezvani/claude-skills:commercial/skills/rfp-responder",
+    "alirezarezvani/claude-skills:commercial/skills/deal-desk"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-011",
+   "fleet": "corporate",
+   "text": "Commercial work products: Qualified opportunity, technical proposal, SOW, pricing and margin analysis.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "rfp-responder",
+    "deal-desk",
+    "pricing-strategist"
+   ],
+   "adapter": "Pricing scripts state assumptions; margins come from the actual rate card. Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register).",
+   "upstream": [
+    "alirezarezvani/claude-skills:commercial/skills/rfp-responder",
+    "alirezarezvani/claude-skills:commercial/skills/deal-desk",
+    "alirezarezvani/claude-skills:commercial/skills/pricing-strategist"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-012",
+   "fleet": "corporate",
+   "text": "Marketing role coverage: CMO/marketing lead, product marketing, demand generation, paid-media specialist, content/lifecycle marketing, marketing operations.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "product-marketing",
+    "marketing-plan",
+    "ads",
+    "content-strategy",
+    "emails",
+    "analytics"
+   ],
+   "adapter": "Corey Haines procedures; sends and publishing pass corporate-email-guard and corporate-claims-check.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/product-marketing",
+    "coreyhaines31/marketingskills:skills/marketing-plan",
+    "coreyhaines31/marketingskills:skills/ads",
+    "coreyhaines31/marketingskills:skills/content-strategy",
+    "coreyhaines31/marketingskills:skills/emails",
+    "coreyhaines31/marketingskills:skills/analytics"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-013",
+   "fleet": "corporate",
+   "text": "Marketing work products: Positioning, campaigns, creative briefs, channel economics, measurement, staged assets.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "product-marketing",
+    "marketing-plan",
+    "ad-creative",
+    "channel-economics",
+    "analytics"
+   ],
+   "adapter": "Outputs are staged only; claims pass corporate-claims-check.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/product-marketing",
+    "coreyhaines31/marketingskills:skills/marketing-plan",
+    "coreyhaines31/marketingskills:skills/ad-creative",
+    "alirezarezvani/claude-skills:commercial/skills/channel-economics",
+    "coreyhaines31/marketingskills:skills/analytics"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-014",
+   "fleet": "corporate",
+   "text": "Partnerships role coverage: Channel/affiliate manager, reseller manager, technology alliances.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "partnerships-architect",
+    "channel-economics",
+    "referrals"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register).",
+   "upstream": [
+    "alirezarezvani/claude-skills:commercial/skills/partnerships-architect",
+    "alirezarezvani/claude-skills:commercial/skills/channel-economics",
+    "coreyhaines31/marketingskills:skills/referrals"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-015",
+   "fleet": "corporate",
+   "text": "Partnerships work products: Partner tiering, attribution, economics, obligations, escalation map.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "partnerships-architect",
+    "channel-economics",
+    "attribution"
+   ],
+   "adapter": "Attribution limits are stated, not modeled as fact.",
+   "upstream": [
+    "alirezarezvani/claude-skills:commercial/skills/partnerships-architect",
+    "alirezarezvani/claude-skills:commercial/skills/channel-economics",
+    "coreyhaines31/marketingskills:skills/attribution"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-016",
+   "fleet": "corporate",
+   "text": "Customer operations role coverage: Account director, customer success, onboarding, technical account manager, support operations.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "customer-success-manager",
+    "support-ops"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register).",
+   "upstream": [
+    "alirezarezvani/claude-skills:business-growth/skills/customer-success-manager",
+    "alirezarezvani/claude-skills:business-growth/skills/support-ops"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-017",
+   "fleet": "corporate",
+   "text": "Customer operations work products: Success plan, onboarding, health evidence, renewals and escalation.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "customer-success-manager",
+    "support-ops"
+   ],
+   "adapter": "Health evidence comes from real records only; fixtures are synthetic.",
+   "upstream": [
+    "alirezarezvani/claude-skills:business-growth/skills/customer-success-manager",
+    "alirezarezvani/claude-skills:business-growth/skills/support-ops"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-018",
+   "fleet": "corporate",
+   "text": "People and capacity role coverage: People operations, recruiting, workforce planning, contractor coordination, compensation/benefits and payroll liaison, enablement.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "chro-advisor",
+    "capacity-planner"
+   ],
+   "adapter": "No employment decisions (prompt Instructions); capacity model output carries its assumptions.",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/chro-advisor",
+    "alirezarezvani/claude-skills:business-operations/skills/capacity-planner"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-019",
+   "fleet": "corporate",
+   "text": "People and capacity work products: Role requirements, skills matrix, capacity plan, onboarding and development.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "chro-advisor",
+    "capacity-planner"
+   ],
+   "adapter": "No employment decisions; queueing results are labeled as models.",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/chro-advisor",
+    "alirezarezvani/claude-skills:business-operations/skills/capacity-planner"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-020",
+   "fleet": "corporate",
+   "text": "Risk and assurance role coverage: Security lead, privacy steward, compliance analyst, legal/contract liaison, internal auditor.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "ciso-advisor",
+    "general-counsel-advisor",
+    "gdpr-dsgvo-expert",
+    "isms-audit-expert",
+    "compliance-os"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register). No legal conclusions.",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/ciso-advisor",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/general-counsel-advisor",
+    "alirezarezvani/claude-skills:ra-qm-team/skills/gdpr-dsgvo-expert",
+    "alirezarezvani/claude-skills:ra-qm-team/skills/isms-audit-expert",
+    "alirezarezvani/claude-skills:compliance-os/skills/compliance-os"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-021",
+   "fleet": "corporate",
+   "text": "Risk and assurance work products: Risk register, evidence mappings, contract questions, exception records.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "compliance-os",
+    "soc2-compliance",
+    "isms-audit-expert"
+   ],
+   "adapter": "Evidence mappings feed consult-compliance-engagement; no certification claims.",
+   "upstream": [
+    "alirezarezvani/claude-skills:compliance-os/skills/compliance-os",
+    "alirezarezvani/claude-skills:ra-qm-team/skills/soc2-compliance",
+    "alirezarezvani/claude-skills:ra-qm-team/skills/isms-audit-expert"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-022",
+   "fleet": "corporate",
+   "text": "Internal operations role coverage: Procurement, vendor management, IT/workplace operations, knowledge operations.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "procurement-optimizer",
+    "vendor-management",
+    "access-lifecycle",
+    "process-mapper"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register).",
+   "upstream": [
+    "alirezarezvani/claude-skills:business-operations/skills/procurement-optimizer",
+    "alirezarezvani/claude-skills:business-operations/skills/vendor-management",
+    "alirezarezvani/claude-skills:ra-qm-team/skills/access-lifecycle",
+    "alirezarezvani/claude-skills:business-operations/skills/process-mapper"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-023",
+   "fleet": "corporate",
+   "text": "Internal operations work products: Supplier reviews, access inventory, SOPs, recoverable knowledge.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "vendor-management",
+    "access-lifecycle",
+    "process-mapper"
+   ],
+   "adapter": "Access inventories use synthetic fixtures; no real identity system is read.",
+   "upstream": [
+    "alirezarezvani/claude-skills:business-operations/skills/vendor-management",
+    "alirezarezvani/claude-skills:ra-qm-team/skills/access-lifecycle",
+    "alirezarezvani/claude-skills:business-operations/skills/process-mapper"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-024",
+   "fleet": "corporate",
+   "text": "Data and business intelligence role coverage: Analytics lead, data steward, experimentation analyst.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "product-analytics",
+    "analytics",
+    "ab-testing"
+   ],
+   "adapter": "Metric definitions stay in the owning record; no new dashboard.",
+   "upstream": [
+    "alirezarezvani/claude-skills:product-team/skills/product-analytics",
+    "coreyhaines31/marketingskills:skills/analytics",
+    "coreyhaines31/marketingskills:skills/ab-testing"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-025",
+   "fleet": "corporate",
+   "text": "Data and business intelligence work products: Metric definitions, lineage, decision dashboards, experiment results.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "analytics",
+    "ab-testing",
+    "product-analytics"
+   ],
+   "adapter": "No dashboard or new BI service (section 15); results are reports.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/analytics",
+    "coreyhaines31/marketingskills:skills/ab-testing",
+    "alirezarezvani/claude-skills:product-team/skills/product-analytics"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-026",
+   "fleet": "corporate",
+   "text": "Communications role coverage: Corporate communications, editorial lead, crisis communications.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "public-relations"
+   ],
+   "adapter": "Claims pass corporate-claims-check; crisis communications need a named human approver.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/public-relations"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S03-027",
+   "fleet": "corporate",
+   "text": "Communications work products: Approved narratives, source-backed claims, staged communications.",
+   "disposition": "original-local",
+   "local_skill": "corporate-claims-check",
+   "note": "",
+   "builder": "corporate-and-agency",
+   "state_at_build": "present",
+   "verification": "Built by the corporate-and-agency workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S03-028",
+   "fleet": "corporate",
+   "text": "Use expert advisory and operational-assistance roles; an agent cannot appoint itself an officer, lawyer, accountant, auditor, teacher of record, or employment decision-maker.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "role.schema.json and validate reject credentials and self-appointed authority.",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S03-029",
+   "fleet": "corporate",
+   "text": "Use the actual business model; do not apply venture-funded SaaS targets indiscriminately to an agency, cooperative, public-school program, or small reseller.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "registry/profiles.json selects the operating profile; generic targets become hypotheses.",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S03-030",
+   "fleet": "corporate",
+   "text": "Select relevant Alireza skill families (c-level-advisor, business-growth, business-operations, commercial, finance, product-team, applicable compliance); resolve exact current paths before installation.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "access-lifecycle",
+    "capacity-planner",
+    "ceo-advisor",
+    "cfo-advisor",
+    "channel-economics",
+    "chro-advisor",
+    "ciso-advisor",
+    "compliance-os",
+    "coo-advisor",
+    "cpo-advisor",
+    "cro-advisor",
+    "cto-advisor",
+    "customer-success-manager",
+    "deal-desk",
+    "financial-analyst",
+    "gdpr-dsgvo-expert",
+    "general-counsel-advisor",
+    "isms-audit-expert",
+    "month-end-close",
+    "partnerships-architect",
+    "pricing-strategist",
+    "process-mapper",
+    "procurement-optimizer",
+    "product-analytics",
+    "revenue-operations",
+    "rfp-responder",
+    "sales-engineer",
+    "soc2-compliance",
+    "support-ops",
+    "vendor-management"
+   ],
+   "adapter": "Selection and pins in sources/ledger.json; all 30 hidden from the global list and loaded by path.",
+   "upstream": [
+    "alirezarezvani/claude-skills:ra-qm-team/skills/access-lifecycle",
+    "alirezarezvani/claude-skills:business-operations/skills/capacity-planner",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/ceo-advisor",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cfo-advisor",
+    "alirezarezvani/claude-skills:commercial/skills/channel-economics",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/chro-advisor",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/ciso-advisor",
+    "alirezarezvani/claude-skills:compliance-os/skills/compliance-os",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/coo-advisor",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cpo-advisor",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cro-advisor",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cto-advisor",
+    "alirezarezvani/claude-skills:business-growth/skills/customer-success-manager",
+    "alirezarezvani/claude-skills:commercial/skills/deal-desk",
+    "alirezarezvani/claude-skills:finance/skills/financial-analyst",
+    "alirezarezvani/claude-skills:ra-qm-team/skills/gdpr-dsgvo-expert",
+    "alirezarezvani/claude-skills:c-level-advisor/skills/general-counsel-advisor",
+    "alirezarezvani/claude-skills:ra-qm-team/skills/isms-audit-expert",
+    "alirezarezvani/claude-skills:finance/skills/month-end-close",
+    "alirezarezvani/claude-skills:commercial/skills/partnerships-architect",
+    "alirezarezvani/claude-skills:commercial/skills/pricing-strategist",
+    "alirezarezvani/claude-skills:business-operations/skills/process-mapper",
+    "alirezarezvani/claude-skills:business-operations/skills/procurement-optimizer",
+    "alirezarezvani/claude-skills:product-team/skills/product-analytics",
+    "alirezarezvani/claude-skills:business-growth/skills/revenue-operations",
+    "alirezarezvani/claude-skills:commercial/skills/rfp-responder",
+    "alirezarezvani/claude-skills:business-growth/skills/sales-engineer",
+    "alirezarezvani/claude-skills:ra-qm-team/skills/soc2-compliance",
+    "alirezarezvani/claude-skills:business-growth/skills/support-ops",
+    "alirezarezvani/claude-skills:business-operations/skills/vendor-management"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S04-001",
+   "fleet": "agency",
+   "text": "Engagement practice roles: Agency principal, engagement/account director, delivery lead, estimator.",
+   "disposition": "original-local",
+   "local_skill": "agency-engagement-gate",
+   "note": "",
+   "builder": "corporate-and-agency",
+   "state_at_build": "present",
+   "verification": "Built by the corporate-and-agency workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S04-002",
+   "fleet": "agency",
+   "text": "Engagement outputs and checks: Qualification, brief, scope, assumptions, acceptance, margin and change control.",
+   "disposition": "original-local",
+   "local_skill": "agency-engagement-gate",
+   "note": "",
+   "builder": "corporate-and-agency",
+   "state_at_build": "present",
+   "verification": "Built by the corporate-and-agency workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S04-003",
+   "fleet": "agency",
+   "text": "Research and strategy practice roles: Business analyst, UX researcher, service designer, digital strategist.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "customer-research"
+   ],
+   "adapter": "Observed findings need real participants; synthetic interviews are labeled fixtures.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/customer-research"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S04-004",
+   "fleet": "agency",
+   "text": "Research and strategy outputs and checks: Research plan, observed findings, journeys, service blueprint, opportunity assessment.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "customer-research",
+    "process-mapper"
+   ],
+   "adapter": "Service blueprints from process-mapper; observed findings need real research.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/customer-research",
+    "alirezarezvani/claude-skills:business-operations/skills/process-mapper"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S04-005",
+   "fleet": "agency",
+   "text": "Content and information practice roles: Content strategist, information architect, editor, migration specialist.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "content-strategy",
+    "site-architecture"
+   ],
+   "adapter": "Corey Haines procedures, adapted to the client CMS through agency-platform-adapters.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/content-strategy",
+    "coreyhaines31/marketingskills:skills/site-architecture"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S04-006",
+   "fleet": "agency",
+   "text": "Content and information outputs and checks: Content model, inventory, taxonomy, editorial workflow, migration mapping.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "content-strategy",
+    "site-architecture"
+   ],
+   "adapter": "Migration mapping hands to hosting-data-migration.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/content-strategy",
+    "coreyhaines31/marketingskills:skills/site-architecture"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S04-007",
+   "fleet": "agency",
+   "text": "Brand and design practice roles: Brand strategist, creative/art director, UX/UI designer, design-systems lead, motion/visual designer.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "brand-strategy",
+    "creative-direction",
+    "art-direction",
+    "design-system",
+    "motion-design",
+    "web-design"
+   ],
+   "adapter": "Zach Stevens procedures; asset rights recorded per deliverable.",
+   "upstream": [
+    "zstvns/design-skills:skills/brand-strategy",
+    "zstvns/design-skills:skills/creative-direction",
+    "zstvns/design-skills:skills/art-direction",
+    "zstvns/design-skills:skills/design-system",
+    "zstvns/design-skills:skills/motion-design",
+    "zstvns/design-skills:skills/web-design"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S04-008",
+   "fleet": "agency",
+   "text": "Brand and design outputs and checks: Approved direction, accessible prototypes, tokens, components, usage rules.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "design-system",
+    "web-design",
+    "brand"
+   ],
+   "adapter": "Accessible prototypes pass agency-keyboard-audit and web-accessibility.",
+   "upstream": [
+    "zstvns/design-skills:skills/design-system",
+    "zstvns/design-skills:skills/web-design",
+    "zstvns/design-skills:skills/brand"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S04-009",
+   "fleet": "agency",
+   "text": "Engineering practice roles: Solution architect, frontend/backend/full-stack engineers, CMS specialists, integration/API engineer, mobile/PWA specialist.",
+   "disposition": "original-local",
+   "local_skill": "agency-platform-adapters",
+   "note": "",
+   "builder": "corporate-and-agency",
+   "state_at_build": "present",
+   "verification": "Built by the corporate-and-agency workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S04-010",
+   "fleet": "agency",
+   "text": "Engineering outputs and checks: Working implementation, contracts, tests, performance and maintainability evidence.",
+   "disposition": "existing-skill",
+   "skills": [
+    "wp-plugin-development",
+    "wp-block-development",
+    "wp-phpstan",
+    "verification-methodology"
+   ],
+   "note": "WordPress first; other stacks route through agency-platform-adapters.",
+   "verification": "Skill present; behavior owned by that skill's own evaluations."
+  },
+  {
+   "requirement": "S04-011",
+   "fleet": "agency",
+   "text": "Quality practice roles: Functional QA, test automation, accessibility specialist, security reviewer, performance engineer.",
+   "disposition": "existing-skill",
+   "skills": [
+    "test-manager",
+    "web-accessibility",
+    "review-security",
+    "wp-performance"
+   ],
+   "note": "",
+   "verification": "Skill present; behavior owned by that skill's own evaluations."
+  },
+  {
+   "requirement": "S04-012",
+   "fleet": "agency",
+   "text": "Quality outputs and checks: Test plan, reproducible defects, manual and automated evidence.",
+   "disposition": "existing-skill",
+   "skills": [
+    "test-manager",
+    "verification-methodology"
+   ],
+   "note": "Keyboard defects missed by scanners: agency-keyboard-audit.",
+   "verification": "Skill present; behavior owned by that skill's own evaluations."
+  },
+  {
+   "requirement": "S04-013",
+   "fleet": "agency",
+   "text": "Delivery and operations practice roles: Release engineer, migration lead, platform/DevOps liaison, training lead, support handoff owner.",
+   "disposition": "existing-skill",
+   "skills": [
+    "release-engineering",
+    "production-readiness"
+   ],
+   "note": "",
+   "verification": "Skill present; behavior owned by that skill's own evaluations."
+  },
+  {
+   "requirement": "S04-014",
+   "fleet": "agency",
+   "text": "Delivery and operations outputs and checks: Deployment plan, rollback, content freeze, operator training, warranty/maintenance handoff.",
+   "disposition": "existing-skill",
+   "skills": [
+    "release-engineering",
+    "production-readiness"
+   ],
+   "note": "",
+   "verification": "Skill present; behavior owned by that skill's own evaluations."
+  },
+  {
+   "requirement": "S04-015",
+   "fleet": "agency",
+   "text": "Support WordPress, Drupal, headless CMS, JS/TS apps, PHP frameworks, commerce platforms and API services through explicit platform adapters; register actual adapters and supported versions, no generic CMS persona.",
+   "disposition": "original-local",
+   "local_skill": "agency-platform-adapters",
+   "note": "",
+   "builder": "corporate-and-agency",
+   "state_at_build": "present",
+   "verification": "Built by the corporate-and-agency workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S04-016",
+   "fleet": "agency",
+   "text": "Implement the workflow: qualified brief, research/requirements, solution/content/brand decisions, prototype, implementation, integrated verification, migration rehearsal, release recommendation, support and improvement.",
+   "disposition": "original-local",
+   "local_skill": "agency-engagement-gate",
+   "note": "",
+   "builder": "corporate-and-agency",
+   "state_at_build": "present",
+   "verification": "Built by the corporate-and-agency workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S04-017",
+   "fleet": "agency",
+   "text": "Tie each workflow transition to acceptance evidence; scope changes return through the existing PM contract.",
+   "disposition": "original-local",
+   "local_skill": "agency-engagement-gate",
+   "note": "Scope changes return through yysun project-manager.",
+   "builder": "corporate-and-agency",
+   "state_at_build": "present",
+   "verification": "Built by the corporate-and-agency workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S04-018",
+   "fleet": "agency",
+   "text": "Use Kanopi's actual public workflows and official WordPress skills where applicable.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "code-standards-checker",
+    "composer-security-update",
+    "pr-quality-report"
+   ],
+   "adapter": "DDEV, Teamwork and Snyk steps replaced by the project's actual tools; private Kanopi libraries not claimed. WordPress through the existing WordPress skills.",
+   "upstream": [
+    "kanopi/cms-cultivator:skills/code-standards-checker",
+    "kanopi/cms-cultivator:skills/composer-security-update",
+    "kanopi/cms-cultivator:skills/pr-quality-report"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S04-019",
+   "fleet": "agency",
+   "text": "Respect the local project's coding standards; WordPress PHP follows WordPress Coding Standards and PHPDoc conventions.",
+   "disposition": "existing-skill",
+   "skills": [
+    "wp-phpstan",
+    "wp-plugin-development"
+   ],
+   "note": "Kanopi code-standards-checker adds PHPCS runs where the project defines them.",
+   "verification": "Skill present; behavior owned by that skill's own evaluations."
+  },
+  {
+   "requirement": "S05-001",
+   "fleet": "hosting",
+   "text": "Hosting profile Affiliate/referral: Eligibility, disclosures, attribution, commission reconciliation, customer handoff, provider escalation.",
+   "disposition": "original-local",
+   "local_skill": "hosting-service-catalogue",
+   "note": "fleets/hosting/roles.json had 0 roles at the 2026-11-26 check.",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-002",
+   "fleet": "hosting",
+   "text": "Hosting profile Reseller/white-label: Packages, upstream obligations, delegated access, billing, provisioning, support boundaries, migrations.",
+   "disposition": "original-local",
+   "local_skill": "hosting-service-catalogue",
+   "note": "",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-003",
+   "fleet": "hosting",
+   "text": "Hosting profile Shared cPanel/WHM: Accounts, quotas, DNS, certificates, PHP versions, databases, mail where offered, backups, restores, isolation, abuse.",
+   "disposition": "original-local",
+   "local_skill": "hosting-account-lifecycle",
+   "note": "Fake panel adapter only; a real cPanel/WHM adapter is S05-021.",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-004",
+   "fleet": "hosting",
+   "text": "Hosting profile VPS/dedicated and alternative panels: OS lifecycle, server services, storage, backups, capacity, Plesk or another selected panel, administrator/reseller/customer boundaries.",
+   "disposition": "blocker",
+   "blocker": "No VPS provider or alternative panel (Plesk or other) is selected, and no credentials exist.",
+   "resume": "Name the provider and panel, record its API docs and a test account, then add an adapter to hosting-account-lifecycle.",
+   "verification": "Not covered until the resume step runs."
+  },
+  {
+   "requirement": "S05-005",
+   "fleet": "hosting",
+   "text": "Hosting profile Managed CMS: Updates, compatibility, staging, performance, content workflows, security, multisite/multi-CMS operations.",
+   "disposition": "existing-skill",
+   "skills": [
+    "wp-wpcli-and-ops",
+    "wp-performance",
+    "wp-project-triage"
+   ],
+   "note": "WordPress only; Drupal and other CMS operations have no installed skill.",
+   "verification": "Skill present; behavior owned by that skill's own evaluations."
+  },
+  {
+   "requirement": "S05-006",
+   "fleet": "hosting",
+   "text": "Hosting profile Developer/vibe-code platform: Source import, previews, builds, runtime isolation, databases, secrets, domains, identity, rollback, quotas, exportability.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "wrangler",
+    "workers-best-practices"
+   ],
+   "adapter": "Activation blocked until a Cloudflare account and scope are named; isolation tests through hosting-tenant-isolation.",
+   "upstream": [
+    "cloudflare/skills:skills/wrangler",
+    "cloudflare/skills:skills/workers-best-practices"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S05-007",
+   "fleet": "hosting",
+   "text": "Hosting profile Managed cloud/PaaS: Infrastructure-as-code, containers, managed data services, deployments, observability, capacity and cost.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "terraform-test",
+    "terraform-style-guide"
+   ],
+   "adapter": "Plan-mode or mock-provider tests only (terraform-test SKILL.md:28 says apply creates real resources); terraform absent on the reference installation.",
+   "upstream": [
+    "hashicorp/agent-skills:plugins/terraform/skills/terraform-test",
+    "hashicorp/agent-skills:plugins/terraform/skills/terraform-style-guide"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S05-008",
+   "fleet": "hosting",
+   "text": "Hosting profile Enterprise and regulated: SSO/RBAC, audit evidence, data boundaries, change control, service commitments, dedicated tenancy options.",
+   "disposition": "original-local",
+   "local_skill": "hosting-tenant-isolation",
+   "note": "",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-009",
+   "fleet": "hosting",
+   "text": "Hosting profile Advanced resilience: Failure-domain analysis, redundancy, restoration, disaster recovery, failover/failback, dependency and supply-chain resilience.",
+   "disposition": "blocker",
+   "blocker": "Failover and failback across real failure domains need redundant infrastructure that this task does not authorize.",
+   "resume": "With an authorized disposable multi-host lab, add a failover exercise to hosting-incident-response and record measured results.",
+   "verification": "Not covered until the resume step runs."
+  },
+  {
+   "requirement": "S05-010",
+   "fleet": "hosting",
+   "text": "Keep affiliate, reseller, and operator as distinct responsibilities; a referral service is not responsible for infrastructure it cannot control.",
+   "disposition": "original-local",
+   "local_skill": "hosting-service-catalogue",
+   "note": "",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-011",
+   "fleet": "hosting",
+   "text": "Cover the listed hosting roles, from general manager, solutions architect, SRE and cPanel/WHM specialist through incident commander, migration, support tiers, billing/entitlements and service assurance.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "Hosting roles belong in fleets/hosting/roles.json; fleets/hosting/roles.json had 0 roles at the 2026-11-26 check.",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-012",
+   "fleet": "hosting",
+   "text": "Account lifecycle procedure: qualify, provision, verify ownership, configure, monitor, renew, suspend when authorized, export, decommission.",
+   "disposition": "original-local",
+   "local_skill": "hosting-account-lifecycle",
+   "note": "",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-013",
+   "fleet": "hosting",
+   "text": "Service catalogue and responsibility matrix, including upstream-provider dependencies.",
+   "disposition": "original-local",
+   "local_skill": "hosting-service-catalogue",
+   "note": "",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-014",
+   "fleet": "hosting",
+   "text": "Tenant isolation, identity, secrets, audit trail, network and build-execution boundaries.",
+   "disposition": "original-local",
+   "local_skill": "hosting-tenant-isolation",
+   "note": "",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-015",
+   "fleet": "hosting",
+   "text": "DNS/certificate lifecycle, backup restoration, data migration, upgrade compatibility, rollback.",
+   "disposition": "original-local",
+   "local_skill": "hosting-dns-cert-lifecycle",
+   "note": "Backup restore and data migration: hosting-data-migration (scripts only, no SKILL.md at the 2026-11-26 check).",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-016",
+   "fleet": "hosting",
+   "text": "SLI/SLO design, alert routing, incident command, recovery, post-incident learning.",
+   "disposition": "original-local",
+   "local_skill": "hosting-incident-response",
+   "note": "Post-incident learning hands to Magnus incident-learning.",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-017",
+   "fleet": "hosting",
+   "text": "Capacity, quotas, metering, billing reconciliation, cost attribution, customer-visible limits.",
+   "disposition": "original-local",
+   "local_skill": "hosting-metering-reconcile",
+   "note": "",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-018",
+   "fleet": "hosting",
+   "text": "Abuse handling with evidence preservation and escalation; no autonomous punitive action without policy authority.",
+   "disposition": "original-local",
+   "local_skill": "hosting-abuse-response",
+   "note": "",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-019",
+   "fleet": "hosting",
+   "text": "Portable export and exit procedures for customers.",
+   "disposition": "original-local",
+   "local_skill": "hosting-account-lifecycle",
+   "note": "Export and decommission are lifecycle stages.",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-020",
+   "fleet": "hosting",
+   "text": "Business-continuity and disaster-recovery exercises.",
+   "disposition": "original-local",
+   "local_skill": "hosting-incident-response",
+   "note": "No disaster-recovery exercise found in the skill text at the 2026-11-26 check; restore drills only.",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-021",
+   "fleet": "hosting",
+   "text": "Use official provider documentation and APIs; build missing cPanel/WHM and reseller adapters against the actual selected provider; a generic Terraform skill is not a complete hosting service.",
+   "disposition": "blocker",
+   "blocker": "No hosting provider is selected and no provider credentials or test account exist, so no real cPanel/WHM or reseller adapter can be built or tested.",
+   "resume": "Choose the provider, record its API documentation revision and a test account, then build the adapter in hosting-account-lifecycle against it.",
+   "verification": "Not covered until the resume step runs."
+  },
+  {
+   "requirement": "S05-022",
+   "fleet": "hosting",
+   "text": "For AI-generated application hosting, test untrusted builds, preview isolation, secret exposure, dependency risk, ephemeral environments, and promotion boundaries.",
+   "disposition": "original-local",
+   "local_skill": "hosting-tenant-isolation",
+   "note": "Build-execution and preview boundaries.",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-023",
+   "fleet": "hosting",
+   "text": "Create a dated benchmark matrix against public Acquia, Pantheon and WordPress VIP documentation and the actual relevant plan/contract.",
+   "disposition": "original-local",
+   "local_skill": "hosting-service-catalogue",
+   "note": "No Acquia, Pantheon or VIP benchmark matrix found in hosting skills at the 2026-11-26 check; the contract column stays empty because no plan or contract exists.",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-024",
+   "fleet": "hosting",
+   "text": "Compare measurable dimensions: restore success, recovery objectives, isolation, deployment reversibility, load performance, observability, support coverage, accessibility, data portability, regional constraints, cost.",
+   "disposition": "original-local",
+   "local_skill": "hosting-service-catalogue",
+   "note": "Benchmark dimensions not found at the 2026-11-26 check.",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-025",
+   "fleet": "hosting",
+   "text": "Record separately: documented provider claim, proposed target, configured capability, measured test result, contractual commitment.",
+   "disposition": "original-local",
+   "local_skill": "hosting-service-catalogue",
+   "note": "",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-026",
+   "fleet": "hosting",
+   "text": "Do not declare superiority from roster size; do not promise an availability percentage from a single lab run.",
+   "disposition": "original-local",
+   "local_skill": "hosting-service-catalogue",
+   "note": "",
+   "builder": "hosting",
+   "state_at_build": "present",
+   "verification": "Built by the hosting workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S05-027",
+   "fleet": "hosting",
+   "text": "Build disposable local demonstrations and a production-readiness backlog; do not purchase or launch a production hosting company.",
+   "disposition": "existing-skill",
+   "skills": [
+    "production-readiness"
+   ],
+   "note": "Readiness backlog; demonstrations stay disposable.",
+   "verification": "Skill present; behavior owned by that skill's own evaluations."
+  },
+  {
+   "requirement": "S06-001",
+   "fleet": "product",
+   "text": "Cover products beyond WordPress: Drupal modules, CMS integrations, commerce apps, themes/design systems, browser extensions, API/SDK products, developer tooling, hosted SaaS.",
+   "disposition": "original-local",
+   "local_skill": "product-release-gate",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S06-002",
+   "fleet": "product",
+   "text": "Roles: product GM/PM/researcher, UX/content designer, ecosystem strategist, platform/extension architect, SDK/API, frontend/backend, integration and developer-experience engineers.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "cpo-advisor",
+    "product-analytics",
+    "developer-ecosystem-strategy"
+   ],
+   "adapter": "Load by path from the role; advisory only, never an officer, lawyer or auditor (S03-028); numeric benchmarks become stated hypotheses (override register).",
+   "upstream": [
+    "alirezarezvani/claude-skills:c-level-advisor/skills/cpo-advisor",
+    "alirezarezvani/claude-skills:product-team/skills/product-analytics",
+    "samber/developer-relations-skills:skills/developer-ecosystem-strategy"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S06-003",
+   "fleet": "product",
+   "text": "Roles: compatibility, test/release engineer, security maintainer, a11y/localization reviewer, licensing/entitlements, billing, marketplace liaison, pricing, docs, education, support, CS, partnerships, lifecycle/deprecation owner.",
+   "disposition": "original-local",
+   "local_skill": "product-release-gate",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S06-004",
+   "fleet": "product",
+   "text": "Implement lifecycle: problem evidence, product contract, API/schema/design decisions, implementation, compatibility/security/a11y verification, packaging, distribution recommendation, adoption/support, deprecation or migration.",
+   "disposition": "original-local",
+   "local_skill": "product-release-gate",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S06-005",
+   "fleet": "product",
+   "text": "Build host/API/version compatibility matrices.",
+   "disposition": "original-local",
+   "local_skill": "product-release-gate",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S06-006",
+   "fleet": "product",
+   "text": "Build dependency, license, SBOM, vulnerability, and supply-chain records.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "supply-chain-risk-auditor"
+   ],
+   "adapter": "Needs gh auth and network; output is CC BY-SA material if copied. SBOM generation is not covered.",
+   "upstream": [
+    "trailofbits/skills:plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S06-007",
+   "fleet": "product",
+   "text": "Build upgrade and schema-migration tests, rollback and data-retention behavior.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "woocommerce-upgrade-safety",
+    "version-migration-guide"
+   ],
+   "adapter": "WooCommerce-specific upgrade checks; other hosts need product-release-gate rows.",
+   "upstream": [
+    "Automattic/claude-woocommerce-toolkit:skills/woocommerce-upgrade-safety",
+    "samber/developer-relations-skills:skills/version-migration-guide"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S06-008",
+   "fleet": "product",
+   "text": "Define release channels, semantic compatibility, changelogs, and support boundaries.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "oss-release-policy",
+    "changelog-writing"
+   ],
+   "adapter": "Release mechanics stay with Magnus release-engineering.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/oss-release-policy",
+    "samber/developer-relations-skills:skills/changelog-writing"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S06-009",
+   "fleet": "product",
+   "text": "Build entitlement and payment test modes, cancellation/export flows, and webhook idempotency.",
+   "disposition": "original-local",
+   "local_skill": "product-payment-events",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S06-010",
+   "fleet": "product",
+   "text": "Build marketplace policy checklists based on the actual platform.",
+   "disposition": "existing-skill",
+   "skills": [
+    "wp-plugin-directory-guidelines"
+   ],
+   "note": "WordPress.org only; other marketplaces have no checklist.",
+   "verification": "Skill present; behavior owned by that skill's own evaluations."
+  },
+  {
+   "requirement": "S06-011",
+   "fleet": "product",
+   "text": "Provide extension developer onboarding and certification-readiness evidence where applicable.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "developer-certification-program",
+    "developer-quickstart-guide"
+   ],
+   "adapter": "Quickstarts replay through devrel-quickstart-replay.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/developer-certification-program",
+    "samber/developer-relations-skills:skills/developer-quickstart-guide"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S06-012",
+   "fleet": "product",
+   "text": "A passing WordPress review checklist must not be treated as validating a Shopify app, Drupal module, browser extension, or SaaS service.",
+   "disposition": "original-local",
+   "local_skill": "product-release-gate",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-001",
+   "fleet": "consultancies",
+   "text": "Give each consultancy practice a lead, practitioners, an independent reviewer, a repeatable engagement workflow, and evidence-based outputs.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "fleets/consultancies/roles.json had 0 roles at the 2026-11-26 check.",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-002",
+   "fleet": "consultancies",
+   "text": "Accessibility practice roles and procedures: Accessibility lead, auditor, assistive-technology tester, inclusive designer, remediation engineer, document specialist, training lead.",
+   "disposition": "existing-skill",
+   "skills": [
+    "web-accessibility",
+    "wordpress-accessibility"
+   ],
+   "note": "",
+   "verification": "Skill present; behavior owned by that skill's own evaluations."
+  },
+  {
+   "requirement": "S07-003",
+   "fleet": "consultancies",
+   "text": "Accessibility acceptance focus: Scope/version-specific WCAG evaluation, keyboard and assistive-tech checks, reproducible findings, remediation and retest.",
+   "disposition": "original-local",
+   "local_skill": "agency-keyboard-audit",
+   "note": "",
+   "builder": "corporate-and-agency",
+   "state_at_build": "present",
+   "verification": "Built by the corporate-and-agency workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-004",
+   "fleet": "consultancies",
+   "text": "Rebrand practice roles and procedures: Brand strategist, researcher, naming/messaging lead, creative/art director, identity/designer, content lead, rollout manager.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "brand-strategy",
+    "brand",
+    "creative-direction",
+    "logo-design"
+   ],
+   "adapter": "Research provenance required; no invented user research.",
+   "upstream": [
+    "zstvns/design-skills:skills/brand-strategy",
+    "zstvns/design-skills:skills/brand",
+    "zstvns/design-skills:skills/creative-direction",
+    "zstvns/design-skills:skills/logo-design"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S07-005",
+   "fleet": "consultancies",
+   "text": "Rebrand acceptance focus: Research provenance, approved direction, token/component use, asset rights, migration consistency.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "brand",
+    "design-system"
+   ],
+   "adapter": "Token and component use checked against the approved direction.",
+   "upstream": [
+    "zstvns/design-skills:skills/brand",
+    "zstvns/design-skills:skills/design-system"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S07-006",
+   "fleet": "consultancies",
+   "text": "Internationalization practice roles and procedures: i18n architect, localization PM, terminology lead, translators, transcreation specialist, locale reviewers, localization QA.",
+   "disposition": "original-local",
+   "local_skill": "consult-i18n-check",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-007",
+   "fleet": "consultancies",
+   "text": "Internationalization acceptance focus: String extraction, placeholders, plural rules, RTL/bidi, layout, locale formatting, human language review.",
+   "disposition": "original-local",
+   "local_skill": "consult-i18n-check",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-008",
+   "fleet": "consultancies",
+   "text": "Compliance practice roles and procedures: Standards analyst, control owner, security/privacy engineer, evidence curator, independent assessor liaison.",
+   "disposition": "original-local",
+   "local_skill": "consult-compliance-engagement",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-009",
+   "fleet": "consultancies",
+   "text": "Compliance acceptance focus: Applicability, control mapping, operating evidence, exceptions, reviewer authority.",
+   "disposition": "original-local",
+   "local_skill": "consult-compliance-engagement",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-010",
+   "fleet": "consultancies",
+   "text": "Ecommerce practice roles and procedures: Commerce architect, merchandising/PIM, catalog/inventory, payments, tax/shipping integration, subscriptions, fraud/chargeback operations, conversion analyst.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "woocommerce-plugin-dev",
+    "woocommerce-finalize"
+   ],
+   "adapter": "WooCommerce only; payment idempotency through product-payment-events.",
+   "upstream": [
+    "Automattic/claude-woocommerce-toolkit:skills/woocommerce-plugin-dev",
+    "Automattic/claude-woocommerce-toolkit:skills/woocommerce-finalize"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S07-011",
+   "fleet": "consultancies",
+   "text": "Ecommerce acceptance focus: Checkout, refunds, webhooks, inventory races, accessibility, internationalization, reconciliation.",
+   "disposition": "original-local",
+   "local_skill": "product-payment-events",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-012",
+   "fleet": "consultancies",
+   "text": "SEO and AI search practice roles and procedures: Technical SEO, content/search strategist, information architect, structured-data specialist, migration lead, AI-search analyst, measurement analyst.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "seo-audit",
+    "ai-seo",
+    "schema",
+    "site-architecture"
+   ],
+   "adapter": "Claims pass consult-search-claims-check.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/seo-audit",
+    "coreyhaines31/marketingskills:skills/ai-seo",
+    "coreyhaines31/marketingskills:skills/schema",
+    "coreyhaines31/marketingskills:skills/site-architecture"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S07-013",
+   "fleet": "consultancies",
+   "text": "SEO and AI search acceptance focus: Crawl/index behavior, content accuracy, redirects, structured data, observed visibility, qualified outcomes.",
+   "disposition": "original-local",
+   "local_skill": "consult-search-claims-check",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-014",
+   "fleet": "consultancies",
+   "text": "Email and lifecycle practice roles and procedures: Lifecycle strategist, copy/editor, email developer, deliverability specialist, marketing operations, consent/data steward, analyst.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "emails"
+   ],
+   "adapter": "Sends pass consult-email-send-gate.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/emails"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S07-015",
+   "fleet": "consultancies",
+   "text": "Email and lifecycle acceptance focus: Permission state, suppression, authentication, accessible rendering, event logic, attribution, send authorization.",
+   "disposition": "original-local",
+   "local_skill": "consult-email-send-gate",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-016",
+   "fleet": "consultancies",
+   "text": "Use current primary standards; keep technical conformance, regulatory applicability, organizational certification, and legal conclusions distinct.",
+   "disposition": "original-local",
+   "local_skill": "consult-compliance-engagement",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-017",
+   "fleet": "consultancies",
+   "text": "Build an applicability registry (WCAG, PCI DSS, ISO security, SOC 2, NIST, privacy, sector/client) resolving edition, jurisdiction, scope, licensed text, evidence owner, review authority before any checklist use.",
+   "disposition": "original-local",
+   "local_skill": "consult-compliance-engagement",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-018",
+   "fleet": "consultancies",
+   "text": "Do not install unrelated medical or regulatory workflows simply because a catalogue includes them.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "compliance-os"
+   ],
+   "adapter": "Selection in sources/ledger.json: no medical-device or other unrelated regulatory skills installed.",
+   "upstream": [
+    "alirezarezvani/claude-skills:compliance-os/skills/compliance-os"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S07-019",
+   "fleet": "consultancies",
+   "text": "Treat automated accessibility scans as one input; do not infer full conformance from a scanner score.",
+   "disposition": "original-local",
+   "local_skill": "agency-keyboard-audit",
+   "note": "",
+   "builder": "corporate-and-agency",
+   "state_at_build": "present",
+   "verification": "Built by the corporate-and-agency workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-020",
+   "fleet": "consultancies",
+   "text": "Keep translation accuracy separate from technical localization checks; preserve terminology and source revisions; do not fabricate a native-language review.",
+   "disposition": "original-local",
+   "local_skill": "consult-i18n-check",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-021",
+   "fleet": "consultancies",
+   "text": "Treat AIO as optimization for AI-mediated search and answers alongside AEO/GEO; ranking factors are hypotheses without primary evidence; no guaranteed placement or fabricated citations.",
+   "disposition": "original-local",
+   "local_skill": "consult-search-claims-check",
+   "note": "",
+   "builder": "product-and-consultancies",
+   "state_at_build": "present",
+   "verification": "Built by the product-and-consultancies workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S07-022",
+   "fleet": "consultancies",
+   "text": "Use Corey Haines's marketing and Zach Stevens's design procedures as canonical; inspect skills such as seo-audit, ai-seo, emails, product-marketing, marketing-plan, marketing-loops, brand, brand-strategy, creative-direction, art-direction, design-system.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "seo-audit",
+    "ai-seo",
+    "emails",
+    "product-marketing",
+    "marketing-plan",
+    "brand",
+    "design-system"
+   ],
+   "adapter": "Canonical marketing and design sources; hidden from the global list, loaded by path.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/seo-audit",
+    "coreyhaines31/marketingskills:skills/ai-seo",
+    "coreyhaines31/marketingskills:skills/emails",
+    "coreyhaines31/marketingskills:skills/product-marketing",
+    "coreyhaines31/marketingskills:skills/marketing-plan",
+    "zstvns/design-skills:skills/brand",
+    "zstvns/design-skills:skills/design-system"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S07-023",
+   "fleet": "consultancies",
+   "text": "Preserve shared brand/context documents (.agents/brand.md, .agents/design.md, .agents/product-marketing.md) as mapped records; select one owner per artifact and integrate with existing brand sources.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "product-marketing",
+    "brand"
+   ],
+   "adapter": "One owner per shared context file (.agents/product-marketing.md, .agents/brand.md, .agents/design.md); the owner mapping is open in sources/README.md.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/product-marketing",
+    "zstvns/design-skills:skills/brand"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S07-024",
+   "fleet": "consultancies",
+   "text": "Do not enable every marketing cadence; define bounded loops, state, deduplication, stops, staged outputs; route scheduling and publishing through existing authorized systems.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "marketing-loops"
+   ],
+   "adapter": "Loops stage outputs only; scheduling and sends go through existing authorized tools and the send gates.",
+   "upstream": [
+    "coreyhaines31/marketingskills:skills/marketing-loops"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S08-001",
+   "fleet": "devrel",
+   "text": "Use samber/developer-relations-skills as the primary procedural foundation, keeping author attribution to Samuel Berthe where the source establishes it.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "developer-relations-kickoff"
+   ],
+   "adapter": "All 93 samber skills installed and hidden; attribution to Samuel Berthe kept.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/developer-relations-kickoff"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S08-002",
+   "fleet": "devrel",
+   "text": "Cover DevRel roles: head of DevRel, advocate, DX researcher, educator/curriculum designer, docs architect, sample-app engineer, API/SDK onboarding, content editor, speaker/demo/video producer, events, partner engineer, feedback liaison, ops/analyst, OSS liaison.",
+   "disposition": "original-local",
+   "local_skill": "devrel-program-kit",
+   "note": "Roles in fleets/devrel/roles.json (14 roles at the 2026-11-26 check).",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S08-003",
+   "fleet": "devrel",
+   "text": "Reusable capability: program strategy, audience research, business alignment, budget, staffing, explicit non-goals.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "devrel-strategy",
+    "developer-segmentation",
+    "devrel-budget-allocation",
+    "devrel-team-structure"
+   ],
+   "adapter": "Bounded by the devrel fleet coordinator.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/devrel-strategy",
+    "samber/developer-relations-skills:skills/developer-segmentation",
+    "samber/developer-relations-skills:skills/devrel-budget-allocation",
+    "samber/developer-relations-skills:skills/devrel-team-structure"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S08-004",
+   "fleet": "devrel",
+   "text": "Reusable capability: developer journey, onboarding friction, first successful API/app use, docs improvement, tested quickstarts, sample apps, tutorials, reference docs, talks, demos, workshops, office hours.",
+   "disposition": "original-local",
+   "local_skill": "devrel-quickstart-replay",
+   "note": "Journeys and tutorials from samber developer-journey-map, developer-quickstart-guide and developer-tutorial.",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S08-005",
+   "fleet": "devrel",
+   "text": "Reusable capability: event planning, accessibility, rehearsal, contingency, follow-up, content reuse.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "devrel-field-events",
+    "developer-event-followup",
+    "developer-live-demo-design"
+   ],
+   "adapter": "Event accessibility checked against web-accessibility.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/devrel-field-events",
+    "samber/developer-relations-skills:skills/developer-event-followup",
+    "samber/developer-relations-skills:skills/developer-live-demo-design"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S08-006",
+   "fleet": "devrel",
+   "text": "Reusable capability: feedback capture to reproducible product issue to owner response to communication back to developers.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "developer-feedback-loop"
+   ],
+   "adapter": "Product issues go to the existing tracker owner.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/developer-feedback-loop"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S08-007",
+   "fleet": "devrel",
+   "text": "Reusable capability: metrics definitions, instrumentation, attribution limits, executive reporting, program retrospectives.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "devrel-metrics",
+    "devrel-analytics",
+    "devrel-exec-reporting"
+   ],
+   "adapter": "Attribution limits stated.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/devrel-metrics",
+    "samber/developer-relations-skills:skills/devrel-analytics",
+    "samber/developer-relations-skills:skills/devrel-exec-reporting"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S08-008",
+   "fleet": "devrel",
+   "text": "Use the collection's developer-relations-kickoff as a scoped domain router that hands work back to the existing execution owner.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "developer-relations-kickoff"
+   ],
+   "adapter": "Bounded delegate under the one-dispatcher rule; its '65-skill' count is stale against the 93-skill tree.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/developer-relations-kickoff"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S08-009",
+   "fleet": "devrel",
+   "text": "Include procedures for team structure, budgets, segmentation, journeys, metrics, analytics, reporting, education strategy, quickstarts, tutorials, docs structure/versioning/localization, samples, CFPs, talks, demos, workshops, office hours, events, follow-up; keep sibling dependencies.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "devrel-team-structure",
+    "devrel-budget-allocation",
+    "developer-segmentation",
+    "developer-journey-map",
+    "devrel-metrics",
+    "devrel-analytics",
+    "devrel-exec-reporting",
+    "developer-education-strategy",
+    "developer-quickstart-guide",
+    "developer-tutorial"
+   ],
+   "adapter": "Loaded by path through the kickoff router.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/devrel-team-structure",
+    "samber/developer-relations-skills:skills/devrel-budget-allocation",
+    "samber/developer-relations-skills:skills/developer-segmentation",
+    "samber/developer-relations-skills:skills/developer-journey-map",
+    "samber/developer-relations-skills:skills/devrel-metrics",
+    "samber/developer-relations-skills:skills/devrel-analytics",
+    "samber/developer-relations-skills:skills/devrel-exec-reporting",
+    "samber/developer-relations-skills:skills/developer-education-strategy",
+    "samber/developer-relations-skills:skills/developer-quickstart-guide",
+    "samber/developer-relations-skills:skills/developer-tutorial"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S08-010",
+   "fleet": "devrel",
+   "text": "Map devrel-context.md into the existing context architecture; do not create a competing memory system.",
+   "disposition": "original-local",
+   "local_skill": "devrel-program-kit",
+   "note": "Maps devrel-context.md into the rig's context records.",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S08-011",
+   "fleet": "devrel",
+   "text": "Preserve speaker identity and source authorship; do not fabricate user quotes, customer results, conference acceptance, or testimonials.",
+   "disposition": "original-local",
+   "local_skill": "devrel-program-kit",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S08-012",
+   "fleet": "devrel",
+   "text": "Separate reach from usefulness: evaluate successful developer tasks, repeat use, friction removed, feedback closure, contribution outcomes; treat causal revenue claims cautiously.",
+   "disposition": "original-local",
+   "local_skill": "devrel-program-kit",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S08-013",
+   "fleet": "devrel",
+   "text": "Produce a developer-program operating kit and a tested content/demo chain, not only a developer-advocate persona.",
+   "disposition": "original-local",
+   "local_skill": "devrel-program-kit",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S09-001",
+   "fleet": "community",
+   "text": "Create a distinct community mandate, even where it reuses the DevRel suite.",
+   "disposition": "original-local",
+   "local_skill": "community-operating-kit",
+   "note": "Roles in fleets/community/roles.json (18 roles at the 2026-11-26 check).",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S09-002",
+   "fleet": "community",
+   "text": "Cover community roles: strategy, operations, member success, moderator, trust/safety, independent appeal coordinator, events, volunteers, chapters, contributor experience, maintainer liaison, triage, mentorship, OSPO, recognition, funding, health analyst, inclusion reviewer.",
+   "disposition": "original-local",
+   "local_skill": "community-operating-kit",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S09-003",
+   "fleet": "community",
+   "text": "Workflow: purpose and membership model, onboarding, first meaningful participation, ongoing contribution, leadership development.",
+   "disposition": "original-local",
+   "local_skill": "community-operating-kit",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S09-004",
+   "fleet": "community",
+   "text": "Code of conduct and moderation procedures with conflicts of interest, evidence boundaries, appeals, and authorized decisions.",
+   "disposition": "original-local",
+   "local_skill": "community-moderation-review",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S09-005",
+   "fleet": "community",
+   "text": "Contribution path, good first tasks, environment setup, review feedback, recognition, succession, and maintainer support.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "oss-contributor-onboarding",
+    "oss-maintainer-sustainability"
+   ],
+   "adapter": "Recognition avoids volunteer rankings (community-health-measures).",
+   "upstream": [
+    "samber/developer-relations-skills:skills/oss-contributor-onboarding",
+    "samber/developer-relations-skills:skills/oss-maintainer-sustainability"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S09-006",
+   "fleet": "community",
+   "text": "Event delivery, accessibility, facilitation, volunteer care, and post-event action.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "developer-meetup-program",
+    "developer-event-followup"
+   ],
+   "adapter": "Existing community-os covers campaigns and Discord rituals.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/developer-meetup-program",
+    "samber/developer-relations-skills:skills/developer-event-followup"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S09-007",
+   "fleet": "community",
+   "text": "Governance records, decision transparency, funding dependencies, sponsorship boundaries, and sustainability risks.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "oss-governance",
+    "oss-sponsors-fundraising",
+    "oss-maintainer-sustainability"
+   ],
+   "adapter": "Governance decisions stay with named humans.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/oss-governance",
+    "samber/developer-relations-skills:skills/oss-sponsors-fundraising",
+    "samber/developer-relations-skills:skills/oss-maintainer-sustainability"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S09-008",
+   "fleet": "community",
+   "text": "Feedback and incident escalation without merging confidential case records into public metrics.",
+   "disposition": "original-local",
+   "local_skill": "community-health-measures",
+   "note": "Confidential cases stay out of aggregate measures.",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S09-009",
+   "fleet": "community",
+   "text": "Ground measurement and governance in primary CHAOSS and TODO Group material, selected for the actual community; use the DevRel suite's community and OSS procedures.",
+   "disposition": "original-local",
+   "local_skill": "community-health-measures",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S09-010",
+   "fleet": "community",
+   "text": "Include upstream community launch/health/moderation, feedback-loop, champions, forum/chat, contributor onboarding, issue triage, governance, release/disclosure, maintainer sustainability, and sponsorship procedures.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "developer-community-launch",
+    "developer-community-health",
+    "developer-community-moderation",
+    "developer-feedback-loop",
+    "developer-champions",
+    "discord-community-playbook",
+    "discourse-forums-playbook",
+    "oss-contributor-onboarding",
+    "oss-issue-triage",
+    "oss-governance",
+    "oss-release-policy"
+   ],
+   "adapter": "Bounded by the community coordinator; moderation drafts pass community-moderation-review.",
+   "upstream": [
+    "samber/developer-relations-skills:skills/developer-community-launch",
+    "samber/developer-relations-skills:skills/developer-community-health",
+    "samber/developer-relations-skills:skills/developer-community-moderation",
+    "samber/developer-relations-skills:skills/developer-feedback-loop",
+    "samber/developer-relations-skills:skills/developer-champions",
+    "samber/developer-relations-skills:skills/discord-community-playbook",
+    "samber/developer-relations-skills:skills/discourse-forums-playbook",
+    "samber/developer-relations-skills:skills/oss-contributor-onboarding",
+    "samber/developer-relations-skills:skills/oss-issue-triage",
+    "samber/developer-relations-skills:skills/oss-governance",
+    "samber/developer-relations-skills:skills/oss-release-policy"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S09-011",
+   "fleet": "community",
+   "text": "Add original local procedures where nondeveloper community needs exceed that scope; do not turn membership participation into automatic sales lead generation.",
+   "disposition": "original-local",
+   "local_skill": "community-operating-kit",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S09-012",
+   "fleet": "community",
+   "text": "Use consent-aware aggregated measures; no ranking volunteers by commits, no inferring burnout or protected traits, no undefined community health scores.",
+   "disposition": "original-local",
+   "local_skill": "community-health-measures",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S09-013",
+   "fleet": "community",
+   "text": "An agent may analyze or draft a moderation recommendation but cannot invent reports, issue sanctions, or send messages without applicable authority.",
+   "disposition": "original-local",
+   "local_skill": "community-moderation-review",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S09-014",
+   "fleet": "community",
+   "text": "Deliver a community operating kit: charter, onboarding path, governance map, moderation/escalation design, event playbook, contributor journey, measurement plan, improvement loop.",
+   "disposition": "original-local",
+   "local_skill": "community-operating-kit",
+   "note": "",
+   "builder": "devrel-and-community",
+   "state_at_build": "present",
+   "verification": "Built by the devrel-and-community workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-001",
+   "fleet": "bcit-education",
+   "text": "Build a dedicated BCIT education fleet, not generic computer-science lesson generation.",
+   "disposition": "original-local",
+   "local_skill": "bcit-learning-package",
+   "note": "fleets/bcit-education/roles.json had 0 roles at the 2026-11-26 check.",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-002",
+   "fleet": "bcit-education",
+   "text": "BCIT roles: department lead, curriculum/standards specialist, business/entrepreneurship/management, law/ethics, marketing, international business, career dev, accounting/economics/personal finance, communication/productivity, IT/web/database/cyber-lab instructors.",
+   "disposition": "original-local",
+   "local_skill": "bcit-learning-package",
+   "note": "Roles not yet registered at the 2026-11-26 check.",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-003",
+   "fleet": "bcit-education",
+   "text": "BCIT support roles: assessment/rubric designer, NOCTI alignment, ISTE coach, a11y/UDL collaborator, work-based learning, classroom facilitation, digital citizenship/AI use, lab operations, feedback analysis, instructional coach/PL facilitator.",
+   "disposition": "original-local",
+   "local_skill": "bcit-learning-package",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-004",
+   "fleet": "bcit-education",
+   "text": "Represent qualified-teacher practice; do not label the AI certified or authorize it as teacher of record.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "Persona schema rejects certification and teacher-of-record authority.",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-005",
+   "fleet": "bcit-education",
+   "text": "Create separate registry records for state/district curriculum, NBEA standards, selected NOCTI assessment, ISTE standards by audience, teacher certification jurisdiction, and local assessment/accessibility/student-data/instruction policies.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-006",
+   "fleet": "bcit-education",
+   "text": "Each registry record holds authority, edition/date, standard ID, source location, access rights, permitted use, last verification.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-007",
+   "fleet": "bcit-education",
+   "text": "Each alignment record links a local objective and original task/rubric criterion to an exact source identifier and version, with evidence, reviewer, status verified/partial/unverified/not applicable; one unit cannot verify a whole subject area or credential.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-008",
+   "fleet": "bcit-education",
+   "text": "Treat Pennsylvania as initial jurisdictional reference but verify actual assignment and jurisdiction first; do not imply NBEA, NOCTI, and ISTE jointly award a teaching license.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-009",
+   "fleet": "bcit-education",
+   "text": "Respect NBEA 2023 edition licensing and NOCTI blueprint restrictions; cover all ten NBEA content areas (a computing-only curriculum fails).",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "Content-area names only; NBEA 2023 standard text is licensed and no license is on record, so alignment to its text stays a recorded gap.",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-010",
+   "fleet": "bcit-education",
+   "text": "Select the actual NOCTI credential category and identifier; Job Ready, foundational, teacher, and education-professional assessments are not interchangeable.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "NOCTI blueprint access not on record; the category is recorded, items never reproduced.",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-011",
+   "fleet": "bcit-education",
+   "text": "Map ISTE Educator practices across Learner, Leader, Citizen, Collaborator, Designer, Facilitator, Analyst; verify current terms before bundling text.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-012",
+   "fleet": "bcit-education",
+   "text": "Use public source links and authorized resources; do not auto-copy protected standards or assessment content into skills, embeddings, public repositories, or the vault.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-013",
+   "fleet": "bcit-education",
+   "text": "If access rights are missing, record source and limitation; build the alignment workflow with original example objectives and clearly marked unverified mappings.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-014",
+   "fleet": "bcit-education",
+   "text": "Keep a separate student-data policy adapter for the actual school/jurisdiction (approved tools, retention, role access, consent); installation tests use synthetic data.",
+   "disposition": "original-local",
+   "local_skill": "edu-student-data-guard",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-015",
+   "fleet": "bcit-education",
+   "text": "Do not generate purported real exam questions or claim to reproduce secure NOCTI items.",
+   "disposition": "original-local",
+   "local_skill": "edu-assessment-check",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-016",
+   "fleet": "bcit-education",
+   "text": "Adopt the complete Learning Commons skill set at the selected revision (k12-lesson-plan-creation, k12-lesson-prep, k12-lesson-differentiation, k12-check-for-understanding, k12-fixing-lesson-plans).",
+   "disposition": "upstream-skill",
+   "skills": [
+    "k12-lesson-plan-creation",
+    "k12-lesson-prep",
+    "k12-lesson-differentiation",
+    "k12-check-for-understanding",
+    "k12-fixing-lesson-plans"
+   ],
+   "adapter": "Complete set at b23623c, hidden and loaded by path; HTML render runs, DOCX needs python-docx (absent; render_all.sh would pip-install it).",
+   "upstream": [
+    "learning-commons-org/agent-skills:skills/k12-lesson-plan-creation",
+    "learning-commons-org/agent-skills:skills/k12-lesson-prep",
+    "learning-commons-org/agent-skills:skills/k12-lesson-differentiation",
+    "learning-commons-org/agent-skills:skills/k12-check-for-understanding",
+    "learning-commons-org/agent-skills:skills/k12-fixing-lesson-plans"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S10-017",
+   "fleet": "bcit-education",
+   "text": "Preserve Learning Commons LICENSE and NOTICE; inspect subject scope (general support is not BCIT coverage; formative-check is math-oriented); register original BCIT procedures as local work, not upstream.",
+   "disposition": "upstream-skill",
+   "skills": [
+    "k12-lesson-plan-creation",
+    "k12-lesson-prep",
+    "k12-lesson-differentiation",
+    "k12-check-for-understanding",
+    "k12-fixing-lesson-plans"
+   ],
+   "adapter": "LICENSE and NOTICE kept in each installed directory; formative checks are math-oriented, not BCIT coverage. The rubric CSVs are under evals/ in the clone, not installed, and are not yet wired into the rig evaluator.",
+   "upstream": [
+    "learning-commons-org/agent-skills:skills/k12-lesson-plan-creation",
+    "learning-commons-org/agent-skills:skills/k12-lesson-prep",
+    "learning-commons-org/agent-skills:skills/k12-lesson-differentiation",
+    "learning-commons-org/agent-skills:skills/k12-check-for-understanding",
+    "learning-commons-org/agent-skills:skills/k12-fixing-lesson-plans"
+   ],
+   "verification": "Installed tree matches the ledger pin; behavior per the ledger item status."
+  },
+  {
+   "requirement": "S10-018",
+   "fleet": "bcit-education",
+   "text": "Use the Learning Commons Knowledge Graph only via its supported interface after verifying it holds the exact standards; label unverified drafts and never invent standard IDs.",
+   "disposition": "blocker",
+   "blocker": "The Learning Commons Knowledge Graph connector is not configured, so no standard can be verified through it.",
+   "resume": "Configure the supported connector, confirm it holds the exact standards and edition, then rerun edu-standards-alignment with it.",
+   "verification": "Not covered until the resume step runs."
+  },
+  {
+   "requirement": "S10-019",
+   "fleet": "bcit-education",
+   "text": "Implement instructional cycle: context/prerequisites, measurable objectives, standards mapping, authentic assessment, lesson/lab sequence, instruction, learner response, feedback/reteaching, assessment review, curriculum revision.",
+   "disposition": "original-local",
+   "local_skill": "bcit-learning-package",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-020",
+   "fleet": "bcit-education",
+   "text": "Learning package includes grade/course context, prerequisites, duration, resources, technology constraints, observable objectives, accurate standards references, teacher guidance, student materials, worked example.",
+   "disposition": "original-local",
+   "local_skill": "bcit-learning-package",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-021",
+   "fleet": "bcit-education",
+   "text": "Learning package includes guided/independent practice, checks, criteria, rubric, answer rationale, misconceptions, accessible differentiation, offline alternatives, evidence collection, reteaching, extension, teacher review points.",
+   "disposition": "original-local",
+   "local_skill": "bcit-learning-package",
+   "note": "Answer keys executed by edu-answer-key-check.",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-022",
+   "fleet": "bcit-education",
+   "text": "Use age-appropriate synthetic data in business and computing labs; isolate examples from production services.",
+   "disposition": "original-local",
+   "local_skill": "bcit-learning-package",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S10-023",
+   "fleet": "bcit-education",
+   "text": "Do not infer diagnoses or learning styles; respect accommodation plans; do not fabricate learner answers, observations, grades, or gains; teacher controls consequential student decisions.",
+   "disposition": "original-local",
+   "local_skill": "bcit-learning-package",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-001",
+   "fleet": "instructional-design",
+   "text": "Instructional-design roles: performance consultant, LX architect/ID, SME interviewer, curriculum architect, assessment/evaluation, writer/editor, visual/accessible-document designer, interactive developer/LMS admin, trainer enablement, localization reviewer, learning analyst.",
+   "disposition": "original-local",
+   "local_skill": "edu-needs-analysis",
+   "note": "fleets/instructional-design/roles.json had 0 roles at the 2026-11-26 check.",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-002",
+   "fleet": "instructional-design",
+   "text": "Start by deciding whether instruction addresses the problem; diagnose knowledge/practice gaps separately from bad tools, incentives, access, or process.",
+   "disposition": "original-local",
+   "local_skill": "edu-needs-analysis",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-003",
+   "fleet": "instructional-design",
+   "text": "Use backward design (performance, evidence, practice/support) and ADDIE or another process with documented rationale.",
+   "disposition": "original-local",
+   "local_skill": "edu-learning-progression",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-004",
+   "fleet": "instructional-design",
+   "text": "Output: needs assessment, audience/task analysis, curriculum map, prerequisite graph, learning objectives, assessment blueprint.",
+   "disposition": "original-local",
+   "local_skill": "edu-learning-progression",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-005",
+   "fleet": "instructional-design",
+   "text": "Output: storyboards, scripts, activities, facilitator and learner materials, accessible media, captions/transcripts, downloadable alternatives.",
+   "disposition": "original-local",
+   "local_skill": "edu-trainer-development",
+   "note": "Facilitator and learner materials; captions and media production have no toolchain.",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-006",
+   "fleet": "instructional-design",
+   "text": "Output: delivery/export package and platform integration where required; pilot plan, implementation support, evaluation, maintenance ownership.",
+   "disposition": "blocker",
+   "blocker": "No target LMS or delivery platform is named, so export formats and platform integration cannot be validated.",
+   "resume": "Name the platform and version, then validate one export package against it.",
+   "verification": "Not covered until the resume step runs."
+  },
+  {
+   "requirement": "S11-007",
+   "fleet": "instructional-design",
+   "text": "Inspect DaRL-GenAI/instructional_agents-skills and canonical instructional_agents as a bounded ADDIE pipeline; reuse stages only after checking dependencies, source rights, supported tools.",
+   "disposition": "blocker",
+   "blocker": "The DaRL pipeline needs a network pip install, an OPENAI_API_KEY and LaTeX (pdflatex absent); none were run.",
+   "resume": "Approve the pip install and a provider key, install TeX, then run course-generate on a synthetic brief with a non-default model and record outputs.",
+   "verification": "Not covered until the resume step runs."
+  },
+  {
+   "requirement": "S11-008",
+   "fleet": "instructional-design",
+   "text": "Inspect all four wrappers (course-generate, slide-evaluate, latex-compile, latex-to-pptx) and their dependencies; do not accept the default model or silently switch to API billing; if unsupported, register the limitation and finish independently.",
+   "disposition": "blocker",
+   "blocker": "Same prerequisites as S11-007; the four wrappers were read, not run. slide-evaluate's Test Student is a fixture.",
+   "resume": "After S11-007's resume, run each wrapper once and record dependencies and outputs.",
+   "verification": "Not covered until the resume step runs."
+  },
+  {
+   "requirement": "S11-009",
+   "fleet": "instructional-design",
+   "text": "Do not activate another top-level orchestrator; wrap stages as bounded tasks or register the pipeline as an exclusive backend.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "dispatch is false on every role; no imported orchestrator.",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-010",
+   "fleet": "instructional-design",
+   "text": "Treat higher-education CS course research as not proving effectiveness in K-12 BCIT or workplace learning.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-011",
+   "fleet": "instructional-design",
+   "text": "Use current CAST UDL guidance and relevant 1EdTech specifications when applicable; do not apply every LMS standard.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "The only fleet skill that cites CAST UDL at the 2026-11-26 check.",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-012",
+   "fleet": "instructional-design",
+   "text": "Register Quality Matters as optional with access/formal-review boundaries; use CASE and QTI only if the target supports the version, and validate a real export/import.",
+   "disposition": "blocker",
+   "blocker": "Quality Matters review is a formal, licensed process and no CASE or QTI target platform is named.",
+   "resume": "Name the target platform and version before validating CASE or QTI; register QM only with access terms.",
+   "verification": "Not covered until the resume step runs."
+  },
+  {
+   "requirement": "S11-013",
+   "fleet": "instructional-design",
+   "text": "Trainer procedures: explain design fit, model complete examples, observe practice with specific feedback, calibrate rubric interpretation, fade support, coach trainers to adapt, evaluate transfer and revisit ineffective interventions.",
+   "disposition": "original-local",
+   "local_skill": "edu-trainer-development",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-014",
+   "fleet": "instructional-design",
+   "text": "Avoid simulated success stories; a generated lesson or happy participant survey is not proof of learning or workplace transfer.",
+   "disposition": "original-local",
+   "local_skill": "edu-trainer-development",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "S11-015",
+   "fleet": "instructional-design",
+   "text": "Generated calibration examples only prepare reviewers; real inter-rater agreement needs real reviewer ratings, never invented.",
+   "disposition": "original-local",
+   "local_skill": "edu-trainer-development",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-001",
+   "fleet": "bcit-education",
+   "text": "Extend Sections 10-11 and their registries, workflows, evaluations, and vault notes; inherit the original standing rules and architecture.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-002",
+   "fleet": "bcit-education",
+   "text": "Add a doctoral-level CS education professor, a doctoral-level BCIT education professor, a dedicated CS teacher role, plus relevant professional organizations and scholarly reference systems.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-003",
+   "fleet": "bcit-education",
+   "text": "Roles are competency-based; do not invent degrees, appointments, licenses, memberships, research participants, or institutional authority.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-004",
+   "fleet": "bcit-education",
+   "text": "Build role cs-education-professor: scholar, teacher educator, advanced instructor covering disciplinary knowledge, pedagogy, research methods, educator preparation.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-005",
+   "fleet": "bcit-education",
+   "text": "Responsibility: computing education research and cognition analysis (novice models, misconceptions, debugging, transfer); learning progressions from school to intro university to advanced study, preserving audience differences.",
+   "disposition": "original-local",
+   "local_skill": "edu-learning-progression",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-006",
+   "fleet": "bcit-education",
+   "text": "Responsibility: preservice/in-service methods courses, microteaching, observation protocols, coaching; graduate seminars, readings, assignments, assessments, supervision plans.",
+   "disposition": "original-local",
+   "local_skill": "edu-trainer-development",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-007",
+   "fleet": "bcit-education",
+   "text": "Responsibility: research supervision (proposal, dissertation methods, literature review, analysis plans, reproducibility, peer review, publication preparation).",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-008",
+   "fleet": "bcit-education",
+   "text": "Responsibility: program evaluation (coherence, assessment validity, accessibility, participation, evidence) and scholarly service (reviews, research-to-practice briefs, PL resources).",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-009",
+   "fleet": "bcit-education",
+   "text": "Choose method (qualitative, quantitative, mixed, experimental, quasi-experimental, design-based) per question; produce question-to-method rationale, evidence table, measurement and analysis plans, limitations, reproducible artifacts.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-010",
+   "fleet": "bcit-education",
+   "text": "For human-subjects research prepare ethics and data-management materials; do not claim IRB approval or collect participant data without the applicable process.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-011",
+   "fleet": "bcit-education",
+   "text": "Evaluate selection bias, confounding, measurement validity, uncertainty, transfer; do not turn a small classroom observation into a universal teaching rule.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-012",
+   "fleet": "bcit-education",
+   "text": "Build role bcit-education-professor: business teacher educator and scholar across business education, information systems, computing applications, career/technical pathways.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-013",
+   "fleet": "bcit-education",
+   "text": "Preserve all ten NBEA content areas; do not substitute a general business consultant or IT administrator.",
+   "disposition": "original-local",
+   "local_skill": "bcit-learning-package",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-014",
+   "fleet": "bcit-education",
+   "text": "Responsibility: subject-specific business methods courses; program design connecting secondary BCIT, postsecondary, IS programs, career pathways and teacher prep with explicit prerequisites and outcomes.",
+   "disposition": "original-local",
+   "local_skill": "edu-learning-progression",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-015",
+   "fleet": "bcit-education",
+   "text": "Responsibility: authentic learning tasks (cases, spreadsheet/accounting, data, IS projects, entrepreneurship simulations) and assessment research on rubric validity, scoring consistency, fairness, transfer.",
+   "disposition": "original-local",
+   "local_skill": "edu-assessment-check",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-016",
+   "fleet": "bcit-education",
+   "text": "Responsibility: clinical preparation (microteaching, observation, mentor calibration; human supervisors keep placement/qualification decisions), scholarship, graduate supervision, trainer development with actual evidence.",
+   "disposition": "original-local",
+   "local_skill": "edu-trainer-development",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-017",
+   "fleet": "bcit-education",
+   "text": "Produce program maps, methods-course syllabi, authentic assessment packages, standards crosswalks, research protocols, teacher-observation instruments, scholarly reviews.",
+   "disposition": "original-local",
+   "local_skill": "edu-learning-progression",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-018",
+   "fleet": "bcit-education",
+   "text": "Execute spreadsheet formulas, database queries, code, and worked calculations; independently check answer keys and scoring criteria.",
+   "disposition": "original-local",
+   "local_skill": "edu-answer-key-check",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-019",
+   "fleet": "bcit-education",
+   "text": "Distinguish business subject mastery, technology fluency, pedagogical competence, and occupational assessment readiness; evidence for one does not establish the others.",
+   "disposition": "original-local",
+   "local_skill": "edu-assessment-check",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-020",
+   "fleet": "bcit-education",
+   "text": "Create role cs-classroom-teacher alongside BCIT teacher roles, supporting age-appropriate PK-12 learning and recording the actual grade band and teaching-assignment requirements.",
+   "disposition": "original-local",
+   "local_skill": "cs-classroom-instruction",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-021",
+   "fleet": "bcit-education",
+   "text": "Coverage: computational thinking, decomposition, algorithms, programming, testing, debugging; data; systems, networks, cybersecurity, privacy; social impact, ethics, accessibility, responsible AI use.",
+   "disposition": "original-local",
+   "local_skill": "cs-classroom-instruction",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-022",
+   "fleet": "bcit-education",
+   "text": "Coverage: advanced pathways (software, data science, physical computing, AI); reading/tracing code, worked examples, code ordering, structured debugging; classroom routines, accessible tools, low-bandwidth alternatives, lab recovery.",
+   "disposition": "original-local",
+   "local_skill": "cs-classroom-instruction",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-023",
+   "fleet": "bcit-education",
+   "text": "Choose languages and tools from objective, age, access needs and actual environment; do not impose one language across every course.",
+   "disposition": "original-local",
+   "local_skill": "cs-classroom-instruction",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-024",
+   "fleet": "bcit-education",
+   "text": "Teaching behavior sequence: objective and prior knowledge, complete example, learner predicts/traces/modifies, wait for actual response, specific feedback, adjust support, assess transfer.",
+   "disposition": "original-local",
+   "local_skill": "cs-classroom-instruction",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-025",
+   "fleet": "bcit-education",
+   "text": "Never invent student responses or continue as though a learner completed an exercise.",
+   "disposition": "original-local",
+   "local_skill": "cs-classroom-instruction",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-026",
+   "fleet": "bcit-education",
+   "text": "Distinguish conceptual understanding from typing speed, memorized syntax, polished AI output, or prior computing access.",
+   "disposition": "original-local",
+   "local_skill": "edu-assessment-check",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-027",
+   "fleet": "bcit-education",
+   "text": "Classroom package: teacher guide, runnable examples, student tasks, expected outputs, misconception probes, rubric, answer rationale, accessibility checks, reteaching/extension options.",
+   "disposition": "original-local",
+   "local_skill": "cs-classroom-instruction",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-028",
+   "fleet": "bcit-education",
+   "text": "Use original or properly licensed materials; preserve parent student-data, accommodation, assessment, teacher-authority boundaries.",
+   "disposition": "original-local",
+   "local_skill": "edu-student-data-guard",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-029",
+   "fleet": "bcit-education",
+   "text": "Capability computing-education-research-review (owner: CS education professor; reuse equivalent installed skills): Source-verified synthesis, methods critique, evidence limits, teaching implications.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-030",
+   "fleet": "bcit-education",
+   "text": "Capability education-research-design (owner: Both professor roles; reuse equivalent installed skills): Question, theoretical rationale, method, instruments, analysis and ethics plan.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-031",
+   "fleet": "bcit-education",
+   "text": "Capability cs-learning-progression-design (owner: CS education professor; reuse equivalent installed skills): Prerequisite map, course sequence, concept progression, assessment alignment.",
+   "disposition": "original-local",
+   "local_skill": "edu-learning-progression",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-032",
+   "fleet": "bcit-education",
+   "text": "Capability cs-classroom-instruction (owner: CS teacher; reuse equivalent installed skills): Complete lesson/lab, runnable examples, learner prompts, feedback and assessment.",
+   "disposition": "original-local",
+   "local_skill": "cs-classroom-instruction",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-033",
+   "fleet": "bcit-education",
+   "text": "Capability computing-assessment-validation (owner: CS teacher with faculty review; reuse equivalent installed skills): Executed examples, verified answers, misconception checks, construct-valid rubric.",
+   "disposition": "original-local",
+   "local_skill": "edu-answer-key-check",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-034",
+   "fleet": "bcit-education",
+   "text": "Capability bcit-teacher-education (owner: BCIT professor; reuse equivalent installed skills): Methods course, microteaching, observation and coaching package.",
+   "disposition": "original-local",
+   "local_skill": "edu-trainer-development",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-035",
+   "fleet": "bcit-education",
+   "text": "Capability bcit-program-research-review (owner: BCIT professor; reuse equivalent installed skills): Program evaluation, standards/credential mapping, evidence-based improvement plan.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-036",
+   "fleet": "bcit-education",
+   "text": "Capability educator-professional-learning (owner: Relevant professor and teacher roles; reuse equivalent installed skills): Competency gap, source-backed development path, practice task, evidence of improvement.",
+   "disposition": "original-local",
+   "local_skill": "edu-trainer-development",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-037",
+   "fleet": "bcit-education",
+   "text": "Handoffs: professors set research/curriculum/pedagogy rationale; classroom teachers translate objectives and return real implementation evidence; instructional designers package materials and delivery.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-038",
+   "fleet": "bcit-education",
+   "text": "Existing assessment, accessibility, standards, lab specialists give focused checks; the existing PM/router keeps execution ownership with no separate academic scheduler.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-039",
+   "fleet": "bcit-education",
+   "text": "Activate faculty review for research, program design, consequential assessment changes, or uncertain pedagogical claims; routine classroom tasks need not summon every role.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-040",
+   "fleet": "bcit-education",
+   "text": "Keep separate records for student outcomes, teacher practice, university curricula, state qualification, occupational assessment; keep NBEA/NOCTI/ISTE records and register PA CS 7-12 staffing guidance and CSTA research.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-041",
+   "fleet": "bcit-education",
+   "text": "Register CSTA 2026 PK-12 CS Standards (verify state/district adoption) and CSTA Standards for CS Teachers as separate documents.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-042",
+   "fleet": "bcit-education",
+   "text": "Register ACM/IEEE-CS/AAAI CS2023 for university CS curriculum design and competency references.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-043",
+   "fleet": "bcit-education",
+   "text": "Recheck standards versions during implementation (CSTA student 2026, teacher 2020) and preserve any older edition the school actually adopted.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-044",
+   "fleet": "bcit-education",
+   "text": "Do not apply university curriculum expectations directly to school learners without a justified progression.",
+   "disposition": "original-local",
+   "local_skill": "edu-learning-progression",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-045",
+   "fleet": "bcit-education",
+   "text": "Record attribution and reuse terms; CSTA standards are noncommercial share-alike, so do not assume bundling text into commercial products is permitted.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-046",
+   "fleet": "bcit-education",
+   "text": "Trace scholarship claims to the actual paper and methods; distinguish association webpage, conference talk, peer-reviewed study, systematic review.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-047",
+   "fleet": "bcit-education",
+   "text": "Register the twelve listed organizations as knowledge/community sources, not installable packages; prioritize CSTA and SIGCSE for CS, NBEA/CBTR, ACTE Business Education, PBEA for BCIT.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-048",
+   "fleet": "bcit-education",
+   "text": "Per organization record current name, audience, publications/resources, source URL, access/license terms, PL opportunities, last verification.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-049",
+   "fleet": "bcit-education",
+   "text": "Keep membership, recognition, licensure, academic qualifications as separate records; infer no memberships and do not enroll, pay, submit, contact, or subscribe on the user's behalf.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-050",
+   "fleet": "bcit-education",
+   "text": "Acceptance demo: CS education professor critiques a real accessible paper, verifies citations, explains limits, proposes bounded application; BCIT professor produces a teacher-education module with business task, computing, rationale, calibrated criteria.",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-051",
+   "fleet": "bcit-education",
+   "text": "CS teacher delivers a runnable lesson and responds to supplied learner work without invented progress; success needs usable artifacts and retained evidence, not a persona description.",
+   "disposition": "original-local",
+   "local_skill": "cs-classroom-instruction",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-052",
+   "fleet": "bcit-education",
+   "text": "Failure cases: detect student/teacher standard mix-up or wrong edition; reject passing code or AI output as evidence of understanding; execute examples and include an intentionally incorrect solution.",
+   "disposition": "original-local",
+   "local_skill": "edu-assessment-check",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-053",
+   "fleet": "bcit-education",
+   "text": "Failure cases: identify confounding, unsupported causal claims, overgeneralization; detect assessment demands unrelated to the construct (inaccessible tools, irrelevant reading difficulty).",
+   "disposition": "original-local",
+   "local_skill": "edu-research-review",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-054",
+   "fleet": "bcit-education",
+   "text": "Verify organization names and distinguish professional references from credentials and permissions.",
+   "disposition": "original-local",
+   "local_skill": "edu-standards-alignment",
+   "note": "",
+   "builder": "education",
+   "state_at_build": "present",
+   "verification": "Built by the education workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-055",
+   "fleet": "bcit-education",
+   "text": "Extend the existing role, capability, standards, source, evaluation, and override registries.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  },
+  {
+   "requirement": "ED-056",
+   "fleet": "bcit-education",
+   "text": "Add or update linked notes for the education fleet's faculty, classroom-teaching, educator-organization and scholarly-source records.",
+   "disposition": "blocker",
+   "blocker": "Vault notes are the integrator's deliverable, not a rig skill; this workstream does not write the vault.",
+   "resume": "The integrator writes the entries in its own notes location with that location's existing frontmatter and records.",
+   "verification": "Not covered until the resume step runs."
+  },
+  {
+   "requirement": "ED-057",
+   "fleet": "bcit-education",
+   "text": "Use the existing notes location and frontmatter; preserve its existing records.",
+   "disposition": "blocker",
+   "blocker": "Vault notes are the integrator's deliverable, not a rig skill; this workstream does not write the vault.",
+   "resume": "The integrator writes the entries in its own notes location with that location's existing frontmatter and records.",
+   "verification": "Not covered until the resume step runs."
+  },
+  {
+   "requirement": "ED-058",
+   "fleet": "bcit-education",
+   "text": "Keep executable skills in the canonical rig; document entry points, role boundaries, source rights, evaluation outcomes, unresolved gaps; leave other company-fleet scope unchanged.",
+   "disposition": "original-local",
+   "local_skill": "company-fleets",
+   "note": "",
+   "builder": "foundation",
+   "state_at_build": "present",
+   "verification": "Built by the foundation workstream; behavior per its fleet evals.json."
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+SYNTHETIC FIXTURE: phishing abuse report about a page on tenant-a's own site at Fixture Co. Every name, address and URL is invented.
+From: reporter@reports.example
+To: abuse@fixture-co.example
+Subject: Credential phishing page
+
+A page at https://login.tenant-a.example/verify asks visitors for their bank password.
+It went up on 2026-11-24. Screenshots are attached to the original message (not included here).

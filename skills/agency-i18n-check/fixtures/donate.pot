@@ -1,0 +1,50 @@
+# SYNTHETIC FIXTURE (Fixture Co): template for the fictional Donate page. Not real content.
+msgid ""
+msgstr ""
+"Project-Id-Version: Fixture Co Donate 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. max-length: 12
+#: donate.html:10
+msgid "Donate now"
+msgstr ""
+
+#. i18n-allow-identical: brand name
+#: donate.html:3
+msgid "Fixture Co"
+msgstr ""
+
+#: donate.html:14
+msgid "Thank you, %s!"
+msgstr ""
+
+#: donate.html:15
+msgid "%1$s donated %2$s this month."
+msgstr ""
+
+#: donate.html:16
+msgid "%d donor"
+msgid_plural "%d donors"
+msgstr[0] ""
+msgstr[1] ""
+
+#: donate.html:18
+msgid "Your gift supports local programs."
+msgstr ""
+
+#: donate.html:20
+msgctxt "form label"
+msgid "Amount"
+msgstr ""
+
+#: donate.html:22
+msgid "Receipt sent to {email}"
+msgstr ""
+
+#: donate.html:24
+msgid "Choose a gift amount"
+msgstr ""
+
+#: donate.html:26
+msgid "Monthly gifts can be paused anytime."
+msgstr ""

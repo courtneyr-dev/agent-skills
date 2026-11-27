@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "fleet": "consultancies",
+  "skills": [
+    {
+      "id": "consult-compliance-engagement",
+      "fleet": "consultancies",
+      "summary": "Six-stage compliance engagement gate: applicability, control owners, evidence collection, gap remediation, independent review, authorized report.",
+      "triggers": [
+        "Scoping, running or reporting a compliance or audit-readiness engagement"
+      ],
+      "boundaries": [
+        "Never certifies, attests or gives a legal conclusion",
+        "Unregistered frameworks are refused, not improvised"
+      ],
+      "inputs": [
+        "compliance-engagement.v1",
+        "--evidence-root holding <tenant_id>/<ref> artifacts",
+        "Optional compliance-os framework_selector JSON"
+      ],
+      "prerequisites": [
+        "python3"
+      ],
+      "method": [
+        "Resolve applicability",
+        "Name human control owners",
+        "Collect hashed evidence",
+        "Remediate or accept gaps",
+        "Independent review",
+        "Human authorization"
+      ],
+      "stopping_conditions": [
+        "All six stages ran"
+      ],
+      "output_contract": "JSON stages with error codes and a decision (report-may-issue, ready-for-human-authorization, not-ready); exit 0, 1 or 2.",
+      "failure_states": [
+        "Licensed text not obtained",
+        "Framework unregistered",
+        "Invalid input exit 2"
+      ],
+      "references": [
+        {
+          "title": "Applicability registry",
+          "location": "skills/consult-compliance-engagement/references/applicability-registry.json",
+          "version": "2026-11-25, not re-fetched",
+          "rights": "Names, editions and URLs only"
+        },
+        {
+          "title": "alirezarezvani/claude-skills compliance-os framework_selector.py",
+          "location": "skills/compliance-os/scripts/framework_selector.py",
+          "version": "upstream ea7b5ab8",
+          "rights": "MIT"
+        }
+      ],
+      "scripts": [
+        "scripts/engagement_check.py",
+        "scripts/tests/test_engagement_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "consultancies.eval.compliance-report-may-issue"
+        ],
+        "negative": [
+          "consultancies.eval.compliance-gaps-refused",
+          "consultancies.eval.compliance-cross-tenant-evidence-refused",
+          "consultancies.eval.compliance-claim-labels-cannot-soften",
+          "consultancies.eval.compliance-evidence-rehashed-in-tenant"
+        ],
+        "boundary": [
+          "consultancies.eval.compliance-evidence-at-age-limit"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "compliance-os framework_selector.py",
+          "kind": "cli",
+          "required": false
+        }
+      ],
+      "missing_capability": "Without the selector, applicability rests on the engagement record alone and the output says so in not_checked.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/consult-compliance-engagement (product-and-consultancies workstream)",
+        "revision": "0.1.0, 2026-11-25",
+        "license": "agent-skills (MIT); no upstream text copied"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/consultancies/evidence/skills-installed.txt",
+          "note": "Present under skills/"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/consultancies/evidence/consult-compliance-engagement-unittest.txt",
+          "note": "Deterministic script behavior verified by unit tests and script evals; model use of the skill not evaluated"
+        }
+      }
+    },
+    {
+      "id": "consult-i18n-check",
+      "fleet": "consultancies",
+      "summary": "Mechanical localization check for JSON string catalogs: placeholders, CLDR plural categories, bidi and RTL, length, hard-coded formats, glossary, untranslated and stale strings.",
+      "triggers": [
+        "Localization QA before handoff or release"
+      ],
+      "boundaries": [
+        "Never judges translation accuracy",
+        "Gettext catalogs go to agency-i18n-check"
+      ],
+      "inputs": [
+        "i18n-catalog.v1 source and target",
+        "Optional i18n-glossary.v1"
+      ],
+      "prerequisites": [
+        "python3"
+      ],
+      "method": [
+        "Run the check",
+        "Fix errors",
+        "Add unknown locales from CLDR",
+        "Send to a human locale reviewer"
+      ],
+      "stopping_conditions": [
+        "Every check ran",
+        "Unknown plural locale blocks"
+      ],
+      "output_contract": "JSON with status, defects by code, cldr_version and linguistic_review required; exit 0, 1 or 2.",
+      "failure_states": [
+        "Unknown locale: blocked",
+        "Stale revision",
+        "Invalid input exit 2"
+      ],
+      "references": [
+        {
+          "title": "Unicode CLDR plural rules",
+          "location": "skills/consult-i18n-check/references/cldr-plural-categories.json",
+          "version": "CLDR 48.0 via Node 26.12.1 ICU 78.3",
+          "rights": "Unicode License v3"
+        },
+        {
+          "title": "UAX #9 Unicode Bidirectional Algorithm",
+          "location": "https://www.unicode.org/reports/tr9/",
+          "version": "Unicode 17.0",
+          "rights": "Unicode terms of use"
+        }
+      ],
+      "scripts": [
+        "scripts/i18n_check.py",
+        "scripts/tests/test_i18n_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "consultancies.eval.i18n-clean-catalog-passes"
+        ],
+        "negative": [
+          "consultancies.eval.i18n-defects-caught"
+        ],
+        "boundary": [
+          "consultancies.eval.i18n-unknown-locale-not-guessed"
+        ]
+      },
+      "adapters": [],
+      "missing_capability": "No human locale reviewer: the review is reported outstanding, never substituted.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/consult-i18n-check (product-and-consultancies workstream)",
+        "revision": "0.1.0, 2026-11-25",
+        "license": "agent-skills (MIT); no upstream text copied"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/consultancies/evidence/skills-installed.txt",
+          "note": "Present under skills/"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/consultancies/evidence/consult-i18n-check-unittest.txt",
+          "note": "Deterministic script behavior verified by unit tests and script evals; model use of the skill not evaluated"
+        }
+      }
+    },
+    {
+      "id": "consult-email-send-gate",
+      "fleet": "consultancies",
+      "summary": "Pre-send email gate: suppression always wins, permission state, tenant, SPF/DKIM/DMARC records, one-click unsubscribe, accessible rendering, content-bound human authorization; never sends.",
+      "triggers": [
+        "Before a human dispatches a marketing or transactional email"
+      ],
+      "boundaries": [
+        "Never sends, schedules or edits suppressions",
+        "Suppression matches the mailbox key: lowercase, trimmed, trailing domain dots and +tags removed"
+      ],
+      "inputs": [
+        "email-campaign.v1",
+        "consent-ledger.v1",
+        "sender-auth.v1",
+        "Optional send-authorization.v2 bound to approval_sha256",
+        "--now"
+      ],
+      "prerequisites": [
+        "python3"
+      ],
+      "method": [
+        "Run the gate",
+        "Fix defects",
+        "Bind authorization to the content hash",
+        "A human dispatches through the tenant's system"
+      ],
+      "stopping_conditions": [
+        "Gate ran"
+      ],
+      "output_contract": "JSON with eligible, excluded, defects, authorized_for_dispatch and sends_performed 0; exit 0, 1 or 2.",
+      "failure_states": [
+        "Authorization mismatch or expiry",
+        "Tenant mismatch",
+        "Invalid input exit 2"
+      ],
+      "references": [
+        {
+          "title": "RFC 8058 one-click unsubscribe",
+          "location": "https://www.rfc-editor.org/rfc/rfc8058",
+          "version": "January 2017",
+          "rights": "IETF Trust; cite only"
+        },
+        {
+          "title": "RFC 7489 DMARC",
+          "location": "https://www.rfc-editor.org/rfc/rfc7489",
+          "version": "March 2015; DMARCbis in progress",
+          "rights": "IETF Trust; cite only"
+        }
+      ],
+      "scripts": [
+        "scripts/send_gate.py",
+        "scripts/tests/test_send_gate.py"
+      ],
+      "evals": {
+        "positive": [
+          "consultancies.eval.email-suppressed-stays-suppressed"
+        ],
+        "negative": [
+          "consultancies.eval.email-unauthorized-defects-refused",
+          "consultancies.eval.email-cross-tenant-contact-refused",
+          "consultancies.eval.email-approval-binds-dispatch-fields"
+        ],
+        "boundary": [
+          "consultancies.eval.email-reoptin-still-suppressed",
+          "consultancies.eval.email-mailbox-variants-suppressed"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Sender authentication record fixture (no live DNS)",
+          "kind": "fake",
+          "required": true
+        }
+      ],
+      "missing_capability": "Without live DNS the authentication check reads a recorded fixture; the output lists live DNS under not_checked.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/consult-email-send-gate (product-and-consultancies workstream)",
+        "revision": "0.1.0, 2026-11-25",
+        "license": "agent-skills (MIT); no upstream text copied"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/consultancies/evidence/skills-installed.txt",
+          "note": "Present under skills/"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/consultancies/evidence/consult-email-send-gate-unittest.txt",
+          "note": "Deterministic script behavior verified by unit tests and script evals; model use of the skill not evaluated"
+        }
+      }
+    },
+    {
+      "id": "consult-search-claims-check",
+      "fleet": "consultancies",
+      "summary": "Rejects fabricated citations, quotes missing from hashed captures, edited captures, guaranteed placement and unproven ranking-factor or forecast claims.",
+      "triggers": [
+        "Before an SEO, AIO, AEO or GEO report or pitch leaves the practice"
+      ],
+      "boundaries": [
+        "No live crawling, rank tracking or AI-answer reads"
+      ],
+      "inputs": [
+        "search-claims.v1",
+        "source-register.v1 with captures"
+      ],
+      "prerequisites": [
+        "python3"
+      ],
+      "method": [
+        "Capture and hash sources",
+        "Run the check",
+        "Fix rejected claims",
+        "Send to the reviewer"
+      ],
+      "stopping_conditions": [
+        "Every claim has a verdict"
+      ],
+      "output_contract": "JSON with per-claim verdicts (supported, hypothesis, rejected) and defect codes; exit 0, 1 or 2.",
+      "failure_states": [
+        "Edited capture",
+        "Guarantee wording outside the heuristic list passes; a human reads every claim",
+        "Invalid input exit 2"
+      ],
+      "references": [
+        {
+          "title": "Guarantee pattern list",
+          "location": "skills/consult-search-claims-check/references/guarantee-patterns.json",
+          "version": "1, 2026-11-25",
+          "rights": "Original to this rig"
+        },
+        {
+          "title": "coreyhaines31/marketingskills ai-seo",
+          "location": "skills/ai-seo",
+          "version": "upstream 8fd2fca",
+          "rights": "MIT"
+        }
+      ],
+      "scripts": [
+        "scripts/claims_check.py",
+        "scripts/tests/test_claims_check.py"
+      ],
+      "evals": {
+        "positive": [
+          "consultancies.eval.search-supported-report-passes"
+        ],
+        "negative": [
+          "consultancies.eval.search-fabrications-rejected",
+          "consultancies.eval.search-guarantee-phrasings-rejected",
+          "consultancies.eval.search-weak-or-self-registered-evidence-rejected"
+        ],
+        "boundary": [
+          "consultancies.eval.search-quote-normalization",
+          "consultancies.eval.search-edited-capture-rejected"
+        ]
+      },
+      "adapters": [],
+      "missing_capability": "Without the tenant's measurement exports, observed-visibility claims stay unverified and the output says so.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/consult-search-claims-check (product-and-consultancies workstream)",
+        "revision": "0.1.0, 2026-11-25",
+        "license": "agent-skills (MIT); no upstream text copied"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/consultancies/evidence/skills-installed.txt",
+          "note": "Present under skills/"
+        },
+        "activated": {
+          "state": "not-activated"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/consultancies/evidence/consult-search-claims-check-unittest.txt",
+          "note": "Deterministic script behavior verified by unit tests and script evals; model use of the skill not evaluated"
+        }
+      }
+    }
+  ]
+}

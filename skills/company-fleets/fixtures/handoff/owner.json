@@ -1,0 +1,57 @@
+{
+  "handoff_id": "HO-FIX-A11Y-1",
+  "workload_id": "agency.workload.accessibility-audit",
+  "tenant_id": "tenant-a",
+  "client_id": "client-a",
+  "operating_profile": "agency",
+  "outcome": "Reproducible accessibility defects for Client A staging, ready for the engagement coordinator.",
+  "scope": [
+    "Home, Contact and Donate pages on the synthetic staging description"
+  ],
+  "exclusions": [
+    "WCAG conformance claims",
+    "Fixing defects"
+  ],
+  "acceptance_criteria": [
+    "Each defect names the criterion, the steps and the observed result"
+  ],
+  "sources": [
+    {
+      "ref": "fixtures/handoff/contract.json",
+      "revision": "FIX-A11Y-1 r1"
+    }
+  ],
+  "producer": "agency.accessibility-specialist",
+  "reviewer": "agency.engagement-coordinator",
+  "acceptance_owner": "human:delivery-owner",
+  "execution_owner": "agency.engagement-coordinator",
+  "data": {
+    "classification": "confidential",
+    "allowed_destinations": [
+      "tenant:tenant-a",
+      "rig:evidence"
+    ]
+  },
+  "authority": {
+    "tools": [
+      "Browser automation (fake)"
+    ],
+    "mutation": "staged",
+    "external_actions": "none",
+    "publication": "staged-only"
+  },
+  "budget": {
+    "max_minutes": 90,
+    "max_retries": 1
+  },
+  "stop_conditions": [
+    "Every in-scope page checked",
+    "Budget reached"
+  ],
+  "cancellation": "Stop, keep findings labeled partial, release the workload lease.",
+  "next_consumer": "agency.engagement-coordinator",
+  "readiness_criteria": [
+    "Every output has fresh evidence under the current contract"
+  ],
+  "contract_hash": "8e937793853fd1cf616b8ffd1184413e3ffe0fe1ffb00bdf022e7f3ca1fe922d"
+}

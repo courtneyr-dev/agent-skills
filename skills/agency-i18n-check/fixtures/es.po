@@ -1,0 +1,42 @@
+# SYNTHETIC FIXTURE (Fixture Co): Spanish catalog written for tests. A human language reviewer has not reviewed it.
+msgid ""
+msgstr ""
+"Project-Id-Version: Fixture Co Donate 1.0\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Donate now"
+msgstr "Donar ahora"
+
+msgid "Fixture Co"
+msgstr "Fixture Co"
+
+msgid "Thank you, %s!"
+msgstr "¡Gracias, %s!"
+
+msgid "%1$s donated %2$s this month."
+msgstr "%1$s donó %2$s este mes."
+
+msgid "%d donor"
+msgid_plural "%d donors"
+msgstr[0] "%d donante"
+msgstr[1] "%d donantes"
+
+msgid "Your gift supports local programs."
+msgstr "Tu donación apoya los programas locales."
+
+msgctxt "form label"
+msgid "Amount"
+msgstr "Importe"
+
+msgid "Receipt sent to {email}"
+msgstr "Recibo enviado a {email}"
+
+msgid "Choose a gift amount"
+msgstr ""
+"Elige el importe "
+"de tu donación"
+
+msgid "Monthly gifts can be paused anytime."
+msgstr "Puedes pausar las donaciones mensuales en cualquier momento."

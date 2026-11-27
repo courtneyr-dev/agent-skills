@@ -1,0 +1,12 @@
+{
+  "label": "SYNTHETIC: Fixture Co failover and failback drill targets for tenant-a.",
+  "tenant_id": "tenant-a",
+  "source": "Lab hypothesis for a warm-standby drill, 2026-11-25; no contract exists",
+  "targets": {
+    "detection_seconds": {"max": 10},
+    "rto_seconds": {"max": 30},
+    "rpo_lost_writes": {"max": 5},
+    "restore_success": {"required": true},
+    "failback_success": {"required": true}
+  }
+}

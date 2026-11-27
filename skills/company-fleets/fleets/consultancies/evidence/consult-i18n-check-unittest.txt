@@ -1,0 +1,15 @@
+# Unit tests for skills/consult-i18n-check after the 2026-11-26 review fixes. SYNTHETIC Fixture Co fixtures. Run 2026-11-26T22:17Z.
+$ cd skills/consult-i18n-check/scripts/tests && python3 -m unittest -v
+test_ar_exits_1_with_every_code (test_i18n_check.I18nCheckTests.test_ar_exits_1_with_every_code) ... ok
+test_clean_fr_exits_0 (test_i18n_check.I18nCheckTests.test_clean_fr_exits_0) ... ok
+test_fr_ca_resolves_to_fr (test_i18n_check.I18nCheckTests.test_fr_ca_resolves_to_fr) ... ok
+test_invalid_inputs_exit_2 (test_i18n_check.I18nCheckTests.test_invalid_inputs_exit_2) ... ok
+test_same_as_source_ok_suppresses_untranslated (test_i18n_check.I18nCheckTests.test_same_as_source_ok_suppresses_untranslated) ... ok
+test_unknown_locale_is_blocked_not_guessed (test_i18n_check.I18nCheckTests.test_unknown_locale_is_blocked_not_guessed) ... ok
+test_usage_error_exits_2 (test_i18n_check.I18nCheckTests.test_usage_error_exits_2) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.517s
+
+OK
+exit=0

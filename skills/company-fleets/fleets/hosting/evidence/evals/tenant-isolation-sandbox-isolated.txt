@@ -1,0 +1,35 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json verdict=isolated --json 'failed_probes=[]' --json ephemeral.containers_remaining_after_run=0 -- python3 ../hosting-tenant-isolation/scripts/isolation_check.py sandbox-build --src fleets/hosting/fixtures/tenant-isolation/tenant-a-src --other-tenant fleets/hosting/fixtures/tenant-isolation/tenant-b-src --script fleets/hosting/fixtures/tenant-isolation/untrusted-build.sh
+# run 2026-11-26 (cwd: company-fleets root, in place) case hosting.eval.tenant-isolation-sandbox-isolated kind positive synthetic true
+{
+  "assumptions": [
+    "The verdict comes from the harness's own probe (scripts/sandbox_probe.sh), run after the build in a second container started with the same flags; the build script's output is never read as a probe result",
+    "src_readable and tmp_writable must hold so a broken sandbox can't look isolated",
+    "Network is judged from /sys/class/net; no traffic is sent, even in the control",
+    "alpine:latest must already be local; the check never pulls"
+  ],
+  "build": {
+    "exit": 0,
+    "stdout_sha256": "4ee384531951eb4d82a64c9ce4d1321911f4b337fbc8db38e0a72a407cf2b65b",
+    "timed_out": false
+  },
+  "control": false,
+  "ephemeral": {
+    "containers_remaining_after_run": 0,
+    "label": "hosting-isolation=7cd3e01bae4a"
+  },
+  "failed_probes": [],
+  "image": "alpine:latest",
+  "probe_sha256": "b3ff71dd8d062eecb0ae1f78c6545361d20282d573a039ecb27c2f52b77ab64b",
+  "probes": {
+    "extra_interfaces": [],
+    "read_other": false,
+    "secret_env_names": [],
+    "src_readable": true,
+    "src_writable": false,
+    "tmp_writable": true
+  },
+  "script_sha256": "1ea4a39d9e33bb2c52b62f30fc56f2b6d615e13bd088d038f29514f4d0c635f4",
+  "verdict": "isolated"
+}
+# expect: met
+# exit 0

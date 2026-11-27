@@ -1,0 +1,215 @@
+{
+  "label": "Requirement rows owned by the corporate-and-agency workstream, mapped to deliverables. The integrator copies status, deliverable and blocker into registry/requirements.json; note is context only.",
+  "rows": [
+    {
+      "id": "S03-001",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json",
+      "blocker": null,
+      "note": "23 roles, 12 workloads, one coordinator (corporate.chief-of-staff); every profile except school activates corporate"
+    },
+    {
+      "id": "S03-002",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.strategy-advisor",
+      "blocker": null,
+      "note": "strategy-advisor (CEO advisor, business-unit leads), operations-advisor (COO), chief-of-staff"
+    },
+    {
+      "id": "S03-003",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.strategy-decision",
+      "blocker": null,
+      "note": "Outputs: options memo, portfolio map, operating plan, decision record; procedure via installed ceo-advisor/coo-advisor; persona behavior unverified"
+    },
+    {
+      "id": "S03-004",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.technology-advisor",
+      "blocker": null,
+      "note": "One combined role covers CTO, enterprise/solution architect, engineering director, AI systems architect"
+    },
+    {
+      "id": "S03-005",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.technology-decision",
+      "blocker": null,
+      "note": "ADRs, roadmaps, build-or-buy via cto-advisor, agent-evals-and-observability, production-readiness"
+    },
+    {
+      "id": "S03-006",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.product-portfolio-lead",
+      "blocker": null,
+      "note": "CPO/portfolio lead, product operations, business analyst"
+    },
+    {
+      "id": "S03-007",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.metric-definition",
+      "blocker": null,
+      "note": "Outcomes, priorities, requirements (brd-writer), investment rationale"
+    },
+    {
+      "id": "S03-008",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.finance-advisor",
+      "blocker": null,
+      "note": "finance-advisor (CFO advisor, FP&A) and controller-workflow (bookkeeping, billing, AR/AP, tax liaison)"
+    },
+    {
+      "id": "S03-009",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.finance-close",
+      "blocker": null,
+      "note": "Unit economics, budgets, forecasts, reconciliations, billing exceptions; internal-auditor reviews independently"
+    },
+    {
+      "id": "S03-010",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.revenue-lead",
+      "blocker": null,
+      "note": "revenue-lead (CRO, BD, SDR, AE, sales ops), solutions-engineer, proposal-lead, deal-desk"
+    },
+    {
+      "id": "S03-011",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.proposal-and-pricing",
+      "blocker": null,
+      "note": "Margin analysis script-verified through agency-engagement-gate brief (agency evidence underpriced-brief-blocked)"
+    },
+    {
+      "id": "S03-012",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.marketing-lead",
+      "blocker": null,
+      "note": "marketing-lead (CMO, product marketing, demand gen, paid media) and lifecycle-marketer (content/lifecycle, marketing ops)"
+    },
+    {
+      "id": "S03-013",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.campaign-staging",
+      "blocker": null,
+      "note": "Staged assets gated by corporate-claims-check and corporate-email-guard (both script-verified)"
+    },
+    {
+      "id": "S03-014",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.partnerships-manager",
+      "blocker": null,
+      "note": "Channel/affiliate, reseller, alliances; affiliate and reseller stay separate profiles"
+    },
+    {
+      "id": "S03-015",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.partner-program",
+      "blocker": null,
+      "note": "Tiering, attribution, economics, obligations, escalation map"
+    },
+    {
+      "id": "S03-016",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.customer-success-lead",
+      "blocker": null,
+      "note": "Account director, CS, onboarding, TAM, support ops; tenant-scoped"
+    },
+    {
+      "id": "S03-017",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.customer-onboarding",
+      "blocker": null,
+      "note": "Receives agency.support-handoff-owner handoffs"
+    },
+    {
+      "id": "S03-018",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.people-ops-advisor",
+      "blocker": null,
+      "note": "All six people titles; aggregates only, no employment decisions"
+    },
+    {
+      "id": "S03-019",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.capacity-plan",
+      "blocker": null,
+      "note": "Role requirements, skills matrix, capacity and onboarding plans"
+    },
+    {
+      "id": "S03-020",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.security-lead",
+      "blocker": null,
+      "note": "security-lead, privacy-compliance-analyst, contract-liaison, internal-auditor"
+    },
+    {
+      "id": "S03-021",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.risk-review",
+      "blocker": null,
+      "note": "Risk register, evidence mappings, contract questions, exception records"
+    },
+    {
+      "id": "S03-022",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.internal-operations",
+      "blocker": null,
+      "note": "Procurement, vendor management, IT/workplace, knowledge ops"
+    },
+    {
+      "id": "S03-023",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.vendor-review",
+      "blocker": null,
+      "note": "Supplier reviews, access inventory, SOPs"
+    },
+    {
+      "id": "S03-024",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.data-analytics-lead",
+      "blocker": null,
+      "note": "Analytics lead, data steward, experimentation analyst"
+    },
+    {
+      "id": "S03-025",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.metric-definition",
+      "blocker": null,
+      "note": "Metric definitions, lineage, experiment results; dashboards are specified, none built (prompt forbids new dashboards)"
+    },
+    {
+      "id": "S03-026",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.communications-lead",
+      "blocker": null,
+      "note": "Corporate comms, editorial, crisis comms"
+    },
+    {
+      "id": "S03-027",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.workload.crisis-communications",
+      "blocker": null,
+      "note": "Source-backed claims enforced by corporate-claims-check"
+    },
+    {
+      "id": "S03-028",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.contract-liaison",
+      "blocker": null,
+      "note": "Every role's may_not forbids self-appointment (officer, lawyer, accountant, auditor, employment decider); 23 persona cases recorded, not run"
+    },
+    {
+      "id": "S03-029",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/roles.json#corporate.strategy-advisor",
+      "blocker": null,
+      "note": "Benchmarks are hypotheses per role limitations; the margin floor comes from the company policy fleets/corporate/policies/margin-policy.json (basis hypothesis until calibrated), never from a brief"
+    },
+    {
+      "id": "S03-030",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/corporate/README.md",
+      "blocker": null,
+      "note": "30 installed Alireza skills from c-level-advisor, business-growth, business-operations, commercial, finance, product-team, compliance-os and ra-qm-team are attached; installation was the sources workstream's"
+    }
+  ]
+}

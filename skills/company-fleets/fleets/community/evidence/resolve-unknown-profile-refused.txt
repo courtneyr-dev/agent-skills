@@ -1,0 +1,15 @@
+$ sh -c 'bin/fleet resolve --profile school-district --workload community.workload.moderation-case; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:10Z
+# case: community.eval.resolve-unknown-profile-refused (negative, target community.operations-manager, synthetic=True)
+# expected: Exit 1.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "error": "unknown profile school-district",
+  "files_read": [
+    "registry/profiles.json"
+  ]
+}
+--- stderr ---
+

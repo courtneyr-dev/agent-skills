@@ -1,0 +1,43 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json verdict=pass --json profile.id=affiliate -- python3 ../hosting-service-catalogue/scripts/catalogue_check.py check --catalogue fleets/hosting/fixtures/service-catalogue/affiliate-valid.json
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.service-catalogue-affiliate-valid kind positive synthetic true
+{
+  "assumptions": [
+    "Rule 1 counts distinct accountable parties per function across all services; one party listed in two services is one party.",
+    "Rule 1 also applies to optional and extra functions a catalogue lists, so an optional function with two owners fails.",
+    "Rule 2 refuses the company as accountable or responsible for a must_not_hold function. In a referral_only profile (affiliate) it also refuses any company duty outside the profile's own list, and any capability set.",
+    "Rule 3 treats placeholder text (TBD, none, n/a, unknown) as an empty obligations or escalation_path entry.",
+    "Rule 3 looks for the upstream_dependencies entry inside the same service as the function.",
+    "upstream:fixture-co is the company itself: it counts as fixture-co for every rule, so an affiliate can't make Fixture Co accountable by calling it an upstream.",
+    "Function ids and per-profile coverage come from references/functions.json (prompt section 5); profile names come from the registry file."
+  ],
+  "checked": {
+    "capability_sets": [],
+    "must_hold": [
+      "eligibility",
+      "disclosures",
+      "attribution",
+      "commission-reconciliation",
+      "customer-handoff",
+      "provider-escalation"
+    ],
+    "optional_absent": [],
+    "optional_present": [],
+    "profile": "affiliate"
+  },
+  "profile": {
+    "id": "affiliate",
+    "name": "Hosting affiliate or referral",
+    "not_responsible_for": [
+      "Infrastructure, accounts, backups or incidents the upstream provider controls"
+    ],
+    "responsible_for": [
+      "Eligibility and disclosures",
+      "Attribution and commission reconciliation",
+      "Customer handoff and provider escalation"
+    ]
+  },
+  "verdict": "pass",
+  "violations": []
+}
+# expect: met
+# exit 0

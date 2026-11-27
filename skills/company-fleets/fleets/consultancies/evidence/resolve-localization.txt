@@ -1,0 +1,108 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.resolve-localization (positive, target consultancies.practice-coordinator).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "coordinator": "consultancies.practice-coordinator" --contains "fleets/consultancies/roles.json" --absent "fleets/hosting/roles.json" --absent "fleets/product/roles.json" --absent "fleets/agency/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile agency --workload consultancies.workload.localization
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile agency --workload consultancies.workload.localization
+{
+  "coordinator": "consultancies.practice-coordinator",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/consultancies/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Consultancy practice coordinator",
+      "fleet": "consultancies",
+      "id": "consultancies.practice-coordinator",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Internationalization architect, localization PM and terminology lead",
+      "fleet": "consultancies",
+      "id": "consultancies.i18n-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "consult-i18n-check",
+          "installed": true,
+          "path": "skills/consult-i18n-check/SKILL.md"
+        },
+        {
+          "id": "agency-i18n-check",
+          "installed": true,
+          "path": "skills/agency-i18n-check/SKILL.md"
+        },
+        {
+          "id": "docs-localization-strategy",
+          "installed": true,
+          "path": "skills/docs-localization-strategy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Localization QA",
+      "fleet": "consultancies",
+      "id": "consultancies.localization-qa",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "consult-i18n-check",
+          "installed": true,
+          "path": "skills/consult-i18n-check/SKILL.md"
+        },
+        {
+          "id": "agency-i18n-check",
+          "installed": true,
+          "path": "skills/agency-i18n-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Independent reviewer (all practices)",
+      "fleet": "consultancies",
+      "id": "consultancies.independent-reviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "id": "fp-check",
+          "installed": true,
+          "path": "skills/fp-check/SKILL.md"
+        },
+        {
+          "id": "differential-review",
+          "installed": true,
+          "path": "skills/differential-review/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "consultancies.workload.localization"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"coordinator": "consultancies.practice-coordinator"': ok
+CHECK contains '"fleets/consultancies/roles.json"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/product/roles.json"': ok
+CHECK absent '"fleets/agency/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

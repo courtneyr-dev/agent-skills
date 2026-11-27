@@ -9,7 +9,8 @@ import transforms as T
 import publish_skills as P
 
 PUBLIC_AUTHORED = ["wiki-cycle", "weekly-site-health-audit", "wiki-memory",
-                   "readwise-methods-review", "job-search"]
+                   "readwise-methods-review", "job-search",
+                   "company-fleets", "factory-rig", "factory-execute"]
 
 
 def _canonical_available():
@@ -59,17 +60,51 @@ class Transforms(unittest.TestCase):
         self.assertEqual(T.genericize_identifiers("courtneyr-dev/claude-config"), "your-org/claude-config")
         self.assertEqual(T.genericize_personal_site("Robertson's Home"), "a separate personal site")
 
+    def test_fleet_skill_transforms(self):
+        self.assertEqual(T.public_license_frontmatter(
+            '---\nlicense: "Private rig (courtneyr-dev/claude-config)"\n---\n'), "---\nlicense: MIT\n---\n")
+        self.assertEqual(T.public_license_frontmatter(
+            "license: Private rig (x). Original skill; no upstream code copied."), "license: MIT")
+        self.assertEqual(T.public_rig_rights("| 2026-11-25 | Private rig; original |"),
+                         "| 2026-11-25 | agent-skills (MIT); original |")
+        for path in (T.HOME + "/Downloads/brief.md", "~/Downloads/brief.md", "$HOME/Downloads/brief.md"):
+            for tail in ("", " line 3", ", line 778", " lines 310-320", " lines 419 to 450"):
+                self.assertEqual(T.private_prompt_reference(f"| `{path}`{tail} | x |"),
+                                 "| project requirements (not published) | x |", path + tail)
+        self.assertEqual(T.private_prompt_reference("Location: `fleet-task-prompt.md`, lines 242-267"),
+                         "Location: project requirements (not published)")
+        self.assertEqual(T.private_prompt_reference("see prompt.md and prompts/"), "see prompt.md and prompts/")
+        self.assertEqual(T.private_branch_reference("rig branch claude/factory-rig, read 2026-11-25"),
+                         "agent-skills, read 2026-11-25")
+        self.assertEqual(T.private_branch_reference("Rig branch claude/factory-rig; claude/factory-rig branch"),
+                         "agent-skills; agent-skills")
+        self.assertEqual(T.credit_pstack_upstream("installed from courtneyr-dev/plugins"),
+                         "installed from cursor/plugins")
+        self.assertEqual(T.rig_mount_paths('"rig": "~/.claude/claude-config/skills", ~/Developer/rig-upstream/x'),
+                         '"rig": "~/.claude/skills", $FRIG_UPSTREAM_ROOT/x')
+        self.assertEqual(T.synthetic_token_prefix('("fxs-synthetic-token", rb"\\bfxs_[A-Za-z0-9]{16,}\\b")'),
+                         '("fx-demo-synthetic-token", rb"\\bfx_demo_[A-Za-z0-9]{16,}\\b")')
+
+    def test_fleet_transform_list_leaves_pronoun_word_lists_alone(self):
+        """second_person_owner rewrote a claims checker's pronoun set ("she" -> "you"); the fleet
+        skills' list must not include it."""
+        pol = P.load_policy()
+        fleet = pol["skills"]["corporate-claims-check"]["transforms"]
+        self.assertNotIn("second_person_owner", fleet)
+        line = 'THIRD = {"he", "she", "they"}  # in (?:its|their|his|her) words'
+        self.assertEqual(T.apply_all(line, fleet), line)
+
     def test_unknown_transform_fails_closed(self):
         with self.assertRaises(KeyError):
             T.apply_all("x", ["no_such_transform"])
 
 
 class PublicAuthoredProtection(unittest.TestCase):
-    """The five hand-authored editions must be structurally unreachable by generation."""
+    """The hand-authored editions must be structurally unreachable by generation."""
     def setUp(self):
         self.pol = P.load_policy()
 
-    def test_all_five_declared_public_authored(self):
+    def test_each_declared_public_authored(self):
         for n in PUBLIC_AUTHORED:
             self.assertEqual(self.pol["skills"][n]["mode"], "public-authored", n)
 
@@ -396,6 +431,40 @@ class CompleteArtifact(unittest.TestCase):
         self.assertEqual(v["demo/link.md"], "BLOCK")
         self.assertTrue(any("symlink" in p for p in probs))
 
+    def test_replace_text_rewrites_and_fails_closed_when_stale(self):
+        self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\nruns on this Mac\n")
+        self.write(self.canon, "demo", "references/r.md", "built by the sources workstream\n")
+        pol = self.policy({"references/r.md": "generated"})
+        pol["skills"]["demo"]["replace_text"] = [
+            {"file": "SKILL.md", "old": "on this Mac", "new": "on macOS"},
+            {"file": "references/r.md", "old": "the sources workstream", "new": "you"}]
+        self.assertEqual(P.cmd_apply(pol), 0)
+        with open(os.path.join(self.pub, "demo/SKILL.md")) as fh:
+            self.assertIn("runs on macOS", fh.read())
+        with open(os.path.join(self.pub, "demo/references/r.md")) as fh:
+            self.assertEqual(fh.read(), "built by you\n")
+        self.write(self.canon, "demo", "references/r.md", "reworded upstream\n")
+        _, probs = self.verbs(pol)
+        self.assertTrue(any("replace_text no longer matches" in p for p in probs), probs)
+
+    def test_scoped_apply_keeps_other_skills_in_the_lock(self):
+        for skill in ("demo", "other"):
+            self.write(self.canon, skill, "SKILL.md", f"---\nname: {skill}\ndescription: d\n---\n")
+            self.write(self.canon, skill, "scripts/run.py", "print(1)\n")
+        pol = self.policy({"scripts/run.py": "generated"})
+        pol["skills"]["other"] = {"mode": "generated", "source": "other", "files": {"scripts/run.py": "generated"}}
+        self.assertEqual(P.cmd_apply(pol), 0)
+        os.remove(os.path.join(self.canon, "other", "scripts/run.py"))   # a full apply now refuses
+        self.assertEqual(P.cmd_apply(pol), 1)
+        self.write(self.canon, "demo", "scripts/run.py", "print(2)\n")
+        self.assertEqual(P.cmd_apply(P.only_skills(pol, ["demo"]), scoped=True), 0)
+        lock = P.read_lock()
+        self.assertIn("other/SKILL.md", lock)
+        self.assertIn("other/scripts/run.py", lock)
+        self.assertEqual(lock["demo/scripts/run.py"][0], P.sha("print(2)\n"))
+        with self.assertRaises(P.Failure):
+            P.only_skills(pol, ["ghost"])
+
     def test_privacy_scan_covers_supporting_files(self):
         self.write(self.canon, "demo", "SKILL.md", "---\nname: demo\ndescription: d\n---\n")
         self.write(self.canon, "demo", "scripts/leak.py", 'KEY = "sk-abcdefghijklmnopqrstuvwx"\n')
@@ -403,6 +472,100 @@ class CompleteArtifact(unittest.TestCase):
         self.assertEqual(v["demo/scripts/leak.py"], "BLOCK")
         self.assertTrue(probs)
 
+
+
+class PublicAuthoredFiles(unittest.TestCase):
+    """Public-authored skills are hand-written here, so no lock hashes them. They still fail closed:
+    every file is declared in the list the policy names, and every file passes the privacy gate."""
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(prefix="pa-")
+        self._root = P.ROOT
+        P.ROOT = self.tmp
+        self.write("public/pa/SKILL.md", "---\nname: pa\ndescription: d\n---\n")
+        self.write("public/pa/references/notes.md", "Run it from the skill folder.\n")
+        self.write("publish/public-authored.files", "# one path per line\npa/references/notes.md\n")
+        self.pol = {"version": 1, "canonical_root": "/nonexistent", "public_root": "public",
+                    "defaults": {"transforms": [], "supporting_files": {
+                        "undeclared_canonical": "excluded", "undeclared_public": "blocked",
+                        "public_authored_list": "publish/public-authored.files"}},
+                    "skills": {"pa": {"mode": "public-authored", "reason": "test"}}, "retired": {}}
+
+    def tearDown(self):
+        P.ROOT = self._root
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def write(self, rel, body):
+        p = os.path.join(self.tmp, rel)
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p, "w") as fh:
+            fh.write(body)
+
+    def test_declared_clean_files_pass(self):
+        problems, n = P.public_authored_problems(self.pol)
+        self.assertEqual((problems, n), ([], 2))
+
+    def test_stray_file_fails(self):
+        self.write("public/pa/references/stray.md", "nobody declared me\n")
+        problems, _ = P.public_authored_problems(self.pol)
+        self.assertTrue(any("pa/references/stray.md" in p and "not declared" in p for p in problems), problems)
+
+    def test_declared_file_that_is_gone_fails(self):
+        os.remove(os.path.join(self.tmp, "public/pa/references/notes.md"))
+        problems, _ = P.public_authored_problems(self.pol)
+        self.assertTrue(any("declared public-authored but missing" in p for p in problems), problems)
+
+    def test_home_path_and_private_marker_fail(self):
+        self.write("public/pa/references/notes.md", "cd /Users/x/projects first\n")
+        self.write("public/pa/SKILL.md", "---\nname: pa\n---\n<!-- private -->\n")
+        problems = " ".join(P.public_authored_problems(self.pol)[0])
+        self.assertIn("pa/references/notes.md: private absolute home path", problems)
+        self.assertIn("pa/SKILL.md: explicit private marker", problems)
+
+    def test_placeholder_home_paths_pass(self):
+        self.write("public/pa/references/notes.md", 'HOME="/home/someone" and a regex r"/Users/[a-z]"\n')
+        self.assertEqual(P.public_authored_problems(self.pol)[0], [])
+
+    def test_missing_list_fails_closed(self):
+        os.remove(os.path.join(self.tmp, "publish/public-authored.files"))
+        problems, _ = P.public_authored_problems(self.pol)
+        self.assertTrue(problems)
+
+
+class PublicAuthoredFilesInThisRepo(unittest.TestCase):
+    """The CLI, on this repository: a stray file or a planted home path in a public-authored skill
+    makes --verify-public exit non-zero."""
+
+    def verify(self):
+        import subprocess
+        env = dict(os.environ, CLAUDE_SKILLS="/nonexistent")
+        return subprocess.run([sys.executable, os.path.join(PUB, "publish_skills.py"), "--verify-public"],
+                              capture_output=True, text=True, env=env)
+
+    def test_stray_file_in_company_fleets_fails(self):
+        stray = os.path.join(ROOT, "skills", "company-fleets", "references", "stray.md")
+        with open(stray, "w") as fh:
+            fh.write("hand-added\n")
+        try:
+            p = self.verify()
+        finally:
+            os.remove(stray)
+        self.assertEqual(p.returncode, 1, p.stdout)
+        self.assertIn("company-fleets/references/stray.md", p.stdout)
+
+    def test_planted_home_path_in_skill_md_fails(self):
+        path = os.path.join(ROOT, "skills", "company-fleets", "SKILL.md")
+        with open(path, encoding="utf-8") as fh:
+            original = fh.read()
+        try:
+            with open(path, "a", encoding="utf-8") as fh:
+                fh.write("\nSee /Users/someoneelse/Developer for the rig.\n")
+            p = self.verify()
+        finally:
+            with open(path, "w", encoding="utf-8") as fh:
+                fh.write(original)
+        self.assertEqual(p.returncode, 1, p.stdout)
+        self.assertIn("company-fleets/SKILL.md: private absolute home path", p.stdout)
 
 if __name__ == "__main__":
     print(f"canonical sources available: {CANONICAL} "

@@ -1,0 +1,101 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): a sample teacher-candidate solution with two intentionally incorrect answers (Q2 formula, Q6 query). Not a real candidate's work.",
+  "items": [
+    {
+      "id": "Q1-contribution-margin",
+      "kind": "spreadsheet",
+      "cells": {
+        "B2": "450",
+        "B3": "2.5",
+        "B4": "1",
+        "B5": "=B3-B4"
+      },
+      "target": "B5",
+      "key": 1.5,
+      "tolerance": 0.005
+    },
+    {
+      "id": "Q2-break-even-units",
+      "kind": "spreadsheet",
+      "cells": {
+        "B2": "450",
+        "B3": "2.5",
+        "B4": "1",
+        "B5": "=B3-B4",
+        "B6": "=B2/B3"
+      },
+      "target": "B6",
+      "key": 300,
+      "tolerance": 0.005,
+      "note": "Intentionally incorrect candidate formula: divides by price, not contribution margin; the verified key stays 300."
+    },
+    {
+      "id": "Q3-break-even-revenue",
+      "kind": "spreadsheet",
+      "cells": {
+        "B2": "450",
+        "B3": "2.5",
+        "B4": "1",
+        "B5": "=B3-B4",
+        "B6": "=B2/B5",
+        "B9": "=B6*B3"
+      },
+      "target": "B9",
+      "key": 750,
+      "tolerance": 0.005
+    },
+    {
+      "id": "Q4-target-profit-units",
+      "kind": "spreadsheet",
+      "cells": {
+        "B2": "450",
+        "B3": "2.5",
+        "B4": "1",
+        "B5": "=B3-B4",
+        "B7": "150",
+        "B8": "=(B2+B7)/B5"
+      },
+      "target": "B8",
+      "key": 400,
+      "tolerance": 0.005
+    },
+    {
+      "id": "Q5-margin-of-safety",
+      "kind": "calc",
+      "expression": "(360-300)/360",
+      "key": 0.1667,
+      "tolerance": 0.0005,
+      "submitted": 0.1667
+    },
+    {
+      "id": "Q6-revenue-by-item",
+      "kind": "sql",
+      "setup": "CREATE TABLE sales (week INTEGER, item TEXT, units INTEGER, unit_price REAL);INSERT INTO sales VALUES (1,'sticker',40,2.5),(1,'notebook',12,4.0),(2,'sticker',55,2.5),(2,'notebook',9,4.0),(3,'sticker',61,2.5),(3,'notebook',15,4.0);",
+      "query": "SELECT item, SUM(units*unit_price) AS revenue FROM sales",
+      "key": [
+        [
+          "notebook",
+          144.0
+        ],
+        [
+          "sticker",
+          390.0
+        ]
+      ],
+      "ordered": false,
+      "note": "Intentionally incorrect candidate query: missing GROUP BY, so it returns one total row."
+    },
+    {
+      "id": "Q7-sticker-units",
+      "kind": "sql",
+      "setup": "CREATE TABLE sales (week INTEGER, item TEXT, units INTEGER, unit_price REAL);INSERT INTO sales VALUES (1,'sticker',40,2.5),(1,'notebook',12,4.0),(2,'sticker',55,2.5),(2,'notebook',9,4.0),(3,'sticker',61,2.5),(3,'notebook',15,4.0);",
+      "query": "SELECT SUM(units) FROM sales WHERE item = 'sticker'",
+      "key": [
+        [
+          156
+        ]
+      ],
+      "ordered": true
+    }
+  ]
+}

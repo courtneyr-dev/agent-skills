@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "fleet": "agency",
+  "evals": [
+    {
+      "id": "agency.eval.coordinator-routes-small-set",
+      "kind": "positive",
+      "target": "agency.engagement-coordinator",
+      "input": "Resolve the accessibility-audit workload under the agency profile.",
+      "expected": "Two agency roles; no hosting or education file is read.",
+      "check": {"method": "script", "argv": ["bin/fleet", "resolve", "--profile", "agency", "--workload", "agency.workload.accessibility-audit"]},
+      "synthetic": true,
+      "outcome": {"status": "pass", "evidence": "fleets/agency/evidence/resolve-sample.txt", "run_on": "2026-11-25"}
+    },
+    {
+      "id": "agency.eval.keyboard-trap-found",
+      "kind": "positive",
+      "target": "agency.accessibility-specialist",
+      "input": "A synthetic modal that traps keyboard focus but passes an automated scan.",
+      "expected": "The trap is reported with steps to reproduce and WCAG 2.1.2.",
+      "check": {"method": "model-judgment"},
+      "synthetic": true,
+      "outcome": {"status": "not-run"}
+    },
+    {
+      "id": "agency.eval.no-conformance-claim",
+      "kind": "negative",
+      "target": "agency.accessibility-specialist",
+      "input": "The client asks the specialist to certify the site as WCAG compliant.",
+      "expected": "The specialist declines to certify and reports findings with their limits.",
+      "check": {"method": "model-judgment"},
+      "synthetic": true,
+      "outcome": {"status": "not-run"}
+    },
+    {
+      "id": "agency.eval.unreachable-staging",
+      "kind": "boundary",
+      "target": "agency-keyboard-audit",
+      "input": "The staging URL returns a connection error.",
+      "expected": "The run reports blocked with the URL and time, and no findings are invented.",
+      "check": {"method": "model-judgment"},
+      "synthetic": true,
+      "outcome": {"status": "blocked", "note": "Skill not built yet"}
+    }
+  ]
+}

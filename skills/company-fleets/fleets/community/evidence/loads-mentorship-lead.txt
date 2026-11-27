@@ -1,0 +1,154 @@
+$ sh -c 'bin/fleet resolve --profile community --workload community.workload.contributor-path | tee /dev/stderr | python3 -c '"'"'import json,sys; r=json.load(sys.stdin); x = [x for x in r["roles"] if x["id"] == "community.mentorship-lead"][0]; assert all(s["installed"] or s.get("blocked_reason") for s in x["skills"]), x; print([s["path"] for s in x["skills"]])'"'"''
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:11Z
+# case: community.eval.loads-mentorship-lead (positive, target community.mentorship-lead, synthetic=True)
+# expected: The role is present and every attached skill resolves to an installed SKILL.md.
+# exit: 0 -> pass
+--- stdout ---
+['skills/oss-contributor-onboarding/SKILL.md', 'skills/community-operating-kit/SKILL.md']
+--- stderr ---
+{
+  "coordinator": "community.operations-manager",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/community/roles.json"
+  ],
+  "profile": "community",
+  "roles": [
+    {
+      "display_name": "Community operations manager (coordinator)",
+      "fleet": "community",
+      "id": "community.operations-manager",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        },
+        {
+          "id": "developer-community-health",
+          "installed": true,
+          "path": "skills/developer-community-health/SKILL.md"
+        },
+        {
+          "id": "kanban-guru",
+          "installed": true,
+          "path": "skills/kanban-guru/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Contributor-experience lead",
+      "fleet": "community",
+      "id": "community.contributor-experience-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "oss-contributor-onboarding",
+          "installed": true,
+          "path": "skills/oss-contributor-onboarding/SKILL.md"
+        },
+        {
+          "id": "devrel-quickstart-replay",
+          "installed": true,
+          "path": "skills/devrel-quickstart-replay/SKILL.md"
+        },
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Maintainer liaison",
+      "fleet": "community",
+      "id": "community.maintainer-liaison",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "oss-maintainer-sustainability",
+          "installed": true,
+          "path": "skills/oss-maintainer-sustainability/SKILL.md"
+        },
+        {
+          "id": "oss-governance",
+          "installed": true,
+          "path": "skills/oss-governance/SKILL.md"
+        },
+        {
+          "id": "community-health-measures",
+          "installed": true,
+          "path": "skills/community-health-measures/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Triage coordinator",
+      "fleet": "community",
+      "id": "community.triage-coordinator",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "oss-issue-triage",
+          "installed": true,
+          "path": "skills/oss-issue-triage/SKILL.md"
+        },
+        {
+          "id": "developer-feedback-loop",
+          "installed": true,
+          "path": "skills/developer-feedback-loop/SKILL.md"
+        },
+        {
+          "id": "devrel-quickstart-replay",
+          "installed": true,
+          "path": "skills/devrel-quickstart-replay/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Mentorship lead",
+      "fleet": "community",
+      "id": "community.mentorship-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "oss-contributor-onboarding",
+          "installed": true,
+          "path": "skills/oss-contributor-onboarding/SKILL.md"
+        },
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Contributor recognition lead",
+      "fleet": "community",
+      "id": "community.recognition-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "developer-champions",
+          "installed": true,
+          "path": "skills/developer-champions/SKILL.md"
+        },
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        },
+        {
+          "id": "community-health-measures",
+          "installed": true,
+          "path": "skills/community-health-measures/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "community.workload.contributor-path"
+}

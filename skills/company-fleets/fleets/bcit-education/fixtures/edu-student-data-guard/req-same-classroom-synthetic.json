@@ -1,0 +1,8 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): classroom A assistant reads its own synthetic roster.",
+  "principal": "classroom-a-assistant",
+  "record": "CA-ROSTER",
+  "data_origin": "synthetic",
+  "tool": "claude-code",
+  "purpose": "Group practice pairs for the store unit"
+}

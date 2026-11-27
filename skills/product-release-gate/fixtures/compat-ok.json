@@ -1,0 +1,97 @@
+{
+  "schema": "compat-matrix.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person. Host and API version lists are fixture values, not current platform facts.",
+  "product": {
+    "id": "fixture-co-forms-connector",
+    "platform": "wordpress-plugin",
+    "version": "2.0.0"
+  },
+  "declares": {
+    "hosts": {
+      "wordpress": {
+        "min": "6.6",
+        "max": "6.9"
+      },
+      "php": {
+        "min": "8.1",
+        "max": "8.4"
+      }
+    },
+    "apis": {
+      "fixture-billing-api": "2026-04"
+    }
+  },
+  "platform_facts": {
+    "source": {
+      "ref": "fixtures: synthetic host and API version lists",
+      "revision": "fixture-r1",
+      "retrieved": "2026-11-25"
+    },
+    "host_versions": {
+      "wordpress": [
+        "6.4",
+        "6.5",
+        "6.6",
+        "6.7",
+        "6.8",
+        "6.9"
+      ],
+      "php": [
+        "7.4",
+        "8.0",
+        "8.1",
+        "8.2",
+        "8.3",
+        "8.4"
+      ]
+    },
+    "api_versions_served": {
+      "fixture-billing-api": [
+        "2026-04",
+        "2026-10"
+      ]
+    }
+  },
+  "tests": [
+    {
+      "host": "wordpress",
+      "version": "6.6",
+      "result": "pass"
+    },
+    {
+      "host": "wordpress",
+      "version": "6.7",
+      "result": "pass"
+    },
+    {
+      "host": "wordpress",
+      "version": "6.8",
+      "result": "pass"
+    },
+    {
+      "host": "wordpress",
+      "version": "6.9",
+      "result": "pass"
+    },
+    {
+      "host": "php",
+      "version": "8.1",
+      "result": "pass"
+    },
+    {
+      "host": "php",
+      "version": "8.2",
+      "result": "pass"
+    },
+    {
+      "host": "php",
+      "version": "8.3",
+      "result": "pass"
+    },
+    {
+      "host": "php",
+      "version": "8.4",
+      "result": "pass"
+    }
+  ]
+}

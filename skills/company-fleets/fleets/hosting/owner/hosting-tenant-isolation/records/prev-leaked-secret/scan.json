@@ -1,0 +1,20 @@
+{
+  "files": [
+    [
+      "build.log",
+      "eef663b332c2db8dd30994ebfc57815340ccd01fe0aea6b23bb13ef7b43d0148"
+    ],
+    [
+      "preview/app.js.map",
+      "59af205170b23c1284d79c3789ca31ece705871cc479725eeb55204b57a546c3"
+    ]
+  ],
+  "files_scanned": 2,
+  "findings": 2,
+  "kind": "scan",
+  "preview_id": "prev-leaked-secret",
+  "recorded_by": "isolation_check secrets scan",
+  "subject_sha256": "cce85247b8333fb51d04e75bedbcf0f084289cfac155ba5d7a4a8625081a8dc2",
+  "tenant_id": "tenant-a",
+  "verdict": "findings"
+}

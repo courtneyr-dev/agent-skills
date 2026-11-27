@@ -1,0 +1,10 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/pk12standards/research/
+# run 2026-11-25
+http_code=200 final_url=https://csteachers.org/pk12standards/research/ size=408582
+L126 (paraphrase): WestEd ran the literature review and compared the standards with 12 other sets of guidelines, looking at progressions, generative AI, equity and coverage.
+L127: Research to Inform the CSTA PK–12 Standards Revision
+L128 (paraphrase): The report summarizes the research behind the 2026 revision and how it shaped the standards' structure, content and wording.
+L156: Algorithms and Programming Literature Review
+L159: Computing Systems and Security Literature Review
+L162: Data and Analysis Literature Review
+L165: Computing and Society Literature Review

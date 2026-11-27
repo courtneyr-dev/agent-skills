@@ -1,0 +1,17 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): config for the design-system skill's check-foundations.py",
+  "tokens": ["tokens.css"],
+  "scan": ["styles.css"],
+  "contrast": [
+    { "fg": "--color-text", "bg": "--color-bg", "min": 4.5 },
+    { "fg": "--color-text-muted", "bg": "--color-bg", "min": 4.5 },
+    { "fg": "--color-text", "bg": "--color-surface", "min": 4.5 },
+    { "fg": "--color-on-action", "bg": "--color-action", "min": 4.5 },
+    { "fg": "--color-action", "bg": "--color-bg", "min": 4.5 },
+    { "fg": "--color-focus", "bg": "--color-bg", "min": 3 }
+  ],
+  "nested": [
+    { "outer": "--radius-md", "padding": "--space-1", "inner": "--radius-sm" }
+  ],
+  "allow": ["0", "1px", "2px", "3px", "1rem", "-999rem"]
+}

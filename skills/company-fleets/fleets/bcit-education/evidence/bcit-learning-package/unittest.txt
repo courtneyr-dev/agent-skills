@@ -1,0 +1,17 @@
+$ cd skills/bcit-learning-package/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v
+# run 2026-11-26 (python 3.14.7)
+test_not_json_and_not_object (test_package_check.InvalidInputTests.test_not_json_and_not_object) ... ok
+test_usage (test_package_check.InvalidInputTests.test_usage) ... usage: package_check [-h] {check} ...
+package_check: error: the following arguments are required: cmd
+ok
+test_collected_evidence_needs_human_source (test_package_check.PackageTests.test_collected_evidence_needs_human_source) ... ok
+test_demo_unit_passes_and_reports_partial_standards (test_package_check.PackageTests.test_demo_unit_passes_and_reports_partial_standards) ... ok
+test_heading_pointer_must_exist (test_package_check.PackageTests.test_heading_pointer_must_exist) ... ok
+test_incomplete_package_fails_each_rule (test_package_check.PackageTests.test_incomplete_package_fails_each_rule) ... ok
+test_missing_sibling_is_missing_capability (test_package_check.PackageTests.test_missing_sibling_is_missing_capability) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.372s
+
+OK
+# exit 0

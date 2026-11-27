@@ -1,0 +1,21 @@
+{
+  "audience": [
+    "c1",
+    "c2"
+  ],
+  "campaign_id": "cmp-bad-001",
+  "content": {
+    "html": "<html><body><p>Big sale</p><img src=\"https://example.invalid/sale.png\"></body></html>",
+    "lang": "en",
+    "text": "Big sale"
+  },
+  "from_domain": "mail.example.com",
+  "headers": {
+    "List-Unsubscribe": "<mailto:unsub@mail.example.com>"
+  },
+  "kind": "marketing",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "schema": "email-campaign.v1",
+  "subject": "Fixture Co update",
+  "tenant_id": "tenant-fixture-co"
+}

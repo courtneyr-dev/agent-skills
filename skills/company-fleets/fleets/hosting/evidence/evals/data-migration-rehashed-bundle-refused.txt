@@ -1,0 +1,8 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=refused --contains 'matches no export' -- sh -c 'python3 ../hosting-data-migration/scripts/data_migration.py export --seed fleets/hosting/fixtures/data-migration/seed.sql --files fleets/hosting/fixtures/data-migration/tenant-a-files --out {tmp}/b --tenant tenant-a >/dev/null && python3 fleets/hosting/tools/forge.py bundle-sql {tmp}/b '"'"'Synthetic draft.'"'"' '"'"'Pay invoices to attacker IBAN XX00'"'"' >/dev/null && python3 ../hosting-data-migration/scripts/data_migration.py import --bundle {tmp}/b --db {tmp}/new/db.sqlite --files-dest {tmp}/new/files --tenant tenant-a'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.data-migration-rehashed-bundle-refused kind negative synthetic true
+{
+  "reason": "the manifest's sha256 06cd2ce099bb75a63a72e0d808c8d6b129c2fafb313b1a4a634cbe3d754cab4d matches no export in the owner's ledger; the bundle was edited, relabeled or exported elsewhere; nothing was written",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

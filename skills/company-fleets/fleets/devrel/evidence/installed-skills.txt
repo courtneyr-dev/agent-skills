@@ -1,0 +1,4 @@
+# run: 2026-11-26T13:46:59Z
+# check: each skill resolves under <skills-root>, names itself, and its scripts compile
+ok   devrel-quickstart-replay -> <skills-root>/devrel-quickstart-replay/SKILL.md; front matter name devrel-quickstart-replay; scripts/replay.py compiles
+ok   devrel-program-kit -> <skills-root>/devrel-program-kit/SKILL.md; front matter name devrel-program-kit; scripts/check_routes.py compiles; scripts/check_program.py compiles

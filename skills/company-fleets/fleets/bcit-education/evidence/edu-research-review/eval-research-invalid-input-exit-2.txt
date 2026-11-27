@@ -1,0 +1,8 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 2 --contains "error" --contains design -- python3 ../edu-research-review/scripts/research_check.py claims fleets/bcit-education/fixtures/edu-research-review/resolver-synthetic-bad.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.research-invalid-input-exit-2
+{
+  "ok": false,
+  "error": "study is missing 'design'"
+}
+# expect: met
+# exit 0

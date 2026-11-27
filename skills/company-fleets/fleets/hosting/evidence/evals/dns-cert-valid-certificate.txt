@@ -1,0 +1,24 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json status=valid -- python3 ../hosting-dns-cert-lifecycle/scripts/dns_cert.py cert-check --cert fleets/hosting/fixtures/dns-cert/tenant-a-apex.pem --host www.tenant-a.example --now 2026-11-25T00:00:00Z
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.dns-cert-valid-certificate kind positive synthetic true
+{
+  "assumptions": [
+    "Only DNS subject alternative names are matched; the subject CN is ignored (RFC 9525 dropped CN-ID).",
+    "A wildcard must be the whole leftmost label and covers exactly one label (RFC 6125 section 6.4.3).",
+    "Self-signed or private-CA chains are not validated; this checks name and dates only.",
+    "renew means days left is at or below warn-days."
+  ],
+  "days_left": 51.0,
+  "host": "www.tenant-a.example",
+  "not_after": "2027-01-15T00:00:00+00:00",
+  "not_before": "2026-10-01T00:00:00+00:00",
+  "parser": "ssl._ssl._test_decode_cert",
+  "problems": [],
+  "sans": [
+    "tenant-a.example",
+    "www.tenant-a.example"
+  ],
+  "status": "valid",
+  "warn_days": 30
+}
+# expect: met
+# exit 0

@@ -1,0 +1,13 @@
+{
+  "label": "SYNTHETIC: Fixture Co owner file. Which hosted domains belong to which tenant; intake checks a report's named hosts against it. Subdomains belong to their parent.",
+  "tenants": {
+    "tenant-a": [
+      "tenant-a.example",
+      "client-a.example"
+    ],
+    "tenant-b": [
+      "tenant-b.example",
+      "client-b.example"
+    ]
+  }
+}

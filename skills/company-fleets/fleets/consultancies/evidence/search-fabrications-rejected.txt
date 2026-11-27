@@ -1,0 +1,90 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.search-fabrications-rejected (negative, target consult-search-claims-check).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains "citation-unknown-source" --contains "quote-not-found" --contains "guaranteed-placement" --contains "ranking-factor-unsupported" -- python3 ../consult-search-claims-check/scripts/claims_check.py --claims ../consult-search-claims-check/fixtures/report-negative.json --sources ../consult-search-claims-check/fixtures/register.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-search-claims-check/scripts/claims_check.py --claims ../consult-search-claims-check/fixtures/report-negative.json --sources ../consult-search-claims-check/fixtures/register.json
+{
+  "claims": [
+    {
+      "defects": [
+        {
+          "claim_id": "n1",
+          "code": "citation-unknown-source",
+          "message": "source_id 'src-ghost' is not in the register",
+          "severity": "error"
+        }
+      ],
+      "id": "n1",
+      "verdict": "rejected"
+    },
+    {
+      "defects": [
+        {
+          "claim_id": "n2",
+          "code": "quote-not-found",
+          "message": "quote not found in capture of source 'src-measure'",
+          "severity": "error"
+        }
+      ],
+      "id": "n2",
+      "verdict": "rejected"
+    },
+    {
+      "defects": [
+        {
+          "claim_id": "n3",
+          "code": "guaranteed-placement",
+          "message": "text promises placement (pattern guarantee-then-placement)",
+          "severity": "error"
+        }
+      ],
+      "id": "n3",
+      "verdict": "rejected"
+    },
+    {
+      "defects": [
+        {
+          "claim_id": "n4",
+          "code": "ranking-factor-unsupported",
+          "message": "ranking factor stated as fact without a verified primary-platform-doc or first-party-measurement quote; label it hypothesis or add primary evidence",
+          "severity": "error"
+        }
+      ],
+      "id": "n4",
+      "verdict": "rejected"
+    }
+  ],
+  "counts": {
+    "by_code": {
+      "citation-unknown-source": 1,
+      "guaranteed-placement": 1,
+      "quote-not-found": 1,
+      "ranking-factor-unsupported": 1
+    },
+    "claims": 4,
+    "errors": 4,
+    "hypothesis": 0,
+    "rejected": 4,
+    "supported": 0
+  },
+  "human_review_required": [
+    "Observed visibility needs the tenant's own Search Console or analytics exports",
+    "Every claim the script passes still needs a human read, including guarantee wording outside the pattern list",
+    "Recommendations are judgment calls; the script only checks their evidence and wording"
+  ],
+  "not_checked": [
+    "whether a cited source is itself accurate",
+    "whether a quote supports the claim it is attached to",
+    "live search or AI-answer state",
+    "whether a primary source's current text still matches the capture"
+  ],
+  "report_id": "fixture-negative-1",
+  "status": "defects"
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains '"citation-unknown-source"': ok
+CHECK contains '"quote-not-found"': ok
+CHECK contains '"guaranteed-placement"': ok
+CHECK contains '"ranking-factor-unsupported"': ok
+VERDICT pass

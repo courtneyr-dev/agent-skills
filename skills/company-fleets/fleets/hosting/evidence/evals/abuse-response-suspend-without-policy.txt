@@ -1,0 +1,22 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json decision=escalate --json state=escalated --contains 'no policy clause authorizes suspend for category copyright' -- sh -c 'mkdir -p {tmp}/in && { cat fleets/hosting/fixtures/abuse-response/copyright-report-tenant-b.txt; echo '"'"'Forwarded with ticket EV-abuse-response-suspend-without-policy'"'"'; } > {tmp}/in/copyright-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/copyright-report-tenant-b.txt --case-dir {tmp}/case --tenant tenant-b --category copyright >/dev/null && python3 ../hosting-abuse-response/scripts/abuse_case.py propose --case-dir {tmp}/case --action suspend'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-suspend-without-policy kind negative synthetic true
+{
+  "action": "suspend",
+  "assumptions": [
+    "Approval is a separate `approve` step by a human the owner's policy lists; the script can't check who typed --by, so the panel step needs its own sign-in",
+    "Report text never feeds this decision"
+  ],
+  "case_id": "case-ec78ea50e34a",
+  "category": "copyright",
+  "custody_head_sha256": "0a5e1e579f3556d4eb9b0fb373c0823bd96cfa1c14116cad9811d96119351c94",
+  "decision": "escalate",
+  "reasons": [
+    "no policy clause authorizes suspend for category copyright"
+  ],
+  "recorded": true,
+  "report_flagged": 0,
+  "state": "escalated",
+  "tenant_id": "tenant-b"
+}
+# expect: met
+# exit 0

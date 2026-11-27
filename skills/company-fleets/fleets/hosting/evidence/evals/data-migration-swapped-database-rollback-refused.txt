@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=db-changed-since-migration -- sh -c 'python3 -c "import sqlite3;[sqlite3.connect('"'"'{tmp}/'"'"'+s+'"'"'.sqlite'"'"').executescript(open('"'"'fleets/hosting/fixtures/data-migration/seed.sql'"'"').read()) for s in ('"'"'site-a'"'"','"'"'site-b'"'"')];c=sqlite3.connect('"'"'{tmp}/site-b.sqlite'"'"');c.execute(\"UPDATE options SET value='"'"'Client B'"'"' WHERE name='"'"'site_name'"'"'\");c.commit()" && python3 ../hosting-data-migration/scripts/data_migration.py migrate --db {tmp}/site-a.sqlite --backup-dir {tmp}/backups --migration fleets/hosting/fixtures/data-migration/migration-v1-to-v2.sql >/dev/null && cp {tmp}/site-b.sqlite {tmp}/site-a.sqlite && python3 ../hosting-data-migration/scripts/data_migration.py rollback --db {tmp}/site-a.sqlite --backup-dir {tmp}/backups'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.data-migration-swapped-database-rollback-refused kind negative synthetic true
+{
+  "reason": "db-changed-since-migration: the database at $TMPDIR/hosting-eval-7idzo9wu/site-a.sqlite (checksum b2b455dbb09d0769dfedf7a9608f65d18d1ec8765346158561b3ca2092952159) is neither the one migrating it left nor the backup itself, so it is another database or has taken writes since; restoring backup-0001 could destroy them; the database was not touched",
+  "refusal": "db-changed-since-migration",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

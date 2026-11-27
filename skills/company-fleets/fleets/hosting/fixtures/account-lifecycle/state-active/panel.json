@@ -1,0 +1,10 @@
+{
+  "accounts": {
+    "acct-tenant-a-001": {
+      "domain": "client-a.example",
+      "plan": "reseller-starter",
+      "suspend_reason": null,
+      "suspended": false
+    }
+  }
+}

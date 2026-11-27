@@ -1,0 +1,39 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --contains availability-from-lab -- sh -c 'python3 -c "import json;d=json.load(open('"'"'fleets/hosting/benchmark/2026-11-26-matrix.json'"'"'));dim=lambda i:[x for x in d['"'"'dimensions'"'"'] if x['"'"'id'"'"']==i][0];dim('"'"'availability'"'"')['"'"'measured_result'"'"']=dict(dim('"'"'restore'"'"')['"'"'measured_result'"'"'],value=0.058,kind='"'"'production'"'"',window_days=30);json.dump(d,open('"'"'{tmp}/m.json'"'"','"'"'w'"'"'))" && python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix {tmp}/m.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-lab-labeled-production-refused kind negative synthetic true
+{
+  "as_of": "2026-11-26",
+  "assumptions": [
+    "Provider claims are what public pages said on retrieved_on; they are not tested.",
+    "A measured value counts only at the evidence file and JSON path the evidence owner recorded for its dimension, while the file's hash matches.",
+    "Targets and statuses come from the owner's benchmark/targets.json; a process running as the same OS user can rewrite the owner's files, which only separate OS accounts or signed records stop."
+  ],
+  "statuses": {
+    "accessibility": "not-measured",
+    "availability": "evidence-refused",
+    "cost": "not-measured",
+    "data_portability": "met",
+    "deployment_reversibility": "met",
+    "isolation": "met",
+    "observability": "met",
+    "performance_under_load": "not-measured",
+    "recovery_objectives": "unmet",
+    "regional_constraints": "not-measured",
+    "restore": "met",
+    "support_coverage": "not-measured"
+  },
+  "verdict": "fail",
+  "violations": [
+    {
+      "dimension": "availability",
+      "message": "the evidence owner's manifest records no evidence file and JSON path for availability",
+      "rule": "measured-evidence"
+    },
+    {
+      "dimension": "availability",
+      "message": "an availability percentage needs evidence that is an slo-check availability claim covering at least 30 days; this evidence is not, whatever the matrix labels it",
+      "rule": "availability-from-lab"
+    }
+  ]
+}
+# expect: met
+# exit 0

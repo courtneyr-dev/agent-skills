@@ -1,0 +1,50 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=rolled-back --json checksums_equal=true --contains 'content over the original columns changed' -- sh -c 'printf -- '"'"'-- expect-rows-unchanged: posts, comments\n-- expect-rows: options=2\nUPDATE posts SET body = \x27\x27;\nDELETE FROM comments WHERE id = 3;\nINSERT INTO comments VALUES (99, 1, \x27visitor\x27, \x27spam\x27);\n'"'"' > {tmp}/m.sql && python3 ../hosting-data-migration/scripts/data_migration.py migrate --seed fleets/hosting/fixtures/data-migration/seed.sql --migration {tmp}/m.sql'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.data-migration-content-wipe-caught kind negative synthetic true
+{
+  "assumptions": [
+    "SQLite and a files folder stand in for the site's database and uploads; engine-specific SQL (MySQL, PostgreSQL) is not tested.",
+    "Databases are assumed idle, in rollback-journal mode, with one writer; take the site into maintenance mode first.",
+    "sqlite_sequence content and file permissions are not part of the checksums."
+  ],
+  "backup": {
+    "content_checksum": "3c4b269086a25b4d04b8448d523e4c477237becc3b1434ccceb06278e7ded0c1",
+    "file": "backup-0001.sqlite",
+    "file_sha256": "7d0b44c4136e5b22b3a8837de8ece760408b71206db8319901325910b42f5c9d",
+    "name": "backup-0001"
+  },
+  "checksums_equal": true,
+  "failed_statement": null,
+  "postconditions": [
+    {
+      "arg": "posts",
+      "detail": "posts rows before 3, after 3; content over the original columns changed",
+      "directive": "expect-rows-unchanged",
+      "ok": false
+    },
+    {
+      "arg": "comments",
+      "detail": "comments rows before 3, after 3; content over the original columns changed",
+      "directive": "expect-rows-unchanged",
+      "ok": false
+    },
+    {
+      "arg": "options=2",
+      "detail": "options rows expected 2, found 2",
+      "directive": "expect-rows",
+      "ok": true
+    },
+    {
+      "arg": "",
+      "detail": "ok",
+      "directive": "integrity-check",
+      "ok": true
+    }
+  ],
+  "pre_checksum": "3c4b269086a25b4d04b8448d523e4c477237becc3b1434ccceb06278e7ded0c1",
+  "reason": "post-condition failed: expect-rows-unchanged posts (posts rows before 3, after 3; content over the original columns changed)",
+  "restored_checksum": "3c4b269086a25b4d04b8448d523e4c477237becc3b1434ccceb06278e7ded0c1",
+  "statements": 3,
+  "verdict": "rolled-back"
+}
+# expect: met
+# exit 0

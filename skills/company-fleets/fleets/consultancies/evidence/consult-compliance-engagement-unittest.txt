@@ -1,0 +1,20 @@
+# Unit tests for skills/consult-compliance-engagement after the 2026-11-26 review fixes. SYNTHETIC Fixture Co fixtures. Run 2026-11-26T22:17Z.
+$ cd skills/consult-compliance-engagement/scripts/tests && python3 -m unittest -v
+test_complete_engagement_may_issue_its_authorized_report (test_engagement_check.EngagementCheckTest.test_complete_engagement_may_issue_its_authorized_report) ... ok
+test_cross_tenant_evidence_is_refused (test_engagement_check.EngagementCheckTest.test_cross_tenant_evidence_is_refused) ... ok
+test_every_planted_gap_is_caught_in_its_stage (test_engagement_check.EngagementCheckTest.test_every_planted_gap_is_caught_in_its_stage) ... ok
+test_evidence_at_the_age_limit_passes_and_one_day_over_fails (test_engagement_check.EngagementCheckTest.test_evidence_at_the_age_limit_passes_and_one_day_over_fails) ... ok
+test_evidence_hash_is_recomputed_from_the_artifact (test_engagement_check.EngagementCheckTest.test_evidence_hash_is_recomputed_from_the_artifact) ... ok
+test_evidence_path_in_another_tenant_is_refused (test_engagement_check.EngagementCheckTest.test_evidence_path_in_another_tenant_is_refused) ... ok
+test_framework_the_selector_picked_must_be_resolved (test_engagement_check.EngagementCheckTest.test_framework_the_selector_picked_must_be_resolved) ... ok
+test_invalid_inputs_exit_2 (test_engagement_check.EngagementCheckTest.test_invalid_inputs_exit_2) ... ok
+test_labels_cannot_soften_legal_or_certification_claims (test_engagement_check.EngagementCheckTest.test_labels_cannot_soften_legal_or_certification_claims) ... ok
+test_legal_conclusion_needs_counsel_and_unlisted_frameworks_are_refused (test_engagement_check.EngagementCheckTest.test_legal_conclusion_needs_counsel_and_unlisted_frameworks_are_refused) ... ok
+test_level_conformance_claim_needs_a_full_evaluation (test_engagement_check.EngagementCheckTest.test_level_conformance_claim_needs_a_full_evaluation) ... ok
+test_without_artifacts_the_report_cannot_issue (test_engagement_check.EngagementCheckTest.test_without_artifacts_the_report_cannot_issue) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.787s
+
+OK
+exit=0

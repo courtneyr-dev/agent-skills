@@ -1,0 +1,12 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.aera.net/
+# run 2026-11-25
+http_code=200 final_url=https://www.aera.net/ size=83151
+L1: American Educational Research Association > Home
+L12: Divisions |
+L13: SIGs |
+L20: Publications
+L26 (paraphrase): Title of an AERA and The 74 webinar on chronic absenteeism.
+L27 (paraphrase): AERA and The 74 hosted a one-hour webinar on 18 November about persistent chronic absenteeism and interventions with evidence behind them.
+L28 (paraphrase): The webinar recording is posted on the event page.
+L33 (paraphrase): Title of a 3 December webinar on the special education teacher workforce.
+L35 (paraphrase): The 3 December webinar discusses an AERA volume on the special education teacher workforce through systems thinking and implementation science.

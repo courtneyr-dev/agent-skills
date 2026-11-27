@@ -1,0 +1,15 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json decision=refuse --json recorded=false --contains 'evidence failed verification' -- sh -c 'mkdir -p {tmp}/in && { cat fleets/hosting/fixtures/abuse-response/phishing-report-tenant-b.txt; echo '"'"'Forwarded with ticket EV-abuse-response-tampered-evidence-refused'"'"'; } > {tmp}/in/phishing-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/phishing-report-tenant-b.txt --case-dir {tmp}/case --tenant tenant-b --category phishing >/dev/null && chmod u+w {tmp}/case/evidence/* && echo edited >> {tmp}/case/evidence/phishing-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py propose --case-dir {tmp}/case --action suspend'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-tampered-evidence-refused kind boundary synthetic true
+{
+  "action": "suspend",
+  "decision": "refuse",
+  "problems": [
+    "evidence/phishing-report-tenant-b.txt hash differs from the manifest"
+  ],
+  "reasons": [
+    "evidence failed verification; no action is recorded on a tampered case, escalate to a human outside this script"
+  ],
+  "recorded": false
+}
+# expect: met
+# exit 0

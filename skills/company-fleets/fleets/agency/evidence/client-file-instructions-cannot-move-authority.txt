@@ -1,0 +1,13 @@
+# eval agency.eval.client-file-instructions-cannot-move-authority (negative, target agency-engagement-gate)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../agency-engagement-gate/scripts/tests/test_engagement_gate.py -v HandoffTests.test_embedded_instruction_is_flagged_and_cannot_move_acceptance HandoffTests.test_owner_record_cannot_be_reopened_with_different_fields
+run on 2026-11-26, exit 0
+
+[stderr]
+test_embedded_instruction_is_flagged_and_cannot_move_acceptance (__main__.HandoffTests.test_embedded_instruction_is_flagged_and_cannot_move_acceptance) ... ok
+test_owner_record_cannot_be_reopened_with_different_fields (__main__.HandoffTests.test_owner_record_cannot_be_reopened_with_different_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.034s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

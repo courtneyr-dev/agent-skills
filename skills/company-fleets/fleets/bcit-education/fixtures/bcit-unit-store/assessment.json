@@ -1,0 +1,220 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): assessment for the student-run store unit.",
+  "context": {
+    "grade_band": "10-12",
+    "reading_grade_target": 9
+  },
+  "objectives": [
+    {
+      "id": "O1",
+      "level": "apply",
+      "text": "Calculate markup, contribution margin and weekly gross profit for store items with spreadsheet formulas built from cell references.",
+      "construct": "applying markup and gross profit calculations in a spreadsheet"
+    },
+    {
+      "id": "O2",
+      "level": "analyze",
+      "text": "Query a sales table to compare revenue by item and by week, and explain which item drives profit.",
+      "construct": "analyzing sales data with SQL queries"
+    },
+    {
+      "id": "O3",
+      "level": "evaluate",
+      "text": "Recommend and justify a price change for one item in a short memo to the store manager.",
+      "construct": "evaluating a pricing decision with evidence; business communication"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T0",
+      "objective_ids": [
+        "O1"
+      ],
+      "format": "selected-response",
+      "cognitive_level": "remember",
+      "evidence": [
+        "recall"
+      ],
+      "prompt": "Exit ticket. Which cost stays the same no matter how many stickers we sell? Pick one: ink, sticker paper, or the printer lease.",
+      "demands": {
+        "paid_software": false,
+        "internet_required": false,
+        "offline_alternative": true,
+        "color_only_cues": false,
+        "timed_minutes": null
+      }
+    },
+    {
+      "id": "T1",
+      "objective_ids": [
+        "O1"
+      ],
+      "format": "performance",
+      "cognitive_level": "apply",
+      "evidence": [
+        "product",
+        "explanation"
+      ],
+      "prompt": "Open the store sheet. Write formulas for markup and profit for each item. Use cell references, not typed numbers. Then change the notebook price and say in one sentence what changed and why.",
+      "demands": {
+        "paid_software": false,
+        "internet_required": false,
+        "offline_alternative": true,
+        "color_only_cues": false,
+        "timed_minutes": null
+      }
+    },
+    {
+      "id": "T2",
+      "objective_ids": [
+        "O2"
+      ],
+      "format": "performance",
+      "cognitive_level": "analyze",
+      "evidence": [
+        "product",
+        "process-trace",
+        "explanation"
+      ],
+      "prompt": "Use the sales table. Write one query for revenue by item and one for revenue by week. Show the rows you got. Then explain which item brings in the most profit and how you know.",
+      "demands": {
+        "paid_software": false,
+        "internet_required": false,
+        "offline_alternative": true,
+        "color_only_cues": false,
+        "timed_minutes": null
+      }
+    },
+    {
+      "id": "T3",
+      "objective_ids": [
+        "O3"
+      ],
+      "format": "product",
+      "cognitive_level": "evaluate",
+      "evidence": [
+        "product",
+        "explanation"
+      ],
+      "prompt": "Write a memo of about 150 words to the store manager. Recommend one price change. Use your margin and sales numbers as evidence, and name one risk.",
+      "demands": {
+        "paid_software": false,
+        "internet_required": false,
+        "offline_alternative": true,
+        "color_only_cues": false,
+        "timed_minutes": null
+      }
+    }
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "task_id": "T1",
+      "objective_id": "O1",
+      "criterion": "Markup, margin and profit formulas",
+      "scoring_rationale": "Level 3 needs correct results from references because the objective is building the model, not doing arithmetic by hand.",
+      "levels": [
+        {
+          "score": 1,
+          "descriptor": "Beginning: values typed in, or calculation wrong"
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing: correct method on some items, one error in references or logic"
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient: correct results from cell references or queries, with a one-sentence explanation"
+        },
+        {
+          "score": 4,
+          "descriptor": "Advanced: proficient, and the model updates correctly when an input changes, with the reason stated"
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "task_id": "T2",
+      "objective_id": "O2",
+      "criterion": "Sales queries and interpretation",
+      "scoring_rationale": "Level 3 needs both correct result sets and a claim tied to them; a correct query with no interpretation stays at 2.",
+      "levels": [
+        {
+          "score": 1,
+          "descriptor": "Beginning: values typed in, or calculation wrong"
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing: correct method on some items, one error in references or logic"
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient: correct results from cell references or queries, with a one-sentence explanation"
+        },
+        {
+          "score": 4,
+          "descriptor": "Advanced: proficient, and the model updates correctly when an input changes, with the reason stated"
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "task_id": "T3",
+      "objective_id": "O3",
+      "criterion": "Pricing recommendation and evidence",
+      "scoring_rationale": "Scores the decision and its evidence; grammar is scored only in R4.",
+      "levels": [
+        {
+          "score": 1,
+          "descriptor": "Beginning: values typed in, or calculation wrong"
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing: correct method on some items, one error in references or logic"
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient: correct results from cell references or queries, with a one-sentence explanation"
+        },
+        {
+          "score": 4,
+          "descriptor": "Advanced: proficient, and the model updates correctly when an input changes, with the reason stated"
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "task_id": "T3",
+      "objective_id": "O3",
+      "criterion": "Memo clarity for the manager",
+      "scoring_rationale": "Scores whether the manager can act on the memo: recommendation first, numbers stated, one risk named.",
+      "levels": [
+        {
+          "score": 1,
+          "descriptor": "Beginning: values typed in, or calculation wrong"
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing: correct method on some items, one error in references or logic"
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient: correct results from cell references or queries, with a one-sentence explanation"
+        },
+        {
+          "score": 4,
+          "descriptor": "Advanced: proficient, and the model updates correctly when an input changes, with the reason stated"
+        }
+      ]
+    }
+  ],
+  "student_work": [
+    {
+      "id": "W1",
+      "task_id": "T1",
+      "synthetic": true,
+      "label": "SYNTHETIC student work written for scorer practice; not from a real learner",
+      "content": "D2: =E2*(B2-C2) ... explanation: profit went up because the margin per notebook grew by 0.50."
+    }
+  ]
+}

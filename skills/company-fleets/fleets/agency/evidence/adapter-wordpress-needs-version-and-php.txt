@@ -1,0 +1,8 @@
+# eval agency.eval.adapter-wordpress-needs-version-and-php (boundary, target agency-platform-adapters)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 2 --contains needs version -- python3 ../agency-platform-adapters/scripts/resolve_adapter.py --project ../agency-platform-adapters/fixtures/project-wordpress-php-only.json
+run on 2026-11-26, exit 0
+
+{
+  "error": "project on wordpress needs version, because the register's minimum min_version 7.0 can't be checked without it"
+}
+[expect] exit 2 (expected 2); missing none; forbidden present none -> PASS

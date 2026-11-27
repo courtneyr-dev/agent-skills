@@ -1,0 +1,27 @@
+$ cd skills/edu-answer-key-check/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v
+# run 2026-11-26 (python 3.14.7)
+test_calc_cannot_reference_cells (test_answer_key.CheckTests.test_calc_cannot_reference_cells) ... ok
+test_circular_reference_and_div_zero_are_errors (test_answer_key.CheckTests.test_circular_reference_and_div_zero_are_errors) ... ok
+test_matching_key_passes (test_answer_key.CheckTests.test_matching_key_passes) ... ok
+test_python_crash_is_an_error (test_answer_key.CheckTests.test_python_crash_is_an_error) ... ok
+test_python_stdout_compared (test_answer_key.CheckTests.test_python_stdout_compared) ... ok
+test_sql_error_is_reported (test_answer_key.CheckTests.test_sql_error_is_reported) ... ok
+test_sql_unordered_and_ordered (test_answer_key.CheckTests.test_sql_unordered_and_ordered) ... ok
+test_unsupported_function_is_never_passed (test_answer_key.CheckTests.test_unsupported_function_is_never_passed) ... ok
+test_wrong_key_is_a_mismatch (test_answer_key.CheckTests.test_wrong_key_is_a_mismatch) ... ok
+test_wrong_submitted_answer_is_flagged_even_when_key_is_right (test_answer_key.CheckTests.test_wrong_submitted_answer_is_flagged_even_when_key_is_right) ... ok
+test_if_and_comparison (test_answer_key.FormulaTests.test_if_and_comparison) ... ok
+test_pmt_and_fv_match_published_formula (test_answer_key.FormulaTests.test_pmt_and_fv_match_published_formula) ... ok
+test_precedence_and_left_associative_power (test_answer_key.FormulaTests.test_precedence_and_left_associative_power) ... ok
+test_ranges_skip_text_and_blanks (test_answer_key.FormulaTests.test_ranges_skip_text_and_blanks) ... ok
+test_round_half_away_from_zero (test_answer_key.FormulaTests.test_round_half_away_from_zero) ... ok
+test_rejects_duplicate_ids_unknown_kind_and_missing_key (test_answer_key.InvalidInputTests.test_rejects_duplicate_ids_unknown_kind_and_missing_key) ... ok
+test_rejects_empty_and_malformed (test_answer_key.InvalidInputTests.test_rejects_empty_and_malformed) ... ok
+test_usage_error (test_answer_key.InvalidInputTests.test_usage_error) ... usage: answer_key.py check FILE
+ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.058s
+
+OK
+# exit 0

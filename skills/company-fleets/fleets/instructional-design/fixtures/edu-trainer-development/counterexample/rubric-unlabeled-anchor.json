@@ -1,0 +1,6 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample rubric whose anchor claims to be expert-rated real work.",
+  "rubric_id": "counterexample",
+  "criteria": [{"id": "C1", "name": "Alt text conveys purpose", "levels": [{"score": 0, "descriptor": "Missing"}, {"score": 1, "descriptor": "Present"}]}],
+  "anchors": [{"id": "X1", "criterion": "C1", "origin": "expert-rated-real-work", "sample": "alt=\"chart\"", "intended_score": 0}]
+}

@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "label": "Education workstream's proposed status for its requirement rows, for the integrator to apply to registry/requirements.json. Paths are relative to the rig skills root. ED-056 and ED-057 are notes outside this repository, which the integrator writes.",
+  "generated_on": "2026-11-26",
+  "rows": [
+    {
+      "id": "S10-001",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-002",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-003",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-004",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-005",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-006",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-007",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/scripts/standards_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-008",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-009",
+      "status": "blocked",
+      "deliverable": null,
+      "blocker": "NBEA's page returned HTTP 403 to automated fetches on 2026-11-25, so the 2023 edition and licensing are not observed; the ten-area coverage check works (nbea-ten-areas-covered, computing-only-not-bcit). Resume: a person opens nbea.org/business-education-curriculum-standards and records edition, access and license in the registry."
+    },
+    {
+      "id": "S10-010",
+      "status": "blocked",
+      "deliverable": null,
+      "blocker": "No NOCTI credential category or identifier is selected; the program or teacher chooses one. Until then every NOCTI alignment is a gap and blueprint content stays out of the rig."
+    },
+    {
+      "id": "S10-011",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/scripts/standards_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-012",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-013",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/scripts/standards_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-014",
+      "status": "delivered",
+      "deliverable": "edu-student-data-guard/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S10-015",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/scripts/standards_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-016",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S10-017",
+      "status": "delivered",
+      "deliverable": "bcit-learning-package/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S10-018",
+      "status": "blocked",
+      "deliverable": null,
+      "blocker": "The Learning Commons Knowledge Graph is not connected; connector availability would not establish NBEA, NOCTI or ISTE coverage. Drafts stay labeled with the coverage edu-standards-alignment reports."
+    },
+    {
+      "id": "S10-019",
+      "status": "delivered",
+      "deliverable": "bcit-learning-package/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S10-020",
+      "status": "delivered",
+      "deliverable": "bcit-learning-package/scripts/package_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-021",
+      "status": "delivered",
+      "deliverable": "bcit-learning-package/scripts/package_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S10-022",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/fixtures/bcit-unit-store/package.json",
+      "blocker": null
+    },
+    {
+      "id": "S10-023",
+      "status": "delivered",
+      "deliverable": "bcit-learning-package/scripts/package_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S11-001",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "S11-002",
+      "status": "delivered",
+      "deliverable": "edu-needs-analysis/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-003",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-004",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-005",
+      "status": "blocked",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": "Facilitator and learner materials, scripts and accessibility checks exist (edu-trainer-development, edu-assessment-check, web-accessibility); storyboard, caption and transcript production has no tool or procedure yet."
+    },
+    {
+      "id": "S11-006",
+      "status": "blocked",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": "No target LMS or QTI/CASE consumer is named, so no delivery package or platform integration can be validated by an actual import. The evaluation and evidence plan exist (edu-trainer-development/scripts/evidence_plan.py)."
+    },
+    {
+      "id": "S11-007",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-008",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-009",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/instructional-design/README.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-010",
+      "status": "delivered",
+      "deliverable": "edu-research-review/scripts/research_check.py",
+      "blocker": null
+    },
+    {
+      "id": "S11-011",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S11-012",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "S11-013",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "S11-014",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/scripts/evidence_plan.py",
+      "blocker": null
+    },
+    {
+      "id": "S11-015",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/scripts/agreement.py",
+      "blocker": null
+    },
+    {
+      "id": "ED-001",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-002",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-003",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-004",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-005",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-006",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-007",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-008",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-009",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-010",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-011",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-012",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-013",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-014",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-015",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-016",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-017",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-018",
+      "status": "delivered",
+      "deliverable": "edu-answer-key-check/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-019",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/references/teacher-education.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-020",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/roles.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-021",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-022",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-023",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-024",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-025",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-026",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-027",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-028",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-029",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-030",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-031",
+      "status": "delivered",
+      "deliverable": "edu-learning-progression/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-032",
+      "status": "delivered",
+      "deliverable": "cs-classroom-instruction/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-033",
+      "status": "delivered",
+      "deliverable": "edu-answer-key-check/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-034",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/references/teacher-education.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-035",
+      "status": "delivered",
+      "deliverable": "edu-research-review/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-036",
+      "status": "delivered",
+      "deliverable": "edu-trainer-development/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-037",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-038",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-039",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-040",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-041",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-042",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-043",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-044",
+      "status": "delivered",
+      "deliverable": "edu-learning-progression/SKILL.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-045",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/standards-registry.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-046",
+      "status": "delivered",
+      "deliverable": "edu-research-review/references/evidence-hierarchy.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-047",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/organizations.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-048",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/organizations.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-049",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/organizations.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-050",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/evidence/edu-research-review/critique-kazemitabaar-2023.md",
+      "blocker": null
+    },
+    {
+      "id": "ED-051",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-052",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/evals.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-053",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/evals.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-054",
+      "status": "delivered",
+      "deliverable": "edu-standards-alignment/references/organizations.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-055",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/evals.json",
+      "blocker": null
+    },
+    {
+      "id": "ED-056",
+      "status": "assigned",
+      "deliverable": null,
+      "blocker": null
+    },
+    {
+      "id": "ED-057",
+      "status": "assigned",
+      "deliverable": null,
+      "blocker": null
+    },
+    {
+      "id": "ED-058",
+      "status": "delivered",
+      "deliverable": "company-fleets/fleets/bcit-education/README.md",
+      "blocker": null
+    }
+  ]
+}

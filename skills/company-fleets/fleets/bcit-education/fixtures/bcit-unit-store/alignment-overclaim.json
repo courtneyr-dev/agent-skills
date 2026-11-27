@@ -1,0 +1,55 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: invented and protected alignments claimed as verified.",
+  "context": {
+    "learner_audience": "students",
+    "district_adoptions": []
+  },
+  "alignments": [
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "pa-bcit-standards-2030",
+      "standard_id": "BCIT.10.2.A",
+      "status": "verified",
+      "reviewer": "human:teacher-of-record",
+      "evidence": "unit map"
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "nocti-blueprints",
+      "standard_id": "Accounting-Basic-3.2",
+      "status": "verified",
+      "reviewer": "human:teacher-of-record",
+      "evidence": "blueprint"
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "nbea-2023",
+      "standard_id": "ACC-IV.A.2",
+      "standard_text": "placeholder for copied standard wording (counterexample; no real text stored)",
+      "status": "verified",
+      "reviewer": "human:teacher-of-record",
+      "evidence": "map"
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2026",
+      "standard_id": "3A-DA-09",
+      "status": "verified",
+      "reviewer": "human:teacher-of-record",
+      "evidence": "map"
+    },
+    {
+      "objective_id": "O3",
+      "criterion_id": "R3",
+      "record_id": "wcag-22",
+      "standard_id": "1.4.3",
+      "status": "verified",
+      "reviewer": "human:teacher-of-record",
+      "evidence": "map"
+    }
+  ]
+}

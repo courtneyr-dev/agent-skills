@@ -1,0 +1,7 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 2 --contains 'measured_result must be an object or null' --absent Traceback -- sh -c 'python3 -c "import json;d=json.load(open('"'"'fleets/hosting/benchmark/2026-11-26-matrix.json'"'"'));dim=lambda i:[x for x in d['"'"'dimensions'"'"'] if x['"'"'id'"'"']==i][0];dim('"'"'restore'"'"')['"'"'measured_result'"'"']='"'"'0.058 seconds'"'"';json.dump(d,open('"'"'{tmp}/m.json'"'"','"'"'w'"'"'))" && python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix {tmp}/m.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-string-shaped-field-invalid kind boundary synthetic true
+{
+  "error": "restore measured_result must be an object or null"
+}
+# expect: met
+# exit 0

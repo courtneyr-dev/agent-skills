@@ -1,0 +1,126 @@
+$ sh -c 'bin/fleet resolve --profile devrel --workload devrel.workload.ecosystem-and-oss | tee /dev/stderr | python3 -c '"'"'import json,sys; r=json.load(sys.stdin); print(sorted(x["id"] for x in r["roles"])); assert r["coordinator"]; pass'"'"''
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:07Z
+# case: devrel.eval.resolve-ecosystem-and-oss (positive, target devrel.partner-engineer, synthetic=True)
+# expected: Coordinator plus partner engineer and OSS liaison.
+# exit: 0 -> pass
+--- stdout ---
+['devrel.oss-liaison', 'devrel.partner-engineer', 'devrel.program-lead']
+--- stderr ---
+{
+  "coordinator": "devrel.program-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/devrel/roles.json"
+  ],
+  "profile": "devrel",
+  "roles": [
+    {
+      "display_name": "Head of DevRel and program strategist (coordinator)",
+      "fleet": "devrel",
+      "id": "devrel.program-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "developer-relations-kickoff",
+          "installed": true,
+          "path": "skills/developer-relations-kickoff/SKILL.md"
+        },
+        {
+          "id": "devrel-program-kit",
+          "installed": true,
+          "path": "skills/devrel-program-kit/SKILL.md"
+        },
+        {
+          "id": "devrel-strategy",
+          "installed": true,
+          "path": "skills/devrel-strategy/SKILL.md"
+        },
+        {
+          "id": "devrel-team-structure",
+          "installed": true,
+          "path": "skills/devrel-team-structure/SKILL.md"
+        },
+        {
+          "id": "devrel-budget-allocation",
+          "installed": true,
+          "path": "skills/devrel-budget-allocation/SKILL.md"
+        },
+        {
+          "id": "devrel-engine",
+          "installed": true,
+          "path": "skills/devrel-engine/SKILL.md"
+        },
+        {
+          "id": "kanban-guru",
+          "installed": true,
+          "path": "skills/kanban-guru/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Partner and ecosystem engineer",
+      "fleet": "devrel",
+      "id": "devrel.partner-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "developer-ecosystem-strategy",
+          "installed": true,
+          "path": "skills/developer-ecosystem-strategy/SKILL.md"
+        },
+        {
+          "id": "open-standards-strategy",
+          "installed": true,
+          "path": "skills/open-standards-strategy/SKILL.md"
+        },
+        {
+          "id": "oss-distribution-strategy",
+          "installed": true,
+          "path": "skills/oss-distribution-strategy/SKILL.md"
+        },
+        {
+          "blocked_reason": "Sibling collection samber/developer-platform-skills isn't installed; developer-ecosystem-strategy covers strategy only",
+          "id": "partner-app-onboarding",
+          "installed": false,
+          "path": "skills/partner-app-onboarding/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "OSS liaison and community counterpart",
+      "fleet": "devrel",
+      "id": "devrel.oss-liaison",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "oss-governance",
+          "installed": true,
+          "path": "skills/oss-governance/SKILL.md"
+        },
+        {
+          "id": "oss-contributor-onboarding",
+          "installed": true,
+          "path": "skills/oss-contributor-onboarding/SKILL.md"
+        },
+        {
+          "id": "oss-launch",
+          "installed": true,
+          "path": "skills/oss-launch/SKILL.md"
+        },
+        {
+          "id": "open-source-company-strategy",
+          "installed": true,
+          "path": "skills/open-source-company-strategy/SKILL.md"
+        },
+        {
+          "id": "developer-community-health",
+          "installed": true,
+          "path": "skills/developer-community-health/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "devrel.workload.ecosystem-and-oss"
+}

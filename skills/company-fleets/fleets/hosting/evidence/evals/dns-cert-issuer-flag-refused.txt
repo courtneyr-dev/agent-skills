@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=issuer-not-owner-file --absent '"pass"' -- python3 ../hosting-dns-cert-lifecycle/scripts/dns_cert.py zone-check --zone fleets/hosting/fixtures/dns-cert/zone-caa-own-issuer.json --issuer evil-ca.example
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.dns-cert-issuer-flag-refused kind negative synthetic true
+{
+  "detail": "the CA that CAA must permit comes only from the owner's $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/dns-cert/issuer-policy.json; --issuer 'evil-ca.example' is refused",
+  "refusal": "issuer-not-owner-file",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

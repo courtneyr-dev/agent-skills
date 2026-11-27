@@ -1,0 +1,32 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.i18n-clean-catalog-passes (positive, target consult-i18n-check).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "status": "pass" --contains "by": "human:locale-reviewer" -- python3 ../consult-i18n-check/scripts/i18n_check.py --source ../consult-i18n-check/fixtures/source-en.json --target ../consult-i18n-check/fixtures/target-fr.json --glossary ../consult-i18n-check/fixtures/glossary.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-i18n-check/scripts/i18n_check.py --source ../consult-i18n-check/fixtures/source-en.json --target ../consult-i18n-check/fixtures/target-fr.json --glossary ../consult-i18n-check/fixtures/glossary.json
+{
+  "cldr_version": "48.0",
+  "counts": {},
+  "defects": [],
+  "linguistic_review": {
+    "by": "human:locale-reviewer",
+    "note": "This check does not judge translation accuracy, tone, register or cultural fit",
+    "status": "required"
+  },
+  "not_checked": [
+    "translation accuracy, tone, register and cultural fit",
+    "grammar and agreement inside plural forms",
+    "ICU MessageFormat select, gender and nested syntax",
+    "locale number and date formatting beyond literal date and currency patterns",
+    "rendered layout, fonts and visual truncation",
+    "keys present only in the target catalog",
+    "glossary inflection and compound forms"
+  ],
+  "source_locale": "en",
+  "status": "pass",
+  "target_locale": "fr"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"status": "pass"': ok
+CHECK contains '"by": "human:locale-reviewer"': ok
+VERDICT pass

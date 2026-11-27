@@ -1,0 +1,18 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.out-of-order-cancel-stays-canceled (boundary, target product-payment-events).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../product-payment-events/scripts/tests/test_payment_events.py PaymentEventsTest.test_cancel_that_arrives_before_its_checkout_keeps_the_entitlement_canceled PaymentEventsTest.test_events_need_a_parseable_created_time -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-payment-events/scripts/tests/test_payment_events.py PaymentEventsTest.test_cancel_that_arrives_before_its_checkout_keeps_the_entitlement_canceled PaymentEventsTest.test_events_need_a_parseable_created_time -v
+
+stderr:
+test_cancel_that_arrives_before_its_checkout_keeps_the_entitlement_canceled (__main__.PaymentEventsTest.test_cancel_that_arrives_before_its_checkout_keeps_the_entitlement_canceled) ... ok
+test_events_need_a_parseable_created_time (__main__.PaymentEventsTest.test_events_need_a_parseable_created_time) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.227s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

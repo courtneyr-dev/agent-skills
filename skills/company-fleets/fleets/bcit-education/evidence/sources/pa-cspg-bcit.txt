@@ -1,0 +1,15 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines
+# run 2026-11-25
+http_code=200 final_url=https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines size=254507
+L189: CSPG 33 – Business, Computer and Information Technology (revised 8/3/2023)
+L226: CSPG 71 - Computer Science 7-12 (revised 4/1/2022)
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-33-business-computer-and-information-technology
+# run 2026-11-25
+http_code=200 final_url=https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-33-business-computer-and-information-technology size=225736
+L156: ​CSPG 33 - Business/Computer and Information Technology, PK-12
+L157: ​Instructional Area Code 1603
+L161 (paraphrase): A Pennsylvania Business/Computer and Information Technology certificate covers business and basic computer and IT courses in grades PK-12.
+L163 (paraphrase): BCIT-certified educators may teach software application and business software courses, such as keyboarding, word processing, databases, spreadsheets and desktop publishing.
+L182 (paraphrase): Per CSPG 71, BCIT-certified educators teaching computer science in a Pennsylvania LEA on 2022-12-31 may continue; a first computer science assignment in grades 7-12 after that date needs the computer science certificate.
+L198: ​8/2023
+L200: Added restriction regarding the teaching of Computer Science.

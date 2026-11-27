@@ -1,0 +1,19 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=tampered --json first_bad.reason=edited --json first_bad.seq=2 -- python3 ../hosting-tenant-isolation/scripts/isolation_check.py audit verify --log fleets/hosting/fixtures/tenant-isolation/audit-log-edited.jsonl
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.tenant-isolation-audit-tamper-detected kind boundary synthetic true
+{
+  "assumptions": [
+    "Verification needs no secret: the chain proves order and content, not who wrote it",
+    "Without --anchor, removing lines from the end, or rewriting every line after a point with recomputed hashes, is not detectable; record head_sha256 somewhere the log writer can't edit"
+  ],
+  "entries": 4,
+  "first_bad": {
+    "detail": "sha256 does not match the entry's content",
+    "line": 4,
+    "reason": "edited",
+    "seq": 2
+  },
+  "head_sha256": null,
+  "verdict": "tampered"
+}
+# expect: met
+# exit 0

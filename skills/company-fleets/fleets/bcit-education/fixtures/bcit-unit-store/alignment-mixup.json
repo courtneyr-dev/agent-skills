@@ -1,0 +1,48 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: student/teacher standard mix-up, university curriculum in a school unit, and an edition that ignores the district's actual adoption (the district adopted CSTA 2017).",
+  "context": {
+    "learner_audience": "students",
+    "district_adoptions": [
+      "csta-k12-2017"
+    ]
+  },
+  "alignments": [
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-teacher-2020",
+      "standard_id": "4g",
+      "status": "unverified"
+    },
+    {
+      "objective_id": "TP1",
+      "criterion_id": "OB2",
+      "audience": "teachers",
+      "record_id": "csta-k12-2017",
+      "standard_id": "3A-AP-13",
+      "status": "unverified"
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2026",
+      "standard_id": "HS-ALG-ML-06",
+      "status": "unverified"
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2017",
+      "standard_id": "3A-AP-13",
+      "edition": "2026",
+      "status": "unverified"
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "cs2023",
+      "standard_id": "SDF",
+      "status": "unverified"
+    }
+  ]
+}

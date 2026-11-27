@@ -1,0 +1,167 @@
+{
+  "adapter": {
+    "axe_core": "4.13.0",
+    "chromium": "151.0.7922.34",
+    "playwright": "1.62.1"
+  },
+  "axe_violations": [],
+  "escape_releases": false,
+  "interactive": [
+    {
+      "click_listener": true,
+      "focusable": false,
+      "name": "Make this a monthly gift",
+      "role": "switch",
+      "selector": "#monthly",
+      "tabindex": null,
+      "tag": "div"
+    }
+  ],
+  "label": "SYNTHETIC FIXTURE (Fixture Co) page; this recording is raw keyboard_walk.cjs output from a real headless Chromium run on 2026-11-25.",
+  "max_tabs": 20,
+  "page": "donate-before.html",
+  "positive_tabindex": [],
+  "reached_end": false,
+  "tab_sequence": [
+    {
+      "baseline_style": "none | 3px | rgb(11, 79, 138) | none | rgb(11, 79, 138) | rgb(11, 79, 138) | rgba(0, 0, 0, 0) | rgb(11, 79, 138) | underline",
+      "focused_style": "none | 3px | rgb(11, 79, 138) | none | rgb(11, 79, 138) | rgb(11, 79, 138) | rgba(0, 0, 0, 0) | rgb(11, 79, 138) | underline",
+      "name": "About",
+      "selector": "header > nav > a:nth-of-type(1)",
+      "tag": "a"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(11, 79, 138) | none | rgb(11, 79, 138) | rgb(11, 79, 138) | rgba(0, 0, 0, 0) | rgb(11, 79, 138) | underline",
+      "focused_style": "none | 3px | rgb(11, 79, 138) | none | rgb(11, 79, 138) | rgb(11, 79, 138) | rgba(0, 0, 0, 0) | rgb(11, 79, 138) | underline",
+      "name": "Programs",
+      "selector": "header > nav > a:nth-of-type(2)",
+      "tag": "a"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(11, 79, 138) | none | rgb(11, 79, 138) | rgb(11, 79, 138) | rgba(0, 0, 0, 0) | rgb(11, 79, 138) | underline",
+      "focused_style": "none | 3px | rgb(11, 79, 138) | none | rgb(11, 79, 138) | rgb(11, 79, 138) | rgba(0, 0, 0, 0) | rgb(11, 79, 138) | underline",
+      "name": "Donate",
+      "selector": "header > nav > a:nth-of-type(3)",
+      "tag": "a"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$10",
+      "selector": "#amount-10",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$25",
+      "selector": "#amount-25",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$50",
+      "selector": "#amount-50",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$10",
+      "selector": "#amount-10",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$25",
+      "selector": "#amount-25",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$50",
+      "selector": "#amount-50",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$10",
+      "selector": "#amount-10",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$25",
+      "selector": "#amount-25",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$50",
+      "selector": "#amount-50",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$10",
+      "selector": "#amount-10",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$25",
+      "selector": "#amount-25",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$50",
+      "selector": "#amount-50",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$10",
+      "selector": "#amount-10",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$25",
+      "selector": "#amount-25",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$50",
+      "selector": "#amount-50",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$10",
+      "selector": "#amount-10",
+      "tag": "button"
+    },
+    {
+      "baseline_style": "none | 3px | rgb(0, 0, 0) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "focused_style": "auto | 1px | rgb(0, 95, 204) | none | rgb(0, 0, 0) | rgb(0, 0, 0) | rgb(239, 239, 239) | rgb(0, 0, 0) | none",
+      "name": "$25",
+      "selector": "#amount-25",
+      "tag": "button"
+    }
+  ]
+}

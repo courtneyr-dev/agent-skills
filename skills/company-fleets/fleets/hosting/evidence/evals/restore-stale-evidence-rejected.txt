@@ -1,0 +1,72 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json verdict=stale-evidence-rejected --json fresh.accepted=true --json stale_cases.report-edited.accepted=false --json stale_cases.contract-relaxed-after-review.accepted=false --json stale_cases.review-check-edited.accepted=false --json unmet.0=rpo_lost_writes -- sh -c 'python3 ../hosting-restore-exercise/scripts/restore_exercise.py run --targets fleets/hosting/fixtures/restore-exercise/targets-proposed.json --handoff-dir {tmp}/h --workdir {tmp}/lab >/dev/null; python3 ../hosting-restore-exercise/scripts/restore_exercise.py review --handoff-dir {tmp}/h --targets fleets/hosting/fixtures/restore-exercise/targets-proposed.json >/dev/null && python3 ../hosting-restore-exercise/scripts/restore_exercise.py evidence-gate --handoff-dir {tmp}/h --targets fleets/hosting/fixtures/restore-exercise/targets-proposed.json --workdir {tmp}/gate'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.restore-stale-evidence-rejected kind negative synthetic true
+{
+  "assumptions": [
+    "The gate is company-fleets fleetlib.handoff.evidence_errors over factory-rig hashes; this script only drives it.",
+    "The targets file is the contract's spec: it must hash to spec.sha256, so relaxing a target changes the contract.",
+    "The contract and the owner record are read from their fixed owner paths; a caller can't swap either.",
+    "A process running as the same OS user can rewrite those owner files or run all three steps under any listed name; the separation is by command and owner record, and only separate OS accounts or signed records close it."
+  ],
+  "exercise_verdict": "restored-targets-not-all-met",
+  "fresh": {
+    "accepted": true,
+    "errors": []
+  },
+  "handoff": {
+    "acceptance_owner": "human:hosting-operations-owner",
+    "handoff_id": "HO-FIX-RESTORE-1",
+    "idempotency_key": "b3cecb83b8ac42c33dd1f011eb51922f",
+    "producer": "hosting.storage-backup-engineer",
+    "reviewer": "hosting.service-assurance-lead"
+  },
+  "review": {
+    "monitor_probes": 2,
+    "monitor_saw_fault_then_recovery": true,
+    "rederived_statuses": "detection_seconds=met, restore_success=met, rpo_lost_writes=unmet, rto_seconds=met",
+    "statuses_match": true
+  },
+  "stale_cases": {
+    "contract-relaxed-after-review": {
+      "accepted": false,
+      "errors": [
+        "handoff is bound to contract acb7f7322c12 but the contract is now 8631c79603d6",
+        "stale evidence review-check.txt: it was produced under contract acb7f7322c12, not the current 8631c79603d6",
+        "stale evidence review-check.txt: it was produced under contract acb7f7322c12, not the current 8631c79603d6",
+        "output monitor-log.jsonl has no fresh evidence",
+        "output report.json has no fresh evidence"
+      ]
+    },
+    "monitor-log-edited": {
+      "accepted": false,
+      "errors": [
+        "output monitor-log.jsonl changed after the handoff recorded it",
+        "stale evidence review-check.txt: it checked a different version of monitor-log.jsonl",
+        "output monitor-log.jsonl has no fresh evidence"
+      ]
+    },
+    "report-edited": {
+      "accepted": false,
+      "errors": [
+        "output report.json changed after the handoff recorded it",
+        "stale evidence review-check.txt: it checked a different version of report.json",
+        "output report.json has no fresh evidence"
+      ]
+    },
+    "review-check-edited": {
+      "accepted": false,
+      "errors": [
+        "stale evidence review-check.txt: its file was edited after it was recorded",
+        "stale evidence review-check.txt: its file was edited after it was recorded",
+        "output monitor-log.jsonl has no fresh evidence",
+        "output report.json has no fresh evidence"
+      ]
+    }
+  },
+  "targets_sha256": "4133fea46c319dc8efa3c29a2d154e380def9a7bcc52ca23277c4cd8789c6672",
+  "unmet": [
+    "rpo_lost_writes"
+  ],
+  "verdict": "stale-evidence-rejected"
+}
+# expect: met
+# exit 0

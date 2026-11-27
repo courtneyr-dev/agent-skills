@@ -1,0 +1,32 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): a grades 9-12 introductory CS progression for classroom-a. Concept names are original summaries; CSTA and CS2023 are cited by label only. Not a district-adopted course.",
+  "course": "Introduction to Computer Science through Data (fixture)",
+  "grade_band": "9-12",
+  "concepts": [
+    {"id": "variables", "label": "Variables and assignment", "band": "6-8", "prior": true, "prereqs": [], "assessed_by": []},
+    {"id": "loops", "label": "Repetition with for loops", "band": "6-8", "prereqs": ["variables"], "assessed_by": ["cs910-accumulator-loops:T1"]},
+    {"id": "conditionals", "label": "Selection with if", "band": "6-8", "prereqs": ["variables"], "assessed_by": ["unit1-quiz:Q3"]},
+    {"id": "accumulator", "label": "Accumulator pattern (running total)", "band": "9-10", "prereqs": ["loops"], "assessed_by": ["cs910-accumulator-loops:T2"]},
+    {"id": "lists", "label": "Lists of values", "band": "9-10", "prereqs": ["variables"], "assessed_by": ["unit2-lab:L1"]},
+    {"id": "list-traversal", "label": "Traversing a list", "band": "9-10", "prereqs": ["lists", "loops"], "assessed_by": ["unit2-lab:L2"]},
+    {"id": "best-so-far", "label": "Best-so-far pattern (largest value)", "band": "9-10", "prereqs": ["list-traversal", "conditionals", "accumulator"], "assessed_by": ["cs910-accumulator-loops:T3"]},
+    {"id": "functions", "label": "Functions with parameters and return values", "band": "9-10", "prereqs": ["variables"], "assessed_by": ["unit3-project"]},
+    {"id": "testing-debugging", "label": "Testing and structured debugging", "band": "9-10", "prereqs": ["functions"], "assessed_by": ["unit3-debug-log"]},
+    {"id": "data-cleaning", "label": "Cleaning a small dataset", "band": "9-10", "prereqs": ["lists", "conditionals"], "assessed_by": ["unit4-lab"]},
+    {"id": "data-interpretation", "label": "Responsible interpretation of results", "band": "9-10", "prereqs": ["data-cleaning"], "assessed_by": ["unit4-written-claim"]},
+    {"id": "networks", "label": "How data moves across networks", "band": "9-10", "prereqs": [], "assessed_by": ["unit5-diagram"]},
+    {"id": "privacy-security", "label": "Privacy and security tradeoffs", "band": "9-10", "prereqs": ["networks"], "assessed_by": []},
+    {"id": "step-counting", "label": "Counting the steps an algorithm takes", "band": "11-12", "prereqs": ["list-traversal", "functions"], "assessed_by": ["unit6-lab"]},
+    {"id": "asymptotic-notation", "label": "Asymptotic growth notation", "band": "university", "prereqs": ["step-counting"], "assessed_by": ["unit6-extension"],
+     "bridge": "Introduced only as an optional grade 12 extension that compares step counts for lists of 10, 100 and 1000 items. Formal notation and proofs stay with postsecondary study (CS2023, Algorithmic Foundations, cited by label).",
+     "source": {"record_id": "cs2023", "label": "Algorithmic Foundations (knowledge area label)"}}
+  ],
+  "sequence": [
+    {"unit": "U1", "grade": 9, "concepts": ["loops", "conditionals", "accumulator"]},
+    {"unit": "U2", "grade": 9, "concepts": ["lists", "list-traversal", "best-so-far"]},
+    {"unit": "U3", "grade": 10, "concepts": ["functions", "testing-debugging"]},
+    {"unit": "U4", "grade": 10, "concepts": ["data-cleaning", "data-interpretation"]},
+    {"unit": "U5", "grade": 11, "concepts": ["networks", "privacy-security"]},
+    {"unit": "U6", "grade": 12, "concepts": ["step-counting", "asymptotic-notation"]}
+  ]
+}

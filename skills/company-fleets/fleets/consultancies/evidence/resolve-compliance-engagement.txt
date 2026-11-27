@@ -1,0 +1,123 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.resolve-compliance-engagement (positive, target consultancies.practice-coordinator).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "coordinator": "consultancies.practice-coordinator" --contains "fleets/consultancies/roles.json" --absent "fleets/hosting/roles.json" --absent "fleets/product/roles.json" --absent "fleets/agency/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile agency --workload consultancies.workload.compliance-engagement
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile agency --workload consultancies.workload.compliance-engagement
+{
+  "coordinator": "consultancies.practice-coordinator",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/consultancies/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Consultancy practice coordinator",
+      "fleet": "consultancies",
+      "id": "consultancies.practice-coordinator",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Standards analyst and independent assessor liaison",
+      "fleet": "consultancies",
+      "id": "consultancies.compliance-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "consult-compliance-engagement",
+          "installed": true,
+          "path": "skills/consult-compliance-engagement/SKILL.md"
+        },
+        {
+          "id": "compliance-os",
+          "installed": true,
+          "path": "skills/compliance-os/SKILL.md"
+        },
+        {
+          "id": "soc2-compliance",
+          "installed": true,
+          "path": "skills/soc2-compliance/SKILL.md"
+        },
+        {
+          "id": "isms-audit-expert",
+          "installed": true,
+          "path": "skills/isms-audit-expert/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Security and privacy engineer and evidence curator",
+      "fleet": "consultancies",
+      "id": "consultancies.compliance-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "consult-compliance-engagement",
+          "installed": true,
+          "path": "skills/consult-compliance-engagement/SKILL.md"
+        },
+        {
+          "id": "gdpr-dsgvo-expert",
+          "installed": true,
+          "path": "skills/gdpr-dsgvo-expert/SKILL.md"
+        },
+        {
+          "id": "supply-chain-risk-auditor",
+          "installed": true,
+          "path": "skills/supply-chain-risk-auditor/SKILL.md"
+        },
+        {
+          "id": "access-lifecycle",
+          "installed": true,
+          "path": "skills/access-lifecycle/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Independent reviewer (all practices)",
+      "fleet": "consultancies",
+      "id": "consultancies.independent-reviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "id": "fp-check",
+          "installed": true,
+          "path": "skills/fp-check/SKILL.md"
+        },
+        {
+          "id": "differential-review",
+          "installed": true,
+          "path": "skills/differential-review/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "consultancies.workload.compliance-engagement"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"coordinator": "consultancies.practice-coordinator"': ok
+CHECK contains '"fleets/consultancies/roles.json"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/product/roles.json"': ok
+CHECK absent '"fleets/agency/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

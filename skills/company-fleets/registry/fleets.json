@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "fleets": [
+    {"id": "corporate", "name": "Shared company services", "kind": "shared-services", "owner_workstream": "corporate-and-agency",
+     "purpose": "Executive, technology, finance, commercial, marketing, people, risk, data and communications services for every profile."},
+    {"id": "agency", "name": "Web development and design agency", "kind": "business", "owner_workstream": "corporate-and-agency",
+     "purpose": "Enterprise agency delivery from qualified brief through release, support handoff and improvement."},
+    {"id": "hosting", "name": "Hosting and application platform", "kind": "business", "owner_workstream": "hosting",
+     "purpose": "Hosting operations and business models from affiliate referral through enterprise platform."},
+    {"id": "product", "name": "Extension, theme, integration and SaaS products", "kind": "business", "owner_workstream": "product-and-consultancies",
+     "purpose": "Cross-platform extensions and products from discovery through compatible, supported releases."},
+    {"id": "consultancies", "name": "Specialist consultancy practices", "kind": "business", "owner_workstream": "product-and-consultancies",
+     "purpose": "Specialist practices such as accessibility, security, compliance, localization, SEO and commerce."},
+    {"id": "devrel", "name": "Developer relations", "kind": "independent-system", "owner_workstream": "devrel-and-community",
+     "purpose": "A complete developer relations system: research, docs, samples, workshops, feedback to product."},
+    {"id": "community", "name": "Community and open source", "kind": "independent-system", "owner_workstream": "devrel-and-community",
+     "purpose": "A complete community system: governance, moderation, contribution paths, onboarding and follow-up."},
+    {"id": "bcit-education", "name": "Public-school BCIT educator system", "kind": "independent-system", "owner_workstream": "education",
+     "purpose": "Business, Computer and Information Technology instruction support with honest standards mapping."},
+    {"id": "instructional-design", "name": "Instructional design and trainer development", "kind": "independent-system", "owner_workstream": "education",
+     "purpose": "Learning design, facilitation, rubric calibration and trainer-of-trainers development."}
+  ]
+}

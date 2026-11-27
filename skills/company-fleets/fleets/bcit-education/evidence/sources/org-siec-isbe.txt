@@ -1,0 +1,11 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.siec-isbe.org/about.html
+# run 2026-11-25
+http_code=200 final_url=https://www.siec-isbe.org/about.html size=100829
+L1: About - SIEC-ISBE INTERNATIONAL
+L2: SIEC-ISBE INTERNATIONAL
+L11: 2027 SIEC-ISBE International Conference
+L15: SIEC-ISBE International
+L19 (paraphrase): SIEC-ISBE states its vision as the leading international organization for business educators.
+L21: To enhance the international perspective of business and business education professionals.
+L59: SIEC-ISBE International is proud to partner with the
+L60: ​Korea Association of Information Management

@@ -1,0 +1,32 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "ok": true --contains concept privacy-security is not assessed by any task -- python3 ../edu-learning-progression/scripts/progression.py check fleets/bcit-education/fixtures/edu-learning-progression/progression-9-12.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.progression-9-12-valid
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "concept privacy-security is not assessed by any task"
+  ],
+  "unassessed": [
+    "privacy-security"
+  ],
+  "order": [
+    "variables",
+    "networks",
+    "loops",
+    "conditionals",
+    "lists",
+    "functions",
+    "privacy-security",
+    "accumulator",
+    "list-traversal",
+    "data-cleaning",
+    "testing-debugging",
+    "best-so-far",
+    "step-counting",
+    "data-interpretation",
+    "asymptotic-notation"
+  ],
+  "note": "A valid order shows the map is coherent, not that learners will learn in it. Teacher and faculty review decide use."
+}
+# expect: met
+# exit 0

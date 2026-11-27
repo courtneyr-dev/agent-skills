@@ -1,0 +1,15 @@
+{
+  "schema": "search-claims.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "report_id": "fixture-negative-1",
+  "tenant_id": "fixture-co",
+  "claims": [
+    {"id": "n1", "text": "A competitor study shows we lead on branded queries.", "kind": "observation", "status_label": "observed",
+     "evidence": [{"source_id": "src-ghost", "quote": "Fixture Co leads on branded queries."}]},
+    {"id": "n2", "text": "Impressions for the pricing page doubled.", "kind": "observation", "status_label": "observed",
+     "evidence": [{"source_id": "src-measure", "quote": "Impressions for the /pricing page doubled in week 4."}]},
+    {"id": "n3", "text": "We guarantee #1 ranking for your brand terms within 90 days.", "kind": "recommendation", "status_label": "recommendation", "evidence": []},
+    {"id": "n4", "text": "Exact-match anchor text is a ranking factor.", "kind": "ranking-factor", "status_label": "observed",
+     "evidence": [{"source_id": "src-blog", "quote": "exact-match anchor text is a strong ranking factor"}]}
+  ]
+}

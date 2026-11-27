@@ -1,0 +1,52 @@
+# SYNTHETIC FIXTURE (Fixture Co): Arabic catalog written for the demo; no human language reviewer has read it.
+msgid ""
+msgstr ""
+"Project-Id-Version: client-a-donate 1.0\nContent-Type: text/plain; charset=UTF-8\nLanguage: ar\nPlural-Forms: nplurals=6; plural=(n == 0) ? 0 : ((n == 1) ? 1 : ((n == 2) ? 2 : ((n % 100 >= 3 && n % 100 <= 10) ? 3 : ((n % 100 >= 11 && n % 100 <= 99) ? 4 : 5))));\n"
+
+msgid "Skip to main content"
+msgstr "انتقل إلى المحتوى الرئيسي"
+
+#. Accessible name of the main navigation
+msgid "Main"
+msgstr "الرئيسية"
+
+msgid "About"
+msgstr "من نحن"
+
+msgid "Programs"
+msgstr "البرامج"
+
+msgid "Donate"
+msgstr "تبرّع"
+
+msgid "Give to Client A"
+msgstr "تبرّع لـ Client A"
+
+msgid "Every gift stocks the community pantry."
+msgstr "كل تبرّع يملأ مخزن الطعام المجتمعي."
+
+msgid "Make this a monthly gift"
+msgstr "اجعل هذا تبرعًا شهريًا"
+
+msgid "Choose an amount"
+msgstr "اختر مبلغًا"
+
+msgid "Email for your receipt"
+msgstr "البريد الإلكتروني لإرسال الإيصال"
+
+#. max-length: 14
+msgid "Give now"
+msgstr "تبرّع الآن"
+
+msgid "%d donor gave this week"
+msgid_plural "%d donors gave this week"
+msgstr[0] "لم يتبرع أحد هذا الأسبوع"
+msgstr[1] "تبرّع شخص واحد هذا الأسبوع"
+msgstr[2] "تبرّع شخصان هذا الأسبوع"
+msgstr[3] "تبرّع %d أشخاص هذا الأسبوع"
+msgstr[4] "تبرّع %d شخصًا هذا الأسبوع"
+msgstr[5] "تبرّع %d شخص هذا الأسبوع"
+
+#. i18n-allow-identical: brand name
+msgid "Fixture Co"
+msgstr "Fixture Co"

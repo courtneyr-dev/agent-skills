@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "company-fleets/skill.schema.json",
+  "title": "Skill record",
+  "description": "A reusable method a fleet builds or adopts. The skill itself lives at skills/<id>/ in the rig; this record carries its contract, provenance and four separate states.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "fleet", "summary", "triggers", "boundaries", "inputs", "prerequisites", "method",
+    "stopping_conditions", "output_contract", "failure_states", "references", "scripts", "evals",
+    "adapters", "missing_capability", "provenance", "verification"
+  ],
+  "properties": {
+    "id": {"$ref": "common.schema.json#/$defs/slug"},
+    "fleet": {"$ref": "common.schema.json#/$defs/slug"},
+    "summary": {"$ref": "common.schema.json#/$defs/text"},
+    "triggers": {"$ref": "common.schema.json#/$defs/text_list"},
+    "boundaries": {"$ref": "common.schema.json#/$defs/text_list"},
+    "inputs": {"$ref": "common.schema.json#/$defs/text_list"},
+    "prerequisites": {"$ref": "common.schema.json#/$defs/text_list_or_empty"},
+    "method": {"$ref": "common.schema.json#/$defs/text_list"},
+    "stopping_conditions": {"$ref": "common.schema.json#/$defs/text_list"},
+    "output_contract": {"$ref": "common.schema.json#/$defs/text"},
+    "failure_states": {"$ref": "common.schema.json#/$defs/text_list"},
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "location", "version", "rights"],
+        "properties": {
+          "title": {"$ref": "common.schema.json#/$defs/text"},
+          "location": {"$ref": "common.schema.json#/$defs/text"},
+          "version": {"$ref": "common.schema.json#/$defs/text"},
+          "rights": {"$ref": "common.schema.json#/$defs/text"}
+        }
+      }
+    },
+    "scripts": {"type": "array", "items": {"$ref": "common.schema.json#/$defs/relpath"}},
+    "evals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["positive", "negative", "boundary"],
+      "properties": {
+        "positive": {"type": "array", "minItems": 1, "items": {"$ref": "common.schema.json#/$defs/eval_id"}},
+        "negative": {"type": "array", "minItems": 1, "items": {"$ref": "common.schema.json#/$defs/eval_id"}},
+        "boundary": {"type": "array", "minItems": 1, "items": {"$ref": "common.schema.json#/$defs/eval_id"}}
+      }
+    },
+    "adapters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "kind", "required"],
+        "properties": {
+          "name": {"$ref": "common.schema.json#/$defs/text"},
+          "kind": {"enum": ["cli", "api", "mcp", "document", "fake"]},
+          "required": {"type": "boolean"}
+        }
+      }
+    },
+    "missing_capability": {"$ref": "common.schema.json#/$defs/text"},
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["origin", "source", "revision", "license"],
+      "properties": {
+        "origin": {"enum": ["local", "upstream", "adapted"]},
+        "source": {"$ref": "common.schema.json#/$defs/text"},
+        "revision": {"$ref": "common.schema.json#/$defs/text"},
+        "license": {"$ref": "common.schema.json#/$defs/text"}
+      }
+    },
+    "blocked_reason": {"$ref": "common.schema.json#/$defs/text"},
+    "verification": {"$ref": "common.schema.json#/$defs/verification"}
+  }
+}

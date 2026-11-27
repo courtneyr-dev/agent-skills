@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=anchors-not-owner-ledger -- sh -c 'python3 -c "import json,sys;e=json.loads(open(sys.argv[1]).read().splitlines()[-1]);print(json.dumps({'"'"'incident_id'"'"':'"'"'INC-FX-0001'"'"','"'"'seq'"'"':e['"'"'seq'"'"'],'"'"'sha256'"'"':e['"'"'sha256'"'"']}))" fleets/hosting/fixtures/incident-response/incident-rehashed.jsonl > {tmp}/mine.jsonl && python3 ../hosting-incident-response/scripts/incident.py incident show --record fleets/hosting/fixtures/incident-response/incident-rehashed.jsonl --anchors {tmp}/mine.jsonl'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.incident-response-caller-anchors-refused kind negative synthetic true
+{
+  "detail": "record heads are anchored only in the owner's ledger $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/owner/hosting-incident-response/anchors.ndjson; the caller-named $TMPDIR/hosting-eval-0ttxy4yw/mine.jsonl is refused",
+  "refusal": "anchors-not-owner-ledger",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

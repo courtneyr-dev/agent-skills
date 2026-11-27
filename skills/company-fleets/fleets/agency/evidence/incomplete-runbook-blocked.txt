@@ -1,0 +1,47 @@
+# eval agency.eval.incomplete-runbook-blocked (boundary, target agency-engagement-gate)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 1 --contains "rule": "runbook-section-missing" --contains "rule": "runbook-section-empty" --contains "rule": "secret-in-runbook" -- python3 ../agency-engagement-gate/scripts/engagement_gate.py support --runbook ../agency-engagement-gate/fixtures/runbook-missing.md
+run on 2026-11-26, exit 0
+
+{
+  "findings": [
+    {
+      "blocking": true,
+      "message": "the support runbook has no '## Deployment and rollback' section.",
+      "rule": "runbook-section-missing",
+      "where": "Deployment and rollback"
+    },
+    {
+      "blocking": true,
+      "message": "'## Content freeze' is empty.",
+      "rule": "runbook-section-empty",
+      "where": "Content freeze"
+    },
+    {
+      "blocking": true,
+      "message": "the support runbook has no '## Warranty and maintenance' section.",
+      "rule": "runbook-section-missing",
+      "where": "Warranty and maintenance"
+    },
+    {
+      "blocking": true,
+      "message": "line 24 looks like a credential; reference the vault entry instead.",
+      "rule": "secret-in-runbook",
+      "where": 24
+    }
+  ],
+  "limits": [
+    "Checks that required sections exist, are filled, and hold no obvious secrets; a human support owner reads it for accuracy."
+  ],
+  "ok": false,
+  "sections_required": [
+    "Scope of support",
+    "Contacts by role",
+    "Deployment and rollback",
+    "Content freeze",
+    "Known issues",
+    "Operator training",
+    "Warranty and maintenance",
+    "Monitoring and escalation"
+  ]
+}
+[expect] exit 1 (expected 1); missing none; forbidden present none -> PASS

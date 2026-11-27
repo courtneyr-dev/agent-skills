@@ -1,0 +1,48 @@
+# SYNTHETIC FIXTURE (Fixture Co): Spanish catalog written for the demo; no human language reviewer has read it.
+msgid ""
+msgstr ""
+"Project-Id-Version: client-a-donate 1.0\nContent-Type: text/plain; charset=UTF-8\nLanguage: es\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Skip to main content"
+msgstr "Saltar al contenido principal"
+
+#. Accessible name of the main navigation
+msgid "Main"
+msgstr "Principal"
+
+msgid "About"
+msgstr "Quiénes somos"
+
+msgid "Programs"
+msgstr "Programas"
+
+msgid "Donate"
+msgstr "Donar"
+
+msgid "Give to Client A"
+msgstr "Dona a Client A"
+
+msgid "Every gift stocks the community pantry."
+msgstr "Cada donativo abastece la despensa comunitaria."
+
+msgid "Make this a monthly gift"
+msgstr "Haz que sea un donativo mensual"
+
+msgid "Choose an amount"
+msgstr "Elige una cantidad"
+
+msgid "Email for your receipt"
+msgstr "Correo electrónico para tu recibo"
+
+#. max-length: 14
+msgid "Give now"
+msgstr "Donar ahora"
+
+msgid "%d donor gave this week"
+msgid_plural "%d donors gave this week"
+msgstr[0] "%d persona donó esta semana"
+msgstr[1] "%d personas donaron esta semana"
+
+#. i18n-allow-identical: brand name
+msgid "Fixture Co"
+msgstr "Fixture Co"

@@ -1,5 +1,45 @@
 # Changelog
 
+## 1.1.0 — 2026-11-27
+
+### Added
+- 40 skills in four new paths: Company fleets (`-p fleets`, 18), Education (`-p education`, 10),
+  Hosting operations (`-p hosting`, 10) and Delivery factory (`-p delivery`, 2). The six existing
+  paths are unchanged.
+- 37 fleet gate skills, generated from canonical with a per-file allowlist; their 1,012 tests run
+  from the published copies.
+- Public editions of `company-fleets`, `factory-rig` and `factory-execute`. Run output, review
+  reports, demo builds, leases and machine paths stay out; machine values are environment
+  variables with skill-relative defaults.
+- `publish_skills.py --only NAME...` to apply or check named skills while other skills drift, and
+  `replace_text` in the policy for declared one-off rewrites that fail closed when stale.
+- Seven fleet transforms, each tested, and `.gitleaks.toml` allowing only `idempotency_key` content
+  hashes. CI runs gitleaks 8.30.1 with it over the tree and the history.
+- `publish/public-authored.files` lists every file of the 8 public-authored skills; `--verify-public`
+  and `--check` fail on an undeclared file and run the privacy scan over every public-authored file.
+- `company-fleets/registry/eval-external-needs.json` names the 55 eval cases that need an upstream
+  skill or a local tool (Docker, Playwright) and what each needs; the other 429 pass from a clone.
+
+### Changed
+- The installer test compares installed links with `skills/` on disk instead of a fixed count.
+- Fleet sources cite requirement ids instead of the unpublished prompt's sections and lines, and
+  the education fetch logs paraphrase third-party paragraphs. README's license section says quoted
+  or referenced third-party material stays under its owners' terms.
+
+### Fixed
+- `install.sh -p <path>` and `--guided` work. 1.0.0 listed both, and `--copy`, but the script
+  parsed none of them. `-p` installs the skills under `paths` in manifest.json; the fleets,
+  education and hosting paths also link `company-fleets` and `factory-rig`, which their scripts
+  import. `--guided` asks one question per path. `--copy` isn't implemented.
+
+### Notes
+- Roles attach 167 upstream skills this repo doesn't contain. They're marked external with their
+  source repository and install from there.
+- The fleet skills' transform list leaves out `second_person_owner`, which rewrote a pronoun set
+  in a claims checker's code while every test passed.
+- The hosting benchmark cites public provider documentation, lists providers alphabetically, and
+  refuses superiority claims.
+
 ## 1.0.0 — 2026-09-05
 
 First public release.

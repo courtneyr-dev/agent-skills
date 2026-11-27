@@ -1,0 +1,232 @@
+$ sh -c 'bin/fleet resolve --profile devrel --workload devrel.workload.event-program | tee /dev/stderr | python3 -c '"'"'import json,sys; r=json.load(sys.stdin); print(sorted(x["id"] for x in r["roles"])); assert r["coordinator"]; assert any(s.get("blocked_reason") for x in r["roles"] for s in x["skills"])'"'"''
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:06Z
+# case: devrel.eval.resolve-event-program (positive, target devrel.events-manager, synthetic=True)
+# expected: Coordinator plus events, advocate, demo and content roles; the blocked hackathon skill is listed with its reason.
+# exit: 0 -> pass
+--- stdout ---
+['devrel.content-editor', 'devrel.demo-producer', 'devrel.developer-advocate', 'devrel.events-manager', 'devrel.program-lead']
+--- stderr ---
+{
+  "coordinator": "devrel.program-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/devrel/roles.json"
+  ],
+  "profile": "devrel",
+  "roles": [
+    {
+      "display_name": "Head of DevRel and program strategist (coordinator)",
+      "fleet": "devrel",
+      "id": "devrel.program-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "developer-relations-kickoff",
+          "installed": true,
+          "path": "skills/developer-relations-kickoff/SKILL.md"
+        },
+        {
+          "id": "devrel-program-kit",
+          "installed": true,
+          "path": "skills/devrel-program-kit/SKILL.md"
+        },
+        {
+          "id": "devrel-strategy",
+          "installed": true,
+          "path": "skills/devrel-strategy/SKILL.md"
+        },
+        {
+          "id": "devrel-team-structure",
+          "installed": true,
+          "path": "skills/devrel-team-structure/SKILL.md"
+        },
+        {
+          "id": "devrel-budget-allocation",
+          "installed": true,
+          "path": "skills/devrel-budget-allocation/SKILL.md"
+        },
+        {
+          "id": "devrel-engine",
+          "installed": true,
+          "path": "skills/devrel-engine/SKILL.md"
+        },
+        {
+          "id": "kanban-guru",
+          "installed": true,
+          "path": "skills/kanban-guru/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Events and hackathon program manager",
+      "fleet": "devrel",
+      "id": "devrel.events-manager",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "developer-meetup-program",
+          "installed": true,
+          "path": "skills/developer-meetup-program/SKILL.md"
+        },
+        {
+          "id": "devrel-field-events",
+          "installed": true,
+          "path": "skills/devrel-field-events/SKILL.md"
+        },
+        {
+          "id": "developer-booth-playbook",
+          "installed": true,
+          "path": "skills/developer-booth-playbook/SKILL.md"
+        },
+        {
+          "id": "developer-event-sponsorship",
+          "installed": true,
+          "path": "skills/developer-event-sponsorship/SKILL.md"
+        },
+        {
+          "id": "developer-event-followup",
+          "installed": true,
+          "path": "skills/developer-event-followup/SKILL.md"
+        },
+        {
+          "id": "community-os",
+          "installed": true,
+          "path": "skills/community-os/SKILL.md"
+        },
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        },
+        {
+          "blocked_reason": "Sibling collection samber/dev-event-organizer-skills isn't installed; community-os covers hackathon PRDs in part",
+          "id": "hackathon-brief-design",
+          "installed": false,
+          "path": "skills/hackathon-brief-design/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Developer advocate",
+      "fleet": "devrel",
+      "id": "devrel.developer-advocate",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "tech-talk-outline",
+          "installed": true,
+          "path": "skills/tech-talk-outline/SKILL.md"
+        },
+        {
+          "id": "conference-cfp-submission",
+          "installed": true,
+          "path": "skills/conference-cfp-submission/SKILL.md"
+        },
+        {
+          "id": "engineering-blog-post",
+          "installed": true,
+          "path": "skills/engineering-blog-post/SKILL.md"
+        },
+        {
+          "id": "developer-live-demo-design",
+          "installed": true,
+          "path": "skills/developer-live-demo-design/SKILL.md"
+        },
+        {
+          "id": "devrel-content-calendar",
+          "installed": true,
+          "path": "skills/devrel-content-calendar/SKILL.md"
+        },
+        {
+          "id": "devrel-program-kit",
+          "installed": true,
+          "path": "skills/devrel-program-kit/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Speaker, demo and video or workshop producer",
+      "fleet": "devrel",
+      "id": "devrel.demo-producer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "tech-talk-outline",
+          "installed": true,
+          "path": "skills/tech-talk-outline/SKILL.md"
+        },
+        {
+          "id": "developer-live-demo-design",
+          "installed": true,
+          "path": "skills/developer-live-demo-design/SKILL.md"
+        },
+        {
+          "id": "technical-video-script",
+          "installed": true,
+          "path": "skills/technical-video-script/SKILL.md"
+        },
+        {
+          "id": "devrel-webinar-program",
+          "installed": true,
+          "path": "skills/devrel-webinar-program/SKILL.md"
+        },
+        {
+          "id": "devrel-live-streaming",
+          "installed": true,
+          "path": "skills/devrel-live-streaming/SKILL.md"
+        },
+        {
+          "id": "devrel-youtube-channel",
+          "installed": true,
+          "path": "skills/devrel-youtube-channel/SKILL.md"
+        },
+        {
+          "id": "devrel-quickstart-replay",
+          "installed": true,
+          "path": "skills/devrel-quickstart-replay/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Technical content editor",
+      "fleet": "devrel",
+      "id": "devrel.content-editor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "engineering-blog-post",
+          "installed": true,
+          "path": "skills/engineering-blog-post/SKILL.md"
+        },
+        {
+          "id": "changelog-writing",
+          "installed": true,
+          "path": "skills/changelog-writing/SKILL.md"
+        },
+        {
+          "id": "devrel-content-calendar",
+          "installed": true,
+          "path": "skills/devrel-content-calendar/SKILL.md"
+        },
+        {
+          "id": "devrel-newsletter-issue",
+          "installed": true,
+          "path": "skills/devrel-newsletter-issue/SKILL.md"
+        },
+        {
+          "id": "developer-case-study",
+          "installed": true,
+          "path": "skills/developer-case-study/SKILL.md"
+        },
+        {
+          "id": "devrel-program-kit",
+          "installed": true,
+          "path": "skills/devrel-program-kit/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "devrel.workload.event-program"
+}

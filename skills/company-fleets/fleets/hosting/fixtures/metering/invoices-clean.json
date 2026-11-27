@@ -1,0 +1,39 @@
+{
+  "label": "SYNTHETIC: November invoices for Fixture Co tenants where every line matches metered usage to the cent.",
+  "invoices": [
+    {
+      "invoice_id": "inv-a-2611",
+      "tenant_id": "tenant-a",
+      "currency": "USD",
+      "lines": [
+        {
+          "meter": "bandwidth_gb",
+          "quantity": 250.5,
+          "amount": 20.04
+        },
+        {
+          "meter": "storage_gb",
+          "quantity": 40,
+          "amount": 0.92
+        }
+      ]
+    },
+    {
+      "invoice_id": "inv-b-2611",
+      "tenant_id": "tenant-b",
+      "currency": "USD",
+      "lines": [
+        {
+          "meter": "bandwidth_gb",
+          "quantity": 500.25,
+          "amount": 40.02
+        },
+        {
+          "meter": "storage_gb",
+          "quantity": 75,
+          "amount": 1.73
+        }
+      ]
+    }
+  ]
+}

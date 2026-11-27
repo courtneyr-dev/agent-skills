@@ -1,0 +1,4 @@
+#!/bin/sh
+# Noodle provider shim: Noodle resolves [agents.claude].path as a directory containing this file.
+here=$(cd "$(dirname "$0")" && pwd)
+exec /usr/bin/env python3 "$here/../scripts/factory_rig/provider_wrapper.py" claude "$@"

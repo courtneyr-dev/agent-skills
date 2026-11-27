@@ -1,0 +1,18 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json import.verdict=refused --json nothing_written=true --contains 'does not match the manifest hash' -- python3 ../hosting-data-migration/scripts/data_migration.py roundtrip --seed fleets/hosting/fixtures/data-migration/seed.sql --files fleets/hosting/fixtures/data-migration/tenant-a-files --tenant tenant-a --tamper database.sql
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.data-migration-tampered-bundle-refused kind negative synthetic true
+{
+  "assumptions": [
+    "SQLite and a files folder stand in for the site's database and uploads; engine-specific SQL (MySQL, PostgreSQL) is not tested.",
+    "Databases are assumed idle, in rollback-journal mode, with one writer; take the site into maintenance mode first.",
+    "sqlite_sequence content and file permissions are not part of the checksums."
+  ],
+  "import": {
+    "reason": "artifact database.sql does not match the manifest hash; nothing was written",
+    "verdict": "refused"
+  },
+  "nothing_written": true,
+  "tampered": "database.sql",
+  "verdict": "fail"
+}
+# expect: met
+# exit 0

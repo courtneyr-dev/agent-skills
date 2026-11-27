@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "company-fleets/fleet.schema.json",
+  "title": "Fleet record",
+  "description": "One division or shared-services group. Its roles, workloads, skills and evals live in fleets/<id>/ so fleets never edit the same file.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "kind", "owner_workstream", "purpose"],
+  "properties": {
+    "id": {"$ref": "common.schema.json#/$defs/slug"},
+    "name": {"$ref": "common.schema.json#/$defs/text"},
+    "kind": {"enum": ["shared-services", "business", "independent-system"]},
+    "owner_workstream": {"enum": ["foundation", "corporate-and-agency", "hosting", "product-and-consultancies", "devrel-and-community", "education"]},
+    "purpose": {"$ref": "common.schema.json#/$defs/text"}
+  }
+}

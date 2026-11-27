@@ -1,0 +1,16 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/teacherstandards/
+# run 2026-11-25
+http_code=200 final_url=https://csteachers.org/teacherstandards/ size=321385
+L87 (paraphrase): CSTA and ISTE revised the CS educator standards in 2019 for a 2020 release; earlier versions date from 2003 and 2011.
+L112 (paraphrase): The teacher standards are licensed CC BY-NC-SA 4.0: share and adapt with attribution, noncommercially, under the same license.
+L113 (citation): Computer Science Teachers Association (2020), Standards for Computer Science Teachers, https://csteachers.org/teacherstandards
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/teacherstandards/teacher-standards-interactive/
+# run 2026-11-25
+http_code=200 final_url=https://csteachers.org/teacherstandards/interactive/ size=381616
+L90: Standard 1. CS Knowledge and Skills
+L111: 1a. Apply CS practices
+L162: Standard 2. Equity and Inclusion
+L229: Standard 3. Professional Growth and Identity
+L268: Standard 4. Instructional Design
+L324: Standard 5. Classroom Practice
+L372: 5f. Guide students’ use of feedback

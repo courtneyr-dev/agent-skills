@@ -1,0 +1,17 @@
+# Install evidence for the product fleet's original skills. Run 2026-11-26T22:17Z, after the 2026-11-26 review fixes.
+# For each skill: the Claude mount path resolved through <skills-root>, its file count, and skill-creator quick_validate (PyYAML 6.0.2 supplied by uv for this run only).
+# The Codex mount is not claimed: machine-manifest.json is the integrator's.
+
+## product-release-gate
+<skills-root>/product-release-gate/SKILL.md
+files: 24
+$ quick_validate.py skills/product-release-gate
+Skill is valid!
+exit=0
+
+## product-payment-events
+<skills-root>/product-payment-events/SKILL.md
+files: 12
+$ quick_validate.py skills/product-payment-events
+Skill is valid!
+exit=0

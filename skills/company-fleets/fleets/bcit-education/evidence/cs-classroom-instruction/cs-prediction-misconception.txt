@@ -1,0 +1,19 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "status": "prediction-differs" --contains the program printed '11' --contains "id": "M4" -- python3 ../cs-classroom-instruction/scripts/lesson.py respond fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json fleets/bcit-education/fixtures/cs-classroom-instruction/learner-predict-last-item.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.cs-prediction-misconception
+{
+  "progress_claim": null,
+  "note": "The script never records mastery or progress. The teacher of record reviews the work and decides.",
+  "task_id": "T1",
+  "learner_ref": "classroom-a/learner-03 (synthetic)",
+  "status": "prediction-differs",
+  "misconceptions": [
+    {
+      "id": "M4",
+      "name": "Reads the accumulator as the last item"
+    }
+  ],
+  "feedback": "You predicted '4'; the program printed '11'. 4 is the last price. total keeps the sum so far, not the most recent price.",
+  "next_action": "Run E2 and read the second number on each line aloud."
+}
+# expect: met
+# exit 0

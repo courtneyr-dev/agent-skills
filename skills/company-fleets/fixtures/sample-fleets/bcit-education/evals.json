@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "fleet": "bcit-education",
+  "evals": [
+    {
+      "id": "bcit-education.eval.missing-standard-is-a-gap",
+      "kind": "boundary",
+      "target": "bcit-education.unit-designer",
+      "input": "The requested state standard is not available to the rig.",
+      "expected": "The mapping reports a gap instead of an invented alignment.",
+      "check": {
+        "method": "model-judgment"
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "not-run"
+      }
+    },
+    {
+      "id": "bcit-education.eval.coordinator-routes-unit",
+      "kind": "positive",
+      "target": "bcit-education.program-coordinator",
+      "input": "Resolve and claim the fleet's sample workload.",
+      "expected": "One coordinator claims it; a second claim is refused.",
+      "check": {
+        "method": "model-judgment"
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "not-run"
+      }
+    }
+  ]
+}

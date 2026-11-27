@@ -1,0 +1,10 @@
+{
+  "label": "SYNTHETIC: Fixture Co abuse response policy, owned by human:abuse-policy-owner. Clause ids and text are invented. abuse_case.py reads clauses and approvers only from this file.",
+  "approvers": ["human:abuse-policy-owner"],
+  "clauses": [
+    {"id": "AUP-4.2", "categories": ["phishing"], "actions": ["suspend", "null-route"],
+     "text": "Hosting may suspend a site that a human reviewer confirms is phishing."},
+    {"id": "AUP-5.1", "categories": ["malware"], "actions": ["suspend", "remove-content"],
+     "text": "Hosting may suspend a site or remove content that a human reviewer confirms is distributing malware."}
+  ]
+}

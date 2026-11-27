@@ -1,0 +1,62 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): invented for testing; no real study, school, classroom or participant.",
+  "question": "How does adding predict-and-trace prompts before code modification change grade 10 students' code-modification correctness in a four-week Python unit (classroom-a vs classroom-b, fixture)?",
+  "question_type": "causal",
+  "rationale": {
+    "theory": "Reading and tracing precede writing in novice programming (Lister et al. 2009; Lopez et al. 2008); use-modify-create sequencing (Franklin et al. 2020).",
+    "prior_work": [
+      "10.1145/1595496.1562930",
+      "10.1145/3372782.3406256"
+    ]
+  },
+  "method": {
+    "approach": "quasi-experimental",
+    "justification": "Intact classes cannot be randomized at student level; a nonequivalent-groups design with a pretest covariate answers a causal question with stated threats.",
+    "confound_controls": [
+      "same teacher and unit materials in both classes",
+      "pretest on code tracing as covariate",
+      "same assessment items and blind double scoring"
+    ]
+  },
+  "participants": {
+    "population": "two grade 10 CS classes (fixture)",
+    "recruitment": "whole-class instruction; research participation opt-in",
+    "minors": true
+  },
+  "instruments": [
+    {
+      "name": "code-modification tasks",
+      "construct": "modifying working code to a new specification",
+      "validity_plan": "expert review of item-objective fit; pilot with a non-study class; two raters with a calibration round"
+    },
+    {
+      "name": "tracing pretest",
+      "construct": "predicting program output",
+      "validity_evidence": "items adapted from published tracing tasks; reliability reported after pilot"
+    }
+  ],
+  "analysis": {
+    "plan": "ANCOVA on post-unit modification correctness with pretest covariate; report effect size with 95% CI; no subgroup claims without a preregistered hypothesis",
+    "preregistered": true
+  },
+  "ethics": {
+    "review_body": "the district research office and a university IRB, as applicable (to be identified)",
+    "status": "not-submitted",
+    "approval_evidence": null,
+    "consent_assent": "parent or guardian consent and student assent, with a non-participation path that keeps the same instruction",
+    "risks": [
+      "grades must not depend on participation",
+      "teacher-researcher role conflict"
+    ]
+  },
+  "data_management": {
+    "storage": "district-approved storage only (to be identified by a human)",
+    "retention": "per the approved protocol",
+    "access": "named researchers only",
+    "deidentification": "study IDs replace names before analysis"
+  },
+  "participant_data": [],
+  "limitations": [
+    "two intact classes; results do not generalize beyond them without replication"
+  ]
+}

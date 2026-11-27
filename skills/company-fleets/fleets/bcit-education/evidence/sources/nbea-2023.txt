@@ -1,0 +1,11 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.nbea.org/business-education-curriculum-standards
+# run 2026-11-25
+http_code=403 final_url=https://www.nbea.org/business-education-curriculum-standards size=69
+L1: This request has been blocked by the Web Application Firewall policy.
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://nbea.org/business-education-curriculum-standards
+# run 2026-11-25
+http_code=403 final_url=https://www.nbea.org/business-education-curriculum-standards size=69
+$ curl -sSI --max-time 20 https://www.nbea.org/
+HTTP/2 403 (x-azure-ref header present: Azure Web Application Firewall)
+# an Internet Archive fallback was refused by the session permission policy and not attempted further
+# note: Live page blocked by the site's Web Application Firewall for the default curl user agent; edition and license NOT verified live.

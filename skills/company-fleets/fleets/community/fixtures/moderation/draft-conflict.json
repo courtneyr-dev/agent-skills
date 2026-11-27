@@ -1,0 +1,15 @@
+{
+  "label": "SYNTHETIC COUNTEREXAMPLE: a draft that keeps the allegation unproven but assigns the conflicted moderator, skips recusal and shortens the appeal window. case_check must refuse it.",
+  "case_id": "CM-CASE-1",
+  "prepared_by": "community.moderator",
+  "status": "draft-for-human-decision",
+  "findings": [
+    {"report": "RPT-1", "status": "unproven", "evidence": ["EV-1"], "reasoning": "Only the public reply is on file."}
+  ],
+  "recommended_actions": [
+    {"action": "Close with a reminder to the subject", "status": "recommended", "decision_by": "human:trust-safety-lead"}
+  ],
+  "handling": {"assigned_reviewers": ["human:moderator-a"], "recused": []},
+  "appeal_route": {"reviewer": "human:trust-safety-lead", "window_days": 3, "documented_in": "fixture-coc#appeals"},
+  "messages": []
+}

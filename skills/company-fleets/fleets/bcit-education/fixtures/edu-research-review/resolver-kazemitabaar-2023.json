@@ -1,0 +1,1179 @@
+{
+  "entries": {
+    "arxiv:2002.08155": {
+      "authors": [
+        "Zhangyin Feng",
+        "Daya Guo",
+        "Duyu Tang",
+        "Nan Duan",
+        "Xiaocheng Feng",
+        "Ming Gong",
+        "Linjun Shou",
+        "Bing Qin",
+        "Ting Liu",
+        "Daxin Jiang",
+        "Ming Zhou"
+      ],
+      "doi": "",
+      "source": "arxiv",
+      "titles": [
+        "CodeBERT: A Pre-Trained Model for Programming and Natural Languages"
+      ],
+      "years": [
+        2020
+      ]
+    },
+    "arxiv:2102.04664": {
+      "authors": [
+        "Shuai Lu",
+        "Daya Guo",
+        "Shuo Ren",
+        "Junjie Huang",
+        "Alexey Svyatkovskiy",
+        "Ambrosio Blanco",
+        "Colin Clement",
+        "Dawn Drain",
+        "Daxin Jiang",
+        "Duyu Tang",
+        "Ge Li",
+        "Lidong Zhou",
+        "Linjun Shou",
+        "Long Zhou",
+        "Michele Tufano",
+        "Ming Gong",
+        "Ming Zhou",
+        "Nan Duan",
+        "Neel Sundaresan",
+        "Shao Kun Deng",
+        "Shengyu Fu",
+        "Shujie Liu"
+      ],
+      "doi": "",
+      "source": "arxiv",
+      "titles": [
+        "CodeXGLUE: A Machine Learning Benchmark Dataset for Code Understanding and Generation"
+      ],
+      "years": [
+        2021
+      ]
+    },
+    "arxiv:2107.03374": {
+      "authors": [
+        "Mark Chen",
+        "Jerry Tworek",
+        "Heewoo Jun",
+        "Qiming Yuan",
+        "Henrique Ponde de Oliveira Pinto",
+        "Jared Kaplan",
+        "Harri Edwards",
+        "Yuri Burda",
+        "Nicholas Joseph",
+        "Greg Brockman",
+        "Alex Ray",
+        "Raul Puri",
+        "Gretchen Krueger",
+        "Michael Petrov",
+        "Heidy Khlaaf",
+        "Girish Sastry",
+        "Pamela Mishkin",
+        "Brooke Chan",
+        "Scott Gray",
+        "Nick Ryder",
+        "Mikhail Pavlov",
+        "Alethea Power",
+        "Lukasz Kaiser",
+        "Mohammad Bavarian",
+        "Clemens Winter",
+        "Philippe Tillet",
+        "Felipe Petroski Such",
+        "Dave Cummings",
+        "Matthias Plappert",
+        "Fotios Chantzis",
+        "Elizabeth Barnes",
+        "Ariel Herbert-Voss",
+        "William Hebgen Guss",
+        "Alex Nichol",
+        "Alex Paino",
+        "Nikolas Tezak",
+        "Jie Tang",
+        "Igor Babuschkin",
+        "Suchir Balaji",
+        "Shantanu Jain",
+        "William Saunders",
+        "Christopher Hesse",
+        "Andrew N. Carr",
+        "Jan Leike",
+        "Josh Achiam",
+        "Vedant Misra",
+        "Evan Morikawa",
+        "Alec Radford",
+        "Matthew Knight",
+        "Miles Brundage",
+        "Mira Murati",
+        "Katie Mayer",
+        "Peter Welinder",
+        "Bob McGrew",
+        "Dario Amodei",
+        "Sam McCandlish",
+        "Ilya Sutskever",
+        "Wojciech Zaremba"
+      ],
+      "doi": "",
+      "source": "arxiv",
+      "titles": [
+        "Evaluating Large Language Models Trained on Code"
+      ],
+      "years": [
+        2021
+      ]
+    },
+    "arxiv:2302.07427": {
+      "authors": [
+        "Majeed Kazemitabaar",
+        "Justin Chow",
+        "Carl Ka To Ma",
+        "Barbara J. Ericson",
+        "David Weintrop",
+        "Tovi Grossman"
+      ],
+      "doi": "10.1145/3544548.3580919",
+      "source": "arxiv",
+      "titles": [
+        "Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming"
+      ],
+      "years": [
+        2023
+      ]
+    },
+    "doi:10.1145/3544548.3580919": {
+      "authors": [
+        "Kazemitabaar",
+        "Chow",
+        "Ma",
+        "Ericson",
+        "Weintrop",
+        "Grossman"
+      ],
+      "doi": "10.1145/3544548.3580919",
+      "source": "crossref",
+      "titles": [
+        "Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming"
+      ],
+      "years": [
+        2023
+      ]
+    },
+    "search:37 million compilations investigating novice programming mistakes in large scale student data altadmri brown 2015": {
+      "candidates": [
+        {
+          "authors": [
+            "Altadmri",
+            "Brown"
+          ],
+          "doi": "10.1145/2676723.2677258",
+          "source": "crossref",
+          "titles": [
+            "37 Million Compilations",
+            "37 Million Compilations: Investigating Novice Programming Mistakes in Large-Scale Student Data"
+          ],
+          "years": [
+            2015
+          ]
+        },
+        {
+          "authors": [
+            "Brown",
+            "Altadmri"
+          ],
+          "doi": "10.1145/2632320.2632343",
+          "source": "crossref",
+          "titles": [
+            "Investigating novice programming mistakes",
+            "Investigating novice programming mistakes: educator beliefs vs. student data"
+          ],
+          "years": [
+            2014
+          ]
+        },
+        {
+          "authors": [
+            "Brown",
+            "Altadmri"
+          ],
+          "doi": "10.1145/2994154",
+          "source": "crossref",
+          "titles": [
+            "Novice Java Programming Mistakes",
+            "Novice Java Programming Mistakes: Large-Scale Data vs. Educator Beliefs"
+          ],
+          "years": [
+            2017
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:50 years of cs1 at sigcse a review of the evolution of introductory programming education research becker quille 2019": {
+      "candidates": [
+        {
+          "authors": [
+            "Becker",
+            "Quille"
+          ],
+          "doi": "10.1145/3287324.3287432",
+          "source": "crossref",
+          "titles": [
+            "50 Years of CS1 at SIGCSE",
+            "50 Years of CS1 at SIGCSE: A Review of the Evolution of Introductory Programming Education Research"
+          ],
+          "years": [
+            2019
+          ]
+        },
+        {
+          "authors": [],
+          "doi": "10.1145/3287324.3314788",
+          "source": "crossref",
+          "titles": [
+            "Session details: Session: SIGCSE@50 - CS1"
+          ],
+          "years": [
+            2019
+          ]
+        },
+        {
+          "authors": [
+            "Becker",
+            "Fitzpatrick"
+          ],
+          "doi": "10.1145/3287324.3287485",
+          "source": "crossref",
+          "titles": [
+            "What Do CS1 Syllabi Reveal About Our Expectations of Introductory Programming Students?"
+          ],
+          "years": [
+            2019
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:a study of the influence of code tracing problems on code writing skills kumar 2013": {
+      "candidates": [
+        {
+          "authors": [
+            "Kumar"
+          ],
+          "doi": "10.1145/2462476.2462507",
+          "source": "crossref",
+          "titles": [
+            "A study of the influence of code-tracing problems on code-writing skills"
+          ],
+          "years": [
+            2013
+          ]
+        },
+        {
+          "authors": [
+            "Kumar"
+          ],
+          "doi": "10.1145/2729094.2742587",
+          "source": "crossref",
+          "titles": [
+            "Solving Code-tracing Problems and its Effect on Code-writing Skills Pertaining to Program Semantics"
+          ],
+          "years": [
+            2015
+          ]
+        },
+        {
+          "authors": [
+            "Adeeb"
+          ],
+          "doi": "10.22215/etd/2025-16520",
+          "source": "crossref",
+          "titles": [
+            "How Do Novice Programmers Interact with ChatGPT while Solving Code -Tracing Problems?"
+          ],
+          "years": []
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:an analysis of use modify create pedagogical approach s success in balancing structure and student agency franklin coenraad 2020": {
+      "candidates": [
+        {
+          "authors": [
+            "Franklin",
+            "Coenraad",
+            "Palmer",
+            "Eatinger",
+            "Zipp",
+            "Anaya",
+            "White",
+            "Pham",
+            "Gökdemir",
+            "Weintrop"
+          ],
+          "doi": "10.1145/3372782.3406256",
+          "source": "crossref",
+          "titles": [
+            "An Analysis of Use-Modify-Create Pedagogical Approach's Success in Balancing Structure and Student Agency"
+          ],
+          "years": [
+            2020
+          ]
+        },
+        {
+          "authors": [
+            "Franklin"
+          ],
+          "doi": "10.4324/9781315186245-5",
+          "source": "crossref",
+          "titles": [
+            "How to Create a Solution Focused Student Support Team"
+          ],
+          "years": []
+        },
+        {
+          "authors": [
+            "Steele"
+          ],
+          "doi": "10.2139/ssrn.778064",
+          "source": "crossref",
+          "titles": [
+            "Students Can Create Knowledge: A Pedagogical Suggestion to Use Web-Based Surveys in Support of Student Research"
+          ],
+          "years": [
+            2005
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:automatic generation of programming exercises and code explanations using large language models sarsa denny 2022": {
+      "candidates": [
+        {
+          "authors": [
+            "Sarsa",
+            "Denny",
+            "Hellas",
+            "Leinonen"
+          ],
+          "doi": "10.1145/3501385.3543957",
+          "source": "crossref",
+          "titles": [
+            "Automatic Generation of Programming Exercises and Code Explanations Using Large Language Models"
+          ],
+          "years": [
+            2022
+          ]
+        },
+        {
+          "authors": [
+            "MacNeil",
+            "Tran",
+            "Hellas",
+            "Kim",
+            "Sarsa",
+            "Denny",
+            "Bernstein",
+            "Leinonen"
+          ],
+          "doi": "10.1145/3545945.3569785",
+          "source": "crossref",
+          "titles": [
+            "Experiences from Using Code Explanations Generated by Large Language Models in a Web Software Development E-Book"
+          ],
+          "years": [
+            2023
+          ]
+        },
+        {
+          "authors": [
+            "Leinonen",
+            "Denny",
+            "MacNeil",
+            "Sarsa",
+            "Bernstein",
+            "Kim",
+            "Tran",
+            "Hellas"
+          ],
+          "doi": "10.1145/3587102.3588785",
+          "source": "crossref",
+          "titles": [
+            "Comparing Code Explanations Created by Students and Large Language Models"
+          ],
+          "years": [
+            2023
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:cognitive architecture and instructional design 20 years later sweller van merrienboer 2019": {
+      "candidates": [
+        {
+          "authors": [
+            "Sweller",
+            "van Merriënboer",
+            "Paas"
+          ],
+          "doi": "10.1007/s10648-019-09465-5",
+          "source": "crossref",
+          "titles": [
+            "Cognitive Architecture and Instructional Design: 20 Years Later"
+          ],
+          "years": [
+            2019
+          ]
+        },
+        {
+          "authors": [
+            "Sweller",
+            "van Merrienboer",
+            "Paas"
+          ],
+          "doi": "10.1023/a:1022193728205",
+          "source": "crossref",
+          "titles": [
+            "Cognitive Architecture and Instructional Design"
+          ],
+          "years": [
+            1998
+          ]
+        },
+        {
+          "authors": [
+            "Sweller"
+          ],
+          "doi": "10.1023/b:truc.0000021808.72598.4d",
+          "source": "crossref",
+          "titles": [
+            "Instructional Design Consequences of an Analogy between Evolution by Natural Selection and Human Cognitive Architecture"
+          ],
+          "years": [
+            2004
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:computational thinking in k 12 a review of the state of the field grover pea 2013": {
+      "candidates": [
+        {
+          "authors": [
+            "Grover",
+            "Pea"
+          ],
+          "doi": "10.3102/0013189x12463051",
+          "source": "crossref",
+          "titles": [
+            "Computational Thinking in K–12",
+            "Computational Thinking in K–12: A Review of the State of the Field"
+          ],
+          "years": [
+            2013
+          ]
+        },
+        {
+          "authors": [
+            "Grover",
+            "Pea"
+          ],
+          "doi": "10.5040/9781350057142.ch-003",
+          "source": "crossref",
+          "titles": [
+            "Computational Thinking: A Competency Whose Time Has Come"
+          ],
+          "years": [
+            2018
+          ]
+        },
+        {
+          "authors": [
+            "Grover",
+            "Pea"
+          ],
+          "doi": "10.5040/9781350296947.ch-005",
+          "source": "crossref",
+          "titles": [
+            "Computational Thinking: A Competency Whose Time Has Come"
+          ],
+          "years": [
+            2023
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:computational thinking wing 2006": {
+      "candidates": [
+        {
+          "authors": [
+            "Wing"
+          ],
+          "doi": "10.1145/1118178.1118215",
+          "source": "crossref",
+          "titles": [
+            "Computational thinking"
+          ],
+          "years": [
+            2006
+          ]
+        },
+        {
+          "authors": [
+            "Wing"
+          ],
+          "doi": "10.1109/ipdps.2008.4536091",
+          "source": "crossref",
+          "titles": [
+            "Computational thinking and thinking about computing"
+          ],
+          "years": [
+            2008
+          ]
+        },
+        {
+          "authors": [
+            "Wing"
+          ],
+          "doi": "10.1109/vlhcc.2011.6070404",
+          "source": "crossref",
+          "titles": [
+            "Computational thinking"
+          ],
+          "years": [
+            2011
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:evaluating the efficiency and effectiveness of adaptive parsons problems ericson foley 2018": {
+      "candidates": [
+        {
+          "authors": [
+            "Ericson",
+            "Foley",
+            "Rick"
+          ],
+          "doi": "10.1145/3230977.3231000",
+          "source": "crossref",
+          "titles": [
+            "Evaluating the Efficiency and Effectiveness of Adaptive Parsons Problems"
+          ],
+          "years": [
+            2018
+          ]
+        },
+        {
+          "authors": [
+            "Ericson"
+          ],
+          "doi": "10.1145/2960310.2960342",
+          "source": "crossref",
+          "titles": [
+            "Dynamically Adaptive Parsons Problems"
+          ],
+          "years": [
+            2016
+          ]
+        },
+        {
+          "authors": [
+            "Haynes",
+            "Ericson"
+          ],
+          "doi": "10.1145/3411764.3445292",
+          "source": "crossref",
+          "titles": [
+            "Problem-Solving Efficiency and Cognitive Load for Adaptive Parsons Problems vs. Writing the Equivalent Code"
+          ],
+          "years": [
+            2021
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:expectation vs experience evaluating the usability of code generation tools powered by large language models vaithilingam zhang 2022": {
+      "candidates": [
+        {
+          "authors": [
+            "Vaithilingam",
+            "Zhang",
+            "Glassman"
+          ],
+          "doi": "10.1145/3491101.3519665",
+          "source": "crossref",
+          "titles": [
+            "Expectation vs. Experience: Evaluating the Usability of Code Generation Tools Powered by Large Language Models"
+          ],
+          "years": [
+            2022
+          ]
+        },
+        {
+          "authors": [
+            "Mao",
+            "Zhang",
+            "Yang",
+            "Tang"
+          ],
+          "doi": "10.54941/ahfe1008057",
+          "source": "crossref",
+          "titles": [
+            "Application Potential of Large Language Models as Product User Experience Evaluation Tools"
+          ],
+          "years": [
+            2026
+          ]
+        },
+        {
+          "authors": [
+            "Tong",
+            "Zhang"
+          ],
+          "doi": "10.18653/v1/2024.emnlp-main.1118",
+          "source": "crossref",
+          "titles": [
+            "CodeJudge: Evaluating Code Generation with Large Language Models"
+          ],
+          "years": [
+            2024
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:further evidence of a relationship between explaining tracing and writing skills in introductory programming lister fidge 2009": {
+      "candidates": [
+        {
+          "authors": [
+            "Lister",
+            "Fidge",
+            "Teague"
+          ],
+          "doi": "10.1145/1595496.1562930",
+          "source": "crossref",
+          "titles": [
+            "Further evidence of a relationship between explaining, tracing and writing skills in introductory programming"
+          ],
+          "years": [
+            2009
+          ]
+        },
+        {
+          "authors": [
+            "Lister",
+            "Fidge",
+            "Teague"
+          ],
+          "doi": "10.1145/1562877.1562930",
+          "source": "crossref",
+          "titles": [
+            "Further evidence of a relationship between explaining, tracing and writing skills in introductory programming"
+          ],
+          "years": [
+            2009
+          ]
+        },
+        {
+          "authors": [
+            "Lopez",
+            "Whalley",
+            "Robbins",
+            "Lister"
+          ],
+          "doi": "10.1145/1404520.1404531",
+          "source": "crossref",
+          "titles": [
+            "Relationships between reading, tracing and writing skills in introductory programming"
+          ],
+          "years": [
+            2008
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:introductory programming a systematic literature review luxton reilly albluwi 2018": {
+      "candidates": [
+        {
+          "authors": [
+            "Luxton-Reilly",
+            "Simon",
+            "Albluwi",
+            "Becker",
+            "Giannakos",
+            "Kumar",
+            "Ott",
+            "Paterson",
+            "Scott",
+            "Sheard",
+            "Szabo"
+          ],
+          "doi": "10.1145/3293881.3295779",
+          "source": "crossref",
+          "titles": [
+            "Introductory programming: a systematic literature review"
+          ],
+          "years": [
+            2018
+          ]
+        },
+        {
+          "authors": [
+            "Luxton-Reilly",
+            "Simon",
+            "Albluwi",
+            "Becker",
+            "Giannakos",
+            "Kumar",
+            "Ott",
+            "Paterson",
+            "Scott",
+            "Sheard",
+            "Szabo"
+          ],
+          "doi": "10.1145/3197091.3205841",
+          "source": "crossref",
+          "titles": [
+            "A review of introductory programming research 2003–2017"
+          ],
+          "years": [
+            2018
+          ]
+        },
+        {
+          "authors": [
+            "Crow",
+            "Luxton-Reilly",
+            "Wuensche"
+          ],
+          "doi": "10.1145/3160489.3160492",
+          "source": "crossref",
+          "titles": [
+            "Intelligent tutoring systems for programming education",
+            "Intelligent tutoring systems for programming education: a systematic review"
+          ],
+          "years": [
+            2018
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:learning to code or coding to learn a systematic review popat starkey 2019": {
+      "candidates": [
+        {
+          "authors": [
+            "Popat",
+            "Starkey"
+          ],
+          "doi": "10.1016/j.compedu.2018.10.005",
+          "source": "crossref",
+          "titles": [
+            "Learning to code or coding to learn? A systematic review"
+          ],
+          "years": [
+            2019
+          ]
+        },
+        {
+          "authors": [
+            "",
+            "Popat"
+          ],
+          "doi": "10.26686/wgtn.17134625",
+          "source": "crossref",
+          "titles": [
+            "Learning to code: A narrative inquiry - “Without code we would probably be like cave people”"
+          ],
+          "years": []
+        },
+        {
+          "authors": [
+            "Starkey"
+          ],
+          "doi": "10.1177/001872679805100405",
+          "source": "crossref",
+          "titles": [
+            "Book Review: What Can We Learn from the Learning Organization?"
+          ],
+          "years": [
+            1998
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:parson s programming puzzles a fun and effective learning tool for first programming courses parsons haden 2006": {
+      "candidates": [
+        {
+          "authors": [
+            "Hou",
+            "Wu",
+            "Wang",
+            "Ericson"
+          ],
+          "doi": "10.1145/3657604.3662032",
+          "source": "crossref",
+          "titles": [
+            "CodeTailor: LLM-Powered Personalized Parsons Puzzles for Engaging Support While Learning Programming"
+          ],
+          "years": [
+            2024
+          ]
+        },
+        {
+          "authors": [
+            "Chi N. Thai"
+          ],
+          "doi": "10.13031/2013.21065",
+          "source": "crossref",
+          "titles": [
+            "Developing Active Learning Activities for Computer Programming and Machine Vision Courses"
+          ],
+          "years": [
+            2006
+          ]
+        },
+        {
+          "authors": [
+            "Bender",
+            "Zhao",
+            "Dziena",
+            "Kaiser"
+          ],
+          "doi": "10.1145/3511861.3511869",
+          "source": "crossref",
+          "titles": [
+            "Learning Computational Thinking Efficiently",
+            "Learning Computational Thinking Efficiently: How Parsons Programming Puzzles within Scratch Might Help"
+          ],
+          "years": [
+            2022
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:scratch programming for all resnick maloney 2009": {
+      "candidates": [
+        {
+          "authors": [
+            "Resnick",
+            "Maloney",
+            "Monroy-Hernández",
+            "Rusk",
+            "Eastmond",
+            "Brennan",
+            "Millner",
+            "Rosenbaum",
+            "Silver",
+            "Silverman",
+            "Kafai"
+          ],
+          "doi": "10.1145/1592761.1592779",
+          "source": "crossref",
+          "titles": [
+            "Scratch",
+            "Scratch: programming for all"
+          ],
+          "years": [
+            2009
+          ]
+        },
+        {
+          "authors": [
+            "Maloney",
+            "Peppler",
+            "Kafai",
+            "Resnick",
+            "Rusk"
+          ],
+          "doi": "10.1145/1352322.1352260",
+          "source": "crossref",
+          "titles": [
+            "Programming by choice",
+            "Programming by choice: urban youth learning programming with scratch"
+          ],
+          "years": [
+            2008
+          ]
+        },
+        {
+          "authors": [
+            "Maloney",
+            "Peppler",
+            "Kafai",
+            "Resnick",
+            "Rusk"
+          ],
+          "doi": "10.1145/1352135.1352260",
+          "source": "crossref",
+          "titles": [
+            "Programming by choice",
+            "Programming by choice: urban youth learning programming with scratch"
+          ],
+          "years": [
+            2008
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:solving parsons problems versus fixing and writing code ericson margulieux 2017": {
+      "candidates": [
+        {
+          "authors": [
+            "Ericson",
+            "Margulieux",
+            "Rick"
+          ],
+          "doi": "10.1145/3141880.3141895",
+          "source": "crossref",
+          "titles": [
+            "Solving parsons problems versus fixing and writing code"
+          ],
+          "years": [
+            2017
+          ]
+        },
+        {
+          "authors": [
+            "Haynes",
+            "Ericson"
+          ],
+          "doi": "10.1145/3411764.3445292",
+          "source": "crossref",
+          "titles": [
+            "Problem-Solving Efficiency and Cognitive Load for Adaptive Parsons Problems vs. Writing the Equivalent Code"
+          ],
+          "years": [
+            2021
+          ]
+        },
+        {
+          "authors": [
+            "Hou",
+            "Ericson",
+            "Wang"
+          ],
+          "doi": "10.1145/3587103.3594182",
+          "source": "crossref",
+          "titles": [
+            "Parsons Problems to Scaffold Code Writing: Impact on Performance and Problem-Solving Efficiency"
+          ],
+          "years": [
+            2023
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:students misconceptions and other difficulties in introductory programming a literature review qian lehman 2017": {
+      "candidates": [
+        {
+          "authors": [
+            "Qian",
+            "Lehman"
+          ],
+          "doi": "10.1145/3077618",
+          "source": "crossref",
+          "titles": [
+            "Students’ Misconceptions and Other Difficulties in Introductory Programming",
+            "Students’ Misconceptions and Other Difficulties in Introductory Programming: A Literature Review"
+          ],
+          "years": [
+            2017,
+            2018
+          ]
+        },
+        {
+          "authors": [
+            "Qian",
+            "Lehman"
+          ],
+          "doi": "10.1177/2158244019885136",
+          "source": "crossref",
+          "titles": [
+            "Using Targeted Feedback to Address Common Student Misconceptions in Introductory Programming: A Data-Driven Approach"
+          ],
+          "years": [
+            2019
+          ]
+        },
+        {
+          "authors": [
+            "Qian",
+            "Lehman"
+          ],
+          "doi": "10.1080/15391523.2020.1865220",
+          "source": "crossref",
+          "titles": [
+            "Using an automated assessment tool to explore difficulties of middle school students in introductory programming"
+          ],
+          "years": [
+            2021,
+            2022
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:subgoal labeled instructional material improves performance and transfer in learning to develop mobile applications margulieux guzdial 2012": {
+      "candidates": [
+        {
+          "authors": [
+            "Margulieux",
+            "Guzdial",
+            "Catrambone"
+          ],
+          "doi": "10.1145/2361276.2361291",
+          "source": "crossref",
+          "titles": [
+            "Subgoal-labeled instructional material improves performance and transfer in learning to develop mobile applications"
+          ],
+          "years": [
+            2012
+          ]
+        },
+        {
+          "authors": [
+            "Margulieux",
+            "Catrambone",
+            "Schaeffer"
+          ],
+          "doi": "10.1007/s11251-018-9451-7",
+          "source": "crossref",
+          "titles": [
+            "Varying effects of subgoal labeled expository text in programming, chemistry, and statistics"
+          ],
+          "years": [
+            2018
+          ]
+        },
+        {
+          "authors": [
+            "Margulieux",
+            "Catrambone"
+          ],
+          "doi": "10.1037/e528942014-587",
+          "source": "crossref",
+          "titles": [
+            "Subgoal Labels in Worked Examples, but not General Text, Aid Statistics Learning",
+            "Subgoal Labels in Worked Examples, but not General Text, Aid Statistics Learning: (528942014-587)"
+          ],
+          "years": [
+            2014
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:the robots are coming exploring the implications of openai codex on introductory programming finnie ansley denny 2022": {
+      "candidates": [
+        {
+          "authors": [
+            "Finnie-Ansley",
+            "Denny",
+            "Becker",
+            "Luxton-Reilly",
+            "Prather"
+          ],
+          "doi": "10.1145/3511861.3511863",
+          "source": "crossref",
+          "titles": [
+            "The Robots Are Coming: Exploring the Implications of OpenAI Codex on Introductory Programming"
+          ],
+          "years": [
+            2022
+          ]
+        },
+        {
+          "authors": [
+            "Finnie-Ansley",
+            "Denny",
+            "Luxton-Reilly",
+            "Santos",
+            "Prather",
+            "Becker"
+          ],
+          "doi": "10.1145/3576123.3576134",
+          "source": "crossref",
+          "titles": [
+            "My AI Wants to Know if This Will Be on the Exam: Testing OpenAI’s Codex on CS2 Programming Exercises"
+          ],
+          "years": [
+            2023
+          ]
+        },
+        {
+          "authors": [
+            "Hull"
+          ],
+          "doi": "10.59350/466em-bsn38",
+          "source": "crossref",
+          "titles": [
+            "Join us to discuss the implications of the Open AI codex on introductory programming Monday 4th July at 2pm BST"
+          ],
+          "years": [
+            2022
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    },
+    "search:why unguided learning does not work an analysis of the failure of discovery learning problem based learning experiential learning and inquiry based learning kirschner sweller 2006": {
+      "candidates": [
+        {
+          "authors": [
+            "Kirschner",
+            "Sweller",
+            "Clark"
+          ],
+          "doi": "10.1207/s15326985ep4102_1",
+          "source": "crossref",
+          "titles": [
+            "Why Minimal Guidance During Instruction Does Not Work: An Analysis of the Failure of Constructivist, Discovery, Problem-Based, Experiential, and Inquiry-Based Teaching"
+          ],
+          "years": [
+            2006
+          ]
+        },
+        {
+          "authors": [],
+          "doi": "10.5040/9798216416616.ch-003",
+          "source": "crossref",
+          "titles": [
+            "Three Problem-Based and Inquiry-Based Learning"
+          ],
+          "years": [
+            2009
+          ]
+        },
+        {
+          "authors": [
+            "Wurdinger",
+            "Carlson"
+          ],
+          "doi": "10.5771/9781607093695-31",
+          "source": "crossref",
+          "titles": [
+            "Chapter Three. Problem-Based and Inquiry-Based Learning"
+          ],
+          "years": [
+            2009
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    }
+  },
+  "label": "Resolver responses recorded live by research_check citations --record; replay with --offline for repeatable runs."
+}

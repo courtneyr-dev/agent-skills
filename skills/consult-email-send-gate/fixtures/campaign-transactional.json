@@ -1,0 +1,19 @@
+{
+  "audience": [
+    "c6",
+    "c8"
+  ],
+  "campaign_id": "cmp-receipt-001",
+  "content": {
+    "html": "<html lang=\"en\"><body><p>Your Fixture Co receipt, order 1001.</p></body></html>",
+    "lang": "en",
+    "text": "Your Fixture Co receipt, order 1001."
+  },
+  "from_domain": "mail.example.com",
+  "headers": {},
+  "kind": "transactional",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "schema": "email-campaign.v1",
+  "subject": "Your receipt",
+  "tenant_id": "tenant-fixture-co"
+}

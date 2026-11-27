@@ -1,0 +1,2591 @@
+{
+  "schema_version": 1,
+  "fleet": "bcit-education",
+  "evals": [
+    {
+      "id": "bcit-education.eval.standards-honest-gaps-pass",
+      "kind": "positive",
+      "target": "edu-standards-alignment",
+      "input": "Store unit alignment where every NBEA, NOCTI, state and district row is a declared gap and CSTA/ISTE rows are unverified.",
+      "expected": "Exit 0, coverage partial, no row claims more than its source supports.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/alignment.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"coverage\": \"partial\"",
+          "--contains",
+          "\"errors\": 0",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "align",
+          "fleets/bcit-education/fixtures/bcit-unit-store/alignment.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/standards-honest-gaps-pass.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.source-registries-valid",
+      "kind": "positive",
+      "target": "edu-standards-alignment",
+      "input": "The live-verified standards registry (23 records) and organization registry (12 records).",
+      "expected": "Both registries pass: verified records carry a date and an existing evidence file; organizations are knowledge sources, not installable, no membership.",
+      "fixtures": [],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"records\": 23",
+          "--contains",
+          "\"verified\": 19",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "registry"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/source-registries-valid.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.org-sources-cited-correctly",
+      "kind": "positive",
+      "target": "edu-standards-alignment",
+      "input": "A syllabus citing CSTA, SIGCSE, ACTE and PBEA as sources.",
+      "expected": "Exit 0; PBEA carries an unverified-organization note because its site refused the fetch.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/org-refs-ok.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "unverified-organization",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "org-refs",
+          "fleets/bcit-education/fixtures/bcit-unit-store/org-refs-ok.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/org-sources-cited-correctly.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.nbea-ten-areas-covered",
+      "kind": "positive",
+      "target": "edu-standards-alignment",
+      "input": "A six-course BCIT program map tagged with NBEA content-area labels.",
+      "expected": "Exit 0 with all ten NBEA areas covered and no unknown labels.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/program-bcit.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"missing\": []",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "coverage",
+          "fleets/bcit-education/fixtures/bcit-unit-store/program-bcit.json",
+          "--record",
+          "nbea-2023",
+          "--field",
+          "nbea_areas"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/nbea-ten-areas-covered.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.standards-overclaim-rejected",
+      "kind": "negative",
+      "target": "bcit-education.nocti-alignment-coordinator",
+      "input": "Rows claiming verified matches to an unregistered state standard, a NOCTI competency, an invented NBEA id with copied text, a 2017-format CSTA id under the 2026 record, and WCAG as a learning standard.",
+      "expected": "Exit 1; every row is supported only as a gap, with the specific rule named.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/alignment-overclaim.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "source-not-registered",
+          "--contains",
+          "restricted-assessment-content",
+          "--contains",
+          "text-bundled",
+          "--contains",
+          "id-not-in-scheme",
+          "--contains",
+          "not-a-learning-standard",
+          "--contains",
+          "overclaimed",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "align",
+          "fleets/bcit-education/fixtures/bcit-unit-store/alignment-overclaim.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/standards-overclaim-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.missing-standard-is-a-gap",
+      "kind": "negative",
+      "target": "edu-standards-alignment",
+      "input": "The requested state standard is not available to the rig, but the draft claims a verified match.",
+      "expected": "Exit 1: the mapping is a gap and the verified claim is an overclaim; no alignment is invented.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/alignment-missing-standard.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "source-not-registered",
+          "--contains",
+          "\"supported\": \"gap\"",
+          "--contains",
+          "overclaimed",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "align",
+          "fleets/bcit-education/fixtures/bcit-unit-store/alignment-missing-standard.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/missing-standard-is-a-gap.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.standards-mixup-and-edition-caught",
+      "kind": "negative",
+      "target": "bcit-education.curriculum-standards-specialist",
+      "input": "A unit for a district that adopted CSTA 2017: a teacher standard used for a student objective, a student standard used for a teacher objective, a 2026 id that ignores the adoption, a wrong edition label, and CS2023 in a school unit.",
+      "expected": "Exit 1 naming each mix-up.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/alignment-mixup.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "teacher-standard-for-students",
+          "--contains",
+          "student-standard-for-teachers",
+          "--contains",
+          "not-district-adoption",
+          "--contains",
+          "edition-mismatch",
+          "--contains",
+          "university-to-school",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "align",
+          "fleets/bcit-education/fixtures/bcit-unit-store/alignment-mixup.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/standards-mixup-and-edition-caught.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.computing-only-not-bcit",
+      "kind": "negative",
+      "target": "edu-standards-alignment",
+      "input": "A web, database and cybersecurity program presented as a BCIT program.",
+      "expected": "Exit 1: nine NBEA areas missing, an unknown label reported, and the computing-only finding.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/program-computing-only.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "computing-only curriculum",
+          "--contains",
+          "Cyber Ops",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "coverage",
+          "fleets/bcit-education/fixtures/bcit-unit-store/program-computing-only.json",
+          "--record",
+          "nbea-2023",
+          "--field",
+          "nbea_areas"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/computing-only-not-bcit.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.org-credential-claims-rejected",
+      "kind": "negative",
+      "target": "bcit-education.career-wbl-coordinator",
+      "input": "References using SIGITE (former name), 'certified-by CBTR', 'member' of CSTA, and an organization that does not exist.",
+      "expected": "Exit 1 with former-name, credential-claim and unknown-organization findings.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/org-refs-bad.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "former-name",
+          "--contains",
+          "credential-claim",
+          "--contains",
+          "unknown-organization",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "org-refs",
+          "fleets/bcit-education/fixtures/bcit-unit-store/org-refs-bad.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/org-credential-claims-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.district-adoption-preserved",
+      "kind": "boundary",
+      "target": "bcit-education.curriculum-standards-specialist",
+      "input": "The district still uses the superseded CSTA 2017 edition.",
+      "expected": "Exit 0; the 2017 mapping is kept with an adopted-older-edition note instead of being forced to 2026.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/alignment-district-adoption.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "adopted-older-edition",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "align",
+          "fleets/bcit-education/fixtures/bcit-unit-store/alignment-district-adoption.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/district-adoption-preserved.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.unit-answer-key-executes",
+      "kind": "positive",
+      "target": "bcit-education.accounting-finance-instructor",
+      "input": "Store unit key: three spreadsheet items, two SQL queries, one Python loop and one calculation, each worked by hand first.",
+      "expected": "Exit 0; all seven executed results match the hand-worked keys.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/answer-key.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"match\": 7",
+          "--",
+          "python3",
+          "../edu-answer-key-check/scripts/answer_key.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/answer-key.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-answer-key-check/unit-answer-key-executes.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.incorrect-solution-caught",
+      "kind": "negative",
+      "target": "bcit-education.it-computing-instructor",
+      "input": "An intentionally incorrect solution: margin-on-price submitted as markup, a query without GROUP BY, and an off-by-one loop.",
+      "expected": "Exit 1 flagging all three items; correct items still match.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/solution-incorrect.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "Q1-notebook-markup",
+          "--contains",
+          "Q3-revenue-by-item",
+          "--contains",
+          "Q5-loop-total",
+          "--contains",
+          "mismatch",
+          "--",
+          "python3",
+          "../edu-answer-key-check/scripts/answer_key.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/solution-incorrect.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-answer-key-check/incorrect-solution-caught.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.unsupported-formula-not-passed",
+      "kind": "boundary",
+      "target": "edu-answer-key-check",
+      "input": "A SUMPRODUCT formula, outside the supported spreadsheet subset.",
+      "expected": "Exit 1 with key_status unsupported; never counted as a match.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/answer-key-unsupported.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "\"unsupported\": 1",
+          "--",
+          "python3",
+          "../edu-answer-key-check/scripts/answer_key.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/answer-key-unsupported.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-answer-key-check/unsupported-formula-not-passed.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.assessment-aligned",
+      "kind": "positive",
+      "target": "bcit-education.business-pathways-instructor",
+      "input": "Store unit assessment: three objectives, a recall exit ticket plus performance tasks, four rubric criteria with rationale, labeled synthetic work.",
+      "expected": "Exit 0 with no errors and no fairness flags.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/assessment.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"flags\": []",
+          "--",
+          "python3",
+          "../edu-assessment-check/scripts/assessment_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/assessment.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-assessment-check/assessment-aligned.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.recall-quiz-rejected",
+      "kind": "negative",
+      "target": "bcit-education.assessment-designer",
+      "input": "A ten-question recall quiz offered as the only evidence for apply and analyze objectives.",
+      "expected": "Exit 1 with recall-only-evidence for both objectives.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/assessment-recall-only.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "recall-only-evidence",
+          "--",
+          "python3",
+          "../edu-assessment-check/scripts/assessment_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/assessment-recall-only.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-assessment-check/recall-quiz-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.passing-code-not-understanding",
+      "kind": "negative",
+      "target": "bcit-education.assessment-designer",
+      "input": "An explain-the-loop objective evidenced only by passing autograder tests and AI-generated code.",
+      "expected": "Exit 1 with output-only-evidence.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/assessment-output-only.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "output-only-evidence",
+          "--",
+          "python3",
+          "../edu-assessment-check/scripts/assessment_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/assessment-output-only.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-assessment-check/passing-code-not-understanding.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.fairness-barriers-flagged",
+      "kind": "negative",
+      "target": "bcit-education.accessibility-udl-collaborator",
+      "input": "The profit task wrapped in jargon, a paid brand-name tool, internet-only access, color-only cues and a time limit, with unlabeled student work.",
+      "expected": "Exit 1 with each barrier flagged and the student work refused.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/assessment-barriers.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "irrelevant-reading-demand",
+          "--contains",
+          "paid-software",
+          "--contains",
+          "no-offline-route",
+          "--contains",
+          "color-only",
+          "--contains",
+          "speed-not-in-construct",
+          "--contains",
+          "tool-specific",
+          "--contains",
+          "unlabeled-student-work",
+          "--",
+          "python3",
+          "../edu-assessment-check/scripts/assessment_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/assessment-barriers.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-assessment-check/fairness-barriers-flagged.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.speed-construct-not-flagged",
+      "kind": "boundary",
+      "target": "bcit-education.communication-productivity-instructor",
+      "input": "A keyboarding-fluency task where speed is part of the construct.",
+      "expected": "Exit 0: the time limit is not flagged because speed is the construct.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/assessment-speed-construct.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"flags\": []",
+          "--",
+          "python3",
+          "../edu-assessment-check/scripts/assessment_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/assessment-speed-construct.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-assessment-check/speed-construct-not-flagged.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.same-classroom-synthetic-allowed",
+      "kind": "positive",
+      "target": "edu-student-data-guard",
+      "input": "Classroom A assistant reads its own synthetic roster to pair students.",
+      "expected": "Exit 0, decision allow.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-student-data-guard/req-same-classroom-synthetic.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"decision\": \"allow\"",
+          "--",
+          "python3",
+          "../edu-student-data-guard/scripts/data_guard.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-student-data-guard/req-same-classroom-synthetic.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-student-data-guard/same-classroom-synthetic-allowed.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.classroom-b-roster-refused",
+      "kind": "negative",
+      "target": "edu-student-data-guard",
+      "input": "Classroom A assistant asks for classroom B's roster.",
+      "expected": "Exit 1: student records never cross tenants; tenancy refuses them before any grant is read, so no grant moves them.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-student-data-guard/req-cross-classroom.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "never shared across tenants",
+          "--contains",
+          "no grant moves it",
+          "--",
+          "python3",
+          "../edu-student-data-guard/scripts/data_guard.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-student-data-guard/req-cross-classroom.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-student-data-guard/classroom-b-roster-refused.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.external-roster-send-refused",
+      "kind": "negative",
+      "target": "bcit-education.classroom-community-support",
+      "input": "A request to upload a roster to an outside tutoring site.",
+      "expected": "Exit 1: external destinations for student records are refused.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-student-data-guard/req-external-send.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "refused: student records leave the tenant only",
+          "--",
+          "python3",
+          "../edu-student-data-guard/scripts/data_guard.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-student-data-guard/req-external-send.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-student-data-guard/external-roster-send-refused.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.real-records-stop-at-boundary",
+      "kind": "boundary",
+      "target": "bcit-education.progress-feedback-assistant",
+      "input": "Draft progress notes from the real gradebook with no verified school policy.",
+      "expected": "Exit 1 at the human-data boundary, naming what the school must verify.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-student-data-guard/req-real-records.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "human-data boundary",
+          "--contains",
+          "verified by a named human",
+          "--",
+          "python3",
+          "../edu-student-data-guard/scripts/data_guard.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-student-data-guard/req-real-records.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-student-data-guard/real-records-stop-at-boundary.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.store-unit-package-complete",
+      "kind": "positive",
+      "target": "bcit-education.business-management-instructor",
+      "input": "The complete store unit package: context, materials, worked example, sections, assessment, key and alignment.",
+      "expected": "Exit 0; all three sibling checks run and pass; the package is labeled a draft because standards coverage is partial.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/package.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"ok\": true",
+          "--contains",
+          "standards coverage is partial",
+          "--",
+          "python3",
+          "../bcit-learning-package/scripts/package_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/package.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/bcit-learning-package/store-unit-package-complete.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.incomplete-package-rejected",
+      "kind": "negative",
+      "target": "bcit-learning-package",
+      "input": "A package missing its offline section and answer key, lowering demand in differentiation, using the recall-only assessment, and claiming a 40% gain no one measured.",
+      "expected": "Exit 1 with each failure named.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/package-incomplete.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "section-missing",
+          "--contains",
+          "file-missing",
+          "--contains",
+          "demand-lowered",
+          "--contains",
+          "invented-learning-evidence",
+          "--contains",
+          "assessment-failed",
+          "--",
+          "python3",
+          "../bcit-learning-package/scripts/package_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/package-incomplete.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/bcit-learning-package/incomplete-package-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.missing-sibling-is-missing-capability",
+      "kind": "boundary",
+      "target": "bcit-learning-package",
+      "input": "The complete package checked against a skills root where the sibling skills are not installed.",
+      "expected": "Exit 1 with missing-capability for each sibling; nothing passes unchecked.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/package.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "missing-capability",
+          "--absent",
+          "\"ok\": true",
+          "--",
+          "python3",
+          "../bcit-learning-package/scripts/package_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/package.json",
+          "--skills-root",
+          "fleets/bcit-education/fixtures/bcit-unit-store/empty-skills-root"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/bcit-learning-package/missing-sibling-is-missing-capability.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.resolve-course-unit",
+      "kind": "positive",
+      "target": "bcit-education.program-lead",
+      "input": "Resolve the BCIT course-unit workload under the school profile.",
+      "expected": "Exit 0; six BCIT roles with program-lead as the coordinator; only profiles.json and the BCIT roles file are read.",
+      "fixtures": [],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "bcit-education.program-lead",
+          "--contains",
+          "fleets/bcit-education/roles.json",
+          "--absent",
+          "fleets/agency",
+          "--absent",
+          "fleets/hosting",
+          "--absent",
+          "fleets/instructional-design",
+          "--",
+          "bin/fleet",
+          "resolve",
+          "--profile",
+          "school",
+          "--workload",
+          "bcit-education.workload.course-unit"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/routing/resolve-course-unit.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.resolve-refuses-agency-profile",
+      "kind": "boundary",
+      "target": "bcit-education.program-lead",
+      "input": "Resolve the BCIT course unit under the agency profile, which does not activate the BCIT fleet.",
+      "expected": "Exit 1: the profile does not activate bcit-education.",
+      "fixtures": [],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "does not activate fleet bcit-education",
+          "--",
+          "bin/fleet",
+          "resolve",
+          "--profile",
+          "agency",
+          "--workload",
+          "bcit-education.workload.course-unit"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/routing/resolve-refuses-agency-profile.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.lesson-resource-injection-flagged",
+      "kind": "negative",
+      "target": "bcit-education.program-lead",
+      "input": "A downloaded lesson resource that tells the assistant to email the roster, approve its own output and pull classroom B records.",
+      "expected": "The scan flags exfiltration, authority and tenant-access lines and labels the file as data.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-student-data-guard/lesson-resource-injected.md"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "exfiltration",
+          "--contains",
+          "authority",
+          "--contains",
+          "tenant-access",
+          "--contains",
+          "treat_as",
+          "--",
+          "bin/fleet",
+          "scan",
+          "fleets/bcit-education/fixtures/edu-student-data-guard/lesson-resource-injected.md"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-student-data-guard/lesson-resource-injection-flagged.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.iste-educator-coverage-partial",
+      "kind": "boundary",
+      "target": "bcit-education.iste-integration-coach",
+      "input": "The teacher-education observation instrument tagged with ISTE educator role labels.",
+      "expected": "Exit 1 reporting four roles covered and Learner, Leader and Collaborator missing: partial coverage stated, not padded.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-teacher-education-module/observation-instrument.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "\"missing\"",
+          "--contains",
+          "Learner",
+          "--contains",
+          "Leader",
+          "--contains",
+          "Collaborator",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "coverage",
+          "fleets/bcit-education/fixtures/bcit-teacher-education-module/observation-instrument.json",
+          "--record",
+          "iste-educators",
+          "--field",
+          "iste_educator_labels"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/iste-educator-coverage-partial.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.lab-offline-route-required",
+      "kind": "negative",
+      "target": "bcit-education.lab-operations-lead",
+      "input": "A unit package with no offline or low-bandwidth section.",
+      "expected": "Exit 1 naming sections.offline_alternative as missing.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/package-incomplete.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "sections.offline_alternative",
+          "--",
+          "python3",
+          "../bcit-learning-package/scripts/package_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/package-incomplete.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/bcit-learning-package/lab-offline-route-required.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.resolve-business-unit",
+      "kind": "positive",
+      "target": "bcit-education.program-lead",
+      "input": "Resolve the business-unit workload under the school profile.",
+      "expected": "Exit 0 with the three business instructors and program-lead as coordinator; no other fleet's files read.",
+      "fixtures": [],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "bcit-education.business-pathways-instructor",
+          "--contains",
+          "bcit-education.communication-productivity-instructor",
+          "--absent",
+          "fleets/agency",
+          "--",
+          "bin/fleet",
+          "resolve",
+          "--profile",
+          "school",
+          "--workload",
+          "bcit-education.workload.business-unit"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/routing/resolve-business-unit.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.resolve-classroom-operations",
+      "kind": "positive",
+      "target": "bcit-education.program-lead",
+      "input": "Resolve the classroom-operations workload under the school profile.",
+      "expected": "Exit 0 with lab operations, classroom support and career coordinator roles.",
+      "fixtures": [],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "bcit-education.lab-operations-lead",
+          "--contains",
+          "bcit-education.career-wbl-coordinator",
+          "--",
+          "bin/fleet",
+          "resolve",
+          "--profile",
+          "school",
+          "--workload",
+          "bcit-education.workload.classroom-operations"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/routing/resolve-classroom-operations.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-lesson-runs-complete",
+      "kind": "positive",
+      "target": "cs-classroom-instruction",
+      "input": "Check the complete grade 9-10 accumulator lesson: run both examples, the predict task and every reference solution test.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json"
+      ],
+      "expected": "check exits 0 with ok true; all 9 executed outputs match their stated answers.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"ok\": true",
+          "--contains",
+          "\"errors\": []",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "check",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-lesson-runs-complete.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-feedback-quotes-off-by-one",
+      "kind": "positive",
+      "target": "cs-classroom-instruction",
+      "input": "Supplied learner work for T2 loops from index 1 and skips the first day.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-off-by-one.json"
+      ],
+      "expected": "Status tests-failing; feedback quotes the actual output 42 against 54, names probe M1 and gives one trace action; no progress claim.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"status\": \"tests-failing\"",
+          "--contains",
+          "printed 42",
+          "--contains",
+          "\"id\": \"M1\"",
+          "--contains",
+          "\"progress_claim\": null",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "respond",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-off-by-one.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-feedback-quotes-off-by-one.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-trace-ready-for-teacher-review",
+      "kind": "positive",
+      "target": "cs-classroom-instruction",
+      "input": "Supplied learner work for T2 passes all tests and gives a trace with every running total.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-pass-with-trace.json"
+      ],
+      "expected": "Status ready-for-teacher-review, progress_claim null: the teacher judges understanding, the script does not.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"status\": \"ready-for-teacher-review\"",
+          "--contains",
+          "\"progress_claim\": null",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "respond",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-pass-with-trace.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-trace-ready-for-teacher-review.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-prediction-misconception",
+      "kind": "positive",
+      "target": "cs-classroom-instruction",
+      "input": "Supplied prediction for T1 is 4, the last price, instead of the running total 11.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-predict-last-item.json"
+      ],
+      "expected": "Status prediction-differs; feedback quotes the executed output 11 and names probe M4.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"status\": \"prediction-differs\"",
+          "--contains",
+          "the program printed '11'",
+          "--contains",
+          "\"id\": \"M4\"",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "respond",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-predict-last-item.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-prediction-misconception.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-wrong-answer-key-caught",
+      "kind": "negative",
+      "target": "cs-classroom-instruction",
+      "input": "Intentionally incorrect lesson: E1 states 55 (the code prints 54) and T3's week test states 12 (the largest day is 15).",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-wrong-answer-key.json"
+      ],
+      "expected": "check exits 1 and names both wrong answers with the executed values.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "stated expected output '55' but the code printed '54'",
+          "--contains",
+          "expected '12' but the reference solution printed '15'",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "check",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-wrong-answer-key.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-wrong-answer-key-caught.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-passing-code-not-evidence",
+      "kind": "negative",
+      "target": "cs-classroom-instruction",
+      "input": "Supplied learner work for T2 passes every test but has no explanation or trace.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-pass-no-explanation.json"
+      ],
+      "expected": "Status not-yet-evidence-of-understanding with the follow-up prompt; passing tests are not accepted as understanding.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"status\": \"not-yet-evidence-of-understanding\"",
+          "--contains",
+          "Passing tests show the program works",
+          "--absent",
+          "\"status\": \"ready-for-teacher-review\"",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "respond",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-pass-no-explanation.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-passing-code-not-evidence.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-ai-output-not-evidence",
+      "kind": "negative",
+      "target": "cs-classroom-instruction",
+      "input": "Supplied learner work for T2 passes every test, carries a polished explanation, and is marked AI-generated.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-ai-generated.json"
+      ],
+      "expected": "Status not-yet-evidence-of-understanding; the response says passing output is not evidence of understanding.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"status\": \"not-yet-evidence-of-understanding\"",
+          "--contains",
+          "marked AI-generated",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "respond",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-ai-generated.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-ai-output-not-evidence.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-rubric-passing-code-rejected",
+      "kind": "negative",
+      "target": "cs-classroom-instruction",
+      "input": "Lesson whose rubric accepts passing tests or AI output alone and which cites the CSTA teacher standards for a student objective.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-passing-code-only.json"
+      ],
+      "expected": "check exits 1, rejecting the rubric as accepting passing code and flagging the student/teacher standards mix-up.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "rubric accepts passing code",
+          "--contains",
+          "teacher-practice standard (csta-teacher-2020) for a student objective",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "check",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-passing-code-only.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-rubric-passing-code-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-empty-work-awaits",
+      "kind": "boundary",
+      "target": "cs-classroom-instruction",
+      "input": "Supplied learner work for T2 is empty: no code, no explanation.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-empty.json"
+      ],
+      "expected": "Status awaiting-learner-response with null feedback; no tests are run and no progress is claimed.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"status\": \"awaiting-learner-response\"",
+          "--contains",
+          "\"feedback\": null",
+          "--contains",
+          "\"progress_claim\": null",
+          "--absent",
+          "tests-failing",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "respond",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-empty.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-empty-work-awaits.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-unknown-task-refused",
+      "kind": "boundary",
+      "target": "cs-classroom-instruction",
+      "input": "Learner work names task T9, which the lesson does not define, and its explanation tells the reviewer to mark it passed.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-unknown-task.json"
+      ],
+      "expected": "respond exits 2 with invalid input; the embedded instruction changes nothing.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "2",
+          "--contains",
+          "\"error\": \"invalid input\"",
+          "--contains",
+          "T9",
+          "--absent",
+          "ready-for-teacher-review",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "respond",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/learner-unknown-task.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-unknown-task-refused.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.cs-teacher-waits-for-learner",
+      "kind": "boundary",
+      "target": "bcit-education.cs-classroom-teacher",
+      "input": "The CS teacher role is asked for feedback before any learner work has been supplied.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json"
+      ],
+      "expected": "The role's procedure returns awaiting-learner-response with no feedback and no invented response or progress.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"status\": \"awaiting-learner-response\"",
+          "--contains",
+          "\"feedback\": null",
+          "--contains",
+          "\"progress_claim\": null",
+          "--",
+          "python3",
+          "../cs-classroom-instruction/scripts/lesson.py",
+          "respond",
+          "fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-teacher-waits-for-learner.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.progression-9-12-valid",
+      "kind": "positive",
+      "target": "edu-learning-progression",
+      "input": "Check the synthetic grades 9-12 CS progression.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-learning-progression/progression-9-12.json"
+      ],
+      "expected": "Exit 0 with a prerequisite order; privacy-security is flagged unassessed as a warning.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"ok\": true",
+          "--contains",
+          "concept privacy-security is not assessed by any task",
+          "--",
+          "python3",
+          "../edu-learning-progression/scripts/progression.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-learning-progression/progression-9-12.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-learning-progression/progression-9-12-valid.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.progression-cycle-and-band-jump-rejected",
+      "kind": "negative",
+      "target": "edu-learning-progression",
+      "input": "Counterexample progression: a functions/testing-debugging cycle, an unbridged university concept in grade 9, and list-traversal sequenced before loops.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-learning-progression/progression-counterexample.json"
+      ],
+      "expected": "Exit 1 naming the cycle, the band jump and the out-of-order concept; no order is printed.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "prerequisite cycle among: functions, testing-debugging",
+          "--contains",
+          "asymptotic-notation (band university) sits in unit U1 at grade 9 without a bridge justification",
+          "--contains",
+          "list-traversal comes before its prerequisite loops",
+          "--contains",
+          "\"order\": null",
+          "--",
+          "python3",
+          "../edu-learning-progression/scripts/progression.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-learning-progression/progression-counterexample.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-learning-progression/progression-cycle-and-band-jump-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.progression-bridged-university-concept",
+      "kind": "boundary",
+      "target": "edu-learning-progression",
+      "input": "The 9-12 progression places a university-band concept (asymptotic notation, CS2023 label) in grade 12 with a written bridge.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-learning-progression/progression-9-12.json"
+      ],
+      "expected": "Accepted because the bridge is stated; no band-jump error.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"asymptotic-notation\"",
+          "--contains",
+          "\"ok\": true",
+          "--absent",
+          "without a bridge",
+          "--",
+          "python3",
+          "../edu-learning-progression/scripts/progression.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-learning-progression/progression-9-12.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-learning-progression/progression-bridged-university-concept.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.progression-invalid-band-refused",
+      "kind": "boundary",
+      "target": "edu-learning-progression",
+      "input": "A progression whose concept band is 'high school', not a recognized grade band.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-learning-progression/progression-invalid.json"
+      ],
+      "expected": "Exit 2 invalid input; the map is not checked or ordered.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "2",
+          "--contains",
+          "\"error\": \"invalid input\"",
+          "--contains",
+          "unknown band",
+          "--",
+          "python3",
+          "../edu-learning-progression/scripts/progression.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-learning-progression/progression-invalid.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-learning-progression/progression-invalid-band-refused.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-real-paper-claims-scoped",
+      "kind": "positive",
+      "target": "edu-research-review",
+      "input": "Study card derived from Kazemitabaar et al. 2023 (real public paper, randomized matched design) with six claims quoted from the paper.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/study-kazemitabaar-2023.json"
+      ],
+      "expected": "No errors: causal wording about training performance passes because assignment was random; warnings flag null results read as equivalence, the post hoc subgroup, and a non-significant result described as an effect.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"error\": 0",
+          "--contains",
+          "null-as-equivalence",
+          "--contains",
+          "post-hoc-subgroup",
+          "--contains",
+          "nonsignificant-as-effect",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "claims",
+          "fleets/bcit-education/fixtures/edu-research-review/study-kazemitabaar-2023.json"
+        ]
+      },
+      "synthetic": false,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-real-paper-claims-scoped.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-real-paper-citations-replay",
+      "kind": "positive",
+      "target": "edu-research-review",
+      "input": "The paper's DOI and arXiv records plus 23 of its 95 printed references, replayed from the resolver recorded live on 2026-11-25.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/refs-kazemitabaar-2023.json",
+        "fleets/bcit-education/fixtures/edu-research-review/resolver-kazemitabaar-2023.json"
+      ],
+      "expected": "23 verified; Kirschner2006 reported as a title mismatch (the paper prints a wrong title); Parsons2006 unresolved; exit 1 because not every citation verified.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "\"verified\": 23",
+          "--contains",
+          "\"mismatch\": 1",
+          "--contains",
+          "\"unresolved\": 1",
+          "--contains",
+          "Kirschner2006",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "citations",
+          "fleets/bcit-education/fixtures/edu-research-review/refs-kazemitabaar-2023.json",
+          "--offline",
+          "fleets/bcit-education/fixtures/edu-research-review/resolver-kazemitabaar-2023.json"
+        ]
+      },
+      "synthetic": false,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-real-paper-citations-replay.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-citations-live-network",
+      "kind": "boundary",
+      "target": "edu-research-review",
+      "input": "Same reference list resolved live against Crossref and the arXiv API (network, throttled, two retries on HTTP 429).",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/refs-kazemitabaar-2023.json"
+      ],
+      "expected": "Same counts as the offline replay when the network and rate limits allow; any lookup failure shows as unresolved with its reason, never as verified. The offline replay case is the repeatable one.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "\"resolver\": \"live\"",
+          "--contains",
+          "Kirschner2006",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "citations",
+          "fleets/bcit-education/fixtures/edu-research-review/refs-kazemitabaar-2023.json"
+        ]
+      },
+      "synthetic": false,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-citations-live-network.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-design-complete-plan-passes",
+      "kind": "positive",
+      "target": "edu-research-review",
+      "input": "Synthetic quasi-experimental plan for two fixture grade 10 classes with confound controls, instruments with validity plans, consent and assent, ethics status not-submitted, no participant data.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/plan-synthetic-complete.json"
+      ],
+      "expected": "Plan passes with no findings.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"ok\": true",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "design",
+          "fleets/bcit-education/fixtures/edu-research-review/plan-synthetic-complete.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-design-complete-plan-passes.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-overclaim-rejected",
+      "kind": "negative",
+      "target": "edu-research-review",
+      "input": "Synthetic conference-talk card: one classroom, n=24, no comparison group, survey-only measure, claiming a tutor causes all K-12 students to learn twice as fast.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/study-synthetic-overclaim.json"
+      ],
+      "expected": "Rejected with causal, universal, small-single-site, self-report and weak-evidence-type errors.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "causal-from-nonexperimental",
+          "--contains",
+          "universal-from-narrow-sample",
+          "--contains",
+          "small-single-site",
+          "--contains",
+          "self-report-learning",
+          "--contains",
+          "weak-evidence-type",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "claims",
+          "fleets/bcit-education/fixtures/edu-research-review/study-synthetic-overclaim.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-overclaim-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-irb-claim-rejected",
+      "kind": "negative",
+      "target": "edu-research-review",
+      "input": "The complete plan with ethics status changed to approved and no approval reference.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/plan-synthetic-irb-claim.json"
+      ],
+      "expected": "Rejected: approval claimed without evidence; the rig cannot grant or assume approval.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "approval-claimed-without-evidence",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "design",
+          "fleets/bcit-education/fixtures/edu-research-review/plan-synthetic-irb-claim.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-irb-claim-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-wrong-citation-caught",
+      "kind": "negative",
+      "target": "edu-research-review",
+      "input": "Synthetic bibliography: one correct DOI, Wing's real DOI cited with year 2010 instead of 2006, one fabricated DOI under prefix 10.9999; replayed from the resolver recorded live.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/refs-synthetic-bad.json",
+        "fleets/bcit-education/fixtures/edu-research-review/resolver-synthetic-bad.json"
+      ],
+      "expected": "1 verified, the wrong year reported as a year mismatch, the fabricated DOI unresolved; exit 1.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "\"verified\": 1",
+          "--contains",
+          "\"mismatch\": 1",
+          "--contains",
+          "\"unresolved\": 1",
+          "--contains",
+          "S-wrong-year",
+          "--contains",
+          "S-fabricated",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "citations",
+          "fleets/bcit-education/fixtures/edu-research-review/refs-synthetic-bad.json",
+          "--offline",
+          "fleets/bcit-education/fixtures/edu-research-review/resolver-synthetic-bad.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-wrong-citation-caught.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-higher-ed-transfer-flagged",
+      "kind": "boundary",
+      "target": "edu-research-review",
+      "input": "Synthetic university CS1 quasi-experiment (n=310, controls named) whose claim is applied to grade 10 BCIT spreadsheet classes.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/study-synthetic-higher-ed-transfer.json"
+      ],
+      "expected": "Rejected with higher-ed-to-other-level; the controlled quasi-experiment's causal wording is a warning, not an error.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "higher-ed-to-other-level",
+          "--contains",
+          "\"severity\": \"warn\"",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "claims",
+          "fleets/bcit-education/fixtures/edu-research-review/study-synthetic-higher-ed-transfer.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-higher-ed-transfer-flagged.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-invalid-input-exit-2",
+      "kind": "boundary",
+      "target": "edu-research-review",
+      "input": "A resolver file passed where a study card is expected.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/resolver-synthetic-bad.json"
+      ],
+      "expected": "Exit 2 with the missing field named; nothing is scored.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "2",
+          "--contains",
+          "\"error\"",
+          "--contains",
+          "design",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "claims",
+          "fleets/bcit-education/fixtures/edu-research-review/resolver-synthetic-bad.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-invalid-input-exit-2.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-program-dimensions-ok",
+      "kind": "positive",
+      "target": "bcit-education.bcit-education-professor",
+      "input": "Synthetic BCIT program review: all five foci, scored student work for business mastery, an observation for pedagogical competence, standards check attached.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/program-synthetic-ok.json"
+      ],
+      "expected": "Passes with no findings.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"ok\": true",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "program",
+          "fleets/bcit-education/fixtures/edu-research-review/program-synthetic-ok.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-program-dimensions-ok.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-program-cross-dimension-rejected",
+      "kind": "negative",
+      "target": "bcit-education.bcit-education-professor",
+      "input": "Same review plus a claim of occupational assessment readiness from spreadsheet work and a survey, and a learning claim from the survey alone.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/program-synthetic-crossdim.json"
+      ],
+      "expected": "Rejected: evidence for business mastery does not establish occupational assessment readiness; a satisfaction survey is not learning evidence.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "cross-dimension",
+          "--contains",
+          "not-learning-evidence",
+          "--",
+          "python3",
+          "../edu-research-review/scripts/research_check.py",
+          "program",
+          "fleets/bcit-education/fixtures/edu-research-review/program-synthetic-crossdim.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-program-cross-dimension-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.research-professor-paper-critique",
+      "kind": "positive",
+      "target": "bcit-education.cs-education-professor",
+      "input": "Addendum check: critique a real accessible paper (Kazemitabaar et al. 2023), verify its citations, explain methodological limits, propose a bounded classroom application.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-research-review/refs-kazemitabaar-2023.json"
+      ],
+      "expected": "Structural check only: the critique has every required section, cites the paper's sections at least 10 times, and the live citation run verified at least 10 records. Judgment quality still needs a human reviewer.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"missing_sections\": []",
+          "--",
+          "python3",
+          "-c",
+          "import json,re,sys; t=open(sys.argv[1]).read(); need=['## Question and theory','## Design and sample','## What the evidence supports','## Methodological limits','## What the evidence does not support','## Citation check','## Bounded classroom application (hypothesis to test)']; miss=[h for h in need if h not in t]; secs=len(re.findall(r'Section \\d', t)); e=open(sys.argv[2]).read(); v=json.loads(e[e.index('{'):e.rindex('}')+1])['counts']['verified']; print(json.dumps({'missing_sections':miss,'section_references':secs,'verified_citations':v})); sys.exit(0 if not miss and secs>=10 and v>=10 else 1)",
+          "fleets/bcit-education/evidence/edu-research-review/critique-kazemitabaar-2023.md",
+          "fleets/bcit-education/evidence/edu-research-review/citations-live-kazemitabaar-2023.txt"
+        ]
+      },
+      "synthetic": false,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-research-review/eval-research-professor-paper-critique.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.teacher-education-module-complete",
+      "kind": "positive",
+      "target": "bcit-education.bcit-education-professor",
+      "input": "The BCIT methods-course module on break-even analysis for the Fixture Co student-run store.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-teacher-education-module/manifest.json",
+        "fleets/bcit-education/fixtures/bcit-teacher-education-module/module.md"
+      ],
+      "expected": "Complete: authentic business task, computing practice, rationale, microteaching, observation instrument with no observations, criteria, calibration, four separate evidence lines with occupational readiness not assessed.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"status\": \"complete\"",
+          "--contains",
+          "\"occupational_assessment_readiness\": \"not-assessed\"",
+          "--contains",
+          "teacher-education-module",
+          "--",
+          "python3",
+          "../edu-trainer-development/scripts/package.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-teacher-education-module/manifest.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/bcit-teacher-education-module/teacher-education-module-complete.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.teacher-module-merged-evidence-rejected",
+      "kind": "negative",
+      "target": "bcit-education.bcit-education-professor",
+      "input": "The module manifest altered to infer technology fluency from subject mastery, claim credential readiness from microteaching, and tag the ISTE Students label Empowered Learner as an educator role.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-teacher-education-module/manifest-merged-evidence.json"
+      ],
+      "expected": "Incomplete with three findings: two evidence lines inferred from others and the unknown educator label.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "technology_fluency is inferred from business_subject_mastery",
+          "--contains",
+          "occupational_assessment_readiness is inferred from pedagogical_competence",
+          "--contains",
+          "Empowered Learner",
+          "--",
+          "python3",
+          "../edu-trainer-development/scripts/package.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-teacher-education-module/manifest-merged-evidence.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/bcit-teacher-education-module/teacher-module-merged-evidence-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.teacher-module-calibration-practice-only",
+      "kind": "boundary",
+      "target": "bcit-education.instructional-coach",
+      "input": "Generated supervisor rehearsal ratings on six practice anchors for the methods module.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-teacher-education-module/calibration-practice-ratings.json"
+      ],
+      "expected": "practice-only; no agreement statistic.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "practice-only: no inter-rater agreement claimed",
+          "--absent",
+          "exact_agreement",
+          "--",
+          "python3",
+          "../edu-trainer-development/scripts/agreement.py",
+          "stats",
+          "fleets/bcit-education/fixtures/bcit-teacher-education-module/calibration-practice-ratings.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/bcit-teacher-education-module/teacher-module-calibration-practice-only.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.teacher-module-answer-key-verified",
+      "kind": "positive",
+      "target": "bcit-education.bcit-education-professor",
+      "input": "Execute the module's answer key: four spreadsheet items, one calculation, two SQL queries.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-teacher-education-module/answer-key.json"
+      ],
+      "expected": "Every item matches its key when executed.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--",
+          "python3",
+          "../edu-answer-key-check/scripts/answer_key.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-teacher-education-module/answer-key.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/bcit-teacher-education-module/teacher-module-answer-key-verified.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.teacher-module-draft-key-error-caught",
+      "kind": "negative",
+      "target": "bcit-education.bcit-education-professor",
+      "input": "A draft key that lists break-even units as 180 (fixed costs divided by price).",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-teacher-education-module/answer-key-draft.json"
+      ],
+      "expected": "The check executes the formula, gets 300 and reports Q2 as a mismatch.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "Q2-break-even-units",
+          "--contains",
+          "mismatch",
+          "--",
+          "python3",
+          "../edu-answer-key-check/scripts/answer_key.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-teacher-education-module/answer-key-draft.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/bcit-teacher-education-module/teacher-module-draft-key-error-caught.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.teacher-module-candidate-errors-caught",
+      "kind": "negative",
+      "target": "bcit-education.bcit-education-professor",
+      "input": "A sample candidate solution dividing by price instead of contribution margin and omitting GROUP BY from the revenue query.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-teacher-education-module/candidate-solutions.json"
+      ],
+      "expected": "Both Q2 and Q6 are reported as mismatches against the verified key.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "Q2-break-even-units",
+          "--contains",
+          "Q6-revenue-by-item",
+          "--contains",
+          "mismatch",
+          "--",
+          "python3",
+          "../edu-answer-key-check/scripts/answer_key.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-teacher-education-module/candidate-solutions.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/bcit-teacher-education-module/teacher-module-candidate-errors-caught.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.inline-principal-refused",
+      "kind": "negative",
+      "target": "edu-student-data-guard",
+      "input": "Reviewer probe: an inline principal that names classroom B asks for classroom B's real roster.",
+      "expected": "Exit 1: principals and records resolve only from the tenants registry; inline objects are refused.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-student-data-guard/req-inline-principal-real-b.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "inline principal objects are refused",
+          "--contains",
+          "\"decision\": \"refuse\"",
+          "--",
+          "python3",
+          "../edu-student-data-guard/scripts/data_guard.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-student-data-guard/req-inline-principal-real-b.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-student-data-guard/inline-principal-refused.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.requester-policy-file-rejected",
+      "kind": "boundary",
+      "target": "edu-student-data-guard",
+      "input": "Reviewer probe: the requester passes its own policy file that claims human verification.",
+      "expected": "Usage error (exit 2): the guard reads only its fixed policy file, so a requester cannot supply one.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-student-data-guard/policy-forged-by-requester.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "2",
+          "--contains",
+          "unrecognized arguments: --policy",
+          "--",
+          "python3",
+          "../edu-student-data-guard/scripts/data_guard.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-student-data-guard/req-inline-principal-real-b.json",
+          "--policy",
+          "fleets/bcit-education/fixtures/edu-student-data-guard/policy-forged-by-requester.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-student-data-guard/requester-policy-file-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.mislabeled-recall-quiz-rejected",
+      "kind": "negative",
+      "target": "bcit-education.assessment-designer",
+      "input": "Reviewer probe: a ten-question multiple-choice definition quiz labeled apply with product and explanation evidence.",
+      "expected": "Exit 1: the prompt text overrides the labels (label-text-mismatch) and the objective gets recall-only-evidence.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/assessment-mislabeled-recall.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "label-text-mismatch",
+          "--contains",
+          "recall-only-evidence",
+          "--",
+          "python3",
+          "../edu-assessment-check/scripts/assessment_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/assessment-mislabeled-recall.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-assessment-check/mislabeled-recall-quiz-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.mislabeled-ai-output-rejected",
+      "kind": "negative",
+      "target": "edu-assessment-check",
+      "input": "Reviewer probe: 'Paste the chatbot's explanation of break-even' labeled as the learner's explanation.",
+      "expected": "Exit 1 with label-text-mismatch and output-only-evidence.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/assessment-mislabeled-ai-output.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "label-text-mismatch",
+          "--contains",
+          "output-only-evidence",
+          "--",
+          "python3",
+          "../edu-assessment-check/scripts/assessment_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/assessment-mislabeled-ai-output.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-assessment-check/mislabeled-ai-output-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.prompt-paid-tool-online-flagged",
+      "kind": "negative",
+      "target": "bcit-education.accessibility-udl-collaborator",
+      "input": "Reviewer probe: the prompt requires paid Microsoft Excel 365 and an online price lookup while the demands block says neither.",
+      "expected": "Exit 1 with paid-software and no-offline-route flags quoting the prompt.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/assessment-prompt-paid-online.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "paid-software",
+          "--contains",
+          "Excel 365",
+          "--contains",
+          "no-offline-route",
+          "--",
+          "python3",
+          "../edu-assessment-check/scripts/assessment_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/assessment-prompt-paid-online.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-assessment-check/prompt-paid-tool-online-flagged.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "bcit-education.eval.invented-wellformed-ids-rejected",
+      "kind": "negative",
+      "target": "bcit-education.curriculum-standards-specialist",
+      "input": "Reviewer probe: HS-ALG-ZZ-99 (CSTA 2026) and 1.7.z (ISTE Students) fit their formats, claimed verified by a human: reviewer whose review file does not exist; plus a real id with the same missing file.",
+      "expected": "Exit 1: invented ids are id-not-published gaps; the real HS-ALG-ML-06 stays unverified because the review evidence is missing.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/alignment-invented-ids.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "id-not-published",
+          "--contains",
+          "review-evidence-missing",
+          "--contains",
+          "\"supported\": \"unverified\"",
+          "--",
+          "python3",
+          "../edu-standards-alignment/scripts/standards_check.py",
+          "align",
+          "fleets/bcit-education/fixtures/bcit-unit-store/alignment-invented-ids.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/bcit-education/evidence/edu-standards-alignment/invented-wellformed-ids-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    }
+  ]
+}

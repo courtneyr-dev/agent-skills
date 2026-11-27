@@ -1,0 +1,19 @@
+# eval agency.eval.adapter-headless-blocked (boundary, target agency-platform-adapters)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 1 --contains "decision": "blocked" -- python3 ../agency-platform-adapters/scripts/resolve_adapter.py --project ../agency-platform-adapters/fixtures/project-headless.json
+run on 2026-11-26, exit 0
+
+{
+  "decision": "blocked",
+  "limits": [
+    "Resolves the adapter from the platform and version the project reports; run wp-project-triage or the project's own tooling to confirm those facts first.",
+    "A skill counts as present when its SKILL.md exists in the named mount; presence does not prove the skill's guidance is correct for this project.",
+    "Supported ranges are the upstream's own statements at the pinned revision; a null range means the upstream states none, not that every version works."
+  ],
+  "ok": false,
+  "platform": "headless-cms",
+  "reason": "No installed skill covers a headless CMS content model or delivery API; a human CMS specialist owns this platform until an adapter is adopted or written.",
+  "skills": [],
+  "version": "1.0",
+  "warnings": []
+}
+[expect] exit 1 (expected 1); missing none; forbidden present none -> PASS

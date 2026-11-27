@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=targets-not-in-contract -- sh -c 'python3 ../hosting-restore-exercise/scripts/restore_exercise.py run --targets fleets/hosting/fixtures/restore-exercise/targets-proposed.json --handoff-dir {tmp}/h --workdir {tmp}/lab >/dev/null; python3 ../hosting-restore-exercise/scripts/restore_exercise.py review --handoff-dir {tmp}/h --targets fleets/hosting/fixtures/restore-exercise/targets-proposed.json >/dev/null && python3 ../hosting-restore-exercise/scripts/restore_exercise.py evidence-gate --handoff-dir {tmp}/h --targets fleets/hosting/fixtures/restore-exercise/targets-relaxed-rpo.json --workdir {tmp}/gate'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.restore-relaxed-targets-refused kind negative synthetic true
+{
+  "detail": "the contract's spec.sha256 is 4133fea46c319dc8efa3c29a2d154e380def9a7bcc52ca23277c4cd8789c6672; the targets file fleets/hosting/fixtures/restore-exercise/targets-relaxed-rpo.json hashes to 243deeb87acfce4b659802c421c5ae6974ba5a29c373cf6cdf39e4229a8c571a",
+  "refusal": "targets-not-in-contract",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

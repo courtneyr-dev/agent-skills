@@ -1,0 +1,42 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains adopted-older-edition -- python3 ../edu-standards-alignment/scripts/standards_check.py align fleets/bcit-education/fixtures/bcit-unit-store/alignment-district-adoption.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.district-adoption-preserved
+{
+  "ok": true,
+  "errors": 0,
+  "coverage": "partial",
+  "supported_counts": {
+    "gap": 0,
+    "unverified": 1,
+    "partial": 0,
+    "verified": 0,
+    "not-applicable": 0
+  },
+  "objectives": {
+    "O2": "unverified"
+  },
+  "rows": [
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2017",
+      "standard_id": "3A-AP-13",
+      "claimed": "unverified",
+      "supported": "unverified",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "adopted-older-edition",
+          "message": "csta-k12-2017 is superseded but the district adopted it; kept"
+        },
+        {
+          "severity": "note",
+          "code": "no-human-review",
+          "message": "verified needs a human reviewer and a supporting evidence reference"
+        }
+      ]
+    }
+  ],
+  "label": "SYNTHETIC FIXTURE (Fixture Co): boundary: the district still uses the superseded CSTA 2017 edition; the mapping keeps it instead of forcing 2026."
+}
+# expect: met
+# exit 0

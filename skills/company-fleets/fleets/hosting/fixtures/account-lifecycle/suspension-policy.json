@@ -1,0 +1,42 @@
+{
+  "label": "SYNTHETIC: Fixture Co account policy, owned by human:hosting-operations-owner. Clause ids and reasons are invented for tests. account_lifecycle.py reads clauses and approvers only from this file.",
+  "clauses": [
+    {
+      "id": "AUP-4.2",
+      "summary": "Abuse or compromise that endangers other tenants on the shared host.",
+      "authorizes": {
+        "suspend": [
+          "abuse",
+          "security-compromise"
+        ],
+        "unsuspend": [
+          "issue-resolved"
+        ]
+      },
+      "approvers": [
+        "human:abuse-policy-owner"
+      ],
+      "abuse_case_required_for": [
+        "suspend"
+      ]
+    },
+    {
+      "id": "BILL-7.1",
+      "summary": "Invoice unpaid after the grace period.",
+      "authorizes": {
+        "suspend": [
+          "nonpayment"
+        ],
+        "unsuspend": [
+          "payment-received"
+        ]
+      },
+      "approvers": [
+        "human:finance-owner"
+      ]
+    }
+  ],
+  "decommission_approvers": [
+    "human:hosting-operations-owner"
+  ]
+}

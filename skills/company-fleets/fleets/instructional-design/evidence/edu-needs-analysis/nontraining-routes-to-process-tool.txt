@@ -1,0 +1,49 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains ENV-RESOURCE-TOOL --contains ENV-RESOURCE-PROCESS --contains "course_indicated": false --contains course: the evidence shows --absent SKILL-TRAINING -- python3 ../edu-needs-analysis/scripts/needs.py route fleets/instructional-design/fixtures/edu-needs-analysis/nontraining-publish-tool.json
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.nontraining-routes-to-process-tool
+{
+  "audience_task_analysis": {
+    "analysis_gaps": [],
+    "audience": {
+      "access_needs": "One editor uses a screen reader",
+      "context": "Edit in the client CMS three days a week",
+      "size": 6,
+      "who": "Client A content editors (fixture)"
+    },
+    "task": {
+      "conditions": "Client CMS, approval queue",
+      "criticality": "Missed deadlines breach the client's own service note",
+      "frequency": "weekly",
+      "name": "Publish the weekly update",
+      "steps": [
+        "Draft the update",
+        "Attach images with alt text",
+        "Request legal approval",
+        "Publish"
+      ]
+    }
+  },
+  "course_indicated": false,
+  "not_recommended": [
+    "course: the evidence shows performers can do the task, so instruction would not remove the cause; act on the remedies instead."
+  ],
+  "notes": [],
+  "questions": [],
+  "remedies": [
+    {
+      "because": "Fixture CMS log: image upload times out above 2 MB and editors retry for hours",
+      "code": "ENV-RESOURCE-TOOL",
+      "factor": "resources",
+      "remedy": "Fix or replace the tool; route the defect to the tool owner."
+    },
+    {
+      "because": "Fixture approval queue: legal approval waits a median 41 hours; editors cannot publish before it",
+      "code": "ENV-RESOURCE-PROCESS",
+      "factor": "resources",
+      "remedy": "Fix the process; route the change to the process owner."
+    }
+  ],
+  "status": "route",
+  "warnings": []
+}
+# expect: met
+# exit 0

@@ -1,0 +1,32 @@
+{
+  "skill_name": "hosting-data-migration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Client A wants to move to our legacy shared server. Here are their app requirements and the server's offer. Can we move them?",
+      "expected_output": "Runs preflight, reports incompatible because the target offers only PHP 7.4 while the app needs >=8.1,<8.5, and names the fix (a target with PHP 8.1 to 8.4).",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/data-migration/app.json",
+        "../company-fleets/fleets/hosting/fixtures/data-migration/target-php74.json"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Rehearse this schema change for Client A before we run it Friday. If it goes wrong I need proof the data is back exactly as it was.",
+      "expected_output": "Runs migrate on a seeded copy, reports rolled-back with the failing statement, and shows checksums_equal true between the pre-migration and restored content.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/data-migration/seed.sql",
+        "../company-fleets/fleets/hosting/fixtures/data-migration/migration-fails-halfway.sql"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Client A is leaving. Give them everything in a format they can load elsewhere and prove it's complete.",
+      "expected_output": "Runs roundtrip (export, then import into a fresh location), reports pass with equal database, table and file checksums, and lists the bundle's artifacts and formats.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/data-migration/seed.sql",
+        "../company-fleets/fleets/hosting/fixtures/data-migration/tenant-a-files"
+      ]
+    }
+  ]
+}

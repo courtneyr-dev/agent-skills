@@ -1,0 +1,40 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "status": "not-yet-evidence-of-understanding" --contains marked AI-generated -- python3 ../cs-classroom-instruction/scripts/lesson.py respond fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json fleets/bcit-education/fixtures/cs-classroom-instruction/learner-ai-generated.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.cs-ai-output-not-evidence
+{
+  "progress_claim": null,
+  "note": "The script never records mastery or progress. The teacher of record reviews the work and decides.",
+  "task_id": "T2",
+  "learner_ref": "classroom-a/learner-15 (synthetic)",
+  "status": "not-yet-evidence-of-understanding",
+  "tests": [
+    {
+      "id": "week",
+      "input": "12 9 15 7 11\n",
+      "expected": "54",
+      "actual": "54\n",
+      "error": "",
+      "passed": true
+    },
+    {
+      "id": "one-day",
+      "input": "5\n",
+      "expected": "5",
+      "actual": "5\n",
+      "error": "",
+      "passed": true
+    },
+    {
+      "id": "closed-week",
+      "input": "\n",
+      "expected": "0",
+      "actual": "0\n",
+      "error": "",
+      "passed": true
+    }
+  ],
+  "misconceptions": [],
+  "feedback": "The tests pass, but the work is marked AI-generated. Passing output is not evidence of your understanding.",
+  "next_action": "In your own words, explain what total holds after each pass for the input 12 9 15 7 11, and why it starts at 0."
+}
+# expect: met
+# exit 0

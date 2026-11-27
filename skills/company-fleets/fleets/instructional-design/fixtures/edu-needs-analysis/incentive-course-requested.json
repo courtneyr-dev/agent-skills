@@ -1,0 +1,16 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): support agents skip the accessibility checklist. Invented for evaluation.",
+  "problem": "Support agents close tickets without running the accessibility checklist on 60% of fixture tickets.",
+  "requested_solution": "training workshop",
+  "audience": {"who": "Fixture Co support agents", "size": 12, "context": "Handle hosting tickets on shifts"},
+  "task": {"name": "Run the accessibility checklist before closing a site-change ticket", "steps": ["Open the checklist", "Test keyboard path", "Record result", "Close ticket"], "frequency": "daily"},
+  "evidence": {
+    "can_do_when_required": {"value": true, "source": "Fixture spot check: 12 of 12 agents completed the checklist correctly when asked"},
+    "expectations_clear": {"value": true, "source": "Fixture policy page names the checklist"},
+    "feedback_given": {"value": true, "source": "Weekly fixture QA report"},
+    "tools_adequate": {"value": true, "source": "Checklist opens in the ticket tool"},
+    "process_clear": {"value": true, "source": "Fixture process map has one checklist step"},
+    "access_ok": {"value": true, "source": "All agents can open the checklist"},
+    "consequences_aligned": {"value": false, "source": "Fixture scorecard rewards tickets closed per hour; the checklist adds 6 minutes and nobody reviews it"}
+  }
+}

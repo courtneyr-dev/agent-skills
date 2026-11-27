@@ -1,0 +1,20 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains approval-claimed-without-evidence -- python3 ../edu-research-review/scripts/research_check.py design fleets/bcit-education/fixtures/edu-research-review/plan-synthetic-irb-claim.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.research-irb-claim-rejected
+{
+  "ok": false,
+  "mode": "design",
+  "question": "How does adding predict-and-trace prompts before code modification change grade 10 students' code-modification correctness in a four-week Python unit (classroom-a vs classroom-b, fixture)?",
+  "counts": {
+    "error": 1,
+    "warn": 0
+  },
+  "findings": [
+    {
+      "rule": "approval-claimed-without-evidence",
+      "severity": "error",
+      "message": "ethics approval is claimed with no approval reference; the rig cannot grant or assume IRB/REB approval"
+    }
+  ]
+}
+# expect: met
+# exit 0

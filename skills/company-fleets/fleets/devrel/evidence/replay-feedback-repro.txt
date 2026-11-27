@@ -1,0 +1,74 @@
+$ python3 ../devrel-quickstart-replay/scripts/replay.py fleets/devrel/fixtures/docs/feedback-repro.md --asset fleets/devrel/fixtures/fixture-co-notes
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:01Z
+# case: devrel.eval.replay-feedback-repro (positive, target devrel.feedback-liaison, synthetic=True)
+# expected: Exit 0: the defect reproduces from a clean environment, so product receives a reproducible issue.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "devrel-quickstart-replay",
+  "version": "1.0.0",
+  "doc": "fleets/devrel/fixtures/docs/feedback-repro.md",
+  "doc_sha256": "b1bc035f54476e319e68310804dad159eef8fe13f96e77a84514c1db09a7e19a",
+  "assets": [
+    {
+      "name": "fixture-co-notes",
+      "tree_sha256": "252ef35069d2dfd8cd2b9e16ed749ad3aaf9ed19071df54ec9926c187271afee"
+    }
+  ],
+  "isolation": {
+    "workdir": "fresh temporary directory, removed after the run",
+    "env_keys": [
+      "HOME",
+      "LANG",
+      "PATH",
+      "TMPDIR"
+    ],
+    "sandbox": "sandbox-exec: outbound network denied except localhost; reads under the invoking user's home denied"
+  },
+  "prerequisites": [
+    {
+      "name": "python3",
+      "found": true
+    }
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "line": 20,
+      "ran": true,
+      "succeeded": true,
+      "expect": []
+    },
+    {
+      "n": 2,
+      "line": 26,
+      "ran": true,
+      "succeeded": true,
+      "expect": [
+        {
+          "expected": "error: HTTP 500 internal error",
+          "found": true
+        },
+        {
+          "expected": "exit status 1",
+          "found": true
+        }
+      ]
+    }
+  ],
+  "elapsed_s": 0.663,
+  "budget_s": 30.0,
+  "criteria": {
+    "1_commands_succeed_verbatim": true,
+    "2_outputs_match": true,
+    "3_no_late_prerequisites": true,
+    "4_within_budget": true,
+    "5_unfamiliar_reader_success": "unverified: needs an unfamiliar human reader; a replay can't measure it"
+  },
+  "ok": true,
+  "failure": null,
+  "output": "\n::replay-step 1::\n\n::replay-cmd 1 1::\n\n::replay-step 2::\n\n::replay-cmd 2 1::\nerror: HTTP 500 internal error\nexit status 1\n\n::replay-end::\n"
+}
+--- stderr ---
+

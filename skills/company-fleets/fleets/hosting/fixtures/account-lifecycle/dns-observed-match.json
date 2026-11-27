@@ -1,0 +1,10 @@
+{
+  "label": "SYNTHETIC: fake DNS answers for client-a.example holding a requester-chosen TXT value, visible to anyone. qualify issues its own token, so this record never verifies an account; tests use it to show a copied public token is refused.",
+  "records": [
+    {
+      "kind": "dns-txt",
+      "name": "_hosting-verify.client-a.example",
+      "value": "fx_demo_k3Q9vT2mLp8ZxW4bN7cR1yHd"
+    }
+  ]
+}

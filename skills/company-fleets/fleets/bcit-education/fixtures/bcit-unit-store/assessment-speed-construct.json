@@ -1,0 +1,61 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): boundary case. A digital-productivity objective where speed is part of the construct, so a time limit is not a barrier.",
+  "context": {
+    "grade_band": "9-10",
+    "reading_grade_target": 9
+  },
+  "objectives": [
+    {
+      "id": "O5",
+      "level": "apply",
+      "text": "Enter the week's store sales into the sheet accurately at a steady pace.",
+      "construct": "keyboarding and data-entry fluency: accuracy and speed"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T5",
+      "objective_ids": [
+        "O5"
+      ],
+      "format": "performance",
+      "cognitive_level": "apply",
+      "evidence": [
+        "performance",
+        "product"
+      ],
+      "prompt": "Type the nine sales rows from the printed sheet into the store file. Work for five minutes. Check each row before you move on.",
+      "demands": {
+        "paid_software": false,
+        "internet_required": false,
+        "offline_alternative": true,
+        "color_only_cues": false,
+        "timed_minutes": 5,
+        "construct_is_speed": true
+      }
+    }
+  ],
+  "rubric": [
+    {
+      "id": "R5",
+      "task_id": "T5",
+      "objective_id": "O5",
+      "criterion": "Accurate rows entered in five minutes",
+      "scoring_rationale": "Speed and accuracy are both the construct; accommodation plans that extend time still apply and are scored against the plan.",
+      "levels": [
+        {
+          "score": 1,
+          "descriptor": "Fewer than five accurate rows"
+        },
+        {
+          "score": 2,
+          "descriptor": "Five to eight accurate rows"
+        },
+        {
+          "score": 3,
+          "descriptor": "All nine rows accurate"
+        }
+      ]
+    }
+  ]
+}

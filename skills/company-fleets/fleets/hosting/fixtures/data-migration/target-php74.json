@@ -1,0 +1,4 @@
+{"label": "SYNTHETIC: Fixture Co legacy shared server offering only PHP 7.4.",
+ "offers": {"runtimes": {"php": ["7.4"]},
+            "database": {"engine": "MariaDB", "version": ["10.11"]},
+            "extensions": ["mbstring", "intl", "gd"]}}

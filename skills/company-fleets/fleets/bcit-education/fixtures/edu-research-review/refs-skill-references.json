@@ -1,0 +1,15 @@
+{
+  "label": "REAL PUBLIC SOURCES (not synthetic): works the edu-research-review reference files cite, checked before citing.",
+  "source": "edu-research-review/references/*.md",
+  "references": [
+    {"id": "AERA2006", "doi": "10.3102/0013189X035006033", "cited": {"title": "Standards for Reporting on Empirical Social Science Research in AERA Publications", "year": 2006, "authors": ["American Educational Research Association"]}},
+    {"id": "DBRC2003", "doi": "10.3102/0013189X032001005", "cited": {"title": "Design-Based Research: An Emerging Paradigm for Educational Inquiry", "year": 2003, "authors": ["Design-Based Research Collective"]}},
+    {"id": "Fincher2019", "doi": "10.1017/9781108654555", "cited": {"title": "The Cambridge Handbook of Computing Education Research", "year": 2019, "authors": ["Fincher", "Robins"]}},
+    {"id": "Simmons2011", "doi": "10.1177/0956797611417632", "cited": {"title": "False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant", "year": 2011, "authors": ["Simmons", "Nelson", "Simonsohn"]}},
+    {"id": "Lakens2017", "doi": "10.1177/1948550617697177", "cited": {"title": "Equivalence Tests: A Practical Primer for t Tests, Correlations, and Meta-Analyses", "year": 2017, "authors": ["Lakens"]}},
+    {"id": "Wang2007", "doi": "10.1056/NEJMsr077003", "cited": {"title": "Statistics in Medicine — Reporting of Subgroup Analyses in Clinical Trials", "year": 2007, "authors": ["Wang", "Lagakos", "Ware"]}},
+    {"id": "Tipton2018", "doi": "10.3102/0013189X18781522", "cited": {"title": "A Review of Statistical Methods for Generalizing From Evaluations of Educational Interventions", "year": 2018, "authors": ["Tipton", "Olsen"]}},
+    {"id": "Heckman2021", "doi": "10.1145/3470652", "cited": {"title": "A Systematic Literature Review of Empiricism and Norms of Reporting in Computing Education Research Literature", "year": 2021, "authors": ["Heckman", "Carver", "Sherriff"]}},
+    {"id": "Shadish2002", "cited": {"title": "Experimental and quasi-experimental designs for generalized causal inference", "year": 2002, "authors": ["Shadish", "Cook", "Campbell"]}}
+  ]
+}

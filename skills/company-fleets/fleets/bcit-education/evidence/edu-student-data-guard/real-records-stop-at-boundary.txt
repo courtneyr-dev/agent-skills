@@ -1,0 +1,17 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains human-data boundary --contains verified by a named human -- python3 ../edu-student-data-guard/scripts/data_guard.py check fleets/bcit-education/fixtures/edu-student-data-guard/req-real-records.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.real-records-stop-at-boundary
+{
+  "decision": "refuse",
+  "reasons": [
+    "human-data boundary: real student records need a school student-data policy verified by a named human, with a date and an evidence file that exists; tool claude-code on the school's approved list; role access for classroom-a-assistant; a consent or authorization basis; a retention period"
+  ],
+  "policy_verified": false,
+  "request": {
+    "principal": "classroom-a-assistant",
+    "record": "CA-ROSTER",
+    "data_origin": "real",
+    "tool": "claude-code"
+  }
+}
+# expect: met
+# exit 0

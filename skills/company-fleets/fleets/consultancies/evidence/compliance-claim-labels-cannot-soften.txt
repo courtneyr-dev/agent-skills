@@ -1,0 +1,18 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.compliance-claim-labels-cannot-soften (negative, target consult-compliance-engagement).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../consult-compliance-engagement/scripts/tests/test_engagement_check.py EngagementCheckTest.test_labels_cannot_soften_legal_or_certification_claims EngagementCheckTest.test_level_conformance_claim_needs_a_full_evaluation -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-compliance-engagement/scripts/tests/test_engagement_check.py EngagementCheckTest.test_labels_cannot_soften_legal_or_certification_claims EngagementCheckTest.test_level_conformance_claim_needs_a_full_evaluation -v
+
+stderr:
+test_labels_cannot_soften_legal_or_certification_claims (__main__.EngagementCheckTest.test_labels_cannot_soften_legal_or_certification_claims) ... ok
+test_level_conformance_claim_needs_a_full_evaluation (__main__.EngagementCheckTest.test_level_conformance_claim_needs_a_full_evaluation) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.112s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

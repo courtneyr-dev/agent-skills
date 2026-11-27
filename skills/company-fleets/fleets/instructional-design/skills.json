@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "fleet": "instructional-design",
+  "skills": [
+    {
+      "id": "edu-needs-analysis",
+      "fleet": "instructional-design",
+      "summary": "Decides whether instruction addresses a performance problem before a course is designed, separating knowledge and practice gaps from tools, process, access, feedback, expectations and incentives.",
+      "triggers": [
+        "A request for training, a course, a workshop or onboarding to fix a performance problem",
+        "A request for a needs assessment, performance analysis, or audience and task analysis",
+        "Do we need training for this?"
+      ],
+      "boundaries": [
+        "Doesn't design the course once training is indicated",
+        "Doesn't diagnose individuals or infer medical, psychological or learning-style traits",
+        "Doesn't contact performers, managers or clients"
+      ],
+      "inputs": [
+        "Case JSON: problem, audience, task with steps, sourced evidence per diagnostic question, optional requested_solution"
+      ],
+      "prerequisites": [
+        "Evidence from observation, logs, work samples or interviews held by a human owner"
+      ],
+      "method": [
+        "State the discrepancy as observed against expected performance",
+        "Fill the audience and task analysis; list what's missing",
+        "Answer diagnostic questions only from named sources",
+        "Run scripts/needs.py route",
+        "Report remedies with owners; say plainly when a requested course is not recommended"
+      ],
+      "stopping_conditions": [
+        "A route or no-gap-found is decided",
+        "Evidence is missing: return the questions instead of a route",
+        "Input is invalid: fix the case file"
+      ],
+      "output_contract": "JSON with status (route, no-gap-found, collect-evidence), course_indicated (true, false, null), remedies with reason codes and sources, open questions, not_recommended, notes, warnings and audience_task_analysis with analysis_gaps. Exit 0 route, 1 collect-evidence, 2 invalid.",
+      "failure_states": [
+        "Unsourced evidence is treated as missing and the route becomes collect-evidence",
+        "Self-report for the skill question is recorded as missing",
+        "Requester insists on a ruled-out course: route and requester decision reported separately"
+      ],
+      "references": [
+        {
+          "title": "Analyzing Performance Problems (Mager and Pipe)",
+          "location": "Center for Effective Performance",
+          "version": "3rd edition, 1997 (from author knowledge; not verified live on 2026-11-25)",
+          "rights": "Copyrighted book; method paraphrased as questions, no text copied"
+        },
+        {
+          "title": "Human Competence: Engineering Worthy Performance (Gilbert), Behavior Engineering Model",
+          "location": "McGraw-Hill 1978; Pfeiffer and ISPI tribute edition 2007",
+          "version": "1978; tribute edition 2007 (not verified live on 2026-11-25)",
+          "rights": "Copyrighted book; category names used, model table not copied"
+        }
+      ],
+      "scripts": [
+        "scripts/needs.py"
+      ],
+      "evals": {
+        "positive": [
+          "instructional-design.eval.nontraining-routes-to-process-tool",
+          "instructional-design.eval.skill-gap-routes-to-training"
+        ],
+        "negative": [
+          "instructional-design.eval.requested-workshop-not-recommended"
+        ],
+        "boundary": [
+          "instructional-design.eval.unsourced-evidence-collects-questions"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Local case file",
+          "kind": "document",
+          "required": true
+        }
+      ],
+      "missing_capability": "Without sourced evidence, return the diagnostic questions with status collect-evidence and stop at the human-data boundary; never guess a route.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets education workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Covers S11-002 (instruction versus nontraining causes) and the audience and task analysis inputs of S11-004"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/instructional-design/evidence/edu-needs-analysis/unittest.txt",
+          "note": "Canonical rig skills/edu-needs-analysis."
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No router session has selected it yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/instructional-design/evidence/edu-needs-analysis/nontraining-routes-to-process-tool.txt",
+          "note": "4 of 4 script cases pass on 2026-11-25 (2 positive, 1 negative, 1 boundary); evidence files sit beside this one"
+        }
+      }
+    },
+    {
+      "id": "edu-trainer-development",
+      "fleet": "instructional-design",
+      "summary": "Trainer-of-trainers procedures (design rationale, modeled examples with decision points, observation and feedback, rubric calibration, fading support, coaching another trainer, transfer evaluation), plus teacher-education and educator professional-learning modes, with scripts that refuse invented agreement and invented results.",
+      "triggers": [
+        "Train-the-trainer or trainer-of-trainers package",
+        "Facilitation guide, rubric calibration or norming, inter-rater agreement",
+        "Teacher professional-learning plan, methods-course module, microteaching, observation instrument or coaching cycle",
+        "How do we show the training worked?"
+      ],
+      "boundaries": [
+        "Doesn't decide whether training is the remedy (edu-needs-analysis does)",
+        "Doesn't grade, place, certify or evaluate a person; human supervisors decide",
+        "Doesn't invent observations, ratings, survey results or learning gains"
+      ],
+      "inputs": [
+        "Learner task and a needs analysis showing a skill gap",
+        "Rubric or the task to write one",
+        "Named human owners: coach, reviewers, data collector",
+        "For teacher-education modules: business task, computing practice and answer key"
+      ],
+      "prerequisites": [
+        "edu-needs-analysis result showing a skill gap",
+        "edu-answer-key-check for teacher-education answer keys"
+      ],
+      "method": [
+        "Write the design rationale table",
+        "Model a complete example with numbered decision points",
+        "Plan observation with a focus list and the feedback pattern",
+        "Run calibration with generated practice anchors; compute agreement only from real human ratings",
+        "Fade support on observed signals",
+        "Coach another trainer through an adaptation exercise",
+        "Plan transfer evaluation with evidence_plan.py",
+        "Check the package with package.py"
+      ],
+      "stopping_conditions": [
+        "package.py reports complete",
+        "A finding: fix the package without dropping required sections",
+        "Real data needed: hand the plan to the named human owner"
+      ],
+      "output_contract": "agreement.py stats prints computed per-pair agreement or practice-only with discussion items; evidence_plan.py check prints accepted or rejected with findings and warnings; package.py check prints complete or incomplete with findings, calibration status, evidence-plan status and, for teacher modules, evidence-line statuses. Exit 0 ok, 1 refused or findings, 2 invalid.",
+      "failure_states": [
+        "Generated or synthetic ratings: practice-only, no agreement figure",
+        "Fewer than 10 shared items: figure labeled a calibration signal",
+        "Survey, attendance, completion, self-report or generated-artifact-only plan: rejected",
+        "Pre-filled outcome values: rejected",
+        "Synthetic package with observation records or merged evidence lines: incomplete"
+      ],
+      "references": [
+        {
+          "title": "Cohen, A coefficient of agreement for nominal scales",
+          "location": "https://doi.org/10.1177/001316446002000104",
+          "version": "Educational and Psychological Measurement 20(1), 1960 (DOI not resolved live in this run)",
+          "rights": "Journal article; formula used as a method"
+        },
+        {
+          "title": "Cohen, Weighted kappa",
+          "location": "https://doi.org/10.1037/h0026256",
+          "version": "Psychological Bulletin 70(4), 1968 (DOI not resolved live in this run)",
+          "rights": "Journal article; formula used as a method"
+        },
+        {
+          "title": "Renkl and Atkinson, Structuring the transition from example study to problem solving",
+          "location": "https://doi.org/10.1207/S15326985EP3801_3",
+          "version": "Educational Psychologist 38(1), 2003 (DOI not resolved live in this run)",
+          "rights": "Cited, not copied"
+        },
+        {
+          "title": "Kirkpatrick and Kirkpatrick, Kirkpatrick's Four Levels of Training Evaluation",
+          "location": "ATD Press",
+          "version": "2016 (not verified live)",
+          "rights": "Copyrighted book; level names used as labels"
+        },
+        {
+          "title": "ISTE Standards for Educators",
+          "location": "edu-standards-alignment/references/standards-registry.json record iste-educators",
+          "version": "As recorded in the standards registry",
+          "rights": "ISTE terms; role labels only, no standard text"
+        }
+      ],
+      "scripts": [
+        "scripts/agreement.py",
+        "scripts/evidence_plan.py",
+        "scripts/package.py"
+      ],
+      "evals": {
+        "positive": [
+          "instructional-design.eval.trainer-package-complete",
+          "instructional-design.eval.learning-evidence-plan-accepted"
+        ],
+        "negative": [
+          "instructional-design.eval.survey-only-plan-rejected",
+          "instructional-design.eval.prefilled-results-rejected",
+          "instructional-design.eval.incomplete-trainer-package-rejected"
+        ],
+        "boundary": [
+          "instructional-design.eval.generated-calibration-practice-only",
+          "bcit-education.eval.teacher-module-calibration-practice-only"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Real reviewer ratings or observation exports (LMS, supervisor forms)",
+          "kind": "document",
+          "required": false
+        },
+        {
+          "name": "edu-answer-key-check for teacher-education answer keys",
+          "kind": "cli",
+          "required": false
+        }
+      ],
+      "missing_capability": "Without real ratings or observations, the package stays a plan: agreement is practice-only and result fields stay empty. Without edu-answer-key-check, teacher-module keys are marked unverified.",
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets education workstream",
+        "revision": "0.1.0",
+        "license": "agent-skills (MIT)"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered",
+          "note": "Covers S11-013 to S11-015 and the trainer-development demonstration; addendum capabilities educator-professional-learning and bcit-teacher-education via references/teacher-education.md. Real agreement and transfer need human data."
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/instructional-design/evidence/edu-trainer-development/unittest.txt",
+          "note": "Canonical rig skills/edu-trainer-development."
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No router session has selected it yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/instructional-design/evidence/edu-trainer-development/trainer-package-complete.txt",
+          "note": "9 of 9 runnable script cases pass on 2026-11-25; 3 answer-key cases blocked until edu-answer-key-check exists"
+        }
+      }
+    }
+  ]
+}

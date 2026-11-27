@@ -1,0 +1,3 @@
+# Local configuration and upstream clones: per machine, never part of the skill
+config/provider-policy.json
+upstream/

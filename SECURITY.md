@@ -8,8 +8,8 @@ Python or shell scripts and run them.
 
 **Installing a skill is closer to installing a shell alias than to installing a library.** Read a
 skill before you install it, the same way you would read a script before piping it into bash. That
-is also why the one-line installer in the README downloads and pages the script rather than piping
-it straight to a shell.
+is also why the README's install line clones the repository and pages `install.sh` before running
+it, rather than piping a script straight to a shell.
 
 ## What this repo does to reduce risk
 

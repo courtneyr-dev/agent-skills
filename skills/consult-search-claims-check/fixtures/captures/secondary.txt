@@ -1,0 +1,4 @@
+SYNTHETIC capture for Fixture Co tests. Not a copy of any real page.
+
+Fixture blog post.
+Our test suggests that exact-match anchor text is a strong ranking factor.

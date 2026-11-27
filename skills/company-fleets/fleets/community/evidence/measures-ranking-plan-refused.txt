@@ -1,0 +1,75 @@
+$ sh -c 'python3 ../community-health-measures/scripts/measures.py lint fleets/community/fixtures/measures/plan-ranking.json; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.measures-ranking-plan-refused (negative, target community.volunteer-coordinator, synthetic=True)
+# expected: Exit 1 with individual-level, ranking, inference, undefined-composite, sales-leads, small-groups and confidential-source.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "ok": false,
+  "metrics": 5,
+  "violations": [
+    {
+      "metric": "top-contributors-by-commits",
+      "rule": "individual-level",
+      "message": "level 'person': report at community, cohort or channel level, never per person"
+    },
+    {
+      "metric": "top-contributors-by-commits",
+      "rule": "ranking",
+      "message": "'top contributors' ranks people; report aggregates instead"
+    },
+    {
+      "metric": "top-contributors-by-commits",
+      "rule": "small-groups",
+      "message": "min_group_size must be an integer of at least 5"
+    },
+    {
+      "metric": "burnout-risk-per-maintainer",
+      "rule": "individual-level",
+      "message": "level 'person': report at community, cohort or channel level, never per person"
+    },
+    {
+      "metric": "burnout-risk-per-maintainer",
+      "rule": "ranking",
+      "message": "'per maintainer' ranks people; report aggregates instead"
+    },
+    {
+      "metric": "burnout-risk-per-maintainer",
+      "rule": "inference",
+      "message": "'burnout' would be inferred from activity; don't infer burnout, wellbeing or protected traits"
+    },
+    {
+      "metric": "community-health-score",
+      "rule": "undefined-composite",
+      "message": "a score needs published components that are metrics in this plan, with weights summing to 1"
+    },
+    {
+      "metric": "meetup-attendee-leads",
+      "rule": "sales-leads",
+      "message": "'sales' turns participation into sales leads"
+    },
+    {
+      "metric": "reports-against-each-member",
+      "rule": "individual-level",
+      "message": "level 'person': report at community, cohort or channel level, never per person"
+    },
+    {
+      "metric": "reports-against-each-member",
+      "rule": "small-groups",
+      "message": "min_group_size must be an integer of at least 5"
+    },
+    {
+      "metric": "reports-against-each-member",
+      "rule": "no-consent",
+      "message": "state the consent basis for the data this metric reads"
+    },
+    {
+      "metric": "reports-against-each-member",
+      "rule": "confidential-source",
+      "message": "moderation cases never feed metrics; transparency counts come from the case log with human approval"
+    }
+  ]
+}
+--- stderr ---
+

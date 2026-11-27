@@ -1,0 +1,89 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.duplicate-payment-events-no-duplicate-fulfillment (positive, target consultancies.commerce-engineer).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "captures": 2 --contains "fulfillments": 2 --contains "refunds": 1 --contains "duplicate-order": 1 -- python3 ../product-payment-events/scripts/payment_events.py process --config ../product-payment-events/fixtures/config.json --events ../product-payment-events/fixtures/replay.jsonl --db {tmp}/store.db
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-payment-events/scripts/payment_events.py process --config ../product-payment-events/fixtures/config.json --events ../product-payment-events/fixtures/replay.jsonl --db {tmp}/store.db
+{
+  "entitlements": [
+    {
+      "customer_id": "cus_a",
+      "export_offered": 1,
+      "sku": "forms-pro-annual",
+      "state": "canceled"
+    },
+    {
+      "customer_id": "cus_b",
+      "export_offered": 0,
+      "sku": "forms-pro-annual",
+      "state": "revoked"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "evt_001",
+      "outcome": "fulfilled"
+    },
+    {
+      "event_id": "evt_001",
+      "outcome": "duplicate-event"
+    },
+    {
+      "event_id": "evt_002",
+      "outcome": "duplicate-order"
+    },
+    {
+      "event_id": "evt_003",
+      "outcome": "fulfilled"
+    },
+    {
+      "event_id": "evt_004",
+      "outcome": "refunded"
+    },
+    {
+      "event_id": "evt_004",
+      "outcome": "duplicate-event"
+    },
+    {
+      "event_id": "evt_005",
+      "outcome": "duplicate-refund"
+    },
+    {
+      "event_id": "evt_006",
+      "outcome": "canceled-export-offered"
+    }
+  ],
+  "inventory": {
+    "forms-pro-annual": 8,
+    "forms-pro-founder-edition": 1
+  },
+  "live_calls": 0,
+  "mode": "test",
+  "not_checked": [
+    "real provider API behavior",
+    "tax, shipping and currency conversion",
+    "card-network chargeback rules"
+  ],
+  "outcomes": {
+    "canceled-export-offered": 1,
+    "duplicate-event": 2,
+    "duplicate-order": 1,
+    "duplicate-refund": 1,
+    "fulfilled": 2,
+    "refunded": 1
+  },
+  "status": "ok",
+  "store": {
+    "captures": 2,
+    "events": 6,
+    "fulfillments": 2,
+    "holds": 0,
+    "refunds": 1
+  }
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"captures": 2': ok
+CHECK contains '"fulfillments": 2': ok
+CHECK contains '"refunds": 1': ok
+CHECK contains '"duplicate-order": 1': ok
+VERDICT pass

@@ -1,0 +1,34 @@
+{
+  "entries": {
+    "doi:10.1145/1118178.1118215": {
+      "authors": [
+        "Wing"
+      ],
+      "doi": "10.1145/1118178.1118215",
+      "source": "crossref",
+      "titles": [
+        "Computational thinking"
+      ],
+      "years": [
+        2006
+      ]
+    },
+    "doi:10.3102/0013189x12463051": {
+      "authors": [
+        "Grover",
+        "Pea"
+      ],
+      "doi": "10.3102/0013189x12463051",
+      "source": "crossref",
+      "titles": [
+        "Computational Thinking in K–12",
+        "Computational Thinking in K–12: A Review of the State of the Field"
+      ],
+      "years": [
+        2013
+      ]
+    },
+    "doi:10.9999/fixture-co.2024.001": null
+  },
+  "label": "Resolver responses recorded live by research_check citations --record; replay with --offline for repeatable runs."
+}

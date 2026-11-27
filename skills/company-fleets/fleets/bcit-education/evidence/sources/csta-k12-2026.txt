@@ -1,0 +1,22 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/pk12standards/
+# run 2026-11-25
+http_code=200 final_url=https://csteachers.org/pk12standards/ size=375563
+L142: About the 2026 CSTA PK–12 Standards
+L145-L157 (paraphrase): overview paragraphs on concepts, practices, foundational and specialty standards; not reproduced here (CC BY-NC-SA), read them at the URL above
+L198: Computer Science Teachers Association. (2026). 2026 CSTA PK–12 computer science standards.
+L200: DOI: https://doi.org/10.1145/3820482
+L201: ISBN: 979-8-4007-2780-1
+L203 (paraphrase): The 2026 standards may be downloaded, shared and adapted with attribution, for noncommercial use, with derivatives under the same license.
+L204: Contact
+$ curl -sSL --max-time 30 -o csta-2026.pdf https://csteachers.org/2026-csta-pk-12-computer-science-standards/  # then stdlib zlib text-operator extraction
+# run 2026-11-25
+http_code=200 final_url=https://csteachers.org/wp-content/uploads/2026/07/2026-CSTA-PK%E2%80%9312-Computer-Science-Standards.pdf size=3298695
+pattern (?<![A-Za-z])(?:EK|E[1-5]|MS|HS)-(?:ALG|PRO|DAT|SYS|SOC)-[A-Z]{2}-[0-9]{2}: 188 matches, 187 distinct; examples: E1-ALG-IM-03, E1-ALG-ML-02, E1-ALG-PS-01, E1-DAT-DC-08
+pattern (?:AIN|CYB|DSC|GMD|PHY|SWD)-[A-Z]{2}-[0-9]{2}: 130 matches, 93 distinct; examples: AIN-DD-01, AIN-DD-02, AIN-DD-03, AIN-DD-04
+pattern Creative Commons License: Attribution-NonCommercial-ShareAlike: 1 matches, 1 distinct; examples: Creative Commons License: Attribution-NonCommercial-ShareAlike
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/pk12standards/view/
+# run 2026-11-25
+http_code=200 final_url=https://csteachers.org/pk12standards/view/ size=466689
+L25: View Standards
+# the /pk12standards/view/ list loads by POST to admin-ajax.php; that POST was refused by the session permission policy, so identifiers come from the official PDF above
+# note: Band prefix EK is read as the combined PK/K band from PDF text extraction (inferred, not stated in the page text).

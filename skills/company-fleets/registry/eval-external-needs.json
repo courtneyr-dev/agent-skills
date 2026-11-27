@@ -1,0 +1,833 @@
+{
+  "label": "Eval cases that can't pass from this repository alone, and the upstream skills or local tools each needs. Install each skill from its source into the skills folder that holds company-fleets (agency-platform-adapters looks for the WordPress ones in ~/.agents/skills); role attachments name the same source in blocked_reason.",
+  "generated_by": "scripts/eval-external-needs.py --write",
+  "cases": {
+    "agency.eval.accessibility-specialist-routes": {
+      "skills": [
+        "pr-quality-report",
+        "test-manager",
+        "verification-methodology",
+        "web-accessibility"
+      ],
+      "tools": []
+    },
+    "agency.eval.adapter-current-wordpress": {
+      "skills": [
+        "code-standards-checker",
+        "wordpress-router",
+        "wp-block-development",
+        "wp-block-themes",
+        "wp-performance",
+        "wp-phpstan",
+        "wp-playground",
+        "wp-plugin-development",
+        "wp-project-triage",
+        "wp-rest-api",
+        "wp-wpcli-and-ops"
+      ],
+      "tools": []
+    },
+    "agency.eval.brand-design-lead-routes": {
+      "skills": [
+        "art-direction",
+        "brand",
+        "brand-strategy",
+        "creative-direction",
+        "design-principles",
+        "design-system",
+        "motion-design",
+        "verification-methodology",
+        "web-accessibility",
+        "web-design"
+      ],
+      "tools": []
+    },
+    "agency.eval.cms-specialist-routes": {
+      "skills": [
+        "code-standards-checker",
+        "composer-security-update",
+        "content-strategy",
+        "pr-quality-report",
+        "schema",
+        "site-architecture",
+        "test-manager",
+        "verification-methodology",
+        "woocommerce-plugin-dev",
+        "wp-playground"
+      ],
+      "tools": []
+    },
+    "agency.eval.content-strategist-routes": {
+      "skills": [
+        "code-standards-checker",
+        "composer-security-update",
+        "content-strategy",
+        "pr-quality-report",
+        "schema",
+        "site-architecture",
+        "test-manager",
+        "verification-methodology",
+        "woocommerce-plugin-dev",
+        "wp-playground"
+      ],
+      "tools": []
+    },
+    "agency.eval.delivery-lead-routes": {
+      "skills": [
+        "deal-desk",
+        "implementation-planning",
+        "pricing-strategist",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "agency.eval.design-systems-lead-routes": {
+      "skills": [
+        "art-direction",
+        "brand",
+        "brand-strategy",
+        "creative-direction",
+        "design-principles",
+        "design-system",
+        "motion-design",
+        "verification-methodology",
+        "web-accessibility",
+        "web-design"
+      ],
+      "tools": []
+    },
+    "agency.eval.engagement-director-routes": {
+      "skills": [
+        "art-direction",
+        "brand",
+        "brand-strategy",
+        "brd-writer",
+        "code-standards-checker",
+        "competitor-profiling",
+        "composer-security-update",
+        "content-strategy",
+        "creative-direction",
+        "customer-research",
+        "design-principles",
+        "design-system",
+        "differential-review",
+        "fp-check",
+        "implementation-planning",
+        "motion-design",
+        "pr-quality-report",
+        "process-mapper",
+        "production-readiness",
+        "release-engineering",
+        "schema",
+        "site-architecture",
+        "supply-chain-risk-auditor",
+        "tdd",
+        "test-manager",
+        "typescript-best-practices",
+        "verification-methodology",
+        "web-accessibility",
+        "web-design",
+        "woocommerce-plugin-dev",
+        "wp-playground"
+      ],
+      "tools": []
+    },
+    "agency.eval.estimator-routes": {
+      "skills": [
+        "deal-desk",
+        "implementation-planning",
+        "pricing-strategist",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "agency.eval.i18n-engineer-routes": {
+      "skills": [
+        "code-standards-checker",
+        "design-principles",
+        "design-system",
+        "docs-localization-strategy",
+        "motion-design",
+        "pr-quality-report",
+        "production-readiness",
+        "release-engineering",
+        "tdd",
+        "test-manager",
+        "typescript-best-practices",
+        "verification-methodology",
+        "web-accessibility",
+        "web-design"
+      ],
+      "tools": []
+    },
+    "agency.eval.keyboard-defects-missed-by-axe-found": {
+      "skills": [],
+      "tools": [
+        "node_modules with playwright and axe-core (AGENCY_A11Y_NODE_MODULES)"
+      ]
+    },
+    "agency.eval.keyboard-fixed-page-no-false-positives": {
+      "skills": [],
+      "tools": [
+        "node_modules with playwright and axe-core (AGENCY_A11Y_NODE_MODULES)"
+      ]
+    },
+    "agency.eval.migration-lead-routes": {
+      "skills": [
+        "code-standards-checker",
+        "composer-security-update",
+        "content-strategy",
+        "pr-quality-report",
+        "schema",
+        "site-architecture",
+        "test-manager",
+        "verification-methodology",
+        "woocommerce-plugin-dev",
+        "wp-playground"
+      ],
+      "tools": []
+    },
+    "agency.eval.mobile-pwa-specialist-routes": {
+      "skills": [
+        "code-standards-checker",
+        "composer-security-update",
+        "ios-qa",
+        "production-readiness",
+        "verification-methodology",
+        "woocommerce-plugin-dev",
+        "wp-playground"
+      ],
+      "tools": []
+    },
+    "agency.eval.performance-engineer-routes": {
+      "skills": [
+        "composer-security-update",
+        "differential-review",
+        "fp-check",
+        "production-readiness",
+        "supply-chain-risk-auditor",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "agency.eval.qa-engineer-routes": {
+      "skills": [
+        "pr-quality-report",
+        "test-manager",
+        "verification-methodology",
+        "web-accessibility"
+      ],
+      "tools": []
+    },
+    "agency.eval.release-engineer-routes": {
+      "skills": [
+        "production-readiness",
+        "release-engineering",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "agency.eval.research-strategist-routes": {
+      "skills": [
+        "art-direction",
+        "brand",
+        "brand-strategy",
+        "brd-writer",
+        "code-standards-checker",
+        "competitor-profiling",
+        "composer-security-update",
+        "content-strategy",
+        "creative-direction",
+        "customer-research",
+        "design-principles",
+        "design-system",
+        "differential-review",
+        "fp-check",
+        "implementation-planning",
+        "motion-design",
+        "pr-quality-report",
+        "process-mapper",
+        "production-readiness",
+        "release-engineering",
+        "schema",
+        "site-architecture",
+        "supply-chain-risk-auditor",
+        "tdd",
+        "test-manager",
+        "typescript-best-practices",
+        "verification-methodology",
+        "web-accessibility",
+        "web-design",
+        "woocommerce-plugin-dev",
+        "wp-playground"
+      ],
+      "tools": []
+    },
+    "agency.eval.scoped-brief-to-verified-handoff": {
+      "skills": [],
+      "tools": [
+        "node_modules with playwright and axe-core (AGENCY_A11Y_NODE_MODULES)"
+      ]
+    },
+    "agency.eval.security-reviewer-routes": {
+      "skills": [
+        "composer-security-update",
+        "differential-review",
+        "fp-check",
+        "production-readiness",
+        "supply-chain-risk-auditor",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "agency.eval.solution-architect-routes": {
+      "skills": [
+        "code-standards-checker",
+        "composer-security-update",
+        "ios-qa",
+        "production-readiness",
+        "verification-methodology",
+        "woocommerce-plugin-dev",
+        "wp-playground"
+      ],
+      "tools": []
+    },
+    "agency.eval.support-handoff-owner-routes": {
+      "skills": [
+        "production-readiness",
+        "release-engineering",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "agency.eval.training-lead-routes": {
+      "skills": [
+        "code-standards-checker",
+        "design-principles",
+        "design-system",
+        "docs-localization-strategy",
+        "motion-design",
+        "pr-quality-report",
+        "production-readiness",
+        "release-engineering",
+        "tdd",
+        "test-manager",
+        "typescript-best-practices",
+        "verification-methodology",
+        "web-accessibility",
+        "web-design"
+      ],
+      "tools": []
+    },
+    "agency.eval.ux-ui-designer-routes": {
+      "skills": [
+        "code-standards-checker",
+        "design-principles",
+        "design-system",
+        "docs-localization-strategy",
+        "motion-design",
+        "pr-quality-report",
+        "production-readiness",
+        "release-engineering",
+        "tdd",
+        "test-manager",
+        "typescript-best-practices",
+        "verification-methodology",
+        "web-accessibility",
+        "web-design"
+      ],
+      "tools": []
+    },
+    "agency.eval.web-engineer-routes": {
+      "skills": [
+        "code-standards-checker",
+        "design-principles",
+        "design-system",
+        "docs-localization-strategy",
+        "motion-design",
+        "pr-quality-report",
+        "production-readiness",
+        "release-engineering",
+        "tdd",
+        "test-manager",
+        "typescript-best-practices",
+        "verification-methodology",
+        "web-accessibility",
+        "web-design"
+      ],
+      "tools": []
+    },
+    "corporate.eval.chief-of-staff-routes": {
+      "skills": [
+        "capacity-planner",
+        "ceo-advisor",
+        "cfo-advisor",
+        "competitor-profiling",
+        "coo-advisor",
+        "financial-analyst",
+        "process-mapper",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.communications-lead-routes": {
+      "skills": [
+        "ceo-advisor",
+        "ciso-advisor",
+        "competitor-profiling",
+        "general-counsel-advisor",
+        "isms-audit-expert",
+        "public-relations",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.contract-liaison-routes": {
+      "skills": [
+        "access-lifecycle",
+        "ciso-advisor",
+        "general-counsel-advisor",
+        "isms-audit-expert",
+        "month-end-close",
+        "procurement-optimizer",
+        "technical-program-management",
+        "vendor-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.controller-workflow-routes": {
+      "skills": [
+        "cfo-advisor",
+        "financial-analyst",
+        "month-end-close",
+        "soc2-compliance",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.customer-success-lead-routes": {
+      "skills": [
+        "customer-success-manager",
+        "sales-engineer",
+        "support-ops",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.data-analytics-lead-routes": {
+      "skills": [
+        "ab-testing",
+        "analytics",
+        "attribution",
+        "brd-writer",
+        "conversion-tracking",
+        "cpo-advisor",
+        "product-analytics",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.deal-desk-routes": {
+      "skills": [
+        "cro-advisor",
+        "deal-desk",
+        "general-counsel-advisor",
+        "pricing-strategist",
+        "prospecting",
+        "revenue-operations",
+        "rfp-responder",
+        "sales-enablement",
+        "sales-engineer",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.finance-advisor-routes": {
+      "skills": [
+        "cfo-advisor",
+        "financial-analyst",
+        "month-end-close",
+        "soc2-compliance",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.internal-auditor-routes": {
+      "skills": [
+        "cfo-advisor",
+        "financial-analyst",
+        "month-end-close",
+        "soc2-compliance",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.internal-operations-routes": {
+      "skills": [
+        "access-lifecycle",
+        "ciso-advisor",
+        "general-counsel-advisor",
+        "isms-audit-expert",
+        "month-end-close",
+        "procurement-optimizer",
+        "technical-program-management",
+        "vendor-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.lifecycle-marketer-routes": {
+      "skills": [
+        "ab-testing",
+        "ad-creative",
+        "ads",
+        "ai-seo",
+        "analytics",
+        "attribution",
+        "content-strategy",
+        "conversion-tracking",
+        "emails",
+        "marketing-loops",
+        "marketing-plan",
+        "product-marketing",
+        "public-relations",
+        "seo-audit",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.marketing-lead-routes": {
+      "skills": [
+        "ab-testing",
+        "ad-creative",
+        "ads",
+        "ai-seo",
+        "analytics",
+        "attribution",
+        "content-strategy",
+        "conversion-tracking",
+        "emails",
+        "marketing-loops",
+        "marketing-plan",
+        "product-marketing",
+        "public-relations",
+        "seo-audit",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.operations-advisor-routes": {
+      "skills": [
+        "capacity-planner",
+        "cfo-advisor",
+        "chro-advisor",
+        "coo-advisor",
+        "financial-analyst",
+        "process-mapper",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.partnerships-manager-routes": {
+      "skills": [
+        "cfo-advisor",
+        "channel-economics",
+        "financial-analyst",
+        "general-counsel-advisor",
+        "partnerships-architect",
+        "referrals",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.people-ops-advisor-routes": {
+      "skills": [
+        "capacity-planner",
+        "cfo-advisor",
+        "chro-advisor",
+        "coo-advisor",
+        "financial-analyst",
+        "process-mapper",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.privacy-compliance-analyst-routes": {
+      "skills": [
+        "ciso-advisor",
+        "compliance-os",
+        "gdpr-dsgvo-expert",
+        "general-counsel-advisor",
+        "isms-audit-expert",
+        "soc2-compliance",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.product-portfolio-lead-routes": {
+      "skills": [
+        "ab-testing",
+        "analytics",
+        "attribution",
+        "brd-writer",
+        "conversion-tracking",
+        "cpo-advisor",
+        "product-analytics",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.proposal-lead-routes": {
+      "skills": [
+        "cro-advisor",
+        "deal-desk",
+        "general-counsel-advisor",
+        "pricing-strategist",
+        "prospecting",
+        "revenue-operations",
+        "rfp-responder",
+        "sales-enablement",
+        "sales-engineer",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.revenue-lead-routes": {
+      "skills": [
+        "cro-advisor",
+        "deal-desk",
+        "general-counsel-advisor",
+        "pricing-strategist",
+        "prospecting",
+        "revenue-operations",
+        "rfp-responder",
+        "sales-enablement",
+        "sales-engineer",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.security-lead-routes": {
+      "skills": [
+        "ciso-advisor",
+        "compliance-os",
+        "gdpr-dsgvo-expert",
+        "general-counsel-advisor",
+        "isms-audit-expert",
+        "soc2-compliance",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.solutions-engineer-routes": {
+      "skills": [
+        "cro-advisor",
+        "deal-desk",
+        "general-counsel-advisor",
+        "pricing-strategist",
+        "prospecting",
+        "revenue-operations",
+        "rfp-responder",
+        "sales-enablement",
+        "sales-engineer",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.strategy-advisor-routes": {
+      "skills": [
+        "capacity-planner",
+        "ceo-advisor",
+        "cfo-advisor",
+        "competitor-profiling",
+        "coo-advisor",
+        "financial-analyst",
+        "process-mapper",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "corporate.eval.technology-advisor-routes": {
+      "skills": [
+        "agent-evals-and-observability",
+        "cfo-advisor",
+        "ciso-advisor",
+        "cto-advisor",
+        "financial-analyst",
+        "isms-audit-expert",
+        "production-readiness",
+        "technical-program-management",
+        "verification-methodology"
+      ],
+      "tools": []
+    },
+    "devrel.eval.routes-installed-pass": {
+      "skills": [
+        "developer-feedback-loop",
+        "developer-journey-map",
+        "developer-quickstart-guide",
+        "developer-workshop-program",
+        "devrel-metrics",
+        "docs-code-sample-standards"
+      ],
+      "tools": []
+    },
+    "devrel.eval.routes-scan-finds-drift": {
+      "skills": [
+        "devto-playbook",
+        "medium-playbook"
+      ],
+      "tools": []
+    },
+    "hosting.eval.role-build-runtime-engineer": {
+      "skills": [],
+      "tools": [
+        "a running Docker daemon"
+      ]
+    },
+    "hosting.eval.tenant-isolation-liar-build-control-leaks": {
+      "skills": [],
+      "tools": [
+        "a running Docker daemon"
+      ]
+    },
+    "hosting.eval.tenant-isolation-sandbox-control-leaks": {
+      "skills": [],
+      "tools": [
+        "a running Docker daemon"
+      ]
+    },
+    "hosting.eval.tenant-isolation-sandbox-isolated": {
+      "skills": [],
+      "tools": [
+        "a running Docker daemon"
+      ]
+    },
+    "product.eval.gate-ready-candidate": {
+      "skills": [
+        "release-engineering"
+      ],
+      "tools": []
+    }
+  },
+  "sources": {
+    "ab-testing": "coreyhaines31/marketingskills",
+    "access-lifecycle": "alirezarezvani/claude-skills",
+    "ad-creative": "coreyhaines31/marketingskills",
+    "ads": "coreyhaines31/marketingskills",
+    "agent-evals-and-observability": "magnus919/agent-skills",
+    "ai-seo": "coreyhaines31/marketingskills",
+    "analytics": "coreyhaines31/marketingskills",
+    "art-direction": "zstvns/design-skills",
+    "attribution": "coreyhaines31/marketingskills",
+    "brand": "zstvns/design-skills",
+    "brand-strategy": "zstvns/design-skills",
+    "brd-writer": "yysun/project-manager",
+    "capacity-planner": "alirezarezvani/claude-skills",
+    "ceo-advisor": "alirezarezvani/claude-skills",
+    "cfo-advisor": "alirezarezvani/claude-skills",
+    "channel-economics": "alirezarezvani/claude-skills",
+    "chro-advisor": "alirezarezvani/claude-skills",
+    "ciso-advisor": "alirezarezvani/claude-skills",
+    "code-standards-checker": "kanopi/cms-cultivator",
+    "competitor-profiling": "coreyhaines31/marketingskills",
+    "compliance-os": "alirezarezvani/claude-skills",
+    "composer-security-update": "kanopi/cms-cultivator",
+    "content-strategy": "coreyhaines31/marketingskills",
+    "conversion-tracking": "coreyhaines31/marketingskills",
+    "coo-advisor": "alirezarezvani/claude-skills",
+    "cpo-advisor": "alirezarezvani/claude-skills",
+    "creative-direction": "zstvns/design-skills",
+    "cro-advisor": "alirezarezvani/claude-skills",
+    "cto-advisor": "alirezarezvani/claude-skills",
+    "customer-research": "coreyhaines31/marketingskills",
+    "customer-success-manager": "alirezarezvani/claude-skills",
+    "deal-desk": "alirezarezvani/claude-skills",
+    "design-principles": "zstvns/design-skills",
+    "design-system": "zstvns/design-skills",
+    "developer-feedback-loop": "samber/developer-relations-skills",
+    "developer-journey-map": "samber/developer-relations-skills",
+    "developer-quickstart-guide": "samber/developer-relations-skills",
+    "developer-workshop-program": "samber/developer-relations-skills",
+    "devrel-metrics": "samber/developer-relations-skills",
+    "devto-playbook": "samber/developer-relations-skills",
+    "differential-review": "trailofbits/skills",
+    "docs-code-sample-standards": "samber/developer-relations-skills",
+    "docs-localization-strategy": "samber/developer-relations-skills",
+    "emails": "coreyhaines31/marketingskills",
+    "financial-analyst": "alirezarezvani/claude-skills",
+    "fp-check": "trailofbits/skills",
+    "gdpr-dsgvo-expert": "alirezarezvani/claude-skills",
+    "general-counsel-advisor": "alirezarezvani/claude-skills",
+    "implementation-planning": "magnus919/agent-skills",
+    "ios-qa": "garrytan/gstack",
+    "isms-audit-expert": "alirezarezvani/claude-skills",
+    "marketing-loops": "coreyhaines31/marketingskills",
+    "marketing-plan": "coreyhaines31/marketingskills",
+    "medium-playbook": "samber/developer-relations-skills",
+    "month-end-close": "alirezarezvani/claude-skills",
+    "motion-design": "zstvns/design-skills",
+    "partnerships-architect": "alirezarezvani/claude-skills",
+    "pr-quality-report": "kanopi/cms-cultivator",
+    "pricing-strategist": "alirezarezvani/claude-skills",
+    "process-mapper": "alirezarezvani/claude-skills",
+    "procurement-optimizer": "alirezarezvani/claude-skills",
+    "product-analytics": "alirezarezvani/claude-skills",
+    "product-marketing": "coreyhaines31/marketingskills",
+    "production-readiness": "magnus919/agent-skills",
+    "prospecting": "coreyhaines31/marketingskills",
+    "public-relations": "coreyhaines31/marketingskills",
+    "referrals": "coreyhaines31/marketingskills",
+    "release-engineering": "magnus919/agent-skills",
+    "revenue-operations": "alirezarezvani/claude-skills",
+    "rfp-responder": "alirezarezvani/claude-skills",
+    "sales-enablement": "coreyhaines31/marketingskills",
+    "sales-engineer": "alirezarezvani/claude-skills",
+    "schema": "coreyhaines31/marketingskills",
+    "seo-audit": "coreyhaines31/marketingskills",
+    "site-architecture": "coreyhaines31/marketingskills",
+    "soc2-compliance": "alirezarezvani/claude-skills",
+    "supply-chain-risk-auditor": "trailofbits/skills",
+    "support-ops": "alirezarezvani/claude-skills",
+    "tdd": "cursor/plugins",
+    "technical-program-management": "magnus919/agent-skills",
+    "test-manager": "yysun/project-manager",
+    "typescript-best-practices": "cursor/plugins",
+    "vendor-management": "alirezarezvani/claude-skills",
+    "verification-methodology": "magnus919/agent-skills",
+    "web-accessibility": "magnus919/agent-skills",
+    "web-design": "zstvns/design-skills",
+    "woocommerce-plugin-dev": "Automattic/claude-woocommerce-toolkit",
+    "wordpress-router": "WordPress/agent-skills",
+    "wp-block-development": "WordPress/agent-skills",
+    "wp-block-themes": "WordPress/agent-skills",
+    "wp-performance": "WordPress/agent-skills",
+    "wp-phpstan": "WordPress/agent-skills",
+    "wp-playground": "WordPress/agent-skills",
+    "wp-plugin-development": "WordPress/agent-skills",
+    "wp-project-triage": "WordPress/agent-skills",
+    "wp-rest-api": "WordPress/agent-skills",
+    "wp-wpcli-and-ops": "WordPress/agent-skills"
+  }
+}

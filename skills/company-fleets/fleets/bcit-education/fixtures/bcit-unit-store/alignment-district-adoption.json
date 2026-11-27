@@ -1,0 +1,20 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): boundary: the district still uses the superseded CSTA 2017 edition; the mapping keeps it instead of forcing 2026.",
+  "context": {
+    "learner_audience": "students",
+    "district_adoptions": [
+      "csta-k12-2017"
+    ]
+  },
+  "alignments": [
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2017",
+      "standard_id": "3A-AP-13",
+      "edition": "2017",
+      "status": "unverified",
+      "note": "Teacher confirms the exact identifier against the district's adopted document."
+    }
+  ]
+}

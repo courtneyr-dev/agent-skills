@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=refused --json checked=0 -- sh -c 'printf '"'"'{"requires": {}}'"'"' > {tmp}/app.json && python3 ../hosting-data-migration/scripts/data_migration.py preflight --app {tmp}/app.json --target fleets/hosting/fixtures/data-migration/target-php74.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.data-migration-empty-preflight-refused kind negative synthetic true
+{
+  "checked": 0,
+  "reason": "the app requires nothing checkable (no runtimes, database or extensions); a preflight with 0 checks proves nothing",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

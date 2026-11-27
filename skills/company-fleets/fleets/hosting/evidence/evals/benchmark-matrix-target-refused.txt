@@ -1,0 +1,34 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json violations.0.rule=target-not-on-record --json statuses.recovery_objectives=unmet -- sh -c 'python3 -c "import json;d=json.load(open('"'"'fleets/hosting/benchmark/2026-11-26-matrix.json'"'"'));dim=lambda i:[x for x in d['"'"'dimensions'"'"'] if x['"'"'id'"'"']==i][0];dim('"'"'recovery_objectives'"'"')['"'"'proposed_target'"'"']['"'"'max'"'"']=5;json.dump(d,open('"'"'{tmp}/m.json'"'"','"'"'w'"'"'))" && python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix {tmp}/m.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-matrix-target-refused kind negative synthetic true
+{
+  "as_of": "2026-11-26",
+  "assumptions": [
+    "Provider claims are what public pages said on retrieved_on; they are not tested.",
+    "A measured value counts only at the evidence file and JSON path the evidence owner recorded for its dimension, while the file's hash matches.",
+    "Targets and statuses come from the owner's benchmark/targets.json; a process running as the same OS user can rewrite the owner's files, which only separate OS accounts or signed records stop."
+  ],
+  "statuses": {
+    "accessibility": "not-measured",
+    "availability": "not-measured",
+    "cost": "not-measured",
+    "data_portability": "met",
+    "deployment_reversibility": "met",
+    "isolation": "met",
+    "observability": "met",
+    "performance_under_load": "not-measured",
+    "recovery_objectives": "unmet",
+    "regional_constraints": "not-measured",
+    "restore": "met",
+    "support_coverage": "not-measured"
+  },
+  "verdict": "fail",
+  "violations": [
+    {
+      "dimension": "recovery_objectives",
+      "message": "the matrix target {\"max\": 5} differs from the owner's target {\"max\": 0} in $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/benchmark/targets.json; the owner's decides the status",
+      "rule": "target-not-on-record"
+    }
+  ]
+}
+# expect: met
+# exit 0

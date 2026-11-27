@@ -1,0 +1,64 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: passing autograder tests and AI-generated code used as the only evidence of understanding.",
+  "context": {
+    "grade_band": "10-12",
+    "reading_grade_target": 9
+  },
+  "objectives": [
+    {
+      "id": "O4",
+      "level": "understand",
+      "text": "Explain how a loop totals weekly revenue by tracing the running total.",
+      "construct": "tracing an accumulator loop"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T4",
+      "objective_ids": [
+        "O4"
+      ],
+      "format": "code",
+      "cognitive_level": "apply",
+      "evidence": [
+        "passing-tests",
+        "ai-output"
+      ],
+      "prompt": "Submit code that passes the three autograder tests.",
+      "demands": {
+        "paid_software": false,
+        "internet_required": false,
+        "offline_alternative": true,
+        "color_only_cues": false,
+        "timed_minutes": null
+      }
+    }
+  ],
+  "rubric": [
+    {
+      "id": "R5",
+      "task_id": "T4",
+      "objective_id": "O4",
+      "criterion": "Autograder",
+      "scoring_rationale": "Full credit when all tests pass.",
+      "levels": [
+        {
+          "score": 1,
+          "descriptor": "Beginning: values typed in, or calculation wrong"
+        },
+        {
+          "score": 2,
+          "descriptor": "Developing: correct method on some items, one error in references or logic"
+        },
+        {
+          "score": 3,
+          "descriptor": "Proficient: correct results from cell references or queries, with a one-sentence explanation"
+        },
+        {
+          "score": 4,
+          "descriptor": "Advanced: proficient, and the model updates correctly when an input changes, with the reason stated"
+        }
+      ]
+    }
+  ]
+}

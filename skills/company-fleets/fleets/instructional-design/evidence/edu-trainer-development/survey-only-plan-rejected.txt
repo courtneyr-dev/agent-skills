@@ -1,0 +1,14 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains no evidence of learning or transfer -- python3 ../edu-trainer-development/scripts/evidence_plan.py check fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan-survey-only.json
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.survey-only-plan-rejected
+{
+  "evidence_measures": [],
+  "findings": [
+    "no evidence of learning or transfer: satisfaction surveys, attendance, completion, self-reports and generated artifacts don't show what anyone can now do"
+  ],
+  "measures": 2,
+  "status": "rejected",
+  "transfer_measures": [],
+  "warnings": []
+}
+# expect: met
+# exit 0

@@ -1,0 +1,26 @@
+# eval agency.eval.keyboard-no-browser-reports-blocked (boundary, target agency-keyboard-audit)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 3 --contains "status": "blocked" --contains "manual_steps" --absent "findings" -- python3 ../agency-keyboard-audit/scripts/keyboard_audit.py --page ../agency-keyboard-audit/fixtures/donate-before.html --node-modules /nonexistent/node_modules
+run on 2026-11-26, exit 0
+
+{
+  "limits": [
+    "One page, one starting point, forward Tab only; flows behind clicks, dialogs and Shift+Tab need their own runs or a human tester.",
+    "Click listeners are read per element through the Chrome DevTools Protocol; a listener delegated to document or body is not attributed to the control.",
+    "Focus visibility compares computed outline, box-shadow, border, background, color and text decoration; it does not measure contrast or size against WCAG 2.4.11 or 2.4.13.",
+    "Headless Chromium only; other browsers and assistive technologies can behave differently, and nothing here replaces testing with disabled users.",
+    "It reports defects; it never certifies WCAG conformance."
+  ],
+  "manual_steps": [
+    "Load the page and put focus in the address bar, then press Tab repeatedly to the end of the page.",
+    "At every stop, note the element and whether you can see where focus is.",
+    "Confirm every control you can click is reached by Tab and works with Enter or Space.",
+    "If Tab stops advancing or cycles inside one widget, try Escape; record a trap if focus can't leave.",
+    "Record each defect with the WCAG criterion, the steps, the expected and the observed result."
+  ],
+  "ok": false,
+  "page": "donate-before.html",
+  "reason": "no node_modules with playwright and axe-core (pass --node-modules or set AGENCY_A11Y_NODE_MODULES)",
+  "result": "unverified until a browser adapter or a human tester runs the steps",
+  "status": "blocked"
+}
+[expect] exit 3 (expected 3); missing none; forbidden present none -> PASS

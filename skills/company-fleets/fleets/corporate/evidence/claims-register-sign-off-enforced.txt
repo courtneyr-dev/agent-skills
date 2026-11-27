@@ -1,0 +1,23 @@
+# eval corporate.eval.claims-register-sign-off-enforced (negative, target corporate-claims-check)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../corporate-claims-check/scripts/tests/test_claims_check.py -v RegisterSignOff
+run on 2026-11-26, exit 0
+
+[stderr]
+test_a_ledger_of_another_tenant_for_the_registers_instance_is_refused (__main__.RegisterSignOff.test_a_ledger_of_another_tenant_for_the_registers_instance_is_refused)
+The reviewer's minted corporate ledger: a sign-off recorded under another tenant doesn't count. ... ok
+test_a_register_naming_no_instance_has_no_sign_off (__main__.RegisterSignOff.test_a_register_naming_no_instance_has_no_sign_off) ... ok
+test_agent_role_cannot_sign_off (__main__.RegisterSignOff.test_agent_role_cannot_sign_off) ... ok
+test_author_cannot_sign_off_their_own_register (__main__.RegisterSignOff.test_author_cannot_sign_off_their_own_register) ... ok
+test_missing_owner_log_blocks (__main__.RegisterSignOff.test_missing_owner_log_blocks) ... ok
+test_no_flag_picks_the_ledger (__main__.RegisterSignOff.test_no_flag_picks_the_ledger) ... ok
+test_sign_off_field_inside_the_register_counts_for_nothing (__main__.RegisterSignOff.test_sign_off_field_inside_the_register_counts_for_nothing) ... ok
+test_signed_fixture_register_passes (__main__.RegisterSignOff.test_signed_fixture_register_passes) ... ok
+test_source_added_after_sign_off_blocks (__main__.RegisterSignOff.test_source_added_after_sign_off_blocks) ... ok
+test_the_draft_author_cannot_record_a_sign_off_without_the_claim_token (__main__.RegisterSignOff.test_the_draft_author_cannot_record_a_sign_off_without_the_claim_token) ... ok
+test_unsigned_register_blocks (__main__.RegisterSignOff.test_unsigned_register_blocks) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.193s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

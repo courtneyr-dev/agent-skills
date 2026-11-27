@@ -112,7 +112,48 @@ def collapse_loop_reports_path(t: str) -> str:
     """`2. Areas/Loop Reports/` is this vault's folder; the public edition calls it `Reports/`."""
     return re.sub(r"\b(?:[1-6]\.\s)?Areas/Loop Reports/", "Reports/", t)
 
+# --- company fleet skills ------------------------------------------------------------------
+# The fleet gate skills were written in a private rig. These rules exist because those skills
+# needed them; second_person_owner is deliberately NOT in their list, because their scripts hold
+# English pronoun word lists ("he", "she") that the pronoun rule would rewrite.
+def public_license_frontmatter(t: str) -> str:
+    """`license: Private rig (...)` frontmatter becomes the license this repository grants."""
+    return re.sub(r"(?m)^license:\s*\"?Private rig\b.*$", "license: MIT", t)
+
+def public_rig_rights(t: str) -> str:
+    """'Private rig' in a sources table names code this repository now publishes under MIT."""
+    return re.sub(r"\bPrivate rig\b", "agent-skills (MIT)", t)
+
+def private_prompt_reference(t: str) -> str:
+    """A task prompt in the author's Downloads folder, or named bare as `<name>-prompt.md`, becomes
+    'project requirements (not published)': no filename, no line numbers, since a reader can resolve
+    neither."""
+    path = r"`?(?:(?:~|\$HOME|" + re.escape(HOME) + r")/Downloads/[\w.-]+|[\w.-]+-prompt\.md)`?"
+    lines = r"(?:,? lines? \d+(?:\s*(?:-|to|and)\s*\d+)?)?"
+    return re.sub(path + lines, "project requirements (not published)", t)
+
+def private_branch_reference(t: str) -> str:
+    """The rig's private branch names: the code they named now ships in this repository."""
+    t = re.sub(r"\b[Rr]ig branch claude/[\w-]+", "agent-skills", t)
+    return re.sub(r"\bclaude/[\w-]+ branch\b", "agent-skills", t)
+
+def credit_pstack_upstream(t: str) -> str:
+    """pstack reached the rig through a fork; credit the upstream that publishes it."""
+    return t.replace("courtneyr-dev/plugins", "cursor/plugins")
+
+def rig_mount_paths(t: str) -> str:
+    """The rig's own skills mount and its upstream clone folder, in their portable forms."""
+    t = t.replace("~/.claude/claude-config/skills", "~/.claude/skills")
+    return t.replace("~/Developer/rig-upstream", "$FRIG_UPSTREAM_ROOT")
+
+def synthetic_token_prefix(t: str) -> str:
+    """Fixture secrets read as demo values: fxs_ becomes fx_demo_ in data, patterns and tests alike."""
+    return t.replace("fxs-synthetic-token", "fx-demo-synthetic-token").replace("fxs_", "fx_demo_")
+
 REGISTRY = {f.__name__: f for f in [
+    public_license_frontmatter, public_rig_rights, private_prompt_reference, private_branch_reference,
+    credit_pstack_upstream,
+    rig_mount_paths, synthetic_token_prefix,
     collapse_loop_reports_path,
     omit_private_context, full_name_and_agreement, replace_personal_name, second_person_owner,
     vault_dir_variable, normalize_home_path, genericize_vault_name, strip_para_number_prefix,

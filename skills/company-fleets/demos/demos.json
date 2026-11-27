@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "label": "The six end-to-end demonstrations the project requirements call for. One fictional company, Fixture Co; every record is synthetic. Each entry names what its run must show.",
+  "moving_at_build": {
+    "fleets": ["hosting", "agency", "corporate"],
+    "note": "On 2026-11-26 the integration brief said the hosting, agency and corporate fleets might still be finishing, and the foundation tightened its evidence gate and scanner during the build. A demo that loads one of these fleets is marked depends_on_moving_fleet."
+  },
+  "demos": [
+    {"id": "01-agency-multilingual", "title": "Accessible multilingual agency deliverable with a hosting and support handoff",
+     "workflow": "agency-engagement", "fixture": "demos/01-agency-multilingual/fixture.json",
+     "expect": {"status": "complete",
+                "states": {"localization": "accepted", "assurance": "accepted", "release-to-hosting": "accepted", "hosting-intake": "accepted"},
+                "refused": {"discovery": ["acceptance_owner", "authority", "data"]},
+                "findings": {"discovery": ["exfiltration"]}},
+     "redirect_document": "demos/fixtures/client-a-handover-notes.md",
+     "human_boundary": "Linguistic review of the Spanish and Arabic pages stays with human:language-reviewer; no donor or editor research has run."},
+    {"id": "02-hosting-restoration", "title": "Hosting restoration exercise with evidence and a follow-up improvement",
+     "workflow": "hosting-incident", "fixture": "demos/02-hosting-restoration/fixture.json",
+     "expect": {"status": "complete", "states": {"detect": "accepted", "recover": "accepted", "communicate": "accepted", "learn": "accepted"}},
+     "human_boundary": "The external message stays a draft for human:communications-approver; the follow-up IMP-002 waits for a patch and pinned cases from the hosting fleet."},
+    {"id": "03-extension-release", "title": "Small extension and API release with tested docs, a developer workshop and staged marketing",
+     "workflow": "extension-launch", "fixture": "demos/03-extension-release/fixture.json",
+     "expect": {"status": "complete", "states": {"compatibility": "accepted", "release": "accepted", "docs": "accepted", "workshop": "accepted", "marketing": "accepted"},
+                "refused": {"docs": ["authority"]}},
+     "human_boundary": "Release approval stays with human:release-owner; the launch copy's source register waits for a human sign-off and the copy for human:marketing-approver; human onboarding usability is unmeasured."},
+    {"id": "04-community-onboarding", "title": "Community onboarding and governance scenario with a feedback-to-product handoff",
+     "workflow": "community-improvement", "fixture": "demos/04-community-onboarding/fixture.json",
+     "expect": {"status": "stopped-at-human-boundary", "stopped_at": "follow-up",
+                "states": {"governance": "accepted", "feedback-to-product": "accepted", "follow-up": "awaiting-human-data"},
+                "refused": {"feedback-to-product": ["acceptance_owner", "next_consumer"]}},
+     "human_boundary": "Measured follow-up needs real community activity after the change; the moderation case is decided by human:trust-safety-lead."},
+    {"id": "05-bcit-unit", "title": "BCIT unit with authentic business and computing tasks, an honest standards mapping, complete materials and an assessment",
+     "workflow": "bcit-course-unit", "fixture": "demos/05-bcit-unit/fixture.json",
+     "expect": {"status": "stopped-at-human-boundary", "stopped_at": "learning-evidence",
+                "states": {"standards": "accepted", "assessment": "accepted", "lessons-labs": "accepted", "teacher-review": "accepted", "learning-evidence": "awaiting-human-data"}},
+     "human_boundary": "Learner work and results come only from the teacher of record; the objectives step used the labeled fake tool because no objective-writing script exists."},
+    {"id": "06-trainer-development", "title": "Trainer-development package with a facilitation guide, a rubric calibration exercise and a plan to collect actual learning evidence",
+     "workflow": "demos/06-trainer-development/workflow.json", "fixture": "demos/06-trainer-development/fixture.json",
+     "expect": {"status": "stopped-at-human-boundary", "stopped_at": "learning-evidence",
+                "states": {"needs": "accepted", "facilitation": "accepted", "calibration": "accepted", "evidence-plan": "accepted", "learning-evidence": "awaiting-human-data"}},
+     "human_boundary": "Inter-rater agreement needs real ratings from human raters; learning and transfer evidence needs real sessions."}
+  ]
+}

@@ -1,0 +1,32 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains label-text-mismatch --contains recall-only-evidence -- python3 ../edu-assessment-check/scripts/assessment_check.py check fleets/bcit-education/fixtures/bcit-unit-store/assessment-mislabeled-recall.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.mislabeled-recall-quiz-rejected
+{
+  "ok": false,
+  "errors": [
+    {
+      "code": "label-text-mismatch",
+      "where": "T1",
+      "message": "labeled apply with explanation, product evidence, but the prompt reads as a recall quiz ('multiple-choice'); judged as remember with recall evidence"
+    },
+    {
+      "code": "recall-only-evidence",
+      "where": "O1",
+      "message": "objective asks learners to apply, but its tasks only collect remember-level recall; a recall quiz cannot evidence an application or performance objective"
+    }
+  ],
+  "flags": [],
+  "objectives": {
+    "O1": {
+      "level": "apply",
+      "tasks": [
+        "T1"
+      ],
+      "criteria": [
+        "R1"
+      ]
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): reviewer probe, a recall quiz labeled apply with product and explanation evidence."
+}
+# expect: met
+# exit 0

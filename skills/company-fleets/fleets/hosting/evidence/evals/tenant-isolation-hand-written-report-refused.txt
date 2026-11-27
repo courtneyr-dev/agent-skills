@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=report-not-from-lockfile -- sh -c 'printf '"'"'%s'"'"' '"'"'{"findings": []}'"'"' > {tmp}/r.json && python3 ../hosting-tenant-isolation/scripts/isolation_check.py record-dependencies --preview fleets/hosting/fixtures/tenant-isolation/preview-critical-dependency.json --report {tmp}/r.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.tenant-isolation-hand-written-report-refused kind negative synthetic true
+{
+  "detail": "dependency findings come from the lockfile in the preview's source folder matched against the owner's $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/tenant-isolation/advisories.json; a --report the caller wrote is refused",
+  "refusal": "report-not-from-lockfile",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

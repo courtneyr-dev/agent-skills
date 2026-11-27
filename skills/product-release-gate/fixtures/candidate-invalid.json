@@ -1,0 +1,7 @@
+{
+  "schema": "release-candidate.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "product": {
+    "id": "x"
+  }
+}

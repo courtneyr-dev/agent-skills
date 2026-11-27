@@ -1,0 +1,19 @@
+{
+  "schema": "i18n-catalog.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "locale": "fr",
+  "direction": "ltr",
+  "source_revision": "rev-2",
+  "same_as_source_ok": ["brand"],
+  "messages": {
+    "nav.home": {"text": "Accueil"},
+    "greeting": {"text": "Bon retour, {name} !"},
+    "files.count": {"plural": {"one": "{count} fichier dans {folder}", "many": "{count} de fichiers dans {folder}", "other": "{count} fichiers dans {folder}"}},
+    "button.save": {"text": "Enregistrer"},
+    "workspace.create": {"text": "Créer un espace de travail pour {name}"},
+    "brand": {"text": "Fixture Co"},
+    "sync.status": {"text": "%d éléments sur %d synchronisés"},
+    "billing.note": {"text": "Vérifiez le forfait avant son renouvellement"},
+    "help.link": {"text": "Obtenir de l'aide"}
+  }
+}

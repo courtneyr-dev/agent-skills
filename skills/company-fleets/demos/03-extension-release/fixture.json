@@ -1,0 +1,55 @@
+{
+  "label": "SYNTHETIC demonstration 3 (Fixture Co Notes API extension): small extension release with an incompatible host caught before packaging, a quickstart and workshop lab that replay in a clean directory, and staged launch copy. Nothing is published, scheduled or sent.",
+  "instance": "DEMO3",
+  "tenant_id": "fixture-co-notes",
+  "client_id": null,
+  "profile": "product",
+  "needs": ["workshop"],
+  "exclusions": ["Publishing to a marketplace", "Sending or scheduling marketing", "Human onboarding usability (unmeasured)"],
+  "sources": [{"ref": "product-release-gate/fixtures/candidate-ok.json", "revision": "fixture"},
+              {"ref": "company-fleets/fleets/devrel/fixtures/docs/quickstart.md", "revision": "fixture"}],
+  "data": {"classification": "internal", "allowed_destinations": ["tenant:fixture-co-notes", "rig:evidence", "staging:launch-copy"]},
+  "budget": {"max_minutes": 30, "max_retries": 1},
+  "untrusted": [{"path": "../../fleets/devrel/fixtures/untrusted/docs-feedback.md", "source_kind": "issue", "step": "docs", "classification": "internal"}],
+  "worker_requests": {"docs": {"authority": {"tools": [], "mutation": "scoped-write", "external_actions": "human-approved", "publication": "human-approved"}}},
+  "tools": {
+    "compatibility": {
+      "collect": [{"from": "{skills}/product-release-gate/fixtures/candidate-incompatible-host.json", "as": "candidate-incompatible-host.json"}],
+      "produce": [{"argv": ["{python}", "{skills}/product-release-gate/scripts/release_gate.py", "gate", "--candidate", "{skills}/product-release-gate/fixtures/candidate-incompatible-host.json"], "stdout": "gate-incompatible-host.json", "expect_exit": [1]}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/gate-incompatible-host.json", "--", "decision=\"refused\""], "contains": ["incompatible-host"]},
+      "outputs": ["candidate-incompatible-host.json", "gate-incompatible-host.json"],
+      "summary": "The gate refused the candidate that declares an incompatible host before packaging."
+    },
+    "release": {
+      "collect": [{"from": "{skills}/product-release-gate/fixtures/candidate-ok.json", "as": "candidate-ok.json"}],
+      "produce": [{"argv": ["{python}", "{skills}/product-release-gate/scripts/release_gate.py", "gate", "--candidate", "{skills}/product-release-gate/fixtures/candidate-ok.json"], "stdout": "gate-ok.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/gate-ok.json", "--", "decision=\"ready-for-human-approval\"", "approval_owner=\"human:release-owner\""]},
+      "outputs": ["candidate-ok.json", "gate-ok.json"],
+      "summary": "The corrected candidate passes every gate stage and waits for the human release owner."
+    },
+    "docs": {
+      "collect": [{"from": "{skill}/fleets/devrel/fixtures/docs/quickstart.md", "as": "quickstart.md"}],
+      "produce": [{"argv": ["{python}", "{skills}/devrel-quickstart-replay/scripts/replay.py", "{work}/quickstart.md", "--asset", "{skill}/fleets/devrel/fixtures/fixture-co-notes"], "stdout": "replay-quickstart.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/replay-quickstart.json", "--", "ok=true", "criteria.1_commands_succeed_verbatim=true", "criteria.2_outputs_match=true"]},
+      "outputs": ["quickstart.md", "replay-quickstart.json"],
+      "summary": "The quickstart replays verbatim in a fresh temporary directory. The docs feedback issue was analyzed as data; its embedded instructions changed nothing."
+    },
+    "workshop": {
+      "collect": [{"from": "{skill}/fleets/devrel/fixtures/docs/workshop-lab.md", "as": "workshop-lab.md"}],
+      "produce": [{"argv": ["{python}", "{skills}/devrel-quickstart-replay/scripts/replay.py", "{work}/workshop-lab.md", "--asset", "{skill}/fleets/devrel/fixtures/fixture-co-notes"], "stdout": "replay-workshop.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/replay-workshop.json", "--", "ok=true"]},
+      "outputs": ["workshop-lab.md", "replay-workshop.json"],
+      "summary": "The workshop lab replays. Human onboarding usability stays unmeasured: no developer has taken the workshop.",
+      "assumptions": ["A replay proves the commands work, not that a developer can follow the lab."]
+    },
+    "marketing": {
+      "collect": [{"from": "{fixture_dir}/launch-copy.md", "as": "launch-copy.md"}, {"from": "{fixture_dir}/launch-sources.json", "as": "launch-sources.json"},
+                  {"from": "{fixture_dir}/launch-copy-overclaim.md", "as": "launch-copy-overclaim.md"}],
+      "produce": [{"argv": ["{python}", "{skills}/corporate-claims-check/scripts/claims_check.py", "--draft", "{work}/launch-copy-overclaim.md", "--sources", "{work}/launch-sources.json"], "stdout": "claims-overclaim.json", "expect_exit": [1]},
+                  {"argv": ["{python}", "{skills}/corporate-claims-check/scripts/claims_check.py", "--draft", "{work}/launch-copy.md", "--sources", "{work}/launch-sources.json"], "stdout": "claims-launch-copy.json", "expect_exit": [1]}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/claims-launch-copy.json", "--", "findings.rule=[\"register-not-signed-off\"]"]},
+      "outputs": ["launch-copy.md", "launch-sources.json", "claims-launch-copy.json", "claims-overclaim.json"],
+      "summary": "Launch copy passes every sentence rule and stays staged, blocked only at register-not-signed-off until a person other than the author checks the excerpts; the overclaiming draft (ranking guarantee, unregistered citation, uncited statistic) is rejected."
+    }
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "fleet": "devrel",
+  "skills": [
+    {
+      "id": "devrel-quickstart-replay",
+      "fleet": "devrel",
+      "summary": "Replays a doc's tier=run blocks in a fresh, sandboxed environment and reports the five cold-run criteria, with human usability always unverified.",
+      "triggers": [
+        "Prove a quickstart, lab, demo or repro works as written",
+        "Cold run before a docs handoff or release"
+      ],
+      "boundaries": [
+        "Doesn't write or fix pages",
+        "Doesn't measure human usability",
+        "Never contacts real services"
+      ],
+      "inputs": [
+        "Markdown doc with tier=run and expect blocks",
+        "Asset directories",
+        "Optional replay_requires and replay_budget_seconds"
+      ],
+      "prerequisites": [
+        "Python 3.9+",
+        "macOS sandbox-exec for network and home-read denial (optional)"
+      ],
+      "method": [
+        "Parse and reject invalid docs",
+        "Build a fresh temp dir and four-key environment",
+        "Run all blocks in one sh with set -e under the sandbox",
+        "Kill the process group",
+        "Match expected lines in order and compare the budget"
+      ],
+      "stopping_conditions": [
+        "Every step passed",
+        "A step failed, an expected line is missing, the budget or timeout hit"
+      ],
+      "output_contract": "JSON report: ok, failure, doc_sha256, asset hashes, isolation, steps, criteria 1 to 5, raw output.",
+      "failure_states": [
+        "Exit 2 invalid input",
+        "Exit 1 replay failed with the step named",
+        "Isolation labeled 'none:' without sandbox-exec"
+      ],
+      "references": [
+        {
+          "title": "samber/developer-relations-skills developer-quickstart-guide",
+          "location": "<skills-root>/developer-quickstart-guide",
+          "version": "commit c3a1b6912791539567727723baf626b4fec5ac7a (2026-11-08)",
+          "rights": "MIT, copyright 2026 Samuel Berthe; cited, not copied"
+        },
+        {
+          "title": "samber/developer-relations-skills docs-code-sample-standards",
+          "location": "<skills-root>/docs-code-sample-standards",
+          "version": "commit c3a1b6912791539567727723baf626b4fec5ac7a (2026-11-08)",
+          "rights": "MIT, copyright 2026 Samuel Berthe; cited, not copied"
+        },
+        {
+          "title": "macOS sandbox-exec(1)",
+          "location": "/usr/bin/sandbox-exec",
+          "version": "macOS 26, checked 2026-11-25; deprecated by Apple",
+          "rights": "Apple system software; invoked, not redistributed"
+        }
+      ],
+      "scripts": [
+        "scripts/replay.py"
+      ],
+      "evals": {
+        "positive": [
+          "devrel.eval.replay-quickstart",
+          "devrel.eval.replay-workshop-lab",
+          "devrel.eval.replay-feedback-repro",
+          "devrel.eval.replay-unit-tests"
+        ],
+        "negative": [
+          "devrel.eval.replay-hidden-prereq-fails"
+        ],
+        "boundary": [
+          "devrel.eval.replay-rejects-unmarked-doc"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "POSIX sh and Python 3",
+          "kind": "cli",
+          "required": true
+        },
+        {
+          "name": "macOS sandbox-exec",
+          "kind": "cli",
+          "required": false
+        },
+        {
+          "name": "Fixture Co Notes sample (local disposable service)",
+          "kind": "fake",
+          "required": false
+        }
+      ],
+      "missing_capability": "Without sandbox-exec, the replay runs with the clean directory and environment only and labels the weaker isolation; container-grade isolation needs a container run by a human.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/devrel-quickstart-replay (devrel-and-community workstream)",
+        "revision": "1.0.0 (2026-11-25)",
+        "license": "MIT (agent-skills); cites MIT upstream without copying"
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/devrel/evidence/installed-skills.txt",
+          "note": "Canonical files resolve through the skills root"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has selected it yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/devrel/evidence/replay-unit-tests.txt",
+          "note": "Deterministic unit tests and fleet eval cases pass; human usability and model-run behavior are not measured"
+        }
+      }
+    },
+    {
+      "id": "devrel-program-kit",
+      "fleet": "devrel",
+      "summary": "Adapts samber's developer-relations-kickoff to the rig: resolves routes against installed skills, keeps state in devrel-context.md, and checks program-plan claims.",
+      "triggers": [
+        "DevRel program plan or kit",
+        "Check kickoff routes",
+        "Before a DevRel exec report leaves the team"
+      ],
+      "boundaries": [
+        "Never dispatches or schedules",
+        "Never publishes",
+        "Doesn't invent budgets, quotes or results"
+      ],
+      "inputs": [
+        "Kickoff routes JSON",
+        "devrel-context.md",
+        "Program plan JSON"
+      ],
+      "prerequisites": [
+        "Installed samber/developer-relations-skills collection"
+      ],
+      "method": [
+        "Run the kickoff",
+        "check_routes on its short-list",
+        "Map context per context-and-handback.md",
+        "Build kit sections from kit-map.md",
+        "Replay the content chain",
+        "check_program until clean",
+        "Hand back as handoff.v1"
+      ],
+      "stopping_conditions": [
+        "Both checks exit 0",
+        "A route stays blocked: record and continue",
+        "Missing owner facts stay owner-to-provide"
+      ],
+      "output_contract": "check_routes: ok, counts, unresolved with fallbacks; check_program: ok, violations with rule and location.",
+      "failure_states": [
+        "Exit 2 invalid input",
+        "Exit 1 unresolved routes or plan violations"
+      ],
+      "references": [
+        {
+          "title": "samber/developer-relations-skills developer-relations-kickoff",
+          "location": "<skills-root>/developer-relations-kickoff",
+          "version": "commit c3a1b6912791539567727723baf626b4fec5ac7a (2026-11-08)",
+          "rights": "MIT, copyright 2026 Samuel Berthe; cited, not copied"
+        },
+        {
+          "title": "samber/developer-relations-skills devrel-metrics",
+          "location": "<skills-root>/devrel-metrics",
+          "version": "commit c3a1b6912791539567727723baf626b4fec5ac7a (2026-11-08)",
+          "rights": "MIT, copyright 2026 Samuel Berthe; cited, not copied"
+        }
+      ],
+      "scripts": [
+        "scripts/check_routes.py",
+        "scripts/check_program.py"
+      ],
+      "evals": {
+        "positive": [
+          "devrel.eval.program-good-passes",
+          "devrel.eval.routes-installed-pass",
+          "devrel.eval.program-kit-unit-tests"
+        ],
+        "negative": [
+          "devrel.eval.program-reach-only-refused",
+          "devrel.eval.routes-launch-flags-sibling"
+        ],
+        "boundary": [
+          "devrel.eval.program-boundary-passes",
+          "devrel.eval.routes-scan-finds-drift"
+        ]
+      },
+      "adapters": [
+        {
+          "name": "Installed skills root (<skills-root>)",
+          "kind": "document",
+          "required": true
+        }
+      ],
+      "missing_capability": "Routes into uninstalled sibling collections return fallbacks or a blocked label; the skill never routes to an unresolved name.",
+      "provenance": {
+        "origin": "local",
+        "source": "skills/devrel-program-kit (devrel-and-community workstream)",
+        "revision": "1.0.0 (2026-11-25)",
+        "license": "MIT (agent-skills); cites MIT upstream without copying"
+      },
+      "verification": {
+        "coverage": {
+          "state": "partial",
+          "note": "Covers section 8's router, context and claims rules; two sibling collections remain uninstalled"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/devrel/evidence/installed-skills.txt",
+          "note": "Canonical files resolve through the skills root"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has selected it yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/devrel/evidence/program-kit-unit-tests.txt",
+          "note": "Deterministic unit tests and fleet eval cases pass; human usability and model-run behavior are not measured"
+        }
+      }
+    }
+  ]
+}

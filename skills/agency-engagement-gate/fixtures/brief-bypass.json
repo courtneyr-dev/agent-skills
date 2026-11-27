@@ -1,0 +1,90 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): scoped brief that bypasses change control and lacks evidence for Client A's multilingual donate page.",
+  "client_id": "client-a",
+  "tenant_id": "tenant-a",
+  "service_id": "web-agency-delivery",
+  "qualification": {
+    "problem": "Donors on phones abandon the current donate page; it only exists in English and fails keyboard use.",
+    "decision_owner": "human:client-a-sponsor",
+    "budget_confirmed": false,
+    "fit": "Matches the web-agency-delivery service in the Fixture Co catalogue."
+  },
+  "outcomes": [
+    "A donate page in English, Spanish and Arabic that works by keyboard and screen reader",
+    "A support handoff the client's operator can run without the agency"
+  ],
+  "scope": [
+    "One donate page template with three locales",
+    "Design tokens and focus styles",
+    "Support runbook and operator training notes"
+  ],
+  "exclusions": [
+    "Payment processor integration",
+    "Linguistic review of translations (the client's language reviewer owns it)",
+    "Hosting operations"
+  ],
+  "assumptions": [
+    "The client supplies reviewed source copy in English",
+    "The client's hosting provider accepts static HTML and CSS"
+  ],
+  "acceptance": [
+    {
+      "id": "A1",
+      "criterion": "Keyboard users reach and operate every control with visible focus",
+      "evidence": ""
+    },
+    {
+      "id": "A2",
+      "criterion": "No placeholder, plural, untranslated or RTL layout defects",
+      "evidence": "agency-i18n-check pass on es and ar catalogs with the page template and CSS"
+    },
+    {
+      "id": "A3",
+      "criterion": "Token colors meet WCAG contrast",
+      "evidence": "design-system check-foundations contrast pass"
+    },
+    {
+      "id": "A4",
+      "criterion": "The support runbook is complete",
+      "evidence": "engagement_gate.py support pass"
+    }
+  ],
+  "estimate": {
+    "currency": "USD",
+    "price": 9800,
+    "lines": [
+      {
+        "role": "agency.delivery-lead",
+        "hours": 10
+      },
+      {
+        "role": "agency.ux-ui-designer",
+        "hours": 16
+      },
+      {
+        "role": "agency.web-engineer",
+        "hours": 24
+      },
+      {
+        "role": "agency.i18n-engineer",
+        "hours": 10
+      },
+      {
+        "role": "agency.accessibility-specialist",
+        "hours": 8
+      },
+      {
+        "role": "agency.qa-engineer",
+        "hours": 8
+      },
+      {
+        "role": "agency.support-handoff-owner",
+        "hours": 6
+      }
+    ]
+  },
+  "change_control": {
+    "route": "email the client",
+    "contract_ref": "FIX-AG-GATE-1"
+  }
+}

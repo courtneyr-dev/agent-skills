@@ -1,0 +1,94 @@
+# eval corporate.eval.technology-advisor-routes (positive, target corporate.technology-advisor)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "corporate.technology-advisor" --absent "installed": false -- bin/fleet resolve --profile platform --workload corporate.workload.technology-decision
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "platform",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Technology and architecture advisor",
+      "fleet": "corporate",
+      "id": "corporate.technology-advisor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "cto-advisor",
+          "installed": true,
+          "path": "skills/cto-advisor/SKILL.md"
+        },
+        {
+          "id": "agent-evals-and-observability",
+          "installed": true,
+          "path": "skills/agent-evals-and-observability/SKILL.md"
+        },
+        {
+          "id": "production-readiness",
+          "installed": true,
+          "path": "skills/production-readiness/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Security lead",
+      "fleet": "corporate",
+      "id": "corporate.security-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "ciso-advisor",
+          "installed": true,
+          "path": "skills/ciso-advisor/SKILL.md"
+        },
+        {
+          "id": "isms-audit-expert",
+          "installed": true,
+          "path": "skills/isms-audit-expert/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Finance advisor",
+      "fleet": "corporate",
+      "id": "corporate.finance-advisor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "cfo-advisor",
+          "installed": true,
+          "path": "skills/cfo-advisor/SKILL.md"
+        },
+        {
+          "id": "financial-analyst",
+          "installed": true,
+          "path": "skills/financial-analyst/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.technology-decision"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

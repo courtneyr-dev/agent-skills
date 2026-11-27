@@ -1,0 +1,10 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=approver-not-authorized -- sh -c 'mkdir -p {tmp}/in && { cat fleets/hosting/fixtures/abuse-response/phishing-report-tenant-b.txt; echo '"'"'Forwarded with ticket EV-abuse-response-unlisted-approver-refused'"'"'; } > {tmp}/in/phishing-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/phishing-report-tenant-b.txt --case-dir {tmp}/case --tenant tenant-b --category phishing >/dev/null && python3 ../hosting-abuse-response/scripts/abuse_case.py propose --case-dir {tmp}/case --action suspend >/dev/null && python3 ../hosting-abuse-response/scripts/abuse_case.py approve --case-dir {tmp}/case --by human:ai-assistant'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-unlisted-approver-refused kind negative synthetic true
+{
+  "detail": "human:ai-assistant is not an approver in the owner's policy $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/abuse-response/policies.json",
+  "recorded": false,
+  "refusal": "approver-not-authorized",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

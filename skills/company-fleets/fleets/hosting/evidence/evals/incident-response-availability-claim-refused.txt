@@ -1,0 +1,30 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=refused --json refusal=insufficient-window --absent availability_claim -- python3 ../hosting-incident-response/scripts/incident.py slo-check --slo fleets/hosting/fixtures/incident-response/slo.json --now 2026-11-25T12:00:00Z --events fleets/hosting/fixtures/incident-response/events-lab-run.jsonl --claim-availability
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.incident-response-availability-claim-refused kind negative synthetic true
+{
+  "assumptions": [
+    "Alert thresholds and windows are the Google SRE Workbook 'Alerting on SLOs' starting values (page at 14.4x over 1h and 5m, page at 6x over 6h and 30m, ticket at 1x over 3d and 6h); tune them per service.",
+    "A window holds events with now-window <= ts <= now. A burn rate is (bad/total) / (1 - target) over that window.",
+    "An alert needs both windows above the threshold and the long window covered by events; an uncovered long window is reported, not evaluated.",
+    "The error budget is event-based: (1 - target) x events in the SLO window. A budget at 0 remaining counts as a violation (freeze point).",
+    "Event counts come from the log as given; the script does not check the log for double delivery.",
+    "An availability claim needs at least one event in every hour of the SLO window, and at least 1 / (1 - target) events in it, so one bad event can't move the SLI by more than the error budget; events outside the window don't count.",
+    "No routing file: alerts carry receiver null and reach nobody."
+  ],
+  "command": "slo-check",
+  "coverage": {
+    "covered_hours": 1,
+    "covered_seconds": 1200,
+    "covers_window": false,
+    "window_hours": 24,
+    "window_seconds": 86400
+  },
+  "detail": "events fall in 1 of the 24 hours of the 1-day window; a percentage needs data in every hour of the window, so a short run cannot establish one",
+  "now": "2026-11-25T12:00:00Z",
+  "refusal": "insufficient-window",
+  "slo": "fixture-co-edge-availability",
+  "target": 0.999,
+  "verdict": "refused",
+  "window_days": 1
+}
+# expect: met
+# exit 0

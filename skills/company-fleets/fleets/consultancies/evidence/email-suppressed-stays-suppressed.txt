@@ -1,0 +1,49 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.email-suppressed-stays-suppressed (positive, target consult-email-send-gate).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "reason": "suppressed:unsubscribed" --contains "reason": "duplicate-address" --contains "sends_performed": 0 --contains "authorized_for_dispatch": true -- python3 ../consult-email-send-gate/scripts/send_gate.py --campaign ../consult-email-send-gate/fixtures/campaign-clean-marketing.json --ledger ../consult-email-send-gate/fixtures/ledger-fixture-co.json --sender-auth ../consult-email-send-gate/fixtures/sender-auth-good.json --now 2026-11-25T12:00:00Z --authorization ../consult-email-send-gate/fixtures/authorization-clean.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-email-send-gate/scripts/send_gate.py --campaign ../consult-email-send-gate/fixtures/campaign-clean-marketing.json --ledger ../consult-email-send-gate/fixtures/ledger-fixture-co.json --sender-auth ../consult-email-send-gate/fixtures/sender-auth-good.json --now 2026-11-25T12:00:00Z --authorization ../consult-email-send-gate/fixtures/authorization-clean.json
+{
+  "approval_sha256": "8e7ef7f08c01e1525c2aeae9c2d621a20011a698851ef7f3289a49495466269b",
+  "authorized_for_dispatch": true,
+  "campaign_id": "cmp-clean-001",
+  "defects": [],
+  "dispatch_route": "the tenant's existing authorized email system, by a human",
+  "eligible": [
+    "c1",
+    "c2"
+  ],
+  "excluded": [
+    {
+      "id": "c3",
+      "reason": "suppressed:unsubscribed"
+    },
+    {
+      "id": "c4",
+      "reason": "duplicate-address"
+    }
+  ],
+  "human_review_required": [
+    "a named human approves dispatch in the tenant's existing authorized email system",
+    "the consent steward confirms the ledger is current; only the steward removes a suppression",
+    "a human reviews the rendered email with a screen reader or equivalent"
+  ],
+  "mode": "staged",
+  "not_checked": [
+    "live DNS: SPF, DKIM and DMARC come from the fixture, not from the domain",
+    "DKIM signature validity and SPF alignment with the sending IP",
+    "whether the consent ledger matches the tenant's live email system",
+    "copy quality, claims, legal and CAN-SPAM or GDPR footer content",
+    "colour contrast, reading order and link text in the rendered email",
+    "that the unsubscribe endpoint exists and honors a one-click POST",
+    "provider reputation and complaint rates"
+  ],
+  "sends_performed": 0
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"reason": "suppressed:unsubscribed"': ok
+CHECK contains '"reason": "duplicate-address"': ok
+CHECK contains '"sends_performed": 0': ok
+CHECK contains '"authorized_for_dispatch": true': ok
+VERDICT pass

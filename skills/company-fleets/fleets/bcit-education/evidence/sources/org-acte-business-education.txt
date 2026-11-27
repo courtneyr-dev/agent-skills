@@ -1,0 +1,9 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.acteonline.org/about/structure/divisions/business-education-division/
+# run 2026-11-25
+http_code=200 final_url=https://www.acteonline.org/about/structure/divisions/business-education-division/ size=111532
+L123: The Business Education Division of ACTE®
+L125 (paraphrase): ACTE's Business Education Division is open to every ACTE member and aimed at CTE professionals in the listed areas.
+L130 (paraphrase): Educators in the digital technology, supply chain and hospitality clusters, and those teaching business content in any cluster, may also find it useful.
+L156: Business Education Division Policy Manual
+L157: Business Education Division Strategic Plan
+L218 (paraphrase): Copyright 2026, Association for Career & Technical Education (ACTE); all rights reserved.

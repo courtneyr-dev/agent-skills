@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=anchor-mismatch -- python3 ../hosting-incident-response/scripts/incident.py incident show --record fleets/hosting/fixtures/incident-response/incident-rehashed.jsonl
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.incident-response-rehashed-record-refused kind negative synthetic true
+{
+  "detail": "record head is seq 4 c47651e0c340053e8c9065600a0793f1f8b253634e23f0edb7bda7553b5d2327, the owner anchored seq 4 c7d326b10e2201f1d999e64b6c387597669e11b2de66430fa5b2c990796200f6; the record was edited, truncated or extended outside these commands",
+  "refusal": "anchor-mismatch",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

@@ -1,0 +1,23 @@
+{"skill_name": "product-release-gate", "evals": [
+  {"id": 1, "kind": "positive",
+   "prompt": "Gate Fixture Co Forms Connector 2.0.0 for WordPress.org packaging.",
+   "expected_output": "Exit 0, decision ready-for-human-approval, every stage pass, approval owner human:release-owner.",
+   "files": ["fixtures/candidate-ok.json"],
+   "command": "python3 scripts/release_gate.py gate --candidate fixtures/candidate-ok.json",
+   "expect_exit": 0,
+   "expectations": ["decision is ready-for-human-approval", "seven stages pass", "approval_owner is human:release-owner"]},
+  {"id": 2, "kind": "negative",
+   "prompt": "Gate the same release when the WordPress 6.6 test run failed but 6.6 is still the declared minimum.",
+   "expected_output": "Exit 1, refused at compatibility with incompatible-host; every packaging stage not-run.",
+   "files": ["fixtures/candidate-incompatible-host.json"],
+   "command": "python3 scripts/release_gate.py gate --candidate fixtures/candidate-incompatible-host.json",
+   "expect_exit": 1,
+   "expectations": ["decision is refused", "compatibility errors are incompatible-host", "the six later stages are not-run"]},
+  {"id": 3, "kind": "boundary",
+   "prompt": "Gate the release when the compatibility matrix was edited after its review evidence was recorded.",
+   "expected_output": "Exit 1, every content stage passes but evidence-freshness fails as stale.",
+   "files": ["fixtures/candidate-stale-evidence.json"],
+   "command": "python3 scripts/release_gate.py gate --candidate fixtures/candidate-stale-evidence.json",
+   "expect_exit": 1,
+   "expectations": ["decision is refused", "evidence-freshness fails with changed after the handoff recorded it"]}
+]}

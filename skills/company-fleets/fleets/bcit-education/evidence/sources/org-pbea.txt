@@ -1,0 +1,9 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://pbea.info/
+# run 2026-11-25
+http_code=406 final_url=https://pbea.info/ size=300
+L1: Error 406 - Not Acceptable
+L3 (paraphrase): The server's generic Mod Security error page: the request was blocked.
+$ curl -sSL --max-time 30 -H 'Accept: text/html' -o org-pbea2.html https://pbea.info/
+# run 2026-11-25
+http_code=406 final_url=https://pbea.info/ size=300 (Mod Security block)
+# note: Blocked by the site's Mod Security rule for curl; name, audience and resources NOT verified live.

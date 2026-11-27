@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "company-fleets/common.schema.json",
+  "title": "Shared definitions for company-fleets records",
+  "$defs": {
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "text": {"type": "string", "minLength": 3},
+    "text_list": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}},
+    "text_list_or_empty": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+    "role_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "eval_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*\\.eval\\.[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "workload_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*\\.workload\\.[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "human": {"type": "string", "pattern": "^human:[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "principal": {
+      "type": "string",
+      "pattern": "^(?:human:[a-z0-9]+(?:-[a-z0-9]+)*|[a-z0-9]+(?:-[a-z0-9]+)*\\.[a-z0-9]+(?:-[a-z0-9]+)*)$"
+    },
+    "classification": {"enum": ["public", "internal", "confidential", "restricted"]},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "relpath": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\s]+$"},
+    "budget": {
+      "type": "object",
+      "required": ["max_minutes", "max_retries"],
+      "additionalProperties": false,
+      "properties": {
+        "max_minutes": {"type": "integer", "minimum": 1},
+        "max_retries": {"type": "integer", "minimum": 0}
+      }
+    },
+    "state_coverage": {
+      "type": "object",
+      "required": ["state"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {"enum": ["covered", "partial", "gap"]},
+        "note": {"$ref": "#/$defs/text"}
+      }
+    },
+    "state_installed": {
+      "type": "object",
+      "required": ["state"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {"enum": ["not-installed", "reference-only", "installed", "blocked"]},
+        "evidence": {"$ref": "#/$defs/relpath"},
+        "note": {"$ref": "#/$defs/text"}
+      }
+    },
+    "state_activated": {
+      "type": "object",
+      "required": ["state"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {"enum": ["not-activated", "activated", "blocked"]},
+        "evidence": {"$ref": "#/$defs/relpath"},
+        "note": {"$ref": "#/$defs/text"}
+      }
+    },
+    "state_behavioral": {
+      "type": "object",
+      "required": ["state"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {"enum": ["unverified", "verified", "failed", "blocked"]},
+        "evidence": {"$ref": "#/$defs/relpath"},
+        "grader": {"description": "Who judged the samples; bin/fleet validate --strict requires it for verified and refuses the builder or the record itself.", "$ref": "#/$defs/principal"},
+        "builder": {"description": "Who built or produced the samples that were graded.", "$ref": "#/$defs/text"},
+        "note": {"$ref": "#/$defs/text"}
+      }
+    },
+    "verification": {
+      "description": "Four separate states. A claim of installed, activated, verified or failed needs an evidence path; blocked needs a note.",
+      "type": "object",
+      "required": ["coverage", "installed", "activated", "behavioral"],
+      "additionalProperties": false,
+      "properties": {
+        "coverage": {"$ref": "#/$defs/state_coverage"},
+        "installed": {"$ref": "#/$defs/state_installed"},
+        "activated": {"$ref": "#/$defs/state_activated"},
+        "behavioral": {"$ref": "#/$defs/state_behavioral"}
+      }
+    }
+  }
+}

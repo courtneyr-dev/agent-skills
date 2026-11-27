@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "fleet": "agency",
+  "skills": [
+    {
+      "id": "agency-keyboard-audit",
+      "fleet": "agency",
+      "summary": "Runs axe-core as the automated baseline, walks the page with the Tab key in headless Chromium, and reports keyboard traps, mouse-only controls, invisible focus and positive tabindex with steps and whether the scan missed them.",
+      "triggers": [
+        "Keyboard accessibility audit of a page or staging build",
+        "Tab order or focus trap check",
+        "What does axe miss"
+      ],
+      "boundaries": [
+        "Never certifies WCAG conformance",
+        "Forward Tab from page start only",
+        "Delegated listeners are not attributed"
+      ],
+      "inputs": [
+        "Local HTML page",
+        "node_modules with playwright and axe-core"
+      ],
+      "prerequisites": [
+        "Node",
+        "Playwright with a cached Chromium",
+        "axe-core"
+      ],
+      "method": [
+        "Run axe-core",
+        "Read click listeners over CDP",
+        "Tab to an end sentinel, then Escape and retry",
+        "Judge the recording in Python"
+      ],
+      "stopping_conditions": [
+        "Exit 0 when the walk reaches the end with no blocking finding",
+        "Exit 1 with blocking findings",
+        "Exit 2 invalid input",
+        "Exit 3 blocked without a browser"
+      ],
+      "output_contract": "One JSON object: ok, adapter versions, automated_scan, tab_stops, reached_end, findings (rule, wcag, steps, expected, observed, flagged_by_automated_scan), missed_by_automated_scan, limits.",
+      "failure_states": [
+        "No browser adapter: blocked with manual steps",
+        "Malformed recording: exit 2"
+      ],
+      "references": [
+        {
+          "title": "WCAG 2.2",
+          "location": "https://www.w3.org/TR/WCAG22/",
+          "version": "W3C Recommendation 2023-10-05",
+          "rights": "W3C Document License; cite, do not copy"
+        },
+        {
+          "title": "axe-core",
+          "location": "https://github.com/dequelabs/axe-core",
+          "version": "4.13.0 (local)",
+          "rights": "MPL-2.0; used as installed library"
+        },
+        {
+          "title": "Playwright",
+          "location": "https://playwright.dev/",
+          "version": "1.62.1 with Chromium 151.0.7922.34 (local)",
+          "rights": "Apache-2.0; used as installed library"
+        }
+      ],
+      "scripts": [
+        "scripts/keyboard_audit.py",
+        "scripts/keyboard_walk.cjs",
+        "scripts/tests/test_keyboard_audit.py"
+      ],
+      "adapters": [
+        {
+          "name": "Playwright Chromium via NODE_PATH (AGENCY_A11Y_NODE_MODULES)",
+          "kind": "cli",
+          "required": true
+        },
+        {
+          "name": "axe-core",
+          "kind": "cli",
+          "required": true
+        }
+      ],
+      "missing_capability": "Returns status blocked with a manual keyboard test script and marks the result unverified.",
+      "evals": {
+        "positive": [
+          "agency.eval.keyboard-defects-missed-by-axe-found"
+        ],
+        "negative": [
+          "agency.eval.keyboard-fixed-page-no-false-positives"
+        ],
+        "boundary": [
+          "agency.eval.keyboard-no-browser-reports-blocked"
+        ]
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/agency/evidence/skill-unit-tests.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has loaded this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/agency/evidence/keyboard-defects-missed-by-axe-found.txt",
+          "note": "Every positive, negative and boundary script case passed"
+        }
+      },
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets corporate-and-agency workstream",
+        "revision": "0.1.0 (2026-11-26)",
+        "license": "MIT (agent-skills); upstream material cited, not copied"
+      }
+    },
+    {
+      "id": "agency-i18n-check",
+      "fleet": "agency",
+      "summary": "Catches placeholder, plural, untranslated-string, length-budget and RTL layout defects in gettext catalogs, page templates and CSS; linguistic review always stays a required human step.",
+      "triggers": [
+        "Check translations or locale catalogs before release",
+        "RTL or Arabic layout check",
+        "Plural forms or placeholder check"
+      ],
+      "boundaries": [
+        "Never approves translation meaning, tone or register",
+        "Doesn't render pages",
+        "Plural table covers 12 locales"
+      ],
+      "inputs": [
+        "POT template",
+        "One or more PO catalogs, each named <locale>.po or passed as LOCALE=PATH, with a Language header that must agree",
+        "Optional page template and CSS"
+      ],
+      "prerequisites": [
+        "Python 3.9+"
+      ],
+      "method": [
+        "Parse PO files",
+        "Compare each catalog with the POT",
+        "Apply RTL template and CSS rules when an RTL locale is checked"
+      ],
+      "stopping_conditions": [
+        "Exit 0 with no blocking findings",
+        "Exit 1 with findings",
+        "Exit 2 on syntax errors or missing files"
+      ],
+      "output_contract": "One JSON object: ok, locales with findings, template_findings, linguistic_review (always required, owner human:language-reviewer), limits.",
+      "failure_states": [
+        "PO syntax error: exit 2 with file and line",
+        "Unknown language: non-blocking finding, not a guess"
+      ],
+      "references": [
+        {
+          "title": "GNU gettext manual: PO Files; Translating plural forms",
+          "location": "https://www.gnu.org/software/gettext/manual/",
+          "version": "not re-fetched; titles confirmed 2026-11-25",
+          "rights": "GNU FDL; cited"
+        },
+        {
+          "title": "GlotPress locales/locales.php",
+          "location": "https://github.com/GlotPress/GlotPress/blob/develop/locales/locales.php",
+          "version": "develop @8294329c4851 (2026-11-23), counts verified 2026-11-26",
+          "rights": "GPL-2.0; counts cited, file not copied"
+        }
+      ],
+      "scripts": [
+        "scripts/i18n_check.py",
+        "scripts/tests/test_i18n_check.py"
+      ],
+      "adapters": [
+        {
+          "name": "python3 standard library",
+          "kind": "cli",
+          "required": true
+        }
+      ],
+      "missing_capability": "Without the script, the i18n engineer applies the rules by hand from references/ and marks the result unverified; linguistic review stays with the human reviewer either way.",
+      "evals": {
+        "positive": [
+          "agency.eval.i18n-defects-caught"
+        ],
+        "negative": [
+          "agency.eval.i18n-clean-catalogs-keep-review-human",
+          "agency.eval.i18n-header-cannot-choose-rules"
+        ],
+        "boundary": [
+          "agency.eval.i18n-rtl-rules-skip-ltr-only"
+        ]
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/agency/evidence/skill-unit-tests.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has loaded this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/agency/evidence/i18n-defects-caught.txt",
+          "note": "Every positive, negative and boundary script case passed"
+        }
+      },
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets corporate-and-agency workstream",
+        "revision": "0.1.0 (2026-11-26)",
+        "license": "MIT (agent-skills); upstream material cited, not copied"
+      }
+    },
+    {
+      "id": "agency-platform-adapters",
+      "fleet": "agency",
+      "summary": "Resolves a client project's platform and version to the installed upstream skills, routes legacy WordPress to detection plus a human specialist, and refuses platforms with no adapter.",
+      "triggers": [
+        "Which skills for this client site",
+        "Is this WordPress version supported",
+        "Platform or CMS specialist routing"
+      ],
+      "boundaries": [
+        "Does not install skills",
+        "Does not judge code quality",
+        "Blocked platforms stay blocked"
+      ],
+      "inputs": [
+        "Project facts JSON (platform, version, php_version)"
+      ],
+      "prerequisites": [
+        "Skill mount <skills-root>"
+      ],
+      "method": [
+        "Load the register",
+        "Compare versions with the upstream's stated range",
+        "Check each adapter skill exists in its mount"
+      ],
+      "stopping_conditions": [
+        "Exit 0 supported or range-unstated",
+        "Exit 1 legacy, blocked, unknown or adapter-missing",
+        "Exit 2 invalid input"
+      ],
+      "output_contract": "One JSON object: ok, decision, skills (id, mount, path, present), reason, standards, source, warnings, limits.",
+      "failure_states": [
+        "Register entry without a legacy route or blocked reason: exit 2",
+        "Deleted adapter skill: adapter-missing"
+      ],
+      "references": [
+        {
+          "title": "WordPress/agent-skills compatibility policy",
+          "location": "https://github.com/WordPress/agent-skills",
+          "version": "32ea909f7d01",
+          "rights": "GPL-2.0-or-later; skills used in place"
+        },
+        {
+          "title": "kanopi/cms-cultivator",
+          "location": "https://github.com/kanopi/cms-cultivator",
+          "version": "ff328fcc77af",
+          "rights": "GPL-2.0-or-later"
+        },
+        {
+          "title": "Automattic/claude-woocommerce-toolkit",
+          "location": "https://github.com/Automattic/claude-woocommerce-toolkit",
+          "version": "d70538707247",
+          "rights": "GPL-2.0-or-later"
+        },
+        {
+          "title": "cloudflare/skills",
+          "location": "https://github.com/cloudflare/skills",
+          "version": "ff191de7d903",
+          "rights": "Apache-2.0"
+        }
+      ],
+      "scripts": [
+        "scripts/resolve_adapter.py",
+        "scripts/tests/test_resolve_adapter.py"
+      ],
+      "adapters": [
+        {
+          "name": "WordPress/agent-skills in <skills-root>",
+          "kind": "document",
+          "required": false
+        },
+        {
+          "name": "Rig skills in <skills-root>",
+          "kind": "document",
+          "required": true
+        }
+      ],
+      "missing_capability": "Platforms without an installed skill return blocked with the owner who handles them; the resolver never borrows another platform's skills.",
+      "evals": {
+        "positive": [
+          "agency.eval.adapter-current-wordpress"
+        ],
+        "negative": [
+          "agency.eval.adapter-legacy-wordpress-routed",
+          "agency.eval.adapter-woocommerce-legacy-host"
+        ],
+        "boundary": [
+          "agency.eval.adapter-headless-blocked",
+          "agency.eval.adapter-wordpress-needs-version-and-php"
+        ]
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/agency/evidence/skill-unit-tests.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has loaded this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/agency/evidence/adapter-current-wordpress.txt",
+          "note": "Every positive, negative and boundary script case passed"
+        }
+      },
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets corporate-and-agency workstream",
+        "revision": "0.1.0 (2026-11-26)",
+        "license": "MIT (agent-skills); upstream material cited, not copied"
+      }
+    },
+    {
+      "id": "agency-engagement-gate",
+      "fleet": "agency",
+      "summary": "Gates each agency engagement transition on evidence: brief qualification and margin, stage evidence bound to the factory-rig contract, support runbook completeness, and a verified handoff.v1 recorded through the company-fleets ledger.",
+      "triggers": [
+        "Scope or price a client brief",
+        "Can this stage advance",
+        "Support or hosting handoff for a client site"
+      ],
+      "boundaries": [
+        "Not a tracker or scheduler; the PM layer and factory-rig own those",
+        "Doesn't judge evidence quality"
+      ],
+      "inputs": [
+        "Scoped brief, plus the margin policy and rate card the contract owner pinned in the owner log",
+        "Stage ledger and contract, plus the stage acceptances and human roster in the owner log",
+        "Runbook",
+        "Worker update and handoff id; owner fields and input labels come from the owner log"
+      ],
+      "prerequisites": [
+        "company-fleets and factory-rig beside this skill for brief, stages and handoff (the owner log lives in company-fleets)"
+      ],
+      "method": [
+        "brief: qualification, acceptance evidence, change control and margin against owner-pinned policy and rates",
+        "stages: order, evidence hashes, producer is not acceptor, scope hash, every settled stage accepted in the owner log",
+        "support: required sections and secrets",
+        "handoff: read the owner's open and intake records, scan, guarded update, submit, gate"
+      ],
+      "stopping_conditions": [
+        "Exit 0 pass",
+        "Exit 1 blocking findings",
+        "Exit 2 invalid input",
+        "Exit 3 blocked without company-fleets"
+      ],
+      "output_contract": "One JSON object with ok, findings and limits, plus margin, current_stage, sections_required or handoff status, paths, refused_fields and untrusted_findings.",
+      "failure_states": [
+        "Scope changed after the contract: return through the PM contract",
+        "Protected field in a worker update: refused and listed",
+        "Client B input or external destination for confidential data: invalid",
+        "A value not in the owner log (worker-written acceptance, intake, policy or label): refused by name"
+      ],
+      "references": [
+        {
+          "title": "Company Agent Fleets task prompt, sections 4 and 12",
+          "location": "local task prompt",
+          "version": "baseline 2026-11-25",
+          "rights": "private; paraphrased"
+        },
+        {
+          "title": "factory-rig contract and company-fleets handoff.v1",
+          "location": "skills/factory-rig, skills/company-fleets",
+          "version": "agent-skills, 2026-11-26",
+          "rights": "agent-skills (MIT); imported, not copied"
+        }
+      ],
+      "scripts": [
+        "scripts/engagement_gate.py",
+        "scripts/tests/test_engagement_gate.py"
+      ],
+      "adapters": [
+        {
+          "name": "company-fleets fleetlib and factory-rig (imported)",
+          "kind": "cli",
+          "required": true
+        }
+      ],
+      "missing_capability": "Without company-fleets and factory-rig, brief, stages and handoff report blocked (exit 3); support still runs.",
+      "evals": {
+        "positive": [
+          "agency.eval.scoped-brief-to-verified-handoff"
+        ],
+        "negative": [
+          "agency.eval.underpriced-brief-blocked",
+          "agency.eval.client-b-file-refused-in-client-a-handoff",
+          "agency.eval.client-file-instructions-cannot-move-authority",
+          "agency.eval.client-b-relabel-refused",
+          "agency.eval.stage-acceptance-bound-to-contract",
+          "agency.eval.margin-floor-from-company-policy",
+          "agency.eval.handoff-values-only-from-owner-log"
+        ],
+        "boundary": [
+          "agency.eval.incomplete-runbook-blocked"
+        ]
+      },
+      "verification": {
+        "coverage": {
+          "state": "covered"
+        },
+        "installed": {
+          "state": "installed",
+          "evidence": "fleets/agency/evidence/skill-unit-tests.txt"
+        },
+        "activated": {
+          "state": "not-activated",
+          "note": "No real router session has loaded this skill yet"
+        },
+        "behavioral": {
+          "state": "verified",
+          "evidence": "fleets/agency/evidence/scoped-brief-to-verified-handoff.txt",
+          "note": "Every positive, negative and boundary script case passed"
+        }
+      },
+      "provenance": {
+        "origin": "local",
+        "source": "company-fleets corporate-and-agency workstream",
+        "revision": "0.1.0 (2026-11-26)",
+        "license": "MIT (agent-skills); upstream material cited, not copied"
+      }
+    }
+  ]
+}

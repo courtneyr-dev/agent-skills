@@ -1,0 +1,5 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 2 --contains "error": "invalid input" --contains T9 --absent ready-for-teacher-review -- python3 ../cs-classroom-instruction/scripts/lesson.py respond fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json fleets/bcit-education/fixtures/cs-classroom-instruction/learner-unknown-task.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.cs-unknown-task-refused
+{"error": "invalid input", "detail": "learner work names task 'T9', which the lesson does not define"}
+# expect: met
+# exit 0

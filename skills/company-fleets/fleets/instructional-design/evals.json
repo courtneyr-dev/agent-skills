@@ -1,0 +1,623 @@
+{
+  "schema_version": 1,
+  "fleet": "instructional-design",
+  "evals": [
+    {
+      "id": "instructional-design.eval.resolve-trainer-development",
+      "kind": "positive",
+      "target": "instructional-design.learning-experience-architect",
+      "input": "Resolve the trainer-development workload under the devrel profile.",
+      "expected": "Exit 0; four instructional-design roles with the learning-experience architect as coordinator; no BCIT file is read.",
+      "fixtures": [],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "instructional-design.learning-experience-architect",
+          "--contains",
+          "instructional-design.facilitation-lead",
+          "--absent",
+          "fleets/bcit-education",
+          "--absent",
+          "fleets/agency",
+          "--",
+          "bin/fleet",
+          "resolve",
+          "--profile",
+          "devrel",
+          "--workload",
+          "instructional-design.workload.trainer-development"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/routing/resolve-trainer-development.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.resolve-course-build-localization-by-profile",
+      "kind": "boundary",
+      "target": "instructional-design.learning-experience-architect",
+      "input": "Resolve the course-build workload under the school profile, where localization review is not part of the base set.",
+      "expected": "Exit 0 without the localization reviewer; it joins only under the agency and devrel profiles.",
+      "fixtures": [],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "instructional-design.interactive-developer",
+          "--absent",
+          "instructional-design.localization-reviewer",
+          "--",
+          "bin/fleet",
+          "resolve",
+          "--profile",
+          "school",
+          "--workload",
+          "instructional-design.workload.course-build"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/routing/resolve-course-build-localization-by-profile.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.reading-demand-flagged-for-rewrite",
+      "kind": "negative",
+      "target": "instructional-design.content-writer-editor",
+      "input": "A task prompt written in dense jargon for a grade 9 audience.",
+      "expected": "Exit 1 with irrelevant-reading-demand and the instruction to reword without lowering demand.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/assessment-barriers.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "irrelevant-reading-demand",
+          "--contains",
+          "without lowering",
+          "--",
+          "python3",
+          "../edu-assessment-check/scripts/assessment_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/assessment-barriers.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-assessment-check/reading-demand-flagged-for-rewrite.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.color-only-cue-flagged",
+      "kind": "negative",
+      "target": "instructional-design.accessible-media-designer",
+      "input": "A task whose spreadsheet marks results by color alone.",
+      "expected": "Exit 1 with color-only flagged.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/bcit-unit-store/assessment-barriers.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "color-only",
+          "--",
+          "python3",
+          "../edu-assessment-check/scripts/assessment_check.py",
+          "check",
+          "fleets/bcit-education/fixtures/bcit-unit-store/assessment-barriers.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-assessment-check/color-only-cue-flagged.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.resolve-course-build-agency-adds-localization",
+      "kind": "positive",
+      "target": "instructional-design.localization-reviewer",
+      "input": "Resolve the course-build workload under the agency profile.",
+      "expected": "Exit 0 and the localization reviewer is added by profile.",
+      "fixtures": [],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "instructional-design.localization-reviewer",
+          "--",
+          "bin/fleet",
+          "resolve",
+          "--profile",
+          "agency",
+          "--workload",
+          "instructional-design.workload.course-build"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/routing/resolve-course-build-agency-adds-localization.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.curriculum-map-cycle-rejected",
+      "kind": "negative",
+      "target": "instructional-design.curriculum-architect",
+      "input": "A curriculum map with a prerequisite cycle, a concept placed before its prerequisite, and a university concept in grade 9 with no bridge.",
+      "expected": "Exit 1 naming the cycle, the out-of-order concept and the missing bridge; no order is printed.",
+      "fixtures": [
+        "fleets/bcit-education/fixtures/edu-learning-progression/progression-counterexample.json"
+      ],
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "prerequisite cycle among",
+          "--contains",
+          "without a bridge justification",
+          "--contains",
+          "comes before its prerequisite",
+          "--contains",
+          "\"order\": null",
+          "--",
+          "python3",
+          "../edu-learning-progression/scripts/progression.py",
+          "check",
+          "fleets/bcit-education/fixtures/edu-learning-progression/progression-counterexample.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-learning-progression/curriculum-map-cycle-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.linguistic-review-stays-human",
+      "kind": "negative",
+      "target": "instructional-design.localization-reviewer",
+      "input": "A machine-translated Spanish facilitator guide is offered as final.",
+      "expected": "The reviewer names a human linguistic reviewer and does not mark the translation final.",
+      "check": {
+        "method": "model-judgment"
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "not-run",
+        "note": "Needs a model-judgment run in a fresh session; not run in this build"
+      }
+    },
+    {
+      "id": "instructional-design.eval.lms-export-needs-target",
+      "kind": "boundary",
+      "target": "instructional-design.interactive-developer",
+      "input": "Export the trainer package as QTI for the LMS.",
+      "expected": "Blocked until a target LMS and QTI version are named; an actual import validates the package.",
+      "check": {
+        "method": "human"
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "blocked",
+        "note": "No target LMS or QTI/CASE consumer is known; nothing to import into"
+      }
+    },
+    {
+      "id": "instructional-design.eval.nontraining-routes-to-process-tool",
+      "kind": "positive",
+      "target": "instructional-design.performance-consultant",
+      "input": "Client editors can publish correctly when observed, but an upload tool times out and legal approval waits 41 hours; the requester asks for a course.",
+      "fixtures": [
+        "fleets/instructional-design/fixtures/edu-needs-analysis/nontraining-publish-tool.json"
+      ],
+      "expected": "Routes to the tool and process owners (ENV-RESOURCE-TOOL, ENV-RESOURCE-PROCESS), course_indicated false, and lists the requested course as not recommended.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "ENV-RESOURCE-TOOL",
+          "--contains",
+          "ENV-RESOURCE-PROCESS",
+          "--contains",
+          "\"course_indicated\": false",
+          "--contains",
+          "course: the evidence shows",
+          "--absent",
+          "SKILL-TRAINING",
+          "--",
+          "python3",
+          "../edu-needs-analysis/scripts/needs.py",
+          "route",
+          "fleets/instructional-design/fixtures/edu-needs-analysis/nontraining-publish-tool.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-needs-analysis/nontraining-routes-to-process-tool.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.skill-gap-routes-to-training",
+      "kind": "positive",
+      "target": "edu-needs-analysis",
+      "input": "New analysts have never built a pivot table and failed an observed attempt with the tool and data ready.",
+      "fixtures": [
+        "fleets/instructional-design/fixtures/edu-needs-analysis/skill-gap-pivot-tables.json"
+      ],
+      "expected": "Routes to SKILL-TRAINING with course_indicated true and no environment remedy.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "SKILL-TRAINING",
+          "--contains",
+          "\"course_indicated\": true",
+          "--absent",
+          "ENV-RESOURCE",
+          "--",
+          "python3",
+          "../edu-needs-analysis/scripts/needs.py",
+          "route",
+          "fleets/instructional-design/fixtures/edu-needs-analysis/skill-gap-pivot-tables.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-needs-analysis/skill-gap-routes-to-training.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.requested-workshop-not-recommended",
+      "kind": "negative",
+      "target": "instructional-design.performance-consultant",
+      "input": "A manager requests a training workshop for agents who complete the checklist when asked but are scored on tickets closed per hour.",
+      "fixtures": [
+        "fleets/instructional-design/fixtures/edu-needs-analysis/incentive-course-requested.json"
+      ],
+      "expected": "Refuses to recommend the workshop, routes to ENV-INCENTIVE and never to SKILL-TRAINING.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "ENV-INCENTIVE",
+          "--contains",
+          "training workshop: the evidence shows",
+          "--absent",
+          "SKILL-TRAINING",
+          "--",
+          "python3",
+          "../edu-needs-analysis/scripts/needs.py",
+          "route",
+          "fleets/instructional-design/fixtures/edu-needs-analysis/incentive-course-requested.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-needs-analysis/requested-workshop-not-recommended.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.unsourced-evidence-collects-questions",
+      "kind": "boundary",
+      "target": "instructional-design.sme-interviewer",
+      "input": "A manager asks for a course; the skill question is unanswered and the only obstacle claim has no source.",
+      "fixtures": [
+        "fleets/instructional-design/fixtures/edu-needs-analysis/insufficient-evidence.json"
+      ],
+      "expected": "Returns collect-evidence (exit 1) with the diagnostic questions, warns that the unsourced value was treated as missing, and names no remedy.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "collect-evidence",
+          "--contains",
+          "no source; treated as missing",
+          "--contains",
+          "deferred until the open questions",
+          "--absent",
+          "ENV-RESOURCE-TOOL",
+          "--absent",
+          "SKILL-TRAINING",
+          "--",
+          "python3",
+          "../edu-needs-analysis/scripts/needs.py",
+          "route",
+          "fleets/instructional-design/fixtures/edu-needs-analysis/insufficient-evidence.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-needs-analysis/unsourced-evidence-collects-questions.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.trainer-package-complete",
+      "kind": "positive",
+      "target": "instructional-design.facilitation-lead",
+      "input": "The Fixture Co trainer-development package: facilitation guide, rubric with generated practice anchors, calibration exercise, rehearsal ratings and evidence plan.",
+      "fixtures": [
+        "fleets/instructional-design/fixtures/edu-trainer-development/manifest.json",
+        "fleets/instructional-design/fixtures/edu-trainer-development/facilitation-guide.md"
+      ],
+      "expected": "package.py reports complete, calibration practice-only and the evidence plan accepted.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"status\": \"complete\"",
+          "--contains",
+          "practice-only",
+          "--contains",
+          "\"evidence_plan\": \"accepted\"",
+          "--",
+          "python3",
+          "../edu-trainer-development/scripts/package.py",
+          "check",
+          "fleets/instructional-design/fixtures/edu-trainer-development/manifest.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-trainer-development/trainer-package-complete.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.learning-evidence-plan-accepted",
+      "kind": "positive",
+      "target": "instructional-design.learning-analytics-analyst",
+      "input": "A plan to collect editors' published posts before and after, an end-of-session task, an observation of the new trainer, and a reaction survey kept apart.",
+      "fixtures": [
+        "fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan.json"
+      ],
+      "expected": "Accepted, with work-sample and observation measures counted as transfer evidence and the survey not counted.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "0",
+          "--contains",
+          "\"status\": \"accepted\"",
+          "--contains",
+          "\"transfer_measures\"",
+          "--",
+          "python3",
+          "../edu-trainer-development/scripts/evidence_plan.py",
+          "check",
+          "fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-trainer-development/learning-evidence-plan-accepted.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.survey-only-plan-rejected",
+      "kind": "negative",
+      "target": "instructional-design.assessment-evaluation-specialist",
+      "input": "An evidence plan whose only measures are a satisfaction survey and a sign-in sheet.",
+      "fixtures": [
+        "fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan-survey-only.json"
+      ],
+      "expected": "Rejected: no evidence of learning or transfer.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "no evidence of learning or transfer",
+          "--",
+          "python3",
+          "../edu-trainer-development/scripts/evidence_plan.py",
+          "check",
+          "fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan-survey-only.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-trainer-development/survey-only-plan-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.prefilled-results-rejected",
+      "kind": "negative",
+      "target": "instructional-design.learning-analytics-analyst",
+      "input": "An evidence plan with fabricated results already filled in (a rubric gain, a survey score, a 62% learning gain).",
+      "fixtures": [
+        "fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan-prefilled.json"
+      ],
+      "expected": "Rejected for pre-filled outcome values at measure and plan level.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "M1 has pre-filled outcome values",
+          "--contains",
+          "the plan has pre-filled outcome values",
+          "--",
+          "python3",
+          "../edu-trainer-development/scripts/evidence_plan.py",
+          "check",
+          "fleets/instructional-design/fixtures/edu-trainer-development/evidence-plan-prefilled.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-trainer-development/prefilled-results-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.incomplete-trainer-package-rejected",
+      "kind": "negative",
+      "target": "instructional-design.facilitation-lead",
+      "input": "A package missing six guide sections, with an anchor labeled as expert-rated real work and a survey-only plan.",
+      "fixtures": [
+        "fleets/instructional-design/fixtures/edu-trainer-development/counterexample/manifest.json"
+      ],
+      "expected": "Incomplete, naming the missing sections, the mislabeled anchor and the rejected plan.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "no section on transfer evaluation",
+          "--contains",
+          "not labeled generated-practice-anchor",
+          "--contains",
+          "evidence plan: no evidence of learning",
+          "--",
+          "python3",
+          "../edu-trainer-development/scripts/package.py",
+          "check",
+          "fleets/instructional-design/fixtures/edu-trainer-development/counterexample/manifest.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-trainer-development/incomplete-trainer-package-rejected.txt",
+        "run_on": "2026-11-26"
+      }
+    },
+    {
+      "id": "instructional-design.eval.generated-calibration-practice-only",
+      "kind": "boundary",
+      "target": "edu-trainer-development",
+      "input": "Generated rehearsal ratings from two rating patterns on eight practice anchors.",
+      "fixtures": [
+        "fleets/instructional-design/fixtures/edu-trainer-development/calibration-practice-ratings.json"
+      ],
+      "expected": "practice-only with the anchors to discuss; no exact agreement or kappa figure.",
+      "check": {
+        "method": "script",
+        "argv": [
+          "python3",
+          "fleets/bcit-education/evalrun.py",
+          "expect",
+          "--exit",
+          "1",
+          "--contains",
+          "practice-only: no inter-rater agreement claimed",
+          "--contains",
+          "\"discussion\"",
+          "--absent",
+          "\"kappa\"",
+          "--absent",
+          "exact_agreement",
+          "--",
+          "python3",
+          "../edu-trainer-development/scripts/agreement.py",
+          "stats",
+          "fleets/instructional-design/fixtures/edu-trainer-development/calibration-practice-ratings.json"
+        ]
+      },
+      "synthetic": true,
+      "outcome": {
+        "status": "pass",
+        "evidence": "fleets/instructional-design/evidence/edu-trainer-development/generated-calibration-practice-only.txt",
+        "run_on": "2026-11-26"
+      }
+    }
+  ]
+}

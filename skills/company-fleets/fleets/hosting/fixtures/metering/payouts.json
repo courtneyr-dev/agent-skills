@@ -1,0 +1,21 @@
+{
+  "label": "SYNTHETIC: payouts reported by a fictional upstream provider for Fixture Co referrals.",
+  "payouts": [
+    {
+      "referral_id": "ref-001",
+      "amount": 20.0
+    },
+    {
+      "referral_id": "ref-002",
+      "amount": 15.0
+    },
+    {
+      "referral_id": "ref-003",
+      "amount": 10.0
+    },
+    {
+      "referral_id": "ref-004",
+      "amount": 12.5
+    }
+  ]
+}

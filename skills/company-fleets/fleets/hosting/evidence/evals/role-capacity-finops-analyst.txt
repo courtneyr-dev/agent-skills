@@ -1,0 +1,13 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=insufficient-points --json points=5 --absent projected_date -- python3 ../hosting-metering-reconcile/scripts/metering.py capacity --series fleets/hosting/fixtures/metering/utilization-5.json --threshold 0.8
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.role-capacity-finops-analyst kind boundary synthetic true
+{
+  "command": "capacity",
+  "detail": "5 points is below the minimum of 14; a trend from so few days is noise",
+  "min_points": 14,
+  "points": 5,
+  "refusal": "insufficient-points",
+  "threshold": 0.8,
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

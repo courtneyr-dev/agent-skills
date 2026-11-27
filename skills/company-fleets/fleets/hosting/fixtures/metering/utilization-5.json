@@ -1,0 +1,26 @@
+{
+  "label": "SYNTHETIC: 5 daily CPU utilization points for the Fixture Co shared web tier. Too few for a trend.",
+  "resource": "fixture-co-shared-web-tier",
+  "points": [
+    {
+      "date": "2026-10-27",
+      "utilization": 0.392
+    },
+    {
+      "date": "2026-10-28",
+      "utilization": 0.41
+    },
+    {
+      "date": "2026-10-29",
+      "utilization": 0.428
+    },
+    {
+      "date": "2026-10-30",
+      "utilization": 0.426
+    },
+    {
+      "date": "2026-10-31",
+      "utilization": 0.444
+    }
+  ]
+}

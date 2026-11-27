@@ -1,0 +1,18 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.trail-of-bits-only-where-installed (positive, target product.security-maintainer).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 fleets/product/tests/test_product_fleet.py ProductFleetTest.test_trail_of_bits_attached_only_where_installed -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 fleets/product/tests/test_product_fleet.py ProductFleetTest.test_trail_of_bits_attached_only_where_installed -v
+installed Trail of Bits skills: ['differential-review', 'fp-check', 'supply-chain-risk-auditor']
+attached: [('product.security-maintainer', 'differential-review'), ('product.security-maintainer', 'fp-check'), ('product.security-maintainer', 'supply-chain-risk-auditor')]
+stderr:
+test_trail_of_bits_attached_only_where_installed (__main__.ProductFleetTest.test_trail_of_bits_attached_only_where_installed) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

@@ -1,0 +1,102 @@
+# eval corporate.eval.internal-operations-routes (positive, target corporate.internal-operations)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "corporate.internal-operations" --absent "installed": false -- bin/fleet resolve --profile shared --workload corporate.workload.vendor-review
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "corporate.chief-of-staff",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "shared",
+  "roles": [
+    {
+      "display_name": "Chief of staff (shared-services coordinator)",
+      "fleet": "corporate",
+      "id": "corporate.chief-of-staff",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "technical-program-management",
+          "installed": true,
+          "path": "skills/technical-program-management/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Internal operations coordinator",
+      "fleet": "corporate",
+      "id": "corporate.internal-operations",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "procurement-optimizer",
+          "installed": true,
+          "path": "skills/procurement-optimizer/SKILL.md"
+        },
+        {
+          "id": "vendor-management",
+          "installed": true,
+          "path": "skills/vendor-management/SKILL.md"
+        },
+        {
+          "id": "access-lifecycle",
+          "installed": true,
+          "path": "skills/access-lifecycle/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Security lead",
+      "fleet": "corporate",
+      "id": "corporate.security-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "ciso-advisor",
+          "installed": true,
+          "path": "skills/ciso-advisor/SKILL.md"
+        },
+        {
+          "id": "isms-audit-expert",
+          "installed": true,
+          "path": "skills/isms-audit-expert/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Legal and contract liaison",
+      "fleet": "corporate",
+      "id": "corporate.contract-liaison",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "general-counsel-advisor",
+          "installed": true,
+          "path": "skills/general-counsel-advisor/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Controller and bookkeeping workflow",
+      "fleet": "corporate",
+      "id": "corporate.controller-workflow",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "month-end-close",
+          "installed": true,
+          "path": "skills/month-end-close/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "corporate.workload.vendor-review"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

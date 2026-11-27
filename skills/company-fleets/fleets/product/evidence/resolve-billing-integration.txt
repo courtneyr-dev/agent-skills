@@ -1,0 +1,129 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.resolve-billing-integration (positive, target product.product-lead).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "coordinator": "product.product-lead" --contains "fleets/product/roles.json" --absent "fleets/hosting/roles.json" --absent "fleets/agency/roles.json" --absent "fleets/consultancies/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile product --workload product.workload.billing-integration
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile product --workload product.workload.billing-integration
+{
+  "coordinator": "product.product-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/product/roles.json"
+  ],
+  "profile": "product",
+  "roles": [
+    {
+      "display_name": "Product lead (product GM and product manager viewpoint)",
+      "fleet": "product",
+      "id": "product.product-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "cpo-advisor",
+          "installed": true,
+          "path": "skills/cpo-advisor/SKILL.md"
+        },
+        {
+          "id": "brd-writer",
+          "installed": true,
+          "path": "skills/brd-writer/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Licensing, entitlements, subscriptions, billing and pricing owner",
+      "fleet": "product",
+      "id": "product.commerce-owner",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "product-payment-events",
+          "installed": true,
+          "path": "skills/product-payment-events/SKILL.md"
+        },
+        {
+          "id": "pricing-strategist",
+          "installed": true,
+          "path": "skills/pricing-strategist/SKILL.md"
+        },
+        {
+          "id": "devtools-pricing-strategy",
+          "installed": true,
+          "path": "skills/devtools-pricing-strategy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Frontend, backend, integration and developer-experience engineer",
+      "fleet": "product",
+      "id": "product.engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "tdd",
+          "installed": true,
+          "path": "skills/tdd/SKILL.md"
+        },
+        {
+          "id": "woocommerce-plugin-dev",
+          "installed": true,
+          "path": "skills/woocommerce-plugin-dev/SKILL.md"
+        },
+        {
+          "blocked_reason": "Listed in skill-sync/sources.json (WordPress/agent-skills) but not installed under skills/ on 2026-11-26; resume when the sources workstream installs it",
+          "id": "wp-block-development",
+          "installed": false,
+          "path": "skills/wp-block-development/SKILL.md"
+        },
+        {
+          "id": "product-payment-events",
+          "installed": true,
+          "path": "skills/product-payment-events/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Security maintainer",
+      "fleet": "product",
+      "id": "product.security-maintainer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "differential-review",
+          "installed": true,
+          "path": "skills/differential-review/SKILL.md"
+        },
+        {
+          "id": "fp-check",
+          "installed": true,
+          "path": "skills/fp-check/SKILL.md"
+        },
+        {
+          "id": "supply-chain-risk-auditor",
+          "installed": true,
+          "path": "skills/supply-chain-risk-auditor/SKILL.md"
+        },
+        {
+          "id": "oss-security-disclosure",
+          "installed": true,
+          "path": "skills/oss-security-disclosure/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "product.workload.billing-integration"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"coordinator": "product.product-lead"': ok
+CHECK contains '"fleets/product/roles.json"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/agency/roles.json"': ok
+CHECK absent '"fleets/consultancies/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

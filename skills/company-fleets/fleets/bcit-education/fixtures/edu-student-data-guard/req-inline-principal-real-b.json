@@ -1,0 +1,12 @@
+{
+  "principal": {
+    "id": "rogue",
+    "tenant_id": "classroom-b",
+    "max_classification": "restricted"
+  },
+  "record": "CB-ROSTER",
+  "data_origin": "real",
+  "tool": "claude-code",
+  "purpose": "probe: real classroom B roster via inline principal and self-written policy",
+  "label": "SYNTHETIC FIXTURE (Fixture Co): reviewer probe. An inline principal claims classroom B and asks for its real roster."
+}

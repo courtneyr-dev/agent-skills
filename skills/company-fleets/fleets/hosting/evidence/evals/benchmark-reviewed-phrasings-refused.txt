@@ -1,0 +1,21 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json phrasings=11 --json refused=11 -- sh -c 'python3 -c "import json,sys;json.dump(['"'"'Fixture Co sites stay up 99.99 percent of the time'"'"', '"'"'Other hosts trail Fixture Co on recovery'"'"', '"'"'Fixture Co delivers four nines of uptime'"'"', '"'"'Fixture Co sites never go down'"'"', '"'"'Fixture Co offers a 99.99 per cent SLA'"'"', '"'"'Unlike Acquia, Fixture Co never loses a write'"'"', '"'"'Fixture Co is the most robust WordPress host'"'"', '"'"'Fixture Co wins against WordPress VIP on restores'"'"', '"'"'Fixture Co is the better choice over Pantheon'"'"', '"'"'Fixture Co: the number one host for recovery'"'"', '"'"'Pantheon lags behind Fixture Co'"'"'],open(sys.argv[1],'"'"'w'"'"'))" {tmp}/p.json && python3 -c "import json,subprocess,sys;m=json.load(open(sys.argv[1]));res={};[res.__setitem__(t,(open(sys.argv[2],'"'"'w'"'"').write(json.dumps(dict(m,statements=[{'"'"'text'"'"':t}]))),json.loads(subprocess.run([sys.executable,'"'"'../hosting-benchmark-matrix/scripts/benchmark.py'"'"','"'"'check'"'"','"'"'--matrix'"'"',sys.argv[2]],capture_output=True,text=True).stdout))[1]['"'"'verdict'"'"']) for t in json.load(open(sys.argv[3]))];print(json.dumps({'"'"'phrasings'"'"':len(res),'"'"'refused'"'"':sum(v=='"'"'fail'"'"' for v in res.values()),'"'"'results'"'"':res},indent=2))" fleets/hosting/benchmark/2026-11-26-matrix.json {tmp}/m.json {tmp}/p.json'
+# run 2026-11-27 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-reviewed-phrasings-refused kind negative synthetic true
+{
+  "phrasings": 11,
+  "refused": 11,
+  "results": {
+    "Fixture Co sites stay up 99.99 percent of the time": "fail",
+    "Other hosts trail Fixture Co on recovery": "fail",
+    "Fixture Co delivers four nines of uptime": "fail",
+    "Fixture Co sites never go down": "fail",
+    "Fixture Co offers a 99.99 per cent SLA": "fail",
+    "Unlike Acquia, Fixture Co never loses a write": "fail",
+    "Fixture Co is the most robust WordPress host": "fail",
+    "Fixture Co wins against WordPress VIP on restores": "fail",
+    "Fixture Co is the better choice over Pantheon": "fail",
+    "Fixture Co: the number one host for recovery": "fail",
+    "Pantheon lags behind Fixture Co": "fail"
+  }
+}
+# expect: met
+# exit 0

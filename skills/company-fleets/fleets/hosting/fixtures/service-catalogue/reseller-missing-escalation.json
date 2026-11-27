@@ -1,0 +1,121 @@
+{
+  "label": "SYNTHETIC: reseller catalogue for Fixture Co whose upstream dependency has obligations but no escalation_path. Rule 3 must fail it.",
+  "company": "fixture-co",
+  "profile": "reseller",
+  "capability_sets": [],
+  "parties": [
+    "fixture-co",
+    "customer",
+    "upstream:example-upstream"
+  ],
+  "services": [
+    {
+      "id": "reseller-packages",
+      "name": "White-label hosting packages (fixture)",
+      "functions": [
+        {
+          "function": "packages",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "upstream-obligations",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "delegated-access",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co",
+            "customer"
+          ]
+        },
+        {
+          "function": "billing",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "provisioning",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "support-boundary",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co"
+          ]
+        },
+        {
+          "function": "migrations",
+          "accountable": "fixture-co",
+          "responsible": [
+            "fixture-co",
+            "customer"
+          ]
+        }
+      ],
+      "customer_visible_limits": [
+        {
+          "name": "disk-per-account",
+          "value": 10,
+          "unit": "GB"
+        },
+        {
+          "name": "accounts-per-reseller",
+          "value": 50,
+          "unit": "accounts"
+        }
+      ],
+      "upstream_dependencies": []
+    },
+    {
+      "id": "upstream-capacity",
+      "name": "Capacity supplied by the upstream provider (fixture)",
+      "functions": [
+        {
+          "function": "hardware",
+          "accountable": "upstream:example-upstream",
+          "responsible": [
+            "upstream:example-upstream"
+          ]
+        },
+        {
+          "function": "network",
+          "accountable": "upstream:example-upstream",
+          "responsible": [
+            "upstream:example-upstream"
+          ]
+        },
+        {
+          "function": "data-center",
+          "accountable": "upstream:example-upstream",
+          "responsible": [
+            "upstream:example-upstream"
+          ]
+        }
+      ],
+      "customer_visible_limits": [],
+      "upstream_dependencies": [
+        {
+          "provider": "example-upstream",
+          "service": "Wholesale capacity (fixture)",
+          "obligations": [
+            "Operate hardware, network and data centers",
+            "Publish a 99.9% monthly uptime target (fixture figure)"
+          ]
+        }
+      ]
+    }
+  ]
+}

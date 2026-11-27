@@ -1,0 +1,57 @@
+{
+  "label": "SYNTHETIC COUNTEREXAMPLE: a measurement plan that ranks volunteers, infers burnout, scores health without a definition, mines events for sales leads and counts moderation cases per member. lint must refuse every metric.",
+  "community": "community-a",
+  "metrics": [
+    {
+      "id": "top-contributors-by-commits",
+      "question": "Who are our top 10 contributors?",
+      "definition": "Members sorted by commit count for the quarter, shown as a leaderboard in the newsletter.",
+      "source": {"kind": "local", "rationale": "Leadership asked for a leaderboard to motivate people."},
+      "level": "person",
+      "min_group_size": 1,
+      "consent_basis": "Public commits.",
+      "publish": "public"
+    },
+    {
+      "id": "burnout-risk-per-maintainer",
+      "question": "Which maintainers are burning out?",
+      "definition": "Flag any maintainer whose commit frequency dropped by half compared with the previous quarter.",
+      "source": {"kind": "local", "rationale": "We want early warning before people leave."},
+      "level": "person",
+      "min_group_size": 5,
+      "consent_basis": "Public commits.",
+      "publish": "internal"
+    },
+    {
+      "id": "community-health-score",
+      "question": "How healthy is the community overall?",
+      "definition": "A single score from 0 to 100 that summarizes community health for the board.",
+      "source": {"kind": "local", "rationale": "The board wants one number to track every quarter."},
+      "level": "community",
+      "min_group_size": 5,
+      "consent_basis": "All activity we can collect.",
+      "publish": "public"
+    },
+    {
+      "id": "meetup-attendee-leads",
+      "question": "How many sales leads did each meetup produce?",
+      "definition": "Attendees whose badge scan matches a company domain, passed to sales as prospects.",
+      "source": {"kind": "local", "rationale": "Sales wants meetup attendance to feed the funnel."},
+      "level": "community",
+      "min_group_size": 5,
+      "consent_basis": "Badge scans at check-in.",
+      "publish": "internal"
+    },
+    {
+      "id": "reports-against-each-member",
+      "question": "How many conduct reports does each member have?",
+      "definition": "Count of moderation cases where the member was the subject, for the community update.",
+      "source": {"kind": "local", "rationale": "Transparency about who causes problems."},
+      "compute": {"kind": "count", "record_type": "moderation-case"},
+      "level": "person",
+      "min_group_size": 1,
+      "consent_basis": "Case log.",
+      "publish": "public"
+    }
+  ]
+}

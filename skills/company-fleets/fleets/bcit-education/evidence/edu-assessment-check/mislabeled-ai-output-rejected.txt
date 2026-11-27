@@ -1,0 +1,32 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains label-text-mismatch --contains output-only-evidence -- python3 ../edu-assessment-check/scripts/assessment_check.py check fleets/bcit-education/fixtures/bcit-unit-store/assessment-mislabeled-ai-output.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.mislabeled-ai-output-rejected
+{
+  "ok": false,
+  "errors": [
+    {
+      "code": "label-text-mismatch",
+      "where": "T1",
+      "message": "labeled understand with explanation evidence, but the prompt collects AI-generated output (\"chatbot's\") with no learner explanation or trace; judged as understand with ai-output evidence"
+    },
+    {
+      "code": "output-only-evidence",
+      "where": "O1",
+      "message": "passing tests or AI-generated output do not show the learner's understanding; add an explanation, a trace or an observed performance"
+    }
+  ],
+  "flags": [],
+  "objectives": {
+    "O1": {
+      "level": "understand",
+      "tasks": [
+        "T1"
+      ],
+      "criteria": [
+        "R1"
+      ]
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): reviewer probe, chatbot output labeled as the learner's explanation."
+}
+# expect: met
+# exit 0

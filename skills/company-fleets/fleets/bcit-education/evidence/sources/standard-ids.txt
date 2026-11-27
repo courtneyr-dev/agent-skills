@@ -1,0 +1,20 @@
+$ curl -sSL --max-time 60 -o <file> <url>   # 7 sources below, fetched 2026-11-26
+$ swift tools/pdftext.swift csta-2026.pdf csta-2026.txt   # macOS PDFKit text extraction (218 pages); same for csta-2017.pdf (30 pages)
+$ python3 -I <regex over the extracted text or HTML>   # identifiers only; the text stays in a scratch folder and is not retained
+# run 2026-11-26
+# sources: https://csteachers.org/wp-content/uploads/2026/07/2026-CSTA-PK%E2%80%9312-Computer-Science-Standards.pdf (http 200, 3298695 bytes)
+#          https://csteachers.org/wp-content/uploads/2025/03/2017-csta-k12-computer-science-standards-al.pdf (http 200, 389909 bytes)
+#          https://iste.org/standards/students | educators | coaches | education-leaders (http 200 each)
+# license: CSTA standards CC BY-NC-SA (2026) and CC BY-NC-SA 4.0 (2017); ISTE free noncommercial educational use with attribution.
+#          Identifiers are stored so invented ids can be refused; no standard or indicator text is stored.
+csta-k12-2026: 289 identifiers
+csta-k12-2017: 120 identifiers
+iste-students: 35 identifiers
+iste-educators: 31 identifiers
+iste-coaches: 33 identifiers
+iste-education-leaders: 27 identifiers
+cs2023: 17 identifiers
+csta-k12-2026 by prefix: {'AIN': 21, 'CYB': 21, 'DSC': 19, 'E1': 16, 'E2': 16, 'E3': 19, 'E4': 19, 'E5': 19, 'EK': 16, 'GMD': 12, 'HS': 46, 'MS': 45, 'PHY': 8, 'SWD': 12}
+check: every 2026 foundational band (EK, E1-E5, MS, HS) is numbered 1..max with no gaps or repeats, so the list is complete;
+       fork 1's 2026-11-25 zlib extraction counted 187 foundational ids and missed 9; specialty (93) and 2017 (120) counts agree.
+# exit 0

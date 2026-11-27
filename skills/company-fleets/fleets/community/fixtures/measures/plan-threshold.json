@@ -1,0 +1,17 @@
+{
+  "label": "SYNTHETIC BOUNDARY CASE: one otherwise valid metric with min_group_size 4, one below the floor of 5. lint must refuse it.",
+  "community": "community-a",
+  "metrics": [
+    {
+      "id": "new-contributors",
+      "question": "How many people made their first contribution this quarter?",
+      "definition": "Distinct people whose first merged pull request or first answered thread falls in the quarter.",
+      "source": {"kind": "chaoss", "name": "New Contributors", "url": "https://chaoss.community/kb/metric-new-contributors/"},
+      "compute": {"kind": "distinct-people", "record_type": "contribution", "filter": {"first": true}},
+      "level": "cohort",
+      "min_group_size": 4,
+      "consent_basis": "Public repository and forum activity, counted without names.",
+      "publish": "public"
+    }
+  ]
+}

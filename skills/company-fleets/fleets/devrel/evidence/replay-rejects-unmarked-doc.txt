@@ -1,0 +1,10 @@
+$ sh -c 'python3 ../devrel-quickstart-replay/scripts/replay.py fleets/devrel/fixtures/untrusted/docs-feedback.md; test $? -eq 2'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:03Z
+# case: devrel.eval.replay-rejects-unmarked-doc (boundary, target devrel.demo-producer, synthetic=True)
+# expected: Exit 2 invalid input: nothing runs, so text in an unmarked doc can never execute.
+# exit: 0 -> pass
+--- stdout ---
+{"ok": false, "error": "no tier=run block found; nothing to replay"}
+--- stderr ---
+

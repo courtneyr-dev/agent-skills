@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "id": "extension-launch",
+  "code": "EXT",
+  "name": "Extension or SaaS launch",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 3 of 8",
+  "profile": "product",
+  "coordinator": "product.product-lead",
+  "home_workload": "product.workload.extension-release",
+  "outcome": "A small extension or API release that passes compatibility, security and accessibility gates, ships tested docs and a workshop, and stages marketing.",
+  "final_consumer": "human:product-owner",
+  "stop_conditions": [
+    "Every acceptance criterion is met or refused with a reason",
+    "The step's budget is reached",
+    "A required human decision or human data is missing"
+  ],
+  "cancellation": "Stop the step's tools, keep partial outputs labeled partial in the run folder, and release the coordinator lease with its epoch.",
+  "steps": [
+    {
+      "id": "product",
+      "stage": "Product",
+      "producer": "product.product-lead",
+      "reviewer": "product.platform-architect",
+      "acceptance_owner": "human:product-owner",
+      "outcome": "Release scope, supported host and API versions, and the support boundary.",
+      "acceptance_criteria": [
+        "Supported versions are listed",
+        "The support boundary is written down"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "release brief",
+      "skills": []
+    },
+    {
+      "id": "engineering",
+      "stage": "Engineering",
+      "producer": "product.engineer",
+      "reviewer": "product.platform-architect",
+      "acceptance_owner": "product.product-lead",
+      "outcome": "The candidate build and its test results.",
+      "acceptance_criteria": [
+        "Tests run on the candidate"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "candidate",
+      "skills": []
+    },
+    {
+      "id": "compatibility",
+      "stage": "Compatibility, security and accessibility",
+      "producer": "product.compatibility-engineer",
+      "reviewer": "product.security-maintainer",
+      "acceptance_owner": "product.product-lead",
+      "outcome": "The compatibility matrix and gate results, refusing incompatible hosts before packaging.",
+      "acceptance_criteria": [
+        "An incompatible host or retired API version refuses the candidate before packaging"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "gate results",
+      "skills": [
+        "product-release-gate"
+      ]
+    },
+    {
+      "id": "release",
+      "stage": "Release",
+      "producer": "product.release-engineer",
+      "reviewer": "product.compatibility-engineer",
+      "acceptance_owner": "human:release-owner",
+      "outcome": "A release candidate ready for human approval, not published.",
+      "acceptance_criteria": [
+        "The gate decision is ready-for-human-approval or refused"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "release recommendation",
+      "skills": [
+        "product-release-gate"
+      ],
+      "authority": {
+        "publication": "staged-only"
+      }
+    },
+    {
+      "id": "docs",
+      "stage": "Docs and DevRel",
+      "producer": "devrel.docs-architect",
+      "reviewer": "devrel.developer-educator",
+      "acceptance_owner": "devrel.program-lead",
+      "outcome": "A quickstart that replays in a clean environment.",
+      "acceptance_criteria": [
+        "Every marked command replays and its expected output matches"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "tested quickstart",
+      "skills": [
+        "devrel-quickstart-replay"
+      ]
+    },
+    {
+      "id": "workshop",
+      "stage": "Docs and DevRel",
+      "producer": "devrel.developer-educator",
+      "reviewer": "devrel.docs-architect",
+      "acceptance_owner": "devrel.program-lead",
+      "outcome": "A workshop lab that replays, with human usability marked unmeasured.",
+      "acceptance_criteria": [
+        "The lab replays",
+        "Human onboarding usability is recorded as unmeasured"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "workshop lab",
+      "skills": [
+        "devrel-quickstart-replay"
+      ],
+      "when": "workshop"
+    },
+    {
+      "id": "marketing",
+      "stage": "Marketing",
+      "producer": "corporate.marketing-lead",
+      "reviewer": "corporate.communications-lead",
+      "acceptance_owner": "human:marketing-approver",
+      "outcome": "Staged launch copy with every claim cited, held for approval.",
+      "acceptance_criteria": [
+        "Unsupported claims and fabricated citations are rejected",
+        "Nothing is scheduled or sent"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "staged launch copy",
+      "skills": [
+        "corporate-claims-check"
+      ],
+      "authority": {
+        "external_actions": "draft-only",
+        "publication": "staged-only"
+      }
+    },
+    {
+      "id": "support",
+      "stage": "Support and community",
+      "producer": "product.support-success",
+      "reviewer": "product.docs-educator",
+      "acceptance_owner": "product.product-lead",
+      "outcome": "Support intake routes and a community announcement draft.",
+      "acceptance_criteria": [
+        "Support knows the supported versions and the boundary"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "support plan",
+      "skills": []
+    }
+  ]
+}

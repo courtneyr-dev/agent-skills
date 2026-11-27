@@ -1,0 +1,10 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certificates-in-pennsylvania
+# run 2026-11-25
+http_code=200 final_url=https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certificates-in-pennsylvania size=263089
+L166: Business, Computer and Information Technology PK-12
+L168: Business Education-Accounting 7-12 (discontinued 8/31/2003)
+L170: Business Education-Data Processing 7-12 (discontinued 8/31/2003)
+L172: Business Education-Marketing 7-12 (discontinued 8/31/2003)
+L174: Business Education-Office Technologies 7-12 (discontinued 8/31/2003)
+L176: Business Education-Secretarial 7-12 (discontinued 8/31/2003)
+L182: ​Computer Science 7-12

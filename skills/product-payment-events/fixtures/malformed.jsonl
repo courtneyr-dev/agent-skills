@@ -1,0 +1,1 @@
+{"schema": "payment-event.v1", "id": "evt_x", "type": "checkout.completed", "livemode": false

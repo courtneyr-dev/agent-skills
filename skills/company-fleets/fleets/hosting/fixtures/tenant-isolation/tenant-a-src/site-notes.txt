@@ -1,0 +1,2 @@
+SYNTHETIC FIXTURE: Client A (tenant-a) site notes at Fixture Co. Not real content.
+The marketing site publishes at www.tenant-a.example. Deploys run from the main workstream.

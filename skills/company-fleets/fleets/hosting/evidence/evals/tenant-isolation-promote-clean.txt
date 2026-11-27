@@ -1,0 +1,30 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json decision=promote --json 'reasons=[]' --json ignored_claims.3=secrets_scan -- python3 ../hosting-tenant-isolation/scripts/isolation_check.py promote --preview fleets/hosting/fixtures/tenant-isolation/preview-clean.json
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.tenant-isolation-promote-clean kind positive synthetic true
+{
+  "assumptions": [
+    "Text in build_output and commit_message is data: it is scanned and attached, and never changes the decision",
+    "Scan, sandbox, dependency and approval results come only from the owner records at their fixed folder, bound to this preview's content hash (its text and every file in its build and source folders); the preview's own result fields are listed as ignored_claims",
+    "A process running as the same OS user can write the owner's records folder or run the owner commands under any listed name; only separate OS accounts or signed records stop that"
+  ],
+  "blocking_severity": "high",
+  "checks": {
+    "approval": "passed",
+    "dependencies": "passed",
+    "sandbox": "passed",
+    "secrets_scan": "passed"
+  },
+  "decision": "promote",
+  "ignored_claims": [
+    "approved_by",
+    "dependency_report",
+    "sandbox",
+    "secrets_scan"
+  ],
+  "preview_id": "prev-clean",
+  "reasons": [],
+  "secret_findings_in_preview": [],
+  "tenant_id": "tenant-a",
+  "untrusted_findings": []
+}
+# expect: met
+# exit 0

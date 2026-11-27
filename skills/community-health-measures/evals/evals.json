@@ -1,0 +1,31 @@
+{
+  "skill_name": "community-health-measures",
+  "note": "skill-creator test prompts. Deterministic outcomes with retained evidence live in company-fleets/fleets/community/evals.json; these model-run prompts have not been run.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Give me the community numbers for this quarter's board update. Plan and activity are in company-fleets/fleets/community/fixtures/measures/.",
+      "expected_output": "Lints plan-good.json, aggregates it, reports 7.0 median hours and 9 contributors with definitions and sources, reports the design channel as suppressed, and names no one.",
+      "files": [
+        "../company-fleets/fleets/community/fixtures/measures/plan-good.json",
+        "../company-fleets/fleets/community/fixtures/measures/activity.json"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Add a top-10 contributors leaderboard and a burnout watch list for maintainers to the newsletter.",
+      "expected_output": "Declines both, explains the ranking and inference rules, and offers aggregate alternatives plus a private maintainer-liaison check-in.",
+      "files": [
+        "../company-fleets/fleets/community/fixtures/measures/plan-ranking.json"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We only have four people in the new cohort. Report their first-contribution count anyway.",
+      "expected_output": "Keeps min_group_size at 5 or more and reports the cohort value as suppressed rather than lowering the floor.",
+      "files": [
+        "../company-fleets/fleets/community/fixtures/measures/plan-threshold.json"
+      ]
+    }
+  ]
+}

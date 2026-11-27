@@ -1,0 +1,35 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): reviewer probe. Well-formed but invented identifiers, a human: reviewer string and a review file that does not exist, all claimed verified.",
+  "context": {
+    "learner_audience": "students"
+  },
+  "alignments": [
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "csta-k12-2026",
+      "standard_id": "HS-ALG-ZZ-99",
+      "status": "verified",
+      "reviewer": "human:teacher-of-record",
+      "evidence": "evidence/review-notes.txt"
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "iste-students",
+      "standard_id": "1.7.z",
+      "status": "verified",
+      "reviewer": "human:teacher-of-record",
+      "evidence": "evidence/review-notes.txt"
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2026",
+      "standard_id": "HS-ALG-ML-06",
+      "status": "verified",
+      "reviewer": "human:teacher-of-record",
+      "evidence": "evidence/review-notes.txt"
+    }
+  ]
+}

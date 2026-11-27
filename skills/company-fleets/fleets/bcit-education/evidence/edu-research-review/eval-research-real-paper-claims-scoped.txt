@@ -1,0 +1,62 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "error": 0 --contains null-as-equivalence --contains post-hoc-subgroup --contains nonsignificant-as-effect -- python3 ../edu-research-review/scripts/research_check.py claims fleets/bcit-education/fixtures/edu-research-review/study-kazemitabaar-2023.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.research-real-paper-claims-scoped
+{
+  "ok": true,
+  "mode": "claims",
+  "study": "Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming",
+  "counts": {
+    "error": 0,
+    "warn": 8,
+    "claims": 6
+  },
+  "findings": [
+    {
+      "rule": "attrition",
+      "severity": "warn",
+      "message": "analyzed 69 of 90 who started (77%); completers-only results can be biased if dropout differs by condition"
+    },
+    {
+      "rule": "selection",
+      "severity": "warn",
+      "message": "volunteer sample from out-of-school-remote; results describe these participants, not a defined population"
+    },
+    {
+      "rule": "null-as-equivalence",
+      "severity": "warn",
+      "message": "a non-significant difference ('not decreasing') is not evidence of equivalence without an equivalence test or power analysis",
+      "claim": "C1"
+    },
+    {
+      "rule": "null-as-equivalence",
+      "severity": "warn",
+      "message": "a non-significant difference ('does not impede') is not evidence of equivalence without an equivalence test or power analysis",
+      "claim": "C2"
+    },
+    {
+      "rule": "post-hoc-subgroup",
+      "severity": "warn",
+      "message": "subgroup result from a post hoc split; treat as a hypothesis for a new study",
+      "claim": "C3"
+    },
+    {
+      "rule": "transfer-beyond-sample",
+      "severity": "warn",
+      "message": "claim targets general but the sample is k12; give a transfer argument or narrow the claim",
+      "claim": "C4"
+    },
+    {
+      "rule": "setting-shift",
+      "severity": "warn",
+      "message": "claim names setting any; the study ran in out-of-school-remote",
+      "claim": "C4"
+    },
+    {
+      "rule": "nonsignificant-as-effect",
+      "severity": "warn",
+      "message": "directional wording ('reduced') for a result the study reports as not statistically significant",
+      "claim": "C5"
+    }
+  ]
+}
+# expect: met
+# exit 0

@@ -1,0 +1,5 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): invalid progression input. The band 'high school' is not a recognized grade band, so progression.py must refuse to check it.",
+  "concepts": [{"id": "loops", "label": "Repetition", "band": "high school", "prereqs": []}],
+  "sequence": [{"unit": "U1", "grade": 9, "concepts": ["loops"]}]
+}

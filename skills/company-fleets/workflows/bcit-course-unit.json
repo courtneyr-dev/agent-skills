@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "id": "bcit-course-unit",
+  "code": "BCU",
+  "name": "BCIT course unit",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 7 of 8",
+  "profile": "school",
+  "coordinator": "bcit-education.program-lead",
+  "home_workload": "bcit-education.workload.course-unit",
+  "outcome": "A BCIT unit with honest standards mapping, aligned objectives, an authentic assessment, complete lessons and labs, accessibility review and teacher review, revised only on real learning evidence.",
+  "final_consumer": "human:teacher-of-record",
+  "stop_conditions": [
+    "Every acceptance criterion is met or refused with a reason",
+    "The step's budget is reached",
+    "A required human decision or human data is missing"
+  ],
+  "cancellation": "Stop the step's tools, keep partial outputs labeled partial in the run folder, and release the coordinator lease with its epoch.",
+  "steps": [
+    {
+      "id": "standards",
+      "stage": "Standards and context",
+      "producer": "bcit-education.curriculum-standards-specialist",
+      "reviewer": "bcit-education.nocti-alignment-coordinator",
+      "acceptance_owner": "bcit-education.program-lead",
+      "outcome": "A standards alignment that reports gaps instead of inventing alignment.",
+      "acceptance_criteria": [
+        "Missing, protected or unsupported standards are reported as gaps"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "standards alignment",
+      "skills": [
+        "edu-standards-alignment"
+      ]
+    },
+    {
+      "id": "objectives",
+      "stage": "Objectives",
+      "producer": "instructional-design.curriculum-architect",
+      "reviewer": "bcit-education.curriculum-standards-specialist",
+      "acceptance_owner": "bcit-education.program-lead",
+      "outcome": "Measurable objectives tied to the aligned standards.",
+      "acceptance_criteria": [
+        "Each objective names its standard or its gap"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "objectives",
+      "skills": []
+    },
+    {
+      "id": "assessment",
+      "stage": "Authentic assessment",
+      "producer": "bcit-education.assessment-designer",
+      "reviewer": "bcit-education.accessibility-udl-collaborator",
+      "acceptance_owner": "bcit-education.program-lead",
+      "outcome": "An authentic task, rubric and executed answer key.",
+      "acceptance_criteria": [
+        "Rubric, task, objective and scoring rationale align",
+        "The answer key executes"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "assessment",
+      "skills": [
+        "edu-assessment-check",
+        "edu-answer-key-check"
+      ]
+    },
+    {
+      "id": "lessons-labs",
+      "stage": "Lessons and labs",
+      "producer": "bcit-education.it-computing-instructor",
+      "reviewer": "bcit-education.lab-operations-lead",
+      "acceptance_owner": "bcit-education.program-lead",
+      "outcome": "Lessons and labs with materials and an offline route.",
+      "acceptance_criteria": [
+        "The package check passes"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "lesson package",
+      "skills": [
+        "bcit-learning-package"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "stage": "Accessibility",
+      "producer": "bcit-education.accessibility-udl-collaborator",
+      "reviewer": "bcit-education.assessment-designer",
+      "acceptance_owner": "bcit-education.program-lead",
+      "outcome": "Barriers unrelated to the construct flagged and fixed.",
+      "acceptance_criteria": [
+        "Fairness barriers are flagged"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "accessibility review",
+      "skills": [
+        "edu-assessment-check"
+      ]
+    },
+    {
+      "id": "teacher-review",
+      "stage": "Teacher review",
+      "producer": "bcit-education.program-lead",
+      "reviewer": "bcit-education.instructional-coach",
+      "acceptance_owner": "human:teacher-of-record",
+      "outcome": "The unit packaged for the teacher of record to review.",
+      "acceptance_criteria": [
+        "The teacher of record decides"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "review package",
+      "skills": []
+    },
+    {
+      "id": "learning-evidence",
+      "stage": "Actual learning evidence",
+      "producer": "bcit-education.progress-feedback-assistant",
+      "reviewer": "human:teacher-of-record",
+      "acceptance_owner": "human:teacher-of-record",
+      "outcome": "Learner work and results collected by the teacher in the school's systems.",
+      "acceptance_criteria": [
+        "Evidence comes from real learners under the school's data rules"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "learning evidence",
+      "skills": [],
+      "boundary": "human-data"
+    },
+    {
+      "id": "revision",
+      "stage": "Revision",
+      "producer": "bcit-education.assessment-designer",
+      "reviewer": "bcit-education.instructional-coach",
+      "acceptance_owner": "human:teacher-of-record",
+      "outcome": "Revisions justified by the learning evidence.",
+      "acceptance_criteria": [
+        "Every revision cites evidence"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "revised unit",
+      "skills": []
+    }
+  ]
+}

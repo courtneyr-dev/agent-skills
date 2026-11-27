@@ -1,0 +1,18 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=tampered --contains 'owner'"'"'s anchor' -- sh -c 'mkdir -p {tmp}/in && { cat fleets/hosting/fixtures/abuse-response/phishing-report-tenant-b.txt; echo '"'"'Forwarded with ticket EV-abuse-response-rewritten-case-refused'"'"'; } > {tmp}/in/phishing-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/phishing-report-tenant-b.txt --case-dir {tmp}/case --tenant tenant-b --category phishing >/dev/null && python3 fleets/hosting/tools/forge.py abuse-case {tmp}/case >/dev/null && python3 ../hosting-abuse-response/scripts/abuse_case.py verify --case-dir {tmp}/case'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-rewritten-case-refused kind negative synthetic true
+{
+  "assumptions": [
+    "The check recomputes every hash and the custody chain and compares the head with the owner's anchors ledger at its fixed path. A process running as the same OS user can rewrite that ledger too, or run approve under a listed name; only separate OS accounts or signed records stop that."
+  ],
+  "case_id": "case-51f556465cd4",
+  "custody_entries": 1,
+  "files_checked": 1,
+  "head_sha256": "aca26b2127524b39d3c2ac2f7704dd35e40b284d94c0d7275fa323bbccfbe42f",
+  "problems": [
+    "custody head or manifest differs from the owner's anchor; the case was rewritten outside these commands"
+  ],
+  "verdict": "tampered",
+  "warnings": []
+}
+# expect: met
+# exit 0

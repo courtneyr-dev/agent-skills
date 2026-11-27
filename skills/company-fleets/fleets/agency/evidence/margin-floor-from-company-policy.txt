@@ -1,0 +1,26 @@
+# eval agency.eval.margin-floor-from-company-policy (negative, target agency-engagement-gate)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../agency-engagement-gate/scripts/tests/test_engagement_gate.py -v BriefTests
+run on 2026-11-26, exit 0
+
+[stderr]
+test_a_ledger_of_another_tenant_for_the_same_instance_is_refused (__main__.BriefTests.test_a_ledger_of_another_tenant_for_the_same_instance_is_refused)
+The reviewer's E1b: a valid tenant-b ledger with a 0.10 floor priced a tenant-a brief. ... ok
+test_brief_cannot_set_its_own_floor (__main__.BriefTests.test_brief_cannot_set_its_own_floor) ... ok
+test_brief_missing_sections_is_invalid_input (__main__.BriefTests.test_brief_missing_sections_is_invalid_input) ... ok
+test_calibrated_policy_needs_its_evidence (__main__.BriefTests.test_calibrated_policy_needs_its_evidence) ... ok
+test_caller_cannot_hand_the_gate_a_policy_or_rate_card (__main__.BriefTests.test_caller_cannot_hand_the_gate_a_policy_or_rate_card) ... ok
+test_change_control_bypass_and_missing_evidence_block (__main__.BriefTests.test_change_control_bypass_and_missing_evidence_block) ... ok
+test_empty_or_negative_estimates_are_refused (__main__.BriefTests.test_empty_or_negative_estimates_are_refused) ... ok
+test_margin_below_floor_blocks (__main__.BriefTests.test_margin_below_floor_blocks) ... ok
+test_non_finite_numbers_exit_2 (__main__.BriefTests.test_non_finite_numbers_exit_2) ... ok
+test_policy_floor_must_be_a_real_fraction (__main__.BriefTests.test_policy_floor_must_be_a_real_fraction) ... ok
+test_scoped_brief_passes_and_flags_a_hypothesis_floor (__main__.BriefTests.test_scoped_brief_passes_and_flags_a_hypothesis_floor) ... ok
+test_the_brief_is_priced_only_against_its_own_instance (__main__.BriefTests.test_the_brief_is_priced_only_against_its_own_instance)
+The reviewer's E2: a tenant-a brief priced against another engagement's ledger. The brief names its instance. ... ok
+test_unpinned_owner_log_refuses (__main__.BriefTests.test_unpinned_owner_log_refuses) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.263s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

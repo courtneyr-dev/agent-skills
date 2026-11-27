@@ -1,0 +1,15 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.resolve-refuses-community-profile (negative, target consultancies.practice-coordinator).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains does not activate fleet consultancies -- bin/fleet resolve --profile community --workload consultancies.workload.compliance-engagement
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile community --workload consultancies.workload.compliance-engagement
+{
+  "error": "profile community does not activate fleet consultancies",
+  "files_read": [
+    "registry/profiles.json"
+  ]
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains 'does not activate fleet consultancies': ok
+VERDICT pass

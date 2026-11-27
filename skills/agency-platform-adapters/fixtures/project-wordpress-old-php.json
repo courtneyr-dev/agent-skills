@@ -1,0 +1,6 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): project facts for a client site, as wp-project-triage or the project's tooling would report them.",
+  "platform": "wordpress",
+  "version": "7.0",
+  "php_version": "7.3"
+}

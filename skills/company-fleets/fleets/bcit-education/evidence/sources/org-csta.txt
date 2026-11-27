@@ -1,0 +1,13 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/
+# run 2026-11-25
+http_code=200 final_url=https://csteachers.org/ size=415457
+L1: Computer Science Teachers Association Connect, Grow, & Share With CS Teachers-
+L4: CSTA Voice
+L9: Join CSTA
+L18: Chapters
+L19: About CSTA Chapters
+L20: Find Your Chapter
+L55: Accredited PD
+L57: Resources Library
+L59: CSTA Annual Conference
+L84: join csta

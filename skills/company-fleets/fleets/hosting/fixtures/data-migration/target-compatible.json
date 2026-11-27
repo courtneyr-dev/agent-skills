@@ -1,0 +1,4 @@
+{"label": "SYNTHETIC: Fixture Co managed platform target offering PHP 8.2 to 8.4.",
+ "offers": {"runtimes": {"php": ["8.2", "8.3", "8.4"]},
+            "database": {"engine": "MariaDB", "version": ["10.11", "11.4"]},
+            "extensions": ["mbstring", "intl", "gd", "imagick"]}}

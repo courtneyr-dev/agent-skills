@@ -1,0 +1,49 @@
+{
+  "label": "SYNTHETIC: Fixture Co tenant-a DNS zone fixture. Domains use .example only. Two SPF records at the apex.",
+  "origin": "tenant-a.example",
+  "issuer": "ca.fixture-co.test",
+  "records": [
+    {
+      "name": "@",
+      "type": "A",
+      "ttl": 3600,
+      "value": "192.0.2.10"
+    },
+    {
+      "name": "@",
+      "type": "MX",
+      "ttl": 3600,
+      "value": "10 mail.tenant-a.example."
+    },
+    {
+      "name": "@",
+      "type": "TXT",
+      "ttl": 3600,
+      "value": "v=spf1 include:_spf.mailer.example -all"
+    },
+    {
+      "name": "@",
+      "type": "CAA",
+      "ttl": 3600,
+      "value": "0 issue \"ca.fixture-co.test\""
+    },
+    {
+      "name": "mail",
+      "type": "A",
+      "ttl": 3600,
+      "value": "192.0.2.25"
+    },
+    {
+      "name": "www",
+      "type": "CNAME",
+      "ttl": 3600,
+      "value": "edge.platform.example."
+    },
+    {
+      "name": "@",
+      "type": "TXT",
+      "ttl": 3600,
+      "value": "v=spf1 include:_spf.other-mailer.example -all"
+    }
+  ]
+}

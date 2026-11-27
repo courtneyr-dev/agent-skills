@@ -1,0 +1,16 @@
+{
+  "label": "SYNTHETIC BOUNDARY CASE: otherwise careful, but cites a second report (RPT-2) and evidence (EV-9) the case log doesn't hold. case_check must refuse invented records even when every other rule passes.",
+  "case_id": "CM-CASE-1",
+  "prepared_by": "community.moderator",
+  "status": "draft-for-human-decision",
+  "findings": [
+    {"report": "RPT-1", "status": "unproven", "evidence": ["EV-1"], "reasoning": "Only the public reply is on file."},
+    {"report": "RPT-2", "status": "needs-information", "evidence": ["EV-9"], "reasoning": "A second member reportedly saw a similar message."}
+  ],
+  "recommended_actions": [
+    {"action": "Ask the reporter whether they can share the message", "status": "recommended", "decision_by": "human:trust-safety-lead"}
+  ],
+  "handling": {"assigned_reviewers": ["human:moderator-b"], "recused": [{"id": "human:moderator-a", "reason": "co-maintains a plugin with the subject"}]},
+  "appeal_route": {"reviewer": "human:appeals-coordinator", "window_days": 14, "documented_in": "fixture-coc#appeals"},
+  "messages": []
+}

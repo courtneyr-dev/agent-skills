@@ -1,0 +1,65 @@
+{
+  "handoff_id": "HO-FIX-COMM-FB-1",
+  "workload_id": "community.workload.onboarding-governance",
+  "tenant_id": "community-a",
+  "client_id": null,
+  "operating_profile": "community",
+  "outcome": "Aggregated, reproducible product feedback from Community A for the Fixture Co product owner, with no member identities or case records.",
+  "scope": [
+    "Docs search issue reported by members",
+    "Themes from the newcomer thread"
+  ],
+  "exclusions": [
+    "Moderation case records",
+    "Member names, emails or individual activity",
+    "Replies to members (drafts only)"
+  ],
+  "acceptance_criteria": [
+    "The kit passes kit_check",
+    "Feedback to product carries no moderation case, member identity or individual activity"
+  ],
+  "sources": [
+    {
+      "ref": "fleets/community/fixtures/handoff/contract.json",
+      "revision": "FIX-COMM-FB-1 r1"
+    },
+    {
+      "ref": "samber/developer-relations-skills developer-feedback-loop",
+      "revision": "c3a1b6912791539567727723baf626b4fec5ac7a"
+    }
+  ],
+  "producer": "community.member-success-lead",
+  "reviewer": "community.operations-manager",
+  "acceptance_owner": "human:product-owner",
+  "execution_owner": "community.operations-manager",
+  "data": {
+    "classification": "internal",
+    "allowed_destinations": [
+      "tenant:community-a",
+      "rig:product-feedback"
+    ]
+  },
+  "authority": {
+    "tools": [
+      "fleet scan",
+      "community-health-measures"
+    ],
+    "mutation": "none",
+    "external_actions": "draft-only",
+    "publication": "none"
+  },
+  "budget": {
+    "max_minutes": 45,
+    "max_retries": 1
+  },
+  "stop_conditions": [
+    "Feedback item reproduced or marked needs-information",
+    "Budget reached"
+  ],
+  "cancellation": "Stop, keep the draft labeled partial, release the workload lease.",
+  "next_consumer": "human:product-owner",
+  "readiness_criteria": [
+    "The feedback summary names no member and cites no case record"
+  ],
+  "contract_hash": "b37384d3670b925bf8353b642fd8eedf614f132ae002964f4ab247007b35e79f"
+}

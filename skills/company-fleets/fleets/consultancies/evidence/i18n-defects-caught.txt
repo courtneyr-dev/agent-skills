@@ -1,0 +1,154 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.i18n-defects-caught (negative, target consult-i18n-check).
+# $ python3 fleets/product/tests/expect.py --exit 1 --contains "placeholder-mismatch" --contains "plural-categories" --contains "bidi-unbalanced" --contains "rtl-placeholder-unisolated" --contains "length-exceeds-max" --contains "untranslated" --contains "terminology-mismatch" --contains "stale-source-revision" -- python3 ../consult-i18n-check/scripts/i18n_check.py --source ../consult-i18n-check/fixtures/source-en.json --target ../consult-i18n-check/fixtures/target-ar-defects.json --glossary ../consult-i18n-check/fixtures/glossary.json
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-i18n-check/scripts/i18n_check.py --source ../consult-i18n-check/fixtures/source-en.json --target ../consult-i18n-check/fixtures/target-ar-defects.json --glossary ../consult-i18n-check/fixtures/glossary.json
+{
+  "cldr_version": "48.0",
+  "counts": {
+    "bidi-unbalanced": 2,
+    "direction-mismatch": 1,
+    "hardcoded-format": 2,
+    "length-exceeds-max": 1,
+    "missing-translation": 1,
+    "placeholder-mismatch": 1,
+    "plural-categories": 1,
+    "plural-placeholder": 1,
+    "rtl-placeholder-unisolated": 4,
+    "stale-source-revision": 1,
+    "terminology-mismatch": 1,
+    "untranslated": 1
+  },
+  "defects": [
+    {
+      "code": "direction-mismatch",
+      "key": "(catalog)",
+      "message": "target locale ar is rtl but direction is ltr",
+      "severity": "error"
+    },
+    {
+      "code": "stale-source-revision",
+      "key": "(catalog)",
+      "message": "target source_revision 'rev-1' differs from source 'rev-2'",
+      "severity": "error"
+    },
+    {
+      "code": "hardcoded-format",
+      "key": "billing.note",
+      "message": "literal currency amount '$4'; use a locale currency formatter",
+      "severity": "warning"
+    },
+    {
+      "code": "hardcoded-format",
+      "key": "billing.note",
+      "message": "literal date '11/25/2026'; use a locale date formatter",
+      "severity": "warning"
+    },
+    {
+      "code": "length-exceeds-max",
+      "key": "button.save",
+      "message": "target is 36 characters, max_length is 20",
+      "severity": "error"
+    },
+    {
+      "code": "plural-categories",
+      "key": "files.count",
+      "message": "target forms ['one', 'other'] differ from CLDR ['few', 'many', 'one', 'other', 'two', 'zero'] for ar",
+      "severity": "error"
+    },
+    {
+      "code": "plural-placeholder",
+      "key": "files.count",
+      "message": "form 'other': missing {count}, {folder} (source other has {count}, {folder})",
+      "severity": "error"
+    },
+    {
+      "code": "rtl-placeholder-unisolated",
+      "key": "files.count",
+      "message": "placeholder not wrapped in U+2068 ... U+2069: {count}, {folder}",
+      "severity": "warning"
+    },
+    {
+      "code": "placeholder-mismatch",
+      "key": "greeting",
+      "message": "source has ['{name}'], target has ['{user}']",
+      "severity": "error"
+    },
+    {
+      "code": "rtl-placeholder-unisolated",
+      "key": "greeting",
+      "message": "placeholder not wrapped in U+2068 ... U+2069: {user}",
+      "severity": "warning"
+    },
+    {
+      "code": "missing-translation",
+      "key": "help.link",
+      "message": "key absent from target",
+      "severity": "error"
+    },
+    {
+      "code": "untranslated",
+      "key": "nav.home",
+      "message": "target text is identical to source",
+      "severity": "error"
+    },
+    {
+      "code": "bidi-unbalanced",
+      "key": "sync.status",
+      "message": "embedding or override (U+202A-U+202E) is not closed by U+202C PDF",
+      "severity": "error"
+    },
+    {
+      "code": "bidi-unbalanced",
+      "key": "sync.status",
+      "message": "isolate (U+2066-U+2068) is not closed by U+2069 PDI",
+      "severity": "error"
+    },
+    {
+      "code": "rtl-placeholder-unisolated",
+      "key": "sync.status",
+      "message": "placeholder not wrapped in U+2068 ... U+2069: %d, %d",
+      "severity": "warning"
+    },
+    {
+      "code": "rtl-placeholder-unisolated",
+      "key": "workspace.create",
+      "message": "placeholder not wrapped in U+2068 ... U+2069: {name}",
+      "severity": "warning"
+    },
+    {
+      "code": "terminology-mismatch",
+      "key": "workspace.create",
+      "message": "source term 'workspace' requires target term 'مساحة العمل'",
+      "severity": "error"
+    }
+  ],
+  "linguistic_review": {
+    "by": "human:locale-reviewer",
+    "note": "This check does not judge translation accuracy, tone, register or cultural fit",
+    "status": "required"
+  },
+  "not_checked": [
+    "translation accuracy, tone, register and cultural fit",
+    "grammar and agreement inside plural forms",
+    "ICU MessageFormat select, gender and nested syntax",
+    "locale number and date formatting beyond literal date and currency patterns",
+    "rendered layout, fonts and visual truncation",
+    "keys present only in the target catalog",
+    "glossary inflection and compound forms"
+  ],
+  "source_locale": "en",
+  "status": "defects",
+  "target_locale": "ar"
+}
+exit=1
+CHECK exit == 1: ok
+CHECK contains '"placeholder-mismatch"': ok
+CHECK contains '"plural-categories"': ok
+CHECK contains '"bidi-unbalanced"': ok
+CHECK contains '"rtl-placeholder-unisolated"': ok
+CHECK contains '"length-exceeds-max"': ok
+CHECK contains '"untranslated"': ok
+CHECK contains '"terminology-mismatch"': ok
+CHECK contains '"stale-source-revision"': ok
+VERDICT pass

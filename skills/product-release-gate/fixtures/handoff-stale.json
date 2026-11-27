@@ -1,0 +1,116 @@
+{
+  "acceptance_criteria": [
+    "Every gate input has a passing review naming its exact bytes under the current contract"
+  ],
+  "acceptance_owner": "human:release-owner",
+  "assumptions": [],
+  "authority": {
+    "external_actions": "none",
+    "mutation": "none",
+    "publication": "none",
+    "tools": [
+      "release_gate.py"
+    ]
+  },
+  "budget": {
+    "max_minutes": 30,
+    "max_retries": 1
+  },
+  "cancellation": "Stop, keep the partial gate output labeled partial.",
+  "client_id": null,
+  "contract_hash": "d2294615086acd7f6a4573c2b778514e482273dc2fe2e9f25577ce49d6de65f1",
+  "data": {
+    "allowed_destinations": [
+      "tenant:tenant-fixture-co",
+      "rig:evidence"
+    ],
+    "classification": "internal"
+  },
+  "evidence": [
+    {
+      "about": "candidate-stale-evidence.json",
+      "about_sha256": "fee029aa8aa824f42e34c0e404ac2ec78c00777adc7381c2cd9695898eab6005",
+      "contract_hash": "d2294615086acd7f6a4573c2b778514e482273dc2fe2e9f25577ce49d6de65f1",
+      "path": "evidence/candidate-stale-evidence.json.review.txt",
+      "sha256": "fa4a145422f4c669d4c4419835459d20073e1642ede2ce1c5c4e619b6edd5829"
+    },
+    {
+      "about": "compat-ok.json",
+      "about_sha256": "352a62fb4eae9152a02de83fc885481fbb48f0a296af14b9a46a63ddcfda5742",
+      "contract_hash": "d2294615086acd7f6a4573c2b778514e482273dc2fe2e9f25577ce49d6de65f1",
+      "path": "evidence/compat-ok.json.review.txt",
+      "sha256": "3cd4056e0941469f6ac933c99016e8241d860978f89bdf91284cee166d9dc7b7"
+    },
+    {
+      "about": "CHANGELOG.md",
+      "about_sha256": "ed549fbfd0646b8f38fb7e3d50d607f6d46daf57f91c6f0cc56ab54899d9c7a1",
+      "contract_hash": "d2294615086acd7f6a4573c2b778514e482273dc2fe2e9f25577ce49d6de65f1",
+      "path": "evidence/CHANGELOG.md.review.txt",
+      "sha256": "a6169d8d4248f4cbeaba0a727704ca381dbe27a277d99366b691913c802b71ad"
+    },
+    {
+      "about": "sbom.json",
+      "about_sha256": "2cac212684dc3ef1d7f90eeaa84603080c75b1fd682fe5f34581106ac6824cd7",
+      "contract_hash": "d2294615086acd7f6a4573c2b778514e482273dc2fe2e9f25577ce49d6de65f1",
+      "path": "evidence/sbom.json.review.txt",
+      "sha256": "36491c9b3780d5d389c4823ce333a21e3f37cf1a0dd8af5e16b2536e8eed9b46"
+    }
+  ],
+  "exclusions": [
+    "Publishing to any marketplace",
+    "Packaging approval"
+  ],
+  "execution_owner": "product.product-lead",
+  "handoff_id": "HO-FIX-PROD-REL-2",
+  "idempotency_key": "63b46618e02bf9e0f5b12e515c865e63",
+  "inputs": [],
+  "next_consumer": "human:release-owner",
+  "operating_profile": "product",
+  "outcome": "SYNTHETIC: Fixture Co Forms Connector 2.0.0 gate inputs, ready for the release gate.",
+  "outputs": [
+    {
+      "artifact_type": "release candidate",
+      "path": "candidate-stale-evidence.json",
+      "sha256": "fee029aa8aa824f42e34c0e404ac2ec78c00777adc7381c2cd9695898eab6005"
+    },
+    {
+      "artifact_type": "compatibility matrix",
+      "path": "compat-ok.json",
+      "sha256": "352a62fb4eae9152a02de83fc885481fbb48f0a296af14b9a46a63ddcfda5742"
+    },
+    {
+      "artifact_type": "changelog",
+      "path": "CHANGELOG.md",
+      "sha256": "ed549fbfd0646b8f38fb7e3d50d607f6d46daf57f91c6f0cc56ab54899d9c7a1"
+    },
+    {
+      "artifact_type": "CycloneDX SBOM",
+      "path": "sbom.json",
+      "sha256": "2cac212684dc3ef1d7f90eeaa84603080c75b1fd682fe5f34581106ac6824cd7"
+    }
+  ],
+  "producer": "product.release-engineer",
+  "readiness_criteria": [
+    "release_gate.py gate prints ready-for-human-approval"
+  ],
+  "reconciliation_state": "submitted",
+  "reviewer": "product.security-maintainer",
+  "schema_version": 1,
+  "scope": [
+    "Release candidate, compatibility matrix, changelog and SBOM for 2.0.0"
+  ],
+  "sources": [
+    {
+      "ref": "fixtures/contract.json",
+      "revision": "FIX-PROD-REL-2 r2"
+    }
+  ],
+  "stop_conditions": [
+    "Gate decision recorded"
+  ],
+  "summary": "SYNTHETIC: candidate, matrix, changelog and SBOM bound to their reviews.",
+  "tenant_id": "tenant-fixture-co",
+  "unresolved_decisions": [],
+  "untrusted_findings": [],
+  "workload_id": "product.workload.extension-release"
+}

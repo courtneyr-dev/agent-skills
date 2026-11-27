@@ -1,0 +1,27 @@
+# eval agency.eval.stage-acceptance-bound-to-contract (negative, target agency-engagement-gate)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../agency-engagement-gate/scripts/tests/test_engagement_gate.py -v StageTests
+run on 2026-11-26, exit 0
+
+[stderr]
+test_acceptance_files_the_worker_writes_count_for_nothing (__main__.StageTests.test_acceptance_files_the_worker_writes_count_for_nothing) ... ok
+test_accepted_transitions_pass_and_name_the_current_stage (__main__.StageTests.test_accepted_transitions_pass_and_name_the_current_stage) ... ok
+test_acceptor_and_producer_must_be_known (__main__.StageTests.test_acceptor_and_producer_must_be_known) ... ok
+test_deleting_the_producer_blocks (__main__.StageTests.test_deleting_the_producer_blocks) ... ok
+test_done_after_pending_and_unexplained_skip_block (__main__.StageTests.test_done_after_pending_and_unexplained_skip_block) ... ok
+test_edited_evidence_is_stale (__main__.StageTests.test_edited_evidence_is_stale) ... ok
+test_evidence_and_brief_outside_base_are_refused (__main__.StageTests.test_evidence_and_brief_outside_base_are_refused) ... ok
+test_human_acceptor_must_be_on_the_owners_roster (__main__.StageTests.test_human_acceptor_must_be_on_the_owners_roster) ... ok
+test_ledger_and_acceptance_must_name_the_same_producer (__main__.StageTests.test_ledger_and_acceptance_must_name_the_same_producer) ... ok
+test_ledger_cannot_mark_an_accepted_stage_skipped (__main__.StageTests.test_ledger_cannot_mark_an_accepted_stage_skipped) ... ok
+test_rehashing_evidence_in_the_ledger_is_not_a_new_acceptance (__main__.StageTests.test_rehashing_evidence_in_the_ledger_is_not_a_new_acceptance) ... ok
+test_revision_bump_does_not_carry_old_acceptances (__main__.StageTests.test_revision_bump_does_not_carry_old_acceptances) ... ok
+test_rewriting_the_contract_spec_refuses_the_old_ledger (__main__.StageTests.test_rewriting_the_contract_spec_refuses_the_old_ledger)
+The ledger is bound to the contract it was claimed under; a rewritten spec needs a reissued contract and a new instance. ... ok
+test_scope_change_returns_through_the_pm_contract (__main__.StageTests.test_scope_change_returns_through_the_pm_contract) ... ok
+test_self_acceptance_blocks_even_with_padding (__main__.StageTests.test_self_acceptance_blocks_even_with_padding) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.269s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

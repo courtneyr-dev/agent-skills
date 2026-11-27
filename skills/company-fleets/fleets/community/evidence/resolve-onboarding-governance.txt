@@ -1,0 +1,156 @@
+$ sh -c 'bin/fleet resolve --profile community --workload community.workload.onboarding-governance | tee /dev/stderr | python3 -c '"'"'import json,sys; r=json.load(sys.stdin); print(sorted(x["id"] for x in r["roles"])); assert r["coordinator"]; assert [x for x in r["files_read"] if x.startswith("fleets/")] == ["fleets/community/roles.json"], r["files_read"]'"'"''
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.resolve-onboarding-governance (positive, target community.operations-manager, synthetic=True)
+# expected: One coordinator, five community roles, only community roles files read.
+# exit: 0 -> pass
+--- stdout ---
+['community.governance-liaison', 'community.inclusion-reviewer', 'community.member-success-lead', 'community.operations-manager', 'community.strategy-lead']
+--- stderr ---
+{
+  "coordinator": "community.operations-manager",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/community/roles.json"
+  ],
+  "profile": "community",
+  "roles": [
+    {
+      "display_name": "Community operations manager (coordinator)",
+      "fleet": "community",
+      "id": "community.operations-manager",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        },
+        {
+          "id": "developer-community-health",
+          "installed": true,
+          "path": "skills/developer-community-health/SKILL.md"
+        },
+        {
+          "id": "kanban-guru",
+          "installed": true,
+          "path": "skills/kanban-guru/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Community strategy lead",
+      "fleet": "community",
+      "id": "community.strategy-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        },
+        {
+          "id": "developer-community-launch",
+          "installed": true,
+          "path": "skills/developer-community-launch/SKILL.md"
+        },
+        {
+          "id": "oss-governance",
+          "installed": true,
+          "path": "skills/oss-governance/SKILL.md"
+        },
+        {
+          "id": "devrel-engine",
+          "installed": true,
+          "path": "skills/devrel-engine/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Onboarding and member-success lead",
+      "fleet": "community",
+      "id": "community.member-success-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        },
+        {
+          "id": "developer-community-launch",
+          "installed": true,
+          "path": "skills/developer-community-launch/SKILL.md"
+        },
+        {
+          "id": "discord-community-playbook",
+          "installed": true,
+          "path": "skills/discord-community-playbook/SKILL.md"
+        },
+        {
+          "id": "discourse-forums-playbook",
+          "installed": true,
+          "path": "skills/discourse-forums-playbook/SKILL.md"
+        },
+        {
+          "id": "developer-feedback-loop",
+          "installed": true,
+          "path": "skills/developer-feedback-loop/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Governance and OSPO liaison",
+      "fleet": "community",
+      "id": "community.governance-liaison",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "oss-governance",
+          "installed": true,
+          "path": "skills/oss-governance/SKILL.md"
+        },
+        {
+          "id": "oss-release-policy",
+          "installed": true,
+          "path": "skills/oss-release-policy/SKILL.md"
+        },
+        {
+          "id": "oss-security-disclosure",
+          "installed": true,
+          "path": "skills/oss-security-disclosure/SKILL.md"
+        },
+        {
+          "id": "oss-license-strategy",
+          "installed": true,
+          "path": "skills/oss-license-strategy/SKILL.md"
+        },
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Accessibility and inclusion reviewer",
+      "fleet": "community",
+      "id": "community.inclusion-reviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        },
+        {
+          "id": "community-operating-kit",
+          "installed": true,
+          "path": "skills/community-operating-kit/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "community.workload.onboarding-governance"
+}

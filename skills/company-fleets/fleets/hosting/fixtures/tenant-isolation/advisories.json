@@ -1,0 +1,38 @@
+{
+  "label": "SYNTHETIC: Fixture Co security advisories, owned by human:security-owner. record-dependencies matches the preview's lockfile against this file; invented ids and packages.",
+  "advisories": [
+    {
+      "id": "FIXTURE-ADV-1",
+      "package": "left-pad-fixture",
+      "versions": [
+        "1.3.0"
+      ],
+      "severity": "low"
+    },
+    {
+      "id": "FIXTURE-ADV-2",
+      "package": "tiny-parser-fixture",
+      "versions": [
+        "2.0.1"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "FIXTURE-ADV-3",
+      "package": "image-resize-fixture",
+      "versions": [
+        "0.9.0",
+        "0.9.1"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "FIXTURE-ADV-4",
+      "package": "date-format-fixture",
+      "versions": [
+        "3.0.0"
+      ],
+      "severity": "high"
+    }
+  ]
+}

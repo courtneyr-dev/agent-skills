@@ -1,0 +1,15 @@
+$ python3 ../devrel-program-kit/scripts/check_program.py fleets/devrel/fixtures/program/program-boundary.json
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:05Z
+# case: devrel.eval.program-boundary-passes (boundary, target devrel.developer-advocate, synthetic=True)
+# expected: Exit 0: denials of causation and sourced claims pass.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "devrel-program-kit/check_program",
+  "version": "1.0.0",
+  "ok": true,
+  "violations": []
+}
+--- stderr ---
+

@@ -1,0 +1,8 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json verdict=refused --contains 'holds no backup' -- sh -c 'python3 -c "import sqlite3;[sqlite3.connect('"'"'{tmp}/'"'"'+s+'"'"'.sqlite'"'"').executescript(open('"'"'fleets/hosting/fixtures/data-migration/seed.sql'"'"').read()) for s in ('"'"'site-a'"'"','"'"'site-b'"'"')]" && python3 ../hosting-data-migration/scripts/data_migration.py migrate --db {tmp}/site-a.sqlite --backup-dir {tmp}/shared --migration fleets/hosting/fixtures/data-migration/migration-v1-to-v2.sql >/dev/null && python3 ../hosting-data-migration/scripts/data_migration.py rollback --db {tmp}/site-b.sqlite --backup-dir {tmp}/shared'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.data-migration-other-site-backup-refused kind negative synthetic true
+{
+  "reason": "the owner's ledger holds no backup of $TMPDIR/hosting-eval-s7j12h_u/site-b.sqlite in $TMPDIR/hosting-eval-s7j12h_u/shared; a backup taken from another database is never restored here; the database was not touched",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

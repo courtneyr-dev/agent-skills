@@ -1,0 +1,12 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-71-computer-science-7-12
+# run 2026-11-25
+http_code=200 final_url=https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-71-computer-science-7-12 size=214772
+L156: CSPG 71 - Computer Science 7-12
+L157: Modified: April 1, 2022
+L159: Grade Level Scope of Certificate
+L160 (paraphrase): A Pennsylvania Computer Science 7-12 certificate covers computer science courses in grades 7 to 12, and grade 6 assignments (see CSPG 104).
+L162 (paraphrase): The certificate covers courses built on the CSTA K-12 standards: algorithms and programming, computing systems, data, impacts of computing and networks, plus related areas such as cybersecurity.
+L166 (paraphrase): Educators teaching computer science in a Pennsylvania LEA on 2022-12-31 under the listed certificates may continue within their certificate's grade limits.
+L171: Business Computer Information Technology PK-12
+L173 (paraphrase): Anyone first teaching computer science in grades 7-12 in a Pennsylvania LEA after 2022-12-31, or moving to a new LEA after that date, needs the PDE computer science certificate.
+L199: ​4/1/2022

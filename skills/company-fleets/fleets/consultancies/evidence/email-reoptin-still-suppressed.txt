@@ -1,0 +1,41 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.email-reoptin-still-suppressed (boundary, target consult-email-send-gate).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "reason": "suppressed:unsubscribed" --contains "eligible": [] --contains "sends_performed": 0 -- python3 ../consult-email-send-gate/scripts/send_gate.py --campaign ../consult-email-send-gate/fixtures/campaign-reoptin.json --ledger ../consult-email-send-gate/fixtures/ledger-fixture-co.json --sender-auth ../consult-email-send-gate/fixtures/sender-auth-good.json --now 2026-11-25T12:00:00Z
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-email-send-gate/scripts/send_gate.py --campaign ../consult-email-send-gate/fixtures/campaign-reoptin.json --ledger ../consult-email-send-gate/fixtures/ledger-fixture-co.json --sender-auth ../consult-email-send-gate/fixtures/sender-auth-good.json --now 2026-11-25T12:00:00Z
+{
+  "approval_sha256": "d801a5f7dab3b89a77bf5747dc290a6c6696e4a5ab53972f70d239a410ebe2a5",
+  "authorized_for_dispatch": false,
+  "campaign_id": "cmp-reoptin-001",
+  "defects": [],
+  "dispatch_route": "the tenant's existing authorized email system, by a human",
+  "eligible": [],
+  "excluded": [
+    {
+      "id": "c5",
+      "reason": "suppressed:unsubscribed"
+    }
+  ],
+  "human_review_required": [
+    "a named human approves dispatch in the tenant's existing authorized email system",
+    "the consent steward confirms the ledger is current; only the steward removes a suppression",
+    "a human reviews the rendered email with a screen reader or equivalent"
+  ],
+  "mode": "staged",
+  "not_checked": [
+    "live DNS: SPF, DKIM and DMARC come from the fixture, not from the domain",
+    "DKIM signature validity and SPF alignment with the sending IP",
+    "whether the consent ledger matches the tenant's live email system",
+    "copy quality, claims, legal and CAN-SPAM or GDPR footer content",
+    "colour contrast, reading order and link text in the rendered email",
+    "that the unsubscribe endpoint exists and honors a one-click POST",
+    "provider reputation and complaint rates"
+  ],
+  "sends_performed": 0
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"reason": "suppressed:unsubscribed"': ok
+CHECK contains '"eligible": []': ok
+CHECK contains '"sends_performed": 0': ok
+VERDICT pass

@@ -1,0 +1,11 @@
+# eval agency.eval.scoped-brief-to-verified-handoff (positive, target agency-engagement-gate)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "ok": true --contains "failures": [] --env AGENCY_A11Y_NODE_MODULES=/path/to/node_modules -- python3 fleets/agency/demo/run_demo.py
+run on 2026-11-26, exit 0
+
+{
+  "ok": true,
+  "blocked": false,
+  "failures": [],
+  "log": "fleets/agency/evidence/demo-client-a-donate.txt"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

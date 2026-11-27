@@ -1,0 +1,143 @@
+# eval agency.eval.i18n-defects-caught (positive, target agency-i18n-check)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 1 --contains "rule": "placeholder-mismatch" --contains "rule": "plural-forms" --contains "rule": "untranslated" --contains "rule": "length-budget" --contains "rule": "rtl-direction" --contains "rule": "rtl-physical-css" --contains "status": "required" -- python3 ../agency-i18n-check/scripts/i18n_check.py --pot ../agency-i18n-check/fixtures/donate.pot --po ../agency-i18n-check/fixtures/ar-defects.po --template ../agency-i18n-check/fixtures/page-no-dir.html --css ../agency-i18n-check/fixtures/styles-physical.css
+run on 2026-11-26, exit 0
+
+{
+  "limits": [
+    "It does not judge meaning, tone, register or cultural fit; a human language reviewer does.",
+    "It does not render the page, so visual overflow beyond declared max-length budgets needs a browser or human check.",
+    "It only knows the plural counts in its table (ar, he, ru, pl, ja, zh_CN, es, fr, de, en, fa, ur); other languages get a non-blocking finding.",
+    "CSS checks read declarations line by line after decoding CSS escapes, including four-value margin, padding, inset, scroll-margin, scroll-padding and border-width, border-style and border-color shorthand; rules built by preprocessors are not inspected, and border-radius corners and background-position keywords are not checked.",
+    "Direction checks read dir on <html> and <body>, and CSS direction in every rule whose subject is html, body, :root or * (with any class, attribute or pseudo-class), inside @media, @supports and similar blocks too. dir=\"auto\", and a direction, margin, padding or inset value built with var(), are refused as unresolved. A dir=\"ltr\" on an inner element, such as an embedded code sample, is allowed."
+  ],
+  "linguistic_review": {
+    "note": "Structural checks only. A named human language reviewer must read every locale before release.",
+    "owner": "human:language-reviewer",
+    "status": "required"
+  },
+  "locales": [
+    {
+      "direction": "rtl",
+      "file": "../agency-i18n-check/fixtures/ar-defects.po",
+      "findings": [
+        {
+          "blocking": true,
+          "excerpt": "nplurals=2; plural=(n != 1);",
+          "file": "../agency-i18n-check/fixtures/ar-defects.po",
+          "line": 2,
+          "message": "header declares nplurals=2 but ar needs 6 on translate.wordpress.org.",
+          "rule": "plural-forms"
+        },
+        {
+          "blocking": true,
+          "excerpt": "%d donor",
+          "file": "../agency-i18n-check/fixtures/ar-defects.po",
+          "line": 25,
+          "message": "plural entry needs exactly 6 non-empty msgstr[n]; found 2 forms, 2 non-empty.",
+          "rule": "plural-forms"
+        },
+        {
+          "blocking": true,
+          "excerpt": "Donate now",
+          "file": "../agency-i18n-check/fixtures/ar-defects.po",
+          "line": 10,
+          "message": "translation is 22 characters; the budget is 12. Shorten it.",
+          "rule": "length-budget"
+        },
+        {
+          "blocking": true,
+          "excerpt": "Thank you, %s!",
+          "file": "../agency-i18n-check/fixtures/ar-defects.po",
+          "line": 18,
+          "message": "msgstr placeholders differ from msgid; missing ['%s'], unexpected none. Make the multiset match.",
+          "rule": "placeholder-mismatch"
+        },
+        {
+          "blocking": true,
+          "excerpt": "%1$s donated %2$s this month.",
+          "file": "../agency-i18n-check/fixtures/ar-defects.po",
+          "line": 22,
+          "message": "msgstr placeholders differ from msgid; missing ['%2$s'], unexpected ['%2$d']. Make the multiset match.",
+          "rule": "placeholder-mismatch"
+        },
+        {
+          "blocking": true,
+          "excerpt": "Amount",
+          "file": "../agency-i18n-check/fixtures/ar-defects.po",
+          "line": 36,
+          "message": "msgstr matches the source text; translate it or add '#. i18n-allow-identical: <reason>' in the POT.",
+          "rule": "untranslated"
+        },
+        {
+          "blocking": true,
+          "excerpt": "Receipt sent to {email}",
+          "file": "../agency-i18n-check/fixtures/ar-defects.po",
+          "line": null,
+          "message": "entry is missing from this catalog; add and translate it.",
+          "rule": "untranslated"
+        },
+        {
+          "blocking": true,
+          "excerpt": "Choose a gift amount",
+          "file": "../agency-i18n-check/fixtures/ar-defects.po",
+          "line": 42,
+          "message": "msgstr is empty.",
+          "rule": "untranslated"
+        },
+        {
+          "blocking": true,
+          "excerpt": "Monthly gifts can be paused anytime.",
+          "file": "../agency-i18n-check/fixtures/ar-defects.po",
+          "line": 46,
+          "message": "entry is flagged fuzzy; a human must resolve it.",
+          "rule": "untranslated"
+        }
+      ],
+      "locale": "ar"
+    }
+  ],
+  "ok": false,
+  "template_findings": [
+    {
+      "blocking": true,
+      "excerpt": "<html lang=\"ar\">",
+      "file": "../agency-i18n-check/fixtures/page-no-dir.html",
+      "line": 3,
+      "message": "<html> lacks dir; set it from the page locale (a literal or a template expression).",
+      "rule": "rtl-direction"
+    },
+    {
+      "blocking": true,
+      "excerpt": "margin-left:",
+      "file": "../agency-i18n-check/fixtures/styles-physical.css",
+      "line": 2,
+      "message": "physical direction breaks right-to-left layout; use margin-inline-start.",
+      "rule": "rtl-physical-css"
+    },
+    {
+      "blocking": true,
+      "excerpt": "padding-right:",
+      "file": "../agency-i18n-check/fixtures/styles-physical.css",
+      "line": 3,
+      "message": "physical direction breaks right-to-left layout; use padding-inline-end.",
+      "rule": "rtl-physical-css"
+    },
+    {
+      "blocking": true,
+      "excerpt": "float: left",
+      "file": "../agency-i18n-check/fixtures/styles-physical.css",
+      "line": 4,
+      "message": "physical direction breaks right-to-left layout; use float: inline-start or inline-end.",
+      "rule": "rtl-physical-css"
+    },
+    {
+      "blocking": true,
+      "excerpt": "text-align: left",
+      "file": "../agency-i18n-check/fixtures/styles-physical.css",
+      "line": 5,
+      "message": "physical direction breaks right-to-left layout; use text-align: start or end.",
+      "rule": "rtl-physical-css"
+    }
+  ]
+}
+[expect] exit 1 (expected 1); missing none; forbidden present none -> PASS

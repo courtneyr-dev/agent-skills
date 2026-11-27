@@ -1,0 +1,15 @@
+{
+  "company": "Fixture Co (SYNTHETIC fixture, not a real company)",
+  "industry": "saas",
+  "products_include_ai": false,
+  "ai_high_risk_per_eu": false,
+  "deploys_ai_in_eu": false,
+  "products_are_medical_devices": false,
+  "sells_to_eu_customers": true,
+  "sells_to_us_customers": true,
+  "sells_to_enterprise_b2b": true,
+  "processes_personal_data": true,
+  "processes_eu_personal_data": true,
+  "headcount": 40,
+  "stage": "series_a"
+}

@@ -1,0 +1,8 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): classroom A assistant asks for classroom B's roster.",
+  "principal": "classroom-a-assistant",
+  "record": "CB-ROSTER",
+  "data_origin": "synthetic",
+  "tool": "claude-code",
+  "purpose": "Compare section performance"
+}

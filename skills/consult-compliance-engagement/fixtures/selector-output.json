@@ -1,0 +1,45 @@
+{
+  "source": "fixture-co-profile.json",
+  "company": "Fixture Co (SYNTHETIC fixture, not a real company)",
+  "industry": "saas",
+  "applicable_frameworks": [
+    {
+      "id": "gdpr",
+      "name": "Regulation (EU) 2016/679 (GDPR)",
+      "type": "regulation",
+      "certifiable": false,
+      "binding": true
+    },
+    {
+      "id": "iso_27001",
+      "name": "ISO/IEC 27001:2022",
+      "type": "management_system",
+      "certifiable": true,
+      "binding": false
+    },
+    {
+      "id": "soc_2",
+      "name": "AICPA SOC 2 Trust Services",
+      "type": "attestation",
+      "certifiable": true,
+      "binding": false
+    }
+  ],
+  "framework_count": 3,
+  "binding_count": 1,
+  "certifiable_count": 2,
+  "dependency_notes": [
+    {
+      "framework": "soc_2",
+      "satisfied_dependencies": [
+        "iso_27001"
+      ],
+      "missing_dependencies": []
+    }
+  ],
+  "rationale": [
+    "GDPR: EU personal data processed; binding regardless of certifiable choice.",
+    "ISO 27001: enterprise B2B procurement frequently requires; foundation for AIMS + SOC 2.",
+    "SOC 2: US enterprise B2B procurement requires Type II audit; overlap with ISO 27001 ~75%."
+  ]
+}

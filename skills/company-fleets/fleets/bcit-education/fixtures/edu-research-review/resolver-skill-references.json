@@ -1,0 +1,166 @@
+{
+  "entries": {
+    "doi:10.1017/9781108654555": {
+      "authors": [
+        "Fincher",
+        "Robins"
+      ],
+      "doi": "10.1017/9781108654555",
+      "source": "crossref",
+      "titles": [
+        "The Cambridge Handbook of Computing Education Research"
+      ],
+      "years": [
+        2019
+      ]
+    },
+    "doi:10.1056/nejmsr077003": {
+      "authors": [
+        "Wang",
+        "Lagakos",
+        "Ware",
+        "Hunter",
+        "Drazen"
+      ],
+      "doi": "10.1056/nejmsr077003",
+      "source": "crossref",
+      "titles": [
+        "Statistics in Medicine — Reporting of Subgroup Analyses in Clinical Trials"
+      ],
+      "years": [
+        2007
+      ]
+    },
+    "doi:10.1145/3470652": {
+      "authors": [
+        "Heckman",
+        "Carver",
+        "Sherriff",
+        "Al-zubidy"
+      ],
+      "doi": "10.1145/3470652",
+      "source": "crossref",
+      "titles": [
+        "A Systematic Literature Review of Empiricism and Norms of Reporting in Computing Education Research Literature"
+      ],
+      "years": [
+        2021,
+        2022
+      ]
+    },
+    "doi:10.1177/0956797611417632": {
+      "authors": [
+        "Simmons",
+        "Nelson",
+        "Simonsohn"
+      ],
+      "doi": "10.1177/0956797611417632",
+      "source": "crossref",
+      "titles": [
+        "False-Positive Psychology",
+        "False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant"
+      ],
+      "years": [
+        2011
+      ]
+    },
+    "doi:10.1177/1948550617697177": {
+      "authors": [
+        "Lakens"
+      ],
+      "doi": "10.1177/1948550617697177",
+      "source": "crossref",
+      "titles": [
+        "Equivalence Tests",
+        "Equivalence Tests: A Practical Primer for\n                    <i>t</i>\n                    Tests, Correlations, and Meta-Analyses"
+      ],
+      "years": [
+        2017
+      ]
+    },
+    "doi:10.3102/0013189x032001005": {
+      "authors": [
+        "The Design-Based Research Collective"
+      ],
+      "doi": "10.3102/0013189x032001005",
+      "source": "crossref",
+      "titles": [
+        "Design-Based Research: An Emerging Paradigm for Educational Inquiry"
+      ],
+      "years": [
+        2003
+      ]
+    },
+    "doi:10.3102/0013189x035006033": {
+      "authors": [],
+      "doi": "10.3102/0013189x035006033",
+      "source": "crossref",
+      "titles": [
+        "Standards for Reporting on Empirical Social Science Research in AERA Publications",
+        "Standards for Reporting on Empirical Social Science Research in AERA Publications: American Educational Research Association"
+      ],
+      "years": [
+        2006
+      ]
+    },
+    "doi:10.3102/0013189x18781522": {
+      "authors": [
+        "Tipton",
+        "Olsen"
+      ],
+      "doi": "10.3102/0013189x18781522",
+      "source": "crossref",
+      "titles": [
+        "A Review of Statistical Methods for Generalizing From Evaluations of Educational Interventions"
+      ],
+      "years": [
+        2018
+      ]
+    },
+    "search:experimental and quasi experimental designs for generalized causal inference shadish cook 2002": {
+      "candidates": [
+        {
+          "authors": [
+            "Reichardt"
+          ],
+          "doi": "10.1086/345281",
+          "source": "crossref",
+          "titles": [
+            "<i>Experimental and Quasi‐Experimental Designs for Generalized Causal Inference</i>\n                    . By William R.  Shadish, Thomas D.  Cook, and Donald T.  Campbell. Boston: Houghton Mifflin, 2002. Pp. 623. $60.36 (paper)."
+          ],
+          "years": [
+            2002
+          ]
+        },
+        {
+          "authors": [
+            "MacCoun"
+          ],
+          "doi": "10.1002/pam.10129",
+          "source": "crossref",
+          "titles": [
+            "<i>Experimental and Quasi‐Experimental Designs for Generalized Causal Inference</i>\n                    , by William R. Shadish, Thomas D. Cook, and Donald T. Campbell. Boston: Houghton Mifflin, 2001, 623 pp., $65.56."
+          ],
+          "years": [
+            2003
+          ]
+        },
+        {
+          "authors": [
+            "Anderson-Cook"
+          ],
+          "doi": "10.1198/jasa.2005.s22",
+          "source": "crossref",
+          "titles": [
+            "Experimental and Quasi-Experimental Designs for Generalized Causal Inference"
+          ],
+          "years": [
+            2005
+          ]
+        }
+      ],
+      "source": "crossref-search"
+    }
+  },
+  "label": "Resolver responses recorded live by research_check citations --record; replay with --offline for repeatable runs."
+}

@@ -1,0 +1,23 @@
+{"skill_name": "consult-compliance-engagement", "evals": [
+  {"id": 1, "kind": "positive",
+   "prompt": "Check the Fixture Co SOC 2, GDPR and WCAG engagement before its authorized report goes out.",
+   "expected_output": "Exit 0, decision report-may-issue; all six stages pass; iso_27001 resolved as not-applicable with a rationale.",
+   "files": ["fixtures/engagement-ok.json", "fixtures/selector-output.json"],
+   "command": "python3 scripts/engagement_check.py --engagement fixtures/engagement-ok.json --selector fixtures/selector-output.json --evidence-root fixtures/evidence-store",
+   "expect_exit": 0,
+   "expectations": ["decision is report-may-issue", "six stages pass"]},
+  {"id": 2, "kind": "negative",
+   "prompt": "Check an engagement with undetermined GDPR applicability, unlicensed SOC 2 text, agent control owners, stale evidence, a collector reviewing its own work and an agent-authorized certification claim.",
+   "expected_output": "Exit 1, decision not-ready; every stage fails with its planted error.",
+   "files": ["fixtures/engagement-gaps.json", "fixtures/selector-output.json"],
+   "command": "python3 scripts/engagement_check.py --engagement fixtures/engagement-gaps.json --selector fixtures/selector-output.json --evidence-root fixtures/evidence-store",
+   "expect_exit": 1,
+   "expectations": ["decision is not-ready", "authorized-report has certification-claim-without-attestation and report-not-authorized-by-human", "independent-review has reviewer-not-independent"]},
+  {"id": 3, "kind": "boundary",
+   "prompt": "Check a draft report whose keyboard evidence is exactly at its 30-day limit.",
+   "expected_output": "Exit 0, decision ready-for-human-authorization; evidence at the limit counts, the draft is not treated as authorized.",
+   "files": ["fixtures/engagement-boundary.json", "fixtures/selector-output.json"],
+   "command": "python3 scripts/engagement_check.py --engagement fixtures/engagement-boundary.json --selector fixtures/selector-output.json --evidence-root fixtures/evidence-store",
+   "expect_exit": 0,
+   "expectations": ["decision is ready-for-human-authorization", "no evidence-stale error"]}
+]}

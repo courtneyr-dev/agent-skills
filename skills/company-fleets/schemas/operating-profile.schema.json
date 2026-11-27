@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "company-fleets/operating-profile.schema.json",
+  "title": "Operating profile",
+  "description": "A selectable business profile. Only the listed fleets may activate roles under it; not_responsible_for keeps a referral or reseller profile from owning infrastructure it cannot control.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "kind", "description", "fleets", "responsible_for", "not_responsible_for"],
+  "properties": {
+    "id": {"$ref": "common.schema.json#/$defs/slug"},
+    "name": {"$ref": "common.schema.json#/$defs/text"},
+    "kind": {"enum": ["hosting", "business"]},
+    "ladder_rank": {"type": "integer", "minimum": 1},
+    "description": {"$ref": "common.schema.json#/$defs/text"},
+    "fleets": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "common.schema.json#/$defs/slug"}},
+    "responsible_for": {"$ref": "common.schema.json#/$defs/text_list"},
+    "not_responsible_for": {"$ref": "common.schema.json#/$defs/text_list_or_empty"}
+  }
+}

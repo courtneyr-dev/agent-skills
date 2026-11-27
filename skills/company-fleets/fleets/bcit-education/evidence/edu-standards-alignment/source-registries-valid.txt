@@ -1,0 +1,15 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "records": 23 --contains "verified": 19 -- python3 ../edu-standards-alignment/scripts/standards_check.py registry
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.source-registries-valid
+{
+  "ok": true,
+  "errors": [],
+  "records": 23,
+  "counts": {
+    "gap": 2,
+    "unreachable": 1,
+    "unverified": 1,
+    "verified": 19
+  }
+}
+# expect: met
+# exit 0

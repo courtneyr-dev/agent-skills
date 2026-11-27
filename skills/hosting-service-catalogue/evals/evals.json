@@ -1,0 +1,30 @@
+{
+  "skill_name": "hosting-service-catalogue",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're launching a referral-only hosting offer. Our draft catalogue says Fixture Co is accountable for backups and restores because customers will ask us first. Check it against the affiliate profile and tell me what to change.",
+      "expected_output": "Runs the check, reports verdict fail with a rule 2 violation for backups in the provider-hosting service, and explains that an affiliate doesn't control infrastructure, so the accountable party should be the upstream provider with Fixture Co accountable for provider-escalation. Doesn't pass the catalogue by relaxing the vocabulary or by renaming the function.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/service-catalogue/affiliate-backups-accountable.json"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Here's our reseller catalogue with the upstream capacity provider listed. Is it ready to hand to the support team? Give me a matrix I can read in a doc.",
+      "expected_output": "Runs check first and reports the rule 3 failure: the upstream dependency lists obligations but no escalation path, once for each of hardware, network and data-center. Does not call it ready. Renders the Markdown matrix and states that the matrix describes the catalogue without judging it, and that the escalation path must be filled in by a human who knows the provider contract.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/service-catalogue/reseller-missing-escalation.json"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Our shared hosting catalogue doesn't offer email. Does the check fail us for that? And our support lead wants backups to be 'shared' between us and the customer; can we write that?",
+      "expected_output": "Reports the shared catalogue passes with mail listed under optional_absent, because mail is optional for the shared profile. For the backups question, shows that two accountable parties fail rule 1 (fixture-co and customer) and recommends one accountable party with the other listed as responsible for a defined part.",
+      "files": [
+        "../company-fleets/fleets/hosting/fixtures/service-catalogue/shared-valid-no-mail.json",
+        "../company-fleets/fleets/hosting/fixtures/service-catalogue/shared-two-accountable.json"
+      ]
+    }
+  ]
+}

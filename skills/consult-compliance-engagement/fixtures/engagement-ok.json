@@ -1,0 +1,162 @@
+{
+  "schema": "compliance-engagement.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person. Evidence hashes are of the synthetic artifacts in fixtures/evidence-store/.",
+  "engagement_id": "ENG-FX-COMP-1",
+  "tenant_id": "tenant-fixture-co",
+  "as_of": "2026-11-25",
+  "applicability": [
+    {
+      "framework": "soc_2",
+      "decision": "applies",
+      "edition": "2017 Trust Services Criteria (revised points of focus, 2022)",
+      "jurisdiction": "US customers' vendor reviews",
+      "scope": "Fixture Co Forms SaaS production environment",
+      "text_rights_status": "obtained",
+      "evidence_owner": "human:it-lead",
+      "review_authority": "human:independent-assessor"
+    },
+    {
+      "framework": "gdpr",
+      "decision": "applies",
+      "edition": "Regulation (EU) 2016/679",
+      "jurisdiction": "EU and EEA data subjects",
+      "scope": "Form submissions from EU customers",
+      "text_rights_status": "public",
+      "evidence_owner": "human:privacy-lead",
+      "review_authority": "human:privacy-counsel"
+    },
+    {
+      "framework": "wcag_2_2",
+      "decision": "applies",
+      "edition": "W3C Recommendation, 2023-10-05 (updated 2024-12-12)",
+      "jurisdiction": "Client contract clause (synthetic)",
+      "scope": "Five public form pages at level AA",
+      "text_rights_status": "public",
+      "evidence_owner": "human:product-design-lead",
+      "review_authority": "human:accessibility-reviewer"
+    },
+    {
+      "framework": "iso_27001",
+      "decision": "not-applicable",
+      "rationale": "No certification is sought and no current contract requires it; revisit at the next enterprise RFP."
+    }
+  ],
+  "controls": [
+    {
+      "id": "SOC2-CC6.1",
+      "framework": "soc_2",
+      "owner": "human:it-lead",
+      "description": "Logical access to production"
+    },
+    {
+      "id": "SOC2-CC7.2",
+      "framework": "soc_2",
+      "owner": "human:engineering-manager",
+      "description": "Monitoring for anomalies"
+    },
+    {
+      "id": "GDPR-ART30",
+      "framework": "gdpr",
+      "owner": "human:privacy-lead",
+      "description": "Records of processing activities"
+    },
+    {
+      "id": "WCAG-2.1.1",
+      "framework": "wcag_2_2",
+      "owner": "human:product-design-lead",
+      "description": "Keyboard operation of form pages"
+    }
+  ],
+  "evidence": [
+    {
+      "control": "SOC2-CC6.1",
+      "ref": "evidence/access-review-2026-q4.csv",
+      "sha256": "1f5c3e4b57088dde5feeca24f21cd7234a38223c9b2d1dd45819fa65bd712946",
+      "tenant_id": "tenant-fixture-co",
+      "collected_by": "consultancies.compliance-engineer",
+      "collected_on": "2026-11-10",
+      "max_age_days": 90
+    },
+    {
+      "control": "SOC2-CC7.2",
+      "ref": "evidence/alert-routing-export.json",
+      "sha256": "bd32ee6858c753cfe2e8bdc5bd03415264e79a67eeaf22a84b51d719ea0bf7bc",
+      "tenant_id": "tenant-fixture-co",
+      "collected_by": "consultancies.compliance-engineer",
+      "collected_on": "2026-11-12",
+      "max_age_days": 90
+    },
+    {
+      "control": "GDPR-ART30",
+      "ref": "evidence/ropa-2026-11.csv",
+      "sha256": "927e50b1e2a5f5f56403abf5d7557ad21038a2d162ec328912111f3aad46b6f5",
+      "tenant_id": "tenant-fixture-co",
+      "collected_by": "consultancies.compliance-engineer",
+      "collected_on": "2026-11-03",
+      "max_age_days": 365
+    },
+    {
+      "control": "WCAG-2.1.1",
+      "ref": "evidence/keyboard-retest-2026-11-20.md",
+      "sha256": "8b17457edc90a278bdf4cd01e74c7d750f7cc0075e0e25b6a6c820fb656a60bf",
+      "tenant_id": "tenant-fixture-co",
+      "collected_by": "consultancies.a11y-auditor",
+      "collected_on": "2026-11-20",
+      "max_age_days": 30
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "EX-1",
+      "control": "WCAG-2.1.1",
+      "status": "remediated",
+      "retest_evidence": "evidence/keyboard-retest-2026-11-20.md"
+    },
+    {
+      "id": "EX-2",
+      "control": "SOC2-CC7.2",
+      "status": "risk-accepted",
+      "accepted_by": "human:engineering-manager",
+      "expires": "2027-02-28"
+    }
+  ],
+  "review": {
+    "reviewer": "human:independent-assessor",
+    "scope_covered": [
+      "soc_2",
+      "gdpr",
+      "wcag_2_2"
+    ],
+    "result": "findings-recorded"
+  },
+  "report": {
+    "author": "consultancies.compliance-lead",
+    "status": "authorized",
+    "authorized_by": "human:engagement-owner",
+    "claims": [
+      {
+        "id": "C1",
+        "kind": "technical-conformance",
+        "framework": "wcag_2_2",
+        "text": "The five in-scope form pages met WCAG 2.2 success criterion 2.1.1 in the 2026-11-20 retest."
+      },
+      {
+        "id": "C2",
+        "kind": "regulatory-applicability",
+        "framework": "gdpr",
+        "text": "GDPR applies to form submissions from EU and EEA data subjects."
+      },
+      {
+        "id": "C3",
+        "kind": "organizational-certification",
+        "framework": "soc_2",
+        "text": "A SOC 2 Type II report covers the production environment for the stated period.",
+        "basis": {
+          "kind": "external-attestation",
+          "ref": "synthetic: attestation letter placeholder",
+          "issued_by": "human:cpa-firm-signer"
+        }
+      }
+    ]
+  }
+}

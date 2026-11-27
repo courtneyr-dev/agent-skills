@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "id": "compliance-engagement",
+  "code": "CMP",
+  "name": "Compliance engagement",
+  "source": "Project requirements, section 12 (cross-fleet workflows), workflow 8 of 8",
+  "profile": "enterprise",
+  "coordinator": "consultancies.practice-coordinator",
+  "home_workload": "consultancies.workload.compliance-engagement",
+  "outcome": "A compliance engagement that settles applicability, names human control owners, collects fresh evidence, remediates gaps, gets independent review and issues a report only with human authority.",
+  "final_consumer": "human:compliance-officer",
+  "stop_conditions": [
+    "Every acceptance criterion is met or refused with a reason",
+    "The step's budget is reached",
+    "A required human decision or human data is missing"
+  ],
+  "cancellation": "Stop the step's tools, keep partial outputs labeled partial in the run folder, and release the coordinator lease with its epoch.",
+  "steps": [
+    {
+      "id": "applicability",
+      "stage": "Applicability",
+      "producer": "consultancies.compliance-lead",
+      "reviewer": "consultancies.independent-reviewer",
+      "acceptance_owner": "consultancies.practice-coordinator",
+      "outcome": "Applicable frameworks from the registry, with undetermined ones named.",
+      "acceptance_criteria": [
+        "No framework outside the registry is assumed"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "applicability record",
+      "skills": [
+        "consult-compliance-engagement"
+      ]
+    },
+    {
+      "id": "control-owners",
+      "stage": "Control owners",
+      "producer": "consultancies.compliance-engineer",
+      "reviewer": "corporate.security-lead",
+      "acceptance_owner": "human:control-owner",
+      "outcome": "Each control mapped to a named human owner.",
+      "acceptance_criteria": [
+        "Every control owner is a person"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "control register",
+      "skills": []
+    },
+    {
+      "id": "evidence",
+      "stage": "Evidence collection",
+      "producer": "consultancies.compliance-engineer",
+      "reviewer": "consultancies.independent-reviewer",
+      "acceptance_owner": "consultancies.compliance-lead",
+      "outcome": "Evidence within its age limit, from the tenant only.",
+      "acceptance_criteria": [
+        "No evidence older than its limit",
+        "No other tenant's evidence"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "evidence set",
+      "skills": [
+        "consult-compliance-engagement"
+      ]
+    },
+    {
+      "id": "remediation",
+      "stage": "Gap remediation",
+      "producer": "hosting.security-engineer",
+      "reviewer": "consultancies.compliance-engineer",
+      "acceptance_owner": "human:control-owner",
+      "outcome": "Remediation proposals for each gap.",
+      "acceptance_criteria": [
+        "Each gap has an owner and a proposal"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "remediation plan",
+      "skills": []
+    },
+    {
+      "id": "independent-review",
+      "stage": "Independent review",
+      "producer": "consultancies.independent-reviewer",
+      "reviewer": "human:external-assessor",
+      "acceptance_owner": "consultancies.compliance-lead",
+      "outcome": "An independent review that did not produce the evidence it reviews.",
+      "acceptance_criteria": [
+        "The reviewer produced none of the reviewed work"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "review record",
+      "skills": []
+    },
+    {
+      "id": "report",
+      "stage": "Authorized report",
+      "producer": "consultancies.compliance-lead",
+      "reviewer": "consultancies.independent-reviewer",
+      "acceptance_owner": "human:compliance-officer",
+      "outcome": "A report draft held for the compliance officer; conformance, applicability and certification claims kept apart.",
+      "acceptance_criteria": [
+        "No certification claim without an attestation"
+      ],
+      "readiness_criteria": [
+        "Every output has fresh evidence under the current contract"
+      ],
+      "artifact": "report draft",
+      "skills": [
+        "consult-compliance-engagement"
+      ],
+      "authority": {
+        "publication": "staged-only"
+      }
+    }
+  ]
+}

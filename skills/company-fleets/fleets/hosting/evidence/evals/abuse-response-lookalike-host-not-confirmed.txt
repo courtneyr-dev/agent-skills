@@ -1,0 +1,30 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json tenant_confirmed=false --json 'hosts=["client-a.example.evil.test", "evilclient-a.example"]' -- sh -c 'printf '"'"'SYNTHETIC FIXTURE: look-alike host report.\nPhishing at https://client-a.example.evil.test/login and http://evilclient-a.example/\n'"'"' > {tmp}/r.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/r.txt --case-dir {tmp}/case --tenant tenant-a --category phishing'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-lookalike-host-not-confirmed kind boundary synthetic true
+{
+  "assumptions": [
+    "Read-only mode (0444) deters edits; the hashes and custody chain detect them",
+    "The custody head is copied to the owner's anchors ledger; a case rewritten and rehashed in place fails verify"
+  ],
+  "case_id": "case-57637c74ab7b",
+  "category": "phishing",
+  "custody_head_sha256": "82c7303193745cb9f01bba29c8834b68306e9763a72b0a9de09a92a41e415d2c",
+  "hosts": [
+    "client-a.example.evil.test",
+    "evilclient-a.example"
+  ],
+  "preserved": [
+    {
+      "mode": "0444",
+      "path": "evidence/r.txt",
+      "sha256": "57637c74ab7b1923fa036d2b64609f7b17cf11dec65450ecfa987794b75342a0",
+      "size": 129
+    }
+  ],
+  "state": "preserved",
+  "tenant_confirmed": false,
+  "tenant_id": "tenant-a",
+  "untrusted_findings": [],
+  "verdict": "preserved"
+}
+# expect: met
+# exit 0

@@ -1,0 +1,23 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json state=proposed --json executed=false --json report_flagged=3 --absent approved-for-human-execution -- sh -c 'mkdir -p {tmp}/in && { cat fleets/hosting/fixtures/abuse-response/phishing-report-tenant-b.txt; echo '"'"'Forwarded with ticket EV-abuse-response-embedded-instruction-ignored'"'"'; } > {tmp}/in/phishing-report-tenant-b.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/in/phishing-report-tenant-b.txt --case-dir {tmp}/case --tenant tenant-b --category phishing >/dev/null && python3 ../hosting-abuse-response/scripts/abuse_case.py propose --case-dir {tmp}/case --action suspend'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-embedded-instruction-ignored kind negative synthetic true
+{
+  "action": "suspend",
+  "assumptions": [
+    "Approval is a separate `approve` step by a human the owner's policy lists; the script can't check who typed --by, so the panel step needs its own sign-in",
+    "Report text never feeds this decision"
+  ],
+  "case_id": "case-d32aa648f3f3",
+  "category": "phishing",
+  "clause": "AUP-4.2",
+  "custody_head_sha256": "9dde7d188a7428b20a79af3388cd67339af7352cb1c074686d07fc8be948d723",
+  "decision": "proposed-for-approval",
+  "executed": false,
+  "next": "a human the owner's policy lists runs approve --by human:slug",
+  "recorded": true,
+  "report_flagged": 3,
+  "state": "proposed",
+  "subject_sha256": "c274df838c3e8f123335c095fbc6e21ebcfc1be52eb0e710671b3838e3a9c576",
+  "tenant_id": "tenant-b"
+}
+# expect: met
+# exit 0

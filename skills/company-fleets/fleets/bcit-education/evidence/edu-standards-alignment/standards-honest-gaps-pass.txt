@@ -1,0 +1,164 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "coverage": "partial" --contains "errors": 0 -- python3 ../edu-standards-alignment/scripts/standards_check.py align fleets/bcit-education/fixtures/bcit-unit-store/alignment.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.standards-honest-gaps-pass
+{
+  "ok": true,
+  "errors": 0,
+  "coverage": "partial",
+  "supported_counts": {
+    "gap": 6,
+    "unverified": 3,
+    "partial": 0,
+    "verified": 0,
+    "not-applicable": 0
+  },
+  "objectives": {
+    "O1": "gap",
+    "O2": "unverified",
+    "O3": "unverified"
+  },
+  "rows": [
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "nbea-2023",
+      "standard_id": null,
+      "claimed": "gap",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "source-unavailable",
+          "message": "nbea-2023 is unreachable in the registry; record the limitation and keep the mapping a gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "nbea-2023",
+      "standard_id": null,
+      "claimed": "gap",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "source-unavailable",
+          "message": "nbea-2023 is unreachable in the registry; record the limitation and keep the mapping a gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2026",
+      "standard_id": null,
+      "claimed": "unverified",
+      "supported": "unverified",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "no-identifier",
+          "message": "no standard_id given; a concept-level mapping is partial at best"
+        },
+        {
+          "severity": "note",
+          "code": "no-human-review",
+          "message": "partial needs a human reviewer and a supporting evidence reference"
+        }
+      ]
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "iste-students",
+      "standard_id": "1.5",
+      "claimed": "unverified",
+      "supported": "unverified",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "no-human-review",
+          "message": "verified needs a human reviewer and a supporting evidence reference"
+        }
+      ]
+    },
+    {
+      "objective_id": "O3",
+      "criterion_id": "R3",
+      "record_id": "nbea-2023",
+      "standard_id": null,
+      "claimed": "gap",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "source-unavailable",
+          "message": "nbea-2023 is unreachable in the registry; record the limitation and keep the mapping a gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O3",
+      "criterion_id": "R4",
+      "record_id": "nbea-2023",
+      "standard_id": null,
+      "claimed": "gap",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "source-unavailable",
+          "message": "nbea-2023 is unreachable in the registry; record the limitation and keep the mapping a gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O3",
+      "criterion_id": "R3",
+      "record_id": "pa-state-curriculum",
+      "standard_id": null,
+      "claimed": "gap",
+      "supported": "unverified",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "source-unverified",
+          "message": "pa-state-curriculum was not verified on the live source"
+        }
+      ]
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "nocti-blueprints",
+      "standard_id": null,
+      "claimed": "gap",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "assessment-not-selected",
+          "message": "no NOCTI credential category and identifier is selected; alignment is a gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O1",
+      "criterion_id": "R1",
+      "record_id": "district-curriculum",
+      "standard_id": null,
+      "claimed": "gap",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "source-unavailable",
+          "message": "district-curriculum is gap in the registry; record the limitation and keep the mapping a gap"
+        }
+      ]
+    }
+  ],
+  "label": "SYNTHETIC FIXTURE (Fixture Co): standards alignment for the student-run store unit. No human has reviewed these mappings, so none is verified; no standard text is stored."
+}
+# expect: met
+# exit 0

@@ -1,0 +1,40 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "status": "ready-for-teacher-review" --contains "progress_claim": null -- python3 ../cs-classroom-instruction/scripts/lesson.py respond fleets/bcit-education/fixtures/cs-classroom-instruction/lesson-accumulator.json fleets/bcit-education/fixtures/cs-classroom-instruction/learner-pass-with-trace.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.cs-trace-ready-for-teacher-review
+{
+  "progress_claim": null,
+  "note": "The script never records mastery or progress. The teacher of record reviews the work and decides.",
+  "task_id": "T2",
+  "learner_ref": "classroom-a/learner-11 (synthetic)",
+  "status": "ready-for-teacher-review",
+  "tests": [
+    {
+      "id": "week",
+      "input": "12 9 15 7 11\n",
+      "expected": "54",
+      "actual": "54\n",
+      "error": "",
+      "passed": true
+    },
+    {
+      "id": "one-day",
+      "input": "5\n",
+      "expected": "5",
+      "actual": "5\n",
+      "error": "",
+      "passed": true
+    },
+    {
+      "id": "closed-week",
+      "input": "\n",
+      "expected": "0",
+      "actual": "0\n",
+      "error": "",
+      "passed": true
+    }
+  ],
+  "misconceptions": [],
+  "feedback": "All 3 tests pass and your trace names each running value. Your teacher will review the explanation.",
+  "next_action": "Try T3: find the busiest day using the same running-value idea."
+}
+# expect: met
+# exit 0

@@ -1,0 +1,17 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.compliance-cross-tenant-evidence-refused (negative, target consult-compliance-engagement).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../consult-compliance-engagement/scripts/tests/test_engagement_check.py EngagementCheckTest.test_cross_tenant_evidence_is_refused -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-compliance-engagement/scripts/tests/test_engagement_check.py EngagementCheckTest.test_cross_tenant_evidence_is_refused -v
+
+stderr:
+test_cross_tenant_evidence_is_refused (__main__.EngagementCheckTest.test_cross_tenant_evidence_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.036s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

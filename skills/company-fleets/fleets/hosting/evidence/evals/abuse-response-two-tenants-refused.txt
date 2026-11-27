@@ -1,0 +1,10 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=tenant-ambiguous -- sh -c 'printf '"'"'SYNTHETIC FIXTURE: two-tenant report.\nPages at https://www.tenant-a.example/x and https://www.tenant-b.example/y\n'"'"' > {tmp}/r.txt && python3 ../hosting-abuse-response/scripts/abuse_case.py intake --report {tmp}/r.txt --case-dir {tmp}/case --tenant tenant-a --category phishing'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.abuse-response-two-tenants-refused kind negative synthetic true
+{
+  "detail": "the report names hosts of tenant-a, tenant-b; a human splits it into one report per tenant before intake, so one case never confirms several tenants",
+  "recorded": false,
+  "refusal": "tenant-ambiguous",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

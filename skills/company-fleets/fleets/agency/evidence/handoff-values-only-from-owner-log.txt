@@ -1,0 +1,15 @@
+# eval agency.eval.handoff-values-only-from-owner-log (negative, target agency-engagement-gate)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../agency-engagement-gate/scripts/tests/test_engagement_gate.py -v HandoffTests.test_handoff_the_owner_never_opened_is_refused HandoffTests.test_symlink_into_another_tenant_folder_is_refused HandoffTests.test_input_edited_after_the_intake_is_refused HandoffTests.test_handwritten_submission_with_an_extra_input_fails_the_fleet_gate
+run on 2026-11-26, exit 0
+
+[stderr]
+test_handoff_the_owner_never_opened_is_refused (__main__.HandoffTests.test_handoff_the_owner_never_opened_is_refused) ... ok
+test_symlink_into_another_tenant_folder_is_refused (__main__.HandoffTests.test_symlink_into_another_tenant_folder_is_refused) ... ok
+test_input_edited_after_the_intake_is_refused (__main__.HandoffTests.test_input_edited_after_the_intake_is_refused) ... ok
+test_handwritten_submission_with_an_extra_input_fails_the_fleet_gate (__main__.HandoffTests.test_handwritten_submission_with_an_extra_input_fails_the_fleet_gate) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.070s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

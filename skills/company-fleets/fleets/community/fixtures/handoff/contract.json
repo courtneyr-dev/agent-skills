@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "task_id": "FIX-COMM-FB-1",
+  "repo": "fixture-co/community-a",
+  "title": "SYNTHETIC: Community A onboarding and governance kit with a feedback-to-product handoff",
+  "spec": {
+    "id": "SPEC-FIX-COMM-KIT",
+    "revision": "1",
+    "sha256": "9c72b4b83eed2157c9860150218fb02781878694e37c6158f3252508c94a6492"
+  },
+  "depends_on": [],
+  "required_decisions": [],
+  "backends": [
+    "implement-spec"
+  ],
+  "base_branch": "main",
+  "verify": {
+    "argv": [
+      "python3",
+      "../community-operating-kit/scripts/kit_check.py",
+      "fleets/community/fixtures/kit/community-a-kit.md"
+    ]
+  },
+  "acceptance": [
+    "The kit passes kit_check",
+    "Feedback to product carries no moderation case, member identity or individual activity"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "advisories_sha256": "2baf14c1e92a0e3ab1fc1bfde69dd4599e3ee093b2426ba4812928d66386d91f",
+  "findings": [
+    {
+      "id": "FIXTURE-ADV-1",
+      "package": "left-pad-fixture",
+      "severity": "low",
+      "version": "1.3.0"
+    },
+    {
+      "id": "FIXTURE-ADV-2",
+      "package": "tiny-parser-fixture",
+      "severity": "medium",
+      "version": "2.0.1"
+    }
+  ],
+  "kind": "dependencies",
+  "lockfile_sha256": "66a63ac6c5cc88680d0da44ca544cb478634ebeea461e8804b4b871bf50e1b43",
+  "packages": 3,
+  "preview_id": "prev-self-approved",
+  "recorded_by": "isolation_check record-dependencies",
+  "subject_sha256": "f3bf671034f343edeec7d9f8fc89f111e720ec97a4f096b457e85813d79b95b8",
+  "tenant_id": "tenant-a"
+}

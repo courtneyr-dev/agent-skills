@@ -1,0 +1,34 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): assessment criteria for the break-even methods module. Anchors are generated practice anchors, not real candidate work.",
+  "rubric_id": "fixture-co-bcit-break-even-methods-v1",
+  "criteria": [
+    {"id": "C1", "name": "Business accuracy", "evidence_line": "business_subject_mastery", "levels": [
+      {"score": 0, "descriptor": "Break-even computed from price alone, or fixed and variable costs confused"},
+      {"score": 1, "descriptor": "Correct contribution margin; break-even or target-profit result wrong"},
+      {"score": 2, "descriptor": "All results correct; explanation of what break-even means is missing or vague"},
+      {"score": 3, "descriptor": "All results correct and explained as the point where contribution covers fixed costs"}]},
+    {"id": "C2", "name": "Spreadsheet and query correctness, scored against the executed key", "evidence_line": "technology_fluency", "levels": [
+      {"score": 0, "descriptor": "Typed results or formulas that don't execute to the key"},
+      {"score": 1, "descriptor": "Some formulas execute to the key; others typed or wrong"},
+      {"score": 2, "descriptor": "All formulas execute to the key; a query is wrong or missing"},
+      {"score": 3, "descriptor": "All formulas and both queries execute to the key; inputs held in referenced cells"}]},
+    {"id": "C3", "name": "Pedagogical rationale", "evidence_line": "pedagogical_competence", "levels": [
+      {"score": 0, "descriptor": "No reason given for the sequence"},
+      {"score": 1, "descriptor": "Reasons are generic ('engaging', 'hands-on')"},
+      {"score": 2, "descriptor": "Reasons tie choices to the task; misconceptions not addressed"},
+      {"score": 3, "descriptor": "Each choice tied to the store task and to a named misconception it targets"}]},
+    {"id": "C4", "name": "Responsive checking for understanding (observed)", "evidence_line": "pedagogical_competence", "levels": [
+      {"score": 0, "descriptor": "No check, or a yes/no 'any questions?'"},
+      {"score": 1, "descriptor": "A check is asked; responses aren't used"},
+      {"score": 2, "descriptor": "Responses are used; the follow-up is the same for every answer"},
+      {"score": 3, "descriptor": "The follow-up changes with the actual responses heard"}]}
+  ],
+  "anchors": [
+    {"id": "T1", "criterion": "C1", "origin": "generated-practice-anchor", "sample": "Break-even is 180 stickers because 450 / 2.50 = 180.", "intended_score": 0, "rationale": "Divides by price; ignores variable cost."},
+    {"id": "T2", "criterion": "C1", "origin": "generated-practice-anchor", "sample": "Each sticker contributes $1.50, so 300 stickers cover the $450. For $150 profit we need 400.", "intended_score": 2, "rationale": "Correct results; meaning stated only implicitly."},
+    {"id": "T3", "criterion": "C2", "origin": "generated-practice-anchor", "sample": "B6 contains the typed value 300.", "intended_score": 0, "rationale": "A typed result hides the relationship and fails a price change."},
+    {"id": "T4", "criterion": "C3", "origin": "generated-practice-anchor", "sample": "I start with a worked example because it's engaging for students.", "intended_score": 1, "rationale": "Generic reason, not tied to the task or a misconception."},
+    {"id": "T5", "criterion": "C3", "origin": "generated-practice-anchor", "sample": "Students predict whether raising the price to $3 lowers break-even before computing, because many think break-even depends on price alone.", "intended_score": 3, "rationale": "Choice tied to the task and a named misconception."},
+    {"id": "T6", "criterion": "C4", "origin": "generated-practice-anchor", "sample": "Transcript excerpt (generated): after two peers answer 180 and one answers 300, the candidate asks the 180 pair to compute the profit at 180 stickers.", "intended_score": 3, "rationale": "Follow-up depends on the answers heard."}
+  ]
+}

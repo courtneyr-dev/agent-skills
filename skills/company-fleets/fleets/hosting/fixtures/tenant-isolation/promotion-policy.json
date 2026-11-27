@@ -1,0 +1,13 @@
+{
+  "label": "SYNTHETIC: Fixture Co preview-to-production promotion policy, owned by human:change-approver. isolation_check.py reads the threshold and approvers only from this file.",
+  "blocking_severity": "high",
+  "approver_rule": "the approver is listed for the preview's tenant and is not the principal that produced the preview",
+  "approvers": {
+    "tenant-a": [
+      "human:tenant-a-owner"
+    ],
+    "tenant-b": [
+      "human:tenant-b-owner"
+    ]
+  }
+}

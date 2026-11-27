@@ -1,0 +1,21 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: a former name, invented memberships and credentials, and an organization that does not exist.",
+  "references": [
+    {
+      "name": "SIGITE",
+      "relation": "cites"
+    },
+    {
+      "name": "CBTR",
+      "relation": "certified-by"
+    },
+    {
+      "name": "Computer Science Teachers Association",
+      "relation": "member"
+    },
+    {
+      "name": "International Guild of Coding Teachers",
+      "relation": "knowledge-source"
+    }
+  ]
+}

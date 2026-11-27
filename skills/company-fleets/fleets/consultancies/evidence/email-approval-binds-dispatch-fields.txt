@@ -1,0 +1,20 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.email-approval-binds-dispatch-fields (negative, target consult-email-send-gate).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../consult-email-send-gate/scripts/tests/test_send_gate.py SendGateTests.test_approval_does_not_survive_a_kind_flip_to_transactional SendGateTests.test_approval_does_not_survive_audience_growth SendGateTests.test_approval_does_not_survive_subject_sender_or_header_changes SendGateTests.test_v1_authorization_that_bound_only_content_is_refused -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../consult-email-send-gate/scripts/tests/test_send_gate.py SendGateTests.test_approval_does_not_survive_a_kind_flip_to_transactional SendGateTests.test_approval_does_not_survive_audience_growth SendGateTests.test_approval_does_not_survive_subject_sender_or_header_changes SendGateTests.test_v1_authorization_that_bound_only_content_is_refused -v
+
+stderr:
+test_approval_does_not_survive_a_kind_flip_to_transactional (__main__.SendGateTests.test_approval_does_not_survive_a_kind_flip_to_transactional) ... ok
+test_approval_does_not_survive_audience_growth (__main__.SendGateTests.test_approval_does_not_survive_audience_growth) ... ok
+test_approval_does_not_survive_subject_sender_or_header_changes (__main__.SendGateTests.test_approval_does_not_survive_subject_sender_or_header_changes) ... ok
+test_v1_authorization_that_bound_only_content_is_refused (__main__.SendGateTests.test_v1_authorization_that_bound_only_content_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.256s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

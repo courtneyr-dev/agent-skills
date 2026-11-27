@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=approval-needs-approve-step -- sh -c 'cp fleets/hosting/fixtures/incident-response/incident-monitoring.jsonl {tmp}/r.jsonl && python3 ../hosting-incident-response/scripts/incident.py incident comms --record {tmp}/r.jsonl --audience external --by human:bot-writer --approved-by human:bot-writer --text '"'"'All clear.'"'"''
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.incident-response-drafter-cannot-approve-own-update kind negative synthetic true
+{
+  "detail": "comms records a draft; an owner-listed approver approves it with `incident approve --seq N --by human:slug`, never the drafter's own --approved-by",
+  "refusal": "approval-needs-approve-step",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

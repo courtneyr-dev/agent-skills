@@ -1,0 +1,38 @@
+$ sh -c 'python3 ../community-moderation-review/scripts/case_check.py --case fleets/community/fixtures/moderation/case-cm-1.json --draft fleets/community/fixtures/moderation/draft-conflict.json; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.moderation-conflict-refused (negative, target community.appeal-coordinator, synthetic=True)
+# expected: Exit 1: conflict-not-recused twice and appeal-route-changed twice.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "community-moderation-review",
+  "version": "1.0.0",
+  "case_id": "CM-CASE-1",
+  "ok": false,
+  "violations": [
+    {
+      "rule": "conflict-not-recused",
+      "where": "handling.assigned_reviewers",
+      "message": "human:moderator-a has a conflict with member-s1 and can't review"
+    },
+    {
+      "rule": "conflict-not-recused",
+      "where": "handling.recused",
+      "message": "human:moderator-a has a declared conflict and must be listed as recused"
+    },
+    {
+      "rule": "appeal-route-changed",
+      "where": "appeal_route.reviewer",
+      "message": "human:trust-safety-lead replaced human:appeals-coordinator"
+    },
+    {
+      "rule": "appeal-route-changed",
+      "where": "appeal_route.window_days",
+      "message": "window 3 is shorter than the policy's 14 days"
+    }
+  ],
+  "authority": "advisory: human:trust-safety-lead decides the case; this check only bounds what an agent may draft"
+}
+--- stderr ---
+

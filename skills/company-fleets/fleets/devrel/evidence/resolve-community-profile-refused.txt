@@ -1,0 +1,15 @@
+$ sh -c 'bin/fleet resolve --profile community --workload devrel.workload.program-plan; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:07Z
+# case: devrel.eval.resolve-community-profile-refused (negative, target devrel.program-lead, synthetic=True)
+# expected: Exit 1: the router can't load DevRel roles for a community-only workload.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "error": "profile community does not activate fleet devrel",
+  "files_read": [
+    "registry/profiles.json"
+  ]
+}
+--- stderr ---
+

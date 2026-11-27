@@ -1,0 +1,49 @@
+{
+  "label": "Applicability registry for consult-compliance-engagement. Editions are as known on 2026-11-25 from the rig's reference knowledge and were not re-fetched; confirm the current edition at the publisher before an engagement relies on it. Ids match compliance-os framework_selector.py output where that script covers the framework.",
+  "as_of": "2026-11-25",
+  "verified_against_publisher": false,
+  "frameworks": {
+    "wcag_2_2": {
+      "name": "Web Content Accessibility Guidelines 2.2", "publisher": "W3C", "edition": "W3C Recommendation, 2023-10-05 (updated 2024-12-12)",
+      "kind": "technical-standard", "text_rights": "public", "rights_note": "W3C Document License; cite, do not copy",
+      "attestation": "none: no body certifies WCAG conformance; a conformance claim is the content owner's, scoped to pages and a level",
+      "url": "https://www.w3.org/TR/WCAG22/"
+    },
+    "pci_dss": {
+      "name": "Payment Card Industry Data Security Standard", "publisher": "PCI Security Standards Council", "edition": "v4.0.1 (June 2024)",
+      "kind": "contractual-standard", "text_rights": "licensed-agreement", "rights_note": "Download requires accepting the PCI SSC license agreement; do not redistribute",
+      "attestation": "Report on Compliance by a Qualified Security Assessor, or a Self-Assessment Questionnaire as the acquirer requires",
+      "url": "https://www.pcisecuritystandards.org/document_library/"
+    },
+    "iso_27001": {
+      "name": "ISO/IEC 27001 information security management systems", "publisher": "ISO/IEC", "edition": "ISO/IEC 27001:2022 with Amendment 1:2024",
+      "kind": "certifiable-management-standard", "text_rights": "licensed-purchase", "rights_note": "Copyrighted; buy a licensed copy before using its text or Annex A wording",
+      "attestation": "Certificate from an accredited certification body",
+      "url": "https://www.iso.org/standard/27001"
+    },
+    "soc_2": {
+      "name": "SOC 2, AICPA Trust Services Criteria", "publisher": "AICPA", "edition": "2017 Trust Services Criteria (revised points of focus, 2022)",
+      "kind": "attestation-criteria", "text_rights": "licensed-free", "rights_note": "AICPA copyright; free download, cite rather than copy",
+      "attestation": "SOC 2 report issued by a licensed CPA firm",
+      "url": "https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services"
+    },
+    "nist_csf_2": {
+      "name": "NIST Cybersecurity Framework", "publisher": "NIST", "edition": "CSF 2.0 (2024-02-26)",
+      "kind": "voluntary-framework", "text_rights": "public", "rights_note": "US government work",
+      "attestation": "none: no certification exists; organizations describe their own profile",
+      "url": "https://www.nist.gov/cyberframework"
+    },
+    "nist_sp_800_53": {
+      "name": "NIST SP 800-53 Security and Privacy Controls", "publisher": "NIST", "edition": "Revision 5 (confirm the current minor release at use)",
+      "kind": "control-catalog", "text_rights": "public", "rights_note": "US government work",
+      "attestation": "Depends on the program that requires it (for example a federal authorization); none by itself",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    },
+    "gdpr": {
+      "name": "General Data Protection Regulation", "publisher": "European Union", "edition": "Regulation (EU) 2016/679",
+      "kind": "regulation", "text_rights": "public", "rights_note": "EUR-Lex reuse under Commission Decision 2011/833/EU",
+      "attestation": "none for the regulation itself; a legal conclusion on compliance belongs to counsel or a supervisory authority",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+    }
+  }
+}

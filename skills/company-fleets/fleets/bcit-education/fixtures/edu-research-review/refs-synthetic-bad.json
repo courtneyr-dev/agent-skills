@@ -1,0 +1,40 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): invented for testing; no real study, school, classroom or participant. Three references: one correct, one real DOI cited with the wrong year, one fabricated.",
+  "source": "synthetic bibliography",
+  "references": [
+    {
+      "id": "S-correct",
+      "doi": "10.3102/0013189X12463051",
+      "cited": {
+        "title": "Computational thinking in K-12: A review of the state of the field",
+        "year": 2013,
+        "authors": [
+          "Grover",
+          "Pea"
+        ]
+      }
+    },
+    {
+      "id": "S-wrong-year",
+      "doi": "10.1145/1118178.1118215",
+      "cited": {
+        "title": "Computational thinking",
+        "year": 2010,
+        "authors": [
+          "Wing"
+        ]
+      }
+    },
+    {
+      "id": "S-fabricated",
+      "doi": "10.9999/fixture-co.2024.001",
+      "cited": {
+        "title": "Generative AI tutors double novice programming gains: a national randomized trial",
+        "year": 2024,
+        "authors": [
+          "Fixturesson"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=scan-not-preview-content -- sh -c 'mkdir {tmp}/empty && python3 ../hosting-tenant-isolation/scripts/isolation_check.py secrets scan --path {tmp}/empty --manifest fleets/hosting/fixtures/tenant-isolation/secrets-manifest.json --record-for fleets/hosting/fixtures/tenant-isolation/preview-leaked-secret.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.tenant-isolation-empty-folder-scan-refused kind negative synthetic true
+{
+  "detail": "an owner scan covers the preview's own build folder $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/fleets/hosting/fixtures/tenant-isolation/build-output-leaky; --path $TMPDIR/hosting-eval-xh_v3yxs/empty is another folder",
+  "refusal": "scan-not-preview-content",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

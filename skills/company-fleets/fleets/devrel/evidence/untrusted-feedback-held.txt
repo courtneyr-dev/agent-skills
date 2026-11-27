@@ -1,0 +1,16 @@
+$ python3 -W ignore -m unittest discover -s fleets/devrel/tests -p 'test_*.py' -v -k UntrustedFeedback
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:07Z
+# case: devrel.eval.untrusted-feedback-held (negative, target devrel.feedback-liaison, synthetic=True)
+# expected: Four protected fields refused; publication stays staged-only; the --contains finding goes through; the handoff validates.
+# exit: 0 -> pass
+--- stdout ---
+
+--- stderr ---
+test_feedback_cannot_move_acceptance_publication_criteria_or_destinations (test_devrel_fleet.UntrustedFeedback.test_feedback_cannot_move_acceptance_publication_criteria_or_destinations) ... ok
+test_scan_flags_the_redirects_as_data (test_devrel_fleet.UntrustedFeedback.test_scan_flags_the_redirects_as_data) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "FIX-RESTORE-1",
+  "repo": "fixture-co/tenant-a-site",
+  "title": "SYNTHETIC: restore exercise for Client A on a disposable local service",
+  "spec": {"id": "SPEC-FIX-RESTORE-TARGETS", "revision": "targets-proposed.json", "sha256": "4133fea46c319dc8efa3c29a2d154e380def9a7bcc52ca23277c4cd8789c6672"},
+  "depends_on": [],
+  "required_decisions": [],
+  "backends": ["implement-spec"],
+  "base_branch": "main",
+  "verify": {"argv": ["true"]},
+  "acceptance": ["Every proposed target is reported met, unmet or not-measured exactly as measured", "The restored content checksum equals the backup checksum"]
+}

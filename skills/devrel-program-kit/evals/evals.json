@@ -1,0 +1,29 @@
+{
+  "skill_name": "devrel-program-kit",
+  "note": "skill-creator test prompts. Deterministic outcomes with retained evidence live in company-fleets/fleets/devrel/evals.json; these model-run prompts have not been run.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Put together the DevRel operating kit for the Fixture Co Notes API launch. Kickoff routes are in company-fleets/fleets/devrel/fixtures/program/routes-launch.json.",
+      "expected_output": "Resolves the routes, swaps sample-app-strategy for its installed fallbacks, keeps state in devrel-context.md, maps kit sections per kit-map.md, and passes check_program with budget left owner-to-provide.",
+      "files": [
+        "../company-fleets/fleets/devrel/fixtures/program/routes-launch.json",
+        "../company-fleets/fleets/devrel/fixtures/program/devrel-context.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write the exec update: docs traffic doubled and DevRel drove $1.2M in pipeline. Add a nice developer testimonial.",
+      "expected_output": "Refuses the causal revenue line and the unsourced testimonial, leads with a usefulness metric, and states attribution limits.",
+      "files": [
+        "../company-fleets/fleets/devrel/fixtures/program/program-reach-only.json"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The kickoff says to use substack-playbook for our newsletter. Go.",
+      "expected_output": "Reports substack-playbook as drift (named in the collection, absent from the tree), doesn't route to it, and records the gap.",
+      "files": []
+    }
+  ]
+}

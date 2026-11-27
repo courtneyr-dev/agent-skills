@@ -1,0 +1,53 @@
+{
+  "label": "SYNTHETIC demonstration 5 (Fixture Co, fictional classroom A): BCIT student-run store unit with authentic business and computing tasks, an honest partial standards mapping, complete materials and an executed answer key. Student work in the fixtures is synthetic and labeled; no learner data exists.",
+  "instance": "DEMO5",
+  "tenant_id": "classroom-a",
+  "client_id": null,
+  "profile": "school",
+  "needs": [],
+  "exclusions": ["Real student records", "Classroom results", "Claims of standards alignment without recorded access"],
+  "sources": [{"ref": "company-fleets/fleets/bcit-education/fixtures/bcit-unit-store", "revision": "fixture"}],
+  "data": {"classification": "internal", "allowed_destinations": ["tenant:classroom-a", "rig:evidence"]},
+  "budget": {"max_minutes": 30, "max_retries": 1},
+  "tools": {
+    "standards": {
+      "collect": [{"from": "{skill}/fleets/bcit-education/fixtures/bcit-unit-store", "as": "unit"}],
+      "produce": [{"argv": ["{python}", "{skills}/edu-standards-alignment/scripts/standards_check.py", "align", "{work}/unit/alignment.json"], "stdout": "standards.json"},
+                  {"argv": ["{python}", "{skills}/edu-standards-alignment/scripts/standards_check.py", "align", "{work}/unit/alignment-overclaim.json"], "stdout": "standards-overclaim.json", "expect_exit": [1]}],
+      "check": {"argv": ["sh", "-c", "{python} {skill}/demos/check_json.py {work}/standards.json -- ok=true errors=0 coverage=partial && {python} {skill}/demos/check_json.py {work}/standards-overclaim.json -- ok=false"]},
+      "outputs": ["unit/alignment.json", "standards.json", "standards-overclaim.json"],
+      "summary": "Standards coverage is partial: every mapping is a gap or unverified, none verified; NBEA stays a gap because its edition and license are not recorded. An overclaiming alignment was rejected."
+    },
+    "assessment": {
+      "collect": [{"from": "{skill}/fleets/bcit-education/fixtures/bcit-unit-store", "as": "unit"}],
+      "produce": [{"argv": ["{python}", "{skills}/edu-assessment-check/scripts/assessment_check.py", "check", "{work}/unit/assessment.json"], "stdout": "assessment-check.json"},
+                  {"argv": ["{python}", "{skills}/edu-answer-key-check/scripts/answer_key.py", "check", "{work}/unit/answer-key.json"], "stdout": "answer-key-check.json"},
+                  {"argv": ["{python}", "{skills}/edu-assessment-check/scripts/assessment_check.py", "check", "{work}/unit/assessment-recall-only.json"], "stdout": "assessment-recall-only.json", "expect_exit": [1]},
+                  {"argv": ["{python}", "{skills}/edu-answer-key-check/scripts/answer_key.py", "check", "{work}/unit/solution-incorrect.json"], "stdout": "answer-key-incorrect.json", "expect_exit": [1]}],
+      "check": {"argv": ["sh", "-c", "{python} {skill}/demos/check_json.py {work}/assessment-check.json {work}/answer-key-check.json -- ok=true && {python} {skill}/demos/check_json.py {work}/assessment-recall-only.json {work}/answer-key-incorrect.json -- ok=false"]},
+      "outputs": ["unit/assessment.json", "unit/answer-key.json", "assessment-check.json", "answer-key-check.json", "assessment-recall-only.json", "answer-key-incorrect.json"],
+      "summary": "Rubric, tasks, objectives and scoring rationale align and the answer key executes; a recall-only quiz and an intentionally incorrect solution were both rejected."
+    },
+    "lessons-labs": {
+      "collect": [{"from": "{skill}/fleets/bcit-education/fixtures/bcit-unit-store", "as": "unit"}],
+      "produce": [{"argv": ["{python}", "{skills}/bcit-learning-package/scripts/package_check.py", "check", "{work}/unit/package.json"], "stdout": "package-check.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/package-check.json", "--", "ok=true"]},
+      "outputs": ["unit/package.json", "unit/teacher-guide.md", "unit/student-handout.md", "unit/worked-example.md", "unit/sales-data.csv", "package-check.json"],
+      "summary": "Teacher guide, student handout, worked example and data file are complete, with an offline route."
+    },
+    "accessibility": {
+      "collect": [{"from": "{skill}/fleets/bcit-education/fixtures/bcit-unit-store", "as": "unit"}],
+      "produce": [{"argv": ["{python}", "{skills}/edu-assessment-check/scripts/assessment_check.py", "check", "{work}/unit/assessment-barriers.json"], "stdout": "fairness-barriers.json", "expect_exit": [1]}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/fairness-barriers.json", "--", "ok=false"]},
+      "outputs": ["fairness-barriers.json"],
+      "summary": "The fairness check flags construct-irrelevant barriers in the barrier variant; the unit's own assessment passed in the assessment step."
+    },
+    "teacher-review": {
+      "collect": [{"from": "{skill}/fleets/bcit-education/fixtures/bcit-unit-store", "as": "unit"}],
+      "produce": [{"argv": ["{python}", "{skills}/bcit-learning-package/scripts/package_check.py", "check", "{work}/unit/package.json"], "stdout": "review-package-check.json"}],
+      "check": {"argv": ["{python}", "{skill}/demos/check_json.py", "{work}/review-package-check.json", "--", "ok=true"]},
+      "outputs": ["unit/teacher-guide.md", "unit/student-handout.md", "review-package-check.json"],
+      "summary": "The unit is packaged for the teacher of record, who decides; no classroom result is claimed."
+    }
+  }
+}

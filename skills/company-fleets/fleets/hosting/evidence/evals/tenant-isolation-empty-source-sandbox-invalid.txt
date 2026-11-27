@@ -1,0 +1,7 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 2 --contains 'is empty' -- sh -c 'mkdir {tmp}/empty && python3 ../hosting-tenant-isolation/scripts/isolation_check.py sandbox-build --src {tmp}/empty --other-tenant fleets/hosting/fixtures/tenant-isolation/tenant-b-src --script fleets/hosting/fixtures/tenant-isolation/liar-build.sh --record-for fleets/hosting/fixtures/tenant-isolation/preview-leaked-secret.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.tenant-isolation-empty-source-sandbox-invalid kind negative synthetic true
+{
+  "error": "--src $TMPDIR/hosting-eval-98gg4ssx/empty is empty; an empty source proves nothing about the sandbox"
+}
+# expect: met
+# exit 0

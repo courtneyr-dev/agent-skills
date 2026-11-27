@@ -1,0 +1,10 @@
+{
+  "label": "SYNTHETIC: fake DNS answers for Fixture Co tenant-a. The TXT value is a different token, so ownership verification must refuse.",
+  "records": [
+    {
+      "kind": "dns-txt",
+      "name": "_hosting-verify.client-a.example",
+      "value": "fx_demo_Zz0Yy1Xx2Ww3Vv4Uu5Tt6Ss7"
+    }
+  ]
+}

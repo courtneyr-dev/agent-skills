@@ -1,0 +1,18 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.inverted-or-empty-compat-refused (negative, target product-release-gate).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains OK -- python3 ../product-release-gate/scripts/tests/test_release_gate.py ReleaseGateTest.test_inverted_range_with_no_tests_is_refused ReleaseGateTest.test_matrix_declaring_nothing_is_refused -v
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ python3 ../product-release-gate/scripts/tests/test_release_gate.py ReleaseGateTest.test_inverted_range_with_no_tests_is_refused ReleaseGateTest.test_matrix_declaring_nothing_is_refused -v
+
+stderr:
+test_inverted_range_with_no_tests_is_refused (__main__.ReleaseGateTest.test_inverted_range_with_no_tests_is_refused) ... ok
+test_matrix_declaring_nothing_is_refused (__main__.ReleaseGateTest.test_matrix_declaring_nothing_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.094s
+
+OK
+exit=0
+CHECK exit == 0: ok
+CHECK contains 'OK': ok
+VERDICT pass

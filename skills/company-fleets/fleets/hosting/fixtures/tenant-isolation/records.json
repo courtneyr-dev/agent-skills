@@ -1,0 +1,87 @@
+{
+  "label": "SYNTHETIC: Fixture Co hosting fixture. Hosted records and principals for Client A (tenant-a) and Client B (tenant-b). No real customers.",
+  "principals": [
+    {
+      "id": "tenant-a-deploy",
+      "tenant_id": "tenant-a",
+      "max_classification": "restricted"
+    },
+    {
+      "id": "tenant-a-support",
+      "tenant_id": "tenant-a",
+      "max_classification": "internal"
+    },
+    {
+      "id": "tenant-b-deploy",
+      "tenant_id": "tenant-b",
+      "max_classification": "restricted"
+    },
+    {
+      "id": "tenant-b-support",
+      "tenant_id": "tenant-b",
+      "max_classification": "internal"
+    }
+  ],
+  "records": [
+    {
+      "id": "A-SITE",
+      "tenant_id": "tenant-a",
+      "classification": "internal",
+      "category": "site-content"
+    },
+    {
+      "id": "A-ACCESS-LOG",
+      "tenant_id": "tenant-a",
+      "classification": "confidential",
+      "category": "access-log"
+    },
+    {
+      "id": "A-DB-CREDS",
+      "tenant_id": "tenant-a",
+      "classification": "restricted",
+      "category": "credential"
+    },
+    {
+      "id": "A-BACKUP",
+      "tenant_id": "tenant-a",
+      "classification": "restricted",
+      "category": "backup"
+    },
+    {
+      "id": "A-STATUS",
+      "tenant_id": "tenant-a",
+      "classification": "public",
+      "category": "status-page"
+    },
+    {
+      "id": "B-SITE",
+      "tenant_id": "tenant-b",
+      "classification": "internal",
+      "category": "site-content"
+    },
+    {
+      "id": "B-ACCESS-LOG",
+      "tenant_id": "tenant-b",
+      "classification": "confidential",
+      "category": "access-log"
+    },
+    {
+      "id": "B-DB-CREDS",
+      "tenant_id": "tenant-b",
+      "classification": "restricted",
+      "category": "credential"
+    },
+    {
+      "id": "B-BACKUP",
+      "tenant_id": "tenant-b",
+      "classification": "restricted",
+      "category": "backup"
+    },
+    {
+      "id": "B-STATUS",
+      "tenant_id": "tenant-b",
+      "classification": "public",
+      "category": "status-page"
+    }
+  ]
+}

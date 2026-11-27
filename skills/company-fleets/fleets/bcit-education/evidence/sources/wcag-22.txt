@@ -1,0 +1,7 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.w3.org/TR/WCAG22/
+# run 2026-11-25
+http_code=200 final_url=https://www.w3.org/TR/WCAG22/ size=512457
+L3: W3C Recommendation 12 December 2024
+L46: document use rules apply.
+L53 (paraphrase): W3C states that content conforming to WCAG 2.2 also conforms to 2.0 and 2.1, and that 2.2 doesn't deprecate or supersede them.
+L80: royalty-free licensing

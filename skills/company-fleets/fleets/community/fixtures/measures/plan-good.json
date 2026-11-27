@@ -1,0 +1,49 @@
+{
+  "label": "SYNTHETIC FIXTURE: Community A (Fixture Co) measurement plan. Expected to lint clean.",
+  "community": "community-a",
+  "metrics": [
+    {
+      "id": "newcomer-first-response",
+      "question": "How long do newcomers wait for a first reply?",
+      "definition": "Median hours from a newcomer's first forum thread to the first reply by another member, over the quarter.",
+      "source": {"kind": "chaoss", "name": "Time to First Response", "url": "https://chaoss.community/kb/metric-time-to-first-response/"},
+      "compute": {"kind": "median-hours", "record_type": "thread", "filter": {"newcomer": true, "channel": "general"}, "start": "opened_at", "end": "first_reply_at"},
+      "level": "community",
+      "min_group_size": 5,
+      "consent_basis": "Public forum posts, reported only as a community-level median.",
+      "publish": "public"
+    },
+    {
+      "id": "active-contributors",
+      "question": "How many people contributed this quarter?",
+      "definition": "Distinct people who opened a thread, replied, or had a pull request merged during the quarter.",
+      "source": {"kind": "chaoss", "name": "Contributors", "url": "https://chaoss.community/kb/metric-contributors/"},
+      "compute": {"kind": "distinct-people", "record_type": "contribution"},
+      "level": "community",
+      "min_group_size": 5,
+      "consent_basis": "Public repository and forum activity, counted without names.",
+      "publish": "public"
+    },
+    {
+      "id": "design-channel-first-response",
+      "question": "How long do people wait for a reply in the design channel?",
+      "definition": "Median hours from a thread opening in #design to the first reply by another member.",
+      "source": {"kind": "chaoss", "name": "Time to First Response", "url": "https://chaoss.community/kb/metric-time-to-first-response/"},
+      "compute": {"kind": "median-hours", "record_type": "thread", "filter": {"channel": "design"}, "start": "opened_at", "end": "first_reply_at"},
+      "level": "channel",
+      "min_group_size": 5,
+      "consent_basis": "Public channel posts, reported only as a channel-level median.",
+      "publish": "internal"
+    },
+    {
+      "id": "event-access-requests-met",
+      "question": "Did attendees get the access support they asked for?",
+      "definition": "Share of access requests (captions, quiet room, dietary, mobility) made at registration that the event met, from the post-event survey.",
+      "source": {"kind": "chaoss", "name": "Event Accessibility", "url": "https://chaoss.community/kb/metric-event-accessibility/"},
+      "level": "community",
+      "min_group_size": 5,
+      "consent_basis": "Opt-in post-event survey; answers aggregated before anyone reads them.",
+      "publish": "internal"
+    }
+  ]
+}

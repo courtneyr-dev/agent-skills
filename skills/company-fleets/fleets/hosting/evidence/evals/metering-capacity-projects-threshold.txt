@@ -1,0 +1,35 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 0 --json status=projected --json days_until_threshold=11 --json projected_date=2026-12-06 --contains 'straight line' -- python3 ../hosting-metering-reconcile/scripts/metering.py capacity --series fleets/hosting/fixtures/metering/utilization-30.json --threshold 0.8
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.metering-capacity-projects-threshold kind positive synthetic true
+{
+  "assumptions": [
+    "Utilization follows a straight line in time (least squares over the dates given). Real load has weekly cycles, launches and step changes that a line ignores; treat the date as a planning signal, not a promise.",
+    "The band holds the fitted level at the last point and varies the slope by plus or minus 2 standard errors (a rough 95 percent band that assumes independent, evenly spread residuals). Daily series are autocorrelated, so the true band is wider.",
+    "A projection farther out than the observed span (extrapolation_warning) rests on more forecast than data.",
+    "status is reached when the last observed point is at or over the threshold, whatever the fitted line says.",
+    "This is infrastructure headroom. Staffing a support queue is a different question for the capacity-planner skill."
+  ],
+  "band_days": {
+    "earliest": 11,
+    "latest": 11
+  },
+  "command": "capacity",
+  "days_until_threshold": 11,
+  "extrapolation_warning": false,
+  "fit": {
+    "fitted_utilization_at_last_point": 0.6908,
+    "last_date": "2026-11-25",
+    "observed_span_days": 29,
+    "observed_utilization_at_last_point": 0.694,
+    "r_squared": 0.9958,
+    "slope_per_day": 0.010053,
+    "slope_stderr": 0.000123
+  },
+  "min_points": 14,
+  "points": 30,
+  "projected_date": "2026-12-06",
+  "status": "projected",
+  "threshold": 0.8,
+  "verdict": "ok"
+}
+# expect: met
+# exit 0

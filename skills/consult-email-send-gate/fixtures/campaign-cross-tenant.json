@@ -1,0 +1,22 @@
+{
+  "audience": [
+    "c1",
+    "c7"
+  ],
+  "campaign_id": "cmp-cross-001",
+  "content": {
+    "html": "<html lang=\"en\"><body><h1>Fixture Co spring update</h1><p>New docs are live.</p><img src=\"https://example.invalid/logo.png\" alt=\"Fixture Co logo\"></body></html>",
+    "lang": "en",
+    "text": "Fixture Co spring update. New docs are live."
+  },
+  "from_domain": "mail.example.com",
+  "headers": {
+    "List-Unsubscribe": "<https://mail.example.com/unsub/fixture>, <mailto:unsub@mail.example.com>",
+    "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"
+  },
+  "kind": "marketing",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "schema": "email-campaign.v1",
+  "subject": "Fixture Co update",
+  "tenant_id": "tenant-fixture-co"
+}

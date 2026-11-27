@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "company-fleets/adversarial.schema.json",
+  "title": "Adversarial probe declaration (skills/<id>/evals/adversarial.json)",
+  "description": "Generic probes for a gate. Each probe copies the declared inputs into a fresh work folder, runs setup, applies transforms from the shared library, runs the command, and must be refused. The unaltered inputs must first be accepted, so a probe can't pass by testing nothing. Placeholders: {python}, {skill}, {skills}, {work}.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "skill", "label", "copy", "command", "accepted_when", "probes"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "skill": {"$ref": "common.schema.json#/$defs/slug"},
+    "label": {"$ref": "common.schema.json#/$defs/text"},
+    "copy": {"type": "array", "minItems": 1, "items": {"$ref": "common.schema.json#/$defs/relpath"}},
+    "setup": {"$ref": "#/$defs/commands"},
+    "command": {"$ref": "#/$defs/argv"},
+    "accepted_when": {"$ref": "#/$defs/expect"},
+    "probes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "class", "transforms", "refused_when"],
+        "properties": {
+          "name": {"$ref": "common.schema.json#/$defs/slug"},
+          "class": {"enum": ["label-content", "self-written-policy", "recomputed-hash", "producer-acceptor",
+                             "approval-binding", "worker-tenant", "author-threshold", "header-over-content",
+                             "malformed-rows", "path-outside-base"]},
+          "setup": {"$ref": "#/$defs/commands"},
+          "command": {"$ref": "#/$defs/argv"},
+          "accepted_when": {"$ref": "#/$defs/expect"},
+          "transforms": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/transform"}},
+          "refused_when": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/expect"}},
+          "known_gap": {"$ref": "common.schema.json#/$defs/text"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "argv": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "commands": {"type": "array", "items": {"$ref": "#/$defs/argv"}},
+    "expect": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exit": {"type": "array", "minItems": 1, "items": {"type": "integer"}},
+        "contains": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "absent": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "json": {"type": "object", "additionalProperties": {}}
+      }
+    },
+    "transform": {
+      "type": "object",
+      "required": ["op", "file"],
+      "properties": {
+        "op": {"enum": ["relabel", "json-set", "json-delete", "pad", "grow-list", "csv-add-row", "address-variant",
+                        "rehash", "rehash-handoff", "header-flip", "path-outside-base", "number-edge", "text-replace"]},
+        "file": {"$ref": "common.schema.json#/$defs/relpath"}
+      }
+    }
+  }
+}

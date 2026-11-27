@@ -1,0 +1,64 @@
+$ python3 fleets/bcit-education/evalrun.py run --file <scratchpad>/records/cs-classroom-instruction.json --write
+# run 2026-11-25 (cwd: company-fleets)
+{
+  "ran": 11,
+  "failed": 0,
+  "results": [
+    {
+      "id": "bcit-education.eval.cs-lesson-runs-complete",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-lesson-runs-complete.txt"
+    },
+    {
+      "id": "bcit-education.eval.cs-feedback-quotes-off-by-one",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-feedback-quotes-off-by-one.txt"
+    },
+    {
+      "id": "bcit-education.eval.cs-trace-ready-for-teacher-review",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-trace-ready-for-teacher-review.txt"
+    },
+    {
+      "id": "bcit-education.eval.cs-prediction-misconception",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-prediction-misconception.txt"
+    },
+    {
+      "id": "bcit-education.eval.cs-wrong-answer-key-caught",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-wrong-answer-key-caught.txt"
+    },
+    {
+      "id": "bcit-education.eval.cs-passing-code-not-evidence",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-passing-code-not-evidence.txt"
+    },
+    {
+      "id": "bcit-education.eval.cs-ai-output-not-evidence",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-ai-output-not-evidence.txt"
+    },
+    {
+      "id": "bcit-education.eval.cs-rubric-passing-code-rejected",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-rubric-passing-code-rejected.txt"
+    },
+    {
+      "id": "bcit-education.eval.cs-empty-work-awaits",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-empty-work-awaits.txt"
+    },
+    {
+      "id": "bcit-education.eval.cs-unknown-task-refused",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-unknown-task-refused.txt"
+    },
+    {
+      "id": "bcit-education.eval.cs-teacher-waits-for-learner",
+      "status": "pass",
+      "evidence": "fleets/bcit-education/evidence/cs-classroom-instruction/cs-teacher-waits-for-learner.txt"
+    }
+  ]
+}
+# exit 0

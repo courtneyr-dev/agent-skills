@@ -1,0 +1,26 @@
+{
+  "control": false,
+  "failed_probes": [],
+  "kind": "sandbox",
+  "preview_id": "prev-leaked-secret",
+  "probe_sha256": "b3ff71dd8d062eecb0ae1f78c6545361d20282d573a039ecb27c2f52b77ab64b",
+  "recorded_by": "isolation_check sandbox-build",
+  "script_sha256": "1ea4a39d9e33bb2c52b62f30fc56f2b6d615e13bd088d038f29514f4d0c635f4",
+  "source_files": [
+    [
+      "package-lock.json",
+      "66a63ac6c5cc88680d0da44ca544cb478634ebeea461e8804b4b871bf50e1b43"
+    ],
+    [
+      "package.json",
+      "0356f1a792aa8f9d8e65de87054672612fe90f37976a185318ed60a4a538c571"
+    ],
+    [
+      "site-notes.txt",
+      "1292c599f75d0757c42924372150f32b39ae90b5a6863d91c749c4d2007dc93e"
+    ]
+  ],
+  "subject_sha256": "a2ede4e3b8b90d3c70547b3dbe056d0414269f78c0d082667a9eccd608493197",
+  "tenant_id": "tenant-a",
+  "verdict": "isolated"
+}

@@ -1,0 +1,160 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains instructional-design.interactive-developer --absent instructional-design.localization-reviewer -- bin/fleet resolve --profile school --workload instructional-design.workload.course-build
+# run 2026-11-26 (cwd: company-fleets) case instructional-design.eval.resolve-course-build-localization-by-profile
+{
+  "coordinator": "instructional-design.learning-experience-architect",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/instructional-design/roles.json"
+  ],
+  "profile": "school",
+  "roles": [
+    {
+      "display_name": "Learning-experience architect and instructional designer",
+      "fleet": "instructional-design",
+      "id": "instructional-design.learning-experience-architect",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "edu-needs-analysis",
+          "installed": true,
+          "path": "skills/edu-needs-analysis/SKILL.md"
+        },
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        },
+        {
+          "id": "edu-learning-progression",
+          "installed": true,
+          "path": "skills/edu-learning-progression/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "blocked_reason": "Needs OPENAI_API_KEY and defaults to gpt-4o-mini; the rig does not switch to API billing or accept that default",
+          "id": "course-generate",
+          "installed": false,
+          "path": "skills/course-generate/SKILL.md"
+        },
+        {
+          "blocked_reason": "No LaTeX toolchain (pdflatex) on the reference installation; slide-evaluate and latex-to-pptx depend on its output",
+          "id": "latex-compile",
+          "installed": false,
+          "path": "skills/latex-compile/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Curriculum and program architect",
+      "fleet": "instructional-design",
+      "id": "instructional-design.curriculum-architect",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-learning-progression",
+          "installed": true,
+          "path": "skills/edu-learning-progression/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Subject-matter-expert interviewer",
+      "fleet": "instructional-design",
+      "id": "instructional-design.sme-interviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-needs-analysis",
+          "installed": true,
+          "path": "skills/edu-needs-analysis/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Assessment designer and evaluation specialist",
+      "fleet": "instructional-design",
+      "id": "instructional-design.assessment-evaluation-specialist",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        },
+        {
+          "id": "edu-trainer-development",
+          "installed": true,
+          "path": "skills/edu-trainer-development/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Content and script writer and editor",
+      "fleet": "instructional-design",
+      "id": "instructional-design.content-writer-editor",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "technical-video-script",
+          "installed": true,
+          "path": "skills/technical-video-script/SKILL.md"
+        },
+        {
+          "id": "unslop",
+          "installed": true,
+          "path": "skills/unslop/SKILL.md"
+        },
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Visual and multimedia designer and accessible document specialist",
+      "fleet": "instructional-design",
+      "id": "instructional-design.accessible-media-designer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        },
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Interactive learning developer and learning-platform administrator",
+      "fleet": "instructional-design",
+      "id": "instructional-design.interactive-developer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "edu-assessment-check",
+          "installed": true,
+          "path": "skills/edu-assessment-check/SKILL.md"
+        },
+        {
+          "blocked_reason": "No target LMS or QTI/CASE consumer is named; a valid package alone does not establish learning quality",
+          "id": "edu-lms-export",
+          "installed": false,
+          "path": "skills/edu-lms-export/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "instructional-design.workload.course-build"
+}
+# expect: met
+# exit 0

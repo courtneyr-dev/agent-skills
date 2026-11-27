@@ -1,0 +1,8 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): approval that asks for a real SMTP channel",
+  "approved_by": "human:marketing-send-owner",
+  "campaign_sha256": "c4f9f725afd5f74834b0b504ddef686331adfbd0815dd30a6dae19d08efa7a8c",
+  "recipient_sha256": "5eca5ffcd023407789317a938fe8ee7597186c1e318704f638ee7d4d46765761",
+  "approved_on": "2026-11-25",
+  "channel": "smtp"
+}

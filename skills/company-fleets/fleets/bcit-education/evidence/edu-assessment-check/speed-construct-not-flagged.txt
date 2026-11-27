@@ -1,0 +1,21 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 0 --contains "flags": [] -- python3 ../edu-assessment-check/scripts/assessment_check.py check fleets/bcit-education/fixtures/bcit-unit-store/assessment-speed-construct.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.speed-construct-not-flagged
+{
+  "ok": true,
+  "errors": [],
+  "flags": [],
+  "objectives": {
+    "O5": {
+      "level": "apply",
+      "tasks": [
+        "T5"
+      ],
+      "criteria": [
+        "R5"
+      ]
+    }
+  },
+  "label": "SYNTHETIC FIXTURE (Fixture Co): boundary case. A digital-productivity objective where speed is part of the construct, so a time limit is not a barrier."
+}
+# expect: met
+# exit 0

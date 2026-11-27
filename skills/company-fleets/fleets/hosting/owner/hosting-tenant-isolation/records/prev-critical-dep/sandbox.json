@@ -1,0 +1,22 @@
+{
+  "control": false,
+  "failed_probes": [],
+  "kind": "sandbox",
+  "preview_id": "prev-critical-dep",
+  "probe_sha256": "b3ff71dd8d062eecb0ae1f78c6545361d20282d573a039ecb27c2f52b77ab64b",
+  "recorded_by": "isolation_check sandbox-build",
+  "script_sha256": "1ea4a39d9e33bb2c52b62f30fc56f2b6d615e13bd088d038f29514f4d0c635f4",
+  "source_files": [
+    [
+      "package-lock.json",
+      "fad71e29bb6c379b860d7d45a60f639129c028e8b059bd2b82490946feb24b03"
+    ],
+    [
+      "package.json",
+      "0356f1a792aa8f9d8e65de87054672612fe90f37976a185318ed60a4a538c571"
+    ]
+  ],
+  "subject_sha256": "2e69f0c857320335f5c5dc3df00e777c80e9bfb97f2e39071dac92736ac70b73",
+  "tenant_id": "tenant-a",
+  "verdict": "isolated"
+}

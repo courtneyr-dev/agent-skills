@@ -1,0 +1,91 @@
+$ sh -c 'python3 ../devrel-program-kit/scripts/check_program.py fleets/devrel/fixtures/program/program-reach-only.json; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:05Z
+# case: devrel.eval.program-reach-only-refused (negative, target devrel.content-editor, synthetic=True)
+# expected: Exit 1 with reach-headline, fabrication-risk, causal-revenue, invented-budget, competing-context, untested-chain and unmeasured-usability.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "devrel-program-kit/check_program",
+  "version": "1.0.0",
+  "ok": false,
+  "violations": [
+    {
+      "rule": "no-non-goals",
+      "where": "non_goals",
+      "message": "state what the program won't do"
+    },
+    {
+      "rule": "causal-revenue",
+      "where": "metrics[2].attribution",
+      "message": "devrel-pipeline needs written attribution limits"
+    },
+    {
+      "rule": "causal-revenue",
+      "where": "metrics[2].definition",
+      "message": "'generated' asserts causation the data can't show"
+    },
+    {
+      "rule": "no-usefulness-metric",
+      "where": "metrics",
+      "message": "add one: successful developer tasks, repeat use, friction removed, feedback closure or contribution outcomes"
+    },
+    {
+      "rule": "reach-headline",
+      "where": "reports[0]",
+      "message": "the exec headline has no usefulness metric; reach isn't success"
+    },
+    {
+      "rule": "fabrication-risk",
+      "where": "claims[0]",
+      "message": "a testimonial needs a retained source record file; None isn't one"
+    },
+    {
+      "rule": "fabrication-risk",
+      "where": "claims[0]",
+      "message": "a testimonial needs the speaker's recorded consent file; None isn't one"
+    },
+    {
+      "rule": "fabrication-risk",
+      "where": "claims[1]",
+      "message": "a revenue needs a retained source record file; 'CRM export' isn't one"
+    },
+    {
+      "rule": "causal-revenue",
+      "where": "claims[1]",
+      "message": "'drove' asserts causation the data can't show"
+    },
+    {
+      "rule": "fabrication-risk",
+      "where": "claims[2]",
+      "message": "a conference-acceptance needs a retained source record file; None isn't one"
+    },
+    {
+      "rule": "invented-budget",
+      "where": "budget",
+      "message": "budget figures need the owner's source record"
+    },
+    {
+      "rule": "invented-budget",
+      "where": "staffing",
+      "message": "figures appear while the owner hasn't provided any"
+    },
+    {
+      "rule": "competing-context",
+      "where": "context_record",
+      "message": "program state lives in the tenant's devrel-context.md, not a new store"
+    },
+    {
+      "rule": "untested-chain",
+      "where": "chain[0]",
+      "message": "quickstart fleets/devrel/fixtures/docs/quickstart-hidden-prereq.md needs a clean replay with retained evidence; None isn't a file under the base"
+    },
+    {
+      "rule": "unmeasured-usability",
+      "where": "chain[0]",
+      "message": "human usability is verified only by a recorded session file with real readers; None isn't one"
+    }
+  ]
+}
+--- stderr ---
+

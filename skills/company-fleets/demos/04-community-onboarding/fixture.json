@@ -1,0 +1,235 @@
+{
+  "label": "SYNTHETIC demonstration 4 (Fixture Co community A): onboarding and governance change with a feedback-to-product handoff. The moderation case and all members are fictional; no member is contacted or ranked.",
+  "instance": "DEMO4",
+  "tenant_id": "community-a",
+  "client_id": null,
+  "profile": "community",
+  "needs": [
+    "product-feedback"
+  ],
+  "exclusions": [
+    "Member contact",
+    "Volunteer rankings",
+    "Deciding the moderation case"
+  ],
+  "sources": [
+    {
+      "ref": "company-fleets/fleets/community/fixtures/kit/community-a-kit.md",
+      "revision": "fixture"
+    },
+    {
+      "ref": "company-fleets/fleets/community/fixtures/measures/plan-good.json",
+      "revision": "fixture"
+    }
+  ],
+  "data": {
+    "classification": "confidential",
+    "allowed_destinations": [
+      "tenant:community-a",
+      "rig:evidence"
+    ]
+  },
+  "budget": {
+    "max_minutes": 20,
+    "max_retries": 1
+  },
+  "untrusted": [
+    {
+      "path": "../../fleets/community/fixtures/untrusted/issue-submission.md",
+      "source_kind": "community-text",
+      "step": "feedback-to-product"
+    }
+  ],
+  "worker_requests": {
+    "feedback-to-product": {
+      "acceptance_owner": "community.member-success-lead",
+      "next_consumer": "product.product-lead"
+    }
+  },
+  "tools": {
+    "evidence": {
+      "collect": [
+        {
+          "from": "{skill}/fleets/community/fixtures/measures/plan-good.json",
+          "as": "plan.json"
+        },
+        {
+          "from": "{skill}/fleets/community/fixtures/measures/activity.json",
+          "as": "activity.json"
+        },
+        {
+          "from": "{skill}/fleets/community/fixtures/measures/plan-ranking.json",
+          "as": "plan-ranking.json"
+        }
+      ],
+      "produce": [
+        {
+          "argv": [
+            "{python}",
+            "{skills}/community-health-measures/scripts/measures.py",
+            "aggregate",
+            "--plan",
+            "{work}/plan.json",
+            "--activity",
+            "{work}/activity.json"
+          ],
+          "stdout": "measures.json"
+        },
+        {
+          "argv": [
+            "{python}",
+            "{skills}/community-health-measures/scripts/measures.py",
+            "aggregate",
+            "--plan",
+            "{work}/plan-ranking.json",
+            "--activity",
+            "{work}/activity.json"
+          ],
+          "stdout": "measures-ranking-refused.json",
+          "expect_exit": [
+            1
+          ]
+        }
+      ],
+      "check": {
+        "argv": [
+          "sh",
+          "-c",
+          "{python} {skill}/demos/check_json.py {work}/measures.json -- ok=true excluded_records~ metrics~ && {python} {skill}/demos/check_json.py {work}/measures-ranking-refused.json -- ok=false violations~"
+        ]
+      },
+      "outputs": [
+        "plan.json",
+        "measures.json",
+        "measures-ranking-refused.json"
+      ],
+      "summary": "Aggregate measures computed with small groups suppressed; a plan that ranks volunteers was refused."
+    },
+    "governance": {
+      "collect": [
+        {
+          "from": "{skill}/fleets/community/fixtures/moderation/case-cm-1.json",
+          "as": "case-cm-1.json"
+        },
+        {
+          "from": "{skill}/fleets/community/fixtures/moderation/draft-good.json",
+          "as": "draft-good.json"
+        },
+        {
+          "from": "{skill}/fleets/community/fixtures/moderation/draft-conflict.json",
+          "as": "draft-conflict.json"
+        }
+      ],
+      "produce": [
+        {
+          "argv": [
+            "{python}",
+            "{skills}/community-moderation-review/scripts/case_check.py",
+            "--case",
+            "{work}/case-cm-1.json",
+            "--draft",
+            "{work}/draft-conflict.json"
+          ],
+          "stdout": "review-conflict-refused.json",
+          "expect_exit": [
+            1
+          ]
+        },
+        {
+          "argv": [
+            "{python}",
+            "{skills}/community-moderation-review/scripts/case_check.py",
+            "--case",
+            "{work}/case-cm-1.json",
+            "--draft",
+            "{work}/draft-good.json"
+          ],
+          "stdout": "review-good.json"
+        }
+      ],
+      "check": {
+        "argv": [
+          "sh",
+          "-c",
+          "{python} {skill}/demos/check_json.py {work}/review-good.json -- ok=true violations=[] && {python} {skill}/demos/check_json.py {work}/review-conflict-refused.json -- ok=false violations~"
+        ]
+      },
+      "outputs": [
+        "draft-good.json",
+        "review-good.json",
+        "review-conflict-refused.json"
+      ],
+      "summary": "The governance draft keeps the allegation unproven and the appeal route; a draft written by a conflicted reviewer was refused. The case file stays in this step's tenant folder."
+    },
+    "contribution-path": {
+      "collect": [
+        {
+          "from": "{skill}/fleets/community/fixtures/kit",
+          "as": "kit"
+        },
+        {
+          "from": "{skill}/fleets/community/fixtures/measures",
+          "as": "measures"
+        }
+      ],
+      "produce": [
+        {
+          "argv": [
+            "{python}",
+            "{skills}/community-operating-kit/scripts/kit_check.py",
+            "{work}/kit/community-a-kit.md"
+          ],
+          "stdout": "kit-check.json"
+        }
+      ],
+      "check": {
+        "argv": [
+          "{python}",
+          "{skill}/demos/check_json.py",
+          "{work}/kit-check.json",
+          "--",
+          "ok=true",
+          "violations=[]"
+        ]
+      },
+      "outputs": [
+        "kit/community-a-kit.md",
+        "measures/plan-good.json",
+        "kit-check.json"
+      ],
+      "summary": "The operating kit with the changed contribution path passes its completeness check, including its measurement plan."
+    },
+    "feedback-to-product": {
+      "collect": [
+        {
+          "from": "{fixture_dir}/product-feedback.md",
+          "as": "product-feedback.md"
+        }
+      ],
+      "produce": [
+        {
+          "argv": [
+            "{skill}/bin/fleet",
+            "scan",
+            "{skill}/fleets/community/fixtures/untrusted/issue-submission.md"
+          ],
+          "stdout": "issue-scan.json"
+        }
+      ],
+      "check": {
+        "argv": [
+          "{python}",
+          "{skill}/demos/check_json.py",
+          "{work}/issue-scan.json",
+          "--",
+          "findings~"
+        ]
+      },
+      "outputs": [
+        "product-feedback.md",
+        "issue-scan.json"
+      ],
+      "summary": "Aggregated feedback handed to the product owner without member names or case details; the community issue's embedded instructions were analyzed as data and refused."
+    }
+  }
+}

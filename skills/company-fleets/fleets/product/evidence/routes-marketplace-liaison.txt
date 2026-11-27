@@ -1,0 +1,265 @@
+# SYNTHETIC Fixture Co data. Raw output of eval product.eval.routes-marketplace-liaison (positive, target product.marketplace-liaison).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "id": "product.marketplace-liaison" --contains "path": "skills/wordpress-org-compliance/SKILL.md" --absent "fleets/hosting/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile product --workload product.workload.extension-release
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile product --workload product.workload.extension-release
+{
+  "coordinator": "product.product-lead",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/product/roles.json"
+  ],
+  "profile": "product",
+  "roles": [
+    {
+      "display_name": "Product lead (product GM and product manager viewpoint)",
+      "fleet": "product",
+      "id": "product.product-lead",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "cpo-advisor",
+          "installed": true,
+          "path": "skills/cpo-advisor/SKILL.md"
+        },
+        {
+          "id": "brd-writer",
+          "installed": true,
+          "path": "skills/brd-writer/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Platform, extension and SDK/API architect",
+      "fleet": "product",
+      "id": "product.platform-architect",
+      "kind": "specialist",
+      "skills": [
+        {
+          "blocked_reason": "Listed in skill-sync/sources.json (WordPress/agent-skills) but not installed under skills/ on 2026-11-26; resume when the sources workstream installs it",
+          "id": "wp-plugin-development",
+          "installed": false,
+          "path": "skills/wp-plugin-development/SKILL.md"
+        },
+        {
+          "blocked_reason": "Listed in skill-sync/sources.json (WordPress/agent-skills) but not installed under skills/ on 2026-11-26; resume when the sources workstream installs it",
+          "id": "wp-rest-api",
+          "installed": false,
+          "path": "skills/wp-rest-api/SKILL.md"
+        },
+        {
+          "id": "workers-best-practices",
+          "installed": true,
+          "path": "skills/workers-best-practices/SKILL.md"
+        },
+        {
+          "id": "architect",
+          "installed": true,
+          "path": "skills/architect/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Frontend, backend, integration and developer-experience engineer",
+      "fleet": "product",
+      "id": "product.engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "tdd",
+          "installed": true,
+          "path": "skills/tdd/SKILL.md"
+        },
+        {
+          "id": "woocommerce-plugin-dev",
+          "installed": true,
+          "path": "skills/woocommerce-plugin-dev/SKILL.md"
+        },
+        {
+          "blocked_reason": "Listed in skill-sync/sources.json (WordPress/agent-skills) but not installed under skills/ on 2026-11-26; resume when the sources workstream installs it",
+          "id": "wp-block-development",
+          "installed": false,
+          "path": "skills/wp-block-development/SKILL.md"
+        },
+        {
+          "id": "product-payment-events",
+          "installed": true,
+          "path": "skills/product-payment-events/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Compatibility engineer",
+      "fleet": "product",
+      "id": "product.compatibility-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "product-release-gate",
+          "installed": true,
+          "path": "skills/product-release-gate/SKILL.md"
+        },
+        {
+          "id": "wp-playground",
+          "installed": true,
+          "path": "skills/wp-playground/SKILL.md"
+        },
+        {
+          "id": "woocommerce-upgrade-safety",
+          "installed": true,
+          "path": "skills/woocommerce-upgrade-safety/SKILL.md"
+        },
+        {
+          "blocked_reason": "Listed in skill-sync/sources.json (WordPress/agent-skills) but not installed under skills/ on 2026-11-26; resume when the sources workstream installs it",
+          "id": "wp-env",
+          "installed": false,
+          "path": "skills/wp-env/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Test and release engineer",
+      "fleet": "product",
+      "id": "product.release-engineer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "product-release-gate",
+          "installed": true,
+          "path": "skills/product-release-gate/SKILL.md"
+        },
+        {
+          "id": "release-engineering",
+          "installed": true,
+          "path": "skills/release-engineering/SKILL.md"
+        },
+        {
+          "id": "changelog-writing",
+          "installed": true,
+          "path": "skills/changelog-writing/SKILL.md"
+        },
+        {
+          "id": "oss-release-policy",
+          "installed": true,
+          "path": "skills/oss-release-policy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Security maintainer",
+      "fleet": "product",
+      "id": "product.security-maintainer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "differential-review",
+          "installed": true,
+          "path": "skills/differential-review/SKILL.md"
+        },
+        {
+          "id": "fp-check",
+          "installed": true,
+          "path": "skills/fp-check/SKILL.md"
+        },
+        {
+          "id": "supply-chain-risk-auditor",
+          "installed": true,
+          "path": "skills/supply-chain-risk-auditor/SKILL.md"
+        },
+        {
+          "id": "oss-security-disclosure",
+          "installed": true,
+          "path": "skills/oss-security-disclosure/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Accessibility and localization reviewer",
+      "fleet": "product",
+      "id": "product.a11y-l10n-reviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "web-accessibility",
+          "installed": true,
+          "path": "skills/web-accessibility/SKILL.md"
+        },
+        {
+          "id": "consult-i18n-check",
+          "installed": true,
+          "path": "skills/consult-i18n-check/SKILL.md"
+        },
+        {
+          "id": "agency-keyboard-audit",
+          "installed": true,
+          "path": "skills/agency-keyboard-audit/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Marketplace, review and partnerships liaison",
+      "fleet": "product",
+      "id": "product.marketplace-liaison",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "wordpress-org-compliance",
+          "installed": true,
+          "path": "skills/wordpress-org-compliance/SKILL.md"
+        },
+        {
+          "id": "partnerships-architect",
+          "installed": true,
+          "path": "skills/partnerships-architect/SKILL.md"
+        },
+        {
+          "id": "product-release-gate",
+          "installed": true,
+          "path": "skills/product-release-gate/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Documentation, developer education and extension onboarding",
+      "fleet": "product",
+      "id": "product.docs-educator",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "developer-quickstart-guide",
+          "installed": true,
+          "path": "skills/developer-quickstart-guide/SKILL.md"
+        },
+        {
+          "id": "changelog-writing",
+          "installed": true,
+          "path": "skills/changelog-writing/SKILL.md"
+        },
+        {
+          "id": "docs-versioning-strategy",
+          "installed": true,
+          "path": "skills/docs-versioning-strategy/SKILL.md"
+        },
+        {
+          "id": "developer-certification-program",
+          "installed": true,
+          "path": "skills/developer-certification-program/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "product.workload.extension-release"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"id": "product.marketplace-liaison"': ok
+CHECK contains '"path": "skills/wordpress-org-compliance/SKILL.md"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

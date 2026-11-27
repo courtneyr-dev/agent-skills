@@ -1,0 +1,6 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://ais-siged.org/about-siged-and-ais/
+# run 2026-11-25
+http_code=200 final_url=https://ais-siged.org/about-siged-and-ais/ size=61919
+L49 (paraphrase): AIS SIGED promotes information systems education, research and practice and gives researchers and educators a forum.
+L50 (paraphrase): SIGED has run an annual pre-ICIS conference with peer-reviewed papers, tutorials, panels and a best paper award for about 30 years.
+L52 (paraphrase): SIGED reports close to 200 members and invites AIS members to join.

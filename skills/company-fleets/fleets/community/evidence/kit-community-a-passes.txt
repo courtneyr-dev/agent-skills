@@ -1,0 +1,16 @@
+$ python3 ../community-operating-kit/scripts/kit_check.py fleets/community/fixtures/kit/community-a-kit.md
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.kit-community-a-passes (positive, target community.governance-liaison, synthetic=True)
+# expected: Exit 0: eight sections, human owners, linked plan lints clean.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "community-operating-kit",
+  "version": "1.0.0",
+  "ok": true,
+  "violations": [],
+  "notes": []
+}
+--- stderr ---
+

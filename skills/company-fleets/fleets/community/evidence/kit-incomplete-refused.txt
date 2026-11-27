@@ -1,0 +1,182 @@
+$ sh -c 'python3 ../community-operating-kit/scripts/kit_check.py fleets/community/fixtures/kit/kit-incomplete.md; test $? -eq 1'
+# cwd: skills/company-fleets
+# run: 2026-11-26T13:47:09Z
+# case: community.eval.kit-incomplete-refused (negative, target community.inclusion-reviewer, synthetic=True)
+# expected: Exit 1 with missing-section, missing-part, non-human-owner, governance-table, no-plan and ranking-or-sales.
+# exit: 0 -> pass
+--- stdout ---
+{
+  "tool": "community-operating-kit",
+  "version": "1.0.0",
+  "ok": false,
+  "violations": [
+    {
+      "rule": "missing-part",
+      "section": "charter",
+      "message": "name the 'membership model' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "charter",
+      "message": "name the 'non-goals' part"
+    },
+    {
+      "rule": "missing-section",
+      "section": "onboarding path",
+      "message": "add a '## Onboarding path' section"
+    },
+    {
+      "rule": "missing-part",
+      "section": "governance map",
+      "message": "name the 'funding' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "governance map",
+      "message": "name the 'sponsor' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "moderation and escalation",
+      "message": "name the 'conflict of interest' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "moderation and escalation",
+      "message": "name the 'appeal' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "moderation and escalation",
+      "message": "name the 'decision maker' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "moderation and escalation",
+      "message": "name the 'evidence' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "moderation and escalation",
+      "message": "name the 'confidential' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "event playbook",
+      "message": "name the 'accessibility' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "event playbook",
+      "message": "name the 'volunteer' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "event playbook",
+      "message": "name the 'contingency' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "event playbook",
+      "message": "name the 'post-event' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "event playbook",
+      "message": "name the 'code of conduct' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "contributor journey",
+      "message": "name the 'good first' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "contributor journey",
+      "message": "name the 'environment setup' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "contributor journey",
+      "message": "name the 'review' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "contributor journey",
+      "message": "name the 'recognition' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "contributor journey",
+      "message": "name the 'succession' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "contributor journey",
+      "message": "name the 'maintainer' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "measurement plan",
+      "message": "name the 'consent' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "measurement plan",
+      "message": "name the 'aggregate' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "improvement loop",
+      "message": "name the 'evidence' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "improvement loop",
+      "message": "name the 'review' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "improvement loop",
+      "message": "name the 'contribution path' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "improvement loop",
+      "message": "name the 'onboarding' part"
+    },
+    {
+      "rule": "missing-part",
+      "section": "improvement loop",
+      "message": "name the 'follow-up' part"
+    },
+    {
+      "rule": "non-human-owner",
+      "section": "governance map",
+      "message": "'Moderation decisions': decision owners are named humans, got 'community.moderator'"
+    },
+    {
+      "rule": "governance-table",
+      "section": "governance map",
+      "message": "'Moderation decisions' has no review"
+    },
+    {
+      "rule": "no-plan",
+      "section": "measurement plan",
+      "message": "link the measurement plan JSON"
+    },
+    {
+      "rule": "ranking-or-sales",
+      "section": "line 21",
+      "message": "'sales leads' ranks volunteers or turns members into sales leads"
+    },
+    {
+      "rule": "ranking-or-sales",
+      "section": "line 25",
+      "message": "'leaderboard' ranks volunteers or turns members into sales leads"
+    }
+  ],
+  "notes": []
+}
+--- stderr ---
+

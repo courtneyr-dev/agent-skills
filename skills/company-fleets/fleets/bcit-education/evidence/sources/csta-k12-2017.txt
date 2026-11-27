@@ -1,0 +1,22 @@
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/pk12standards/resources/
+# run 2026-11-25
+http_code=200 final_url=https://csteachers.org/pk12standards/resources/ size=452071
+L143: Previous Versions of Standards
+L144: 2017 CSTA K-12 Standards, Revised /
+L150: 2026 to 2017 CSTA Standards Crosswalk
+L151 (paraphrase): CSTA publishes a crosswalk from the 2017 to the 2026 standards that marks stable, new and removed content instead of mapping one to one.
+$ curl -sSL --max-time 30 -o csta-2017.pdf https://csteachers.org/wp-content/uploads/2025/03/2017-csta-k12-computer-science-standards-al.pdf  # then stdlib zlib text-operator extraction
+# run 2026-11-25
+http_code=200 final_url=https://csteachers.org/wp-content/uploads/2025/03/2017-csta-k12-computer-science-standards-al.pdf size=389909
+pattern (?:1A|1B|2|3A|3B)-(?:CS|NI|DA|AP|IC)-[0-9]{2}: 120 matches, 120 distinct; examples: 1A-AP-08, 1A-AP-09, 1A-AP-10, 1A-AP-11
+pattern Attribution-NonCommercial-ShareAlike 4\.0 International: 1 matches, 1 distinct; examples: Attribution-NonCommercial-ShareAlike 4.0 International
+pattern Revised 2017: 1 matches, 1 distinct; examples: Revised 2017
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://csteachers.org/k12standards/
+# run 2026-11-25
+http_code=200 final_url=https://csteachers.org/pk12standards/ size=375563  (old 2017 landing URL now redirects to the 2026 page)
+$ curl -sSL --max-time 30 -o <page> -w 'http_code=%{http_code} final_url=%{url_effective} size=%{size_download}' https://www.pa.gov/agencies/education/programs-and-services/educators/certification/help/certification-faqs/stem-and-computer-science
+# run 2026-11-25
+http_code=200 final_url=https://www.pa.gov/agencies/education/programs-and-services/educators/certification/help/certification-faqs/stem-and-computer-science size=255688
+L192: ​In January 2018 the Pennsylvania State Board of Education endorsed the
+L193: Computer Science Teachers Association (CTSA) K-12 standards.
+L225: In January 2018, the Pennsylvania State Board of Education endorsed

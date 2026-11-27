@@ -1,0 +1,44 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json violations.0.rule=measured-evidence --json statuses.recovery_objectives=evidence-refused -- sh -c 'python3 -c "import json;d=json.load(open('"'"'fleets/hosting/benchmark/2026-11-26-matrix.json'"'"'));dim=lambda i:[x for x in d['"'"'dimensions'"'"'] if x['"'"'id'"'"']==i][0];[m.update(evidence_sha256='"'"'0'"'"'*64) for m in [x['"'"'measured_result'"'"'] for x in d['"'"'dimensions'"'"']] if m and m['"'"'evidence'"'"'].endswith('"'"'restore-exercise-2026-11-26.json'"'"')];dim('"'"'recovery_objectives'"'"')['"'"'measured_result'"'"']['"'"'value'"'"']=0;json.dump(d,open('"'"'{tmp}/m.json'"'"','"'"'w'"'"'))" && python3 ../hosting-benchmark-matrix/scripts/benchmark.py check --matrix {tmp}/m.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.benchmark-rehashed-evidence-refused kind negative synthetic true
+{
+  "as_of": "2026-11-26",
+  "assumptions": [
+    "Provider claims are what public pages said on retrieved_on; they are not tested.",
+    "A measured value counts only at the evidence file and JSON path the evidence owner recorded for its dimension, while the file's hash matches.",
+    "Targets and statuses come from the owner's benchmark/targets.json; a process running as the same OS user can rewrite the owner's files, which only separate OS accounts or signed records stop."
+  ],
+  "statuses": {
+    "accessibility": "not-measured",
+    "availability": "not-measured",
+    "cost": "not-measured",
+    "data_portability": "met",
+    "deployment_reversibility": "met",
+    "isolation": "met",
+    "observability": "evidence-refused",
+    "performance_under_load": "not-measured",
+    "recovery_objectives": "evidence-refused",
+    "regional_constraints": "not-measured",
+    "restore": "evidence-refused",
+    "support_coverage": "not-measured"
+  },
+  "verdict": "fail",
+  "violations": [
+    {
+      "dimension": "restore",
+      "message": "evidence fleets/hosting/evidence/restore-exercise-2026-11-26.json differs from the sha256 its owner recorded",
+      "rule": "measured-evidence"
+    },
+    {
+      "dimension": "recovery_objectives",
+      "message": "evidence fleets/hosting/evidence/restore-exercise-2026-11-26.json differs from the sha256 its owner recorded",
+      "rule": "measured-evidence"
+    },
+    {
+      "dimension": "observability",
+      "message": "evidence fleets/hosting/evidence/restore-exercise-2026-11-26.json differs from the sha256 its owner recorded",
+      "rule": "measured-evidence"
+    }
+  ]
+}
+# expect: met
+# exit 0

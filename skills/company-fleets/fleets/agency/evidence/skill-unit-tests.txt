@@ -1,0 +1,161 @@
+# Skill install and unit-test evidence for the agency fleet's local skills
+run on 2026-11-26 from <skills-root>, after the fixes for evidence/reviews/corporate-agency-rereview-2.md. The frontmatter check output is carried from the earlier 2026-11-26 run; `git diff` shows no frontmatter change to these SKILL.md files since
+Frontmatter check: a stdlib port of skill-creator's quick_validate.py (PyYAML is not installed); same rules plus referenced-path existence.
+Its allow-list (name, description, license, allowed-tools, metadata, compatibility) matches upstream and predates disable-model-invocation, a Claude Code key these skills set on purpose to stay out of the global skill list. Each finding below is that key only.
+
+$ python3 skill_validate.py agency-keyboard-audit agency-i18n-check agency-platform-adapters agency-engagement-gate
+{
+  "agency-keyboard-audit": [
+    "unexpected frontmatter keys: disable-model-invocation"
+  ],
+  "agency-i18n-check": [
+    "unexpected frontmatter keys: disable-model-invocation"
+  ],
+  "agency-platform-adapters": [
+    "unexpected frontmatter keys: disable-model-invocation"
+  ],
+  "agency-engagement-gate": [
+    "unexpected frontmatter keys: disable-model-invocation"
+  ]
+}
+
+
+$ (cd agency-keyboard-audit/scripts/tests && AGENCY_A11Y_NODE_MODULES=/path/to/node_modules python3 -W ignore -m unittest discover -p 'test_*.py' -v)
+test_bad_max_tabs (test_keyboard_audit.InvalidInputTests.test_bad_max_tabs) ... ok
+test_malformed_recording (test_keyboard_audit.InvalidInputTests.test_malformed_recording) ... ok
+test_missing_page (test_keyboard_audit.InvalidInputTests.test_missing_page) ... ok
+test_non_html_page (test_keyboard_audit.InvalidInputTests.test_non_html_page) ... ok
+test_fresh_runs_match_the_recorded_verdicts (test_keyboard_audit.LiveBrowserTests.test_fresh_runs_match_the_recorded_verdicts) ... ok
+test_no_browser_adapter_reports_blocked_with_manual_steps (test_keyboard_audit.MissingAdapterTests.test_no_browser_adapter_reports_blocked_with_manual_steps) ... ok
+test_defects_missed_by_axe_are_found (test_keyboard_audit.RecordedWalkTests.test_defects_missed_by_axe_are_found) ... ok
+test_fixed_page_passes_without_false_positives (test_keyboard_audit.RecordedWalkTests.test_fixed_page_passes_without_false_positives) ... ok
+test_output_never_claims_conformance (test_keyboard_audit.RecordedWalkTests.test_output_never_claims_conformance) ... ok
+test_trap_released_by_escape_is_not_blocking (test_keyboard_audit.RecordedWalkTests.test_trap_released_by_escape_is_not_blocking) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.483s
+
+OK
+
+$ (cd agency-i18n-check/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v)
+test_malformed_po_exits_2_with_file_and_line (test_i18n_check.BadInput.test_malformed_po_exits_2_with_file_and_line) ... ok
+test_missing_file_exits_2 (test_i18n_check.BadInput.test_missing_file_exits_2) ... ok
+test_usage_error_exits_2_with_json (test_i18n_check.BadInput.test_usage_error_exits_2_with_json) ... ok
+test_clean_catalogs_pass (test_i18n_check.CleanFixtures.test_clean_catalogs_pass) ... ok
+test_limits_name_required_gaps (test_i18n_check.CleanFixtures.test_limits_name_required_gaps) ... ok
+test_review_stays_required_and_nothing_claims_approval (test_i18n_check.CleanFixtures.test_review_stays_required_and_nothing_claims_approval) ... ok
+test_brand_name_is_not_flagged (test_i18n_check.Defects.test_brand_name_is_not_flagged) ... ok
+test_each_untranslated_cause_is_reported (test_i18n_check.Defects.test_each_untranslated_cause_is_reported) ... ok
+test_every_rule_is_caught (test_i18n_check.Defects.test_every_rule_is_caught) ... ok
+test_header_count_mismatch (test_i18n_check.Defects.test_header_count_mismatch) ... ok
+test_instruction_text_is_ordinary_translation (test_i18n_check.Defects.test_instruction_text_is_ordinary_translation) ... ok
+test_placeholder_defects (test_i18n_check.Defects.test_placeholder_defects) ... ok
+test_escapes_continuation_and_flags (test_i18n_check.Parser.test_escapes_continuation_and_flags) ... ok
+test_plural_forms_and_syntax_errors (test_i18n_check.Parser.test_plural_forms_and_syntax_errors) ... ok
+test_named_braces (test_i18n_check.PurePlaceholders.test_named_braces) ... ok
+test_percent_escape_is_ignored (test_i18n_check.PurePlaceholders.test_percent_escape_is_ignored) ... ok
+test_plural_extra_and_missing_placeholders (test_i18n_check.PurePlaceholders.test_plural_extra_and_missing_placeholders) ... ok
+test_unnumbered_type_order_must_match (test_i18n_check.PurePlaceholders.test_unnumbered_type_order_must_match) ... ok
+test_ambiguous_file_name_exits_2 (test_i18n_check.ReviewLocaleProbes.test_ambiguous_file_name_exits_2) ... ok
+test_author_exemption_is_listed_not_silent (test_i18n_check.ReviewLocaleProbes.test_author_exemption_is_listed_not_silent) ... ok
+test_benign_pages_still_pass (test_i18n_check.ReviewLocaleProbes.test_benign_pages_still_pass) ... ok
+test_every_direction_and_layout_bypass_is_refused (test_i18n_check.ReviewLocaleProbes.test_every_direction_and_layout_bypass_is_refused)
+Re-review finding 11: each page below passed with exit 0 before. ... ok
+test_explicit_locale_cannot_overrule_the_file_name (test_i18n_check.ReviewLocaleProbes.test_explicit_locale_cannot_overrule_the_file_name) ... ok
+test_glotpress_rtl_locales_get_the_rtl_rules (test_i18n_check.ReviewLocaleProbes.test_glotpress_rtl_locales_get_the_rtl_rules) ... ok
+test_header_cannot_relabel_an_arabic_catalog (test_i18n_check.ReviewLocaleProbes.test_header_cannot_relabel_an_arabic_catalog) ... ok
+test_inner_rules_and_logical_values_with_var_still_pass (test_i18n_check.ReviewLocaleProbes.test_inner_rules_and_logical_values_with_var_still_pass) ... ok
+test_ltr_dir_and_inline_physical_style_on_an_rtl_page_are_refused (test_i18n_check.ReviewLocaleProbes.test_ltr_dir_and_inline_physical_style_on_an_rtl_page_are_refused) ... ok
+test_missing_language_header_exits_2 (test_i18n_check.ReviewLocaleProbes.test_missing_language_header_exits_2) ... ok
+test_neutral_file_name_needs_an_explicit_locale (test_i18n_check.ReviewLocaleProbes.test_neutral_file_name_needs_an_explicit_locale) ... ok
+test_right_to_left_script_counts_whatever_the_locale_is_called (test_i18n_check.ReviewLocaleProbes.test_right_to_left_script_counts_whatever_the_locale_is_called) ... ok
+test_wrapped_qualified_and_unresolved_direction_is_refused (test_i18n_check.ReviewLocaleProbes.test_wrapped_qualified_and_unresolved_direction_is_refused)
+Second re-review major 5 and minor 10: each page below passed with exit 0 before. ... ok
+test_rtl_rules_fire_for_arabic (test_i18n_check.Rtl.test_rtl_rules_fire_for_arabic) ... ok
+test_rtl_rules_skip_when_only_es_is_checked (test_i18n_check.Rtl.test_rtl_rules_skip_when_only_es_is_checked) ... ok
+test_suppressed_css_line_is_listed_for_the_reviewer_not_blocking (test_i18n_check.Rtl.test_suppressed_css_line_is_listed_for_the_reviewer_not_blocking) ... ok
+test_suppression_needs_a_reason (test_i18n_check.Rtl.test_suppression_needs_a_reason) ... ok
+test_template_expression_counts_as_dir (test_i18n_check.Rtl.test_template_expression_counts_as_dir) ... ok
+test_unknown_language_is_non_blocking (test_i18n_check.UnknownLocale.test_unknown_language_is_non_blocking) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 2.494s
+
+OK
+
+$ (cd agency-platform-adapters/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v)
+test_blocked_platform_names_its_reason (test_resolve_adapter.ResolveTests.test_blocked_platform_names_its_reason) ... ok
+test_current_wordpress_gets_the_official_skills (test_resolve_adapter.ResolveTests.test_current_wordpress_gets_the_official_skills) ... ok
+test_invalid_version_is_rejected (test_resolve_adapter.ResolveTests.test_invalid_version_is_rejected) ... ok
+test_legacy_wordpress_is_routed_not_assumed (test_resolve_adapter.ResolveTests.test_legacy_wordpress_is_routed_not_assumed) ... ok
+test_missing_adapter_skill_is_reported (test_resolve_adapter.ResolveTests.test_missing_adapter_skill_is_reported) ... ok
+test_old_php_alone_triggers_the_legacy_route (test_resolve_adapter.ResolveTests.test_old_php_alone_triggers_the_legacy_route) ... ok
+test_register_without_legacy_route_is_rejected (test_resolve_adapter.ResolveTests.test_register_without_legacy_route_is_rejected) ... ok
+test_unknown_platform_is_not_given_a_generic_adapter (test_resolve_adapter.ResolveTests.test_unknown_platform_is_not_given_a_generic_adapter) ... ok
+test_unstated_range_passes_with_a_warning (test_resolve_adapter.ResolveTests.test_unstated_range_passes_with_a_warning) ... ok
+test_woocommerce_needs_its_wordpress_and_php_versions (test_resolve_adapter.ResolveTests.test_woocommerce_needs_its_wordpress_and_php_versions) ... ok
+test_woocommerce_on_current_wordpress_keeps_its_own_range_warning (test_resolve_adapter.ResolveTests.test_woocommerce_on_current_wordpress_keeps_its_own_range_warning) ... ok
+test_woocommerce_on_old_wordpress_or_php_takes_the_legacy_route (test_resolve_adapter.ResolveTests.test_woocommerce_on_old_wordpress_or_php_takes_the_legacy_route) ... ok
+test_wordpress_must_report_every_fact_its_minimums_need (test_resolve_adapter.ResolveTests.test_wordpress_must_report_every_fact_its_minimums_need)
+Re-review finding 12: WordPress with php_version and no version resolved supported. ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.524s
+
+OK
+
+$ (cd agency-engagement-gate/scripts/tests && python3 -W ignore -m unittest discover -p 'test_*.py' -v)
+test_a_ledger_of_another_tenant_for_the_same_instance_is_refused (test_engagement_gate.BriefTests.test_a_ledger_of_another_tenant_for_the_same_instance_is_refused)
+The reviewer's E1b: a valid tenant-b ledger with a 0.10 floor priced a tenant-a brief. ... ok
+test_brief_cannot_set_its_own_floor (test_engagement_gate.BriefTests.test_brief_cannot_set_its_own_floor) ... ok
+test_brief_missing_sections_is_invalid_input (test_engagement_gate.BriefTests.test_brief_missing_sections_is_invalid_input) ... ok
+test_calibrated_policy_needs_its_evidence (test_engagement_gate.BriefTests.test_calibrated_policy_needs_its_evidence) ... ok
+test_caller_cannot_hand_the_gate_a_policy_or_rate_card (test_engagement_gate.BriefTests.test_caller_cannot_hand_the_gate_a_policy_or_rate_card) ... ok
+test_change_control_bypass_and_missing_evidence_block (test_engagement_gate.BriefTests.test_change_control_bypass_and_missing_evidence_block) ... ok
+test_empty_or_negative_estimates_are_refused (test_engagement_gate.BriefTests.test_empty_or_negative_estimates_are_refused) ... ok
+test_margin_below_floor_blocks (test_engagement_gate.BriefTests.test_margin_below_floor_blocks) ... ok
+test_non_finite_numbers_exit_2 (test_engagement_gate.BriefTests.test_non_finite_numbers_exit_2) ... ok
+test_policy_floor_must_be_a_real_fraction (test_engagement_gate.BriefTests.test_policy_floor_must_be_a_real_fraction) ... ok
+test_scoped_brief_passes_and_flags_a_hypothesis_floor (test_engagement_gate.BriefTests.test_scoped_brief_passes_and_flags_a_hypothesis_floor) ... ok
+test_the_brief_is_priced_only_against_its_own_instance (test_engagement_gate.BriefTests.test_the_brief_is_priced_only_against_its_own_instance)
+The reviewer's E2: a tenant-a brief priced against another engagement's ledger. The brief names its instance. ... ok
+test_unpinned_owner_log_refuses (test_engagement_gate.BriefTests.test_unpinned_owner_log_refuses) ... ok
+test_client_b_file_cannot_enter_a_client_a_handoff (test_engagement_gate.HandoffTests.test_client_b_file_cannot_enter_a_client_a_handoff) ... ok
+test_embedded_instruction_is_flagged_and_cannot_move_acceptance (test_engagement_gate.HandoffTests.test_embedded_instruction_is_flagged_and_cannot_move_acceptance) ... ok
+test_evidence_that_does_not_name_the_reviewed_page_fails_the_fleet_gate (test_engagement_gate.HandoffTests.test_evidence_that_does_not_name_the_reviewed_page_fails_the_fleet_gate) ... ok
+test_external_destination_for_confidential_data_is_refused (test_engagement_gate.HandoffTests.test_external_destination_for_confidential_data_is_refused) ... ok
+test_handoff_the_owner_never_opened_is_refused (test_engagement_gate.HandoffTests.test_handoff_the_owner_never_opened_is_refused) ... ok
+test_handwritten_submission_with_an_extra_input_fails_the_fleet_gate (test_engagement_gate.HandoffTests.test_handwritten_submission_with_an_extra_input_fails_the_fleet_gate) ... ok
+test_input_edited_after_the_intake_is_refused (test_engagement_gate.HandoffTests.test_input_edited_after_the_intake_is_refused) ... ok
+test_intake_record_is_write_once (test_engagement_gate.HandoffTests.test_intake_record_is_write_once) ... ok
+test_output_edited_after_the_handoff_fails_the_fleet_gate (test_engagement_gate.HandoffTests.test_output_edited_after_the_handoff_fails_the_fleet_gate) ... ok
+test_owner_record_cannot_be_reopened_with_different_fields (test_engagement_gate.HandoffTests.test_owner_record_cannot_be_reopened_with_different_fields) ... ok
+test_retry_with_same_inputs_is_a_duplicate_not_a_second_handoff (test_engagement_gate.HandoffTests.test_retry_with_same_inputs_is_a_duplicate_not_a_second_handoff) ... ok
+test_symlink_into_another_tenant_folder_is_refused (test_engagement_gate.HandoffTests.test_symlink_into_another_tenant_folder_is_refused) ... ok
+test_verified_handoff_is_written_and_passes_the_fleet_gate (test_engagement_gate.HandoffTests.test_verified_handoff_is_written_and_passes_the_fleet_gate) ... ok
+test_worker_cannot_relabel_client_b_as_client_a (test_engagement_gate.HandoffTests.test_worker_cannot_relabel_client_b_as_client_a) ... ok
+test_worker_label_that_disagrees_with_the_intake_is_refused (test_engagement_gate.HandoffTests.test_worker_label_that_disagrees_with_the_intake_is_refused) ... ok
+test_acceptance_files_the_worker_writes_count_for_nothing (test_engagement_gate.StageTests.test_acceptance_files_the_worker_writes_count_for_nothing) ... ok
+test_accepted_transitions_pass_and_name_the_current_stage (test_engagement_gate.StageTests.test_accepted_transitions_pass_and_name_the_current_stage) ... ok
+test_acceptor_and_producer_must_be_known (test_engagement_gate.StageTests.test_acceptor_and_producer_must_be_known) ... ok
+test_deleting_the_producer_blocks (test_engagement_gate.StageTests.test_deleting_the_producer_blocks) ... ok
+test_done_after_pending_and_unexplained_skip_block (test_engagement_gate.StageTests.test_done_after_pending_and_unexplained_skip_block) ... ok
+test_edited_evidence_is_stale (test_engagement_gate.StageTests.test_edited_evidence_is_stale) ... ok
+test_evidence_and_brief_outside_base_are_refused (test_engagement_gate.StageTests.test_evidence_and_brief_outside_base_are_refused) ... ok
+test_human_acceptor_must_be_on_the_owners_roster (test_engagement_gate.StageTests.test_human_acceptor_must_be_on_the_owners_roster) ... ok
+test_ledger_and_acceptance_must_name_the_same_producer (test_engagement_gate.StageTests.test_ledger_and_acceptance_must_name_the_same_producer) ... ok
+test_ledger_cannot_mark_an_accepted_stage_skipped (test_engagement_gate.StageTests.test_ledger_cannot_mark_an_accepted_stage_skipped) ... ok
+test_rehashing_evidence_in_the_ledger_is_not_a_new_acceptance (test_engagement_gate.StageTests.test_rehashing_evidence_in_the_ledger_is_not_a_new_acceptance) ... ok
+test_revision_bump_does_not_carry_old_acceptances (test_engagement_gate.StageTests.test_revision_bump_does_not_carry_old_acceptances) ... ok
+test_rewriting_the_contract_spec_refuses_the_old_ledger (test_engagement_gate.StageTests.test_rewriting_the_contract_spec_refuses_the_old_ledger)
+The ledger is bound to the contract it was claimed under; a rewritten spec needs a reissued contract and a new instance. ... ok
+test_scope_change_returns_through_the_pm_contract (test_engagement_gate.StageTests.test_scope_change_returns_through_the_pm_contract) ... ok
+test_self_acceptance_blocks_even_with_padding (test_engagement_gate.StageTests.test_self_acceptance_blocks_even_with_padding) ... ok
+test_complete_runbook_passes (test_engagement_gate.SupportTests.test_complete_runbook_passes) ... ok
+test_missing_sections_empty_sections_and_secrets_block (test_engagement_gate.SupportTests.test_missing_sections_empty_sections_and_secrets_block) ... ok
+test_unknown_subcommand_is_usage_error (test_engagement_gate.UsageTests.test_unknown_subcommand_is_usage_error) ... ok
+
+----------------------------------------------------------------------
+Ran 46 tests in 0.821s
+
+OK

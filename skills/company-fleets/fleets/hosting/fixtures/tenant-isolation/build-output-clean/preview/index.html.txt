@@ -1,0 +1,2 @@
+SYNTHETIC FIXTURE: rendered preview text for tenant-a at Fixture Co. No credentials.
+Welcome to Client A's preview site. Contact: hello@tenant-a.example

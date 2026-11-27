@@ -1,0 +1,158 @@
+$ python3 fleets/bcit-education/evalrun.py expect --exit 1 --contains teacher-standard-for-students --contains student-standard-for-teachers --contains not-district-adoption --contains edition-mismatch --contains university-to-school -- python3 ../edu-standards-alignment/scripts/standards_check.py align fleets/bcit-education/fixtures/bcit-unit-store/alignment-mixup.json
+# run 2026-11-26 (cwd: company-fleets) case bcit-education.eval.standards-mixup-and-edition-caught
+{
+  "ok": false,
+  "errors": 10,
+  "coverage": "gap",
+  "supported_counts": {
+    "gap": 5,
+    "unverified": 0,
+    "partial": 0,
+    "verified": 0,
+    "not-applicable": 0
+  },
+  "objectives": {
+    "O2": "gap",
+    "TP1": "gap"
+  },
+  "rows": [
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-teacher-2020",
+      "standard_id": "4g",
+      "claimed": "unverified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "error",
+          "code": "teacher-standard-for-students",
+          "message": "csta-teacher-2020 is a teacher-standard for cs-teachers; it cannot evidence a student-learning objective"
+        },
+        {
+          "severity": "note",
+          "code": "id-list-not-stored",
+          "message": "csta-teacher-2020 has no stored list of published identifiers, so '4g' can't be confirmed to exist; it stays unverified"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims unverified but the evidence supports gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "TP1",
+      "criterion_id": "OB2",
+      "record_id": "csta-k12-2017",
+      "standard_id": "3A-AP-13",
+      "claimed": "unverified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "error",
+          "code": "student-standard-for-teachers",
+          "message": "csta-k12-2017 is a student standard; teacher-practice objectives map to educator or teacher standards"
+        },
+        {
+          "severity": "note",
+          "code": "adopted-older-edition",
+          "message": "csta-k12-2017 is superseded but the district adopted it; kept"
+        },
+        {
+          "severity": "note",
+          "code": "no-human-review",
+          "message": "verified needs a human reviewer and a supporting evidence reference"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims unverified but the evidence supports gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2026",
+      "standard_id": "HS-ALG-ML-06",
+      "claimed": "unverified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "error",
+          "code": "not-district-adoption",
+          "message": "the district adopted csta-k12-2017; mapping to csta-k12-2026 ignores the actual adoption"
+        },
+        {
+          "severity": "note",
+          "code": "no-human-review",
+          "message": "verified needs a human reviewer and a supporting evidence reference"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims unverified but the evidence supports gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "csta-k12-2017",
+      "standard_id": "3A-AP-13",
+      "claimed": "unverified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "note",
+          "code": "adopted-older-edition",
+          "message": "csta-k12-2017 is superseded but the district adopted it; kept"
+        },
+        {
+          "severity": "error",
+          "code": "edition-mismatch",
+          "message": "row says edition '2026' but csta-k12-2017 is edition '2017'"
+        },
+        {
+          "severity": "note",
+          "code": "no-human-review",
+          "message": "verified needs a human reviewer and a supporting evidence reference"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims unverified but the evidence supports gap"
+        }
+      ]
+    },
+    {
+      "objective_id": "O2",
+      "criterion_id": "R2",
+      "record_id": "cs2023",
+      "standard_id": "SDF",
+      "claimed": "unverified",
+      "supported": "gap",
+      "findings": [
+        {
+          "severity": "error",
+          "code": "university-to-school",
+          "message": "cs2023 is a university curriculum; a school objective needs a stated progression_bridge before it can map there"
+        },
+        {
+          "severity": "note",
+          "code": "no-human-review",
+          "message": "verified needs a human reviewer and a supporting evidence reference"
+        },
+        {
+          "severity": "error",
+          "code": "overclaimed",
+          "message": "claims unverified but the evidence supports gap"
+        }
+      ]
+    }
+  ],
+  "label": "SYNTHETIC FIXTURE (Fixture Co): counterexample: student/teacher standard mix-up, university curriculum in a school unit, and an edition that ignores the district's actual adoption (the district adopted CSTA 2017)."
+}
+# expect: met
+# exit 0

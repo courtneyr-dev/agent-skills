@@ -1,0 +1,9 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 1 --json refusal=profiles-not-registry-file -- sh -c 'cp registry/profiles.json {tmp}/profiles.json && python3 ../hosting-service-catalogue/scripts/catalogue_check.py check --catalogue fleets/hosting/fixtures/service-catalogue/reseller-valid.json --profiles {tmp}/profiles.json'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.service-catalogue-caller-profiles-refused kind negative synthetic true
+{
+  "detail": "profiles come only from the rig registry $TMPDIR/fleet-eval-sandbox-dg14u0fm/skills/company-fleets/registry/profiles.json; the caller-named $TMPDIR/hosting-eval-145dbg6z/profiles.json is refused",
+  "refusal": "profiles-not-registry-file",
+  "verdict": "refused"
+}
+# expect: met
+# exit 0

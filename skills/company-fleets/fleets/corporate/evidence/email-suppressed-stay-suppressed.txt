@@ -1,0 +1,14 @@
+# eval corporate.eval.email-suppressed-stay-suppressed (positive, target corporate-email-guard)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains OK -- python3 ../corporate-email-guard/scripts/tests/test_email_guard.py -v StageTests.test_suppressed_contacts_never_staged_even_with_case_variant_or_note SendTests.test_contact_suppressed_after_staging_is_not_sent SendTests.test_approved_send_reaches_only_the_fake_outbox
+run on 2026-11-26, exit 0
+
+[stderr]
+test_suppressed_contacts_never_staged_even_with_case_variant_or_note (__main__.StageTests.test_suppressed_contacts_never_staged_even_with_case_variant_or_note) ... ok
+test_contact_suppressed_after_staging_is_not_sent (__main__.SendTests.test_contact_suppressed_after_staging_is_not_sent) ... ok
+test_approved_send_reaches_only_the_fake_outbox (__main__.SendTests.test_approved_send_reaches_only_the_fake_outbox) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.039s
+
+OK
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS

@@ -1,0 +1,38 @@
+{
+  "schema": "source-register.v1",
+  "label": "SYNTHETIC - Fixture Co test data, not a real company or person",
+  "sources": [
+    {
+      "id": "src-platform",
+      "url": "https://docs.fixture.example/search/crawlable",
+      "title": "Fixture Platform Search documentation (synthetic)",
+      "retrieved": "2026-11-20",
+      "kind": "primary-platform-doc",
+      "capture_path": "captures/platform-doc.txt",
+      "sha256": "fa6ab7824d0dff8570022a8d89fddf49f46e235f16a8d8a2381d0b8ab3f90ea5",
+      "registered_by": "consultancies.search-lead",
+      "verified_by": "human:search-reviewer"
+    },
+    {
+      "id": "src-measure",
+      "url": "https://fixture.example/exports/search-console-summary",
+      "title": "Fixture Co Search Console export summary (synthetic)",
+      "retrieved": "2026-11-20",
+      "kind": "first-party-measurement",
+      "capture_path": "captures/measurement.txt",
+      "sha256": "bcb247d43ede1d9fa5b625bb71fdf2152e3ff34313de7d7ca08a2506cc0d4056",
+      "registered_by": "consultancies.search-lead",
+      "verified_by": "human:search-reviewer"
+    },
+    {
+      "id": "src-blog",
+      "url": "https://blog.fixture.example/anchor-text-test",
+      "title": "Fixture blog post on anchor text (synthetic)",
+      "retrieved": "2026-11-20",
+      "kind": "secondary",
+      "capture_path": "captures/secondary.txt",
+      "sha256": "3494140d17b272f7def1c19b58269d63f262c099ae5d58b1c59168a176405223",
+      "registered_by": "consultancies.search-lead"
+    }
+  ]
+}

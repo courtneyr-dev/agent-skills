@@ -1,0 +1,23 @@
+{"skill_name": "product-payment-events", "evals": [
+  {"id": 1, "kind": "positive",
+   "prompt": "Replay the provider's webhook stream, including a duplicated event, a retry under a new event id and a duplicated refund, into a fresh test store.",
+   "expected_output": "Exit 0; 2 captures, 2 fulfillments, 1 refund, inventory 10 to 8; a second replay changes nothing.",
+   "files": ["fixtures/config.json", "fixtures/replay.jsonl"],
+   "command": "python3 scripts/payment_events.py process --config fixtures/config.json --events fixtures/replay.jsonl --db $TMPDIR/pe-store.db",
+   "expect_exit": 0,
+   "expectations": ["store.captures is 2", "store.fulfillments is 2", "store.refunds is 1", "outcomes has duplicate-event, duplicate-order and duplicate-refund"]},
+  {"id": 2, "kind": "negative",
+   "prompt": "Process a live-mode event, an event whose amount was changed after signing, and another tenant's event.",
+   "expected_output": "Exit 1; all three refused; the store holds no events or captures.",
+   "files": ["fixtures/config.json", "fixtures/refused.jsonl"],
+   "command": "python3 scripts/payment_events.py process --config fixtures/config.json --events fixtures/refused.jsonl --db $TMPDIR/pe-refused.db",
+   "expect_exit": 1,
+   "expectations": ["outcomes are refused-live-mode, refused-bad-signature, refused-tenant-mismatch", "store.captures is 0"]},
+  {"id": 3, "kind": "boundary",
+   "prompt": "Two different orders race for the last founder-edition unit.",
+   "expected_output": "Exit 1; one fulfilled, one held for a human; inventory 0, never negative; reconcile lists the hold.",
+   "files": ["fixtures/config.json", "fixtures/last-unit.jsonl"],
+   "command": "python3 scripts/payment_events.py process --config fixtures/config.json --events fixtures/last-unit.jsonl --db $TMPDIR/pe-last.db",
+   "expect_exit": 1,
+   "expectations": ["one fulfilled and one needs-human outcome", "inventory forms-pro-founder-edition is 0"]}
+]}

@@ -1,0 +1,48 @@
+{
+  "label": "SYNTHETIC FIXTURE (Fixture Co): invented for testing; no real study, school, classroom or participant.",
+  "citation": {
+    "title": "Parsons problems in a university CS1 course (synthetic)",
+    "year": 2026
+  },
+  "evidence_type": "peer-reviewed-study",
+  "design": "quasi-experimental",
+  "comparison_group": true,
+  "random_assignment": false,
+  "sample": {
+    "n": 310,
+    "sites": 1,
+    "population": "first-year university CS1 students (fixture)",
+    "setting": "university-course",
+    "level": "higher-ed",
+    "selection": "census"
+  },
+  "confound_controls": [
+    "prior-semester GPA covariate",
+    "same instructor across sections"
+  ],
+  "measures": [
+    {
+      "name": "final-exam-code-writing",
+      "kind": "performance",
+      "construct": "code writing on a final exam"
+    }
+  ],
+  "analysis": {
+    "tests": "ANCOVA",
+    "equivalence_test": false,
+    "subgroup_post_hoc": false
+  },
+  "claims": [
+    {
+      "id": "T1",
+      "text": "Parsons problems will raise spreadsheet formula skill in grade 10 BCIT classes.",
+      "scope": {
+        "level": "k12",
+        "setting": "classroom"
+      },
+      "basis": [
+        "final-exam-code-writing"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+# SYNTHETIC Fixture Co data. Raw output of eval consultancies.eval.routes-email-practitioner (positive, target consultancies.email-practitioner).
+# $ python3 fleets/product/tests/expect.py --exit 0 --contains "id": "consultancies.email-practitioner" --contains "path": "skills/emails/SKILL.md" --absent "fleets/hosting/roles.json" --absent "fleets/bcit-education/roles.json" -- bin/fleet resolve --profile agency --workload consultancies.workload.lifecycle-email
+# cwd: skills/company-fleets  run: 2026-11-26T22:17Z  exit: 0
+
+$ bin/fleet resolve --profile agency --workload consultancies.workload.lifecycle-email
+{
+  "coordinator": "consultancies.practice-coordinator",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/consultancies/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Consultancy practice coordinator",
+      "fleet": "consultancies",
+      "id": "consultancies.practice-coordinator",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "company-fleets",
+          "installed": true,
+          "path": "skills/company-fleets/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Lifecycle strategist and analyst",
+      "fleet": "consultancies",
+      "id": "consultancies.lifecycle-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "emails",
+          "installed": true,
+          "path": "skills/emails/SKILL.md"
+        },
+        {
+          "id": "marketing-loops",
+          "installed": true,
+          "path": "skills/marketing-loops/SKILL.md"
+        },
+        {
+          "id": "attribution",
+          "installed": true,
+          "path": "skills/attribution/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Email copy editor, email developer, deliverability specialist and marketing operations",
+      "fleet": "consultancies",
+      "id": "consultancies.email-practitioner",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "emails",
+          "installed": true,
+          "path": "skills/emails/SKILL.md"
+        },
+        {
+          "id": "consult-email-send-gate",
+          "installed": true,
+          "path": "skills/consult-email-send-gate/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Consent and data steward",
+      "fleet": "consultancies",
+      "id": "consultancies.consent-steward",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "consult-email-send-gate",
+          "installed": true,
+          "path": "skills/consult-email-send-gate/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Independent reviewer (all practices)",
+      "fleet": "consultancies",
+      "id": "consultancies.independent-reviewer",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        },
+        {
+          "id": "fp-check",
+          "installed": true,
+          "path": "skills/fp-check/SKILL.md"
+        },
+        {
+          "id": "differential-review",
+          "installed": true,
+          "path": "skills/differential-review/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "consultancies.workload.lifecycle-email"
+}
+exit=0
+CHECK exit == 0: ok
+CHECK contains '"id": "consultancies.email-practitioner"': ok
+CHECK contains '"path": "skills/emails/SKILL.md"': ok
+CHECK absent '"fleets/hosting/roles.json"': ok
+CHECK absent '"fleets/bcit-education/roles.json"': ok
+VERDICT pass

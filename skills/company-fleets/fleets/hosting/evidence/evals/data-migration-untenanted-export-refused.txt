@@ -1,0 +1,7 @@
+$ python3 fleets/hosting/tools/evalrun.py expect --exit 2 --contains 'export needs --tenant' -- sh -c 'python3 ../hosting-data-migration/scripts/data_migration.py export --seed fleets/hosting/fixtures/data-migration/seed.sql --files fleets/hosting/fixtures/data-migration/tenant-a-files --out {tmp}/b'
+# run 2026-11-26 (cwd: company-fleets root of a temporary copy) case hosting.eval.data-migration-untenanted-export-refused kind negative synthetic true
+{
+  "error": "export needs --tenant: a bundle with no tenant would import into any tenant"
+}
+# expect: met
+# exit 0

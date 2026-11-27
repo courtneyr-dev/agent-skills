@@ -1,0 +1,90 @@
+# eval agency.eval.estimator-routes (positive, target agency.estimator)
+$ (cwd skills/company-fleets) python3 fleets/corporate/run_evals.py expect --exit 0 --contains "id": "agency.estimator" --absent "installed": false -- bin/fleet resolve --profile agency --workload agency.workload.qualification-and-estimate
+run on 2026-11-26, exit 0
+
+{
+  "coordinator": "agency.engagement-director",
+  "excluded": [],
+  "files_read": [
+    "registry/profiles.json",
+    "fleets/agency/roles.json",
+    "fleets/corporate/roles.json"
+  ],
+  "profile": "agency",
+  "roles": [
+    {
+      "display_name": "Engagement director (agency coordinator)",
+      "fleet": "agency",
+      "id": "agency.engagement-director",
+      "kind": "coordinator",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        },
+        {
+          "id": "verification-methodology",
+          "installed": true,
+          "path": "skills/verification-methodology/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Estimator",
+      "fleet": "agency",
+      "id": "agency.estimator",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Delivery lead",
+      "fleet": "agency",
+      "id": "agency.delivery-lead",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        },
+        {
+          "id": "implementation-planning",
+          "installed": true,
+          "path": "skills/implementation-planning/SKILL.md"
+        }
+      ]
+    },
+    {
+      "display_name": "Deal desk",
+      "fleet": "corporate",
+      "id": "corporate.deal-desk",
+      "kind": "specialist",
+      "skills": [
+        {
+          "id": "deal-desk",
+          "installed": true,
+          "path": "skills/deal-desk/SKILL.md"
+        },
+        {
+          "id": "pricing-strategist",
+          "installed": true,
+          "path": "skills/pricing-strategist/SKILL.md"
+        },
+        {
+          "id": "agency-engagement-gate",
+          "installed": true,
+          "path": "skills/agency-engagement-gate/SKILL.md"
+        }
+      ]
+    }
+  ],
+  "workload": "agency.workload.qualification-and-estimate"
+}
+[expect] exit 0 (expected 0); missing none; forbidden present none -> PASS
