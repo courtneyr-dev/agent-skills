@@ -54,8 +54,8 @@ is the difference between "the model chose not to use that skill" and "the model
 | OpenClaw | `~/.openclaw/skills/` |
 | Gemini CLI | `~/.gemini/skills/` |
 
-`install.sh` puts one copy in `~/.agents/skills` and symlinks it into each of the others, so
-updating once updates every agent. More detail in [PLATFORMS.md](PLATFORMS.md).
+`install.sh` links each agent's folder at the one copy in this repository's `skills/`, so a
+`git pull` updates every agent; `--via-mount` routes those links through `~/.agents/skills`. More detail in [PLATFORMS.md](PLATFORMS.md).
 
 ## Skills, plugins, MCP servers
 
